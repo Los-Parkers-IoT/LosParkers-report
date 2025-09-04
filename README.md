@@ -42,6 +42,10 @@
             <td>Garro Vega, Marcelo Fabian</td>
           </tr>
           <tr>
+            <td>u202113324</td>
+            <td>Sanchez Ignacio, Jefrey Martin</td>
+          </tr>
+          <tr>
             <td>u...</td>
             <td>Apellidos, Nombres</td>
           </tr>
@@ -125,6 +129,33 @@
 ## 4.1. Strategic-Level Domain-Driven Design
 
 ### 4.1.1. Design-Level EventStorming
+
+## 4.1.1.1 Candidate Context Discovery
+
+Para esta etapa se llevó a cabo una sesión, la sesión tuvo una duración aproximada de 90 minutos y permitió identificar los bounded contexts del sistema CargaSafe. Durante el proceso se aplicaron las técnicas start-with-value, start-with-simple y look-for-pivotal-events, que facilitaron la agrupación de eventos y entidades según su afinidad y valor para el negocio.  
+
+Como resultado, se identificaron cinco bounded contexts:  
+- **Gestión de flotas**: gestión de vehículos y dispositivos IoT.  
+- **Ejecución del viaje**: creación y ejecución de viajes.  
+- **Monitoreo en tiempo real**: monitoreo de condiciones en tiempo real.
+- **Alertas y resolución**: generación de alertas. 
+- **Dashboard y Analíticas**: visualización de métricas y reportes.  
+- **Suscripciones y pagos**: gestión de suscripciones y pagos con Stripe.  
+
+![EventStorming – Candidate Context Discovery](assets/storming1.png)  
+
+### Leyenda utilizada en el EventStorming  
+- 🟧 **Event**: describe algo que ocurrió en el dominio (Viaje iniciado, Alerta generada).  
+- 🟦 **Command**: una instrucción o acción que dispara un evento (Registrar viaje).  
+- 🟪 **Policy**: regla de negocio que determina qué ocurre ante ciertas condiciones (Si falta dispositivo → bloquear inicio del viaje).  
+- 🟨 **Aggregate**: entidad principal que concentra datos y operaciones (Viaje, Suscripción).  
+- 🟩 **UI**: vistas o pantallas del sistema que muestran información al usuario (Dashboard de KPIs).  
+- ⚪ **Actor**: roles que interactúan con el sistema (Operador, Conductor).  
+- ⬛ **Sistema externo**: integraciones con servicios de terceros (Google Maps, Stripe).  
+
+Con esta estructura, el EventStorming permitió organizar y simplificar el dominio de CargaSafe, evidenciando de forma clara los contextos candidatos y la interacción entre actores, procesos y sistemas externos.  
+
+[Ver gráfico en Miro](https://miro.com/app/board/uXjVJMskjeA=/?share_link_id=697373503273)
 
 #### 4.1.1.1. Candidate Context Discovery
 
