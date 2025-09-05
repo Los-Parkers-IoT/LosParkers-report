@@ -168,6 +168,21 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
+#### Hypothesis 1:
+
+<b> Creemos que </b> implementar un sistema de alertas en tiempo real por incumplimiento de parámetros de temperatura <b> para <b/> empresas de transporte  <b> resultará en <b/> una reducción del 30% en pérdidas de productos y un aumento del 25% en la satisfacción del cliente. *Sabremos que esto es cierto cuando* veamos una reducción mensurable en reportes de incidentes y recibamos feedback positivo de al menos el 80% de los usuarios.
+
+#### Hypothesis 2:
+
+<b> Creemos que </b> ofrecer dashboards intuitivos con visualización de estado de flota <b> para <b/> gerentes de operaciones <b> resultará en <b/> una mejora del 40% en la eficiencia operativa y tiempo de respuesta ante incidentes. *Sabremos que esto es cierto cuando* observemos una reducción en el tiempo promedio de respuesta a alertas de más de 4 horas a menos de 30 minutos.
+
+#### Hypothesis 3:
+
+<b> Creemos que </b> implementar un modelo de suscripción flexible con diferentes niveles de servicio <b> para <b/> PYMEs de transporte  <b> resultará en </b> una adopción del 15% del mercado objetivo en el primer año. *Sabremos que esto es cierto cuando* alcancemos 150 empresas suscritas activamente usando la plataforma.
+
+#### Hypothesis 4:
+
+<b> Creemos que </b> proporcionar reportes automatizados y trazabilidad completa <b> para </b> clientes finales de servicios de transporte <b> resultará en </b> un aumento del 20% en la retención de clientes de nuestros usuarios. *Sabremos que esto es cierto cuando* nuestros usuarios reporten una reducción en cancelaciones de contratos y solicitudes de nuevos servicios.
 
 
 #### 1.2.2.4. Lean UX Canvas
