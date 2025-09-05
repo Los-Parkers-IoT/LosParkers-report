@@ -187,6 +187,81 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 #### 1.2.2.4. Lean UX Canvas
 
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+  <tr>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>1. BUSINESS PROBLEM</strong><br><br>
+      Las empresas de transporte de productos sensibles a temperatura necesitan soluciones accesibles para monitorear la cadena de frío y evitar pérdidas económicas por incumplimiento de parámetros.
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>2. SOLUTION IDEAS</strong><br><br>
+      • Plataforma IoT de monitoreo en tiempo real<br>
+      • Sistema de alertas automáticas<br>
+      • Dashboard intuitivo de gestión de flota<br>
+      • Reportes automatizados de trazabilidad<br>
+      • Modelo SaaS escalable
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>3. BUSINESS OUTCOMES</strong><br><br>
+      • 150 empresas suscritas en año 1<br>
+      • Reducción 30% pérdidas de clientes<br>
+      • 80% satisfacción de usuarios<br>
+      • Revenue recurrente de $180K anuales<br>
+      • Expansión a 3 países LATAM
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>4. USERS</strong><br><br>
+      <strong>Primarios:</strong><br>
+      • Gerentes de operaciones de transporte<br>
+      • Conductores de vehículos refrigerados<br><br>
+      <strong>Secundarios:</strong><br>
+      • Clientes finales de servicios de transporte<br>
+      • Administradores de empresas de transporte
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 40%; vertical-align: top;">
+      <strong>5. USER OUTCOMES & BENEFITS</strong><br><br>
+      <strong>Empresas de Transporte:</strong><br>
+      • Reducción de pérdidas por ruptura de cadena de frío<br>
+      • Mayor confianza de clientes<br>
+      • Cumplimiento regulatorio automatizado<br>
+      • Optimización de rutas y recursos<br><br>
+      <strong>Clientes Finales:</strong><br>
+      • Visibilidad completa del estado de sus productos<br>
+      • Reportes de trazabilidad en tiempo real<br>
+      • Reducción de riesgos operativos
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>6. HYPOTHESES</strong><br><br>
+      <strong>Creemos que</strong> las PYMEs de transporte adoptarán una solución SaaS de monitoreo si es accesible y fácil de usar.<br><br>
+      <strong>Para validar</strong> desarrollaremos un MVP con funcionalidades core y mediremos adoption rate.
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>7. WHAT'S THE MOST IMPORTANT THING WE NEED TO LEARN FIRST?</strong><br><br>
+      ¿Están las PYMEs de transporte dispuestas a pagar por una solución de monitoreo IoT y cuál es el precio óptimo que maximiza adopción y rentabilidad?
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>8. WHAT'S THE LEAST AMOUNT OF WORK WE NEED TO DO TO LEARN THE NEXT MOST IMPORTANT THING?</strong><br><br>
+      • Desarrollar landing page con pricing<br>
+      • Realizar 20 entrevistas con empresas target<br>
+      • Crear prototipo de dashboard<br>
+      • Validar willingness to pay con pre-orders
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>9. ASSUMPTIONS</strong><br><br>
+      • Demanda existe en mercado LATAM<br>
+      • Precio $ 25-150/mes es aceptable<br>
+      • Facilidad de uso > funcionalidades avanzadas<br>
+      • Dispositivos IoT low-cost son suficientes<br>
+      • Modelo SaaS preferido vs. CAPEX
+    </td>
+  </tr>
+</table>
+
+
 ## 1.3. Segmentos objetivo
 
 # Capítulo II: Requirements Elicitation & Analysis
