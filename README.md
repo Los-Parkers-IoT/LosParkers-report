@@ -264,6 +264,29 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 ## 1.3. Segmentos objetivo
 
+### 1.3.1 Segmento 1: Empresas Clientes  
+     
+Estas empresas, dedicadas a la logística, distribución o producción de bienes sensibles, necesitan un control exhaustivo sobre sus cargas para asegurar la calidad y evitar pérdidas económicas. Su objetivo es tener una visibilidad completa en tiempo real de sus productos, centralizando toda la información en una sola plataforma para optimizar sus operaciones, cumplir con las normativas y generar confianza en sus propios clientes.
+ 
+     
+   **Caracteristícas:**  
+   - **Rol:** Gerentes o responsables de logística, calidad o distribución.
+   - **Ubicación:** Empresas ubicadas en zonas con alta actividad logística y acceso a tecnologías de digitalización.
+   - **Sector de la industria:** Alimentos perecederos, farmacéuticos, químicos, flores y otros productos que requieren condiciones especiales de conservación.
+
+   
+
+### 1.3.2 Segmento 2: Clientes Finales
+        
+Los clientes finales son los consumidores de los productos transportados por las empresas. Su necesidad principal es la transparencia y la seguridad, ya que buscan la tranquilidad de saber que el producto que adquieren ha sido manejado bajo los estándares de calidad correctos. Valoran la capacidad de verificar el estado de su pedido, desde el origen hasta la entrega, a través de una plataforma sencilla y confiable.
+
+        
+  **Características:**  
+  - **Edad:** Mayor a 18 años  
+  - **Ubicación:** Lima, Peru  
+  - **Nivel Socioeconomico:** Medio a alto
+
+
 # Capítulo II: Requirements Elicitation & Analysis
 
 ## 2.1. Competidores
