@@ -134,15 +134,18 @@
 
 Para esta etapa se llevó a cabo una sesión, la sesión tuvo una duración aproximada de 90 minutos y permitió identificar los bounded contexts del sistema CargaSafe. Durante el proceso se aplicaron las técnicas start-with-value, start-with-simple y look-for-pivotal-events, que facilitaron la agrupación de eventos y entidades según su afinidad y valor para el negocio.  
 
-Como resultado, se identificaron cinco bounded contexts:  
-- **Gestión de flotas**: gestión de vehículos y dispositivos IoT.  
-- **Ejecución del viaje**: creación y ejecución de viajes.  
-- **Monitoreo en tiempo real**: monitoreo de condiciones en tiempo real.
-- **Alertas y resolución**: generación de alertas. 
-- **Dashboard y Analíticas**: visualización de métricas y reportes.  
-- **Suscripciones y pagos**: gestión de suscripciones y pagos con Stripe.  
+Como resultado, se identificaron ocho bounded contexts:  
 
-![EventStorming – Candidate Context Discovery](assets/storming1.png)  
+- **Identity and Access Management**: administración de usuarios, autenticación y control de accesos.
+- **Profiles and Preferences Management**: gestión de perfiles de usuario y configuración de preferencias.
+- **Fleet management**: gestión de vehículos y dispositivos IoT.  
+- **Execution of the trip**: creación y ejecución de viajes.  
+- **Real-time monitoring**: monitoreo de condiciones en tiempo real.
+- **Alerts and resolution**: generación de alertas. 
+- **Visualization/Analytics**: visualización de métricas y reportes.  
+- **Subscriptions and payments**: gestión de suscripciones y pagos con Stripe.  
+
+![EventStorming – Candidate Context Discovery](assets/Candidate_Context_Discovery_Image.png)  
 
 ### Leyenda utilizada en el EventStorming  
 - 🟧 **Event**: describe algo que ocurrió en el dominio (Viaje iniciado, Alerta generada).  
@@ -157,9 +160,8 @@ Con esta estructura, el EventStorming permitió organizar y simplificar el domin
 
 [Ver gráfico en Miro](https://miro.com/app/board/uXjVJMskjeA=/?share_link_id=697373503273)
 
-#### 4.1.1.1. Candidate Context Discovery
-
 #### 4.1.1.2. Domain Message Flows Modeling
+
 
 #### 4.1.1.3. Bounded Context Canvases
 
