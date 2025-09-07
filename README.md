@@ -329,39 +329,39 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 ### Business Assumptions:
 
-1. Creemos que hay una demanda significativa* de soluciones de monitoreo de temperatura accesibles para el sector de transporte en Latinoamérica.
+1. Creemos que hay una demanda significativa de soluciones de monitoreo de temperatura accesibles para el sector de transporte en Latinoamérica.
 
-2. Creemos que las empresas estarán dispuestas a pagar* una suscripción mensual por una solución que les permita reducir pérdidas y mejorar la confianza de sus clientes.
+2. Creemos que las empresas estarán dispuestas a pagar una suscripción mensual por una solución que les permita reducir pérdidas y mejorar la confianza de sus clientes.
 
-3. Creemos que los dispositivos IoT de bajo costo* pueden proporcionar la precisión necesaria para el monitoreo de cadena de frío.
+3. Creemos que los dispositivos IoT de bajo costo pueden proporcionar la precisión necesaria para el monitoreo de cadena de frío.
 
-4. Creemos que la facilidad de uso* es más importante que las funcionalidades avanzadas para nuestro mercado objetivo.
+4. Creemos que la facilidad de uso es más importante que las funcionalidades avanzadas para nuestro mercado objetivo.
 
-5. Creemos que un modelo SaaS* es más atractivo que la compra de licencias perpetuas para nuestros usuarios.
+5. Creemos que un modelo SaaS es más atractivo que la compra de licencias perpetuas para nuestros usuarios.
 
 ### User Assumptions:
 
-1. Nuestros usuarios principales son* gerentes de operaciones y conductores de empresas de transporte de productos refrigerados.
+1. Nuestros usuarios principales son gerentes de operaciones y conductores de empresas de transporte de productos refrigerados.
 
-2. Los usuarios necesitan* alertas inmediatas cuando se rompe la cadena de frío para tomar acciones correctivas.
+2. Los usuarios necesitan alertas inmediatas cuando se rompe la cadena de frío para tomar acciones correctivas.
 
-3. Los usuarios quieren* dashboards simples e intuitivos que muestren el estado de todos sus vehículos en una sola pantalla.
+3. Los usuarios quieren dashboards simples e intuitivos que muestren el estado de todos sus vehículos en una sola pantalla.
 
-4. Los usuarios valoran* la generación automática de reportes para sus clientes.
+4. Los usuarios valoran la generación automática de reportes para sus clientes.
 
-5. Los usuarios prefieren* soluciones que no requieran capacitación técnica extensiva.
+5. Los usuarios prefieren soluciones que no requieran capacitación técnica extensiva.
 
 ### Feature Assumptions:
 
-1. Creemos que el monitoreo en tiempo real* es la funcionalidad más crítica.
+1. Creemos que el monitoreo en tiempo real es la funcionalidad más crítica.
 
-2. Creemos que las alertas automáticas* mediante la aplicación.
+2. Creemos que las alertas automáticas mediante la aplicación.
 
-3. Creemos que la gestión de múltiples vehículos* desde una sola plataforma es fundamental.
+3. Creemos que la gestión de múltiples vehículos desde una sola plataforma es fundamental.
 
-4. Creemos que los reportes históricos* son necesarios para el cumplimiento regulatorio.
+4. Creemos que los reportes históricos son necesarios para el cumplimiento regulatorio.
 
-5. Creemos que la integración con dispositivos IoT existentes* ampliará nuestro mercado potencial.
+5. Creemos que la integración con dispositivos IoT existentes ampliará nuestro mercado potencial.
 
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
