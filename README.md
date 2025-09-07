@@ -240,7 +240,6 @@
 - ¿Cuál es tu nombre y cargo?
 - ¿Cuántos años tienes?
 - ¿En qué sector o industria trabajas? (alimentos, farmacéutica, logística, etc.)
-- ¿Con qué frecuencia manejas transportes que requieren control de temperatura?
 
 ---
 
@@ -265,50 +264,44 @@
    - ¿Qué tipo de reportes necesitas generar para clientes o autoridades regulatorias?
 
 7. **Gestión de dispositivos IoT**
-   - ¿Cómo gestionas el mantenimiento y configuración de sensores o dispositivos de monitoreo?
+   - Cuéntame sobre tu experiencia gestionando el mantenimiento y configuración de sensores o dispositivos de monitoreo. ¿Qué desafíos has encontrado?
 
 8. **Características ideales**
    - Si pudieras diseñar la plataforma perfecta, ¿qué funciones serían imprescindibles para ti?
 
-9. **Integración y escalabilidad**
-   - ¿Necesitas integrar con sistemas ERP o de gestión existentes? ¿Cuántos vehículos/rutas manejas?
-
-10. **Presupuesto y modelo de pago**
-    - ¿Cómo prefieres pagar por este tipo de servicios: mensual, por dispositivo, o por viaje?
+9.  **Presupuesto y modelo de pago**
+    - ¿Cuál sería tu modelo de pago preferido para este tipo de servicios y qué factores influyen en esa decisión?
 
 ---
 
-### 3. Preguntas — **Segmento: Clientes Finales (Receptores de carga)**
+### 3. Preguntas — **Segmento: Clientes Finales (Consumidores finales)**
 
-1. **Experiencia actual de recepción**
-   - ¿Cómo verificas que tus productos llegaron en condiciones óptimas de temperatura?
+1. **Experiencia actual de recepción de productos**
+   - Cuéntame cómo verificas actualmente que los productos que compras llegaron en condiciones óptimas de temperatura.
 
-2. **Confianza y transparencia**
-   - ¿Confías en los reportes de temperatura que te proporcionan los transportistas? ¿Por qué?
+2. **Confianza y transparencia en proveedores**
+   - Describe tu nivel de confianza en los reportes de temperatura que te proporcionan tus proveedores. ¿Qué factores aumentarían o disminuirían esa confianza?
 
-3. **Información requerida**
-   - ¿Qué datos necesitas ver sobre el viaje: temperatura, ubicación, tiempo, alertas?
+3. **Información requerida sobre el transporte**
+   - ¿Qué información consideras más valiosa tener sobre el transporte de tus productos y cómo te ayudaría en tus operaciones?
 
-4. **Dificultades y barreras**
-   - ¿Has rechazado productos por problemas de cadena de frío? ¿Cómo lo identificaste?
+4. **Experiencias con productos dañados**
+   - Comparte alguna experiencia que hayas tenido rechazando productos por problemas de cadena de frío. ¿Cómo identificaste el problema y qué impacto tuvo?
 
-5. **Acceso a información**
-   - ¿Prefieres recibir reportes por email, ver un dashboard web, o usar una app móvil?
+5. **Preferencias de acceso a información**
+   - Describe cómo prefieres recibir y acceder a información sobre tus pedidos. ¿Qué métodos de comunicación funcionan mejor para tu flujo de trabajo?
 
-6. **Alertas y notificaciones**
-   - ¿Te gustaría recibir alertas en tiempo real si hay problemas durante el transporte?
+6. **Alertas y notificaciones proactivas**
+   - Cuéntame qué tipo de notificaciones durante el transporte de tus productos serían más útiles para ti y en qué momentos las necesitarías.
 
-7. **Facilidad de uso**
-   - ¿Qué tan importante es que la plataforma sea fácil de usar sin capacitación técnica?
+7. **Facilidad de uso y comprensión**
+   - Describe la importancia que tiene para ti que la información técnica sea presentada de manera comprensible. ¿Qué características valoras en las interfaces que usas?
 
-8. **Características deseadas**
-   - ¿Qué funciones te ayudarían más: gráficos de temperatura, historial de viajes, o reportes descargables?
+8. **Características más valoradas**
+   - ¿Qué funcionalidades consideras que agregarían más valor a tu proceso de recepción y validación de productos?
 
-9. **Integración con procesos**
-   - ¿Necesitas integrar esta información con tus sistemas de calidad o inventario?
-
-10. **Percepción de tecnología IoT**
-    - ¿Has usado antes sistemas de monitoreo IoT? ¿Qué expectativas o preocupaciones tienes?
+9.  **Expectativas sobre tecnología IoT**
+    - ¿Qué beneficios esperas de un sistema de monitoreo IoT para tus compras de productos sensibles a temperatura y qué preocupaciones tienes al respecto?
 
 ### 2.2.2. Registro de entrevistas
 
@@ -344,11 +337,11 @@
 
   <br/>
 
-### Segmento 2: Clientes Finales (Receptores de carga)
+### Segmento 2: Clientes Finales (Consumidores finales)
 
 - **Nombre**: [Nombre del entrevistado]
 - **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa receptora]
+- **Ocupación**: [Cargo/Rol en la empresa consumidora]
 - **Empresa/Sector**: [Nombre de la empresa o sector de actividad]
 - **Enlace**: [URL del video de la entrevista]
 
@@ -358,7 +351,7 @@
 
 - **Nombre**: [Nombre del entrevistado]
 - **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa receptora]
+- **Ocupación**: [Cargo/Rol en la empresa consumidora]
 - **Empresa/Sector**: [Nombre de la empresa o sector de actividad]
 - **Enlace**: [URL del video de la entrevista]
 
@@ -368,7 +361,7 @@
 
 - **Nombre**: [Nombre del entrevistado]
 - **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa receptora]
+- **Ocupación**: [Cargo/Rol en la empresa consumidora]
 - **Empresa/Sector**: [Nombre de la empresa o sector de actividad]
 - **Enlace**: [URL del video de la entrevista]
 
@@ -402,7 +395,7 @@
 
   [...]
 
-### Segmento 2: Clientes Finales (Receptores de carga)
+### Segmento 2: Clientes Finales (Consumidores finales)
 
 - **Nombre**: [Nombre del entrevistado]
 
@@ -439,12 +432,12 @@
 
   <br/>
 
-- **Segmento: Clientes Finales (Conductores de transporte)**
+- **Segmento: Clientes Finales (Consumidores finales)**
 
   <img src="assets/user persona 2.png">
 
-  **Juan Pérez - Conductor de Transporte**  
-  El user persona de Juan ilustra la necesidad de simplicidad y practicidad en el diseño de interfaces para usuarios operativos en campo. Representa al segmento que requiere tecnología accesible sin curvas de aprendizaje complejas, donde la usabilidad es fundamental debido a las limitaciones de tiempo y concentración durante la conducción. Su perfil demuestra la importancia de desarrollar soluciones móviles intuitivas que se adapten al contexto del trabajo en carretera, priorizando la funcionalidad esencial sobre características avanzadas que podrían generar distracción o confusión.
+  **María González - Gerente de Compras de Restaurante**  
+  El user persona de María representa al consumidor final que valora la transparencia y la calidad en los productos que adquiere para su negocio. Como responsable de compras de un restaurante, necesita la seguridad de que los alimentos que recibe han mantenido la cadena de frío adecuada durante el transporte. Su perfil ilustra la importancia de contar con información clara y accesible sobre el estado de los productos, reportes de cumplimiento fáciles de entender, y la capacidad de verificar la integridad de los alimentos antes de aceptar las entregas. María ejemplifica al usuario que busca confianza y transparencia en el proceso logístico para proteger la reputación de su negocio.
 
   <br/>
 
@@ -465,20 +458,20 @@
 | Actualizar parámetros de temperatura según producto    | Media      | Alta        |
 | Coordinar respuesta ante emergencias de cadena de frío | Baja       | Alta        |
 
-**Segmento: Clientes Finales (Receptores de carga)**
+**Segmento: Clientes Finales (Consumidores finales)**
 
 | Tarea                                                  | Frecuencia | Importancia |
 | ------------------------------------------------------ | ---------- | ----------- |
-| Recibir notificaciones de inicio de viaje             | Alta       | Media       |
-| Visualizar estado actual del transporte               | Alta       | Alta        |
-| Consultar historial de temperatura del viaje          | Media      | Alta        |
-| Revisar alertas de incumplimiento de parámetros       | Media      | Alta        |
-| Acceder a reportes detallados de entrega              | Media      | Alta        |
-| Verificar condiciones de llegada del producto         | Alta       | Alta        |
-| Consultar gráficos de tiempo y temperatura            | Baja       | Media       |
-| Descargar documentación oficial del viaje             | Media      | Media       |
-| Reportar problemas o discrepancias                    | Baja       | Media       |
-| Gestionar información de suscripción                  | Baja       | Baja        |
+| Verificar estado de pedidos en tránsito               | Alta       | Alta        |
+| Consultar certificados de cadena de frío              | Media      | Alta        |
+| Revisar reportes de cumplimiento de temperatura       | Media      | Alta        |
+| Rastrear ubicación y progreso de entrega              | Alta       | Media       |
+| Recibir alertas sobre problemas en el transporte      | Media      | Alta        |
+| Validar condiciones del producto al recibirlo         | Alta       | Alta        |
+| Descargar documentación oficial de cumplimiento       | Media      | Alta        |
+| Consultar historial de entregas anteriores            | Baja       | Media       |
+| Reportar productos rechazados por incumplimiento      | Baja       | Alta        |
+| Acceder a soporte para resolver incidencias           | Baja       | Media       |
 
 ### 2.3.3. User Journey Mapping
 
@@ -490,11 +483,31 @@ El journey map de Carlos muestra un proceso de 5 etapas desde la planificación 
 
 <br/>
 
-## Journey Map: Juan Pérez (Conductor de transporte)
+## Journey Map: María González (Gerente de Compras de Restaurante)
 
 <img src="assets/journey map 2.png">
 
-El journey map de Juan refleja la necesidad de un flujo simple y no intrusivo que le permita concentrarse en la conducción. Sus puntos de mayor estrés ocurren al manejar problemas técnicos sin saber cómo responder adecuadamente. Las oportunidades clave incluyen interfaces minimalistas optimizadas para móvil, activación con un solo toque, notificaciones no intrusivas durante la conducción, y acceso directo a ayuda cuando surgen problemas. Su satisfacción aumenta significativamente cuando puede completar viajes sin complicaciones técnicas.
+El journey map de María ilustra un proceso enfocado en la verificación y validación de productos desde la solicitud hasta la aceptación final. Sus momentos críticos se centran en la recepción de productos y la verificación de que cumplan con los estándares de calidad requeridos. Las oportunidades principales incluyen proporcionar acceso fácil a reportes de cumplimiento, notificaciones proactivas sobre el estado del transporte, y documentación clara que facilite la toma de decisiones de aceptación. Sus mayores pain points están en la falta de transparencia durante el transporte y la dificultad para verificar la integridad de los productos al momento de la entrega.
+
+### **Journey Map Detallado - María González (Cliente Final)**
+
+| **Categoría** | **1. Solicitud de Productos** | **2. Confirmación de Pedido** | **3. Durante el Transporte** | **4. Recepción y Verificación** | **5. Post-Entrega** |
+|---------------|-------------------------------|-------------------------------|------------------------------|--------------------------------|---------------------|
+| **Acciones** | • Identifica necesidad de productos sensibles<br/>• Evalúa proveedores disponibles<br/>• Solicita cotizaciones | • Revisa términos de entrega<br/>• Confirma especificaciones de temperatura<br/>• Establece expectativas de entrega | • Espera actualizaciones del proveedor<br/>• Monitorea tiempos de entrega<br/>• Se mantiene disponible para recepción | • Inspecciona productos físicamente<br/>• Solicita documentación de transporte<br/>• Decide aceptar o rechazar | • Archiva documentación<br/>• Evalúa calidad del servicio<br/>• Planifica futuras compras |
+| **Pensamientos** | "Necesito asegurarme de que el proveedor garantice la calidad"<br/>"¿Cómo sé que mantendrán la cadena de frío?" | "Espero que cumplan con los rangos de temperatura acordados"<br/>"¿Tendré visibilidad del transporte?" | "¿Estará llegando en buenas condiciones?"<br/>"No tengo forma de saber si hay problemas" | "¿Puedo confiar en que se mantuvo la temperatura?"<br/>"¿Los reportes son realmente precisos?" | "Este proveedor me da confianza"<br/>"Puedo demostrar cumplimiento a mis clientes" |
+| **Emociones** | 😐 Neutral<br/>🤔 Cauteloso | 😬 Ansioso<br/>🤞 Esperanzado | 😰 Preocupado<br/>😤 Frustrado | 😓 Estresado<br/>🧐 Escéptico | 😊 Satisfecho<br/>😌 Tranquilo |
+| **Pain Points** | • Falta de información sobre capacidades de cadena de frío<br/>• Dificultad para evaluar confiabilidad | • Falta de transparencia en el proceso<br/>• No hay garantías claras de monitoreo | • Falta de visibilidad en tiempo real<br/>• No recibe alertas proactivas<br/>• Incertidumbre sobre estado del producto | • Reportes poco detallados o poco confiables<br/>• Dificultad para verificar historial térmico<br/>• Presión de tiempo para decidir | • Documentación difícil de organizar<br/>• Falta de métricas de rendimiento del proveedor |
+| **Oportunidades** | **Mostrar certificaciones y capacidades de monitoreo desde el primer contacto** | **Proporcionar acceso a plataforma de seguimiento desde confirmación** | **Enviar notificaciones automáticas y acceso a dashboard en tiempo real** | **Generar reportes automáticos detallados con gráficos claros y certificación digital** | **Proporcionar histórico de cumplimiento y métricas de desempeño del proveedor** |
+
+**Momentos Críticos Identificados:**
+- ⚠️ **Momento de decisión durante recepción**: Necesita información confiable para aceptar/rechazar productos
+- ⚠️ **Falta de visibilidad durante transporte**: Genera ansiedad y desconfianza
+- ⚠️ **Validación de cumplimiento**: Requiere documentación clara y verificable
+
+**KPIs del Journey:**
+- Tiempo promedio de decisión en recepción: < 10 minutos
+- Nivel de satisfacción con transparencia: > 4.5/5
+- Porcentaje de rechazos por falta de información: < 5%
 
 <br/>
 
@@ -508,11 +521,11 @@ El empathy map de Carlos revela a un profesional experimentado que busca control
 
 <br/>
 
-## Segmento: Clientes Finales (Conductores de transporte) - Juan Pérez
+## Segmento: Clientes Finales (Consumidores finales) - María González
 
 <img src="assets/empathy map 2.png">
 
-El empathy map de Juan muestra a un conductor experimentado que prioriza la simplicidad y funcionalidad práctica sobre características avanzadas. Su principal dolor es la complejidad tecnológica que puede distraerlo de su trabajo principal: conducir de manera segura. Busca herramientas intuitivas que no requieran capacitación extensa y que le permitan comunicar el estado de la carga sin complicaciones. Su ganancia principal es poder usar tecnología que simplifique su trabajo y le dé reconocimiento por entregas exitosas.
+El empathy map de María revela a una profesional responsable que prioriza la calidad y la confianza en sus proveedores. Sus principales preocupaciones se centran en la reputación de su negocio y la satisfacción de sus clientes finales. Valora la transparencia en el proceso de transporte, documentación clara de cumplimiento, y la capacidad de tomar decisiones informadas sobre la aceptación de productos. Su dolor principal es la incertidumbre sobre las condiciones de transporte y la falta de información confiable que le permita verificar la calidad de los productos. Su ganancia principal es tener acceso a información transparente y reportes de cumplimiento que le den confianza para aceptar productos y mantener la calidad en su negocio.
 
 <br/>
 
