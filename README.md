@@ -489,26 +489,6 @@ El journey map de Carlos muestra un proceso de 5 etapas desde la planificación 
 
 El journey map de María ilustra un proceso enfocado en la verificación y validación de productos desde la solicitud hasta la aceptación final. Sus momentos críticos se centran en la recepción de productos y la verificación de que cumplan con los estándares de calidad requeridos. Las oportunidades principales incluyen proporcionar acceso fácil a reportes de cumplimiento, notificaciones proactivas sobre el estado del transporte, y documentación clara que facilite la toma de decisiones de aceptación. Sus mayores pain points están en la falta de transparencia durante el transporte y la dificultad para verificar la integridad de los productos al momento de la entrega.
 
-### **Journey Map Detallado - María González (Cliente Final)**
-
-| **Categoría** | **1. Solicitud de Productos** | **2. Confirmación de Pedido** | **3. Durante el Transporte** | **4. Recepción y Verificación** | **5. Post-Entrega** |
-|---------------|-------------------------------|-------------------------------|------------------------------|--------------------------------|---------------------|
-| **Acciones** | • Identifica necesidad de productos sensibles<br/>• Evalúa proveedores disponibles<br/>• Solicita cotizaciones | • Revisa términos de entrega<br/>• Confirma especificaciones de temperatura<br/>• Establece expectativas de entrega | • Espera actualizaciones del proveedor<br/>• Monitorea tiempos de entrega<br/>• Se mantiene disponible para recepción | • Inspecciona productos físicamente<br/>• Solicita documentación de transporte<br/>• Decide aceptar o rechazar | • Archiva documentación<br/>• Evalúa calidad del servicio<br/>• Planifica futuras compras |
-| **Pensamientos** | "Necesito asegurarme de que el proveedor garantice la calidad"<br/>"¿Cómo sé que mantendrán la cadena de frío?" | "Espero que cumplan con los rangos de temperatura acordados"<br/>"¿Tendré visibilidad del transporte?" | "¿Estará llegando en buenas condiciones?"<br/>"No tengo forma de saber si hay problemas" | "¿Puedo confiar en que se mantuvo la temperatura?"<br/>"¿Los reportes son realmente precisos?" | "Este proveedor me da confianza"<br/>"Puedo demostrar cumplimiento a mis clientes" |
-| **Emociones** | 😐 Neutral<br/>🤔 Cauteloso | 😬 Ansioso<br/>🤞 Esperanzado | 😰 Preocupado<br/>😤 Frustrado | 😓 Estresado<br/>🧐 Escéptico | 😊 Satisfecho<br/>😌 Tranquilo |
-| **Pain Points** | • Falta de información sobre capacidades de cadena de frío<br/>• Dificultad para evaluar confiabilidad | • Falta de transparencia en el proceso<br/>• No hay garantías claras de monitoreo | • Falta de visibilidad en tiempo real<br/>• No recibe alertas proactivas<br/>• Incertidumbre sobre estado del producto | • Reportes poco detallados o poco confiables<br/>• Dificultad para verificar historial térmico<br/>• Presión de tiempo para decidir | • Documentación difícil de organizar<br/>• Falta de métricas de rendimiento del proveedor |
-| **Oportunidades** | **Mostrar certificaciones y capacidades de monitoreo desde el primer contacto** | **Proporcionar acceso a plataforma de seguimiento desde confirmación** | **Enviar notificaciones automáticas y acceso a dashboard en tiempo real** | **Generar reportes automáticos detallados con gráficos claros y certificación digital** | **Proporcionar histórico de cumplimiento y métricas de desempeño del proveedor** |
-
-**Momentos Críticos Identificados:**
-- ⚠️ **Momento de decisión durante recepción**: Necesita información confiable para aceptar/rechazar productos
-- ⚠️ **Falta de visibilidad durante transporte**: Genera ansiedad y desconfianza
-- ⚠️ **Validación de cumplimiento**: Requiere documentación clara y verificable
-
-**KPIs del Journey:**
-- Tiempo promedio de decisión en recepción: < 10 minutos
-- Nivel de satisfacción con transparencia: > 4.5/5
-- Porcentaje de rechazos por falta de información: < 5%
-
 <br/>
 
 ### 2.3.4. Empathy Mapping
