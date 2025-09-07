@@ -78,13 +78,11 @@
 El transporte de mercancías sensibles a la temperatura y las condiciones ambientales sigue siendo un desafío logístico global. Una falla en la cadena de frío o la falta de visibilidad en el recorrido de una carga puede resultar en un deterioro significativo del producto. Según estudios recientes, la industria de alimentos y bebidas en Estados Unidos reportó pérdidas de más de $6 millones de dólares anuales por empresa en 2022, principalmente debido a daños, pérdidas y retrasos en el transporte (Flock Freight, 2023). En el sector farmacéutico, se proyecta que el mercado de logística de cadena de frío para productos como vacunas y biológicos crecerá en $12.81 mil millones de dólares entre 2024 y 2028, lo que subraya la criticidad de mantener la integridad de estos productos durante su tránsito (Technavio, 2024).
 
 ### Who (¿Quién?)
-Este problema impacta a tres actores clave:
+Este problema impacta a dos actores clave:
 
 1. Empresas transportistas y de logística: Enfrentan el riesgo financiero de pérdidas de carga, reclamos de clientes y el daño a su reputación por entregas fallidas.
 
-2. Productores y distribuidores: Asumen los costos de la mercancía dañada, la ineficiencia operativa y la potencial pérdida de clientes.
-
-3. El cliente final: Se ve afectado al recibir productos en mal estado, caducados o, en el caso de medicamentos, que han perdido su efectividad, lo cual representa un riesgo para la salud y la seguridad.
+2. El cliente final: Se ve afectado al recibir productos en mal estado, caducados o, en el caso de medicamentos, que han perdido su efectividad, lo cual representa un riesgo para la salud y la seguridad.
 
 
 ### Where (¿Dónde?)
