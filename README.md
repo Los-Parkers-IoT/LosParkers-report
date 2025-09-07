@@ -69,6 +69,195 @@
 ### 1.1.1. Descripción de la Startup
 
 ### 1.1.2. Perfiles de integrantes del equipo
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      Escribir Nombre y Apellido
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      Escribir Código
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Escribir Carrera
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Escribir Descripción
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      Escribir Nombre y Apellido
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      Escribir Código
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Escribir Carrera
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Escribir Descripción
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="assets/GeorgeProfile.png" alt="Imagen del integrante George" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      George Arturo Aliaga Pimentel
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      U20211c273
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Ingeniería de Software
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Me llamo George Arturo Aliaga Pimentel y soy de la carrera de Ingeniería de Software. Estoy cursando el septimo ciclo. Me considero una persona cooperativa y responsable, lo cual es totalmente requerido para un proyecto grupal. Tengo la meta de ser un gran ingeniero y espero mejorar cada dia para lograr un buen desempeño en la carrera.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      Escribir Nombre y Apellido
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      Escribir Código
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Escribir Carrera
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Escribir Descripción
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      Escribir Nombre y Apellido
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      Escribir Código
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Escribir Carrera
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Escribir Descripción
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      Escribir Nombre y Apellido
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      Escribir Código
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Escribir Carrera
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Escribir Descripción
+    </td>
+  </tr>
+</table>
 
 ## 1.2. Solution Profile
 
