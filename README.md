@@ -209,6 +209,22 @@ Este ejercicio permitió comprender cómo un evento local en un contexto puede i
 
 ### 4.1.2. Context Mapping
 
+En esta etapa se construyó el **Context Map** de CargaSafe con los ocho bounded contexts identificados. El objetivo fue representar las **relaciones estructurales** entre ellos aplicando patrones de Domain-Driven Design como Customer/Supplier, Conformist y Anti-Corruption Layer (ACL).  
+
+### Resultado
+El mapa final permitió:
+1. **Visualizar las dependencias entre contextos**, mostrando qué módulos proveen información y cuáles la consumen.  
+2. **Identificar los contextos core** (Trip Management, Monitoring, Alerts), los de soporte (Fleet, Profiles, Analytics) y los genéricos (IAM, Billing).  
+3. **Clasificar las relaciones**:  
+   - Customer/Supplier en la mayoría de flujos operativos (Billing → IAM, Trip → Monitoring, Monitoring → Alerts).  
+   - Conformist en el consumo de datos por Analytics.  
+   - Anti-Corruption Layer en la interacción Analytics → Profiles.  
+
+De esta manera, el Context Mapping consolida una visión global del sistema, mostrando cómo los distintos contextos colaboran para dar soporte al negocio.
+
+
+![EventStorming – Context Mapping](assets/Context_Mapping.png)
+
 ### 4.1.3. Software Architecture
 
 #### 4.1.3.1. Software Architecture System Landscape Diagram
