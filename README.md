@@ -115,29 +115,29 @@ Entre sus principales productos destaca CargaSafe, una solución integral que pe
 <table width="100%">
   <tr>
     <td rowspan="4" align="center" width="25%">
-      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+      <img src="assets/JefreyProfile.png" alt="Imagen del integrante Jefrey" width="150" style="margin-bottom: 5px;"/>
     </td>
     <td align="left">
       <b>Nombre y Apellido:</b><br>
-      Escribir Nombre y Apellido
+      Jefrey Martin Sanchez Ignacio
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Código:</b><br>
-      Escribir Código
+      U202113324
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Carrera:</b><br>
-      Escribir Carrera
+      Ingeniería de Software
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Acerca de:</b><br>
-      Escribir Descripción
+      Actualmente cursando el octavo ciclo de mi carrera, Soy una persona responsable, proactiva. Espero aprender mucho del curso y sobretodo de este proyecto.
     </td>
   </tr>
 </table>
