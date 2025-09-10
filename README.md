@@ -229,6 +229,41 @@ De esta manera, el Context Mapping consolida una visión global del sistema, mos
 
 #### 4.1.3.1. Software Architecture System Landscape Diagram
 
+El **System Landscape Diagram** ofrece una visión de alto nivel del **ecosistema empresarial** en el que se integra CargaSafe. Este diagrama no se centra únicamente en un sistema, sino que representa **todas las personas y sistemas de software relevantes**, tanto internos como externos, que participan en la operación logística.
+
+### Propósito
+El objetivo de este diagrama es:
+1. Mostrar el alcance de la organización y cómo conviven sus distintos sistemas.  
+2. Identificar a las **personas, sistemas internos, SaaS externos y proveedores** que colaboran en la cadena de valor.  
+3. Resaltar cómo **CargaSafe (SaaS)** se conecta dentro de este panorama, en interacción con otros actores y servicios.
+
+![Software Architecture – System Landscape Diagram](assets/System_Landscape_Diagram.png)
+
+### Elementos incluidos
+- **Personas**: *Customer Service / Operator*, *Driver*, *Back Office Staff*, *End customer* y *Health Authority*.  
+- **Sistemas internos**: *Logistics ERP*, *Data Warehouse / BI* y *Helpdesk / E-mail*.  
+- **Sistemas y proveedores externos**: *CargaSafe (SaaS)*, *Stripe*, *Google Maps / Distance Matrix*, *Notification Services* e *IoT Devices (sensors)*.  
+- **Grupos**: Se organizaron en cuatro dominios principales:  
+  - *Logistics company*  
+  - *Field / Devices*  
+  - *Customers and Regulators*  
+  - *SaaS and Vendors*  
+
+### Relaciones principales
+- El *Logistics ERP* exporta a *CargaSafe (SaaS)* los planes y asignaciones de viaje.  
+- Los *IoT Devices (sensors)* envían telemetría de temperatura y localización a *CargaSafe (SaaS)*.  
+- *CargaSafe (SaaS)* consulta rutas y tiempos estimados a través de *Google Maps / Distance Matrix* y envía alertas a los usuarios mediante *Notification Services*.  
+- *Stripe* procesa los pagos de suscripción asociados al uso de la plataforma.  
+- *Data Warehouse / BI* recibe datasets consolidados desde *CargaSafe (SaaS)* para la analítica corporativa.  
+- *Customer Service / Operator* y *Driver* interactúan con los sistemas para planificar y ejecutar viajes, mientras que *End customer* y *Health Authority* reciben información y reportes de cumplimiento.  
+
+### Resultado
+El diagrama evidencia que **CargaSafe (SaaS)** es parte de un ecosistema más amplio conformado por actores humanos, sistemas internos de la empresa, servicios externos y autoridades reguladoras. La representación ofrece una **visión integral y clara** de las dependencias y colaboraciones que garantizan la operación logística y la gestión de la cadena de frío.
+
+
+
+
+
 #### 4.1.3.2. Software Architecture Context Level Diagrams
 
 #### 4.1.3.2. Software Architecture Container Level Diagrams
