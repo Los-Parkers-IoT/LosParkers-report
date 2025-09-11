@@ -207,6 +207,8 @@ Este ejercicio permitió comprender cómo un evento local en un contexto puede i
 
 #### 4.1.1.3. Bounded Context Canvases
 
+En esta sección se elaboraron los Bounded Context Canvases de CargaSafe para los ocho contextos identificados. El objetivo fue delimitar con precisión responsabilidades, lenguaje ubicuo y decisiones de negocio, además de explicitar las comunicaciones (Queries, Commands y Events) y colaboradores (otros BC, sistemas externos y frontend). Cada canvas documenta: Descripción, Clasificación estratégica (core/supporting/generic), Rol de dominio (draft/execution/analysis/gateway), Inbound/Outbound communication, Ubiquitous Language, Business Decisions y Collaborators. Esta definición fija ownership de datos, reduce ambigüedades y prepara los contratos de integración que se implementarán en APIs y mensajería.
+
 ### 4.1.2. Context Mapping
 
 En esta etapa se construyó el **Context Map** de CargaSafe con los ocho bounded contexts identificados. El objetivo fue representar las **relaciones estructurales** entre ellos aplicando patrones de Domain-Driven Design como Customer/Supplier, Conformist y Anti-Corruption Layer (ACL).  
@@ -369,6 +371,51 @@ El diagrama de despliegue evidencia que la solución **CargaSafe** se encuentra 
 ### 4.2.1. Bounded Context: `<Bounded Context Name>`
 
 #### 4.2.1.1. Domain Layer
+
+Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra políticas de cadena de frío, generando eventos de dominio para Alertas y resolución y alimentando Visualización/Analytics.
+
+**Agregados y Entidades**
+
+ - Sensor (AR): identidad del dispositivo y estado operativo (online/offline, última calibración).
+
+ - SensorTripBinding: historial de asociación sensor↔viaje (permite auditoría y replay).
+
+ - TelemetryReading: lectura puntual (time-series); modelada como entidad inmutable.
+
+ - DeviceStatus: snapshot operativo (batería, señal, último heartbeat).
+
+**Value Objects** 
+ - TemperatureCelsius
+ - GeoPoint
+ - Thresholds (min/max/hysteresis)
+ - TimeWindow
+
+**Servicios de Dominio**
+  - EvaluationService: reglas de evaluación (ventanas, anti-ruido, histeresis) → emite eventos.
+
+  - BindingService: lógica para bind/unbind de sensores a viajes.
+
+**Eventos de Dominio**
+  - TelemetryReceived
+  - TemperatureOutOfRange
+  - DeviceOffline
+  - GeofenceBreach
+  - TimeseriesUpdated (para vistas)
+
+**Repositorios**
+
+  - TelemetryRepository
+  - DeviceStatusRepository 
+  - SensorBindingRepository 
+  - SensorRepository
+
+
+**Políticas/Reglas Clave**
+
+  - Frecuencia mínima de muestreo por plan; tolerancias por producto; ventana de evaluación deslizante; reconciliación de lecturas offline.
+
+
+**Diagrama de clases (dominio)**  
 
 #### 4.2.1.2. Interface Layer
 
