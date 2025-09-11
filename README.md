@@ -412,12 +412,40 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 **Políticas/Reglas Clave**
 
-  - Frecuencia mínima de muestreo por plan; tolerancias por producto; ventana de evaluación deslizante; reconciliación de lecturas offline.
+  - Frecuencia mínima de muestreo por plan
+  - Tolerancias por producto
+  - Ventana de evaluación deslizante
+  - Reconciliación de lecturas offline.
 
 
 **Diagrama de clases (dominio)**  
 
 #### 4.2.1.2. Interface Layer
+
+**Entradas (adapters)**
+
+  - **HTTP Ingestion API:** POST /ingest/telemetry (API-Key/JWT por tenant).
+
+  - **MQTT**: tópico devices/{sensorId}/telemetry para ingesta directa desde edge.
+
+  - **Queries**: 
+    - GET /live-status?sensorId= 
+    - GET /telemetry?tripId=&from=&to= (paginado por tiempo).
+
+**Salidas (pub/sub y notificaciones)**
+
+  - **Events a Alertas y resolución:** 
+    - TemperatureOutOfRange 
+    - DeviceOffline 
+    - GeofenceBreach
+
+  - **Events a Visualización/Analytics:** 
+    - TimeseriesUpdated
+
+**DTOs principales**
+  - TelemetryInDTO{ sensorId, ts, tempC, humidityPct, lat, lon, raw } 
+  - LiveStatusDTO{ sensorId, lastSeen, batteryPct, signalDbm, tripId }
+
 
 #### 4.2.1.3. Application Layer
 
