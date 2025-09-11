@@ -267,7 +267,6 @@ El **Context Diagram** de CargaSafe muestra una visión de alto nivel del sistem
 
 ![Software Architecture – Context Level Diagram](assets/Context_Level_Diagram.png)
 
-
 En el centro se ubica **CargaSafe (SaaS)**, que representa el sistema principal encargado del monitoreo de la cadena de frío, la trazabilidad y la generación de alertas en los viajes logísticos. 
 
 Alrededor del sistema se identifican los siguientes actores:
@@ -333,9 +332,37 @@ Con esta distribución logramos una arquitectura clara, escalable y flexible. Ca
 
 
 
-
-
 #### 4.1.3.3. Software Architecture Deployment Diagrams
+
+En este apartado se presenta el **Deployment Diagram** del sistema **CargaSafe (SaaS)**, correspondiente al entorno de **producción**. Este diagrama muestra cómo los distintos contenedores que conforman la solución se despliegan sobre la infraestructura tecnológica, así como la manera en que interactúan con servicios externos y dispositivos de campo.  
+![Software Architecture – Deployment Diagram](assets/Deployment_Diagram.png)
+
+**Clientes**:  
+  - Los **usuarios finales** acceden desde navegadores web (SPA y landing page servidos por un **CDN / Static Hosting**) y desde **dispositivos móviles** (aplicación Flutter).  
+  - Estos clientes realizan peticiones HTTPS que son redirigidas hacia el **Load Balancer**, encargado de enrutar el tráfico hacia los servicios backend.
+
+**Backend y orquestación**:  
+  - El **Backend API** (Spring Boot) y el **Notification Service** (Worker/Service) se despliegan dentro de un **Kubernetes Cluster**, separados en *pods* de aplicaciones y pods de background jobs.  
+  - El backend gestiona la lógica de negocio, mientras que el servicio de notificaciones se encarga de enrutar alertas hacia canales externos (FCM, SMS, Email).
+
+**Base de datos**:  
+  - El sistema utiliza una **base de datos PostgreSQL gestionada** (AWS RDS/Google Cloud SQL), con una **instancia primaria** para operaciones de escritura y **réplicas de solo lectura** para consultas distribuidas.
+
+**Integraciones externas**:  
+  - **IoT Devices (sensores)** envían telemetría (temperatura y GPS) hacia el backend mediante HTTPS/MQTT.  
+  - **ERP Logístico** exporta planes de viaje y asignaciones hacia la API.
+    
+  - El backend consume servicios de terceros:  
+    - **Google Maps / Distance Matrix** para rutas y ETA.  
+    - **Stripe** para procesamiento de pagos.  
+    - **Notification Services** para la entrega de mensajes.  
+    - **Data Warehouse / BI** para exportación de datasets.  
+    - **Helpdesk / E-mail** para gestión de tickets y notificaciones por correo.
+
+## Resultado
+
+El diagrama de despliegue evidencia que la solución **CargaSafe** se encuentra organizada en una arquitectura **cloud-native**, basada en **Kubernetes** para la orquestación de contenedores, **CDN** para la entrega de contenido estático y una **base de datos gestionada** con capacidad de réplica. Esto permite un sistema altamente escalable, resiliente y preparado para integrarse tanto con dispositivos de campo como con múltiples servicios de terceros.
+
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
