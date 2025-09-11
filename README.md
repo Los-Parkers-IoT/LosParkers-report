@@ -307,11 +307,11 @@
 
 ### Segmento 1: Empresa (Gestores de transporte)
 
-- **Nombre**: [Nombre del entrevistado]
-- **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa]
-- **Empresa**: [Nombre de la empresa/Sector]
-- **Enlace**: [URL del video de la entrevista]
+- **Nombre**: Miguel Ruiz
+- **Edad**: 28 años
+- **Ocupación**: Supervisor
+- **Empresa**: Ofertimaq - Distribuidora
+- **Enlace**: [[Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/ER0ImJYYarNDpK11odR8b0gB1yAHBcte3ss8JSkB8lTqSA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=eydJDA)]
 
   <img src="assets/entrevista_empresa_1.png">
 
