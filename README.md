@@ -240,22 +240,22 @@ El objetivo de este diagrama es:
 ![Software Architecture – System Landscape Diagram](assets/System_Landscape_Diagram.png)
 
 ### Elementos incluidos
-- **Personas**: *Customer Service / Operator*, *Driver*, *Back Office Staff*, *End customer* y *Health Authority*.  
-- **Sistemas internos**: *Logistics ERP*, *Data Warehouse / BI* y *Helpdesk / E-mail*.  
-- **Sistemas y proveedores externos**: *CargaSafe (SaaS)*, *Stripe*, *Google Maps / Distance Matrix*, *Notification Services* e *IoT Devices (sensors)*.  
+- **Personas**: Customer Service / Operator, Driver, Back Office Staff, End customer y Health Authority.  
+- **Sistemas internos**: Logistics ERP, Data Warehouse / BI y Helpdesk / E-mail.  
+- **Sistemas y proveedores externos**: CargaSafe (SaaS), Stripe, Google Maps / Distance Matrix, Notification Services e IoT Devices (sensors).  
 - **Grupos**: Se organizaron en cuatro dominios principales:  
-  - *Logistics company*  
-  - *Field / Devices*  
-  - *Customers and Regulators*  
-  - *SaaS and Vendors*  
+  - Logistics company
+  - Field / Devices
+  - Customers and Regulators
+  - SaaS and Vendors
 
 ### Relaciones principales
-- El *Logistics ERP* exporta a *CargaSafe (SaaS)* los planes y asignaciones de viaje.  
-- Los *IoT Devices (sensors)* envían telemetría de temperatura y localización a *CargaSafe (SaaS)*.  
-- *CargaSafe (SaaS)* consulta rutas y tiempos estimados a través de *Google Maps / Distance Matrix* y envía alertas a los usuarios mediante *Notification Services*.  
-- *Stripe* procesa los pagos de suscripción asociados al uso de la plataforma.  
-- *Data Warehouse / BI* recibe datasets consolidados desde *CargaSafe (SaaS)* para la analítica corporativa.  
-- *Customer Service / Operator* y *Driver* interactúan con los sistemas para planificar y ejecutar viajes, mientras que *End customer* y *Health Authority* reciben información y reportes de cumplimiento.  
+- El Logistics ERP exporta a CargaSafe (SaaS) los planes y asignaciones de viaje.  
+- Los IoT Devices (sensors) envían telemetría de temperatura y localización a CargaSafe (SaaS).  
+- CargaSafe (SaaS) consulta rutas y tiempos estimados a través de Google Maps / Distance Matrix y envía alertas a los usuarios mediante *Notification Services*.  
+- Stripe procesa los pagos de suscripción asociados al uso de la plataforma.  
+- Data Warehouse / BI recibe datasets consolidados desde CargaSafe (SaaS) para la analítica corporativa.  
+- Customer Service / Operator y Driver interactúan con los sistemas para planificar y ejecutar viajes, mientras que End customer y Health Authority reciben información y reportes de cumplimiento.  
 
 ### Resultado
 El diagrama evidencia que **CargaSafe (SaaS)** es parte de un ecosistema más amplio conformado por actores humanos, sistemas internos de la empresa, servicios externos y autoridades reguladoras. La representación ofrece una **visión integral y clara** de las dependencias y colaboraciones que garantizan la operación logística y la gestión de la cadena de frío.
@@ -290,16 +290,50 @@ Asimismo, se destacan las interacciones con sistemas externos que complementan l
 Este diagrama permite visualizar de manera clara las responsabilidades de cada actor y sistema, y cómo CargaSafe se convierte en el núcleo que articula la comunicación entre usuarios, dispositivos IoT y servicios externos, garantizando la operación eficiente y segura de la cadena logística.
 
 
-
-
-
-
-
-
-
-
-
 #### 4.1.3.2. Software Architecture Container Level Diagrams
+
+En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus contenedores internos, las tecnologías que utilizamos y cómo se comunican entre sí y con los sistemas externos.
+
+
+![Software Architecture – Container Level Diagram](assets/Container_Level_Diagram.png)
+
+
+**Contenedores internos**
+- **Landing Page (HTML/CSS):** sitio público simple que sirve como carta de presentación y redirige al frontend de la aplicación.
+- **Web Frontend (Angular):** interfaz principal que usan los operadores de la empresa y el personal de soporte para gestionar flota, viajes, parámetros y reportes. También aquí se generan los enlaces públicos que recibe el cliente final.
+- **Mobile App (Flutter):** aplicación móvil usada por los conductores. Desde aquí reciben instrucciones de viaje, reportan el estado del mismo y pueden registrar incidencias.
+- **Backend API (Spring Boot):** Contiene la lógica de negocio, gestiona viajes, dispositivos, alertas, sesiones de monitoreo y también las suscripciones. Expone servicios REST que consumen el frontend y la app móvil.
+- **Notification Service (Worker):** servicio independiente que se encarga de enrutar las notificaciones hacia los canales externos (push, SMS o correo electrónico).
+- **Relational Database (PostgreSQL):** base de datos transaccional que almacena usuarios, vehículos, dispositivos, viajes, telemetría, alertas y suscripciones.
+
+**Sistemas externos**
+- **IoT Devices (sensors):** sensores instalados en los vehículos que envían telemetría de temperatura y ubicación.
+- **Logistics ERP:** sistema externo que exporta planes de viaje y asignaciones hacia CargaSafe.
+- **Google Maps / Distance Matrix:** servicio usado para geocodificación, cálculo de rutas y tiempos estimados de llegada (ETA).
+- **Stripe:** plataforma para pagos y facturación de suscripciones.
+- **Notification Services (FCM, SMS, Email):** canales de entrega conectados desde nuestro Notification Service.
+- **Data Warehouse / BI:** destino de los datasets consolidados que se exportan para análisis corporativos.
+- **Helpdesk / E-mail:** sistema externo que usamos para tickets y, de forma opcional, para notificaciones por correo.
+
+**Comunicación principal**
+- El **Web Frontend** y la **Mobile App** consumen la **Backend API** mediante REST/JSON.
+- El **Backend API** persiste la información en la base de datos y encola los trabajos de notificación en el **Notification Service**.
+- El **Notification Service** se encarga de procesar estos trabajos y enviarlos a los servicios externos de notificación.
+- Desde el **Backend API** también se gestionan las integraciones con ERP, IoT, Google Maps, Stripe, Helpdesk y el Data Warehouse.
+
+**Decisiones tecnológicas**
+- Se eligió **Angular** para el frontend web por su robustez y facilidad de mantenimiento.
+- Para la app móvil, se utilizó **Flutter** por su capacidad de generar aplicaciones multiplataforma de alto rendimiento.
+- El **Backend** se desarrolló en **Spring Boot**, que ofrece un ecosistema sólido para microservicios e integraciones.
+- La base de datos es **PostgreSQL**, por su confiabilidad y soporte a operaciones transaccionales.
+- Finalmente, se separó un **servicio de notificaciones** como worker para mantener desacoplada la lógica de negocio del proceso de envío de mensajes.
+
+**Resultado**
+Con esta distribución logramos una arquitectura clara, escalable y flexible. Cada contenedor cumple un rol específico y las integraciones externas se mantienen bien aisladas, lo que facilita la evolución futura de la solución.
+
+
+
+
 
 #### 4.1.3.3. Software Architecture Deployment Diagrams
 
