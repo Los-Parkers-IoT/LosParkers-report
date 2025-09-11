@@ -339,10 +339,10 @@
 
 ### Segmento 2: Clientes Finales (Consumidores finales)
 
-- **Nombre**: [Nombre del entrevistado]
-- **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa consumidora]
-- **Empresa/Sector**: [Nombre de la empresa o sector de actividad]
+- **Nombre**: Adrián Zapata
+- **Edad**: 23 años
+- **Ocupación**: Responsable de parrilla en un negocio de comida rápida
+- **Empresa/Sector**: Negocio local de comida rápida / Sector alimentario
 - **Enlace**: [URL del video de la entrevista]
 
   <img src="assets/entrevista_cliente_1.png">
@@ -397,11 +397,11 @@
 
 ### Segmento 2: Clientes Finales (Consumidores finales)
 
-- **Nombre**: [Nombre del entrevistado]
+- **Nombre**: Adrian Zapata
 
-- **Entrevistador**: [Nombre del entrevistador]
+- **Entrevistador**: George Aliaga
 
-  [...].
+  Nuestro entrevistado Adrián Zapata, encargado de la parrilla en un negocio de comida rápida, expone una problemática clave en la recepción de productos sensibles a temperatura: la falta de control y visibilidad durante el transporte. Actualmente depende de inspecciones visuales y táctiles, lo que limita la precisión y genera incertidumbre. Señala la importancia del tiempo de entrega, la temperatura constante y la comunicación oportuna, idealmente a través de notificaciones por WhatsApp. También destaca la necesidad de interfaces claras y datos legibles, especialmente en grados Celsius. Su interés en un sistema IoT revela el valor que asigna a la trazabilidad, el monitoreo en tiempo real y la posibilidad de actuar preventivamente ante fallas en la cadena de frío.
 
   <br/>
 
