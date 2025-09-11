@@ -179,29 +179,29 @@ Entre sus principales productos destaca CargaSafe, una solución integral que pe
 <table width="100%">
   <tr>
     <td rowspan="4" align="center" width="25%">
-      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+      <img src="assets/NicolasProfile.png" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
     </td>
     <td align="left">
       <b>Nombre y Apellido:</b><br>
-      Escribir Nombre y Apellido
+      Nicolas Alejandro Vera Nuñez
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Código:</b><br>
-      Escribir Código
+    u202214869
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Carrera:</b><br>
-      Escribir Carrera
+        Ingeniería de Software
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Acerca de:</b><br>
-      Escribir Descripción
+      Soy estudiante de la UPC, tengo 21 años. Estoy en la carrera de Ingeniería de Software, ya que, siempre me gustó la tecnología, el analisis de datos y el desarrollo web. Estoy cursando el 7mo ciclo de la carrera y mis habilidades son Angular, Java con Springboot, Docker, Python, HTML y JavaScript. También soy una persona analitica y que encuentra soluciones inovadoras a varios problemas.
     </td>
   </tr>
 </table>
