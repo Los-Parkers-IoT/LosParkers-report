@@ -460,4 +460,11 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 ##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
 
+
+[Ver gráfico en Miro](https://www.mermaidchart.com/app/projects/f9114f89-7e7c-4378-9a7e-53fc0436e622/diagrams/da4a4688-bf70-4195-b82c-b3aee7598cde/version/v0.1/edit)
+
+
+
+
+
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram
