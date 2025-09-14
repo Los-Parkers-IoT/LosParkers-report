@@ -462,6 +462,28 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 #### 4.2.1.4. Infrastructure Layer
 
+**Adapters / Implementaciones**
+
+  - HttpIngestionController (REST)
+
+  - MqttIngestionConsumer (tópico devices/{sensorId}/telemetry)
+
+  - KafkaEventBus (tópicos: monitoring.alerts, monitoring.viz)
+
+  - PostgresTelemetryRepository (TimescaleDB)
+
+  - PostgresDeviceStatusRepository
+
+  - PostgresSensorBindingRepository
+
+  - RedisLiveCache (clave live:{sensorId} TTL corto)
+
+  - OutboxPublisher (lee event_outbox y publica a Kafka)
+
+**Cross-cutting**
+
+  - RLS/tenancy por tenant_id, observabilidad (metrics/logs/traces). rate-limit, validación de payloads, DLQ.
+
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 [Ver gráfico en Mermaid](https://www.mermaidchart.com/app/projects/f9114f89-7e7c-4378-9a7e-53fc0436e622/diagrams/2b56cea5-6f35-4228-b70e-2052df1785b7/version/v0.1/edit)
