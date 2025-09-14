@@ -452,6 +452,39 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 #### 4.2.1.3. Application Layer
 
+**Command Handlers**
+
+- IngestTelemetryCommandHandler: Valida TelemetryInDTO, persiste lectura (y outbox), emite TelemetryReceived.
+
+- BindSensorToTripCommandHandler: Gestiona historia de bind/unbind y emite SensorBoundToTrip.
+
+- EvaluateTelemetryCommandHandler: Usa EvaluationService (ventana + histéresis) y publica TemperatureOutOfRange | DeviceOffline | GeofenceBreach.
+
+- UpdateDeviceStatusCommandHandler: Actualiza snapshot y cache en vivo.
+
+**Event Handlers**
+
+- TripStartedEventHandler: Precarga políticas/umbrales activos para la sesión del viaje.
+
+- TelemetryReceivedEventHandler: Encadena evaluación y proyección a timeseries para vistas.
+
+- PolicyUpdatedEventHandler: Refresca umbrales en memoria / caché.
+
+**Application Services (capabilities)**
+
+- LiveViewService — GetLiveStatus(sensorId) y cola corta de lecturas recientes.
+
+- TimeseriesQueryService: Consulta paginada por rango {from,to}.
+
+- AnomalyDetectionService: Hook para modelos (opt-in según plan).
+
+**Transaccionalidad & resiliencia**
+
+- Outbox + publicador para garantizar at-least-once de eventos.
+
+- Idempotencia por (sensorId, ts).
+
+- Sagas livianas para bind/unbind.
 
 **Secuencia** 
 
