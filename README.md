@@ -464,6 +464,12 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
 
+[Ver gráfico en Mermaid](https://www.mermaidchart.com/app/projects/f9114f89-7e7c-4378-9a7e-53fc0436e622/diagrams/2b56cea5-6f35-4228-b70e-2052df1785b7/version/v0.1/edit)
+
+
+
+
+
 #### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
