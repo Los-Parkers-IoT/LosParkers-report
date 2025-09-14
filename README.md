@@ -453,6 +453,11 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 #### 4.2.1.3. Application Layer
 
 
+**Secuencia** 
+
+![Bounded Context Domain Layer – Class Diagram](assets/Sequence_Diagram.png)
+
+
 [Ver gráfico en Mermaid](https://www.mermaidchart.com/app/projects/f9114f89-7e7c-4378-9a7e-53fc0436e622/diagrams/b984e287-826d-49b5-9eae-3e6cee59ba42/version/v0.1/edit)
 
 #### 4.2.1.4. Infrastructure Layer
