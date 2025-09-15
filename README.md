@@ -211,29 +211,34 @@ Entre sus principales productos destaca CargaSafe, una solución integral que pe
 <table width="100%">
   <tr>
     <td rowspan="4" align="center" width="25%">
-      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+      <img src="assets/DanielProfile.png" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
     </td>
     <td align="left">
       <b>Nombre y Apellido:</b><br>
-      Escribir Nombre y Apellido
+      Daniel Rodrigo Chirinos Arevalo
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Código:</b><br>
-      Escribir Código
+      202019577
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Carrera:</b><br>
-      Escribir Carrera
+      Ingenería de Software
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Acerca de:</b><br>
-      Escribir Descripción
+      Me llamo Daniel Chirinos Arevalo y soy de la carrera de Ingeniería de 
+      Software. Mi experiencia en la universidad es bastante normal y me encuentro 
+      cursando el sexto ciclo. A lo largo del tiempo, sí que tuve algunas dificultades 
+      con algunos cursos, pero logré enfrentarlos. Mi habilidad es ser líder en 
+      algunas ocasiones, trabajar con tiempo y lo más importante, ser siempre 
+      amistoso con el equipo.
     </td>
   </tr>
 </table>
