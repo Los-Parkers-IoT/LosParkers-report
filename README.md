@@ -209,6 +209,25 @@ Este ejercicio permitió comprender cómo un evento local en un contexto puede i
 
 En esta sección se elaboraron los Bounded Context Canvases de CargaSafe para los ocho contextos identificados. El objetivo fue delimitar con precisión responsabilidades, lenguaje ubicuo y decisiones de negocio, además de explicitar las comunicaciones (Queries, Commands y Events) y colaboradores (otros BC, sistemas externos y frontend). Cada canvas documenta: Descripción, Clasificación estratégica (core/supporting/generic), Rol de dominio (draft/execution/analysis/gateway), Inbound/Outbound communication, Ubiquitous Language, Business Decisions y Collaborators. Esta definición fija ownership de datos, reduce ambigüedades y prepara los contratos de integración que se implementarán en APIs y mensajería.
 
+![EventStorming – Bounded Context Canvases](assets/Canvases_iam.png)
+
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_profiles.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_subscriptions.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_alerts.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_fleet.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_tripManagement.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_realtimeMonitoring.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_analytics.png)
+
+
+
 
 [Ver gráfico en Miro](https://miro.com/app/board/uXjVJJ2PHqk=/?share_link_id=762570504671)
 
