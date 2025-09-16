@@ -245,9 +245,9 @@ El objetivo de este diagrama es:
 ![Software Architecture – System Landscape Diagram](assets/System_Landscape_Diagram.png)
 
 ### Elementos incluidos
-- **Personas**: Customer Service / Operator, Driver, Back Office Staff, End customer y Health Authority.  
-- **Sistemas internos**: Logistics ERP, Data Warehouse / BI y Helpdesk / E-mail.  
-- **Sistemas y proveedores externos**: CargaSafe (SaaS), Stripe, Google Maps / Distance Matrix, Notification Services e IoT Devices (sensors).  
+- **Personas**: Company Operator, Driver and End Customer.  
+- **Sistemas internos**: Logistics Planning and Power BI Data.  
+- **Sistemas y proveedores externos**: CargaSafe (SaaS), Stripe, Google Maps, Notification Services e IoT Devices (sensors).  
 - **Grupos**: Se organizaron en cuatro dominios principales:  
   - Logistics company
   - Field / Devices
@@ -255,15 +255,17 @@ El objetivo de este diagrama es:
   - SaaS and Vendors
 
 ### Relaciones principales
-- El Logistics ERP exporta a CargaSafe (SaaS) los planes y asignaciones de viaje.  
-- Los IoT Devices (sensors) envían telemetría de temperatura y localización a CargaSafe (SaaS).  
-- CargaSafe (SaaS) consulta rutas y tiempos estimados a través de Google Maps / Distance Matrix y envía alertas a los usuarios mediante *Notification Services*.  
-- Stripe procesa los pagos de suscripción asociados al uso de la plataforma.  
-- Data Warehouse / BI recibe datasets consolidados desde CargaSafe (SaaS) para la analítica corporativa.  
-- Customer Service / Operator y Driver interactúan con los sistemas para planificar y ejecutar viajes, mientras que End customer y Health Authority reciben información y reportes de cumplimiento.  
+- Logistics Planning → CargaSafe (SaaS): exporta planes y asignaciones de viaje.
+- IoT Devices → CargaSafe (SaaS): envía telemetría (temperatura, humedad, vibración, volcado/inclinación, GPS, energía/baterías).
+- CargaSafe (SaaS) → Google Maps: consulta rutas y tiempos estimados.
+- CargaSafe (SaaS) → Notification Services: envía alertas a los usuarios.
+- CargaSafe (SaaS) → Stripe: procesa pagos de suscripción.
+- CargaSafe (SaaS) → Power BI Data: exporta datasets consolidados para analítica.
+- Company Operator / Driver ↔ CargaSafe (SaaS): planifican, ejecutan y reportan el estado operativo.
+- End customer ← CargaSafe (SaaS): consulta estado y recibe reportes. 
 
 ### Resultado
-El diagrama evidencia que **CargaSafe (SaaS)** es parte de un ecosistema más amplio conformado por actores humanos, sistemas internos de la empresa, servicios externos y autoridades reguladoras. La representación ofrece una **visión integral y clara** de las dependencias y colaboraciones que garantizan la operación logística y la gestión de la cadena de frío.
+El diagrama muestra a CargaSafe (SaaS) como el núcleo de integración entre operaciones (Company Operator, Driver, Logistics Planning), telemetría IoT (sensores en campo) y servicios externos (ruteo, notificaciones y pagos), además de su aporte a la inteligencia de negocio mediante Power BI Data. Esta representación proporciona una visión clara e integral de las dependencias y colaboraciones que sustentan la operación logística y la gestión de la cadena de frío.
 
 
 #### 4.1.3.2. Software Architecture Context Level Diagrams
