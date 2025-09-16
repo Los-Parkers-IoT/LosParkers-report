@@ -339,34 +339,31 @@ Con esta distribución logramos una arquitectura clara, escalable y flexible. Ca
 
 #### 4.1.3.3. Software Architecture Deployment Diagrams
 
-En este apartado se presenta el **Deployment Diagram** del sistema **CargaSafe (SaaS)**, correspondiente al entorno de **producción**. Este diagrama muestra cómo los distintos contenedores que conforman la solución se despliegan sobre la infraestructura tecnológica, así como la manera en que interactúan con servicios externos y dispositivos de campo.  
+El Deployment Diagram de CargaSafe muestra cómo se despliega la solución en un entorno de producción real, representando los nodos de infraestructura, los contenedores de software y las interacciones entre ellos.
+
 ![Software Architecture – Deployment Diagram](assets/Deployment_Diagram.png)
 
 **Clientes**:  
-  - Los **usuarios finales** acceden desde navegadores web (SPA y landing page servidos por un **CDN / Static Hosting**) y desde **dispositivos móviles** (aplicación Flutter).  
+  - Los usuarios finales acceden desde navegadores web (SPA y landing page servidos por un CDN / Static Hosting) y desde dispositivos móviles (aplicación Flutter).
   - Estos clientes realizan peticiones HTTPS que son redirigidas hacia el **Load Balancer**, encargado de enrutar el tráfico hacia los servicios backend.
 
 **Backend y orquestación**:  
   - El **Backend API** (Spring Boot) y el **Notification Service** (Worker/Service) se despliegan dentro de un **Kubernetes Cluster**, separados en *pods* de aplicaciones y pods de background jobs.  
-  - El backend gestiona la lógica de negocio, mientras que el servicio de notificaciones se encarga de enrutar alertas hacia canales externos (FCM, SMS, Email).
-
+  - El backend centraliza la lógica de negocio, gestiona operaciones de viajes, monitoreo y orquestación de alertas.
 **Base de datos**:  
-  - El sistema utiliza una **base de datos PostgreSQL gestionada** (AWS RDS/Google Cloud SQL), con una **instancia primaria** para operaciones de escritura y **réplicas de solo lectura** para consultas distribuidas.
+  - El sistema utiliza una base de datos PostgreSQL gestionada (AWS RDS/Google Cloud SQL), con una instancia primaria para operaciones de escritura y réplicas de solo lectura para consultas distribuidas y balanceo de carga.
 
 **Integraciones externas**:  
-  - **IoT Devices (sensores)** envían telemetría (temperatura y GPS) hacia el backend mediante HTTPS/MQTT.  
-  - **ERP Logístico** exporta planes de viaje y asignaciones hacia la API.
-    
-  - El backend consume servicios de terceros:  
-    - **Google Maps / Distance Matrix** para rutas y ETA.  
-    - **Stripe** para procesamiento de pagos.  
-    - **Notification Services** para la entrega de mensajes.  
-    - **Data Warehouse / BI** para exportación de datasets.  
-    - **Helpdesk / E-mail** para gestión de tickets y notificaciones por correo.
+El backend consume servicios de terceros para extender sus capacidades:
+
+ - **Google Maps** para rutas, geocodificación y cálculo de ETA.
+ - **Stripe** para procesamiento de pagos y facturación.
+ - **Notification Services** para la entrega de mensajes a usuarios vía FCM, SMS o Email.
+ - **Power BI Data** para exportación de datasets consolidados y reportería corporativa.
 
 ## Resultado
 
-El diagrama de despliegue evidencia que la solución **CargaSafe** se encuentra organizada en una arquitectura **cloud-native**, basada en **Kubernetes** para la orquestación de contenedores, **CDN** para la entrega de contenido estático y una **base de datos gestionada** con capacidad de réplica. Esto permite un sistema altamente escalable, resiliente y preparado para integrarse tanto con dispositivos de campo como con múltiples servicios de terceros.
+El diagrama de despliegue muestra que la solución CargaSafe está organizada bajo una arquitectura cloud-native, con Kubernetes para la orquestación de contenedores, CDN para la entrega de contenido estático y una base de datos gestionada con réplicas para mejorar el rendimiento y la disponibilidad. Esta infraestructura permite un sistema escalable, resiliente y listo para integrarse con servicios externos críticos, garantizando la continuidad operativa en la gestión de la cadena de frío.
 
 
 ## 4.2. Tactical-Level Domain-Driven Design
