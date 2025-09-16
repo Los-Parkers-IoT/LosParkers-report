@@ -280,18 +280,14 @@ Alrededor del sistema se identifican los siguientes actores:
 
 - **Company Operator**: gestiona viajes, flota y reportes desde la plataforma.
 - **Driver**: completa viajes y reporta información desde la aplicación móvil.
-- **Support**: realiza consultas internas y acciones de soporte.
 - **End customer**: recibe enlaces de estado, alertas y reportes generados por el sistema.
 
 Asimismo, se destacan las interacciones con sistemas externos que complementan las funcionalidades de CargaSafe:
 
-- **Logistics ERP**: exporta planes de viaje y asignaciones.
-- **IoT Devices (sensors)**: envían telemetría en tiempo real (temperatura y GPS).
-- **Google Maps / Distance Matrix**: provee rutas, geocodificación y cálculo de ETA.
+- **Google Maps**: provee rutas, geocodificación y cálculo de ETA.
 - **Notification Services**: entrega notificaciones por FCM, SMS o Email.
 - **Stripe**: procesa pagos y facturación de suscripciones.
-- **Data Warehouse / BI**: recibe datasets consolidados para análisis corporativo.
-- **Helpdesk / E-mail**: canal opcional para envío de notificaciones y gestión de tickets.
+- **Power BI Data**: recibe datasets consolidados para análisis corporativo.
 
 Este diagrama permite visualizar de manera clara las responsabilidades de cada actor y sistema, y cómo CargaSafe se convierte en el núcleo que articula la comunicación entre usuarios, dispositivos IoT y servicios externos, garantizando la operación eficiente y segura de la cadena logística.
 
