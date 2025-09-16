@@ -304,14 +304,15 @@ En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus conten
 - **Landing Page (HTML/CSS):** sitio público simple que sirve como carta de presentación y redirige al frontend de la aplicación.
 - **Web Frontend (Angular):** interfaz principal que usan los operadores de la empresa y el personal de soporte para gestionar flota, viajes, parámetros y reportes. También aquí se generan los enlaces públicos que recibe el cliente final.
 - **Mobile App (Flutter):** aplicación móvil usada por los conductores. Desde aquí reciben instrucciones de viaje, reportan el estado del mismo y pueden registrar incidencias.
+- **Embedded Database (Mobile)**: almacenamiento local (SQLite/Isar) incorporado en la app móvil, que permite continuar operaciones sin conectividad y sincronizar eventos posteriormente.
 - **Backend API (Spring Boot):** Contiene la lógica de negocio, gestiona viajes, dispositivos, alertas, sesiones de monitoreo y también las suscripciones. Expone servicios REST que consumen el frontend y la app móvil.
-- **Notification Service (Worker):** servicio independiente que se encarga de enrutar las notificaciones hacia los canales externos (push, SMS o correo electrónico).
 - **Relational Database (PostgreSQL):** base de datos transaccional que almacena usuarios, vehículos, dispositivos, viajes, telemetría, alertas y suscripciones.
+- **Embedded Application:** aplicación ligera en dispositivos embebidos que captura datos en tiempo real y los bufferiza para su envío posterior.
+- **Edge Application:** agente desplegado en entornos de borde (vehículos o depósitos) que procesa datos localmente, maneja caché y asegura la sincronización con el Backend API incluso en condiciones de conectividad intermitente.
 
 **Sistemas externos**
-- **IoT Devices (sensors):** sensores instalados en los vehículos que envían telemetría de temperatura y ubicación.
-- **Logistics ERP:** sistema externo que exporta planes de viaje y asignaciones hacia CargaSafe.
-- **Google Maps / Distance Matrix:** servicio usado para geocodificación, cálculo de rutas y tiempos estimados de llegada (ETA).
+- **Logistics Planning:** exporta planes de pedidos, rutas y despachos hacia el Backend API.
+- **Google Maps:** provee ruteo, geocodificación y cálculo de ETA.
 - **Stripe:** plataforma para pagos y facturación de suscripciones.
 - **Notification Services (FCM, SMS, Email):** canales de entrega conectados desde nuestro Notification Service.
 - **Data Warehouse / BI:** destino de los datasets consolidados que se exportan para análisis corporativos.
@@ -321,7 +322,8 @@ En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus conten
 - El **Web Frontend** y la **Mobile App** consumen la **Backend API** mediante REST/JSON.
 - El **Backend API** persiste la información en la base de datos y encola los trabajos de notificación en el **Notification Service**.
 - El **Notification Service** se encarga de procesar estos trabajos y enviarlos a los servicios externos de notificación.
-- Desde el **Backend API** también se gestionan las integraciones con ERP, IoT, Google Maps, Stripe, Helpdesk y el Data Warehouse.
+- **Stripe:** procesa pagos y facturación de suscripciones.
+- **Power BI Data:** recibe datasets consolidados para el análisis corporativo.
 
 **Decisiones tecnológicas**
 - Se eligió **Angular** para el frontend web por su robustez y facilidad de mantenimiento.
