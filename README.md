@@ -246,62 +246,78 @@
 ### 2. Preguntas — **Segmento: Empresa (Gestores de transporte)**
 
 1. **Proceso actual de monitoreo**
+
    - ¿Cómo monitoreas actualmente la temperatura durante el transporte de tus productos?
 
 2. **Herramientas y tecnología**
+
    - ¿Qué dispositivos o sistemas utilizas para el control de cadena de frío y por qué los elegiste?
 
 3. **Gestión de viajes y rutas**
+
    - ¿Cómo planificas y registras los viajes de transporte? ¿Qué información consideras esencial?
 
 4. **Desafíos principales**
+
    - ¿Qué problemas enfrentas cuando se rompe la cadena de frío? ¿Cómo impacta en costos y tiempo?
 
 5. **Alertas y respuesta a incidentes**
+
    - ¿Cómo te enteras cuando hay un problema de temperatura? ¿Qué tan rápido puedes responder?
 
 6. **Reportes y documentación**
+
    - ¿Qué tipo de reportes necesitas generar para clientes o autoridades regulatorias?
 
 7. **Gestión de dispositivos IoT**
+
    - Cuéntame sobre tu experiencia gestionando el mantenimiento y configuración de sensores o dispositivos de monitoreo. ¿Qué desafíos has encontrado?
 
 8. **Características ideales**
+
    - Si pudieras diseñar la plataforma perfecta, ¿qué funciones serían imprescindibles para ti?
 
-9.  **Presupuesto y modelo de pago**
-    - ¿Cuál sería tu modelo de pago preferido para este tipo de servicios y qué factores influyen en esa decisión?
+9. **Presupuesto y modelo de pago**
+   - ¿Cuál sería tu modelo de pago preferido para este tipo de servicios y qué factores influyen en esa decisión?
 
 ---
 
 ### 3. Preguntas — **Segmento: Clientes Finales (Consumidores finales)**
 
 1. **Experiencia actual de recepción de productos**
+
    - Cuéntame cómo verificas actualmente que los productos que compras llegaron en condiciones óptimas de temperatura.
 
 2. **Confianza y transparencia en proveedores**
+
    - Describe tu nivel de confianza en los reportes de temperatura que te proporcionan tus proveedores. ¿Qué factores aumentarían o disminuirían esa confianza?
 
 3. **Información requerida sobre el transporte**
+
    - ¿Qué información consideras más valiosa tener sobre el transporte de tus productos y cómo te ayudaría en tus operaciones?
 
 4. **Experiencias con productos dañados**
+
    - Comparte alguna experiencia que hayas tenido rechazando productos por problemas de cadena de frío. ¿Cómo identificaste el problema y qué impacto tuvo?
 
 5. **Preferencias de acceso a información**
+
    - Describe cómo prefieres recibir y acceder a información sobre tus pedidos. ¿Qué métodos de comunicación funcionan mejor para tu flujo de trabajo?
 
 6. **Alertas y notificaciones proactivas**
+
    - Cuéntame qué tipo de notificaciones durante el transporte de tus productos serían más útiles para ti y en qué momentos las necesitarías.
 
 7. **Facilidad de uso y comprensión**
+
    - Describe la importancia que tiene para ti que la información técnica sea presentada de manera comprensible. ¿Qué características valoras en las interfaces que usas?
 
 8. **Características más valoradas**
+
    - ¿Qué funcionalidades consideras que agregarían más valor a tu proceso de recepción y validación de productos?
 
-9.  **Expectativas sobre tecnología IoT**
-    - ¿Qué beneficios esperas de un sistema de monitoreo IoT para tus compras de productos sensibles a temperatura y qué preocupaciones tienes al respecto?
+9. **Expectativas sobre tecnología IoT**
+   - ¿Qué beneficios esperas de un sistema de monitoreo IoT para tus compras de productos sensibles a temperatura y qué preocupaciones tienes al respecto?
 
 ### 2.2.2. Registro de entrevistas
 
@@ -317,15 +333,15 @@
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
-- **Edad**: [Edad] años  
-- **Ocupación**: [Cargo/Rol en la empresa]
-- **Empresa**: [Nombre de la empresa/Sector]
-- **Enlace**: [URL del video de la entrevista]
+- **Nombre**: Mario Hernandez
+- **Edad**: 22 años
+- **Ocupación**: Operador Logístico
+- **Empresa**: Urbano - Distribuidora Ecommerces
+- **Enlace**: [Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/Ea3nawSxes5HpXpXNXpmntkBArT4L5c45yFoHVFv6A-TYQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=IPrKED)
 
-  <img src="assets/entrevista_empresa_2.png">
+    <img src="assets/entrevista_empresa_2.png">
 
-  <br/>
+    <br/>
 
 - **Nombre**: [Nombre del entrevistado]
 - **Edad**: [Edad] años
@@ -445,8 +461,8 @@
 
 **Segmento: Empresa (Gestores de transporte)**
 
-| Tarea                                                   | Frecuencia | Importancia |
-| ------------------------------------------------------- | ---------- | ----------- |
+| Tarea                                                  | Frecuencia | Importancia |
+| ------------------------------------------------------ | ---------- | ----------- |
 | Configurar dispositivos IoT para nuevos vehículos      | Media      | Alta        |
 | Registrar nuevos viajes y establecer parámetros        | Alta       | Alta        |
 | Monitorear temperatura en tiempo real durante viajes   | Alta       | Alta        |
@@ -460,18 +476,18 @@
 
 **Segmento: Clientes Finales (Consumidores finales)**
 
-| Tarea                                                  | Frecuencia | Importancia |
-| ------------------------------------------------------ | ---------- | ----------- |
-| Verificar estado de pedidos en tránsito               | Alta       | Alta        |
-| Consultar certificados de cadena de frío              | Media      | Alta        |
-| Revisar reportes de cumplimiento de temperatura       | Media      | Alta        |
-| Rastrear ubicación y progreso de entrega              | Alta       | Media       |
-| Recibir alertas sobre problemas en el transporte      | Media      | Alta        |
-| Validar condiciones del producto al recibirlo         | Alta       | Alta        |
-| Descargar documentación oficial de cumplimiento       | Media      | Alta        |
-| Consultar historial de entregas anteriores            | Baja       | Media       |
-| Reportar productos rechazados por incumplimiento      | Baja       | Alta        |
-| Acceder a soporte para resolver incidencias           | Baja       | Media       |
+| Tarea                                            | Frecuencia | Importancia |
+| ------------------------------------------------ | ---------- | ----------- |
+| Verificar estado de pedidos en tránsito          | Alta       | Alta        |
+| Consultar certificados de cadena de frío         | Media      | Alta        |
+| Revisar reportes de cumplimiento de temperatura  | Media      | Alta        |
+| Rastrear ubicación y progreso de entrega         | Alta       | Media       |
+| Recibir alertas sobre problemas en el transporte | Media      | Alta        |
+| Validar condiciones del producto al recibirlo    | Alta       | Alta        |
+| Descargar documentación oficial de cumplimiento  | Media      | Alta        |
+| Consultar historial de entregas anteriores       | Baja       | Media       |
+| Reportar productos rechazados por incumplimiento | Baja       | Alta        |
+| Acceder a soporte para resolver incidencias      | Baja       | Media       |
 
 ### 2.3.3. User Journey Mapping
 
@@ -520,7 +536,6 @@ El proceso comenzó con una lluvia de ideas donde todos los participantes escrib
 **Descripción del Event Storming de CargoSafe:**
 
 El Event Storming resultante se enfoca exclusivamente en el core business del monitoreo de cadena de frío durante el transporte. Los eventos están organizados en un flujo cronológico que abarca desde la creación del viaje hasta la generación del reporte final de cumplimiento. Los 10 eventos de dominio identificados representan las actividades críticas que agregan valor al negocio y que deben ser soportadas por la plataforma tecnológica.
-
 
 ## 2.5. Ubiquitous Language
 
