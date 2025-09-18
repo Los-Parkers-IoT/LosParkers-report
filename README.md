@@ -925,38 +925,6 @@ Finalmente, el `SchedulerQuartzAdapter` administra procesos periódicos, como la
 
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-*Diagrama de contexto - Subscriptions and Billing*  
-
-![Component diagrams](assets/context_diagram_component.png)
-
-El *Company Admin* invoca la API para gestionar suscripciones y pagos, mientras que el sistema se integra con *Stripe API* para procesar transacciones financieras, publica eventos de negocio en *Kafka* para comunicarse con otros bounded contexts y utiliza *SMTP/SendGrid* para el envío de notificaciones transaccionales.  
-
-*Diagrama de contenedores - Subscriptions and Billing*  
-
-![Component diagrams](assets/container_diagram_component.png)
-
-Se identifican cuatro componentes centrales:
-
-- **Subscriptions API:**  
-  Gestiona los comandos de negocio (alta, cambio y cancelación de suscripciones, así como pagos manuales).
-
-- **Stripe Webhook Endpoint:**  
-  Responsable de procesar eventos de pago notificados por Stripe.
-
-- **Billing & Renewal Worker:**  
-  Ejecuta tareas programadas de renovación, reintentos y bloqueos.
-
-- **Query API:**  
-  Expone consultas sobre estados de suscripción, pagos e invoices.
-
-Estos contenedores se apoyan en una base de datos **PostgreSQL** para persistir información de suscripciones, pagos, invoices y el transactional outbox.
-
-Asimismo, el contexto se integra con sistemas externos:
-
-- **Stripe API:** para operaciones de cobro y reembolsos.
-- **Kafka:** como bus de eventos de dominio.
-- **SMTP/SendGrid:** para el envío de notificaciones transaccionales.
-
 *Diagrama de componentes - Billing y Reneval Worker - Subscriptions and Billing*  
 
 ![Component diagrams](assets/component_diagram_1.png)
