@@ -78,8 +78,8 @@ Entre sus principales productos destaca CargaSafe, una solución integral que pe
 
 **Misión:** La misión de Los Parkers es diseñar y desarrollar herramientas digitales innovadoras, accesibles y personalizadas que contribuyan a mejorar la eficiencia, la transparencia y la seguridad en el transporte de mercancías
 
-
 ### 1.1.2. Perfiles de integrantes del equipo
+
 <table width="100%">
   <tr>
     <td rowspan="4" align="center" width="25%">
@@ -280,36 +280,36 @@ Entre sus principales productos destaca CargaSafe, una solución integral que pe
 ### 1.2.1. Antecedentes y problemática
 
 ### What (¿Qué?)
+
 El transporte de mercancías sensibles a la temperatura y las condiciones ambientales sigue siendo un desafío logístico global. Una falla en la cadena de frío o la falta de visibilidad en el recorrido de una carga puede resultar en un deterioro significativo del producto. Según estudios recientes, la industria de alimentos y bebidas en Estados Unidos reportó pérdidas de más de $6 millones de dólares anuales por empresa en 2022, principalmente debido a daños, pérdidas y retrasos en el transporte (Flock Freight, 2023). En el sector farmacéutico, se proyecta que el mercado de logística de cadena de frío para productos como vacunas y biológicos crecerá en $12.81 mil millones de dólares entre 2024 y 2028, lo que subraya la criticidad de mantener la integridad de estos productos durante su tránsito (Technavio, 2024).
 
 ### Who (¿Quién?)
+
 Este problema impacta a dos actores clave:
 
 1. Empresas transportistas y de logística: Enfrentan el riesgo financiero de pérdidas de carga, reclamos de clientes y el daño a su reputación por entregas fallidas.
 
 2. El cliente final: Se ve afectado al recibir productos en mal estado, caducados o, en el caso de medicamentos, que han perdido su efectividad, lo cual representa un riesgo para la salud y la seguridad.
 
-
 ### Where (¿Dónde?)
+
 La problemática se manifiesta a lo largo de toda la cadena de suministro, desde el almacén de origen hasta la entrega final. Es particularmente crítica en los tramos de larga distancia (transporte terrestre, aéreo y marítimo) y en los "puntos de transferencia" entre diferentes vehículos o almacenes, donde la supervisión manual es más difícil. La adopción de tecnologías de monitoreo es una tendencia global que se acelera en mercados con infraestructura logística desarrollada y una creciente demanda de comercio electrónico.
 
-
 ### When (¿Cuándo?)
+
 La necesidad de visibilidad en tiempo real se ha intensificado desde la pandemia de COVID-19, la cual puso de manifiesto la vulnerabilidad de las cadenas de suministro. El aumento del transporte de productos médicos y la expectativa de los consumidores por entregas rápidas y transparentes han impulsado la demanda de soluciones tecnológicas. Hoy en día, la mayoría de los clientes esperan poder rastrear sus pedidos en tiempo real, lo que convierte la visibilidad de la carga en un estándar de mercado, no solo una ventaja competitiva (Perfect Planner, 2025).
 
-
 ### Why (¿Por qué?)
+
 La principal causa de esta problemática es la falta de información oportuna. Las empresas no tienen acceso a datos críticos sobre la temperatura, ubicación o condiciones de su carga en el momento en que ocurren las desviaciones. Esto impide la toma de acciones correctivas inmediatas, como ajustar el termostato de un camión, cambiar una ruta o notificar al cliente sobre un posible retraso. Sin esta visibilidad, los problemas solo se descubren al final del trayecto, cuando ya es demasiado tarde para evitar la pérdida del producto.
 
-
 ### How (¿Cómo?)
+
 Actualmente, el monitoreo se realiza con métodos ineficientes o no integrados. Muchas empresas aún dependen de registradores de datos manuales que requieren ser revisados al final del viaje o utilizan múltiples sistemas (GPS para ubicación, sensores para temperatura) que no se comunican entre sí. Esta fragmentación reduce la eficiencia operativa y aumenta el riesgo de errores humanos. La falta de una plataforma integral que centralice toda la información limita la capacidad de las empresas para optimizar sus rutas, gestionar riesgos y, en última instancia, ofrecer un servicio de alta calidad (Bogdanov, 2024).
 
-
 ### How much (¿Cuánto?)
+
 El impacto de la falta de un monitoreo efectivo es funcional, operativo y estratégico. Las empresas pierden tiempo y recursos reubicando información o lidiando con problemas logísticos que podrían haberse evitado. Operativamente, esta deficiencia se traduce en mayores costos de seguro y en gastos asociados al desperdicio de productos. Desde una perspectiva de negocio, esta brecha representa una oportunidad clara para monetizar al ofrecer una solución de valor que mejore la fidelización del cliente y construya una reputación de confiabilidad, lo que constituye una ventaja competitiva en el mercado.
-
-
 
 ### 1.2.2. Lean UX Process
 
@@ -328,7 +328,6 @@ Hemos notado que las empresas que contratan servicios de transporte refrigerado 
 Hemos notado que las plataformas que usan las empresas para el monitoreo de cargas no están diseñadas para la simplicidad, tienen un diseño poco atractivo y cuentan con interfaces poco intuitivas o limitan las acciones que se pueden realizar dentro de la misma para algunos usuarios.
 
 ¿Cómo podemos diseñar una solución que sea intuitiva y fácil de usar, sin importar el nivel de conocimiento tecnológico del usuario?
-
 
 #### 1.2.2.2. Lean UX Assumptions
 
@@ -368,25 +367,23 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 5. Creemos que la integración con dispositivos IoT existentes ampliará nuestro mercado potencial.
 
-
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
 #### Hypothesis 1:
 
-<b> Creemos que </b> implementar un sistema de alertas en tiempo real por incumplimiento de parámetros de temperatura <b> para <b/> empresas de transporte  <b> resultará en <b/> una reducción del 30% en pérdidas de productos y un aumento del 25% en la satisfacción del cliente. *Sabremos que esto es cierto cuando* veamos una reducción mensurable en reportes de incidentes y recibamos feedback positivo de al menos el 80% de los usuarios.
+<b> Creemos que </b> implementar un sistema de alertas en tiempo real por incumplimiento de parámetros de temperatura <b> para <b/> empresas de transporte <b> resultará en <b/> una reducción del 30% en pérdidas de productos y un aumento del 25% en la satisfacción del cliente. _Sabremos que esto es cierto cuando_ veamos una reducción mensurable en reportes de incidentes y recibamos feedback positivo de al menos el 80% de los usuarios.
 
 #### Hypothesis 2:
 
-<b> Creemos que </b> ofrecer dashboards intuitivos con visualización de estado de flota <b> para <b/> gerentes de operaciones <b> resultará en <b/> una mejora del 40% en la eficiencia operativa y tiempo de respuesta ante incidentes. *Sabremos que esto es cierto cuando* observemos una reducción en el tiempo promedio de respuesta a alertas de más de 4 horas a menos de 30 minutos.
+<b> Creemos que </b> ofrecer dashboards intuitivos con visualización de estado de flota <b> para <b/> gerentes de operaciones <b> resultará en <b/> una mejora del 40% en la eficiencia operativa y tiempo de respuesta ante incidentes. _Sabremos que esto es cierto cuando_ observemos una reducción en el tiempo promedio de respuesta a alertas de más de 4 horas a menos de 30 minutos.
 
 #### Hypothesis 3:
 
-<b> Creemos que </b> implementar un modelo de suscripción flexible con diferentes niveles de servicio <b> para <b/> PYMEs de transporte  <b> resultará en </b> una adopción del 15% del mercado objetivo en el primer año. *Sabremos que esto es cierto cuando* alcancemos 150 empresas suscritas activamente usando la plataforma.
+<b> Creemos que </b> implementar un modelo de suscripción flexible con diferentes niveles de servicio <b> para <b/> PYMEs de transporte <b> resultará en </b> una adopción del 15% del mercado objetivo en el primer año. _Sabremos que esto es cierto cuando_ alcancemos 150 empresas suscritas activamente usando la plataforma.
 
 #### Hypothesis 4:
 
-<b> Creemos que </b> proporcionar reportes automatizados y trazabilidad completa <b> para </b> clientes finales de servicios de transporte <b> resultará en </b> un aumento del 20% en la retención de clientes de nuestros usuarios. *Sabremos que esto es cierto cuando* nuestros usuarios reporten una reducción en cancelaciones de contratos y solicitudes de nuevos servicios.
-
+<b> Creemos que </b> proporcionar reportes automatizados y trazabilidad completa <b> para </b> clientes finales de servicios de transporte <b> resultará en </b> un aumento del 20% en la retención de clientes de nuestros usuarios. _Sabremos que esto es cierto cuando_ nuestros usuarios reporten una reducción en cancelaciones de contratos y solicitudes de nuevos servicios.
 
 #### 1.2.2.4. Lean UX Canvas
 
@@ -464,31 +461,27 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
   </tr>
 </table>
 
-
 ## 1.3. Segmentos objetivo
 
-### 1.3.1 Segmento 1: Empresas Clientes  
-     
-Estas empresas, dedicadas a la logística, distribución o producción de bienes sensibles, necesitan un control exhaustivo sobre sus cargas para asegurar la calidad y evitar pérdidas económicas. Su objetivo es tener una visibilidad completa en tiempo real de sus productos, centralizando toda la información en una sola plataforma para optimizar sus operaciones, cumplir con las normativas y generar confianza en sus propios clientes.
- 
-     
-   **Caracteristícas:**  
-   - **Rol:** Gerentes o responsables de logística, calidad o distribución.
-   - **Ubicación:** Empresas ubicadas en zonas con alta actividad logística y acceso a tecnologías de digitalización.
-   - **Sector de la industria:** Alimentos perecederos, farmacéuticos, químicos, flores y otros productos que requieren condiciones especiales de conservación.
+### 1.3.1 Segmento 1: Empresas Clientes
 
-   
+Estas empresas, dedicadas a la logística, distribución o producción de bienes sensibles, necesitan un control exhaustivo sobre sus cargas para asegurar la calidad y evitar pérdidas económicas. Su objetivo es tener una visibilidad completa en tiempo real de sus productos, centralizando toda la información en una sola plataforma para optimizar sus operaciones, cumplir con las normativas y generar confianza en sus propios clientes.
+
+**Caracteristícas:**
+
+- **Rol:** Gerentes o responsables de logística, calidad o distribución.
+- **Ubicación:** Empresas ubicadas en zonas con alta actividad logística y acceso a tecnologías de digitalización.
+- **Sector de la industria:** Alimentos perecederos, farmacéuticos, químicos, flores y otros productos que requieren condiciones especiales de conservación.
 
 ### 1.3.2 Segmento 2: Clientes Finales
-        
+
 Los clientes finales son los consumidores de los productos transportados por las empresas. Su necesidad principal es la transparencia y la seguridad, ya que buscan la tranquilidad de saber que el producto que adquieren ha sido manejado bajo los estándares de calidad correctos. Valoran la capacidad de verificar el estado de su pedido, desde el origen hasta la entrega, a través de una plataforma sencilla y confiable.
 
-        
-  **Características:**  
-  - **Edad:** Mayor a 18 años  
-  - **Ubicación:** Lima, Peru  
-  - **Nivel Socioeconomico:** Medio a alto
+**Características:**
 
+- **Edad:** Mayor a 18 años
+- **Ubicación:** Lima, Peru
+- **Nivel Socioeconomico:** Medio a alto
 
 # Capítulo II: Requirements Elicitation & Analysis
 
@@ -1035,7 +1028,7 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 | User Story      | US016 | Sección de testimonios                      | Como visitante, quiero ver testimonios de otros clientes, para ganar confianza en el servicio.                                                                          | Scenario: Visualizar testimonios<br>Given un visitante accede a la Landing Page<br>When navega a la sección de testimonios<br>Then se muestran al menos dos opiniones de clientes con sus nombres o cargos                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | E1                        |
 | User Story      | US017 | Sección de contáctanos                      | Como visitante, quiero acceder a un formulario de contacto, para comunicarme con la empresa y solicitar más información.                                                | Scenario: Enviar mensaje de contacto válido<br>Given un visitante completa el formulario con nombre, correo y mensaje válidos<br>When envía la información<br>Then el sistema confirma el envío exitoso<br><br>Scenario: Enviar mensaje con datos inválidos<br>Given un visitante omite el correo electrónico<br>When intenta enviar el formulario<br>Then el sistema rechaza el envío y muestra un error de validación                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | E1                        |
 | Epic            | E2    | Autenticación                               | Módulo de registro e inicio de sesión seguro para usuarios.                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                           |
-| User Story      | US018 | Registro de usuario                         | **Como** usuario registrado, **quiero** registrarme en la plataforma, **para** acceder a mi cuenta y funcionalidades personalizadas.                                 | Scenario: Registro de cuenta válida<br>Given un usuario se registra<br>When ingresa sus credenciales en el registro<br>Then el sistema autentica y permite acceso<br><br>Scenario: Registro de cuenta inválido<br>Given un usuario se registra<br>When ingresa credenciales en el registro incorrectas<br>Then el sistema rechaza la autenticación y muestra error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | E2                        |
+| User Story      | US018 | Registro de usuario                         | **Como** usuario registrado, **quiero** registrarme en la plataforma, **para** acceder a mi cuenta y funcionalidades personalizadas.                                    | Scenario: Registro de cuenta válida<br>Given un usuario se registra<br>When ingresa sus credenciales en el registro<br>Then el sistema autentica y permite acceso<br><br>Scenario: Registro de cuenta inválido<br>Given un usuario se registra<br>When ingresa credenciales en el registro incorrectas<br>Then el sistema rechaza la autenticación y muestra error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | E2                        |
 | Technical Story | TS001 | API de registro                             | **Como** developer, **quiero** implementar autenticación basada en JWT, **para** asegurar la comunicación entre cliente y servidor.                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | E2                        |
 | User Story      | US007 | Inicio de sesión                            | **Como** usuario registrado, **quiero** iniciar sesión en la plataforma, **para** acceder a mi cuenta y funcionalidades personalizadas.                                 | Scenario: Inicio de sesión válido<br>Given un usuario registrado<br>When ingresa credenciales correctas<br>Then el sistema autentica y permite acceso<br><br>Scenario: Inicio de sesión inválido<br>Given un usuario registrado<br>When ingresa credenciales incorrectas<br>Then el sistema rechaza la autenticación y muestra error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | E2                        |
 | Technical Story | TS002 | Servicio de autenticación con JWT           | **Como** developer, **quiero** implementar autenticación basada en JWT, **para** asegurar la comunicación entre cliente y servidor.                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | E2                        |
@@ -1077,48 +1070,48 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 
 ## 3.3. Product Backlog
 
-| # Orden | User Story ID | Título | Descripción | Story Points |
-|---------|---------------|--------|-------------|--------------|
-| 1 | US013 | Sección portada | Como visitante, quiero ver una portada con mensaje principal, para entender rápidamente el propósito de la plataforma. | 3 |
-| 2 | US014 | Sección de funcionalidades | Como visitante, quiero visualizar una sección con las funcionalidades principales, para conocer qué ofrece la plataforma. | 3 |
-| 3 | US015 | Sección de beneficios | Como visitante, quiero ver una sección con beneficios, para entender qué valor obtengo al usar la plataforma. | 2 |
-| 4 | US016 | Sección de testimonios | Como visitante, quiero ver testimonios de otros clientes, para ganar confianza en el servicio. | 2 |
-| 5 | US017 | Sección de contáctanos | Como visitante, quiero acceder a un formulario de contacto, para comunicarme con la empresa y solicitar más información. | 3 |
-| 6 | US018 | Registro de usuario | Como usuario, quiero registrarme en la plataforma, para acceder a mi cuenta y funcionalidades personalizadas. | 3 |
-| 7 | TS001 | API de registro | Como developer, quiero implementar autenticación basada en JWT, para asegurar la comunicación entre cliente y servidor. | 8 |
-| 8 | US007 | Inicio de sesión | Como usuario registrado, quiero iniciar sesión en la plataforma, para acceder a mi cuenta y funcionalidades personalizadas. | 3 |
-| 9 | TS002 | Servicio de autenticación con JWT | Como developer, quiero implementar autenticación basada en JWT, para asegurar la comunicación entre cliente y servidor. | 8 |
-| 10 | US001 | Actualización de temperatura en tiempo real | Como empresa, quiero recibir la temperatura en tiempo real de mis dispositivos IoT, para supervisar la cadena de frío de los viajes. | 8 |
-| 11 | US002 | Alertas por incumplimiento de temperatura | Como cliente final, quiero recibir alertas cuando la temperatura sobrepasa los límites definidos, para tomar acciones correctivas. | 5 |
-| 12 | US019 | Alertas de conexión IoT | Como empresa, quiero recibir alertas cuando un dispositivo IoT deja de enviar datos, para actuar de inmediato. | 5 |
-| 13 | US020 | Roles y permisos de acceso | Como empresa, quiero que el sistema gestione roles y permisos de usuarios (admin, cliente, operador), para controlar accesos. | 8 |
-| 14 | US003 | Lista de viajes registrados | Como empresa, quiero ver una lista de todos los viajes registrados para gestionarlos de forma rápida. | 3 |
-| 15 | US004 | Detalle de viaje | Como cliente final, quiero consultar el detalle de un viaje, para verificar información específica como ruta, estado y temperatura. | 3 |
-| 16 | US005 | Gráficos de tiempo y temperatura | Como cliente final, quiero ver gráficos de evolución de la temperatura durante el viaje, para verificar el cumplimiento de parámetros. | 5 |
-| 17 | US006 | Gráficos de incidencias por mes | Como empresa, quiero ver un gráfico mensual de incidencias para identificar patrones de fallos. | 5 |
-| 18 | US007 | Filtrado de viajes por fecha | Como empresa, quiero filtrar la lista de viajes por rango de fechas, para analizar un periodo específico. | 3 |
-| 19 | US008 | Descarga de reporte de viajes | Como cliente final, quiero descargar un reporte en PDF de un viaje con su información y gráficos, para archivarlo o compartirlo. | 5 |
-| 20 | US009 | Cancelar suscripción | Como cliente final, quiero cancelar mi suscripción, para detener los cobros futuros. | 2 |
-| 21 | US010 | Visualizar información de suscripción | Como cliente final, quiero ver mi estado de suscripción y fecha de expiración, para gestionar mi acceso al servicio. | 2 |
-| 22 | US011 | Historial de pagos | Como empresa, quiero que los clientes consulten su historial de pagos, para brindar transparencia. | 3 |
-| 23 | US012 | Notificación de renovación próxima | Como cliente final, quiero recibir una notificación antes de que mi suscripción se renueve, para decidir si continúo o cancelo. | 3 |
-| 24 | US023 | Registro de vehículos | Como administrador logístico, quiero registrar vehículos en la plataforma, para mantener un inventario actualizado de la flota. | 5 |
-| 25 | US024 | Actualización de datos de vehículos | Como administrador logístico, quiero editar la información de los vehículos, para mantener actualizado su estado operativo. | 3 |
-| 26 | US025 | Eliminación de vehículos | Como administrador logístico, quiero eliminar vehículos de la plataforma, para mantener un inventario actualizado y evitar registros obsoletos. | 3 |
-| 27 | TS003 | API de vehículos | Como developer, quiero exponer un endpoint para registrar, modificar y consultar vehículos, para que el backend gestione el inventario de la flota. | 8 |
-| 28 | US026 | Creación de viajes | Como administrador logístico, quiero crear viajes asignando vehículo y ruta, para planificar el transporte de mercancías. | 5 |
-| 29 | US027 | Actualización de estados de viaje | Como administrador logístico, quiero actualizar el estado de un viaje, para mantener informados a gerentes y clientes sobre el progreso de la entrega. | 5 |
-| 30 | TS004 | API de viajes | Como developer, quiero exponer un endpoint RESTful para registrar viajes, para que la aplicación guarde y gestione la información. | 8 |
-| 31 | US028 | Visualización de viajes | Como cliente final, quiero visualizar el estado de mis pedidos en tiempo real, para tener transparencia en la entrega. | 5 |
-| 32 | TS005 | API de tracking de viajes | Como developer, quiero exponer un endpoint que devuelva el estado actual de un viaje, para que los clientes puedan consultar el seguimiento en tiempo real. | 8 |
-| 33 | US029 | Reprogramación de viajes | Como administrador logístico, quiero reprogramar un viaje ya creado, para ajustar fechas y horarios en caso de cambios operativos. | 5 |
-| 34 | US030 | Código de viaje para cliente | Como cliente final, quiero recibir un código único de viaje, para poder consultar fácilmente el estado de mi pedido. | 5 |
-| 35 | US031 | Formulario de soporte y reclamos | Como cliente final, quiero acceder a un formulario de soporte y reclamos, para comunicar incidencias o problemas con mis viajes. | 3 |
-| 36 | US032 | Recepción de reclamos por viajes | Como administrador logístico, quiero recibir los reclamos enviados por los clientes, para analizarlos y dar respuesta oportuna. | 3 |
+| # Orden | User Story ID | Título                                      | Descripción                                                                                                                                                 | Story Points |
+| ------- | ------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| 1       | US013         | Sección portada                             | Como visitante, quiero ver una portada con mensaje principal, para entender rápidamente el propósito de la plataforma.                                      | 3            |
+| 2       | US014         | Sección de funcionalidades                  | Como visitante, quiero visualizar una sección con las funcionalidades principales, para conocer qué ofrece la plataforma.                                   | 3            |
+| 3       | US015         | Sección de beneficios                       | Como visitante, quiero ver una sección con beneficios, para entender qué valor obtengo al usar la plataforma.                                               | 2            |
+| 4       | US016         | Sección de testimonios                      | Como visitante, quiero ver testimonios de otros clientes, para ganar confianza en el servicio.                                                              | 2            |
+| 5       | US017         | Sección de contáctanos                      | Como visitante, quiero acceder a un formulario de contacto, para comunicarme con la empresa y solicitar más información.                                    | 3            |
+| 6       | US018         | Registro de usuario                         | Como usuario, quiero registrarme en la plataforma, para acceder a mi cuenta y funcionalidades personalizadas.                                               | 3            |
+| 7       | TS001         | API de registro                             | Como developer, quiero implementar autenticación basada en JWT, para asegurar la comunicación entre cliente y servidor.                                     | 8            |
+| 8       | US007         | Inicio de sesión                            | Como usuario registrado, quiero iniciar sesión en la plataforma, para acceder a mi cuenta y funcionalidades personalizadas.                                 | 3            |
+| 9       | TS002         | Servicio de autenticación con JWT           | Como developer, quiero implementar autenticación basada en JWT, para asegurar la comunicación entre cliente y servidor.                                     | 8            |
+| 10      | US001         | Actualización de temperatura en tiempo real | Como empresa, quiero recibir la temperatura en tiempo real de mis dispositivos IoT, para supervisar la cadena de frío de los viajes.                        | 8            |
+| 11      | US002         | Alertas por incumplimiento de temperatura   | Como cliente final, quiero recibir alertas cuando la temperatura sobrepasa los límites definidos, para tomar acciones correctivas.                          | 5            |
+| 12      | US019         | Alertas de conexión IoT                     | Como empresa, quiero recibir alertas cuando un dispositivo IoT deja de enviar datos, para actuar de inmediato.                                              | 5            |
+| 13      | US020         | Roles y permisos de acceso                  | Como empresa, quiero que el sistema gestione roles y permisos de usuarios (admin, cliente, operador), para controlar accesos.                               | 8            |
+| 14      | US003         | Lista de viajes registrados                 | Como empresa, quiero ver una lista de todos los viajes registrados para gestionarlos de forma rápida.                                                       | 3            |
+| 15      | US004         | Detalle de viaje                            | Como cliente final, quiero consultar el detalle de un viaje, para verificar información específica como ruta, estado y temperatura.                         | 3            |
+| 16      | US005         | Gráficos de tiempo y temperatura            | Como cliente final, quiero ver gráficos de evolución de la temperatura durante el viaje, para verificar el cumplimiento de parámetros.                      | 5            |
+| 17      | US006         | Gráficos de incidencias por mes             | Como empresa, quiero ver un gráfico mensual de incidencias para identificar patrones de fallos.                                                             | 5            |
+| 18      | US007         | Filtrado de viajes por fecha                | Como empresa, quiero filtrar la lista de viajes por rango de fechas, para analizar un periodo específico.                                                   | 3            |
+| 19      | US008         | Descarga de reporte de viajes               | Como cliente final, quiero descargar un reporte en PDF de un viaje con su información y gráficos, para archivarlo o compartirlo.                            | 5            |
+| 20      | US009         | Cancelar suscripción                        | Como cliente final, quiero cancelar mi suscripción, para detener los cobros futuros.                                                                        | 2            |
+| 21      | US010         | Visualizar información de suscripción       | Como cliente final, quiero ver mi estado de suscripción y fecha de expiración, para gestionar mi acceso al servicio.                                        | 2            |
+| 22      | US011         | Historial de pagos                          | Como empresa, quiero que los clientes consulten su historial de pagos, para brindar transparencia.                                                          | 3            |
+| 23      | US012         | Notificación de renovación próxima          | Como cliente final, quiero recibir una notificación antes de que mi suscripción se renueve, para decidir si continúo o cancelo.                             | 3            |
+| 24      | US023         | Registro de vehículos                       | Como administrador logístico, quiero registrar vehículos en la plataforma, para mantener un inventario actualizado de la flota.                             | 5            |
+| 25      | US024         | Actualización de datos de vehículos         | Como administrador logístico, quiero editar la información de los vehículos, para mantener actualizado su estado operativo.                                 | 3            |
+| 26      | US025         | Eliminación de vehículos                    | Como administrador logístico, quiero eliminar vehículos de la plataforma, para mantener un inventario actualizado y evitar registros obsoletos.             | 3            |
+| 27      | TS003         | API de vehículos                            | Como developer, quiero exponer un endpoint para registrar, modificar y consultar vehículos, para que el backend gestione el inventario de la flota.         | 8            |
+| 28      | US026         | Creación de viajes                          | Como administrador logístico, quiero crear viajes asignando vehículo y ruta, para planificar el transporte de mercancías.                                   | 5            |
+| 29      | US027         | Actualización de estados de viaje           | Como administrador logístico, quiero actualizar el estado de un viaje, para mantener informados a gerentes y clientes sobre el progreso de la entrega.      | 5            |
+| 30      | TS004         | API de viajes                               | Como developer, quiero exponer un endpoint RESTful para registrar viajes, para que la aplicación guarde y gestione la información.                          | 8            |
+| 31      | US028         | Visualización de viajes                     | Como cliente final, quiero visualizar el estado de mis pedidos en tiempo real, para tener transparencia en la entrega.                                      | 5            |
+| 32      | TS005         | API de tracking de viajes                   | Como developer, quiero exponer un endpoint que devuelva el estado actual de un viaje, para que los clientes puedan consultar el seguimiento en tiempo real. | 8            |
+| 33      | US029         | Reprogramación de viajes                    | Como administrador logístico, quiero reprogramar un viaje ya creado, para ajustar fechas y horarios en caso de cambios operativos.                          | 5            |
+| 34      | US030         | Código de viaje para cliente                | Como cliente final, quiero recibir un código único de viaje, para poder consultar fácilmente el estado de mi pedido.                                        | 5            |
+| 35      | US031         | Formulario de soporte y reclamos            | Como cliente final, quiero acceder a un formulario de soporte y reclamos, para comunicar incidencias o problemas con mis viajes.                            | 3            |
+| 36      | US032         | Recepción de reclamos por viajes            | Como administrador logístico, quiero recibir los reclamos enviados por los clientes, para analizarlos y dar respuesta oportuna.                             | 3            |
 
 <img src="assets/Trello.png">
 
-**Link del Trello:** https://trello.com/invite/b/68c988fa65c37d7ded09248f/ATTId7fe8515afa46ad0ba2a3eb460ca5c06BCFF0CFB/losparkersiot-productbacklog  
+**Link del Trello:** https://trello.com/invite/b/68c988fa65c37d7ded09248f/ATTId7fe8515afa46ad0ba2a3eb460ca5c06BCFF0CFB/losparkersiot-productbacklog
 
 # Capítulo IV: Solution Software Design
 
@@ -1212,7 +1205,6 @@ En esta sección se elaboraron los Bounded Context Canvases de CargaSafe para lo
 
 ![EventStorming – Bounded Context Canvases](assets/Canvases_iam.png)
 
-
 ![EventStorming – Bounded Context Canvases](assets/Canvases_profiles.png)
 
 ![EventStorming – Bounded Context Canvases](assets/Canvases_subscriptions.png)
@@ -1227,26 +1219,24 @@ En esta sección se elaboraron los Bounded Context Canvases de CargaSafe para lo
 
 ![EventStorming – Bounded Context Canvases](assets/Canvases_analytics.png)
 
-
-
-
 [Ver gráfico en Miro](https://miro.com/app/board/uXjVJJ2PHqk=/?share_link_id=762570504671)
 
 ### 4.1.2. Context Mapping
 
-En esta etapa se construyó el **Context Map** de CargaSafe con los ocho bounded contexts identificados. El objetivo fue representar las **relaciones estructurales** entre ellos aplicando patrones de Domain-Driven Design como Customer/Supplier, Conformist y Anti-Corruption Layer (ACL).  
+En esta etapa se construyó el **Context Map** de CargaSafe con los ocho bounded contexts identificados. El objetivo fue representar las **relaciones estructurales** entre ellos aplicando patrones de Domain-Driven Design como Customer/Supplier, Conformist y Anti-Corruption Layer (ACL).
 
 ### Resultado
+
 El mapa final permitió:
-1. **Visualizar las dependencias entre contextos**, mostrando qué módulos proveen información y cuáles la consumen.  
-2. **Identificar los contextos core** (Trip Management, Monitoring, Alerts), los de soporte (Fleet, Profiles, Analytics) y los genéricos (IAM, Billing).  
-3. **Clasificar las relaciones**:  
-   - Customer/Supplier en la mayoría de flujos operativos (Billing → IAM, Trip → Monitoring, Monitoring → Alerts).  
-   - Conformist en el consumo de datos por Analytics.  
-   - Anti-Corruption Layer en la interacción Analytics → Profiles.  
+
+1. **Visualizar las dependencias entre contextos**, mostrando qué módulos proveen información y cuáles la consumen.
+2. **Identificar los contextos core** (Trip Management, Monitoring, Alerts), los de soporte (Fleet, Profiles, Analytics) y los genéricos (IAM, Billing).
+3. **Clasificar las relaciones**:
+   - Customer/Supplier en la mayoría de flujos operativos (Billing → IAM, Trip → Monitoring, Monitoring → Alerts).
+   - Conformist en el consumo de datos por Analytics.
+   - Anti-Corruption Layer en la interacción Analytics → Profiles.
 
 De esta manera, el Context Mapping consolida una visión global del sistema, mostrando cómo los distintos contextos colaboran para dar soporte al negocio.
-
 
 ![EventStorming – Context Mapping](assets/Context_Mapping.png)
 
@@ -1257,24 +1247,28 @@ De esta manera, el Context Mapping consolida una visión global del sistema, mos
 El **System Landscape Diagram** ofrece una visión de alto nivel del **ecosistema empresarial** en el que se integra CargaSafe. Este diagrama no se centra únicamente en un sistema, sino que representa **todas las personas y sistemas de software relevantes**, tanto internos como externos, que participan en la operación logística.
 
 ### Propósito
+
 El objetivo de este diagrama es:
-1. Mostrar el alcance de la organización y cómo conviven sus distintos sistemas.  
-2. Identificar a las **personas, sistemas internos, SaaS externos y proveedores** que colaboran en la cadena de valor.  
+
+1. Mostrar el alcance de la organización y cómo conviven sus distintos sistemas.
+2. Identificar a las **personas, sistemas internos, SaaS externos y proveedores** que colaboran en la cadena de valor.
 3. Resaltar cómo **CargaSafe (SaaS)** se conecta dentro de este panorama, en interacción con otros actores y servicios.
 
 ![Software Architecture – System Landscape Diagram](assets/System_Landscape_Diagram.png)
 
 ### Elementos incluidos
-- **Personas**: Company Operator, Driver and End Customer.  
-- **Sistemas internos**: Logistics Planning and Power BI Data.  
-- **Sistemas y proveedores externos**: CargaSafe (SaaS), Stripe, Google Maps, Notification Services e IoT Devices (sensors).  
-- **Grupos**: Se organizaron en cuatro dominios principales:  
+
+- **Personas**: Company Operator, Driver and End Customer.
+- **Sistemas internos**: Logistics Planning and Power BI Data.
+- **Sistemas y proveedores externos**: CargaSafe (SaaS), Stripe, Google Maps, Notification Services e IoT Devices (sensors).
+- **Grupos**: Se organizaron en cuatro dominios principales:
   - Logistics company
   - Field / Devices
   - Customers and Regulators
   - SaaS and Vendors
 
 ### Relaciones principales
+
 - Logistics Planning → CargaSafe (SaaS): exporta planes y asignaciones de viaje.
 - IoT Devices → CargaSafe (SaaS): envía telemetría (temperatura, humedad, vibración, volcado/inclinación, GPS, energía/baterías).
 - CargaSafe (SaaS) → Google Maps: consulta rutas y tiempos estimados.
@@ -1282,19 +1276,19 @@ El objetivo de este diagrama es:
 - CargaSafe (SaaS) → Stripe: procesa pagos de suscripción.
 - CargaSafe (SaaS) → Power BI Data: exporta datasets consolidados para analítica.
 - Company Operator / Driver ↔ CargaSafe (SaaS): planifican, ejecutan y reportan el estado operativo.
-- End customer ← CargaSafe (SaaS): consulta estado y recibe reportes. 
+- End customer ← CargaSafe (SaaS): consulta estado y recibe reportes.
 
 ### Resultado
-El diagrama muestra a CargaSafe (SaaS) como el núcleo de integración entre operaciones (Company Operator, Driver, Logistics Planning), telemetría IoT (sensores en campo) y servicios externos (ruteo, notificaciones y pagos), además de su aporte a la inteligencia de negocio mediante Power BI Data. Esta representación proporciona una visión clara e integral de las dependencias y colaboraciones que sustentan la operación logística y la gestión de la cadena de frío.
 
+El diagrama muestra a CargaSafe (SaaS) como el núcleo de integración entre operaciones (Company Operator, Driver, Logistics Planning), telemetría IoT (sensores en campo) y servicios externos (ruteo, notificaciones y pagos), además de su aporte a la inteligencia de negocio mediante Power BI Data. Esta representación proporciona una visión clara e integral de las dependencias y colaboraciones que sustentan la operación logística y la gestión de la cadena de frío.
 
 #### 4.1.3.2. Software Architecture Context Level Diagrams
 
-El **Context Diagram** de CargaSafe muestra una visión de alto nivel del sistema y de cómo se relaciona con los actores humanos y los sistemas externos que lo rodean. 
+El **Context Diagram** de CargaSafe muestra una visión de alto nivel del sistema y de cómo se relaciona con los actores humanos y los sistemas externos que lo rodean.
 
 ![Software Architecture – Context Level Diagram](assets/Context_Level_Diagram.png)
 
-En el centro se ubica **CargaSafe (SaaS)**, que representa el sistema principal encargado del monitoreo de la cadena de frío, la trazabilidad y la generación de alertas en los viajes logísticos. 
+En el centro se ubica **CargaSafe (SaaS)**, que representa el sistema principal encargado del monitoreo de la cadena de frío, la trazabilidad y la generación de alertas en los viajes logísticos.
 
 Alrededor del sistema se identifican los siguientes actores:
 
@@ -1311,16 +1305,14 @@ Asimismo, se destacan las interacciones con sistemas externos que complementan l
 
 Este diagrama permite visualizar de manera clara las responsabilidades de cada actor y sistema, y cómo CargaSafe se convierte en el núcleo que articula la comunicación entre usuarios, dispositivos IoT y servicios externos, garantizando la operación eficiente y segura de la cadena logística.
 
-
 #### 4.1.3.2. Software Architecture Container Level Diagrams
 
 En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus contenedores internos, las tecnologías que utilizamos y cómo se comunican entre sí y con los sistemas externos.
 
-
 ![Software Architecture – Container Level Diagram](assets/Container_Level_Diagram.png)
 
-
 **Contenedores internos**
+
 - **Landing Page (HTML/CSS):** sitio público simple que sirve como carta de presentación y redirige al frontend de la aplicación.
 - **Web Frontend (Angular):** interfaz principal que usan los operadores de la empresa y el personal de soporte para gestionar flota, viajes, parámetros y reportes. También aquí se generan los enlaces públicos que recibe el cliente final.
 - **Mobile App (Flutter):** aplicación móvil usada por los conductores. Desde aquí reciben instrucciones de viaje, reportan el estado del mismo y pueden registrar incidencias.
@@ -1331,6 +1323,7 @@ En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus conten
 - **Edge Application:** agente desplegado en entornos de borde (vehículos o depósitos) que procesa datos localmente, maneja caché y asegura la sincronización con el Backend API incluso en condiciones de conectividad intermitente.
 
 **Sistemas externos**
+
 - **Logistics Planning:** exporta planes de pedidos, rutas y despachos hacia el Backend API.
 - **Google Maps:** provee ruteo, geocodificación y cálculo de ETA.
 - **Stripe:** plataforma para pagos y facturación de suscripciones.
@@ -1339,6 +1332,7 @@ En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus conten
 - **Helpdesk / E-mail:** sistema externo que usamos para tickets y, de forma opcional, para notificaciones por correo.
 
 **Comunicación principal**
+
 - El **Web Frontend** y la **Mobile App** consumen la **Backend API** mediante REST/JSON.
 - El **Backend API** persiste la información en la base de datos y encola los trabajos de notificación en el **Notification Service**.
 - El **Notification Service** se encarga de procesar estos trabajos y enviarlos a los servicios externos de notificación.
@@ -1346,6 +1340,7 @@ En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus conten
 - **Power BI Data:** recibe datasets consolidados para el análisis corporativo.
 
 **Decisiones tecnológicas**
+
 - Se eligió **Angular** para el frontend web por su robustez y facilidad de mantenimiento.
 - Para la app móvil, se utilizó **Flutter** por su capacidad de generar aplicaciones multiplataforma de alto rendimiento.
 - El **Backend** se desarrolló en **Spring Boot**, que ofrece un ecosistema sólido para microservicios e integraciones.
@@ -1355,36 +1350,35 @@ En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus conten
 **Resultado**
 Con esta distribución logramos una arquitectura clara, escalable y flexible. Cada contenedor cumple un rol específico y las integraciones externas se mantienen bien aisladas, lo que facilita la evolución futura de la solución.
 
-
-
 #### 4.1.3.3. Software Architecture Deployment Diagrams
 
 El Deployment Diagram de CargaSafe muestra cómo se despliega la solución en un entorno de producción real, representando los nodos de infraestructura, los contenedores de software y las interacciones entre ellos.
 
 ![Software Architecture – Deployment Diagram](assets/Deployment_Diagram.png)
 
-**Clientes**:  
-  - Los usuarios finales acceden desde navegadores web (SPA y landing page servidos por un CDN / Static Hosting) y desde dispositivos móviles (aplicación Flutter).
-  - Estos clientes realizan peticiones HTTPS que son redirigidas hacia el **Load Balancer**, encargado de enrutar el tráfico hacia los servicios backend.
+**Clientes**:
 
-**Backend y orquestación**:  
-  - El **Backend API** (Spring Boot) y el **Notification Service** (Worker/Service) se despliegan dentro de un **Kubernetes Cluster**, separados en *pods* de aplicaciones y pods de background jobs.  
-  - El backend centraliza la lógica de negocio, gestiona operaciones de viajes, monitoreo y orquestación de alertas.
-**Base de datos**:  
-  - El sistema utiliza una base de datos PostgreSQL gestionada (AWS RDS/Google Cloud SQL), con una instancia primaria para operaciones de escritura y réplicas de solo lectura para consultas distribuidas y balanceo de carga.
+- Los usuarios finales acceden desde navegadores web (SPA y landing page servidos por un CDN / Static Hosting) y desde dispositivos móviles (aplicación Flutter).
+- Estos clientes realizan peticiones HTTPS que son redirigidas hacia el **Load Balancer**, encargado de enrutar el tráfico hacia los servicios backend.
+
+**Backend y orquestación**:
+
+- El **Backend API** (Spring Boot) y el **Notification Service** (Worker/Service) se despliegan dentro de un **Kubernetes Cluster**, separados en _pods_ de aplicaciones y pods de background jobs.
+- El backend centraliza la lógica de negocio, gestiona operaciones de viajes, monitoreo y orquestación de alertas.
+  **Base de datos**:
+- El sistema utiliza una base de datos PostgreSQL gestionada (AWS RDS/Google Cloud SQL), con una instancia primaria para operaciones de escritura y réplicas de solo lectura para consultas distribuidas y balanceo de carga.
 
 **Integraciones externas**:  
 El backend consume servicios de terceros para extender sus capacidades:
 
- - **Google Maps** para rutas, geocodificación y cálculo de ETA.
- - **Stripe** para procesamiento de pagos y facturación.
- - **Notification Services** para la entrega de mensajes a usuarios vía FCM, SMS o Email.
- - **Power BI Data** para exportación de datasets consolidados y reportería corporativa.
+- **Google Maps** para rutas, geocodificación y cálculo de ETA.
+- **Stripe** para procesamiento de pagos y facturación.
+- **Notification Services** para la entrega de mensajes a usuarios vía FCM, SMS o Email.
+- **Power BI Data** para exportación de datasets consolidados y reportería corporativa.
 
 ## Resultado
 
 El diagrama de despliegue muestra que la solución CargaSafe está organizada bajo una arquitectura cloud-native, con Kubernetes para la orquestación de contenedores, CDN para la entrega de contenido estático y una base de datos gestionada con réplicas para mejorar el rendimiento y la disponibilidad. Esta infraestructura permite un sistema escalable, resiliente y listo para integrarse con servicios externos críticos, garantizando la continuidad operativa en la gestión de la cadena de frío.
-
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
@@ -1396,76 +1390,78 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 **Agregados y Entidades**
 
- - Sensor (AR): identidad del dispositivo y estado operativo (online/offline, última calibración).
+- Sensor (AR): identidad del dispositivo y estado operativo (online/offline, última calibración).
 
- - SensorTripBinding: historial de asociación sensor↔viaje (permite auditoría y replay).
+- SensorTripBinding: historial de asociación sensor↔viaje (permite auditoría y replay).
 
- - TelemetryReading: lectura puntual (time-series); modelada como entidad inmutable.
+- TelemetryReading: lectura puntual (time-series); modelada como entidad inmutable.
 
- - DeviceStatus: snapshot operativo (batería, señal, último heartbeat).
+- DeviceStatus: snapshot operativo (batería, señal, último heartbeat).
 
-**Value Objects** 
- - TemperatureCelsius
- - GeoPoint
- - Thresholds (min/max/hysteresis)
- - TimeWindow
+**Value Objects**
+
+- TemperatureCelsius
+- GeoPoint
+- Thresholds (min/max/hysteresis)
+- TimeWindow
 
 **Servicios de Dominio**
-  - EvaluationService: reglas de evaluación (ventanas, anti-ruido, histeresis) → emite eventos.
 
-  - BindingService: lógica para bind/unbind de sensores a viajes.
+- EvaluationService: reglas de evaluación (ventanas, anti-ruido, histeresis) → emite eventos.
+
+- BindingService: lógica para bind/unbind de sensores a viajes.
 
 **Eventos de Dominio**
-  - TelemetryReceived
-  - TemperatureOutOfRange
-  - DeviceOffline
-  - GeofenceBreach
-  - TimeseriesUpdated (para vistas)
+
+- TelemetryReceived
+- TemperatureOutOfRange
+- DeviceOffline
+- GeofenceBreach
+- TimeseriesUpdated (para vistas)
 
 **Repositorios**
 
-  - TelemetryRepository
-  - DeviceStatusRepository 
-  - SensorBindingRepository 
-  - SensorRepository
-
+- TelemetryRepository
+- DeviceStatusRepository
+- SensorBindingRepository
+- SensorRepository
 
 **Políticas/Reglas Clave**
 
-  - Frecuencia mínima de muestreo por plan
-  - Tolerancias por producto
-  - Ventana de evaluación deslizante
-  - Reconciliación de lecturas offline.
+- Frecuencia mínima de muestreo por plan
+- Tolerancias por producto
+- Ventana de evaluación deslizante
+- Reconciliación de lecturas offline.
 
-
-**Diagrama de clases (dominio)**  
+**Diagrama de clases (dominio)**
 
 #### 4.2.1.2. Interface Layer
 
 **Entradas (adapters)**
 
-  - **HTTP Ingestion API:** POST /ingest/telemetry (API-Key/JWT por tenant).
+- **HTTP Ingestion API:** POST /ingest/telemetry (API-Key/JWT por tenant).
 
-  - **MQTT**: tópico devices/{sensorId}/telemetry para ingesta directa desde edge.
+- **MQTT**: tópico devices/{sensorId}/telemetry para ingesta directa desde edge.
 
-  - **Queries**: 
-    - GET /live-status?sensorId= 
-    - GET /telemetry?tripId=&from=&to= (paginado por tiempo).
+- **Queries**:
+  - GET /live-status?sensorId=
+  - GET /telemetry?tripId=&from=&to= (paginado por tiempo).
 
 **Salidas (pub/sub y notificaciones)**
 
-  - **Events a Alertas y resolución:** 
-    - TemperatureOutOfRange 
-    - DeviceOffline 
-    - GeofenceBreach
+- **Events a Alertas y resolución:**
 
-  - **Events a Visualización/Analytics:** 
-    - TimeseriesUpdated
+  - TemperatureOutOfRange
+  - DeviceOffline
+  - GeofenceBreach
+
+- **Events a Visualización/Analytics:**
+  - TimeseriesUpdated
 
 **DTOs principales**
-  - TelemetryInDTO{ sensorId, ts, tempC, humidityPct, lat, lon, raw } 
-  - LiveStatusDTO{ sensorId, lastSeen, batteryPct, signalDbm, tripId }
 
+- TelemetryInDTO{ sensorId, ts, tempC, humidityPct, lat, lon, raw }
+- LiveStatusDTO{ sensorId, lastSeen, batteryPct, signalDbm, tripId }
 
 #### 4.2.1.3. Application Layer
 
@@ -1503,10 +1499,9 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 - Sagas livianas para bind/unbind.
 
-**Secuencia** 
+**Secuencia**
 
 ![Bounded Context Domain Layer – Class Diagram](assets/Sequence_Diagram.png)
-
 
 [Ver gráfico en Mermaid](https://www.mermaidchart.com/app/projects/f9114f89-7e7c-4378-9a7e-53fc0436e622/diagrams/b984e287-826d-49b5-9eae-3e6cee59ba42/version/v0.1/edit)
 
@@ -1514,33 +1509,29 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 **Adapters / Implementaciones**
 
-  - HttpIngestionController (REST)
+- HttpIngestionController (REST)
 
-  - MqttIngestionConsumer (tópico devices/{sensorId}/telemetry)
+- MqttIngestionConsumer (tópico devices/{sensorId}/telemetry)
 
-  - KafkaEventBus (tópicos: monitoring.alerts, monitoring.viz)
+- KafkaEventBus (tópicos: monitoring.alerts, monitoring.viz)
 
-  - PostgresTelemetryRepository (TimescaleDB)
+- PostgresTelemetryRepository (TimescaleDB)
 
-  - PostgresDeviceStatusRepository
+- PostgresDeviceStatusRepository
 
-  - PostgresSensorBindingRepository
+- PostgresSensorBindingRepository
 
-  - RedisLiveCache (clave live:{sensorId} TTL corto)
+- RedisLiveCache (clave live:{sensorId} TTL corto)
 
-  - OutboxPublisher (lee event_outbox y publica a Kafka)
+- OutboxPublisher (lee event_outbox y publica a Kafka)
 
 **Cross-cutting**
 
-  - RLS/tenancy por tenant_id, observabilidad (metrics/logs/traces). rate-limit, validación de payloads, DLQ.
+- RLS/tenancy por tenant_id, observabilidad (metrics/logs/traces). rate-limit, validación de payloads, DLQ.
 
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
 
 [Ver gráfico en Mermaid](https://www.mermaidchart.com/app/projects/f9114f89-7e7c-4378-9a7e-53fc0436e622/diagrams/2b56cea5-6f35-4228-b70e-2052df1785b7/version/v0.1/edit)
-
-
-
-
 
 #### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -1550,14 +1541,9 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 [Ver gráfico en Mermaid](https://www.mermaidchart.com/app/projects/f9114f89-7e7c-4378-9a7e-53fc0436e622/diagrams/da4a4688-bf70-4195-b82c-b3aee7598cde/version/v0.1/edit)
 
-
-
-
-
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram
 
-
-# Bibliografía  
+# Bibliografía
 
 Bogdanov, V. (2024, 23 octubre). _Real-Time Supply Chain Visibility: a Game-Changer_. rinf.tech. https://www.rinf.tech/real-time-supply-chain-visibility-a-game-changer/
 
