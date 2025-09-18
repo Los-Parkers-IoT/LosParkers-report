@@ -315,67 +315,73 @@ El impacto de la falta de un monitoreo efectivo es funcional, operativo y estrat
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-Nuestra solución busca proveer a las empresas de transporte y a sus clientes con una plataforma tecnológica integral que les permita monitorear el estado de sus cargas en tiempo real, garantizando la seguridad, calidad y eficiencia de la cadena de suministro. Buscamos que las empresas no sufran pérdidas económicas o daños a su reputación por falta de control, facilitando exponencialmente la supervisión de sus activos críticos, especialmente cuando se trata de productos sensibles que requieren condiciones específicas como temperatura o humedad.
+Nuestra solución busca proveer a las empresas de transporte y a sus clientes con una plataforma tecnológica integral que les permita monitorear el estado de sus cargas en tiempo real, garantizando la seguridad, calidad y eficiencia de la cadena de suministro. Buscamos que las empresas no sufran pérdidas económicas o daños a su reputación por falta de control, facilitando exponencialmente la supervisión de sus activos críticos, especialmente cuando se trata de productos sensibles que requieren condiciones específicas como temperatura, humedad, o que son susceptibles a vibración y golpes.
 
-Hemos observado que nuestros usuarios, al no tener una plataforma en la cual puedan monitorear la carga en un solo lugar, tienen un problema para estructurar el control de sus activos y guardarlo en un solo lugar, causando que a través de diferentes plataformas o métodos tradicionales guarden sus diferentes recursos, causando además un desorden e incluso pérdida de algunos de estos datos.
+Hemos observado que nuestros usuarios, al no tener una plataforma en la cual puedan monitorear la carga en un solo lugar, tienen un problema para estructurar el control de sus activos y guardarlo en un solo lugar, causando que a través de diferentes plataformas o métodos tradicionales guarden sus diferentes recursos, causando además un desorden e incluso pérdida de algunos de estos datos de temperatura, humedad, vibración y ubicación.
 
-¿Cómo podemos ofrecer una plataforma para que las empresas y sus clientes puedan visualizar de forma organizada la información de la carga?
+¿Cómo podemos ofrecer una plataforma para que las empresas y sus clientes puedan visualizar de forma organizada la información de la carga, consolidando todos los parámetros críticos?
 
-Hemos notado que las empresas que contratan servicios de transporte refrigerado desean tener visibilidad completa sobre el estado de sus productos. Esta necesidad se presenta normalmente en industrias donde el producto final es perecedero o de alto valor, y el cliente requiere una verificación constante para asegurar que su mercancía llegará en perfectas condiciones.
+Hemos notado que las empresas que contratan servicios de transporte desean tener visibilidad completa sobre el estado de sus productos. Esta necesidad se presenta normalmente en industrias donde el producto final es perecedero o de alto valor, y el cliente requiere una verificación constante para asegurar que su mercancía llegará en perfectas condiciones, protegiéndola no solo de cambios de temperatura, sino también de golpes o accidentes.
 
-¿Cómo podemos crear una plataforma que mejore la eficiencia y transparencia para todos los actores de la cadena de suministro?
+¿Cómo podemos crear una plataforma que mejore la eficiencia y transparencia para todos los actores de la cadena de suministro, proporcionando visibilidad sobre el estado completo de la carga?
 
 Hemos notado que las plataformas que usan las empresas para el monitoreo de cargas no están diseñadas para la simplicidad, tienen un diseño poco atractivo y cuentan con interfaces poco intuitivas o limitan las acciones que se pueden realizar dentro de la misma para algunos usuarios.
 
-¿Cómo podemos diseñar una solución que sea intuitiva y fácil de usar, sin importar el nivel de conocimiento tecnológico del usuario?
+¿Cómo podemos diseñar una solución que sea intuitiva y fácil de usar, sin importar el nivel de conocimiento tecnológico del usuario, a pesar de la complejidad de los múltiples datos que monitoreamos?
+
 
 #### 1.2.2.2. Lean UX Assumptions
 
 ### Business Assumptions:
 
-1. Creemos que hay una demanda significativa de soluciones de monitoreo de temperatura accesibles para el sector de transporte en Latinoamérica.
+1. Creemos que hay una demanda significativa de soluciones de monitoreo accesibles que incluyan múltiples parámetros para el sector de transporte en Latinoamérica.
 
-2. Creemos que las empresas estarán dispuestas a pagar una suscripción mensual por una solución que les permita reducir pérdidas y mejorar la confianza de sus clientes.
+2. Creemos que las empresas estarán dispuestas a pagar una suscripción mensual por una solución que les permita reducir pérdidas y mejorar la confianza de sus clientes al tener control sobre múltiples variables.
 
-3. Creemos que los dispositivos IoT de bajo costo pueden proporcionar la precisión necesaria para el monitoreo de cadena de frío.
+3. Creemos que los dispositivos IoT de bajo costo pueden proporcionar la precisión necesaria para el monitoreo de la cadena de frío, además de vibración, ubicación y energía.
 
 4. Creemos que la facilidad de uso es más importante que las funcionalidades avanzadas para nuestro mercado objetivo.
 
 5. Creemos que un modelo SaaS es más atractivo que la compra de licencias perpetuas para nuestros usuarios.
 
+6. Creemos que la inclusión de parámetros adicionales como humedad, vibración y volcado aumentará el valor percibido de nuestra solución.
+
+
 ### User Assumptions:
 
-1. Nuestros usuarios principales son gerentes de operaciones y conductores de empresas de transporte de productos refrigerados.
+1. Nuestros usuarios principales son gerentes de operaciones y conductores de empresas de transporte de productos sensibles.
 
-2. Los usuarios necesitan alertas inmediatas cuando se rompe la cadena de frío para tomar acciones correctivas.
+2. Los usuarios necesitan alertas inmediatas cuando se rompe la cadena de frío, hay vibraciones excesivas, o se detecta un volcado para tomar acciones correctivas.
 
-3. Los usuarios quieren dashboards simples e intuitivos que muestren el estado de todos sus vehículos en una sola pantalla.
+3. Los usuarios quieren dashboards simples e intuitivos que muestren el estado completo de todos sus vehículos en una sola pantalla.
 
-4. Los usuarios valoran la generación automática de reportes para sus clientes.
+4. Los usuarios valoran la generación automática de reportes que incluyan todos los parámetros monitoreados para sus clientes.
 
 5. Los usuarios prefieren soluciones que no requieran capacitación técnica extensiva.
 
+
 ### Feature Assumptions:
 
-1. Creemos que el monitoreo en tiempo real es la funcionalidad más crítica.
+1. Creemos que el monitoreo en tiempo real de temperatura, humedad, vibración y ubicación es la funcionalidad más crítica.
 
-2. Creemos que las alertas automáticas mediante la aplicación.
+2. Creemos que las alertas automáticas mediante la aplicación son fundamentales para eventos críticos como volcado y baja energía.
 
-3. Creemos que la gestión de múltiples vehículos desde una sola plataforma es fundamental.
+3. Creemos que la gestión de múltiples vehículos y activos desde una sola plataforma es fundamental.
 
-4. Creemos que los reportes históricos son necesarios para el cumplimiento regulatorio.
+4. Creemos que los reportes históricos son necesarios para el cumplimiento regulatorio y la trazabilidad.
 
 5. Creemos que la integración con dispositivos IoT existentes ampliará nuestro mercado potencial.
+
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
 #### Hypothesis 1:
 
-<b> Creemos que </b> implementar un sistema de alertas en tiempo real por incumplimiento de parámetros de temperatura <b> para <b/> empresas de transporte <b> resultará en <b/> una reducción del 30% en pérdidas de productos y un aumento del 25% en la satisfacción del cliente. _Sabremos que esto es cierto cuando_ veamos una reducción mensurable en reportes de incidentes y recibamos feedback positivo de al menos el 80% de los usuarios.
+<b> Creemos que </b> implementar un sistema de alertas en tiempo real por incumplimiento de parámetros de temperatura, humedad y volcado <b> para <b/> empresas de transporte <b> resultará en <b/> una reducción del 30% en pérdidas de productos y un aumento del 25% en la satisfacción del cliente. _Sabremos que esto es cierto cuando_ veamos una reducción mensurable en reportes de incidentes y recibamos feedback positivo de al menos el 80% de los usuarios.
 
 #### Hypothesis 2:
 
-<b> Creemos que </b> ofrecer dashboards intuitivos con visualización de estado de flota <b> para <b/> gerentes de operaciones <b> resultará en <b/> una mejora del 40% en la eficiencia operativa y tiempo de respuesta ante incidentes. _Sabremos que esto es cierto cuando_ observemos una reducción en el tiempo promedio de respuesta a alertas de más de 4 horas a menos de 30 minutos.
+<b> Creemos que </b> ofrecer dashboards intuitivos con visualización del estado completo de la flota (temperatura, humedad, vibración, ubicación) <b> para <b/> gerentes de operaciones <b> resultará en <b/> una mejora del 40% en la eficiencia operativa y tiempo de respuesta ante incidentes. _Sabremos que esto es cierto cuando_ observemos una reducción en el tiempo promedio de respuesta a alertas de más de 4 horas a menos de 30 minutos.
 
 #### Hypothesis 3:
 
@@ -388,77 +394,77 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 #### 1.2.2.4. Lean UX Canvas
 
 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-  <tr>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>1. BUSINESS PROBLEM</strong><br><br>
-      Las empresas de transporte de productos sensibles a temperatura necesitan soluciones accesibles para monitorear la cadena de frío y evitar pérdidas económicas por incumplimiento de parámetros.
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>2. SOLUTION IDEAS</strong><br><br>
-      • Plataforma IoT de monitoreo en tiempo real<br>
-      • Sistema de alertas automáticas<br>
-      • Dashboard intuitivo de gestión de flota<br>
-      • Reportes automatizados de trazabilidad<br>
-      • Modelo SaaS escalable
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>3. BUSINESS OUTCOMES</strong><br><br>
-      • 150 empresas suscritas en año 1<br>
-      • Reducción 30% pérdidas de clientes<br>
-      • 80% satisfacción de usuarios<br>
-      • Revenue recurrente de $180K anuales<br>
-      • Expansión a 3 países LATAM
-    </td>
-  </tr>
-  <tr>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>4. USERS</strong><br><br>
-      <strong>Primarios:</strong><br>
-      • Gerentes de operaciones de transporte<br>
-      • Conductores de vehículos refrigerados<br><br>
-      <strong>Secundarios:</strong><br>
-      • Clientes finales de servicios de transporte<br>
-      • Administradores de empresas de transporte
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 40%; vertical-align: top;">
-      <strong>5. USER OUTCOMES & BENEFITS</strong><br><br>
-      <strong>Empresas de Transporte:</strong><br>
-      • Reducción de pérdidas por ruptura de cadena de frío<br>
-      • Mayor confianza de clientes<br>
-      • Cumplimiento regulatorio automatizado<br>
-      • Optimización de rutas y recursos<br><br>
-      <strong>Clientes Finales:</strong><br>
-      • Visibilidad completa del estado de sus productos<br>
-      • Reportes de trazabilidad en tiempo real<br>
-      • Reducción de riesgos operativos
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>6. HYPOTHESES</strong><br><br>
-      <strong>Creemos que</strong> las PYMEs de transporte adoptarán una solución SaaS de monitoreo si es accesible y fácil de usar.<br><br>
-      <strong>Para validar</strong> desarrollaremos un MVP con funcionalidades core y mediremos adoption rate.
-    </td>
-  </tr>
-  <tr>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>7. WHAT'S THE MOST IMPORTANT THING WE NEED TO LEARN FIRST?</strong><br><br>
-      ¿Están las PYMEs de transporte dispuestas a pagar por una solución de monitoreo IoT y cuál es el precio óptimo que maximiza adopción y rentabilidad?
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>8. WHAT'S THE LEAST AMOUNT OF WORK WE NEED TO DO TO LEARN THE NEXT MOST IMPORTANT THING?</strong><br><br>
-      • Desarrollar landing page con pricing<br>
-      • Realizar 20 entrevistas con empresas target<br>
-      • Crear prototipo de dashboard<br>
-      • Validar willingness to pay con pre-orders
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>9. ASSUMPTIONS</strong><br><br>
-      • Demanda existe en mercado LATAM<br>
-      • Precio $ 25-150/mes es aceptable<br>
-      • Facilidad de uso > funcionalidades avanzadas<br>
-      • Dispositivos IoT low-cost son suficientes<br>
-      • Modelo SaaS preferido vs. CAPEX
-    </td>
-  </tr>
+  <tr>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>1. BUSINESS PROBLEM</strong><br><br>
+      Las empresas de transporte de productos sensibles necesitan soluciones accesibles para monitorear múltiples parámetros de la carga (temperatura, humedad, vibración, etc.) y evitar pérdidas económicas por incumplimiento de parámetros.
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>2. SOLUTION IDEAS</strong><br><br>
+      • Plataforma IoT de monitoreo en tiempo real (múltiples sensores)<br>
+      • Sistema de alertas automáticas (vibración, volcado, energía, etc.)<br>
+      • Dashboard intuitivo de gestión de flota<br>
+      • Reportes automatizados de trazabilidad completa<br>
+      • Modelo SaaS escalable
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>3. BUSINESS OUTCOMES</strong><br><br>
+      • 150 empresas suscritas en año 1<br>
+      • Reducción 30% pérdidas de clientes<br>
+      • 80% satisfacción de usuarios<br>
+      • Revenue recurrente de $180K anuales<br>
+      • Expansión a 3 países LATAM
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>4. USERS</strong><br><br>
+      <strong>Primarios:</strong><br>
+      • Gerentes de operaciones de transporte<br>
+      • Conductores de vehículos<br><br>
+      <strong>Secundarios:</strong><br>
+      • Clientes finales de servicios de transporte<br>
+      • Administradores de empresas de transporte
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 40%; vertical-align: top;">
+      <strong>5. USER OUTCOMES & BENEFITS</strong><br><br>
+      <strong>Empresas de Transporte:</strong><br>
+      • Reducción de pérdidas por múltiples factores (temperatura, vibración, etc.)<br>
+      • Mayor confianza de clientes<br>
+      • Cumplimiento regulatorio automatizado<br>
+      • Optimización de rutas y recursos<br><br>
+      <strong>Clientes Finales:</strong><br>
+      • Visibilidad completa del estado de sus productos<br>
+      • Reportes de trazabilidad en tiempo real<br>
+      • Reducción de riesgos operativos
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>6. HYPOTHESES</strong><br><br>
+      <strong>Creemos que</strong> las PYMEs de transporte adoptarán una solución SaaS de monitoreo multiparamétrico si es accesible y fácil de usar.<br><br>
+      <strong>Para validar</strong> desarrollaremos un MVP con funcionalidades core (temp, humedad, ubicación) y mediremos adoption rate.
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>7. WHAT'S THE MOST IMPORTANT THING WE NEED TO LEARN FIRST?</strong><br><br>
+      ¿Están las PYMEs de transporte dispuestas a pagar por una solución de monitoreo multiparamétrico IoT y cuál es el precio óptimo que maximiza adopción y rentabilidad?
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>8. WHAT'S THE LEAST AMOUNT OF WORK WE NEED TO DO TO LEARN THE NEXT MOST IMPORTANT THING?</strong><br><br>
+      • Desarrollar landing page con pricing y funcionalidades<br>
+      • Realizar 20 entrevistas con empresas target<br>
+      • Crear prototipo de dashboard con múltiples datos<br>
+      • Validar willingness to pay con pre-orders
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>9. ASSUMPTIONS</strong><br><br>
+      • Demanda existe en mercado LATAM<br>
+      • Precio $ 25-150/mes es aceptable<br>
+      • Facilidad de uso > funcionalidades avanzadas<br>
+      • Dispositivos IoT low-cost son suficientes<br>
+      • Modelo SaaS preferido vs. CAPEX
+    </td>
+  </tr>
 </table>
 
 ## 1.3. Segmentos objetivo
