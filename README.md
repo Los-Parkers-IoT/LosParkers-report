@@ -375,11 +375,11 @@
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
-- **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa consumidora]
-- **Empresa/Sector**: [Nombre de la empresa o sector de actividad]
-- **Enlace**: [URL del video de la entrevista]
+- **Nombre**: Gabriel Díaz
+- **Edad**: 26 años
+- **Ocupación**: Responsable de recepción y control de productos sensibles a temperatura.
+- **Empresa/Sector**: Sector de salud
+- **Enlace**: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EcMuUYlqskNEqzaICMJSTwIBwtDXay1luNLbNZm9ulDSZw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=nQqEpO 
 
   <img src="assets/entrevista_cliente_3.png">
 
@@ -429,11 +429,11 @@
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
+- **Nombre**: Gabriel Díaz
 
-- **Entrevistador**: [Nombre del entrevistador]
+- **Entrevistador**: Daniel Arevalo
 
-  [...]
+  El entrevistado Gabriel Díaz, responsable de recepción y control de productos sensibles a temperatura en el sector salud, expone la problemática de confiar únicamente en reportes básicos y revisiones visuales al recibir insumos médicos, lo que genera incertidumbre sobre la cadena de frío. Destaca la necesidad de contar con un monitoreo continuo y alertas en tiempo real para actuar preventivamente, ya que ha debido rechazar pedidos por fallas en la temperatura. Su interés en un sistema IoT refleja la importancia que le asigna a la trazabilidad, la seguridad y la eficiencia, aunque expresa preocupación por los costos y la dependencia de la conectividad.
 
 ## 2.3. Needfinding
 
