@@ -1042,16 +1042,182 @@ Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos de
 
 #### 4.2.3.1. Domain Layer
 
+### Entidades (Entities)
+- Alert: representa un evento crítico detectado (desvío de ruta, dispositivo desconectado, etc). Mantiene su estado (abierto, reconocido, cerrado) y registra su ciclo de vida.
+- Notification: mensaje enviado al usuario a través de un canal (FCM, Email, SMS) para informar sobre una alerta.
+- Incident: evento relacionado con un viaje que se crea a partir de una alerta. Contiene detalles adicionales para análisis y resolución.
+### Objetos de Valor (Value Objects)
+- AlertType: clasifica los tipos de alertas (OutOfRange, Offline, RouteDeviation).
+- AlertStatus: define en qué etapa se encuentra la alerta (Open, Acknowledged, Closed).
+- NotificationChannel: indica el medio de comunicación usado (Email, SMS, FCM).
+- PersistenceWindow: define el tiempo mínimo que debe cumplirse para que un evento se considere válido como alerta.
+### Agregados (Aggregates)
+- AlertAggregate: conjunto que agrupa a la alerta con sus notificaciones e incidentes. Garantiza que todas las operaciones sobre alertas se hagan de manera coherente.
+### Servicios de Dominio (Domain Services)
+- AlertEscalationService: aplica reflas de escalamiento cuando una alerta no ha sido reconocida en el tiempo límite.
+- NotificationService: selecciona los canales de notificación adecuados según las preferencias de usuario o empresa.
+- DeduplicationService: previene la generación de alertas duplicadas mediante períodos de enfriamiento.
+### Fábricas (Factories)
+- AlertFactory: encapsula la lógica de creación de una alerta a partir de eventos recibidos (ejemplo: sensor fuera de rango).
+- IncidentFactory: crea incidentes asociados a un viaje cuando una alerta lo requiere.
+### Repositorios (Interfaces)
+- AlertRepository: interfaz para guardar, actualizar y recuperar alertas.
+- NotificationRepository: interfaz para manejar el historial y el estado de notificaciones.
+- IncidentRepository: interfaz para registrar incidentes asociados a viajes
+### Reglas Clave (Business Rules)
+- Persistence Window: no se genera alerta hasta que la condición anómala se mantenga por cierto tiempo.
+- No duplicación: no se permiten alertas repetidas durante un período de enfriamiento.
+- Escalamiento: si una alerta no es reconocida en el tiempo condigurado, se aumenta su criticidad.
+- Flujo de estados: una alerta solo puede cerrarse si fue previamente reconocida.
+- Preferencias de notificación: el canal de comunicación depende de la configuración del usuario o de la compañía.
+- Consistencia: toda alerta debe estar vinculada a un evento detectado en el sistema de monitoreo.
+
 #### 4.2.3.2. Interface Layer
+En esta capa se definen **Controllers (REST)**, **Consumers (mensajería/webhooks)**, los **DTOs asociados**, además de las **políticas de validación, errores y seguridad**.
+
+# A. Controllers (REST — Spring Web)
+
+### AlertController
+
+**Base path:** `/api/v1/alerts`
+
+| Método | Ruta                     | Descripción                                           | Request DTO             | Response DTO        | Código HTTP |
+| ------ | ------------------------ | ----------------------------------------------------- | ----------------------- | ------------------- | ----------- |
+| POST   | `/`                      | Crea una nueva alerta a partir de un evento detectado | `CreateAlertRequestDTO` | `AlertDTO`          | 201 Created |
+| PATCH  | `/{alertId}/acknowledge` | Reconoce (ACK) una alerta activa                      | —                       | `AlertDTO`          | 200 OK      |
+| PATCH  | `/{alertId}/close`       | Cierra una alerta reconocida                          | —                       | `AlertDTO`          | 200 OK      |
+| GET    | `/{alertId}`             | Obtiene detalle de una alerta                         | —                       | `AlertDTO`          | 200 OK      |
+| GET    | `/active`                | Lista alertas activas (estado OPEN o ACKNOWLEDGED)    | —                       | Lista de `AlertDTO` | 200 OK      |
+
+### NotificationController
+
+**Base path:** `/api/v1/notifications`
+
+| Método | Ruta                    | Descripción                                        | Request DTO                        | Response DTO                 | Código HTTP |
+| ------ | ----------------------- | -------------------------------------------------- | ---------------------------------- | ---------------------------- | ----------- |
+| GET    | `/preferences/{userId}` | Obtiene preferencias de notificación de un usuario | —                                  | `NotificationPreferencesDTO` | 200 OK      |
+| PATCH  | `/preferences/{userId}` | Actualiza preferencias de notificación             | `UpdateNotificationPreferencesDTO` | `NotificationPreferencesDTO` | 200 OK      |
+
+### IncidentController
+
+**Base path:** `/api/v1/incidents`
+
+| Método | Ruta            | Descripción                                         | Request DTO                | Response DTO  | Código HTTP |
+| ------ | --------------- | --------------------------------------------------- | -------------------------- | ------------- | ----------- |
+| POST   | `/`             | Crea un incidente vinculado a una alerta y un viaje | `CreateIncidentRequestDTO` | `IncidentDTO` | 201 Created |
+| GET    | `/{incidentId}` | Obtiene detalle de un incidente                     | —                          | `IncidentDTO` | 200 OK      |
+
+# B. Consumers (Webhooks / Mensajería)
+
+### MonitoringConsumer (entrada)
+
+Procesa eventos entrantes de sistemas de monitoreo:
+
+| Evento                   | Acción                                         |
+| ------------------------ | ---------------------------------------------- |
+| `OutOfRangeDetected`     | Genera nueva alerta tipo **OutOfRange**        |
+| `DeviceOfflineDetected`  | Genera alerta por **dispositivo desconectado** |
+| `RouteDeviationDetected` | Genera alerta por **desviación de ruta**       |
+
+### DomainEventsPublisher (salida)
+
+Publica eventos a otros Bounded Contexts:
+
+* `alerts.alert.generated`
+* `alerts.alert.acknowledged`
+* `alerts.alert.closed`
+* `alerts.incident.created`
+* `alerts.notification.sent`
+
+# C. DTOs (principales)
+
+| DTO                                | Campos principales                                                                          |
+| ---------------------------------- | ------------------------------------------------------------------------------------------- |
+| `CreateAlertRequestDTO`            | `eventId`, `type` (ENUM: OUT\_OF\_RANGE, OFFLINE, ROUTE\_DEVIATION), `source`, `detectedAt` |
+| `AlertDTO`                         | `id`, `type`, `status` (OPEN, ACK, CLOSED), `timestamps` (createdAt, ackAt, closedAt)       |
+| `NotificationPreferencesDTO`       | `userId`, `channels` (ARRAY: EMAIL, SMS, FCM), `escalationTimeMinutes`                      |
+| `UpdateNotificationPreferencesDTO` | `channels`, `escalationTimeMinutes`                                                         |
+| `NotificationDTO`                  | `id`, `alertId`, `channel`, `status` (PENDING, SENT, FAILED)                                |
+| `CreateIncidentRequestDTO`         | `alertId`, `tripId`, `details`                                                              |
+| `IncidentDTO`                      | `id`, `alertId`, `tripId`, `details`, `createdAt`                                           |
+
+# D. Validación y reglas en la interfaz
+
+* **Flujo de estados**:
+
+  * No se puede cerrar una alerta sin haber sido reconocida previamente → retorna `422 Unprocessable Entity`.
+* **Preferencias válidas**:
+
+  * Validar que los canales de notificación estén soportados (`EMAIL`, `SMS`, `FCM`).
+* **Idempotencia**:
+
+  * En la creación de alertas vía `POST /alerts`, se permite `Idempotency-Key` para evitar duplicados por reintentos.
+
+# E. Errores (contratos comunes)
+
+| Código HTTP | Descripción                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------------- |
+| 400         | **Bad Request** — validación de DTOs inválidos                                              |
+| 401 / 403   | **Unauthorized / Forbidden** — autenticación o falta de permisos                            |
+| 404         | **Not Found** — alerta, notificación o incidente inexistente                                |
+| 409         | **Conflict** — transición de estado inválida o concurrencia                                 |
+| 422         | **Unprocessable Entity** — violación de reglas de negocio (ej. cerrar alerta no reconocida) |
+| 503         | **Service Unavailable** — fallo en sistema externo (ej. FCM, SMS Gateway)                   |
+
+
+# F. Seguridad y políticas
+
+* **AuthN/AuthZ**: JWT (OAuth2/OIDC). Roles: `user`, `monitoring-system`, `admin`.
+* **Rate limiting**: evita abuso en APIs de reconocimiento/cierre de alertas.
+* **API Versioning**: prefijo `/api/v1/...`.
+* **Observabilidad**: trazabilidad con `X-Request-Id`, métricas por endpoint y auditoría de cambios de estado.
+
+# G. Contratos de ejemplo (OpenAPI sketch)
+
+```yaml
+paths:
+  /api/v1/alerts/{alertId}/acknowledge:
+    patch:
+      summary: Acknowledge Alert
+      operationId: acknowledgeAlert
+      responses:
+        '200':
+          description: Alert acknowledged successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertDTO'
+        '422':
+          description: Invalid state transition
+
+  /api/v1/notifications/preferences/{userId}:
+    get:
+      summary: Get Notification Preferences
+      operationId: getPreferences
+      responses:
+        '200':
+          description: User notification preferences
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesDTO'
+```
+
 
 #### 4.2.3.3. Application Layer
 
+## Command Handlers
+## Event Handlers
+## Application Services (Capabilities)
+## Transaccionalidad & Resilencia
+
 #### 4.2.3.4. Infrastructure Layer
+
+## Componentes principales
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
 #### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
-
 ##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
 
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram
