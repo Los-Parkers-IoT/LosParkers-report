@@ -293,21 +293,18 @@ El **Context Diagram** de CargaSafe muestra una visión de alto nivel del sistem
 
 ![Software Architecture – Context Level Diagram](assets/Context_Level_Diagram.png)
 
-En el centro se ubica **CargaSafe (SaaS)**, que representa el sistema principal encargado del monitoreo de la cadena de frío, la trazabilidad y la generación de alertas en los viajes logísticos. 
+En el centro se ubica CargaSafe (SaaS), que representa el sistema principal encargado del monitoreo de la cadena de frío, la trazabilidad y la generación de alertas en los viajes logísticos.
 
 Alrededor del sistema se identifican los siguientes actores:
-
-- **Company Operator**: gestiona viajes, flota y reportes desde la plataforma.
-- **Driver**: completa viajes y reporta información desde la aplicación móvil.
-- **End customer**: recibe enlaces de estado, alertas y reportes generados por el sistema.
+- *Company Operator*: gestiona viajes, flota y reportes desde la plataforma.
+- *Driver*: completa viajes y reporta información desde la aplicación móvil.
+- *End customer*: recibe enlaces de estado, alertas y reportes generados por el sistema.
 
 Asimismo, se destacan las interacciones con sistemas externos que complementan las funcionalidades de CargaSafe:
 
-- **Google Maps**: provee rutas, geocodificación y cálculo de ETA.
-- **Notification Services**: entrega notificaciones por FCM, SMS o Email.
-- **Stripe**: procesa pagos y facturación de suscripciones.
-- **Power BI Data**: recibe datasets consolidados para análisis corporativo.
-
+- Google Maps: provee rutas, geocodificación y cálculo de ETA.
+- Firebase Cloud Messaging: entrega notificaciones push.
+Stripe: procesa pagos y facturación de suscripciones.
 Este diagrama permite visualizar de manera clara las responsabilidades de cada actor y sistema, y cómo CargaSafe se convierte en el núcleo que articula la comunicación entre usuarios, dispositivos IoT y servicios externos, garantizando la operación eficiente y segura de la cadena logística.
 
 
@@ -319,41 +316,29 @@ En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus conten
 ![Software Architecture – Container Level Diagram](assets/Container_Level_Diagram.png)
 
 
-**Contenedores internos**
-- **Landing Page (HTML/CSS):** sitio público simple que sirve como carta de presentación y redirige al frontend de la aplicación.
-- **Web Frontend (Angular):** interfaz principal que usan los operadores de la empresa y el personal de soporte para gestionar flota, viajes, parámetros y reportes. También aquí se generan los enlaces públicos que recibe el cliente final.
-- **Mobile App (Flutter):** aplicación móvil usada por los conductores. Desde aquí reciben instrucciones de viaje, reportan el estado del mismo y pueden registrar incidencias.
-- **Embedded Database (Mobile)**: almacenamiento local (SQLite/Isar) incorporado en la app móvil, que permite continuar operaciones sin conectividad y sincronizar eventos posteriormente.
-- **Backend API (Spring Boot):** Contiene la lógica de negocio, gestiona viajes, dispositivos, alertas, sesiones de monitoreo y también las suscripciones. Expone servicios REST que consumen el frontend y la app móvil.
-- **Relational Database (PostgreSQL):** base de datos transaccional que almacena usuarios, vehículos, dispositivos, viajes, telemetría, alertas y suscripciones.
-- **Embedded Application:** aplicación ligera en dispositivos embebidos que captura datos en tiempo real y los bufferiza para su envío posterior.
-- **Edge Application:** agente desplegado en entornos de borde (vehículos o depósitos) que procesa datos localmente, maneja caché y asegura la sincronización con el Backend API incluso en condiciones de conectividad intermitente.
+El diagrama de contenedores muestra cómo se organiza internamente CargaSafe (SaaS) y cómo se relaciona con los actores y sistemas externos.
 
-**Sistemas externos**
-- **Logistics Planning:** exporta planes de pedidos, rutas y despachos hacia el Backend API.
-- **Google Maps:** provee ruteo, geocodificación y cálculo de ETA.
-- **Stripe:** plataforma para pagos y facturación de suscripciones.
-- **Notification Services (FCM, SMS, Email):** canales de entrega conectados desde nuestro Notification Service.
-- **Data Warehouse / BI:** destino de los datasets consolidados que se exportan para análisis corporativos.
-- **Helpdesk / E-mail:** sistema externo que usamos para tickets y, de forma opcional, para notificaciones por correo.
+Dentro de la plataforma tenemos varios contenedores:
 
-**Comunicación principal**
-- El **Web Frontend** y la **Mobile App** consumen la **Backend API** mediante REST/JSON.
-- El **Backend API** persiste la información en la base de datos y encola los trabajos de notificación en el **Notification Service**.
-- El **Notification Service** se encarga de procesar estos trabajos y enviarlos a los servicios externos de notificación.
-- **Stripe:** procesa pagos y facturación de suscripciones.
-- **Power BI Data:** recibe datasets consolidados para el análisis corporativo.
+- *Landing Page:* sitio público que sirve para marketing y como punto de acceso, redirigiendo tanto a la Web App, al Single Web como a la Mobile App (descarga o deeplinks).
+- *Web Frontend:* aplicación usada por los operadores para gestionar viajes, flota y reportes.
+- *Single Web:* vista pública en línea donde los clientes finales pueden consultar estados y reportes sin necesidad de autenticarse.
+- *Mobile App:* aplicación móvil para los conductores, con soporte offline-first. Se conecta a su propia base de datos embebida SQLite para cache y operación sin conexión.
+- *Backend API:* núcleo de la lógica de negocio, responsable de gestionar viajes, monitoreo, alertas y suscripciones.
+- *Relational Database (PostgreSQL):* base de datos principal donde se almacenan usuarios, vehículos, dispositivos, viajes, telemetría, alertas y suscripciones.
+- *Edge Application (Python):* agente que corre en instalaciones o vehículos, con capacidad de procesamiento local, cache y sincronización confiable con el backend. Usa su propia Edge Database local para tolerar desconexiones.
+- *Embedded Application (C++):* componente ligero que corre en dispositivos restringidos, captura datos y los envía hacia la aplicación edge para su posterior sincronización.
 
-**Decisiones tecnológicas**
-- Se eligió **Angular** para el frontend web por su robustez y facilidad de mantenimiento.
-- Para la app móvil, se utilizó **Flutter** por su capacidad de generar aplicaciones multiplataforma de alto rendimiento.
-- El **Backend** se desarrolló en **Spring Boot**, que ofrece un ecosistema sólido para microservicios e integraciones.
-- La base de datos es **PostgreSQL**, por su confiabilidad y soporte a operaciones transaccionales.
-- Finalmente, se separó un **servicio de notificaciones** como worker para mantener desacoplada la lógica de negocio del proceso de envío de mensajes.
+Los actores principales interactúan con los contenedores:
+- Company Operator usa la Web App para planificar y supervisar operaciones.
+- Driver utiliza la Mobile App para recibir instrucciones y reportar estado de los viajes.
+- End Customer accede tanto a la Single Web (para reportes públicos) como a la Mobile App (para recibir notificaciones y links de estado).
 
-**Resultado**
-Con esta distribución logramos una arquitectura clara, escalable y flexible. Cada contenedor cumple un rol específico y las integraciones externas se mantienen bien aisladas, lo que facilita la evolución futura de la solución.
-
+Además, CargaSafe se integra con varios sistemas externos:
+- *Google Maps*: para rutas, geocodificación y cálculo de ETA.
+- *Stripe*: para pagos y facturación de suscripciones.
+- *Firebase Cloud Messaging (FCM)*: para notificaciones push hacia aplicaciones móviles y web.
+En conjunto, el diagrama muestra cómo CargaSafe se estructura en contenedores especializados que soportan las necesidades de operadores, conductores y clientes, asegurando tanto la operación online como offline en distintos puntos de la cadena logística.
 
 
 #### 4.1.3.3. Software Architecture Deployment Diagrams
@@ -362,28 +347,35 @@ El Deployment Diagram de CargaSafe muestra cómo se despliega la solución en un
 
 ![Software Architecture – Deployment Diagram](assets/Deployment_Diagram.png)
 
-**Clientes**:  
-  - Los usuarios finales acceden desde navegadores web (SPA y landing page servidos por un CDN / Static Hosting) y desde dispositivos móviles (aplicación Flutter).
-  - Estos clientes realizan peticiones HTTPS que son redirigidas hacia el **Load Balancer**, encargado de enrutar el tráfico hacia los servicios backend.
+**Clientes:**
+- Los usuarios finales acceden desde navegadores web, donde la Landing Page y el Web Frontend se sirven por separado desde CDNs independientes (CloudFlare/AWS CloudFront) para optimizar la entrega de contenido.
+- Los conductores utilizan una aplicación móvil Flutter en dispositivos Android/iOS, que incluye una base de datos SQLite local para almacenamiento offline y sincronización de datos.
+- Todas las peticiones de API se realizan mediante HTTPS y son redirigidas hacia el Load Balancer, encargado de enrutar el tráfico hacia los servicios backend.
 
-**Backend y orquestación**:  
-  - El **Backend API** (Spring Boot) y el **Notification Service** (Worker/Service) se despliegan dentro de un **Kubernetes Cluster**, separados en *pods* de aplicaciones y pods de background jobs.  
-  - El backend centraliza la lógica de negocio, gestiona operaciones de viajes, monitoreo y orquestación de alertas.
-**Base de datos**:  
-  - El sistema utiliza una base de datos PostgreSQL gestionada (AWS RDS/Google Cloud SQL), con una instancia primaria para operaciones de escritura y réplicas de solo lectura para consultas distribuidas y balanceo de carga.
+**Backend y orquestación**
+- El Backend API (Spring Boot) se despliega dentro de un Kubernetes Cluster en múltiples pods de aplicaciones para alta disponibilidad y escalabilidad.
+- El backend centraliza la lógica de negocio, gestiona operaciones de viajes, monitoreo de cadena de frío y orquestación de alertas en tiempo real.
 
-**Integraciones externas**:  
+**Base de datos**
+- El sistema utiliza una base de datos PostgreSQL gestionada (AWS RDS/Google Cloud SQL), con una instancia primaria para operaciones de escritura y réplicas de solo lectura para consultas distribuidas y balanceo de carga.
+- Los dispositivos móviles mantienen datos críticos localmente en SQLite para funcionamiento offline durante los viajes.
+
+**Integraciones externas**
 El backend consume servicios de terceros para extender sus capacidades:
+- Google Maps para rutas, geocodificación y cálculo de ETA en tiempo real.
+- Stripe para procesamiento de pagos y facturación de subscripciones.
+- Firebase Cloud Messaging (FCM) para la entrega de notificaciones push directamente a los dispositivos móviles de los conductores.
 
- - **Google Maps** para rutas, geocodificación y cálculo de ETA.
- - **Stripe** para procesamiento de pagos y facturación.
- - **Notification Services** para la entrega de mensajes a usuarios vía FCM, SMS o Email.
- - **Power BI Data** para exportación de datasets consolidados y reportería corporativa.
+**Resultado**
+El diagrama de despliegue muestra que la solución CargaSafe está organizada bajo una arquitectura cloud-native optimizada, con:
+- Separación de responsabilidades: Landing page y aplicación web servidas independientemente
+- Capacidades offline: Base de datos local SQLite en dispositivos móviles
+- Kubernetes para la orquestación de contenedores del backend
+- CDNs separados para optimizar la entrega de contenido estático
+- Base de datos gestionada con réplicas para mejorar el rendimiento y disponibilidad
+- Notificaciones push nativas a través de FCM
 
-## Resultado
-
-El diagrama de despliegue muestra que la solución CargaSafe está organizada bajo una arquitectura cloud-native, con Kubernetes para la orquestación de contenedores, CDN para la entrega de contenido estático y una base de datos gestionada con réplicas para mejorar el rendimiento y la disponibilidad. Esta infraestructura permite un sistema escalable, resiliente y listo para integrarse con servicios externos críticos, garantizando la continuidad operativa en la gestión de la cadena de frío.
-
+Esta infraestructura permite un sistema escalable, resiliente y con capacidades offline críticas para la operación de conductores en campo, garantizando la continuidad operativa en la gestión de la cadena de frío incluso sin conectividad permanente.
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
@@ -925,99 +917,45 @@ Finalmente, el `SchedulerQuartzAdapter` administra procesos periódicos, como la
 
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-*Diagrama de componentes - Billing y Reneval Worker - Subscriptions and Billing*  
+*Diagrama de componentes - Backend - Subscriptions and Billing*  
 
-![Component diagrams](assets/component_diagram_1.png)
+![Component diagrams](assets/Component_diagram_backend.png)
 
-La arquitectura interna del contenedor encargado de las tareas programadas de facturación y cobro se compone de los siguientes elementos clave:
+El backend del bounded context Subscriptions & Billing está formado por varios componentes que trabajan juntos: 
+- Las APIs de suscripciones y consultas
+- El Webhook de Stripe
+- Worker de renovaciones
 
-- **SchedulerQuartzAdapter:**  
-  Dispara la ejecución periódica de los command handlers, coordinando la programación de tareas.
+Todos ellos envían las solicitudes a la *Application Layer*, que se encarga de coordinar cada caso de uso y decidir qué reglas aplicar.
 
-- **RenewSubscriptionCommandHandler:**  
-  Gestiona la renovación de ciclos de suscripción, ejecutando los procesos necesarios para extender las suscripciones activas.
+Las reglas de negocio viven en la Domain Layer, donde están las entidades y servicios principales. Para guardar la información usamos *Postgres*, y gracias a la **Transactional Outbox** podemos asegurarnos de que los mensajes se envíen de forma confiable hacia **Kafka (eventos de integración)** y **SendGrid (emails de facturación y avisos)**. La parte de pagos la maneja el *Stripe Adapter*, que conecta con Stripe sin que el dominio dependa directamente de él.
 
-- **RetryPaymentsCommandHandler:**  
-  Maneja los reintentos de pagos fallidos aplicando estrategias de backoff para maximizar la recuperación de cobros.
+En resumen, la idea es tener responsabilidades bien separadas:
+	•	Las APIs, el webhook y el worker reciben las peticiones.
+	•	La capa de aplicación coordina el flujo.
+	•	El dominio aplica las reglas de negocio.
+	•	La infraestructura se encarga de guardar datos y comunicarse con sistemas externos.
 
-Estos command handlers se apoyan en:
+*Diagrama de componentes - Application Web - Subscriptions and Billing*  
 
-- **BillingOrchestrationService:**  
-  Responsable del cálculo de importes y reglas de facturación.
+![Component diagrams](assets/Component_diagram_applicationweb.png)  
 
-- **SubscriptionRepositoryPostgres y PaymentRepositoryPostgres:**  
-  Repositorios que persisten el estado de suscripciones y pagos en la base de datos.
+La aplicación web se conecta al bounded context **Subscriptions & Billing** únicamente a través de las APIs: la *Subscriptions API* (para enviar comandos como crear o cancelar una suscripción) y la *Query API* (para consultar datos como facturas o planes activos).
 
-- **TransactionalOutboxPostgres y EventBusKafkaAdapter:**  
-  Garantizan la publicación confiable y eventual de eventos de dominio mediante el patrón outbox y la integración con Kafka.
+En el lado del cliente, la app se organiza en tres partes:
+	•	**UI (interfaz de usuario)**: pantallas de suscripciones, facturación y pagos.
+	•	**Estado de aplicación:** maneja la sesión del usuario, el cache de consultas y el control de autenticación.
+	•	**Servicios de datos:** cliente HTTP que llama a las APIs, agrega el token de seguridad y gestiona reintentos o errores.
+ 
+La aplicación web no implementa lógica de negocio propia, solo muestra la información y envía las intenciones del usuario al backend. Todo lo que es reglas, validaciones o persistencia está en el backend.
 
-Además, el contenedor integra:
+*Diagrama de componentes - Mobile Application - Subscriptions and Billing*  
 
-- **PaymentProviderAdapterStripe:**  
-  Para la creación y gestión de intents de pago y reembolsos en Stripe.
+![Component diagrams](assets/Component_diagram_mobile.png)  
 
-- **EmailNotificationAdapter:**  
-  Encargado del envío de notificaciones transaccionales por email.
+La aplicación móvil de **Subscriptions & Billing** es muy parecido a la versión web, ya que también se conecta al backend por la *Subscriptions API* y la *Query API*. La diferencia es que en el móvil contamos con una base de datos local (SQLite), que nos permite trabajar en modo offline: la app guarda datos y puede seguir operando aunque no haya conexión, y luego sincroniza cuando vuelve el internet.
 
-- **AccessControlSyncHandler:**  
-  Sincroniza el estado de acceso de las compañías con otros bounded contexts, asegurando coherencia en el control de accesos.
-
-*Diagrama de componentes - Query API - Subscriptions and Billing*  
-
-![Component diagrams](assets/component_diagram_2.png)  
-
-El contenedor soporta las consultas de lectura sobre el dominio de suscripciones y facturación mediante la siguiente arquitectura interna:
-
-- **QueryController:**  
-  Expone los endpoints HTTP para las consultas, actuando como punto de entrada para las solicitudes de información.
-
-- **QueryServices especializados:**  
-  - *SubscriptionQueryService*  
-  - *PaymentQueryService*  
-  - *InvoiceQueryService*  
-  Estos servicios encapsulan la lógica de consulta y procesamiento de datos específicos de cada área.
-
-- **ReadModels & Projections:**  
-  Estructuras optimizadas para lectura que almacenan vistas materializadas o tablas diseñadas para consultas eficientes.
-
-- **Base de datos PostgreSQL:**  
-  Fuente de datos principal donde se almacenan las proyecciones y modelos de lectura, alimentados desde los eventos y transacciones del dominio.
-
-*Diagrama de componentes - Stripe Webhook Endpoint - Subscriptions and Billing*  
-
-![Component diagrams](assets/component_diagram_3.png)  
-
-La gestión de eventos recibidos desde Stripe se realiza mediante la siguiente arquitectura interna:
-
-- **StripeWebhookController:**  
-  Punto de entrada HTTP que recibe los eventos enviados por Stripe (pagos confirmados, fallidos, reembolsos).
-
-- **HandleStripeWebhookCommandHandler:**  
-  Procesa y normaliza los eventos recibidos, aplicando la lógica de negocio correspondiente según el tipo de evento.
-
-- **WebhookIdempotencyStore:**  
-  Garantiza que cada evento de Stripe se procese una única vez, evitando duplicados mediante un registro de eventos ya manejados.
-
-- **PaymentRepositoryPostgres y SubscriptionRepositoryPostgres:**  
-  Actualizan el estado de los pagos y suscripciones en la base de datos según la información del evento.
-
-- **TransactionalOutboxPostgres:**  
-  Registra los eventos de dominio confirmados para asegurar la consistencia y la publicación fiable.
-
-- **EventBusKafkaAdapter:**  
-  Publica los eventos de dominio en Kafka, facilitando la integración y comunicación con otros bounded contexts.
-
-*Diagrama de componentes - Subscriptions API - Subscriptions and Billing*  
-
-![Component diagrams](assets/component_diagram_4.png)
-
-El `SubscriptionController` expone los endpoints REST, que a través del `DTOCommandMapper` transforman las solicitudes en comandos específicos procesados por los command handlers: 
-- `CreateSubscriptionCommandHandler`
-- `ChangePlanCommandHandler`
-- `CancelSubscriptionCommandHandler`
-- `RecordPaymentCommandHandler`
-
-Estos handlers coordinan la lógica de negocio utilizando el `BillingOrchestrationService` para cálculos de cuotas y prorrateos, los repositorios `SubscriptionRepositoryPostgres` y `PaymentRepositoryPostgres` para la persistencia, y el `TransactionalOutboxPostgres` junto al `EventBusKafkaAdapter` para la publicación confiable de eventos. Además, el `PaymentProviderAdapterStripe` permite la integración con Stripe y el `EmailNotificationAdapter` gestiona el envío de notificaciones transaccionales.
+La app se organiza en pantallas de suscripciones y facturación, un estado de aplicación que maneja la sesión y el cache, y un API Client que envía las solicitudes al backend siempre agregando el token de autenticación. Toda la lógica de negocio sigue estando en el backend; en el cliente solo mostramos información y enviamos las acciones que hace el usuario.
 
 #### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
 
