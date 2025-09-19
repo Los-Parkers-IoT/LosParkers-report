@@ -270,20 +270,28 @@ El objetivo de este diagrama es:
 ### Elementos incluidos
 
 - **Personas**: Company Operator, Driver and End Customer.
-- **Sistema principal**: CargaSafe (SaaS): Núcleo de la solución: monitoreo de cadena de frío, alertas y trazabilidad.
-- **Sistemas y proveedores externos**: Stripe, Google Maps, Notification Services e IoT Devices (sensors).
+- **Sistemas internos**: Logistics Planning and Power BI Data.
+- **Sistemas y proveedores externos**: CargaSafe (SaaS), Stripe, Google Maps, Notification Services e IoT Devices (sensors).
+- **Grupos**: Se organizaron en cuatro dominios principales:
+  - Logistics company
+  - Field / Devices
+  - Customers and Regulators
+  - SaaS and Vendors
 
 ### Relaciones principales
 
-- **IoT Devices → CargaSafe**: envío de datos de telemetría (temperatura, ubicación, energía, etc.).
-- **CargaSafe → Google Maps**: consultas de rutas y tiempos estimados.
-- **CargaSafe → FCM**: envío de alertas a usuarios vía notificaciones push.
-- **CargaSafe → Stripe**: procesamiento de pagos de suscripciones.
-- **Company Operator ↔ CargaSafe**: planificación y supervisión de operaciones logísticas.
-- **Driver ↔ CargaSafe**: ejecución de viajes y reportes operativos.
-- **End Customer ← CargaSafe**: acceso a estado y reportes de la cadena de frío.
+- Logistics Planning → CargaSafe (SaaS): exporta planes y asignaciones de viaje.
+- IoT Devices → CargaSafe (SaaS): envía telemetría (temperatura, humedad, vibración, volcado/inclinación, GPS, energía/baterías).
+- CargaSafe (SaaS) → Google Maps: consulta rutas y tiempos estimados.
+- CargaSafe (SaaS) → Notification Services: envía alertas a los usuarios.
+- CargaSafe (SaaS) → Stripe: procesa pagos de suscripción.
+- CargaSafe (SaaS) → Power BI Data: exporta datasets consolidados para analítica.
+- Company Operator / Driver ↔ CargaSafe (SaaS): planifican, ejecutan y reportan el estado operativo.
+- End customer ← CargaSafe (SaaS): consulta estado y recibe reportes.
 
+### Resultado
 
+El diagrama muestra a CargaSafe (SaaS) como el núcleo de integración entre operaciones (Company Operator, Driver, Logistics Planning), telemetría IoT (sensores en campo) y servicios externos (ruteo, notificaciones y pagos), además de su aporte a la inteligencia de negocio mediante Power BI Data. Esta representación proporciona una visión clara e integral de las dependencias y colaboraciones que sustentan la operación logística y la gestión de la cadena de frío.
 
 #### 4.1.3.2. Software Architecture Context Level Diagrams
 
@@ -642,21 +650,18 @@ _Diagrama de componentes - Backend - Subscriptions and Billing_
 
 ![Component diagrams](assets/Component_diagram_backend.png)
 
-El backend del bounded context Subscriptions & Billing está formado por varios componentes que trabajan juntos:
+El backend del bounded context de Suscripciones y Pagos está organizado en cuatro capas principales:
 
-- Las APIs de suscripciones y consultas
-- El Webhook de Stripe
-- Worker de renovaciones
+- **Interface Layer**: expone los controladores REST que atienden operaciones de suscripciones, pagos, planes y compañías. Es la puerta de entrada para los usuarios y sistemas que consumen la API.
+- **Application Layer**: orquesta los casos de uso mediante Command Services, Query Services y Event Handlers. Aquí se coordinan las operaciones y se invocan las reglas de negocio.
+- **Domain Layer**: concentra la lógica de negocio del contexto, con entidades, objetos de valor, servicios de dominio y fábricas. Define las reglas que rigen el ciclo de vida de suscripciones y pagos.
+- **Infrastructure Layer**: implementa repositorios y conectores hacia la base de datos y sistemas externos. Se encarga de la persistencia y de la integración técnica.
 
-Todos ellos envían las solicitudes a la _Application Layer_, que se encarga de coordinar cada caso de uso y decidir qué reglas aplicar.
-
-Las reglas de negocio viven en la Domain Layer, donde están las entidades y servicios principales. Para guardar la información usamos _Postgres_, y gracias a la **Transactional Outbox** podemos asegurarnos de que los mensajes se envíen de forma confiable hacia **Kafka (eventos de integración)** y **SendGrid (emails de facturación y avisos)**. La parte de pagos la maneja el _Stripe Adapter_, que conecta con Stripe sin que el dominio dependa directamente de él.
-
-En resumen, la idea es tener responsabilidades bien separadas:
-• Las APIs, el webhook y el worker reciben las peticiones.
-• La capa de aplicación coordina el flujo.
-• El dominio aplica las reglas de negocio.
-• La infraestructura se encarga de guardar datos y comunicarse con sistemas externos.
+Las conexiones externas son:
+- Postgres para persistencia transaccional (suscripciones, pagos, compañías).
+- Stripe para procesamiento de pagos.
+- Firebase Cloud Messaging (FCM) para envío de notificaciones push.
+- Google Maps para consultas de rutas y tiempos estimados (ETA).
 
 _Diagrama de componentes - Application Web - Subscriptions and Billing_
 
