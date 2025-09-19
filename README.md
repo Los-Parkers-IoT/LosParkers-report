@@ -1668,6 +1668,6 @@ Escuchan eventos de dominio y reaccionan a ellos para ejecutar acciones adiciona
 
 ##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.
 
-![Trip Management Domain Layer Class Diagram]([https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/upc-pre-202520-1asi0572-3443/python-oop-review/refs/heads/master/docs/class-diagram.puml](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-Class-Diagram.puml?token=GHSAT0AAAAAADLQSIZQS27XFMTT7UTO5ETQ2GNQXJQ))
+![Trip Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-Class-Diagram.puml)
 
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
