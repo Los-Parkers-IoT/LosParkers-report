@@ -550,7 +550,7 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram
 
-4.2.2. Bounded Context: _Subscriptions and Billing_
+### 4.2.2. Bounded Context: _Subscriptions and Billing_
 
 4.2.2.1. Domain Layer
 
