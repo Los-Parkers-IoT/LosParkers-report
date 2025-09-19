@@ -1,0 +1,127 @@
+@startuml
+' Estereotipos de colores
+skinparam class {
+    BackgroundColor<<Entity>> LightYellow
+    BackgroundColor<<AggregateRoot>> Wheat
+    BackgroundColor<<ValueObject>> LightGreen
+    BackgroundColor<<Factory>> LightBlue
+    BackgroundColor<<DomainService>> LightCyan
+    BackgroundColor<<Repository>> LightGray
+}
+
+' ========================
+' Entities y Aggregate
+' ========================
+class Trip <<Entity>> {
+  - tripId: long
+  - driverId: long
+  - clientId: long
+  - vehicleId: long
+  - route: Route
+  - status: TripStatus
+}
+
+class TripAggregate <<AggregateRoot>> {
+  + ensureValidTrip()
+}
+
+' ========================
+' Value Objects
+' ========================
+class GeoCoordinate <<ValueObject>> {
+  - latitude: double
+  - longitude: double
+}
+
+class Polyline <<ValueObject>> {
+  - encodedPath: String
+}
+
+class RouteSegment <<ValueObject>> {
+  - coordinates: List<GeoCoordinate>
+  - distance: Distance
+  - duration: Duration
+}
+
+class Route <<ValueObject>> {
+  - origin: GeoCoordinate
+  - destination: GeoCoordinate
+  - segments: List<RouteSegment>
+  - polyline: Polyline
+  - totalDistance: Distance
+  - totalDuration: Duration
+}
+
+class Distance <<ValueObject>> {
+  - value: double
+  - unit: String
+}
+
+class Duration <<ValueObject>> {
+  - value: double
+  - unit: String
+}
+
+enum TripStatus <<ValueObject>> {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+' ========================
+' Factories
+' ========================
+class TripFactory <<Factory>> {
+  + createTrip(driverId: long, clientId: long, vehicleId: long, route: Route): Trip
+}
+
+' ========================
+' Domain Services
+' ========================
+class RoutePlanningService <<DomainService>> {
+  + planRoute(origin: GeoCoordinate, destination: GeoCoordinate): Route
+}
+
+class TripSchedulerService <<DomainService>> {
+  + validateAvailability(driverId: long, vehicleId: long): boolean
+}
+
+' ========================
+' Repositories
+' ========================
+interface ITripRepository <<Repository>> {
+  + findById(tripId: long): Trip
+  + save(trip: Trip)
+  + findByStatus(status: TripStatus): List<Trip>
+  + findByClientId(clientId: long): List<Trip>
+  + findAll(): List<Trip>
+}
+
+interface IRouteRepository <<Repository>> {
+  + findById(routeId: long): Route
+  + save(route: Route)
+  + findAll(): List<Route>
+}
+
+' ========================
+' Relaciones principales
+' ========================
+TripAggregate --> Trip
+Trip --> Route
+Trip --> TripStatus
+Route --> RouteSegment
+Route --> GeoCoordinate
+RouteSegment --> GeoCoordinate
+RouteSegment --> Distance
+RouteSegment --> Duration
+Route --> Polyline
+Route --> Distance
+Route --> Duration
+TripFactory --> Trip
+RoutePlanningService --> Route
+TripSchedulerService --> Trip
+ITripRepository --> Trip
+IRouteRepository --> Route
+
+@enduml
