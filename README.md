@@ -169,11 +169,11 @@
 
 ## 3.2. Impact Mapping
 
-# Impact mapping Empresa (Gestores de transporte)
+### Impact mapping-Empresa (Gestores de transporte)
 
 <img src="assets/Impact_map_Carlos.png"/>
 
-# Impact mapping Clientes Finales (Consumidores finales)
+### Impact mapping-Clientes Finales (Consumidores finales)
 
 <img src="assets/Impact_map_Maria.png"/>
 
