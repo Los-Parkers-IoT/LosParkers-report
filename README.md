@@ -1239,6 +1239,59 @@ paths:
 
 ## Componentes principales
 
+AlertRepositoryPostgres
+
+- Implementación concreta de AlertRepository.
+- Gestiona persistencia de alertas (estado, severidad, timestamps, resolución).
+- Uso de ORM/SQL (Hibernate/JPA).
+- Soporta queries de búsqueda por dispositivo, rango de fechas y tipo de alerta.
+
+ResolutionRepositoryPostgres
+
+- Implementación concreta de ResolutionRepository.
+- Persiste acciones correctivas aplicadas a las alertas (ej. revisión técnica, cierre manual).
+- Relaciona resoluciones con AlertId.
+- Garantiza histórico de auditoría y trazabilidad.
+
+SensorEventRepositoryPostgres
+
+- Permite almacenar lecturas brutas de sensores (temperatura, humedad, vibración, etc.).
+- Útil para análisis forense y generación de reportes.
+- Optimizado para escrituras masivas y consultas por rango temporal.
+
+DeviceAdapterMQTT
+
+- Patrón Adapter sobre protocolo MQTT para consumir mensajes de sensores en tiempo real.
+- Transforma eventos en SensorEvent y los envía al EventBus.
+- Maneja reconexiones y QoS configurable.
+
+NotificationAdapterEmail/SMS
+
+- Integración con servicios externos (SendGrid, Twilio, AWS SNS).
+- Envía notificaciones automáticas al personal cuando se dispara una alerta crítica.
+- Plantillas parametrizadas según tipo de alerta.
+
+EventBusKafkaAdapter
+
+- Implementación concreta de DomainEventPublisher.
+- Publica eventos como AlertCreated, AlertEscalated, AlertResolved.
+- Serialización en JSON/Avro, garantizando compatibilidad entre servicios.
+- Maneja particionado por deviceId o routeId.
+
+TransactionalOutboxPostgres
+
+- Tabla outbox asociada a transacciones de dominio (alertas y resoluciones).
+- Worker/scheduler lee eventos confirmados y los publica en Kafka.
+- Evita inconsistencias entre DB y mensajería.
+
+SchedulerQuartzAdapter
+
+- Agenda tareas periódicas (ej. limpiar alertas resueltas mayores a 1 año).
+- También permite monitorear “alertas pendientes sin resolución” y escalar a SLA.
+- Configuración de reintentos en cascada.
+
+![Infrastructure Layer](assets/Alerts_diagram_infrastructure.png)
+
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
 #### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
