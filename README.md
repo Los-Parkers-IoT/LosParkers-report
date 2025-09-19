@@ -1035,9 +1035,46 @@ Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos de
 
 ### Entidades (Entities)
 
-- Alert: representa un evento crítico detectado (desvío de ruta, dispositivo desconectado, etc). Mantiene su estado (abierto, reconocido, cerrado) y registra su ciclo de vida.
-- Notification: mensaje enviado al usuario a través de un canal (FCM, Email, SMS) para informar sobre una alerta.
-- Incident: evento relacionado con un viaje que se crea a partir de una alerta. Contiene detalles adicionales para análisis y resolución.
+**Entity: Alert (Aggregate Root)**  
+**Propósito principal**  
+Centralizar la gestión del ciclo de vida de una alerta y garantizar que se cumplan las reglas de negocio.  
+**Atributos principales**  
+- alertId: Identificador único de la alerta.  
+- type: Tipo de alerta (OutOfRange, Offline, RouteDeviation).  
+- status: Estado actual de la alerta (OPEN, ACKNOWLEDGED, CLOSED).  
+- sensorType: Tipo de sensor que la generó (TEMPERATURE, HUMIDITY, VIBRATION, TILT, LOCATION, BATTERY).  
+- createdAt: Fecha y hora de creación de la alerta.  
+- acknowledgedAt: Momento en que fue reconocida.  
+- closedAt: Momento en que fue cerrada.  
+**Métodos principales**  
+- acknowledge(): Marca la alerta como reconocida.  
+- close(): Cierra la alerta si ya fue reconocida.  
+- escalate(): Incrementa la criticidad si no fue atendida a tiempo.  
+
+
+**Entity: Notification**  
+**Propósito principal**  
+Representar un mensaje enviado a un usuario sobre una alerta.  
+**Atributos principales**  
+- notificationId: Identificador único de la notificación.  
+- alertId: Referencia a la alerta asociada.  
+- channel: Canal de comunicación (EMAIL, SMS, FCM).  
+- message: Contenido del mensaje.  
+- sentAt: Fecha y hora de envío.  
+**Métodos principales**  
+- markAsSent(): Actualiza el estado de la notificación como enviada.  
+
+**Entity: Incident**  
+**Propósito principal**  
+Registrar un evento relacionado con un viaje que se crea a partir de una alerta.  
+**Atributos principales**  
+- incidentId: Identificador único del incidente.  
+- alertId: Referencia a la alerta origen.  
+- tripId: Identificador del viaje asociado.  
+- description: Detalle del incidente.  
+- createdAt: Fecha y hora de creación.  
+**Métodos principales**  
+- resolve(description): Marca el incidente como resuelto con detalles.  
 
 ### Objetos de Valor (Value Objects)
 
@@ -1047,26 +1084,95 @@ Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos de
 - PersistenceWindow: define el tiempo mínimo que debe cumplirse para que un evento se considere válido como alerta.
 - SensorType: clasifica la fuente de monitoreo (TEMPERATURE, HUMIDITY, VIBRATION, TILT, LOCATION, BATTERY).
 
-### Agregados (Aggregates)
+#### Commands
 
-- AlertAggregate: conjunto que agrupa a la alerta con sus notificaciones e incidentes. Garantiza que todas las operaciones sobre alertas se hagan de manera coherente.
+**Command: CreateAlertCommand**  
+**Parámetros**  
+- type, sensorType, createdAt.  
+**Cómo funciona**  
+Se ejecuta al detectar un evento anómalo. Crea una nueva alerta validando reglas como la ventana de persistencia y evitando duplicación.  
 
-### Servicios de Dominio (Domain Services)
+**Command: AcknowledgeAlertCommand**  
+**Parámetros**  
+- alertId.  
+**Cómo funciona**  
+Permite a un operador reconocer la alerta. Cambia su estado a *ACKNOWLEDGED* y registra la hora.  
 
-- AlertEscalationService: aplica reflas de escalamiento cuando una alerta no ha sido reconocida en el tiempo límite.
-- NotificationService: selecciona los canales de notificación adecuados según las preferencias de usuario o empresa.
-- DeduplicationService: previene la generación de alertas duplicadas mediante períodos de enfriamiento.
+**Command: CloseAlertCommand**  
+**Parámetros**  
+- alertId.  
+**Cómo funciona**  
+Cierra una alerta reconocida, cambiando su estado a *CLOSED* y registrando la fecha de cierre.  
 
-### Fábricas (Factories)
+**Command: EscalateAlertCommand**  
+**Parámetros**  
+- alertId.  
+**Cómo funciona**  
+Incrementa la criticidad de una alerta que lleva demasiado tiempo sin ser reconocida, generando un evento de escalamiento.  
 
-- AlertFactory: encapsula la lógica de creación de una alerta a partir de eventos recibidos (ejemplo: sensor fuera de rango).
-- IncidentFactory: crea incidentes asociados a un viaje cuando una alerta lo requiere.
+**Command: CreateIncidentFromAlertCommand**  
+**Parámetros**  
+- alertId, tripId, description.  
+**Cómo funciona**  
+Crea un incidente asociado a un viaje a partir de una alerta específica, permitiendo registrar el detalle del evento.  
 
-### Repositorios (Interfaces)
+**Command: SendNotificationCommand**  
+**Parámetros**  
+- alertId, channel, message.  
+**Cómo funciona**  
+Ordena enviar una notificación al canal definido (Email, SMS, FCM) para informar al usuario o empresa sobre la alerta.  
 
-- AlertRepository: interfaz para guardar, actualizar y recuperar alertas.
-- NotificationRepository: interfaz para manejar el historial y el estado de notificaciones.
-- IncidentRepository: interfaz para registrar incidentes asociados a viajes
+#### Queries
+
+**Query: GetAlertByIdQuery**  
+**Parámetros**  
+- alertId.  
+**Cómo funciona**  
+Recupera los detalles de una alerta específica, incluyendo su estado, tipo y fechas clave.  
+
+**Query: GetAlertsByStatusQuery**  
+**Parámetros**  
+- status.  
+**Cómo funciona**  
+Devuelve todas las alertas con un estado determinado (ej. abiertas, reconocidas, cerradas).  
+
+**Query: GetAlertsByTypeQuery**  
+**Parámetros**  
+- type.  
+**Cómo funciona**  
+Recupera todas las alertas de un tipo específico (ej. RouteDeviation).  
+
+**Query: GetNotificationsByAlertIdQuery**  
+**Parámetros**  
+- alertId.  
+**Cómo funciona**  
+Devuelve todas las notificaciones emitidas en relación con una alerta.  
+
+**Query: GetIncidentsByAlertIdQuery**  
+**Parámetros**  
+- alertId.  
+**Cómo funciona**  
+Obtiene todos los incidentes generados a partir de una alerta determinada.  
+
+### Events
+
+**Event: AlertCreatedEvent**  
+Se emite cuando una nueva alerta es registrada en el sistema.  
+
+**Event: AlertAcknowledgedEvent**  
+Se emite cuando una alerta es reconocida.  
+
+**Event: AlertClosedEvent**  
+Se emite cuando una alerta se cierra exitosamente.  
+
+**Event: AlertEscalatedEvent**  
+Se emite cuando una alerta aumenta de criticidad por falta de respuesta.  
+
+**Event: NotificationSentEvent**  
+Se emite al enviar una notificación a un usuario o empresa.  
+
+**Event: IncidentCreatedEvent**  
+Se emite cuando se genera un incidente a partir de una alerta. 
 
 ### Reglas Clave (Business Rules)
 
@@ -1079,136 +1185,59 @@ Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos de
 
 #### 4.2.3.2. Interface Layer
 
-En esta capa se definen **Controllers (REST)**, **Consumers (mensajería/webhooks)**, los **DTOs asociados**, además de las **políticas de validación, errores y seguridad**.
+En esta capa se definen **Controllers (REST)**, los **DTOs asociados**, además de las **políticas de validación, errores y seguridad**.
 
-# A. Controllers (REST — Spring Web)
+## A. Controllers (REST — Spring Web)
 
-### AlertController
+El sistema expone tres controladores principales:
 
-**Base path:** `/api/v1/alerts`
+**AlertController**  
+Se encuentra bajo la ruta base `/api/v1/alerts`. Este controlador permite crear nuevas alertas a partir de eventos detectados, reconocer (ACK) alertas activas, cerrarlas una vez reconocidas, y obtener tanto el detalle de una alerta específica como la lista de alertas activas (estados OPEN o ACKNOWLEDGED).
 
-| Método | Ruta                     | Descripción                                           | Request DTO             | Response DTO        | Código HTTP |
-| ------ | ------------------------ | ----------------------------------------------------- | ----------------------- | ------------------- | ----------- |
-| POST   | `/`                      | Crea una nueva alerta a partir de un evento detectado | `CreateAlertRequestDTO` | `AlertDTO`          | 201 Created |
-| PATCH  | `/{alertId}/acknowledge` | Reconoce (ACK) una alerta activa                      | —                       | `AlertDTO`          | 200 OK      |
-| PATCH  | `/{alertId}/close`       | Cierra una alerta reconocida                          | —                       | `AlertDTO`          | 200 OK      |
-| GET    | `/{alertId}`             | Obtiene detalle de una alerta                         | —                       | `AlertDTO`          | 200 OK      |
-| GET    | `/active`                | Lista alertas activas (estado OPEN o ACKNOWLEDGED)    | —                       | Lista de `AlertDTO` | 200 OK      |
+**NotificationController**  
+Ubicado en `/api/v1/notifications`. Su responsabilidad es consultar y actualizar las preferencias de notificación de los usuarios, por ejemplo, los canales permitidos (EMAIL, SMS o FCM) y los tiempos de escalamiento configurados.
 
-### NotificationController
+**IncidentController**  
+Disponible en `/api/v1/incidents`. Permite crear incidentes vinculados a una alerta y un viaje, y consultar el detalle de incidentes registrados.
 
-**Base path:** `/api/v1/notifications`
+## B. DTOs (principales)
 
-| Método | Ruta                    | Descripción                                        | Request DTO                        | Response DTO                 | Código HTTP |
-| ------ | ----------------------- | -------------------------------------------------- | ---------------------------------- | ---------------------------- | ----------- |
-| GET    | `/preferences/{userId}` | Obtiene preferencias de notificación de un usuario | —                                  | `NotificationPreferencesDTO` | 200 OK      |
-| PATCH  | `/preferences/{userId}` | Actualiza preferencias de notificación             | `UpdateNotificationPreferencesDTO` | `NotificationPreferencesDTO` | 200 OK      |
+Para la comunicación con la interfaz se definen varios DTOs principales:
 
-### IncidentController
+- **CreateAlertRequestDTO**: contiene la información necesaria para registrar una alerta, incluyendo el identificador del evento, el tipo de alerta (OUT_OF_RANGE, OFFLINE, ROUTE_DEVIATION), la fuente y el momento en que fue detectada.  
+- **AlertDTO**: representa la respuesta al consultar una alerta. Incluye su identificador, tipo, estado (OPEN, ACK, CLOSED) y marcas de tiempo relevantes (creación, reconocimiento y cierre).  
+- **NotificationPreferencesDTO**: describe las preferencias de notificación de un usuario, incluyendo los canales habilitados y el tiempo de escalamiento en minutos.  
+- **UpdateNotificationPreferencesDTO**: utilizado para modificar las preferencias de notificación.  
+- **NotificationDTO**: expone el estado de una notificación enviada, incluyendo su identificador, el canal de comunicación, el estado (PENDING, SENT, FAILED) y la referencia a la alerta.  
+- **CreateIncidentRequestDTO**: permite crear un incidente a partir de una alerta, especificando el viaje asociado y los detalles adicionales.  
+- **IncidentDTO**: devuelve la información de un incidente registrado, con su identificador, alerta relacionada, viaje asociado, detalles y fecha de creación.  
 
-**Base path:** `/api/v1/incidents`
 
-| Método | Ruta            | Descripción                                         | Request DTO                | Response DTO  | Código HTTP |
-| ------ | --------------- | --------------------------------------------------- | -------------------------- | ------------- | ----------- |
-| POST   | `/`             | Crea un incidente vinculado a una alerta y un viaje | `CreateIncidentRequestDTO` | `IncidentDTO` | 201 Created |
-| GET    | `/{incidentId}` | Obtiene detalle de un incidente                     | —                          | `IncidentDTO` | 200 OK      |
+## C. Validación y reglas en la interfaz
 
-# B. Consumers (Webhooks / Mensajería)
+La capa de interfaz aplica varias reglas importantes:
 
-### MonitoringConsumer (entrada)
+- Una alerta no puede cerrarse si no ha sido reconocida previamente. En caso de incumplir esta regla, la API devuelve un error con estado `422 Unprocessable Entity`.  
+- Las preferencias de notificación deben validar que los canales enviados sean soportados (únicamente EMAIL, SMS o FCM).  
+- La creación de alertas es idempotente: para evitar duplicados en caso de reintentos, se permite el uso del encabezado `Idempotency-Key`.
 
-Procesa eventos entrantes de sistemas de monitoreo:
 
-| Evento                   | Acción                                         |
-| ------------------------ | ---------------------------------------------- |
-| `OutOfRangeDetected`     | Genera nueva alerta tipo **OutOfRange**        |
-| `DeviceOfflineDetected`  | Genera alerta por **dispositivo desconectado** |
-| `RouteDeviationDetected` | Genera alerta por **desviación de ruta**       |
+## D. Errores (contratos comunes)
 
-### DomainEventsPublisher (salida)
+Los contratos de error siguen una convención clara:  
+- **400 Bad Request**: cuando los datos enviados no cumplen con la validación de los DTOs.  
+- **401 Unauthorized / 403 Forbidden**: cuando el usuario no está autenticado o carece de permisos.  
+- **404 Not Found**: cuando se consulta una alerta, notificación o incidente inexistente.  
+- **409 Conflict**: en casos de transición de estado inválida o problemas de concurrencia.  
+- **422 Unprocessable Entity**: al violar reglas de negocio, por ejemplo, intentar cerrar una alerta que no fue reconocida.  
+- **503 Service Unavailable**: cuando falla un sistema externo como FCM o un gateway de SMS.  
 
-Publica eventos a otros Bounded Contexts:
 
-- `alerts.alert.generated`
-- `alerts.alert.acknowledged`
-- `alerts.alert.closed`
-- `alerts.incident.created`
-- `alerts.notification.sent`
+## E. Seguridad y políticas
 
-# C. DTOs (principales)
+En términos de seguridad, la autenticación y autorización se manejan con **JWT (OAuth2/OIDC)**, definiendo roles de usuario, sistema de monitoreo y administrador. Se aplica **rate limiting** para evitar abuso en las operaciones sensibles como el reconocimiento o cierre de alertas.  
 
-| DTO                                | Campos principales                                                                       |
-| ---------------------------------- | ---------------------------------------------------------------------------------------- |
-| `CreateAlertRequestDTO`            | `eventId`, `type` (ENUM: OUT_OF_RANGE, OFFLINE, ROUTE_DEVIATION), `source`, `detectedAt` |
-| `AlertDTO`                         | `id`, `type`, `status` (OPEN, ACK, CLOSED), `timestamps` (createdAt, ackAt, closedAt)    |
-| `NotificationPreferencesDTO`       | `userId`, `channels` (ARRAY: EMAIL, SMS, FCM), `escalationTimeMinutes`                   |
-| `UpdateNotificationPreferencesDTO` | `channels`, `escalationTimeMinutes`                                                      |
-| `NotificationDTO`                  | `id`, `alertId`, `channel`, `status` (PENDING, SENT, FAILED)                             |
-| `CreateIncidentRequestDTO`         | `alertId`, `tripId`, `details`                                                           |
-| `IncidentDTO`                      | `id`, `alertId`, `tripId`, `details`, `createdAt`                                        |
-
-# D. Validación y reglas en la interfaz
-
-- **Flujo de estados**:
-
-  - No se puede cerrar una alerta sin haber sido reconocida previamente → retorna `422 Unprocessable Entity`.
-
-- **Preferencias válidas**:
-
-  - Validar que los canales de notificación estén soportados (`EMAIL`, `SMS`, `FCM`).
-
-- **Idempotencia**:
-
-  - En la creación de alertas vía `POST /alerts`, se permite `Idempotency-Key` para evitar duplicados por reintentos.
-
-# E. Errores (contratos comunes)
-
-| Código HTTP | Descripción                                                                                 |
-| ----------- | ------------------------------------------------------------------------------------------- |
-| 400         | **Bad Request** — validación de DTOs inválidos                                              |
-| 401 / 403   | **Unauthorized / Forbidden** — autenticación o falta de permisos                            |
-| 404         | **Not Found** — alerta, notificación o incidente inexistente                                |
-| 409         | **Conflict** — transición de estado inválida o concurrencia                                 |
-| 422         | **Unprocessable Entity** — violación de reglas de negocio (ej. cerrar alerta no reconocida) |
-| 503         | **Service Unavailable** — fallo en sistema externo (ej. FCM, SMS Gateway)                   |
-
-# F. Seguridad y políticas
-
-- **AuthN/AuthZ**: JWT (OAuth2/OIDC). Roles: `user`, `monitoring-system`, `admin`.
-- **Rate limiting**: evita abuso en APIs de reconocimiento/cierre de alertas.
-- **API Versioning**: prefijo `/api/v1/...`.
-- **Observabilidad**: trazabilidad con `X-Request-Id`, métricas por endpoint y auditoría de cambios de estado.
-
-# G. Contratos de ejemplo (OpenAPI sketch)
-
-```yaml
-paths:
-  /api/v1/alerts/{alertId}/acknowledge:
-    patch:
-      summary: Acknowledge Alert
-      operationId: acknowledgeAlert
-      responses:
-        '200':
-          description: Alert acknowledged successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AlertDTO'
-        '422':
-          description: Invalid state transition
-
-  /api/v1/notifications/preferences/{userId}:
-    get:
-      summary: Get Notification Preferences
-      operationId: getPreferences
-      responses:
-        '200':
-          description: User notification preferences
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotificationPreferencesDTO'
-```
+Se implementa versionado de la API con el prefijo `/api/v1/...`. Además, la capa de interfaz incorpora mecanismos de **observabilidad**, como la propagación del identificador de trazabilidad (`X-Request-Id`), métricas por endpoint y auditoría de cambios en los estados de las alertas.
 
 #### 4.2.3.3. Application Layer
 
@@ -1220,16 +1249,16 @@ paths:
 
 ## Event Handlers
 
-- OutOfRangeDetectedHandler: maneja eventos de sensores fuera de rango.
-- DeviceOfflineDetectedHandler: maneja eventos de desconexión de dispositivos.
-- RouteDeviationDetectedHandler: maneja desvíos de ruta.
-- AlertAcknowledgedHandler: actúa tras el reconocimiento de una alerta (ejemplo: detener escalamiento).
-- AlertClosedHandler: actúa tras el cierre de una alerta (ejemplo: notificar a analíticas).
-- TemperatureOutOfRangeHandler: crea alerta de temperatura.
-- HumidityOutOfRangeHandler: crea alerta de humedad.
-- VibrationDetectedHandler: maneja vibración anómala.
-- TiltOrDumpDetectedHandler: maneja vuelcos o inclinaciones.
-- LowBatteryDetectedHandler: maneja alerta de energía.
+- OutOfRangeDetectedEventHandler: maneja eventos de sensores fuera de rango.
+- DeviceOfflineDetectedEventHandler: maneja eventos de desconexión de dispositivos.
+- RouteDeviationDetectedEventHandler: maneja desvíos de ruta.
+- AlertAcknowledgedEventHandler: actúa tras el reconocimiento de una alerta (ejemplo: detener escalamiento).
+- AlertClosedEventHandler: actúa tras el cierre de una alerta (ejemplo: notificar a analíticas).
+- TemperatureOutOfRangeEventHandler: crea alerta de temperatura.
+- HumidityOutOfRangeEventHandler: crea alerta de humedad.
+- VibrationDetectedEventHandler: maneja vibración anómala.
+- TiltOrDumpDetectedEventHandler: maneja vuelcos o inclinaciones.
+- LowBatteryDetectedEventHandler: maneja alerta de energía.
 
 ## Application Services (Capabilities)
 
@@ -1239,7 +1268,6 @@ paths:
 
 ## Transaccionalidad & Resilencia
 
-- Uso de transacciones al actualizar estados de alerta.
 - Outbox Pattern para publicar eventos de dominio de forma confiable y evitar pérdida de mensajes.
 - Reintentos automáticos con backoff exponencial al enviar notificaciones externas.
 - Circuit breakers para evitar caídas en cascada si los sistemas de terceros (FCM, SMS, Email) no responden.
@@ -1279,27 +1307,6 @@ NotificationAdapterEmail/SMS
 - Integración con servicios externos (SendGrid, Twilio, AWS SNS).
 - Envía notificaciones automáticas al personal cuando se dispara una alerta crítica.
 - Plantillas parametrizadas según tipo de alerta.
-
-EventBusKafkaAdapter
-
-- Implementación concreta de DomainEventPublisher.
-- Publica eventos como AlertCreated, AlertEscalated, AlertResolved.
-- Serialización en JSON/Avro, garantizando compatibilidad entre servicios.
-- Maneja particionado por deviceId o routeId.
-
-TransactionalOutboxPostgres
-
-- Tabla outbox asociada a transacciones de dominio (alertas y resoluciones).
-- Worker/scheduler lee eventos confirmados y los publica en Kafka.
-- Evita inconsistencias entre DB y mensajería.
-
-SchedulerQuartzAdapter
-
-- Agenda tareas periódicas (ej. limpiar alertas resueltas mayores a 1 año).
-- También permite monitorear “alertas pendientes sin resolución” y escalar a SLA.
-- Configuración de reintentos en cascada.
-
-![Infrastructure Layer](assets/Alerts_diagram_infrastructure.png)
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
