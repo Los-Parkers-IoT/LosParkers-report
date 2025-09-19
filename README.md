@@ -1372,6 +1372,21 @@ SchedulerQuartzAdapter
 
 #### 4.2.4.2. Interface Layer.
 
+**Controllers**
+
+- **TripController**: expone endpoints REST para gestionar los viajes. Recibe solicitudes del cliente y las convierte en comandos o queries para el Application Layer.
+  - createTrip: permite registrar un nuevo viaje a partir de la información del cliente, conductor, vehículo y ruta.
+  - assignDriver: asigna un conductor a un viaje existente.
+  - assignVehicle: asigna un vehículo a un viaje existente.
+  - startTrip: cambia el estado de un viaje a “En curso”.
+  - completeTrip: marca un viaje como finalizado.
+  - cancelTrip: cancela un viaje en curso o pendiente.
+  - updateRoute: permite actualizar la ruta asociada a un viaje antes de iniciarse.
+  - getTripById: consulta la información de un viaje específico mediante su identificador.
+  - getTripsByStatus: devuelve la lista de viajes filtrados por estado.
+  - getTripsByClient: consulta los viajes asociados a un cliente específico.
+  - getAllTrips: devuelve todos los viajes registrados en el sistema.
+
 #### 4.2.4.3. Application Layer.
 
 #### 4.2.4.4. Infrastructure Layer.
