@@ -925,99 +925,45 @@ Finalmente, el `SchedulerQuartzAdapter` administra procesos periódicos, como la
 
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-*Diagrama de componentes - Billing y Reneval Worker - Subscriptions and Billing*  
+*Diagrama de componentes - Backend - Subscriptions and Billing*  
 
-![Component diagrams](assets/component_diagram_1.png)
+![Component diagrams](assets/Component_diagram_backend.png)
 
-La arquitectura interna del contenedor encargado de las tareas programadas de facturación y cobro se compone de los siguientes elementos clave:
+El backend del bounded context Subscriptions & Billing está formado por varios componentes que trabajan juntos: 
+- Las APIs de suscripciones y consultas
+- El Webhook de Stripe
+- Worker de renovaciones
 
-- **SchedulerQuartzAdapter:**  
-  Dispara la ejecución periódica de los command handlers, coordinando la programación de tareas.
+Todos ellos envían las solicitudes a la *Application Layer*, que se encarga de coordinar cada caso de uso y decidir qué reglas aplicar.
 
-- **RenewSubscriptionCommandHandler:**  
-  Gestiona la renovación de ciclos de suscripción, ejecutando los procesos necesarios para extender las suscripciones activas.
+Las reglas de negocio viven en la Domain Layer, donde están las entidades y servicios principales. Para guardar la información usamos *Postgres*, y gracias a la **Transactional Outbox** podemos asegurarnos de que los mensajes se envíen de forma confiable hacia **Kafka (eventos de integración)** y **SendGrid (emails de facturación y avisos)**. La parte de pagos la maneja el *Stripe Adapter*, que conecta con Stripe sin que el dominio dependa directamente de él.
 
-- **RetryPaymentsCommandHandler:**  
-  Maneja los reintentos de pagos fallidos aplicando estrategias de backoff para maximizar la recuperación de cobros.
+En resumen, la idea es tener responsabilidades bien separadas:
+	•	Las APIs, el webhook y el worker reciben las peticiones.
+	•	La capa de aplicación coordina el flujo.
+	•	El dominio aplica las reglas de negocio.
+	•	La infraestructura se encarga de guardar datos y comunicarse con sistemas externos.
 
-Estos command handlers se apoyan en:
+*Diagrama de componentes - Application Web - Subscriptions and Billing*  
 
-- **BillingOrchestrationService:**  
-  Responsable del cálculo de importes y reglas de facturación.
+![Component diagrams](assets/Component_diagram_applicationweb.png)  
 
-- **SubscriptionRepositoryPostgres y PaymentRepositoryPostgres:**  
-  Repositorios que persisten el estado de suscripciones y pagos en la base de datos.
+La aplicación web se conecta al bounded context **Subscriptions & Billing** únicamente a través de las APIs: la *Subscriptions API* (para enviar comandos como crear o cancelar una suscripción) y la *Query API* (para consultar datos como facturas o planes activos).
 
-- **TransactionalOutboxPostgres y EventBusKafkaAdapter:**  
-  Garantizan la publicación confiable y eventual de eventos de dominio mediante el patrón outbox y la integración con Kafka.
+En el lado del cliente, la app se organiza en tres partes:
+	•	**UI (interfaz de usuario)**: pantallas de suscripciones, facturación y pagos.
+	•	**Estado de aplicación:** maneja la sesión del usuario, el cache de consultas y el control de autenticación.
+	•	**Servicios de datos:** cliente HTTP que llama a las APIs, agrega el token de seguridad y gestiona reintentos o errores.
+ 
+La aplicación web no implementa lógica de negocio propia, solo muestra la información y envía las intenciones del usuario al backend. Todo lo que es reglas, validaciones o persistencia está en el backend.
 
-Además, el contenedor integra:
+*Diagrama de componentes - Mobile Application - Subscriptions and Billing*  
 
-- **PaymentProviderAdapterStripe:**  
-  Para la creación y gestión de intents de pago y reembolsos en Stripe.
+![Component diagrams](assets/Component_diagram_mobile.png)  
 
-- **EmailNotificationAdapter:**  
-  Encargado del envío de notificaciones transaccionales por email.
+La aplicación móvil de **Subscriptions & Billing** es muy parecido a la versión web, ya que también se conecta al backend por la *Subscriptions API* y la *Query API*. La diferencia es que en el móvil contamos con una base de datos local (SQLite), que nos permite trabajar en modo offline: la app guarda datos y puede seguir operando aunque no haya conexión, y luego sincroniza cuando vuelve el internet.
 
-- **AccessControlSyncHandler:**  
-  Sincroniza el estado de acceso de las compañías con otros bounded contexts, asegurando coherencia en el control de accesos.
-
-*Diagrama de componentes - Query API - Subscriptions and Billing*  
-
-![Component diagrams](assets/component_diagram_2.png)  
-
-El contenedor soporta las consultas de lectura sobre el dominio de suscripciones y facturación mediante la siguiente arquitectura interna:
-
-- **QueryController:**  
-  Expone los endpoints HTTP para las consultas, actuando como punto de entrada para las solicitudes de información.
-
-- **QueryServices especializados:**  
-  - *SubscriptionQueryService*  
-  - *PaymentQueryService*  
-  - *InvoiceQueryService*  
-  Estos servicios encapsulan la lógica de consulta y procesamiento de datos específicos de cada área.
-
-- **ReadModels & Projections:**  
-  Estructuras optimizadas para lectura que almacenan vistas materializadas o tablas diseñadas para consultas eficientes.
-
-- **Base de datos PostgreSQL:**  
-  Fuente de datos principal donde se almacenan las proyecciones y modelos de lectura, alimentados desde los eventos y transacciones del dominio.
-
-*Diagrama de componentes - Stripe Webhook Endpoint - Subscriptions and Billing*  
-
-![Component diagrams](assets/component_diagram_3.png)  
-
-La gestión de eventos recibidos desde Stripe se realiza mediante la siguiente arquitectura interna:
-
-- **StripeWebhookController:**  
-  Punto de entrada HTTP que recibe los eventos enviados por Stripe (pagos confirmados, fallidos, reembolsos).
-
-- **HandleStripeWebhookCommandHandler:**  
-  Procesa y normaliza los eventos recibidos, aplicando la lógica de negocio correspondiente según el tipo de evento.
-
-- **WebhookIdempotencyStore:**  
-  Garantiza que cada evento de Stripe se procese una única vez, evitando duplicados mediante un registro de eventos ya manejados.
-
-- **PaymentRepositoryPostgres y SubscriptionRepositoryPostgres:**  
-  Actualizan el estado de los pagos y suscripciones en la base de datos según la información del evento.
-
-- **TransactionalOutboxPostgres:**  
-  Registra los eventos de dominio confirmados para asegurar la consistencia y la publicación fiable.
-
-- **EventBusKafkaAdapter:**  
-  Publica los eventos de dominio en Kafka, facilitando la integración y comunicación con otros bounded contexts.
-
-*Diagrama de componentes - Subscriptions API - Subscriptions and Billing*  
-
-![Component diagrams](assets/component_diagram_4.png)
-
-El `SubscriptionController` expone los endpoints REST, que a través del `DTOCommandMapper` transforman las solicitudes en comandos específicos procesados por los command handlers: 
-- `CreateSubscriptionCommandHandler`
-- `ChangePlanCommandHandler`
-- `CancelSubscriptionCommandHandler`
-- `RecordPaymentCommandHandler`
-
-Estos handlers coordinan la lógica de negocio utilizando el `BillingOrchestrationService` para cálculos de cuotas y prorrateos, los repositorios `SubscriptionRepositoryPostgres` y `PaymentRepositoryPostgres` para la persistencia, y el `TransactionalOutboxPostgres` junto al `EventBusKafkaAdapter` para la publicación confiable de eventos. Además, el `PaymentProviderAdapterStripe` permite la integración con Stripe y el `EmailNotificationAdapter` gestiona el envío de notificaciones transaccionales.
+La app se organiza en pantallas de suscripciones y facturación, un estado de aplicación que maneja la sesión y el cache, y un API Client que envía las solicitudes al backend siempre agregando el token de autenticación. Toda la lógica de negocio sigue estando en el backend; en el cliente solo mostramos información y enviamos las acciones que hace el usuario.
 
 #### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
 
