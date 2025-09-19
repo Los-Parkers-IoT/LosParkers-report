@@ -270,28 +270,20 @@ El objetivo de este diagrama es:
 ### Elementos incluidos
 
 - **Personas**: Company Operator, Driver and End Customer.
-- **Sistemas internos**: Logistics Planning and Power BI Data.
-- **Sistemas y proveedores externos**: CargaSafe (SaaS), Stripe, Google Maps, Notification Services e IoT Devices (sensors).
-- **Grupos**: Se organizaron en cuatro dominios principales:
-  - Logistics company
-  - Field / Devices
-  - Customers and Regulators
-  - SaaS and Vendors
+- **Sistema principal**: CargaSafe (SaaS): Núcleo de la solución: monitoreo de cadena de frío, alertas y trazabilidad.
+- **Sistemas y proveedores externos**: Stripe, Google Maps, Notification Services e IoT Devices (sensors).
 
 ### Relaciones principales
 
-- Logistics Planning → CargaSafe (SaaS): exporta planes y asignaciones de viaje.
-- IoT Devices → CargaSafe (SaaS): envía telemetría (temperatura, humedad, vibración, volcado/inclinación, GPS, energía/baterías).
-- CargaSafe (SaaS) → Google Maps: consulta rutas y tiempos estimados.
-- CargaSafe (SaaS) → Notification Services: envía alertas a los usuarios.
-- CargaSafe (SaaS) → Stripe: procesa pagos de suscripción.
-- CargaSafe (SaaS) → Power BI Data: exporta datasets consolidados para analítica.
-- Company Operator / Driver ↔ CargaSafe (SaaS): planifican, ejecutan y reportan el estado operativo.
-- End customer ← CargaSafe (SaaS): consulta estado y recibe reportes.
+- **IoT Devices → CargaSafe**: envío de datos de telemetría (temperatura, ubicación, energía, etc.).
+- **CargaSafe → Google Maps**: consultas de rutas y tiempos estimados.
+- **CargaSafe → FCM**: envío de alertas a usuarios vía notificaciones push.
+- **CargaSafe → Stripe**: procesamiento de pagos de suscripciones.
+- **Company Operator ↔ CargaSafe**: planificación y supervisión de operaciones logísticas.
+- **Driver ↔ CargaSafe**: ejecución de viajes y reportes operativos.
+- **End Customer ← CargaSafe**: acceso a estado y reportes de la cadena de frío.
 
-### Resultado
 
-El diagrama muestra a CargaSafe (SaaS) como el núcleo de integración entre operaciones (Company Operator, Driver, Logistics Planning), telemetría IoT (sensores en campo) y servicios externos (ruteo, notificaciones y pagos), además de su aporte a la inteligencia de negocio mediante Power BI Data. Esta representación proporciona una visión clara e integral de las dependencias y colaboraciones que sustentan la operación logística y la gestión de la cadena de frío.
 
 #### 4.1.3.2. Software Architecture Context Level Diagrams
 
@@ -550,420 +542,99 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram
 
-### 4.2.2. Bounded Context: _Subscriptions and Billing_
+4.2.2. Bounded Context: _Subscriptions and Billing_
 
-#### 4.2.2.1. Domain Layer
+4.2.2.1. Domain Layer
 
-#### Entidades (Entities)
+*Entities*
 
-- **Subscription**: Representa el contrato activo de servicio de una empresa. Contiene información sobre plan, estado, fechas de inicio y expiración.
-- **Payment**: Registra los pagos asociados a una suscripción, con monto, fecha, método y estado (exitoso o fallido).
-- **Company**: Entidad que consume el servicio y a la cual se asigna la suscripción. Cada empresa tiene un plan activo y el límite de vehículos depende de ese plan.
+**Subscription**
 
-#### Objetos de Valor (Value Objects)
+- **Propósito**: Gestionar el ciclo de vida de la suscripción de una empresa.
+- **Atributos principales**: subscriptionId, companyId, plan, billingCycle, status (ACTIVE, CANCELED), startedAt, expiresAt.
+- **Métodos principales**: activate(), changePlan(newPlan), renew(), cancel().
 
-- **Plan**: Define los límites de uso, costo y beneficios de cada suscripción. En este caso:
-  - _Plan Básico_: hasta 2 vehículos.
-  - _Plan Estándar_: hasta 5 vehículos.
-  - _Plan Premium_: de 5 vehículos en adelante (sin límite superior).
-- **BillingCycle**: Periodo de facturación (mensual, anual, etc.).
-- **GracePeriod**: Tiempo adicional de tolerancia tras el vencimiento de pago (ej. 7 días).
+**Payment**
 
-#### Agregados (Aggregates)
+- **Propósito**: Representar pagos asociados a una suscripción.
+- **Atributos principales**: paymentId, subscriptionId, amount, status (PENDING, SUCCEEDED, FAILED), date.
+- **Métodos principales**: markSucceeded(), markFailed().
 
-- **SubscriptionAggregate**: Raíz que coordina las entidades Subscription, Payment y la relación con Company. Aplica las siguientes reglas:
-  - Una empresa no puede registrar más vehículos de los permitidos por su plan.
-  - Una suscripción no se activa sin un pago válido.
-  - Se bloquea automáticamente el acceso tras fallar el pago y terminar el período de gracia.
+**Company**
 
-#### Servicios de Dominio (Domain Services)
+- **Propósito**: Entidad que consume el servicio y depende de su suscripción activa.
+- **Atributos principales**: companyId, name, vehicleCount.
+- **Métodos principales**: canFitPlan(plan).
 
-- **BillingService**: Calcula montos, aplica planes y valida períodos de gracia.
-- **PaymentProcessingService**: Coordina la recepción de eventos de Stripe (PaymentSucceeded, PaymentFailed) y actualiza el estado de la suscripción.
+**Value Objects**
 
-#### Fábricas (Factories)
+- **Plan**: Define límites y beneficios (code, vehicleLimit, price).
+- **BillingCycle**: Periodo de facturación (type, startDate, endDate).
+- **GracePeriod**: Tolerancia tras vencimiento (days).
 
-- **SubscriptionFactory**: Construye nuevas suscripciones con valores iniciales (plan, ciclo de facturación, empresa asociada).
+**Domain Services**
 
-#### Repositorios (Interfaces)
+- **BillingService**: Calcula montos y renovaciones.
+- **PaymentPolicy**: Aplica reglas de activación y cancelación según pagos.
 
-- **SubscriptionRepository**: Abstracción para acceder y persistir datos de suscripción.
-- **PaymentRepository**: Abstracción para manejar registros de pagos.
+**Factory**
 
-#### Reglas Clave (Business Rules)
+- **SubscriptionFactory**: Crea una suscripción válida con plan y ciclo inicial.
 
-- Plan Básico: máximo 2 vehículos por empresa.
-- Plan Estándar: máximo 5 vehículos por empresa.
-- Plan Premium: de 5 vehículos en adelante (sin límite superior).
-- Período de gracia de 7 días para regularizar pagos antes de bloquear acceso.
-- Bloqueo automático de acceso si no se recibe pago válido después del período de gracia.
+**Commands**
 
-#### 4.2.2.2. Interface Layer
+- **CreateSubscriptionCommand**: Crea una nueva suscripción.
+- **ChangePlanCommand**: Cambia de plan.
+- **CancelSubscriptionCommand**: Cancela una suscripción.
+- **RenewSubscriptionCommand**: Renueva periodo.
+- **RecordPaymentCommand**: Registra un pago.
 
-Aquí se definen **Controllers (REST)**, **Consumers (mensajería/webhooks)**, **DTOs asociados**, además de políticas de validación, errores y seguridad.
+**Queries**
 
-# A. Controllers (REST — Spring Web)
+**GetSubscriptionByIdQuery**: Consulta suscripción por ID.
+**GetActiveSubscriptionByCompanyQuery**: Consulta suscripción activa de una compañía.
+**ListPaymentsBySubscriptionQuery**: Lista pagos de una suscripción.
 
-### SubscriptionController
+**Events**
 
-**Base path:** `/api/v1/billing/subscriptions`
+**SubscriptionCreated**: Suscripción creada.
+**PlanChanged**: Cambio de plan.
+**SubscriptionRenewed**: Renovación realizada.
+**SubscriptionCanceled**: Suscripción cancelada.
+**PaymentSucceeded / PaymentFailed**: Resultado de pago.
 
-| Método | Ruta                     | Descripción                                                          | Request DTO                  | Response DTO    | Código HTTP |
-| ------ | ------------------------ | -------------------------------------------------------------------- | ---------------------------- | --------------- | ----------- |
-| POST   | /                        | Crea suscripción para una empresa y plan                             | CreateSubscriptionRequestDTO | SubscriptionDTO | 201 Created |
-| POST   | /{subscriptionId}/cancel | Cancela la suscripción al final del ciclo o inmediata según política | —                            | SubscriptionDTO | 200 OK      |
-| GET    | /{subscriptionId}        | Obtiene detalle de la suscripción                                    | —                            | SubscriptionDTO | 200 OK      |
-| GET    | /by-company/{companyId}  | Retorna la suscripción activa de la empresa                          | —                            | SubscriptionDTO | 200 OK      |
-| PATCH  | /{subscriptionId}/plan   | Cambia de plan (prorrateo si aplica)                                 | ChangePlanRequestDTO         | SubscriptionDTO | 200 OK      |
+4.2.2.2. Interface Layer
 
-### PlanController
+**Controllers**
 
-**Base path:** `/api/v1/billing/plans`
+- **SubscriptionController**: Endpoints para crear, renovar, cambiar plan y cancelar suscripciones.
+- **PaymentController**: Endpoints para registrar y consultar pagos.
+- **PlanController**: Endpoints para listar planes disponibles.
+- **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
 
-| Método | Ruta        | Descripción                              | Request DTO | Response DTO      | Código HTTP |
-| ------ | ----------- | ---------------------------------------- | ----------- | ----------------- | ----------- |
-| GET    | /           | Lista planes (Básico, Estándar, Premium) | —           | Listado de planes | 200 OK      |
-| GET    | /{planCode} | Obtiene detalle de un plan específico    | —           | PlanDTO           | 200 OK      |
+4.2.2.3. Application Layer
 
-### PaymentController
+**Command Services**
 
-**Base path:** `/api/v1/billing/payments`
+- **SubscriptionCommandService**: Ejecuta comandos de suscripción (crear, cambiar, renovar, cancelar).
+- **PaymentCommandService**: Registra pagos y actualiza estado de suscripción.
 
-| Método | Ruta                              | Descripción                                    | Request DTO                   | Response DTO     | Código HTTP |
-| ------ | --------------------------------- | ---------------------------------------------- | ----------------------------- | ---------------- | ----------- |
-| POST   | /intent                           | Inicia pago vía Stripe, front usa clientSecret | CreatePaymentIntentRequestDTO | PaymentIntentDTO | 200 OK      |
-| GET    | /{paymentId}                      | Obtiene detalle de un pago                     | —                             | PaymentDTO       | 200 OK      |
-| GET    | /by-subscription/{subscriptionId} | Lista pagos asociados a una suscripción        | —                             | Listado de pagos | 200 OK      |
+**Query Services**
 
-### CompanyAccessController
+**SubscriptionQueryService**: Consulta suscripciones por id, estado o compañía.
+**PaymentQueryService**: Consulta pagos por suscripción o estado.
 
-**Base path:** `/api/v1/billing/access`
+**Event Handlers**
+- **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
+- **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
 
-| Método | Ruta                         | Descripción                                           | Request DTO | Response DTO    | Código HTTP |
-| ------ | ---------------------------- | ----------------------------------------------------- | ----------- | --------------- | ----------- |
-| GET    | /company/{companyId}/status  | Obtiene estado de acceso (BLOCKED/UNBLOCKED y motivo) | —           | AccessStatusDTO | 200 OK      |
-| POST   | /company/{companyId}/unblock | Desbloqueo manual (solo rol autorizado; auditable)    | —           | -               | 200 OK      |
+4.2.2.4. Infrastructure Layer
 
-# B. Consumers (Webhooks / Mensajería)
+**Repositories (Interfaces)**
 
-### StripeWebhookController
-
-**Base path:** `/api/v1/billing/webhooks/stripe`  
-_Endpoint público_
-
-| Método | Ruta    | Descripción                      |
-| ------ | ------- | -------------------------------- |
-| POST   | /events | Recibe y procesa eventos Stripe: |
-
-- payment_intent.succeeded → PaymentSucceeded
-- payment_intent.payment_failed → PaymentFailed
-- customer.subscription.created → sincroniza SubscriptionCreated
-- customer.subscription.updated / ...deleted → reflejo de cambios/cancelación
-
-Respuesta: 2xx si se aceptó (idempotente por eventId).
-
-### IamConsumer (mensajería interna, ej. Kafka/RabbitMQ)
-
-**Base path:** `/api/v1/billing/access`
-
-| Topic                   | Acción                                                     |
-| ----------------------- | ---------------------------------------------------------- |
-| iam.company.created     | Crea o espeja Company mínima para asociar suscripción      |
-| iam.company.deactivated | Bloquea acceso o marca para cancelación al cierre de ciclo |
-
-### DomainEventsPublisher (salida)
-
-Publica eventos a otros Bounded Contexts:
-
-- `billing.subscription.created`
-- `billing.subscription.plan.changed`
-- `billing.company.access.blocked`
-- `billing.company.access.unblocked`
-
-# C. DTOs (principales)
-
-| DTO                           | Campos Principales                                                          |
-| ----------------------------- | --------------------------------------------------------------------------- |
-| CreateSubscriptionRequestDTO  | companyId (UUID), planCode (ENUM: BASIC                                     |
-| SubscriptionDTO               | /id, companyId, planCode, status (ACTIVE                                    |
-| ChangePlanRequestDTO          | newPlanCode, effectiveAt (IMMEDIATE                                         |
-| CreatePaymentIntentRequestDTO | subscriptionId, amountCents, currency (ISO), paymentMethodType (e.g., CARD) |
-| PaymentIntentDTO              | paymentIntentId, clientSecret, status                                       |
-| PaymentDTO                    | id, subscriptionId, amountCents, currency, status (SUCCEEDED                |
-
-Nota: vehicleLimit se deriva del plan: Básico=2, Estándar=5, Premium=5+ (sin tope).
-
-# D. Validación y reglas en la interfaz
-
-##### Plan vs. límite de vehículos:
-
-Al crear o cambiar plan, responder 422 Unprocessable Entity si el número de vehículos registrados por la empresa supera el límite del plan destino.
-
-##### Idempotencia:
-
-Encabezado Idempotency-Key obligatorio en POST /subscriptions y POST /payments/intent.
-
-##### Webhook safety:
-
-Verificación de firma Stripe; rechazo 400/401 si inválida; deduplicación por eventId.
-
-# E. Errores (contratos comunes)
-
-| Código HTTP | Descripción                                                                      |
-| ----------- | -------------------------------------------------------------------------------- |
-| 400         | Bad Request — validación de DTOs                                                 |
-| 401 / 403   | Unauthorized / Forbidden — autenticación/roles                                   |
-| 404         | Not Found — subscriptionId, companyId, paymentId inexistentes                    |
-| 409         | Conflict — cambios concurrentes en suscripción/plan                              |
-| 422         | Unprocessable Entity — violación de políticas (ej. límite de vehículos por plan) |
-| 503         | Service Unavailable — dependencia externa (Stripe) no disponible                 |
-
-# F. Seguridad y políticas
-
-- **AuthN/AuthZ**: JWT (OAuth2/OIDC). Scopes sugeridos: `billing:read`, `billing:write`, `billing:manage-access`.
-- **Multi-tenant**: encabezado `X-Tenant-Id` (o `companyId` en path) con control de acceso por tenant.
-- **Rate limiting**: endpoints públicos (webhooks) y de creación de intentos de pago.
-- **API Versioning**: prefijo `/api/v1/....`
-- **Observabilidad**: trazas con `X-Request-Id`, métricas por endpoint, auditoría en cambios de plan/acceso.
-
-# G. Contratos de ejemplo (OpenAPI sketch)
-
-```
-paths:
-  /api/v1/billing/subscriptions:
-    post:
-      summary: Create Subscription
-      operationId: createSubscription
-      requestBody:
-        $ref: '#/components/requestBodies/CreateSubscriptionRequest'
-      responses:
-        '201':
-          $ref: '#/components/responses/Subscription'
-        '422':
-          $ref: '#/components/responses/BusinessRuleViolation'
-
-  /api/v1/billing/webhooks/stripe/events:
-    post:
-      summary: Stripe Webhook
-      operationId: stripeWebhook
-      responses:
-        '200':
-          description: Accepted
-```
-
-#### 4.2.2.3. Application Layer
-
-La capa expone capabilities transaccionales y garantiza idempotencia, consistencia eventual y reintentos seguros frente a fallos de infraestructura.
-
-## Command Handlers
-
-_CreateSubscriptionCommandHandler_
-
-- Valida CreateSubscriptionRequestDTO.
-- Invoca SubscriptionFactory y BillingService (prorrateo/grace).
-- Persiste aggregate + outbox (SubscriptionCreated).
-- Si requiere cobro inicial: inicia PaymentIntent (Stripe) vía PaymentProviderAdapter.
-
-_ChangePlanCommandHandler_
-
-- Verifica elegibilidad (límite de vehículos, prorrateo, downgrade rules).
-- Recalcula ciclo y cargos (crédito/débito prorrateado).
-- Persiste cambios + outbox (PlanChanged).
-
-_CancelSubscriptionCommandHandler_
-
-- Soporta cancel_at_period_end | immediate.
-- Aplica reglas de gracia y bloqueo.
-- Persiste + outbox (SubscriptionCanceled).
-
-_RecordPaymentCommandHandler_
-
-- Registra intento/confirmación de pago iniciada desde UI Admin (sin Webhook).
-- Actualiza Payment + Subscription (Active/PastDue → Active).
-- Emite PaymentRecorded | SubscriptionRenewed (según caso).
-
-_HandleStripeWebhookCommandHandler_
-
-- Normaliza eventos (payment_intent.succeeded/failed, charge.refunded, invoice.paid).
-- Idempotencia por (eventId).
-- Publica eventos de dominio (PaymentSucceeded, PaymentFailed, PaymentRefunded).
-
-_RenewSubscriptionCommandHandler_
-
-- Dispara ciclo de facturación (programado o manual).
-- Genera Invoice/PaymentIntent; transición a Active/PastDue.
-- Emite SubscriptionRenewed | SubscriptionPastDue.
-
-_BlockCompanyAccessCommandHandler / UnblockCompanyAccessCommandHandler_
-
-- Aplica políticas de bloqueo (grace expirado, deuda).
-- Sincroniza con IAM (CompanyAccessController vía Application).
-- Emite CompanyBlocked | CompanyUnblocked.
-
-_IssueRefundCommandHandler_
-
-- Valida condiciones (ventana de reembolso, policy del plan).
-- Orquesta refund en Stripe y estado de Payment.
-- Emite PaymentRefunded.
-
-## Event Handlers
-
-_SubscriptionCreatedEventHandler_
-
-- Provisiona límites de plan (vehículos) y prepara primer ciclo.
-- Puede iniciar "trial/grace" según configuración.
-
-_PaymentSucceededEventHandler_
-
-- Marca Payment como settled y la Subscription como Active.
-- Limpia flags de deuda, publica DomainEvent: SubscriptionInGoodStanding.
-
-_PaymentFailedEventHandler_
-
-- Incrementa retry_count y programa reintento exponencial.
-- Transición a PastDue; si excede política → Blocked; emite SubscriptionPastDue.
-
-_PlanChangedEventHandler_
-
-- Recalcula cuota pro-rata y ajusta renovaciones futuras.
-- Actualiza snapshots de acceso (CompanyAccess).
-
-_InvoiceGeneratedEventHandler_
-
-- Dispara envío de comprobante/boleta (integración fiscal si aplica).
-- Publica InvoiceSent (para notificaciones).
-
-_SubscriptionCanceledEventHandler_
-
-- Revoca accesos al final del ciclo o inmediato.
-- Detiene jobs/schedulers de renovación.
-
-## Application Services (Capabilities)
-
-_BillingOrchestrationService_
-
-- Cálculo prorrateos, trial/grace, tax/IGV, redondeos y cupones.
-- Interfaz anti-corrupción con Domain BillingService.
-
-_PaymentApplicationService_
-
-- Abstracción de Stripe (PaymentProviderAdapter).
-- Gestión de PaymentIntent, captura, reintentos y refunds.
-
-_RenewalService_
-
-- Lote diario de renovaciones (scheduler).
-- Política de reintentos (exponencial con jitter) y ventana de gracia.
-
-_AccessControlSyncService_
-
-- Sincroniza estado de Subscription con IAM (bloqueo/desbloqueo a nivel compañía).
-- Cache de snapshot para consultas rápidas (GetCompanyAccessStatus).
-
-_QueryServices (lectura)_
-
-- SubscriptionQueryService: por companyId, estado, plan, próximos vencimientos.
-- PaymentQueryService: estado, rango temporal, conciliación.
-- InvoiceQueryService: por ciclo, por compañía, por estado fiscal.
-
-## Transaccionalidad & Resiliencia
-
-_Outbox + Publisher_
-
-- Todo cambio relevante de Aggregate escribe en outbox (at-least-once).
-- Publicador asíncrono con deduplicación por (aggregateId, version).
-
-_Idempotencia_
-
-- Clave idempotente por (companyId, externalReference) para comandos desde UI.
-- Webhooks Stripe: idempotencia por eventId.
-
-_Reintentos y Sagas_
-
-- Reintentos de cobro con backoff exponencial (configurable por plan).
-- Sagas livianas: ChangePlan (prorrateo + ajuste de límites + cobro), Refund (Stripe → dominio).
-
-_Consistencia_
-
-- Estados permitidos por diagrama (Draft → Active → PastDue → Blocked → Canceled).
-- Regla: no se desbloquea si existe deuda abierta o retry pendiente.
-
-![Application Layer](assets/Subscriptions_diagram_application.png)
-
-#### Explicación del Diagrama
-
-El diagrama de secuencia muestra el flujo completo del caso de uso **“Alta de suscripción con cobro inicial”** en el bounded context **Subscriptions & Billing**.
-
-El proceso inicia cuando el **Company Admin** invoca la API de suscripciones, la cual transforma la solicitud en un comando y lo delega al **CreateSubscriptionCommandHandler**. Este orquesta el cálculo de la cuota inicial a través del **BillingOrchestrationService**, persiste el estado de la suscripción en el **SubscriptionRepository** y registra el evento de dominio en el **Transactional Outbox**.
-
-En caso de requerir cobro inmediato, se genera un **PaymentIntent** en Stripe mediante el **PaymentProviderAdapter**, quedando el pago en estado _Pending_. Alternativamente, si aplica un período de prueba o gracia, la suscripción transiciona directamente a estado _Active_.
-
-Posteriormente, Stripe notifica el resultado del pago a través de un webhook. Este es procesado por el **HandleStripeWebhookCommandHandler**, que actualiza los repositorios de pagos y suscripciones, y publica eventos de dominio (**PaymentSucceeded**, **SubscriptionRenewed**) en el **EventBus**. Dichos eventos permiten la sincronización con otros bounded contexts, como el de control de accesos.
-
-#### 4.2.2.4. Infrastructure Layer
-
-## Componentes principales
-
-_SubscriptionRepositoryPostgres_
-
-- Implementación concreta de SubscriptionRepository.
-- Gestiona persistencia de suscripciones en PostgreSQL (estado, ciclo, plan).
-- Uso de ORM/SQL (ej. Hibernate/JPA o Dapper) con versionado optimista.
-
-_PaymentRepositoryPostgres_
-
-- Implementación concreta de PaymentRepository.
-- Registra intentos, confirmaciones y reembolsos de pagos.
-- Persiste referencias externas (Stripe payment_intent_id).
-
-_InvoiceRepositoryPostgres_
-
-- Permite almacenar facturas emitidas, estados fiscales y comprobantes electrónicos.
-- Relación con SubscriptionId y PaymentId.
-
-_PaymentProviderAdapterStripe_
-
-- Patrón Adapter sobre el SDK de Stripe.
-- Normaliza operaciones de creación de PaymentIntent, confirmación y reembolso.
-- Maneja idempotencia por eventId y errores de red.
-
-_TransactionalOutboxPostgres_
-
-- Tabla outbox asociada a transacciones de dominio.
-- Worker/scheduler lee eventos confirmados y los publica en EventBus.
-- Garantiza “at-least-once delivery” y evita inconsistencias entre DB y mensajería.
-
-_EventBusKafkaAdapter_
-
-- Implementación concreta de DomainEventPublisher.
-- Publica mensajes en tópicos Kafka (ej. `subscriptions`, `payments`).
-- Maneja serialización JSON/Avro y control de particiones.
-
-_SchedulerQuartzAdapter_
-
-- Agenda tareas recurrentes (ej. batch de renovaciones a las 03:00 AM).
-- Administra reintentos en cascada (exponencial con jitter).
-- Encapsula lógica técnica fuera del dominio.
-
-_EmailNotificationAdapter_
-
-- Integración con servicio SMTP o API externa (SendGrid, AWS SES).
-- Envío de comprobantes, alertas de pago fallido y avisos de bloqueo.
-
-![Infrastructure Layer](assets/Subscriptions_diagram_infrastructure.png)
-
-#### Explicación del Diagrama
-
-El diagrama de infraestructura muestra la forma en que el bounded context **Subscriptions & Billing** implementa las interfaces definidas en el **Domain Layer** y las conecta con servicios externos. De este modo, se evidencia la aplicación de patrones de diseño como **Repository** y **Adapter**, garantizando un bajo acoplamiento entre la lógica de negocio y la infraestructura técnica.
-
-Los repositorios (`SubscriptionRepositoryPostgres`, `PaymentRepositoryPostgres`, `InvoiceRepositoryPostgres`) persisten el estado de las suscripciones, pagos e invoices en una base de datos **PostgreSQL**, asegurando versionado y consistencia de datos. A su vez, el `TransactionalOutboxPostgres` registra los eventos de dominio confirmados para luego ser publicados de manera confiable en **Kafka** a través del `EventBusKafkaAdapter`.
-
-La integración con servicios externos se realiza mediante adaptadores específicos:
-
-- `PaymentProviderAdapterStripe` encapsula las operaciones de la API de **Stripe**.
-- `EmailNotificationAdapter` permite el envío de notificaciones por **SMTP/SendGrid**.
-
-Finalmente, el `SchedulerQuartzAdapter` administra procesos periódicos, como la renovación automática de suscripciones, apoyándose en los repositorios para garantizar la correcta ejecución de los ciclos de facturación.
+- **ISubscriptionRepository**: Acceso a datos de suscripciones.
+- **IPaymentRepository**: Acceso a datos de pagos.
+- **ICompanyRepository**: Acceso a datos de compañías.
 
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
 
