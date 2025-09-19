@@ -365,11 +365,11 @@
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
-- **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa consumidora]
-- **Empresa/Sector**: [Nombre de la empresa o sector de actividad]
-- **Enlace**: [URL del video de la entrevista]
+- **Nombre**: Brenda Carolina
+- **Edad**: 20 años
+- **Ocupación**: Trabajadora de medio tiempo en un minimarket, responsable de compras de insumos para refrigeración
+- **Empresa/Sector**: Retail alimentario local – Consumo final
+- **Enlace**: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/ETZJCs5-UXdFnmhsbphFM7gBm-D9N0q1TO-57qQHVY9bNg?e=2AZjQ6&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
   <img src="assets/entrevista_cliente_2.png">
 
