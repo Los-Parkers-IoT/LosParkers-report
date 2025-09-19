@@ -293,21 +293,18 @@ El **Context Diagram** de CargaSafe muestra una visión de alto nivel del sistem
 
 ![Software Architecture – Context Level Diagram](assets/Context_Level_Diagram.png)
 
-En el centro se ubica **CargaSafe (SaaS)**, que representa el sistema principal encargado del monitoreo de la cadena de frío, la trazabilidad y la generación de alertas en los viajes logísticos. 
+En el centro se ubica CargaSafe (SaaS), que representa el sistema principal encargado del monitoreo de la cadena de frío, la trazabilidad y la generación de alertas en los viajes logísticos.
 
 Alrededor del sistema se identifican los siguientes actores:
-
-- **Company Operator**: gestiona viajes, flota y reportes desde la plataforma.
-- **Driver**: completa viajes y reporta información desde la aplicación móvil.
-- **End customer**: recibe enlaces de estado, alertas y reportes generados por el sistema.
+- *Company Operator*: gestiona viajes, flota y reportes desde la plataforma.
+- *Driver*: completa viajes y reporta información desde la aplicación móvil.
+- *End customer*: recibe enlaces de estado, alertas y reportes generados por el sistema.
 
 Asimismo, se destacan las interacciones con sistemas externos que complementan las funcionalidades de CargaSafe:
 
-- **Google Maps**: provee rutas, geocodificación y cálculo de ETA.
-- **Notification Services**: entrega notificaciones por FCM, SMS o Email.
-- **Stripe**: procesa pagos y facturación de suscripciones.
-- **Power BI Data**: recibe datasets consolidados para análisis corporativo.
-
+- Google Maps: provee rutas, geocodificación y cálculo de ETA.
+- Firebase Cloud Messaging: entrega notificaciones push.
+Stripe: procesa pagos y facturación de suscripciones.
 Este diagrama permite visualizar de manera clara las responsabilidades de cada actor y sistema, y cómo CargaSafe se convierte en el núcleo que articula la comunicación entre usuarios, dispositivos IoT y servicios externos, garantizando la operación eficiente y segura de la cadena logística.
 
 
