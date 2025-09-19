@@ -316,41 +316,29 @@ En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus conten
 ![Software Architecture – Container Level Diagram](assets/Container_Level_Diagram.png)
 
 
-**Contenedores internos**
-- **Landing Page (HTML/CSS):** sitio público simple que sirve como carta de presentación y redirige al frontend de la aplicación.
-- **Web Frontend (Angular):** interfaz principal que usan los operadores de la empresa y el personal de soporte para gestionar flota, viajes, parámetros y reportes. También aquí se generan los enlaces públicos que recibe el cliente final.
-- **Mobile App (Flutter):** aplicación móvil usada por los conductores. Desde aquí reciben instrucciones de viaje, reportan el estado del mismo y pueden registrar incidencias.
-- **Embedded Database (Mobile)**: almacenamiento local (SQLite/Isar) incorporado en la app móvil, que permite continuar operaciones sin conectividad y sincronizar eventos posteriormente.
-- **Backend API (Spring Boot):** Contiene la lógica de negocio, gestiona viajes, dispositivos, alertas, sesiones de monitoreo y también las suscripciones. Expone servicios REST que consumen el frontend y la app móvil.
-- **Relational Database (PostgreSQL):** base de datos transaccional que almacena usuarios, vehículos, dispositivos, viajes, telemetría, alertas y suscripciones.
-- **Embedded Application:** aplicación ligera en dispositivos embebidos que captura datos en tiempo real y los bufferiza para su envío posterior.
-- **Edge Application:** agente desplegado en entornos de borde (vehículos o depósitos) que procesa datos localmente, maneja caché y asegura la sincronización con el Backend API incluso en condiciones de conectividad intermitente.
+El diagrama de contenedores muestra cómo se organiza internamente CargaSafe (SaaS) y cómo se relaciona con los actores y sistemas externos.
 
-**Sistemas externos**
-- **Logistics Planning:** exporta planes de pedidos, rutas y despachos hacia el Backend API.
-- **Google Maps:** provee ruteo, geocodificación y cálculo de ETA.
-- **Stripe:** plataforma para pagos y facturación de suscripciones.
-- **Notification Services (FCM, SMS, Email):** canales de entrega conectados desde nuestro Notification Service.
-- **Data Warehouse / BI:** destino de los datasets consolidados que se exportan para análisis corporativos.
-- **Helpdesk / E-mail:** sistema externo que usamos para tickets y, de forma opcional, para notificaciones por correo.
+Dentro de la plataforma tenemos varios contenedores:
 
-**Comunicación principal**
-- El **Web Frontend** y la **Mobile App** consumen la **Backend API** mediante REST/JSON.
-- El **Backend API** persiste la información en la base de datos y encola los trabajos de notificación en el **Notification Service**.
-- El **Notification Service** se encarga de procesar estos trabajos y enviarlos a los servicios externos de notificación.
-- **Stripe:** procesa pagos y facturación de suscripciones.
-- **Power BI Data:** recibe datasets consolidados para el análisis corporativo.
+- *Landing Page:* sitio público que sirve para marketing y como punto de acceso, redirigiendo tanto a la Web App, al Single Web como a la Mobile App (descarga o deeplinks).
+- *Web Frontend:* aplicación usada por los operadores para gestionar viajes, flota y reportes.
+- *Single Web:* vista pública en línea donde los clientes finales pueden consultar estados y reportes sin necesidad de autenticarse.
+- *Mobile App:* aplicación móvil para los conductores, con soporte offline-first. Se conecta a su propia base de datos embebida SQLite para cache y operación sin conexión.
+- *Backend API:* núcleo de la lógica de negocio, responsable de gestionar viajes, monitoreo, alertas y suscripciones.
+- *Relational Database (PostgreSQL):* base de datos principal donde se almacenan usuarios, vehículos, dispositivos, viajes, telemetría, alertas y suscripciones.
+- *Edge Application (Python):* agente que corre en instalaciones o vehículos, con capacidad de procesamiento local, cache y sincronización confiable con el backend. Usa su propia Edge Database local para tolerar desconexiones.
+- *Embedded Application (C++):* componente ligero que corre en dispositivos restringidos, captura datos y los envía hacia la aplicación edge para su posterior sincronización.
 
-**Decisiones tecnológicas**
-- Se eligió **Angular** para el frontend web por su robustez y facilidad de mantenimiento.
-- Para la app móvil, se utilizó **Flutter** por su capacidad de generar aplicaciones multiplataforma de alto rendimiento.
-- El **Backend** se desarrolló en **Spring Boot**, que ofrece un ecosistema sólido para microservicios e integraciones.
-- La base de datos es **PostgreSQL**, por su confiabilidad y soporte a operaciones transaccionales.
-- Finalmente, se separó un **servicio de notificaciones** como worker para mantener desacoplada la lógica de negocio del proceso de envío de mensajes.
+Los actores principales interactúan con los contenedores:
+- Company Operator usa la Web App para planificar y supervisar operaciones.
+- Driver utiliza la Mobile App para recibir instrucciones y reportar estado de los viajes.
+- End Customer accede tanto a la Single Web (para reportes públicos) como a la Mobile App (para recibir notificaciones y links de estado).
 
-**Resultado**
-Con esta distribución logramos una arquitectura clara, escalable y flexible. Cada contenedor cumple un rol específico y las integraciones externas se mantienen bien aisladas, lo que facilita la evolución futura de la solución.
-
+Además, CargaSafe se integra con varios sistemas externos:
+- *Google Maps*: para rutas, geocodificación y cálculo de ETA.
+- *Stripe*: para pagos y facturación de suscripciones.
+- *Firebase Cloud Messaging (FCM)*: para notificaciones push hacia aplicaciones móviles y web.
+En conjunto, el diagrama muestra cómo CargaSafe se estructura en contenedores especializados que soportan las necesidades de operadores, conductores y clientes, asegurando tanto la operación online como offline en distintos puntos de la cadena logística.
 
 
 #### 4.1.3.3. Software Architecture Deployment Diagrams
