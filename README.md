@@ -1051,6 +1051,7 @@ Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos de
 - AlertStatus: define en qué etapa se encuentra la alerta (Open, Acknowledged, Closed).
 - NotificationChannel: indica el medio de comunicación usado (Email, SMS, FCM).
 - PersistenceWindow: define el tiempo mínimo que debe cumplirse para que un evento se considere válido como alerta.
+- SensorType: clasifica la fuente de monitoreo (TEMPERATURE, HUMIDITY, VIBRATION, TILT, LOCATION, BATTERY).
 ### Agregados (Aggregates)
 - AlertAggregate: conjunto que agrupa a la alerta con sus notificaciones e incidentes. Garantiza que todas las operaciones sobre alertas se hagan de manera coherente.
 ### Servicios de Dominio (Domain Services)
@@ -1207,9 +1208,32 @@ paths:
 #### 4.2.3.3. Application Layer
 
 ## Command Handlers
+- AcknowledgeAlertCommandHandler: procesa el reconocimiento de una alerta.
+- CloseAlertCommandHandler: gestiona el cierre de una alerta.
+- CreateAlertCommandHandler: crea una nueva alerta a partir de un evento recibido.
+
 ## Event Handlers
+- OutOfRangeDetectedHandler: maneja eventos de sensores fuera de rango.
+- DeviceOfflineDetectedHandler: maneja eventos de desconexión de dispositivos.
+- RouteDeviationDetectedHandler: maneja desvíos de ruta.
+- AlertAcknowledgedHandler: actúa tras el reconocimiento de una alerta (ejemplo: detener escalamiento).
+- AlertClosedHandler: actúa tras el cierre de una alerta (ejemplo: notificar a analíticas).
+- TemperatureOutOfRangeHandler: crea alerta de temperatura.
+- HumidityOutOfRangeHandler: crea alerta de humedad.
+- VibrationDetectedHandler: maneja vibración anómala.
+- TiltOrDumpDetectedHandler: maneja vuelcos o inclinaciones.
+- LowBatteryDetectedHandler: maneja alerta de energía.
+
 ## Application Services (Capabilities)
+- AlertAppService: coordina el ciclo de vida de las alertas.
+- NotificationAppService: orquesta el envío de notificaciones a través de canales externos.
+- IncidentAppService: integra el contexto de alertas con el contexto de viajes para crear incidentes relacionados.
+
 ## Transaccionalidad & Resilencia
+- Uso de transacciones al actualizar estados de alerta.
+- Outbox Pattern para publicar eventos de dominio de forma confiable y evitar pérdida de mensajes.
+- Reintentos automáticos con backoff exponencial al enviar notificaciones externas.
+- Circuit breakers para evitar caídas en cascada si los sistemas de terceros (FCM, SMS, Email) no responden.
 
 #### 4.2.3.4. Infrastructure Layer
 
