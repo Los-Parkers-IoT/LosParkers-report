@@ -1631,6 +1631,35 @@ components:
 
 #### 4.2.5.3. Application Layer.
 
+**Command Handlers**  
+Se encargan de ejecutar la lógica de cada comando y modificar el estado del dominio.
+
+- **CreateTripCommandHandler**: procesa la creación de un viaje nuevo usando TripFactory y persiste el agregado en ITripRepository.
+- **AssignDriverToTripCommandHandler**: recibe un comando de asignación de conductor, valida la referencia y actualiza el Trip.
+- **AssignVehicleToTripCommandHandler**: procesa la asignación de un vehículo a un viaje.
+- **StartTripCommandHandler**: cambia el estado del viaje a “En curso” y emite el evento TripStartedEvent.
+- **CompleteTripCommandHandler**: marca el viaje como finalizado y emite el evento TripCompletedEvent.
+- **CancelTripCommandHandler**: cambia el estado del viaje a “Cancelado” y emite el evento TripCancelledEvent.
+- **UpdateRouteForTripCommandHandler**: procesa la actualización de la ruta de un viaje antes de su inicio.
+
+**Query Handlers**  
+Procesan consultas de solo lectura y devuelven DTOs o proyecciones.
+
+- **GetTripByIdQueryHandler**: busca un viaje por su identificador y devuelve su representación.
+- **GetTripsByStatusQueryHandler**: devuelve los viajes filtrados por estado (Pendiente, En curso, Completado, Cancelado).
+- **GetTripsByClientIdQueryHandler**: devuelve los viajes asociados a un cliente específico.
+- **GetAllTripsQueryHandler**: obtiene todos los viajes registrados en el sistema.
+
+**Event Handlers**  
+Escuchan eventos de dominio y reaccionan a ellos para ejecutar acciones adicionales dentro del mismo bounded context o preparar datos para otros.
+
+- **TripCreatedEventHandler**: maneja el evento de creación de un viaje, inicializando procesos asociados como auditoría o métricas internas.
+- **DriverAssignedEventHandler**: reacciona a la asignación de un conductor, garantizando consistencia en registros relacionados.
+- **VehicleAssignedEventHandler**: maneja la asignación de un vehículo, actualizando estados necesarios.
+- **TripStartedEventHandler**: responde al inicio de un viaje, registrando la hora de inicio y disparando procesos de seguimiento.
+- **TripCompletedEventHandler**: procesa la finalización de un viaje, generando datos para reportes o notificaciones al cliente.
+- **TripCancelledEventHandler**: maneja la cancelación de un viaje, liberando recursos y actualizando métricas de cancelación.
+
 #### 4.2.5.4. Infrastructure Layer.
 
 #### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams.
