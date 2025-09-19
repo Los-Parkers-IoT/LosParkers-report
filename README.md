@@ -365,7 +365,7 @@
 
   <br/>
 
-- **Nombre**: Brenda Carolina
+- **Nombre**: Brenda Calderon
 - **Edad**: 20 años
 - **Ocupación**: Trabajadora de medio tiempo en un minimarket, responsable de compras de insumos para refrigeración
 - **Empresa/Sector**: Retail alimentario local – Consumo final
@@ -426,11 +426,11 @@
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
+- **Nombre**: Brenda Calderon
 
-- **Entrevistador**: [Nombre del entrevistador]
+- **Entrevistador**: Nicolas Vera
 
-  [...]
+  La entrevistada Brenda Carolina, compradora frecuente de alimentos online, manifiesta que al recibir productos sensibles a temperatura verifica el empaque, la ausencia de humedad, que los alimentos lleguen fríos al tacto y que la fecha de vencimiento esté visible, ya que ha tenido experiencias negativas como rechazar un lote de yogures en mal estado. Señala que los reportes de temperatura que recibe de los proveedores suelen ser genéricos y poco confiables, por lo que considera fundamental contar con registros más detallados y trazables en tiempo real. Para ella, la información más valiosa incluye la temperatura a lo largo del trayecto, retrasos o eventos que afecten la cadena de frío, y prefiere acceder a estos datos mediante un portal o aplicación con notificaciones breves y claras. Valora interfaces simples con gráficos fáciles de interpretar, así como funcionalidades como alertas en tiempo real, reportes descargables e historial de pedidos, y espera que un sistema IoT le brinde mayor seguridad y control en sus compras, aunque le preocupa el costo de implementación y la confiabilidad técnica de los equipos.
 
   <br/>
 
