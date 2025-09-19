@@ -859,22 +859,11 @@ Se emite cuando se genera un incidente a partir de una alerta.
 - NotificationRepository: interfaz para manejar el historial y el estado de notificaciones. 
 - IncidentRepository: interfaz para registrar incidentes asociados a viajes
 
-### Reglas Clave (Business Rules)
-
-- Persistence Window: no se genera alerta hasta que la condición anómala se mantenga por cierto tiempo.
-- No duplicación: no se permiten alertas repetidas durante un período de enfriamiento.
-- Escalamiento: si una alerta no es reconocida en el tiempo condigurado, se aumenta su criticidad.
-- Flujo de estados: una alerta solo puede cerrarse si fue previamente reconocida.
-- Preferencias de notificación: el canal de comunicación depende de la configuración del usuario o de la compañía.
-- Consistencia: toda alerta debe estar vinculada a un evento detectado en el sistema de monitoreo.
-
 #### 4.2.3.2. Interface Layer
 
-En esta capa se definen **Controllers (REST)**, los **DTOs asociados**, además de las **políticas de validación, errores y seguridad**.
+En esta capa se definen **Controllers (REST)**.
 
-## A. Controllers (REST — Spring Web)
-
-El sistema expone tres controladores principales:
+## Controllers (REST — Spring Web)
 
 **AlertController**  
 Este controlador permite crear nuevas alertas a partir de eventos detectados, reconocer (ACK) alertas activas, cerrarlas una vez reconocidas, y obtener tanto el detalle de una alerta específica como la lista de alertas activas (estados OPEN o ACKNOWLEDGED).
@@ -885,77 +874,34 @@ Su responsabilidad es consultar y actualizar las preferencias de notificación d
 **IncidentController**  
 Permite crear incidentes vinculados a una alerta y un viaje, y consultar el detalle de incidentes registrados.
 
-## B. DTOs (principales)
-
-Para la comunicación con la interfaz se definen varios DTOs principales:
-
-- **CreateAlertRequestDTO**: contiene la información necesaria para registrar una alerta, incluyendo el identificador del evento, el tipo de alerta (OUT_OF_RANGE, OFFLINE, ROUTE_DEVIATION), la fuente y el momento en que fue detectada.  
-- **AlertDTO**: representa la respuesta al consultar una alerta. Incluye su identificador, tipo, estado (OPEN, ACK, CLOSED) y marcas de tiempo relevantes (creación, reconocimiento y cierre).  
-- **NotificationPreferencesDTO**: describe las preferencias de notificación de un usuario, incluyendo los canales habilitados y el tiempo de escalamiento en minutos.  
-- **UpdateNotificationPreferencesDTO**: utilizado para modificar las preferencias de notificación.  
-- **NotificationDTO**: expone el estado de una notificación enviada, incluyendo su identificador, el canal de comunicación, el estado (PENDING, SENT, FAILED) y la referencia a la alerta.  
-- **CreateIncidentRequestDTO**: permite crear un incidente a partir de una alerta, especificando el viaje asociado y los detalles adicionales.  
-- **IncidentDTO**: devuelve la información de un incidente registrado, con su identificador, alerta relacionada, viaje asociado, detalles y fecha de creación.  
-
-
-## C. Validación y reglas en la interfaz
-
-La capa de interfaz aplica varias reglas importantes:
-
-- Una alerta no puede cerrarse si no ha sido reconocida previamente. En caso de incumplir esta regla, la API devuelve un error con estado `422 Unprocessable Entity`.  
-- Las preferencias de notificación deben validar que los canales enviados sean soportados (únicamente EMAIL, SMS o FCM).  
-- La creación de alertas es idempotente: para evitar duplicados en caso de reintentos, se permite el uso del encabezado `Idempotency-Key`.
-
-
-## D. Errores (contratos comunes)
-
-Los contratos de error siguen una convención clara:  
-- **400 Bad Request**: cuando los datos enviados no cumplen con la validación de los DTOs.  
-- **401 Unauthorized / 403 Forbidden**: cuando el usuario no está autenticado o carece de permisos.  
-- **404 Not Found**: cuando se consulta una alerta, notificación o incidente inexistente.  
-- **409 Conflict**: en casos de transición de estado inválida o problemas de concurrencia.  
-- **422 Unprocessable Entity**: al violar reglas de negocio, por ejemplo, intentar cerrar una alerta que no fue reconocida.  
-- **503 Service Unavailable**: cuando falla un sistema externo como FCM o un gateway de SMS.  
-
-
-## E. Seguridad y políticas
-
-En términos de seguridad, la autenticación y autorización se manejan con **JWT (OAuth2/OIDC)**, definiendo roles de usuario, sistema de monitoreo y administrador. Se aplica **rate limiting** para evitar abuso en las operaciones sensibles como el reconocimiento o cierre de alertas.  
-
-Se implementa versionado de la API con el prefijo `/api/v1/...`. Además, la capa de interfaz incorpora mecanismos de **observabilidad**, como la propagación del identificador de trazabilidad (`X-Request-Id`), métricas por endpoint y auditoría de cambios en los estados de las alertas.
-
 #### 4.2.3.3. Application Layer
 
 ## Command Services
 
-- AcknowledgeAlertCommandHandler: procesa el reconocimiento de una alerta.
-- CloseAlertCommandHandler: gestiona el cierre de una alerta.
-- CreateAlertCommandHandler: crea una nueva alerta a partir de un evento recibido.
+- AlertCommandService: Ejecuta todos los comandos de las alertas.
 
 ## Event Services
 
-- OutOfRangeDetectedEventHandler: maneja eventos de sensores fuera de rango.
-- DeviceOfflineDetectedEventHandler: maneja eventos de desconexión de dispositivos.
-- RouteDeviationDetectedEventHandler: maneja desvíos de ruta.
-- AlertAcknowledgedEventHandler: actúa tras el reconocimiento de una alerta (ejemplo: detener escalamiento).
-- AlertClosedEventHandler: actúa tras el cierre de una alerta (ejemplo: notificar a analíticas).
-- TemperatureOutOfRangeEventHandler: crea alerta de temperatura.
-- HumidityOutOfRangeEventHandler: crea alerta de humedad.
-- VibrationDetectedEventHandler: maneja vibración anómala.
-- TiltOrDumpDetectedEventHandler: maneja vuelcos o inclinaciones.
-- LowBatteryDetectedEventHandler: maneja alerta de energía.
+- OutOfRangeDetectedEvent: maneja eventos de sensores fuera de rango.
+- DeviceOfflineDetectedEvent: maneja eventos de desconexión de dispositivos.
+- RouteDeviationDetectedEvent: maneja desvíos de ruta.
+- AlertAcknowledgedEvent: actúa tras el reconocimiento de una alerta (ejemplo: detener escalamiento).
+- AlertClosedEvent: actúa tras el cierre de una alerta (ejemplo: notificar a analíticas).
+- TemperatureOutOfRangeEvent: crea alerta de temperatura.
+- HumidityOutOfRangeEvent: crea alerta de humedad.
+- VibrationDetectedEvent: maneja vibración anómala.
+- TiltOrDumpDetectedEvent: maneja vuelcos o inclinaciones.
+- LowBatteryDetectedEvent: maneja alerta de energía.
 
 ## Query Services
 
-- AlertAppService: coordina el ciclo de vida de las alertas.
-- NotificationAppService: orquesta el envío de notificaciones a través de canales externos.
-- IncidentAppService: integra el contexto de alertas con el contexto de viajes para crear incidentes relacionados.
+- AlertQueryService: Consulta las alertas.
 
 #### 4.2.3.4. Infrastructure Layer
 
-- Notification Repository: Repositorio para acceder a la base de datos de las notificaciones.
-- Alert Repository: Repositorio para acceder a la base de datos de las alertas.
-- Incident Repository: Repositorio para acceder a la base de datos de los incidentes.
+- Notification Repository: Repositorio para acceder a las notificaciones.
+- Alert Repository: Repositorio para acceder a las alertas.
+- Incident Repository: Repositorio para acceder a los incidentes.
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -963,7 +909,7 @@ Se implementa versionado de la API con el prefijo `/api/v1/...`. Además, la cap
 
 ##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-![Alert Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-Class-Diagram.puml)
+![Alert Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-Class-Diagram.puml&v=5)
 
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram
 

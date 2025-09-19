@@ -45,17 +45,6 @@ class Incident <<Entity>> {
 }
 
 ' ========================
-' Factories
-' ========================
-class AlertFactory <<Factory>> {
-  + createAlert(type, sensorType, createdAt): Alert
-}
-
-class IncidentFactory <<Factory>> {
-  + createIncident(alertId, tripId, description): Incident
-}
-
-' ========================
 ' Value Objects
 ' ========================
 class AlertType <<ValueObject>> {
@@ -70,6 +59,16 @@ class AlertStatus <<ValueObject>> {
   {enum} CLOSED
 }
 
+class NotificationChannel <<ValueObject>> {
+  {enum} EMAIL
+  {enum} SMS
+  {enum} FCM
+}
+
+class PersistenceWindow <<ValueObject>> {
+  - duration: int
+}
+
 class SensorType <<ValueObject>> {
   {enum} TEMPERATURE
   {enum} HUMIDITY
@@ -79,14 +78,19 @@ class SensorType <<ValueObject>> {
   {enum} BATTERY
 }
 
-class NotificationChannel <<ValueObject>> {
-  {enum} EMAIL
-  {enum} SMS
-  {enum} FCM
+' ========================
+' Factories
+' ========================
+class AlertFactory <<Factory>> {
+  + createAlert(type, sensorType, createdAt): Alert
+}
+
+class IncidentFactory <<Factory>> {
+  + createIncident(alertId, tripId, description): Incident
 }
 
 ' ========================
-' Domain Services
+' Domain/Application Services
 ' ========================
 class AlertCommandService <<DomainService>> {
   + createAlert()
@@ -94,6 +98,7 @@ class AlertCommandService <<DomainService>> {
   + closeAlert()
   + escalateAlert()
   + createIncidentFromAlert()
+  + sendNotification()
 }
 
 class AlertQueryService <<DomainService>> {
@@ -104,22 +109,43 @@ class AlertQueryService <<DomainService>> {
   + getIncidentsByAlertId()
 }
 
+class AlertEventService <<DomainService>> {
+  + handleOutOfRangeDetected()
+  + handleDeviceOfflineDetected()
+  + handleRouteDeviationDetected()
+  + handleAlertAcknowledged()
+  + handleAlertClosed()
+  + handleTemperatureOutOfRange()
+  + handleHumidityOutOfRange()
+  + handleVibrationDetected()
+  + handleTiltOrDumpDetected()
+  + handleLowBatteryDetected()
+}
+
 ' ========================
 ' Relationships
 ' ========================
 Alert "1" o-- "*" Notification
 Alert "1" o-- "*" Incident
 
-AlertFactory --> Alert
-IncidentFactory --> Incident
-
 Alert --> AlertType
 Alert --> AlertStatus
 Alert --> SensorType
 Notification --> NotificationChannel
 
+AlertFactory --> Alert
+IncidentFactory --> Incident
+
 AlertCommandService --> Alert
+AlertCommandService --> Incident
+AlertCommandService --> Notification
+
 AlertQueryService --> Alert
 AlertQueryService --> Notification
 AlertQueryService --> Incident
+
+AlertCommandService --> AlertEventService
+AlertEventService --> Alert
+AlertEventService --> Notification
+AlertEventService --> Incident
 @enduml
