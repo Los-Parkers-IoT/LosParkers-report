@@ -270,28 +270,20 @@ El objetivo de este diagrama es:
 ### Elementos incluidos
 
 - **Personas**: Company Operator, Driver and End Customer.
-- **Sistemas internos**: Logistics Planning and Power BI Data.
-- **Sistemas y proveedores externos**: CargaSafe (SaaS), Stripe, Google Maps, Notification Services e IoT Devices (sensors).
-- **Grupos**: Se organizaron en cuatro dominios principales:
-  - Logistics company
-  - Field / Devices
-  - Customers and Regulators
-  - SaaS and Vendors
+- **Sistema principal**: CargaSafe (SaaS): Núcleo de la solución: monitoreo de cadena de frío, alertas y trazabilidad.
+- **Sistemas y proveedores externos**: Stripe, Google Maps, Notification Services e IoT Devices (sensors).
 
 ### Relaciones principales
 
-- Logistics Planning → CargaSafe (SaaS): exporta planes y asignaciones de viaje.
-- IoT Devices → CargaSafe (SaaS): envía telemetría (temperatura, humedad, vibración, volcado/inclinación, GPS, energía/baterías).
-- CargaSafe (SaaS) → Google Maps: consulta rutas y tiempos estimados.
-- CargaSafe (SaaS) → Notification Services: envía alertas a los usuarios.
-- CargaSafe (SaaS) → Stripe: procesa pagos de suscripción.
-- CargaSafe (SaaS) → Power BI Data: exporta datasets consolidados para analítica.
-- Company Operator / Driver ↔ CargaSafe (SaaS): planifican, ejecutan y reportan el estado operativo.
-- End customer ← CargaSafe (SaaS): consulta estado y recibe reportes.
+- **IoT Devices → CargaSafe**: envío de datos de telemetría (temperatura, ubicación, energía, etc.).
+- **CargaSafe → Google Maps**: consultas de rutas y tiempos estimados.
+- **CargaSafe → FCM**: envío de alertas a usuarios vía notificaciones push.
+- **CargaSafe → Stripe**: procesamiento de pagos de suscripciones.
+- **Company Operator ↔ CargaSafe**: planificación y supervisión de operaciones logísticas.
+- **Driver ↔ CargaSafe**: ejecución de viajes y reportes operativos.
+- **End Customer ← CargaSafe**: acceso a estado y reportes de la cadena de frío.
 
-### Resultado
 
-El diagrama muestra a CargaSafe (SaaS) como el núcleo de integración entre operaciones (Company Operator, Driver, Logistics Planning), telemetría IoT (sensores en campo) y servicios externos (ruteo, notificaciones y pagos), además de su aporte a la inteligencia de negocio mediante Power BI Data. Esta representación proporciona una visión clara e integral de las dependencias y colaboraciones que sustentan la operación logística y la gestión de la cadena de frío.
 
 #### 4.1.3.2. Software Architecture Context Level Diagrams
 
