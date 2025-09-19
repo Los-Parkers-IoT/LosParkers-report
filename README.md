@@ -642,21 +642,18 @@ _Diagrama de componentes - Backend - Subscriptions and Billing_
 
 ![Component diagrams](assets/Component_diagram_backend.png)
 
-El backend del bounded context Subscriptions & Billing está formado por varios componentes que trabajan juntos:
+El backend del bounded context de Suscripciones y Pagos está organizado en cuatro capas principales:
 
-- Las APIs de suscripciones y consultas
-- El Webhook de Stripe
-- Worker de renovaciones
+- **Interface Layer**: expone los controladores REST que atienden operaciones de suscripciones, pagos, planes y compañías. Es la puerta de entrada para los usuarios y sistemas que consumen la API.
+- **Application Layer**: orquesta los casos de uso mediante Command Services, Query Services y Event Handlers. Aquí se coordinan las operaciones y se invocan las reglas de negocio.
+- **Domain Layer**: concentra la lógica de negocio del contexto, con entidades, objetos de valor, servicios de dominio y fábricas. Define las reglas que rigen el ciclo de vida de suscripciones y pagos.
+- **Infrastructure Layer**: implementa repositorios y conectores hacia la base de datos y sistemas externos. Se encarga de la persistencia y de la integración técnica.
 
-Todos ellos envían las solicitudes a la _Application Layer_, que se encarga de coordinar cada caso de uso y decidir qué reglas aplicar.
-
-Las reglas de negocio viven en la Domain Layer, donde están las entidades y servicios principales. Para guardar la información usamos _Postgres_, y gracias a la **Transactional Outbox** podemos asegurarnos de que los mensajes se envíen de forma confiable hacia **Kafka (eventos de integración)** y **SendGrid (emails de facturación y avisos)**. La parte de pagos la maneja el _Stripe Adapter_, que conecta con Stripe sin que el dominio dependa directamente de él.
-
-En resumen, la idea es tener responsabilidades bien separadas:
-• Las APIs, el webhook y el worker reciben las peticiones.
-• La capa de aplicación coordina el flujo.
-• El dominio aplica las reglas de negocio.
-• La infraestructura se encarga de guardar datos y comunicarse con sistemas externos.
+Las conexiones externas son:
+- Postgres para persistencia transaccional (suscripciones, pagos, compañías).
+- Stripe para procesamiento de pagos.
+- Firebase Cloud Messaging (FCM) para envío de notificaciones push.
+- Google Maps para consultas de rutas y tiempos estimados (ETA).
 
 _Diagrama de componentes - Application Web - Subscriptions and Billing_
 
