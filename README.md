@@ -23,7 +23,7 @@
     <p>
       <strong>Startup:</strong> Los Parkers 
       <br />
-      <strong>Producto:</strong> Macetech
+      <strong>Producto:</strong> CargoSafe
     </p>
 
   <div>
@@ -48,6 +48,10 @@
           <tr>
             <td>u20211c273</td>
             <td>Aliaga Pimentel, George Arturo</td>
+          </tr>
+          <tr>
+            <td>u202113640</td>
+            <td>Bernardo Eusebio Alessandro Joaquin</td>
           </tr>
         </tbody>
       </table>
@@ -248,29 +252,29 @@ Entre sus principales productos destaca CargaSafe, una solución integral que pe
 <table width="100%">
   <tr>
     <td rowspan="4" align="center" width="25%">
-      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+      <img src="assets/AlessandroProfile.png" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
     </td>
     <td align="left">
       <b>Nombre y Apellido:</b><br>
-      Escribir Nombre y Apellido
+      Bernardo Eusebio Alessandro Joaquin
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Código:</b><br>
-      Escribir Código
+      u202113640
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Carrera:</b><br>
-      Escribir Carrera
+      Ingenieria de software
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Acerca de:</b><br>
-      Escribir Descripción
+      Soy Alessandro Joaquin Bernardo Eusebio, estudiante de la carrera de Ingeniería de software. Actualmente estoy bastante orgulloso del progreso que tengo actualmente aprendiendo tanto dentro de la facultad como en mi experiencia autonoma y en el trabajo. Me inclino mas a ser un analista de datos y ampliar mis conocimientos sobre Machine Learning, modelos predicitvos y AWS.
     </td>
   </tr>
 </table>
@@ -728,7 +732,7 @@ Los clientes finales son los consumidores de los productos transportados por las
 
 ### 2.2.2. Registro de entrevistas
 
-### Segmento 1: Empresa (Gestores de transporte)
+### Segmento 1: Empresa 
 
 - **Nombre**: Miguel Ruiz
 - **Edad**: 28 años
@@ -750,11 +754,11 @@ Los clientes finales son los consumidores de los productos transportados por las
 
     <br/>
 
-- **Nombre**: [Nombre del entrevistado]
-- **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa]
-- **Empresa**: [Nombre de la empresa/Sector]
-- **Enlace**: [URL del video de la entrevista]
+- **Nombre**: Luis Torres Arevalo
+- **Edad**: 58 años
+- **Ocupación**: Encargado de gestión logística
+- **Empresa**: Urbano . Distribuidor de Alimentos
+- **Enlace**: [Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/Ec5KSgrGMjNPlJoOazHShZMBqFEAizPkP20c9TOB4DuaWA?e=GDXX0k&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
   <img src="assets/entrevista_empresa_3.png">
 
@@ -794,7 +798,7 @@ Los clientes finales son los consumidores de los productos transportados por las
 
 ### 2.2.3. Análisis de entrevistas
 
-### Segmento 1: Empresa (Gestores de transporte)
+### Segmento 1: Empresa
 
 - **Nombre**: [Nombre del entrevistado]
 
@@ -812,11 +816,11 @@ Los clientes finales son los consumidores de los productos transportados por las
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
+- **Nombre**: Luis Torres Arevalo
 
-- **Entrevistador**: [Nombre del entrevistador]
+- **Entrevistador**: Alessandro Joaquin Bernardo Eusebio
 
-  [...]
+  La entrevista con el seño Luis Torres evidencia que la gestión de la cadena de frío se realizaba de manera muy básica y sin tecnología especializada, lo que generaba altos riesgos de pérdida de productos y desconfianza en los clientes. Luis dependía de controles manuales, registros en papel y la responsabilidad del chofer, sin capacidad de reacción ante incidentes durante el trayecto. Esta falta de monitoreo en tiempo real implicaba costos elevados cuando se rompía la cadena de frío y limitaba la capacidad de generar reportes confiables. No obstante, identifica con claridad las funciones clave de una solución ideal: monitoreo en tiempo real, alertas inmediatas y generación automática de reportes, además de preferir un modelo de pago por suscripción mensual que le permita prever costos.
 
 ### Segmento 2: Clientes Finales (Consumidores finales)
 
