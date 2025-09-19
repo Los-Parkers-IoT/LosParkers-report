@@ -1238,5 +1238,239 @@ SchedulerQuartzAdapter
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram
 
 
+### 4.2.4. Bounded Context: *Real-Time Monitoring*
+
+#### 4.2.4.1. Domain Layer
+
+### Entidades (Entities)
+- **MonitoringSession**: representa una sesión de monitoreo para un viaje específico. Almacena el estado de la sesión, los parámetros de referencia (`TemperatureRange`) y las lecturas recibidas.
+- **TelemetryData**: registra una única lectura de un sensor, incluyendo temperatura, humedad, vibración, ubicación y la hora de la lectura.
+
+### Objetos de Valor (Value Objects)
+- **SensorReading**: encapsula los datos de una lectura específica (ej. temperatura, humedad).
+- **TemperatureRange**: define los límites mínimos y máximos de temperatura aceptables.
+- **Location**: representa las coordenadas geográficas (latitud, longitud).
+- **SignalStatus**: indica el estado de la conexión del dispositivo (ONLINE, OFFLINE).
+- **SessionStatus**: describe el estado de una sesión (ACTIVE, INACTIVE, COMPLETED).
+
+### Agregados (Aggregates)
+- **MonitoringSessionAggregate**: agrupa la `MonitoringSession` con sus `TelemetryData` relacionadas, asegurando que todas las lecturas de un viaje estén coherentemente gestionadas bajo una única sesión.
+
+### Servicios de Dominio (Domain Services)
+- **DataIngestionService**: procesa y valida las lecturas de telemetría entrantes desde los dispositivos IoT.
+- **RuleEvaluationService**: analiza las lecturas en tiempo real para detectar violaciones de parámetros.
+- **DataEnrichmentService**: enriquece los datos de telemetría con información adicional (ej. ruta).
+
+### Fábricas (Factories)
+- **MonitoringSessionFactory**: crea una nueva sesión de monitoreo a partir de los datos de un viaje.
+- **TelemetryDataFactory**: encapsula la lógica para crear una instancia de `TelemetryData` a partir de una lectura de sensor.
+
+### Repositorios (Interfaces)
+- **MonitoringSessionRepository**: interfaz para guardar y recuperar sesiones de monitoreo.
+- **TelemetryDataRepository**: interfaz para persistir y consultar las lecturas de telemetría.
+
+### Reglas Clave (Business Rules)
+- **Umbral de Alerta**: la `TemperatureViolation` se genera solo si la temperatura está fuera del `TemperatureRange` por un período mínimo.
+- **Detección de Desconexión**: si un dispositivo deja de enviar datos por más de X minutos, su estado se marca como `OFFLINE`.
+- **Integridad de Datos**: cada lectura de `TelemetryData` debe estar asociada a una `MonitoringSession` activa.
+
+---
+
+#### 4.2.4.2. Interface Layer
+
+### A. Consumers (Mensajería)
+
+| Evento de entrada | Origen | Descripción |
+|---|---|---|
+| `iot.telemetry.data` | Sensores IoT | Consume lecturas de sensores para procesarlas en tiempo real. |
+| `trips.trip.started` | `Execution of the trip` | Inicia una nueva sesión de monitoreo para el viaje. |
+| `trips.trip.completed` | `Execution of the trip` | Finaliza la sesión de monitoreo. |
+
+### B. Controllers (REST)
+
+**Base path:** `/api/v1/monitoring`
+
+| Método | Ruta | Descripción | Request DTO | Response DTO | Código HTTP |
+|---|---|---|---|---|---|
+| GET | `/sessions/{sessionId}` | obtiene el estado actual de una sesión de monitoreo | — | `MonitoringSessionDTO` | 200 OK |
+| GET | `/sessions/{sessionId}/telemetry` | obtiene lecturas de telemetría de una sesión | — | Lista de `TelemetryDataDTO` | 200 OK |
+| GET | `/live-map-data/{sessionId}` | provee datos en tiempo real para visualización en el mapa | — | `LiveMapDataDTO` | 200 OK |
+| GET | `/chart-data/{sessionId}` | provee datos de temperatura para gráficos | — | `TemperatureChartDataDTO` | 200 OK |
+
+### C. DTOs (principales)
+
+| DTO | Campos principales |
+|---|---|
+| `TelemetryDataDTO` | `readingId`, `deviceId`, `timestamp`, `temperature`, `humidity`, `location` |
+| `MonitoringSessionDTO` | `sessionId`, `tripId`, `status`, `temperatureRange`, `lastReadingAt` |
+| `LiveMapDataDTO` | `sessionId`, `deviceId`, `currentLocation`, `lastTimestamp`, `status` |
+| `TemperatureChartDataDTO` | `sessionId`, `dataPoints` (lista de `timestamp`, `temperature`) |
+
+### D. Validación y reglas en la interfaz
+- **Validación de datos**: las lecturas deben ser validadas para asegurar que contienen los campos requeridos.
+- **Control de acceso**: solo usuarios con permisos (`monitoring-system`) pueden enviar datos.
+- **Idempotencia**: se implementa para evitar lecturas duplicadas.
+
+### E. Errores (contratos comunes)
+
+| Código HTTP | Descripción |
+|---|---|
+| 400 | **Bad Request** — datos de telemetría incompletos |
+| 404 | **Not Found** — sesión de monitoreo inexistente |
+| 409 | **Conflict** — intento de iniciar una sesión de monitoreo que ya está activa |
+| 503 | **Service Unavailable** — fallo en la integración con un sistema externo |
+
+---
+
+# F. Seguridad y políticas
+
+* **AuthN/AuthZ**: Se utilizará JWT (OAuth2/OIDC) para asegurar las APIs. Los roles principales para este contexto serán monitoring-system (para la ingestión de datos de los dispositivos) y user (para consultas).
+* **Rate limiting**: Se implementará un límite de solicitudes en el endpoint de ingestión para prevenir abusos o ataques de denegación de servicio.
+* **API Versioning**: Se mantendrá la práctica de versionado (/api/v1/...).
+* **Observabilidad**: Se implementará el registro de trazas con un 'X-Request-Id' para correlacionar las lecturas de telemetría a través de los diferentes servicios y sistemas. Se capturarán métricas por endpoint y se auditarán las transiciones de estado de las sesiones de monitoreo.
+
+# G. Contratos de ejemplo (OpenAPI sketch)
+
+```yaml
+paths:
+  /api/v1/monitoring/sessions/{sessionId}:
+    get:
+      summary: Get Monitoring Session Details
+      operationId: getSessionDetails
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Session details retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonitoringSessionDTO'
+        '404':
+          description: Monitoring session not found.
+
+  /api/v1/monitoring/live-map-data/{sessionId}:
+    get:
+      summary: Get Live Map Data
+      operationId: getLiveMapData
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Live map data retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LiveMapDataDTO'
+        '404':
+          description: Monitoring session not found.
+
+components:
+  schemas:
+    MonitoringSessionDTO:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+        tripId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [ACTIVE, INACTIVE, COMPLETED]
+        temperatureRange:
+          type: object
+          properties:
+            min:
+              type: number
+            max:
+              type: number
+    LiveMapDataDTO:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+        deviceId:
+          type: string
+        currentLocation:
+          $ref: '#/components/schemas/Location'
+        lastTimestamp:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [ONLINE, OFFLINE]
+    Location:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: float
+        longitude:
+          type: number
+          format: float
+
+```
+
+
+
+#### 4.2.4.3. Application Layer
+
+### Command Handlers
+- **StartMonitoringSessionCommandHandler**: inicia una nueva sesión de monitoreo.
+- **EndMonitoringSessionCommandHandler**: cierra una sesión de monitoreo.
+
+### Event Handlers
+- **TelemetryDataReceivedHandler**: procesa una lectura de telemetría, validando y evaluando reglas.
+- **TripStartedHandler**: maneja el evento de inicio de viaje para crear una nueva sesión.
+- **TripCompletedHandler**: maneja el evento de finalización de viaje para cerrar la sesión.
+
+### Application Services (Capabilities)
+- **MonitoringAppService**: orquesta el ciclo de vida de las sesiones y la gestión de datos.
+- **DataProcessorAppService**: integra la ingestión de datos, la evaluación de reglas y el enriquecimiento.
+
+### Transaccionalidad & Resiliencia
+- **Patrón de Transacciones**: se usa en operaciones clave para asegurar consistencia.
+- **Reintentos y Backoff**: se aplican al intentar enriquecer datos con APIs externas que pueden fallar.
+- **Outbox Pattern**: para publicar eventos de dominio de forma confiable, como `OutOfRangeDetected`.
+
+---
+
+#### 4.2.4.4. Infrastructure Layer
+
+### Componentes principales
+
+- **TelemetryDataRepositoryPostgres**: implementación de `TelemetryDataRepository`, optimizada para escrituras masivas.
+- **MonitoringSessionRepositoryPostgres**: implementación de `MonitoringSessionRepository` con transacciones.
+- **IoTMQTTAdapter**: adapter para el protocolo MQTT que consume los mensajes de telemetría.
+- **GoogleMapsAdapter**: se integra con la API de Google Maps para enriquecimiento de datos de ubicación.
+- **EventBusKafkaAdapter**: adapter para el bus de eventos que consume eventos de otros contextos y publica los propios.
+- **OutboxKafkaPublisher**: lee la tabla de Outbox para publicar eventos de forma confiable en Kafka.
+
+
+
+#### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+##### 4.2.4.6.2. Bounded Context Database Design Diagram
+
 
 
