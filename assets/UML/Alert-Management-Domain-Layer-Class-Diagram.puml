@@ -148,4 +148,3 @@ AlertCommandService --> AlertEventService
 AlertEventService --> Alert
 AlertEventService --> Notification
 AlertEventService --> Incident
-@enduml

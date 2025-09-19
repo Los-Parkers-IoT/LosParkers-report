@@ -909,7 +909,7 @@ Permite crear incidentes vinculados a una alerta y un viaje, y consultar el deta
 
 ##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-![Alert Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-Class-Diagram.puml&v=5)
+![Alert Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-Class-Diagram.puml)
 
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram
 
