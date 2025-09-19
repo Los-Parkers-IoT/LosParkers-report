@@ -1,0 +1,180 @@
+@startuml
+skinparam class {
+  BackgroundColor<<Entity>> Wheat
+  BackgroundColor<<AggregateRoot>> LightYellow
+  BackgroundColor<<Factory>> LightBlue
+  BackgroundColor<<Repository>> LightGray
+}
+
+' ========================
+' Entities
+' ========================
+class Alert <<AggregateRoot>> {
+  - alertId: long
+  - type
+  - status
+  - sensorType
+  - createdAt: DateTime
+  - acknowledgedAt: DateTime
+  - closedAt: DateTime
+  --
+  + acknowledge()
+  + close()
+  + escalate()
+}
+
+class Notification <<Entity>> {
+  - notificationId: long
+  - alertId: long
+  - channel
+  - message: String
+  - sentAt: DateTime
+  --
+  + markAsSent()
+}
+
+class Incident <<Entity>> {
+  - incidentId: long
+  - alertId: long
+  - tripId: long
+  - description: String
+  - createdAt: DateTime
+  --
+  + resolve(description: String)
+}
+
+' ========================
+' Factories
+' ========================
+class AlertFactory <<Factory>> {
+  + createAlert(type, sensorType, createdAt): Alert
+}
+
+class IncidentFactory <<Factory>> {
+  + createIncident(alertId, tripId, description): Incident
+}
+
+' ========================
+' Repositories
+' ========================
+interface AlertRepository <<Repository>> {
+  + findById(alertId: long): Alert
+  + save(alert: Alert)
+  + findByStatus(status): List<Alert>
+}
+
+interface NotificationRepository <<Repository>> {
+  + findByAlertId(alertId: long): List<Notification>
+  + save(notification: Notification)
+}
+
+interface IncidentRepository <<Repository>> {
+  + findByAlertId(alertId: long): List<Incident>
+  + save(incident: Incident)
+}
+
+' ========================
+' Relationships
+' ========================
+Alert "1" o-- "*" Notification
+Alert "1" o-- "*" Incident
+
+AlertFactory --> Alert
+IncidentFactory --> Incident
+
+AlertRepository --> Alert
+NotificationRepository --> Notification
+IncidentRepository --> Incident
+
+
+
+class Notification <<Entity>> {
+  - notificationId: long
+  - alertId: long
+  - channel: NotificationChannel
+  - message: String
+  - sentAt: DateTime
+  --
+  + markAsSent()
+}
+
+class Incident <<Entity>> {
+  - incidentId: long
+  - alertId: long
+  - tripId: long
+  - description: String
+  - createdAt: DateTime
+  --
+  + resolve(description: String)
+}
+
+' ========================
+' Value Objects
+' ========================
+class AlertType <<ValueObject>> {
+  {enum} OutOfRange
+  {enum} Offline
+  {enum} RouteDeviation
+}
+
+class AlertStatus <<ValueObject>> {
+  {enum} OPEN
+  {enum} ACKNOWLEDGED
+  {enum} CLOSED
+}
+
+class SensorType <<ValueObject>> {
+  {enum} TEMPERATURE
+  {enum} HUMIDITY
+  {enum} VIBRATION
+  {enum} TILT
+  {enum} LOCATION
+  {enum} BATTERY
+}
+
+class NotificationChannel <<ValueObject>> {
+  {enum} EMAIL
+  {enum} SMS
+  {enum} FCM
+}
+
+' ========================
+' Factories
+' ========================
+class AlertFactory <<Factory>> {
+  + createAlert(type, sensorType, createdAt): Alert
+}
+
+class IncidentFactory <<Factory>> {
+  + createIncident(alertId, tripId, description): Incident
+}
+
+' ========================
+' Repositories
+' ========================
+interface AlertRepository <<Repository>> {
+  + findById(alertId: long): Alert
+  + save(alert: Alert)
+  + findByStatus(status: AlertStatus): List<Alert>
+}
+
+interface NotificationRepository <<Repository>> {
+  + findByAlertId(alertId: long): List<Notification>
+  + save(notification: Notification)
+}
+
+interface IncidentRepository <<Repository>> {
+  + findByAlertId(alertId: long): List<Incident>
+  + save(incident: Incident)
+}
+
+' ========================
+' Relationships
+' ========================
+Alert "1" o-- "*" Notification
+Alert "1" o-- "*" Incident
+Alert --> AlertType
+Alert --> AlertStatus
+Alert --> SensorType
+Notification --> NotificationChannel
+@enduml

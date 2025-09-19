@@ -1174,6 +1174,15 @@ Se emite al enviar una notificación a un usuario o empresa.
 **Event: IncidentCreatedEvent**  
 Se emite cuando se genera un incidente a partir de una alerta. 
 
+### Fábricas (Factories) 
+- AlertFactory: encapsula la lógica de creación de una alerta a partir de eventos recibidos (ejemplo: sensor fuera de rango). 
+- IncidentFactory: crea incidentes asociados a un viaje cuando una alerta lo requiere.
+
+### Repositorios (Interfaces) 
+- AlertRepository: interfaz para guardar, actualizar y recuperar alertas. 
+- NotificationRepository: interfaz para manejar el historial y el estado de notificaciones. 
+- IncidentRepository: interfaz para registrar incidentes asociados a viajes
+
 ### Reglas Clave (Business Rules)
 
 - Persistence Window: no se genera alerta hasta que la condición anómala se mantenga por cierto tiempo.
@@ -1313,6 +1322,8 @@ NotificationAdapterEmail/SMS
 #### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Alert Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-Class-Diagram.puml)
 
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram
 
