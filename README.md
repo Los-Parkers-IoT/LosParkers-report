@@ -347,28 +347,35 @@ El Deployment Diagram de CargaSafe muestra cómo se despliega la solución en un
 
 ![Software Architecture – Deployment Diagram](assets/Deployment_Diagram.png)
 
-**Clientes**:  
-  - Los usuarios finales acceden desde navegadores web (SPA y landing page servidos por un CDN / Static Hosting) y desde dispositivos móviles (aplicación Flutter).
-  - Estos clientes realizan peticiones HTTPS que son redirigidas hacia el **Load Balancer**, encargado de enrutar el tráfico hacia los servicios backend.
+**Clientes:**
+- Los usuarios finales acceden desde navegadores web, donde la Landing Page y el Web Frontend se sirven por separado desde CDNs independientes (CloudFlare/AWS CloudFront) para optimizar la entrega de contenido.
+- Los conductores utilizan una aplicación móvil Flutter en dispositivos Android/iOS, que incluye una base de datos SQLite local para almacenamiento offline y sincronización de datos.
+- Todas las peticiones de API se realizan mediante HTTPS y son redirigidas hacia el Load Balancer, encargado de enrutar el tráfico hacia los servicios backend.
 
-**Backend y orquestación**:  
-  - El **Backend API** (Spring Boot) y el **Notification Service** (Worker/Service) se despliegan dentro de un **Kubernetes Cluster**, separados en *pods* de aplicaciones y pods de background jobs.  
-  - El backend centraliza la lógica de negocio, gestiona operaciones de viajes, monitoreo y orquestación de alertas.
-**Base de datos**:  
-  - El sistema utiliza una base de datos PostgreSQL gestionada (AWS RDS/Google Cloud SQL), con una instancia primaria para operaciones de escritura y réplicas de solo lectura para consultas distribuidas y balanceo de carga.
+**Backend y orquestación**
+- El Backend API (Spring Boot) se despliega dentro de un Kubernetes Cluster en múltiples pods de aplicaciones para alta disponibilidad y escalabilidad.
+- El backend centraliza la lógica de negocio, gestiona operaciones de viajes, monitoreo de cadena de frío y orquestación de alertas en tiempo real.
 
-**Integraciones externas**:  
+**Base de datos**
+- El sistema utiliza una base de datos PostgreSQL gestionada (AWS RDS/Google Cloud SQL), con una instancia primaria para operaciones de escritura y réplicas de solo lectura para consultas distribuidas y balanceo de carga.
+- Los dispositivos móviles mantienen datos críticos localmente en SQLite para funcionamiento offline durante los viajes.
+
+**Integraciones externas**
 El backend consume servicios de terceros para extender sus capacidades:
+- Google Maps para rutas, geocodificación y cálculo de ETA en tiempo real.
+- Stripe para procesamiento de pagos y facturación de subscripciones.
+- Firebase Cloud Messaging (FCM) para la entrega de notificaciones push directamente a los dispositivos móviles de los conductores.
 
- - **Google Maps** para rutas, geocodificación y cálculo de ETA.
- - **Stripe** para procesamiento de pagos y facturación.
- - **Notification Services** para la entrega de mensajes a usuarios vía FCM, SMS o Email.
- - **Power BI Data** para exportación de datasets consolidados y reportería corporativa.
+**Resultado**
+El diagrama de despliegue muestra que la solución CargaSafe está organizada bajo una arquitectura cloud-native optimizada, con:
+- Separación de responsabilidades: Landing page y aplicación web servidas independientemente
+- Capacidades offline: Base de datos local SQLite en dispositivos móviles
+- Kubernetes para la orquestación de contenedores del backend
+- CDNs separados para optimizar la entrega de contenido estático
+- Base de datos gestionada con réplicas para mejorar el rendimiento y disponibilidad
+- Notificaciones push nativas a través de FCM
 
-## Resultado
-
-El diagrama de despliegue muestra que la solución CargaSafe está organizada bajo una arquitectura cloud-native, con Kubernetes para la orquestación de contenedores, CDN para la entrega de contenido estático y una base de datos gestionada con réplicas para mejorar el rendimiento y la disponibilidad. Esta infraestructura permite un sistema escalable, resiliente y listo para integrarse con servicios externos críticos, garantizando la continuidad operativa en la gestión de la cadena de frío.
-
+Esta infraestructura permite un sistema escalable, resiliente y con capacidades offline críticas para la operación de conductores en campo, garantizando la continuidad operativa en la gestión de la cadena de frío incluso sin conectividad permanente.
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
