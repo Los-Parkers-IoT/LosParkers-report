@@ -1201,13 +1201,13 @@ En esta capa se definen **Controllers (REST)**, los **DTOs asociados**, además 
 El sistema expone tres controladores principales:
 
 **AlertController**  
-Se encuentra bajo la ruta base `/api/v1/alerts`. Este controlador permite crear nuevas alertas a partir de eventos detectados, reconocer (ACK) alertas activas, cerrarlas una vez reconocidas, y obtener tanto el detalle de una alerta específica como la lista de alertas activas (estados OPEN o ACKNOWLEDGED).
+Este controlador permite crear nuevas alertas a partir de eventos detectados, reconocer (ACK) alertas activas, cerrarlas una vez reconocidas, y obtener tanto el detalle de una alerta específica como la lista de alertas activas (estados OPEN o ACKNOWLEDGED).
 
 **NotificationController**  
-Ubicado en `/api/v1/notifications`. Su responsabilidad es consultar y actualizar las preferencias de notificación de los usuarios, por ejemplo, los canales permitidos (EMAIL, SMS o FCM) y los tiempos de escalamiento configurados.
+Su responsabilidad es consultar y actualizar las preferencias de notificación de los usuarios, por ejemplo, los canales permitidos (EMAIL, SMS o FCM) y los tiempos de escalamiento configurados.
 
 **IncidentController**  
-Disponible en `/api/v1/incidents`. Permite crear incidentes vinculados a una alerta y un viaje, y consultar el detalle de incidentes registrados.
+Permite crear incidentes vinculados a una alerta y un viaje, y consultar el detalle de incidentes registrados.
 
 ## B. DTOs (principales)
 
@@ -1250,13 +1250,13 @@ Se implementa versionado de la API con el prefijo `/api/v1/...`. Además, la cap
 
 #### 4.2.3.3. Application Layer
 
-## Command Handlers
+## Command Services
 
 - AcknowledgeAlertCommandHandler: procesa el reconocimiento de una alerta.
 - CloseAlertCommandHandler: gestiona el cierre de una alerta.
 - CreateAlertCommandHandler: crea una nueva alerta a partir de un evento recibido.
 
-## Event Handlers
+## Event Services
 
 - OutOfRangeDetectedEventHandler: maneja eventos de sensores fuera de rango.
 - DeviceOfflineDetectedEventHandler: maneja eventos de desconexión de dispositivos.
@@ -1269,53 +1269,17 @@ Se implementa versionado de la API con el prefijo `/api/v1/...`. Además, la cap
 - TiltOrDumpDetectedEventHandler: maneja vuelcos o inclinaciones.
 - LowBatteryDetectedEventHandler: maneja alerta de energía.
 
-## Application Services (Capabilities)
+## Query Services
 
 - AlertAppService: coordina el ciclo de vida de las alertas.
 - NotificationAppService: orquesta el envío de notificaciones a través de canales externos.
 - IncidentAppService: integra el contexto de alertas con el contexto de viajes para crear incidentes relacionados.
 
-## Transaccionalidad & Resilencia
-
-- Outbox Pattern para publicar eventos de dominio de forma confiable y evitar pérdida de mensajes.
-- Reintentos automáticos con backoff exponencial al enviar notificaciones externas.
-- Circuit breakers para evitar caídas en cascada si los sistemas de terceros (FCM, SMS, Email) no responden.
-
 #### 4.2.3.4. Infrastructure Layer
 
-## Componentes principales
-
-AlertRepositoryPostgres
-
-- Implementación concreta de AlertRepository.
-- Gestiona persistencia de alertas (estado, severidad, timestamps, resolución).
-- Uso de ORM/SQL (Hibernate/JPA).
-- Soporta queries de búsqueda por dispositivo, rango de fechas y tipo de alerta.
-
-ResolutionRepositoryPostgres
-
-- Implementación concreta de ResolutionRepository.
-- Persiste acciones correctivas aplicadas a las alertas (ej. revisión técnica, cierre manual).
-- Relaciona resoluciones con AlertId.
-- Garantiza histórico de auditoría y trazabilidad.
-
-SensorEventRepositoryPostgres
-
-- Permite almacenar lecturas brutas de sensores (temperatura, humedad, vibración, etc.).
-- Útil para análisis forense y generación de reportes.
-- Optimizado para escrituras masivas y consultas por rango temporal.
-
-DeviceAdapterMQTT
-
-- Patrón Adapter sobre protocolo MQTT para consumir mensajes de sensores en tiempo real.
-- Transforma eventos en SensorEvent y los envía al EventBus.
-- Maneja reconexiones y QoS configurable.
-
-NotificationAdapterEmail/SMS
-
-- Integración con servicios externos (SendGrid, Twilio, AWS SNS).
-- Envía notificaciones automáticas al personal cuando se dispara una alerta crítica.
-- Plantillas parametrizadas según tipo de alerta.
+- Notification Repository: Repositorio para acceder a la base de datos de las notificaciones.
+- Alert Repository: Repositorio para acceder a la base de datos de las alertas.
+- Incident Repository: Repositorio para acceder a la base de datos de los incidentes.
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
