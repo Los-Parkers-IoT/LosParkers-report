@@ -1052,6 +1052,8 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
 
+![Real-Time-Monitoring Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Real-Time-Monitoring-Domain-Layer-Class-Diagram.puml)
+
 ### 4.2.5. Bounded Context: _Trip management_
 
 #### 4.2.5.1. Domain Layer.
