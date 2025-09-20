@@ -78,6 +78,17 @@
 
 # Project Report Collaboration Insights
 
+Repositorios:
+
+- Project Report: https://github.com/Los-Parkers-IoT/LosParkers-report
+
+**Entrega TB1**
+
+Para la entrega del TB1 se realizaron las actividades necesarias para completar los capítulos I, II, III y IV, resaltando la importancia de la constancia en el trabajo. Como equipo, mantuvimos una frecuencia adecuada de commits y actualizaciones, proyectada como óptima para el desarrollo futuro, y se incluyen en el informe las evidencias de los cambios efectuados.
+
+![Contributions per user insights](assets/insights-contributors-tb1.png)
+[Colaboración de repositorios] Evidencia de colaboraciones del repositorio para la entrega TB1 en el informe.
+
 ---
 
 # Student Outcome
