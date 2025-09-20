@@ -3027,6 +3027,8 @@ Diagrama de componentes - Backend - Fleet Management
 
 Diagrama de componentes - Application Web - Fleet Management
 
+<img src="assets/C4/FleetManagement-C4-WebApp-Diagram.png"/>
+
 Diagrama de componentes - Mobile App - Fleet Management
 
 #### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
