@@ -227,6 +227,8 @@ _Tabla de contenidos_
       - [4.2.8.6. Bounded Context Software Architecture Code Level Diagrams](#4286-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.8.6.1. Bounded Context Domain Layer Class Diagrams](#42861-bounded-context-domain-layer-class-diagrams)
         - [4.2.8.6.2. Bounded Context Database Design Diagram](#42862-bounded-context-database-design-diagram)
+- [Conclusiones](#conclusiones)
+- [Bibliografía](#bibliografía)
 
 # Student Outcome
 
@@ -3857,6 +3859,11 @@ La aplicación móvil Flutter prioriza visualizaciones optimizadas para pantalla
 ![Visualization Analytics - Database Design](assets/VisualizationAnalyticsDatabaseDiagram.png)
 
 El diseño de base de datos del módulo Analytics está optimizado para consultas analíticas y agregaciones. Las tablas principales (DASHBOARDS, WIDGETS, REPORTS) mantienen configuraciones de usuario, mientras que las tablas de métricas están desnormalizadas para consultas rápidas. Se incluyen índices especializados para consultas temporales y agregaciones frecuentes.
+
+# Conclusiones
+
+- El proyecto CargaSafe demuestra que la integración de dispositivos IoT con un sistema de gestión basado en Domain-Driven Design es una estrategia efectiva para optimizar la trazabilidad y seguridad en el transporte de carga sensible. El monitoreo en tiempo real de variables críticas como temperatura, ubicación y estado de los vehículos brinda a los operadores información confiable para la toma de decisiones rápidas, reduciendo riesgos y mejorando la eficiencia operativa.
+- La aplicación de metodologías ágiles y el diseño centrado en el usuario han permitido validar de manera temprana las funcionalidades clave de la plataforma, asegurando que respondan a las necesidades reales de empresas y conductores. El enfoque iterativo favoreció la colaboración del equipo y la incorporación de retroalimentación, lo que fortalece la escalabilidad y proyección futura de la solución en distintos sectores logísticos.
 
 # Bibliografía
 
