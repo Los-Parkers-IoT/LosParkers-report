@@ -1,0 +1,83 @@
+workspace "CargaSafe - Alerts & Resolution Management (Backend Components)" "C4 Component view for the backend of the Alerts & Resolution Management BC" {
+
+  model {
+
+    user = person "End User" "CargaSafe User" "Person"
+
+    cargaSafe = softwareSystem "CargaSafe" "SaaS logistics monitoring" {
+
+      backend = container "Subscriptions & Billing Backend" "APIs + Workers of the bounded context" "Monolith (REST + Jobs)" {
+
+        intLayer    = component "Interface Layer" "Controllers (REST): Alert, Notification, Incident" "REST"
+        
+        appLayer    = component "Application Layer" "Use case orchestration (Command Services, Query Services, Event Services)" "App Layer"
+
+        domainLayer = component "Domain Layer" "Entities, Value Objects, Domain Services, Factory" "DDD"
+
+        infLayer    = component "Infrastructure Layer" "Repositories and connectors to DB" "Outbox"
+
+      }
+
+      Postgres = container "Postgres" "" "RDBMS" {
+        tags "Database"
+      }
+
+    }
+
+    firebase    = softwareSystem "Firebase Cloud Messaging" "Integration events publication" "Messaging client"
+    
+    intLayer  -> appLayer "invokes queries and commands"
+    
+    appLayer  -> domainLayer "invokes queries and commands"
+    
+    appLayer  -> infLayer "invokes queries and commands"
+    
+    infLayer  -> Postgres "PostgreSQL (read/write)"
+    
+    infLayer  -> firebase "sends events"
+    
+  }
+
+  views {
+
+    component backend {
+
+      title "Subscriptions & Billing Backend - Component Diagram"
+
+      description "Internal components of the backend."
+
+      include *
+
+      autoLayout tb
+    }
+
+    styles {
+
+      element "Container" {
+        background "#0B5FFF"
+        color "#ffffff"
+      }
+
+      element "Component" {
+        background "#3F8CFF"
+        color "#ffffff"
+      }
+
+      element "Software System" {
+        background "#666666"
+        color "#ffffff"
+      }
+
+      element "Person" {
+        background "#084C61"
+        color "#ffffff"
+      }
+
+      element "Database" {
+        shape Cylinder
+        background "#0B5FFF"
+        color "#ffffff"
+      }
+    }
+  }
+}

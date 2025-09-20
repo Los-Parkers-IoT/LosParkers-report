@@ -333,7 +333,6 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 ¿Cómo podemos diseñar una solución que sea intuitiva y fácil de usar, sin importar el nivel de conocimiento tecnológico del usuario, a pesar de la complejidad de los múltiples datos que monitoreamos?
 
-
 #### 1.2.2.2. Lean UX Assumptions
 
 ### Business Assumptions:
@@ -350,7 +349,6 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 6. Creemos que la inclusión de parámetros adicionales como humedad, vibración y volcado aumentará el valor percibido de nuestra solución.
 
-
 ### User Assumptions:
 
 1. Nuestros usuarios principales son gerentes de operaciones y conductores de empresas de transporte de productos sensibles.
@@ -363,7 +361,6 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 5. Los usuarios prefieren soluciones que no requieran capacitación técnica extensiva.
 
-
 ### Feature Assumptions:
 
 1. Creemos que el monitoreo en tiempo real de temperatura, humedad, vibración y ubicación es la funcionalidad más crítica.
@@ -375,7 +372,6 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 4. Creemos que los reportes históricos son necesarios para el cumplimiento regulatorio y la trazabilidad.
 
 5. Creemos que la integración con dispositivos IoT existentes ampliará nuestro mercado potencial.
-
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
@@ -732,7 +728,7 @@ Los clientes finales son los consumidores de los productos transportados por las
 
 ### 2.2.2. Registro de entrevistas
 
-### Segmento 1: Empresa 
+### Segmento 1: Empresa
 
 - **Nombre**: Miguel Ruiz
 - **Edad**: 28 años
@@ -1298,22 +1294,20 @@ El **Context Diagram** de CargaSafe muestra una visión de alto nivel del sistem
 
 ![Software Architecture – Context Level Diagram](assets/Context_Level_Diagram.png)
 
-En el centro se ubica **CargaSafe (SaaS)**, que representa el sistema principal encargado del monitoreo de la cadena de frío, la trazabilidad y la generación de alertas en los viajes logísticos.
+En el centro se ubica CargaSafe (SaaS), que representa el sistema principal encargado del monitoreo de la cadena de frío, la trazabilidad y la generación de alertas en los viajes logísticos.
 
 Alrededor del sistema se identifican los siguientes actores:
 
-- **Company Operator**: gestiona viajes, flota y reportes desde la plataforma.
-- **Driver**: completa viajes y reporta información desde la aplicación móvil.
-- **End customer**: recibe enlaces de estado, alertas y reportes generados por el sistema.
+- _Company Operator_: gestiona viajes, flota y reportes desde la plataforma.
+- _Driver_: completa viajes y reporta información desde la aplicación móvil.
+- _End customer_: recibe enlaces de estado, alertas y reportes generados por el sistema.
 
 Asimismo, se destacan las interacciones con sistemas externos que complementan las funcionalidades de CargaSafe:
 
-- **Google Maps**: provee rutas, geocodificación y cálculo de ETA.
-- **Notification Services**: entrega notificaciones por FCM, SMS o Email.
-- **Stripe**: procesa pagos y facturación de suscripciones.
-- **Power BI Data**: recibe datasets consolidados para análisis corporativo.
-
-Este diagrama permite visualizar de manera clara las responsabilidades de cada actor y sistema, y cómo CargaSafe se convierte en el núcleo que articula la comunicación entre usuarios, dispositivos IoT y servicios externos, garantizando la operación eficiente y segura de la cadena logística.
+- Google Maps: provee rutas, geocodificación y cálculo de ETA.
+- Firebase Cloud Messaging: entrega notificaciones push.
+  Stripe: procesa pagos y facturación de suscripciones.
+  Este diagrama permite visualizar de manera clara las responsabilidades de cada actor y sistema, y cómo CargaSafe se convierte en el núcleo que articula la comunicación entre usuarios, dispositivos IoT y servicios externos, garantizando la operación eficiente y segura de la cadena logística.
 
 #### 4.1.3.2. Software Architecture Container Level Diagrams
 
@@ -1321,44 +1315,31 @@ En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus conten
 
 ![Software Architecture – Container Level Diagram](assets/Container_Level_Diagram.png)
 
-**Contenedores internos**
+El diagrama de contenedores muestra cómo se organiza internamente CargaSafe (SaaS) y cómo se relaciona con los actores y sistemas externos.
 
-- **Landing Page (HTML/CSS):** sitio público simple que sirve como carta de presentación y redirige al frontend de la aplicación.
-- **Web Frontend (Angular):** interfaz principal que usan los operadores de la empresa y el personal de soporte para gestionar flota, viajes, parámetros y reportes. También aquí se generan los enlaces públicos que recibe el cliente final.
-- **Mobile App (Flutter):** aplicación móvil usada por los conductores. Desde aquí reciben instrucciones de viaje, reportan el estado del mismo y pueden registrar incidencias.
-- **Embedded Database (Mobile)**: almacenamiento local (SQLite/Isar) incorporado en la app móvil, que permite continuar operaciones sin conectividad y sincronizar eventos posteriormente.
-- **Backend API (Spring Boot):** Contiene la lógica de negocio, gestiona viajes, dispositivos, alertas, sesiones de monitoreo y también las suscripciones. Expone servicios REST que consumen el frontend y la app móvil.
-- **Relational Database (PostgreSQL):** base de datos transaccional que almacena usuarios, vehículos, dispositivos, viajes, telemetría, alertas y suscripciones.
-- **Embedded Application:** aplicación ligera en dispositivos embebidos que captura datos en tiempo real y los bufferiza para su envío posterior.
-- **Edge Application:** agente desplegado en entornos de borde (vehículos o depósitos) que procesa datos localmente, maneja caché y asegura la sincronización con el Backend API incluso en condiciones de conectividad intermitente.
+Dentro de la plataforma tenemos varios contenedores:
 
-**Sistemas externos**
+- _Landing Page:_ sitio público que sirve para marketing y como punto de acceso, redirigiendo tanto a la Web App, al Single Web como a la Mobile App (descarga o deeplinks).
+- _Web Frontend:_ aplicación usada por los operadores para gestionar viajes, flota y reportes.
+- _Single Web:_ vista pública en línea donde los clientes finales pueden consultar estados y reportes sin necesidad de autenticarse.
+- _Mobile App:_ aplicación móvil para los conductores, con soporte offline-first. Se conecta a su propia base de datos embebida SQLite para cache y operación sin conexión.
+- _Backend API:_ núcleo de la lógica de negocio, responsable de gestionar viajes, monitoreo, alertas y suscripciones.
+- _Relational Database (PostgreSQL):_ base de datos principal donde se almacenan usuarios, vehículos, dispositivos, viajes, telemetría, alertas y suscripciones.
+- _Edge Application (Python):_ agente que corre en instalaciones o vehículos, con capacidad de procesamiento local, cache y sincronización confiable con el backend. Usa su propia Edge Database local para tolerar desconexiones.
+- _Embedded Application (C++):_ componente ligero que corre en dispositivos restringidos, captura datos y los envía hacia la aplicación edge para su posterior sincronización.
 
-- **Logistics Planning:** exporta planes de pedidos, rutas y despachos hacia el Backend API.
-- **Google Maps:** provee ruteo, geocodificación y cálculo de ETA.
-- **Stripe:** plataforma para pagos y facturación de suscripciones.
-- **Notification Services (FCM, SMS, Email):** canales de entrega conectados desde nuestro Notification Service.
-- **Data Warehouse / BI:** destino de los datasets consolidados que se exportan para análisis corporativos.
-- **Helpdesk / E-mail:** sistema externo que usamos para tickets y, de forma opcional, para notificaciones por correo.
+Los actores principales interactúan con los contenedores:
 
-**Comunicación principal**
+- Company Operator usa la Web App para planificar y supervisar operaciones.
+- Driver utiliza la Mobile App para recibir instrucciones y reportar estado de los viajes.
+- End Customer accede tanto a la Single Web (para reportes públicos) como a la Mobile App (para recibir notificaciones y links de estado).
 
-- El **Web Frontend** y la **Mobile App** consumen la **Backend API** mediante REST/JSON.
-- El **Backend API** persiste la información en la base de datos y encola los trabajos de notificación en el **Notification Service**.
-- El **Notification Service** se encarga de procesar estos trabajos y enviarlos a los servicios externos de notificación.
-- **Stripe:** procesa pagos y facturación de suscripciones.
-- **Power BI Data:** recibe datasets consolidados para el análisis corporativo.
+Además, CargaSafe se integra con varios sistemas externos:
 
-**Decisiones tecnológicas**
-
-- Se eligió **Angular** para el frontend web por su robustez y facilidad de mantenimiento.
-- Para la app móvil, se utilizó **Flutter** por su capacidad de generar aplicaciones multiplataforma de alto rendimiento.
-- El **Backend** se desarrolló en **Spring Boot**, que ofrece un ecosistema sólido para microservicios e integraciones.
-- La base de datos es **PostgreSQL**, por su confiabilidad y soporte a operaciones transaccionales.
-- Finalmente, se separó un **servicio de notificaciones** como worker para mantener desacoplada la lógica de negocio del proceso de envío de mensajes.
-
-**Resultado**
-Con esta distribución logramos una arquitectura clara, escalable y flexible. Cada contenedor cumple un rol específico y las integraciones externas se mantienen bien aisladas, lo que facilita la evolución futura de la solución.
+- _Google Maps_: para rutas, geocodificación y cálculo de ETA.
+- _Stripe_: para pagos y facturación de suscripciones.
+- _Firebase Cloud Messaging (FCM)_: para notificaciones push hacia aplicaciones móviles y web.
+  En conjunto, el diagrama muestra cómo CargaSafe se estructura en contenedores especializados que soportan las necesidades de operadores, conductores y clientes, asegurando tanto la operación online como offline en distintos puntos de la cadena logística.
 
 #### 4.1.3.3. Software Architecture Deployment Diagrams
 
@@ -1366,29 +1347,40 @@ El Deployment Diagram de CargaSafe muestra cómo se despliega la solución en un
 
 ![Software Architecture – Deployment Diagram](assets/Deployment_Diagram.png)
 
-**Clientes**:
+**Clientes:**
 
-- Los usuarios finales acceden desde navegadores web (SPA y landing page servidos por un CDN / Static Hosting) y desde dispositivos móviles (aplicación Flutter).
-- Estos clientes realizan peticiones HTTPS que son redirigidas hacia el **Load Balancer**, encargado de enrutar el tráfico hacia los servicios backend.
+- Los usuarios finales acceden desde navegadores web, donde la Landing Page y el Web Frontend se sirven por separado desde CDNs independientes (CloudFlare/AWS CloudFront) para optimizar la entrega de contenido.
+- Los conductores utilizan una aplicación móvil Flutter en dispositivos Android/iOS, que incluye una base de datos SQLite local para almacenamiento offline y sincronización de datos.
+- Todas las peticiones de API se realizan mediante HTTPS y son redirigidas hacia el Load Balancer, encargado de enrutar el tráfico hacia los servicios backend.
 
-**Backend y orquestación**:
+**Backend y orquestación**
 
-- El **Backend API** (Spring Boot) y el **Notification Service** (Worker/Service) se despliegan dentro de un **Kubernetes Cluster**, separados en _pods_ de aplicaciones y pods de background jobs.
-- El backend centraliza la lógica de negocio, gestiona operaciones de viajes, monitoreo y orquestación de alertas.
-  **Base de datos**:
+- El Backend API (Spring Boot) se despliega dentro de un Kubernetes Cluster en múltiples pods de aplicaciones para alta disponibilidad y escalabilidad.
+- El backend centraliza la lógica de negocio, gestiona operaciones de viajes, monitoreo de cadena de frío y orquestación de alertas en tiempo real.
+
+**Base de datos**
+
 - El sistema utiliza una base de datos PostgreSQL gestionada (AWS RDS/Google Cloud SQL), con una instancia primaria para operaciones de escritura y réplicas de solo lectura para consultas distribuidas y balanceo de carga.
+- Los dispositivos móviles mantienen datos críticos localmente en SQLite para funcionamiento offline durante los viajes.
 
-**Integraciones externas**:  
+**Integraciones externas**
 El backend consume servicios de terceros para extender sus capacidades:
 
-- **Google Maps** para rutas, geocodificación y cálculo de ETA.
-- **Stripe** para procesamiento de pagos y facturación.
-- **Notification Services** para la entrega de mensajes a usuarios vía FCM, SMS o Email.
-- **Power BI Data** para exportación de datasets consolidados y reportería corporativa.
+- Google Maps para rutas, geocodificación y cálculo de ETA en tiempo real.
+- Stripe para procesamiento de pagos y facturación de subscripciones.
+- Firebase Cloud Messaging (FCM) para la entrega de notificaciones push directamente a los dispositivos móviles de los conductores.
 
-## Resultado
+**Resultado**
+El diagrama de despliegue muestra que la solución CargaSafe está organizada bajo una arquitectura cloud-native optimizada, con:
 
-El diagrama de despliegue muestra que la solución CargaSafe está organizada bajo una arquitectura cloud-native, con Kubernetes para la orquestación de contenedores, CDN para la entrega de contenido estático y una base de datos gestionada con réplicas para mejorar el rendimiento y la disponibilidad. Esta infraestructura permite un sistema escalable, resiliente y listo para integrarse con servicios externos críticos, garantizando la continuidad operativa en la gestión de la cadena de frío.
+- Separación de responsabilidades: Landing page y aplicación web servidas independientemente
+- Capacidades offline: Base de datos local SQLite en dispositivos móviles
+- Kubernetes para la orquestación de contenedores del backend
+- CDNs separados para optimizar la entrega de contenido estático
+- Base de datos gestionada con réplicas para mejorar el rendimiento y disponibilidad
+- Notificaciones push nativas a través de FCM
+
+Esta infraestructura permite un sistema escalable, resiliente y con capacidades offline críticas para la operación de conductores en campo, garantizando la continuidad operativa en la gestión de la cadena de frío incluso sin conectividad permanente.
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
@@ -1553,444 +1545,936 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram
 
-### 4.2.6. Bounded Context: Identity and Access Management
+### 4.2.2. Bounded Context: _Subscriptions and Billing_
 
-#### 4.2.6.1. Domain Layer
+### 4.2.2.1. Domain Layer
 
-**Entidades Principales**
+_Entities_
 
-**User (Aggregate Root)**
-- **Propósito**: Representa un usuario del sistema con capacidades de autenticación y autorización
-- **Atributos principales**: 
-  - `id`: Identificador único
-  - `username`: Nombre de usuario único
-  - `email`: Correo electrónico único
-  - `passwordHash`: Hash seguro de la contraseña
-  - `firstName`, `lastName`: Datos personales
-  - `isEnabled`: Estado activo/inactivo
-  - `createdAt`, `updatedAt`: Timestamps de auditoría
-- **Métodos principales**:
-  - `authenticate(password)`: Valida credenciales
-  - `changePassword(oldPassword, newPassword)`: Cambia contraseña con validación
-  - `assignRole(role)`: Asigna rol al usuario
-  - `enable()`, `disable()`: Gestión de estado
+**Subscription**
 
-Role (Entity)
-- Propósito: Define roles y permisos en el sistema
-- Atributos principales:
-  - `id`: Identificador único
-  - `name`: Nombre del rol (ADMIN, LOGISTICS_MANAGER, END_CUSTOMER)
-  - `description`: Descripción del rol
-  - `permissions`: Lista de permisos asociados
-- **Métodos principales**:
-  - `hasPermission(permission)`: Verifica si el rol tiene un permiso específico
-  - `addPermission(permission)`: Agrega permiso al rol
+- **Propósito**: Gestionar el ciclo de vida de la suscripción de una empresa.
+- **Atributos principales**: subscriptionId, companyId, plan, billingCycle, status (ACTIVE, CANCELED), startedAt, expiresAt.
+- **Métodos principales**: activate(), changePlan(newPlan), renew(), cancel().
 
-**Token (Entity)**
-- **Propósito**: Gestiona tokens de acceso y refresh tokens
-- **Atributos principales**:
-  - `id`: Identificador único
-  - `token`: Token JWT
-  - `userId`: Referencia al usuario
-  - `expiryDate`: Fecha de expiración
-  - `isRevoked`: Estado de revocación
-- **Métodos principales**:
-  - `isExpired()`: Verifica si el token ha expirado
-  - `revoke()`: Revoca el token
+**Payment**
+
+- **Propósito**: Representar pagos asociados a una suscripción.
+- **Atributos principales**: paymentId, subscriptionId, amount, status (PENDING, SUCCEEDED, FAILED), date.
+- **Métodos principales**: markSucceeded(), markFailed().
+
+**Company**
+
+- **Propósito**: Entidad que consume el servicio y depende de su suscripción activa.
+- **Atributos principales**: companyId, name, vehicleCount.
+- **Métodos principales**: canFitPlan(plan).
 
 **Value Objects**
 
-- **Email**: Valida formato de correo electrónico
-- **Password**: Encapsula reglas de contraseñas seguras
-- **Permission**: Representa un permiso específico (recurso + acción)
-- **TokenClaims**: Información contenida en el JWT
+- **Plan**: Define límites y beneficios (code, vehicleLimit, price).
+- **BillingCycle**: Periodo de facturación (type, startDate, endDate).
+- **GracePeriod**: Tolerancia tras vencimiento (days).
 
 **Domain Services**
 
-- **PasswordService**: Gestión de hash y validación de contraseñas
-- **TokenService**: Generación y validación de tokens JWT
-- **AuthorizationService**: Lógica de autorización basada en roles
+- **BillingService**: Calcula montos y renovaciones.
+- **PaymentPolicy**: Aplica reglas de activación y cancelación según pagos.
+
+**Factory**
+
+- **SubscriptionFactory**: Crea una suscripción válida con plan y ciclo inicial.
 
 **Commands**
 
-- **LoginCommand**: Comando para autenticación
-- **RegisterUserCommand**: Comando para registro de usuario
-- **ChangePasswordCommand**: Comando para cambio de contraseña
-- **AssignRoleCommand**: Comando para asignación de roles
+- **CreateSubscriptionCommand**: Crea una nueva suscripción.
+- **ChangePlanCommand**: Cambia de plan.
+- **CancelSubscriptionCommand**: Cancela una suscripción.
+- **RenewSubscriptionCommand**: Renueva periodo.
+- **RecordPaymentCommand**: Registra un pago.
 
 **Queries**
 
-- **GetUserByIdQuery**: Obtiene usuario por ID
-- **GetUserByEmailQuery**: Obtiene usuario por email
-- **GetUserRolesQuery**: Obtiene roles de un usuario
+**GetSubscriptionByIdQuery**: Consulta suscripción por ID.
+**GetActiveSubscriptionByCompanyQuery**: Consulta suscripción activa de una compañía.
+**ListPaymentsBySubscriptionQuery**: Lista pagos de una suscripción.
 
 **Events**
 
-- **UserRegisteredEvent**: Usuario registrado exitosamente
-- **UserLoggedInEvent**: Usuario autenticado
-- **PasswordChangedEvent**: Contraseña cambiada
-- **UserDisabledEvent**: Usuario deshabilitado
+**SubscriptionCreated**: Suscripción creada.
+**PlanChanged**: Cambio de plan.
+**SubscriptionRenewed**: Renovación realizada.
+**SubscriptionCanceled**: Suscripción cancelada.
+**PaymentSucceeded / PaymentFailed**: Resultado de pago.
 
-#### 4.2.6.2. Interface Layer
+### 4.2.2.2. Interface Layer
 
-**Controllers Principales**
+**Controllers**
 
-**AuthController**
-- `POST /auth/login`: Autenticación de usuarios
-- `POST /auth/logout`: Cierre de sesión
-- `POST /auth/refresh`: Renovación de tokens
-- `POST /auth/forgot-password`: Solicitud de recuperación de contraseña
+- **SubscriptionController**: Endpoints para crear, renovar, cambiar plan y cancelar suscripciones.
+- **PaymentController**: Endpoints para registrar y consultar pagos.
+- **PlanController**: Endpoints para listar planes disponibles.
+- **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
 
-**UserController**
-- `POST /users/register`: Registro de nuevos usuarios
-- `GET /users/profile`: Obtiene perfil del usuario actual
-- `PUT /users/profile`: Actualiza perfil del usuario
-- `PUT /users/change-password`: Cambio de contraseña
-- `GET /users/{id}`: Obtiene usuario por ID (solo admins)
-
-#### 4.2.6.3. Application Layer
+### 4.2.2.3. Application Layer
 
 **Command Services**
 
-**UserCommandService**
-- Maneja comandos de escritura para usuarios
-- Coordina operaciones de creación, actualización y eliminación
-- Publica eventos de dominio correspondientes
-
-**AuthCommandService**
-- Gestiona procesos de autenticación y autorización
-- Maneja tokens y sesiones de usuario
-- Coordina flujos de recuperación de contraseña
+- **SubscriptionCommandService**: Ejecuta comandos de suscripción (crear, cambiar, renovar, cancelar).
+- **PaymentCommandService**: Registra pagos y actualiza estado de suscripción.
 
 **Query Services**
 
-**UserQueryService**
-- Proporciona consultas de solo lectura para usuarios
-- Optimizado para vistas y reportes
-- Maneja proyecciones de datos de usuario
-
-**AuthQueryService**
-- Consultas relacionadas con autenticación
-- Validación de tokens y permisos
-- Información de sesiones activas
+**SubscriptionQueryService**: Consulta suscripciones por id, estado o compañía.
+**PaymentQueryService**: Consulta pagos por suscripción o estado.
 
 **Event Handlers**
 
-**UserRegisteredEventHandler**
-- Procesa eventos de registro de usuario
-- Envía emails de bienvenida
-- Configura datos iniciales del usuario
+- **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
+- **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
 
-#### 4.2.6.4. Infrastructure Layer
+### 4.2.2.4. Infrastructure Layer
 
-**Repositories**
+**Repositories (Interfaces)**
 
-**UserRepository** (implementa IUserRepository)
-- Persistencia y consulta de datos de usuarios
-- Implementación con Spring Data JPA
-- Operaciones CRUD optimizadas
+- **ISubscriptionRepository**: Acceso a datos de suscripciones.
+- **IPaymentRepository**: Acceso a datos de pagos.
+- **ICompanyRepository**: Acceso a datos de compañías.
 
-**RoleRepository** (implementa IRoleRepository)
-- Gestión de roles y permisos
-- Consultas para autorización
-- Cache de roles frecuentemente usados
+#### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-**TokenRepository** (implementa ITokenRepository)
-- Gestión de tokens JWT
-- Limpieza automática de tokens expirados
-- Blacklist de tokens revocados
+_Diagrama de componentes - Backend - Subscriptions and Billing_
 
-#### 4.2.6.5. Bounded Context Software Architecture Component Level Diagrams
+![Component diagrams](assets/Component_diagram_backend.png)
 
-Diagrama de Componentes - Backend - Identity and Access Management
+El backend del bounded context de Suscripciones y Pagos está organizado en cuatro capas principales:
 
-![Identity & Access Management - Backend Components](assets/C4/IAM-C4-Backend-Diagram.png)
+- **Interface Layer**: expone los controladores REST que atienden operaciones de suscripciones, pagos, planes y compañías. Es la puerta de entrada para los usuarios y sistemas que consumen la API.
+- **Application Layer**: orquesta los casos de uso mediante Command Services, Query Services y Event Handlers. Aquí se coordinan las operaciones y se invocan las reglas de negocio.
+- **Domain Layer**: concentra la lógica de negocio del contexto, con entidades, objetos de valor, servicios de dominio y fábricas. Define las reglas que rigen el ciclo de vida de suscripciones y pagos.
+- **Infrastructure Layer**: implementa repositorios y conectores hacia la base de datos y sistemas externos. Se encarga de la persistencia y de la integración técnica.
 
-Este diagrama muestra la arquitectura por capas del bounded context IAM en el backend. La separación clara entre Interface, Application, Domain e Infrastructure layers permite un diseño mantenible y testeable. Los controllers en la Interface Layer reciben requests HTTP y delegan a los command/query services en Application Layer, que utilizan el dominio y persisten através de repositories en Infrastructure Layer.
+Las conexiones externas son:
 
-**Diagrama de Componentes - Frontend Web - Identity and Access Management**
+- Postgres para persistencia transaccional (suscripciones, pagos, compañías).
+- Stripe para procesamiento de pagos.
+- Firebase Cloud Messaging (FCM) para envío de notificaciones push.
+- Google Maps para consultas de rutas y tiempos estimados (ETA).
 
-![Identity & Access Management - Frontend Angular Components](assets/C4/IAM-C4-WebApp-Diagram.png)
+_Diagrama de componentes - Application Web - Subscriptions and Billing_
 
-El diagrama del frontend web muestra los componentes Angular organizados por responsabilidades. Las páginas (Login, Register, User Profile) interactúan con services que manejan la lógica de negocio y state management. La comunicación con el backend se realiza através de HTTP services que consumen la API REST.
+![Component diagrams](assets/Component_diagram_applicationweb.png)
 
-**Diagrama de Componentes - Mobile - Identity and Access Management**
+La aplicación web se conecta al bounded context **Subscriptions & Billing** únicamente a través de las APIs: la _Subscriptions API_ (para enviar comandos como crear o cancelar una suscripción) y la _Query API_ (para consultar datos como facturas o planes activos).
 
-![Identity & Access Management - Mobile Flutter Components](assets/C4/IAM-C4-Mobile-Diagram.png)
+En el lado del cliente, la app se organiza en tres partes:
+• **UI (interfaz de usuario)**: pantallas de suscripciones, facturación y pagos.
+• **Estado de aplicación:** maneja la sesión del usuario, el cache de consultas y el control de autenticación.
+• **Servicios de datos:** cliente HTTP que llama a las APIs, agrega el token de seguridad y gestiona reintentos o errores.
 
-La aplicación móvil utiliza Flutter con arquitectura BLoC para state management. Las pantallas (screens) envían eventos a BLoCs que manejan el estado y coordinan con services. Los services se comunican tanto con el backend API como con la base de datos local SQLite para funcionalidad offline.
+La aplicación web no implementa lógica de negocio propia, solo muestra la información y envía las intenciones del usuario al backend. Todo lo que es reglas, validaciones o persistencia está en el backend.
 
-#### 4.2.6.6. Bounded Context Software Architecture Code Level Diagrams
+_Diagrama de componentes - Mobile Application - Subscriptions and Billing_
 
-##### 4.2.6.6.1. Bounded Context Domain Layer Class Diagrams
+![Component diagrams](assets/Component_diagram_mobile.png)
 
-**Backend - Identity & Access Management Domain Layer Class Diagram**
+La aplicación móvil de **Subscriptions & Billing** es muy parecido a la versión web, ya que también se conecta al backend por la _Subscriptions API_ y la _Query API_. La diferencia es que en el móvil contamos con una base de datos local (SQLite), que nos permite trabajar en modo offline: la app guarda datos y puede seguir operando aunque no haya conexión, y luego sincroniza cuando vuelve el internet.
 
-![Identity & Access Management - Backend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/IAM_Backend_Classes.puml)
+La app se organiza en pantallas de suscripciones y facturación, un estado de aplicación que maneja la sesión y el cache, y un API Client que envía las solicitudes al backend siempre agregando el token de autenticación. Toda la lógica de negocio sigue estando en el backend; en el cliente solo mostramos información y enviamos las acciones que hace el usuario.
 
-El diagrama de clases del backend muestra las entidades principales del IAM bounded context en la capa de dominio. La entidad User actúa como aggregate root y maneja la lógica de autenticación y autorización. Los roles están conectados através de relaciones many-to-many con usuarios, mientras que los tokens gestionan las sesiones y refresh tokens. La estructura implementa el patrón Repository para la persistencia.
+#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
 
-**Frontend - Identity & Access Management Domain Layer Class Diagram**
+##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-![Identity & Access Management - Frontend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/IAM_Frontend_Classes.puml)
+![layer diagrams](assets/layer_class_diagram.png)
 
-El diagrama del frontend Angular muestra la arquitectura de componentes y services para el manejo de identidad. Los components (Login, Register, Profile) interactúan con services específicos que manejan el estado de autenticación. El AuthService centraliza la lógica de comunicación con el backend API, mientras que los guards protegen las rutas según permisos.
+##### Explicación del diagrama
 
-**Mobile - Identity & Access Management Domain Layer Class Diagram**
+El diagrama de clases del Domain Layer muestra a Subscription como Aggregate Root, cuyo ciclo de vida se gestiona a través de estados definidos en SubscriptionStatus (Active y Canceled) y su relación con múltiples Payment, cada uno con su propio PaymentStatus (Pending, Succeeded, Failed). Los Value Objects Plan y Money encapsulan reglas de negocio como límites de vehículos y montos monetarios. El modelo incluye la SubscriptionFactory para la creación controlada de agregados, los Repositories para la persistencia de entidades y el PaymentProcessingService como servicio de dominio para la gestión de pagos. En conjunto, este diseño asegura encapsulamiento, claridad en las reglas del negocio e independencia tecnológica en el dominio.
 
-![Identity & Access Management - Mobile Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/IAM_Mobile_Classes.puml)
+##### 4.2.2.6.2. Bounded Context Database Design Diagram
 
-La aplicación móvil Flutter implementa BLoC pattern para el manejo de estado de autenticación. Los BLoCs (AuthBloc, UserBloc) coordinan entre las pantallas y los services, mientras que el local storage permite funcionalidad offline. La arquitectura asegura sincronización de credenciales entre la app y el backend.
+![layer diagrams](assets/layer_database_diagram.png)
 
-##### 4.2.6.6.2. Bounded Context Database Design Diagram
+##### Explicación del diagrama
 
-![Identity & Access Management - Database Design](assets/IdentityAndAccessManagementDatabaseDiagram.png)
+Define la persistencia mínima y suficiente para gestionar compañías, suscripciones y pagos integrados con Stripe. La tabla companies centraliza la información de cada cliente.
+Sobre ella, la tabla _subscriptions_ modela el ciclo de vida de la suscripción, incluyendo plan, estado y próxima renovación, con la restricción de que solo puede existir una suscripción activa por compañía.
+La tabla _payments_ registra cada intento de cobro asociado a una suscripción, asegurando unicidad mediante el identificador del proveedor (provider_ref).
+Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos desde Stripe y se vincula con los pagos para garantizar trazabilidad e idempotencia en el procesamiento de transacciones.
 
-El diagrama de base de datos implementa un modelo RBAC (Role-Based Access Control) robusto. Las tablas principales (USERS, ROLES, PERMISSIONS) están conectadas através de tablas de unión que permiten relaciones many-to-many. Se incluyen tablas auxiliares para tokens de sesión, logs de auditoría y tokens de recuperación de contraseña. La estructura está optimizada para consultas frecuentes de autorización y mantiene integridad referencial.
+### 4.2.3. Bounded Context: _Alerts & Resolution_
 
-### 4.2.7. Bounded Context: Visualization Analytics
+#### 4.2.3.1. Domain Layer
 
-#### 4.2.7.1. Domain Layer
+**Entidades (Entities)**
 
-**Entidades Principales**
+**Entity: Alert (Aggregate Root)**  
+**Propósito principal**  
+Centralizar la gestión del ciclo de vida de una alerta y garantizar que se cumplan las reglas de negocio.  
+**Atributos principales**
 
-**Dashboard (Aggregate Root)**
-- **Propósito**: Representa un dashboard personalizable con widgets y métricas específicas
-- **Atributos principales**:
-  - `id`: Identificador único
-  - `name`: Nombre del dashboard
-  - `userId`: Propietario del dashboard
-  - `layout`: Configuración de layout de widgets
-  - `isDefault`: Indica si es dashboard por defecto
-  - `createdAt`, `updatedAt`: Timestamps de auditoría
-- **Métodos principales**:
-  - `addWidget(widget)`: Agrega widget al dashboard
-  - `removeWidget(widgetId)`: Remueve widget
-  - `updateLayout(layout)`: Actualiza disposición de widgets
-  - `clone()`: Crea copia del dashboard
+- alertId: Identificador único de la alerta.
+- type: Tipo de alerta (OutOfRange, Offline, RouteDeviation).
+- status: Estado actual de la alerta (OPEN, ACKNOWLEDGED, CLOSED).
+- sensorType: Tipo de sensor que la generó (TEMPERATURE, HUMIDITY, VIBRATION, TILT, LOCATION, BATTERY).
+- createdAt: Fecha y hora de creación de la alerta.
+- acknowledgedAt: Momento en que fue reconocida.
+- closedAt: Momento en que fue cerrada.  
+  **Métodos principales**
+- acknowledge(): Marca la alerta como reconocida.
+- close(): Cierra la alerta si ya fue reconocida.
+- escalate(): Incrementa la criticidad si no fue atendida a tiempo.
 
-**Widget (Entity)**
-- **Propósito**: Componente visual que muestra métricas específicas
-- **Atributos principales**:
-  - `id`: Identificador único
-  - `type`: Tipo de widget (CHART, KPI, TABLE, MAP)
-  - `title`: Título del widget
-  - `dataSource`: Fuente de datos
-  - `configuration`: Configuración específica del widget
-  - `position`: Posición en el dashboard
-- **Métodos principales**:
-  - `updateConfiguration(config)`: Actualiza configuración
-  - `refresh()`: Refresca datos del widget
-  - `validateConfiguration()`: Valida configuración del widget
+**Entity: Notification**  
+**Propósito principal**  
+Representar un mensaje enviado a un usuario sobre una alerta.  
+**Atributos principales**
 
-**Report (Entity)**
-- **Propósito**: Reporte generado con datos históricos y métricas
-- **Atributos principales**:
-  - `id`: Identificador único
-  - `name`: Nombre del reporte
-  - `type`: Tipo de reporte (TRIP_SUMMARY, COMPLIANCE, PERFORMANCE)
-  - `parameters`: Parámetros del reporte
-  - `generatedAt`: Fecha de generación
-  - `format`: Formato del reporte (PDF, EXCEL, CSV)
-- **Métodos principales**:
-  - `generate()`: Genera el reporte
-  - `schedule(frequency)`: Programa generación automática
-  - `export(format)`: Exporta en formato específico
+- notificationId: Identificador único de la notificación.
+- alertId: Referencia a la alerta asociada.
+- channel: Canal de comunicación (EMAIL, SMS, FCM).
+- message: Contenido del mensaje.
+- sentAt: Fecha y hora de envío.  
+  **Métodos principales**
+- markAsSent(): Actualiza el estado de la notificación como enviada.
 
-**ChartData (Entity)**
-- **Propósito**: Datos procesados para visualización en charts
-- **Atributos principales**:
-  - `id`: Identificador único
-  - `chartType`: Tipo de gráfico (LINE, BAR, PIE, SCATTER)
-  - `dataPoints`: Puntos de datos
-  - `labels`: Etiquetas de los ejes
-  - `metadata`: Metadatos adicionales
-- **Métodos principales**:
-  - `addDataPoint(point)`: Agrega punto de dato
-  - `aggregate(groupBy)`: Agrupa datos
-  - `filter(criteria)`: Filtra datos
+**Entity: Incident**  
+**Propósito principal**  
+Registrar un evento relacionado con un viaje que se crea a partir de una alerta.  
+**Atributos principales**
+
+- incidentId: Identificador único del incidente.
+- alertId: Referencia a la alerta origen.
+- tripId: Identificador del viaje asociado.
+- description: Detalle del incidente.
+- createdAt: Fecha y hora de creación.  
+  **Métodos principales**
+- resolve(description): Marca el incidente como resuelto con detalles.
+
+**Objetos de Valor (Value Objects)**
+
+- AlertType: clasifica los tipos de alertas (OutOfRange, Offline, RouteDeviation).
+- AlertStatus: define en qué etapa se encuentra la alerta (Open, Acknowledged, Closed).
+- NotificationChannel: indica el medio de comunicación usado (Email, SMS, FCM).
+- PersistenceWindow: define el tiempo mínimo que debe cumplirse para que un evento se considere válido como alerta.
+- SensorType: clasifica la fuente de monitoreo (TEMPERATURE, HUMIDITY, VIBRATION, TILT, LOCATION, BATTERY).
+
+**Commands**
+
+**Command: CreateAlertCommand**  
+**Parámetros**
+
+- type, sensorType, createdAt.  
+  **Cómo funciona**  
+  Se ejecuta al detectar un evento anómalo. Crea una nueva alerta validando reglas como la ventana de persistencia y evitando duplicación.
+
+**Command: AcknowledgeAlertCommand**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Permite a un operador reconocer la alerta. Cambia su estado a _ACKNOWLEDGED_ y registra la hora.
+
+**Command: CloseAlertCommand**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Cierra una alerta reconocida, cambiando su estado a _CLOSED_ y registrando la fecha de cierre.
+
+**Command: EscalateAlertCommand**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Incrementa la criticidad de una alerta que lleva demasiado tiempo sin ser reconocida, generando un evento de escalamiento.
+
+**Command: CreateIncidentFromAlertCommand**  
+**Parámetros**
+
+- alertId, tripId, description.  
+  **Cómo funciona**  
+  Crea un incidente asociado a un viaje a partir de una alerta específica, permitiendo registrar el detalle del evento.
+
+**Command: SendNotificationCommand**  
+**Parámetros**
+
+- alertId, channel, message.  
+  **Cómo funciona**  
+  Ordena enviar una notificación al canal definido (Email, SMS, FCM) para informar al usuario o empresa sobre la alerta.
+
+**Queries**
+
+**Query: GetAlertByIdQuery**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Recupera los detalles de una alerta específica, incluyendo su estado, tipo y fechas clave.
+
+**Query: GetAlertsByStatusQuery**  
+**Parámetros**
+
+- status.  
+  **Cómo funciona**  
+  Devuelve todas las alertas con un estado determinado (ej. abiertas, reconocidas, cerradas).
+
+**Query: GetAlertsByTypeQuery**  
+**Parámetros**
+
+- type.  
+  **Cómo funciona**  
+  Recupera todas las alertas de un tipo específico (ej. RouteDeviation).
+
+**Query: GetNotificationsByAlertIdQuery**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Devuelve todas las notificaciones emitidas en relación con una alerta.
+
+**Query: GetIncidentsByAlertIdQuery**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Obtiene todos los incidentes generados a partir de una alerta determinada.
+
+**Events**
+
+**Event: AlertCreatedEvent**  
+Se emite cuando una nueva alerta es registrada en el sistema.
+
+**Event: AlertAcknowledgedEvent**  
+Se emite cuando una alerta es reconocida.
+
+**Event: AlertClosedEvent**  
+Se emite cuando una alerta se cierra exitosamente.
+
+**Event: AlertEscalatedEvent**  
+Se emite cuando una alerta aumenta de criticidad por falta de respuesta.
+
+**Event: NotificationSentEvent**  
+Se emite al enviar una notificación a un usuario o empresa.
+
+**Event: IncidentCreatedEvent**  
+Se emite cuando se genera un incidente a partir de una alerta.
+
+**Fábricas (Factories)**
+
+- AlertFactory: encapsula la lógica de creación de una alerta a partir de eventos recibidos (ejemplo: sensor fuera de rango).
+- IncidentFactory: crea incidentes asociados a un viaje cuando una alerta lo requiere.
+
+#### 4.2.3.2. Interface Layer
+
+En esta capa se definen **Controllers (REST)**.
+
+**Controllers (REST — Spring Web)**
+
+**AlertController**  
+Este controlador permite crear nuevas alertas a partir de eventos detectados, reconocer (ACK) alertas activas, cerrarlas una vez reconocidas, y obtener tanto el detalle de una alerta específica como la lista de alertas activas (estados OPEN o ACKNOWLEDGED).
+
+**NotificationController**  
+Su responsabilidad es consultar y actualizar las preferencias de notificación de los usuarios, por ejemplo, los canales permitidos (EMAIL, SMS o FCM) y los tiempos de escalamiento configurados.
+
+**IncidentController**  
+Permite crear incidentes vinculados a una alerta y un viaje, y consultar el detalle de incidentes registrados.
+
+#### 4.2.3.3. Application Layer
+
+**Command Services**
+
+- AlertCommandService: Ejecuta todos los comandos de las alertas.
+
+**Event Services**
+
+- OutOfRangeDetectedEvent: maneja eventos de sensores fuera de rango.
+- DeviceOfflineDetectedEvent: maneja eventos de desconexión de dispositivos.
+- RouteDeviationDetectedEvent: maneja desvíos de ruta.
+- AlertAcknowledgedEvent: actúa tras el reconocimiento de una alerta (ejemplo: detener escalamiento).
+- AlertClosedEvent: actúa tras el cierre de una alerta (ejemplo: notificar a analíticas).
+- TemperatureOutOfRangeEvent: crea alerta de temperatura.
+- HumidityOutOfRangeEvent: crea alerta de humedad.
+- VibrationDetectedEvent: maneja vibración anómala.
+- TiltOrDumpDetectedEvent: maneja vuelcos o inclinaciones.
+- LowBatteryDetectedEvent: maneja alerta de energía.
+
+**Query Services**
+
+- AlertQueryService: Consulta las alertas.
+
+**Outbound Services**
+
+- NotificationService: Servicio para el envío de notificaciones a través de diferentes canales (Email, SMS, Push). Su implementación concreta delega en proveedores externos como Firebase Cloud Messaging (FCM).
+
+#### 4.2.3.4. Infrastructure Layer
+
+- Notification Repository: Repositorio para acceder a las notificaciones.
+- Alert Repository: Repositorio para acceder a las alertas.
+- Incident Repository: Repositorio para acceder a los incidentes.
+
+#### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+Diagrama de componentes - Backend - Alerts & Resolution
+
+<img src="assets/C4/Alert-C4-Backend-Diagram.png"/>
+
+Diagrama de componentes - Application Web - Alerts & Resolution
+
+<img src="assets/C4/Alert-C4-WebApp-Diagram.png"/>
+
+Diagrama de componentes - Mobile App - Alerts & Resolution
+
+<img src="assets/C4/Alert-C4-Mobile-Diagram.png"/>
+
+#### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Domain Layer Class Diagram**
+
+![Alert Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-Class-Diagram.puml&v=3)
+
+**WebApp / Mobile App Class Diagram**
+
+![Alert Management Domain Layer WebApp MobileApp Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-WebApp-MobileApp-Class-Diagram.puml)
+
+##### 4.2.3.6.2. Bounded Context Database Design Diagram
+
+![Alert Management Domain Layer Database Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-DataBase-Diagram.puml)
+
+### 4.2.4. Bounded Context: _Real-Time Monitoring_
+
+#### 4.2.4.1. Domain Layer.
+
+**Entities**
+
+- **MonitoringSession**: Representa una sesión de monitoreo para un viaje específico. Almacena el estado de la sesión, los parámetros de referencia (`TemperatureRange`) y las lecturas recibidas.
+- **TelemetryData**: Registra una única lectura de un sensor, incluyendo temperatura, humedad, vibración, ubicación y la hora de la lectura.
 
 **Value Objects**
 
-- **TimeRange**: Rango de tiempo para consultas
-- **ChartConfiguration**: Configuración específica de gráficos
-- **KPIMetric**: Métrica de rendimiento clave
-- **DataFilter**: Filtros aplicados a datos
-- **ColorSchema**: Esquema de colores para visualizaciones
+- **SensorReading**: Encapsula los datos de una lectura específica (ej. temperatura, humedad).
+- **TemperatureRange**: Define los límites mínimos y máximos de temperatura aceptables.
+- **Location**: Representa las coordenadas geográficas (latitud, longitud).
+- **SignalStatus**: Indica el estado de la conexión del dispositivo (ONLINE, OFFLINE).
+- **SessionStatus**: Describe el estado de una sesión (ACTIVE, INACTIVE, COMPLETED).
+
+**Agregados (Aggregates)**
+
+- **MonitoringSessionAggregate**: Agrupa la `MonitoringSession` con sus `TelemetryData` relacionadas, asegurando que todas las lecturas de un viaje estén coherentemente gestionadas bajo una única sesión.
+
+**Factories**
+
+- **MonitoringSessionFactory**: Crea una nueva sesión de monitoreo a partir de los datos de un viaje.
 
 **Domain Services**
 
-- **DataAggregationService**: Agregación y cálculo de métricas
-- **ChartRenderingService**: Lógica de renderizado de gráficos
-- **ReportGenerationService**: Generación de reportes complejos
-- **MetricsCalculationService**: Cálculo de KPIs y métricas derivadas
+- **DataIngestionService**: Procesa y valida las lecturas de telemetría entrantes desde los dispositivos IoT.
+- **RuleEvaluationService**: Analiza las lecturas en tiempo real para detectar violaciones de parámetros.
+- **DataEnrichmentService**: Enriquece los datos de telemetría con información adicional (ej. ruta).
+
+**Repositories (interfaces)**
+
+- **IMonitoringSessionRepository**: Contrato para guardar y recuperar sesiones de monitoreo.
+- **ITelemetryDataRepository**: Contrato para persistir y consultar las lecturas de telemetría.
 
 **Commands**
 
-- **CreateDashboardCommand**: Comando para crear dashboard
-- **UpdateWidgetCommand**: Comando para actualizar widget
-- **GenerateReportCommand**: Comando para generar reporte
-- **RefreshDataCommand**: Comando para refrescar datos
+- **StartMonitoringSessionCommand**: Orden para iniciar una nueva sesión de monitoreo para un viaje.
+- **EndMonitoringSessionCommand**: Orden para cerrar una sesión de monitoreo.
 
 **Queries**
 
-- **GetDashboardQuery**: Obtiene dashboard por ID
-- **GetTripMetricsQuery**: Obtiene métricas de viajes
-- **GetComplianceDataQuery**: Obtiene datos de cumplimiento
-- **GetTemperatureHistoryQuery**: Obtiene historial de temperatura
+- **GetMonitoringSessionByIdQuery**: Consulta que devuelve el estado actual de una sesión de monitoreo.
+- **GetTelemetryDataBySessionQuery**: Consulta que devuelve lecturas de telemetría de una sesión.
 
 **Events**
 
-- **DashboardCreatedEvent**: Dashboard creado
-- **ReportGeneratedEvent**: Reporte generado
-- **DataRefreshedEvent**: Datos refrescados
-- **AlertThresholdExceededEvent**: Umbral de alerta excedido
+- **MonitoringSessionStartedEvent**: Evento que se emite cuando se inicia una sesión de monitoreo.
+- **MonitoringSessionCompletedEvent**: Evento que se emite cuando una sesión se completa.
+- **OutOfRangeDetectedEvent**: Evento que se emite cuando una lectura de sensor está fuera de rango.
+- **DeviceOfflineDetectedEvent**: Evento que se emite cuando un dispositivo IoT deja de enviar datos.
+- **TelemetryDataReceivedEvent**: Evento que se emite con cada lectura de sensor procesada.
 
-#### 4.2.7.2. Interface Layer
+---
 
-**Controllers Principales**
+#### 4.2.4.2. Interface Layer.
 
-**DashboardController**
-- `GET /dashboards`: Lista dashboards del usuario
-- `POST /dashboards`: Crea nuevo dashboard
-- `PUT /dashboards/{id}`: Actualiza dashboard
-- `DELETE /dashboards/{id}`: Elimina dashboard
-- `GET /dashboards/{id}/data`: Obtiene datos del dashboard
+**Controllers**
 
-**AnalyticsController**
-- `GET /analytics/trips`: Métricas de viajes
-- `GET /analytics/compliance`: Datos de cumplimiento
-- `GET /analytics/performance`: Métricas de rendimiento
-- `GET /analytics/temperature-history`: Historial de temperatura
+- **MonitoringController**: Expone endpoints REST para consultas de estado de monitoreo. Recibe solicitudes del cliente y las convierte en comandos o queries para el Application Layer.
+  - getSessionDetails: permite obtener el estado actual de una sesión de monitoreo.
+  - getTelemetryData: consulta las lecturas de telemetría de una sesión.
+  - getLiveMapData: provee datos en tiempo real para la visualización en el mapa.
+  - getChartData: provee datos de temperatura para gráficos.
 
-**ReportController**
-- `POST /reports/generate`: Genera reporte bajo demanda
-- `GET /reports`: Lista reportes generados
-- `GET /reports/{id}/download`: Descarga reporte
-- `POST /reports/schedule`: Programa reporte automático
+**Consumers**
 
-**VisualizationController**
-- `GET /visualizations/chart-data`: Datos para gráficos
-- `POST /visualizations/custom-chart`: Genera gráfico personalizado
-- `GET /visualizations/kpis`: Obtiene KPIs calculados
+- **TelemetryConsumer**: Consume eventos de telemetría provenientes de los dispositivos IoT.
+- **TripEventsConsumer**: Consume eventos como `TripStartedEvent` y `TripCompletedEvent` del contexto de `Trip management` para orquestar la sesión de monitoreo.
 
-#### 4.2.7.3. Application Layer
+---
 
-**Command Services**
+#### 4.2.4.3. Application Layer.
 
-**DashboardCommandService**
-- Maneja creación y modificación de dashboards
-- Coordina actualización de widgets
-- Gestiona permisos de acceso a dashboards
+**Command Handlers**
 
-**ReportCommandService**
-- Gestiona generación de reportes
-- Maneja programación de reportes automáticos
-- Coordina exportación en diferentes formatos
+- **StartMonitoringSessionCommandHandler**: Procesa la orden para iniciar una sesión de monitoreo, creando una nueva instancia de `MonitoringSession` y persistiendo los datos.
+- **EndMonitoringSessionCommandHandler**: Procesa la orden para finalizar una sesión, actualizando su estado a `COMPLETED` y deteniendo el procesamiento de datos.
 
-**Query Services**
+**Query Handlers**
 
-**AnalyticsQueryService**
-- Proporciona métricas y KPIs calculados
-- Optimizado para consultas complejas de análisis
-- Maneja agregaciones temporales
-
-**VisualizationQueryService**
-- Consultas optimizadas para gráficos
-- Transformación de datos para visualización
-- Cache de datos frecuentemente consultados
+- **GetMonitoringSessionByIdQueryHandler**: Procesa la consulta para obtener los detalles de una sesión de monitoreo.
+- **GetTelemetryDataBySessionQueryHandler**: Procesa la consulta para obtener las lecturas de telemetría de una sesión.
 
 **Event Handlers**
 
-**TripCompletedEventHandler**
-- Procesa finalización de viajes
-- Actualiza métricas de rendimiento
-- Genera alertas si es necesario
+- **TripStartedHandler**: Reacciona al evento `TripStarted` para iniciar una nueva sesión de monitoreo.
+- **TripCompletedHandler**: Reacciona al evento `TripCompleted` para finalizar la sesión de monitoreo.
+- **TelemetryDataReceivedHandler**: Procesa las lecturas de sensores entrantes, valida los datos, los enriquece y, si es necesario, genera eventos de alerta.
 
-**TemperatureViolationEventHandler**
-- Procesa violaciones de temperatura
-- Actualiza métricas de cumplimiento
-- Notifica a dashboards relevantes
+---
 
-#### 4.2.7.4. Infrastructure Layer
+#### 4.2.4.4. Infrastructure Layer.
+
+**Repositories (implementaciones)**
+
+- **MonitoringSessionRepository**: Implementación de `IMonitoringSessionRepository` para interactuar con la base de datos (ej. PostgreSQL).
+- **TelemetryDataRepository**: Implementación de `ITelemetryDataRepository` optimizada para escrituras masivas (ej. base de datos de series de tiempo).
+
+**Components**
+
+- **IoTMQTTAdapter**: Adapta el protocolo MQTT para consumir mensajes de telemetría de los dispositivos.
+- **TripManagementAPIAdapter**: Adapta la API del contexto de Trip Management para recibir notificaciones de eventos.
+- **GoogleMapsAdapter**: Adapta la API de Google Maps para obtener información de geolocalización y rutas.
+- **AlertsAPIAdapter**: Adapta la API del contexto de Alerts & Resolution para enviar eventos de alerta.
+
+#### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Real Time Monitoring Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Real-time-monitoring-Domain-Layer-Class-Diagram.puml)
+
+##### 4.2.4.6.2. Bounded Context Database Design Diagram
+
+### 4.2.5. Bounded Context: _Trip management_
+
+#### 4.2.5.1. Domain Layer.
+
+**Entity: Trip (Aggregate Root)**
+
+**Propósito principal**  
+Representar un viaje y centralizar su ciclo de vida, asegurando que se cumplan las reglas de negocio relacionadas con cliente, conductor, vehículo y ruta.
+
+**Atributos principales**
+
+- tripId: Identificador único del viaje.
+- clientId: Identificador del cliente.
+- driverId: Identificador del conductor.
+- vehicleId: Identificador del vehículo.
+- route: Ruta definida para el trayecto.
+- status: Estado del viaje (CREATED, IN_PROGRESS, COMPLETED, CANCELLED).
+- requestedAt: Fecha y hora de la solicitud.
+
+**Métodos principales**
+
+- assignDriver(driverId): Asigna un conductor al viaje.
+- assignVehicle(vehicleId): Vincula un vehículo al viaje.
+- startTrip(): Inicia el viaje y cambia su estado a “En curso”.
+- completeTrip(): Finaliza el viaje y cambia su estado a “Completado”.
+- cancelTrip(reason): Cancela el viaje y registra el motivo.
+
+---
+
+**Entity: Route**
+
+**Propósito principal**  
+Representar la ruta de un viaje como una entidad con identidad propia, capaz de almacenar y gestionar la información de los tramos, distancias y duración total.
+
+**Atributos principales**
+
+- routeId: Identificador único de la ruta.
+- origin: Punto de inicio.
+- destination: Punto final.
+- segments: Lista de tramos de la ruta.
+- totalDistance: Distancia total del viaje.
+- totalDuration: Duración total estimada.
+
+**Métodos principales**
+
+- addSegment(segment): Agrega un tramo adicional a la ruta.
+- updateDestination(newDestination): Cambia el destino de la ruta antes de iniciar el viaje.
+- recalculateTotals(): Recalcula la distancia y la duración total a partir de los segmentos actuales.
+
+---
+
+**Value Object: GeoCoordinate**
+
+**Propósito principal**  
+Representar un punto geográfico inmutable.
+
+**Atributos principales**
+
+- latitude: Latitud válida.
+- longitude: Longitud válida.
+
+---
+
+**Value Object: RouteSegment**
+
+**Propósito principal**  
+Modelar un tramo de ruta entre dos puntos.
+
+**Atributos principales**
+
+- coordinates: Lista de coordenadas que forman el tramo.
+- distance: Distancia recorrida en el segmento.
+- duration: Tiempo estimado del segmento.
+
+---
+
+**Value Object: Distance**
+
+**Propósito principal**  
+Expresar una magnitud de distancia.
+
+**Atributos principales**
+
+- value: Cantidad numérica de la distancia.
+- unit: Unidad de medida (ej. km).
+
+---
+
+**Value Object: Duration**
+
+**Propósito principal**  
+Expresar un intervalo de tiempo.
+
+**Atributos principales**
+
+- value: Cantidad numérica de tiempo.
+- unit: Unidad de medida (ej. minutos).
+
+---
+
+**Value Object: TripStatus**
+
+**Propósito principal**  
+Representar el estado del viaje en su ciclo de vida.
+
+**Atributos principales**
+
+- status: Valor posible (PENDING, IN_PROGRESS, COMPLETED, CANCELLED).
+
+---
+
+**Aggregate: TripAggregate**
+
+**Propósito principal**  
+Asegurar la consistencia de un viaje como unidad de negocio.
+
+**Métodos principales**
+
+- validateTripReady(): Verifica que el viaje tenga cliente, conductor, vehículo y ruta antes de iniciar.
+
+---
+
+**Factory: TripFactory**
+
+**Propósito principal**  
+Crear instancias de **Trip** en estado inicial válido.
+
+**Métodos principales**
+
+- createTrip(clientId, driverId, vehicleId, route): Genera un viaje en estado PENDING con todos los datos requeridos.
+
+---
+
+**Domain Service: RoutePlanningService**
+
+**Propósito principal**  
+Encapsular la lógica de planificación de rutas.
+
+**Métodos principales**
+
+- generateRoute(origin, destination): Construye una ruta válida con segmentos, distancia y duración.
+
+---
+
+**Domain Service: TripSchedulerService**
+
+**Propósito principal**  
+Validar disponibilidad de recursos antes de asignarlos a un viaje.
+
+**Métodos principales**
+
+- checkDriverAvailability(driverId, timeRange): Verifica si un conductor está libre.
+- checkVehicleAvailability(vehicleId, timeRange): Verifica si un vehículo está disponible.
+
+---
+
+**Command: CreateTripCommand**
+
+**Propósito**  
+Crear un nuevo viaje en estado PENDING con las referencias de cliente, conductor, vehículo y ruta.
+
+**Parámetros**
+
+- clientId: Identificador del cliente.
+- driverId: Identificador del conductor.
+- vehicleId: Identificador del vehículo.
+- route: Ruta completa del viaje.
+
+---
+
+**Command: AssignDriverToTripCommand**
+
+**Propósito**  
+Asignar un conductor disponible a un viaje existente y actualizar la referencia correspondiente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- driverId: Identificador del conductor.
+
+---
+
+**Command: AssignVehicleToTripCommand**
+
+**Propósito**  
+Asignar un vehículo disponible a un viaje existente y actualizar la referencia correspondiente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- vehicleId: Identificador del vehículo.
+
+---
+
+**Command: StartTripCommand**
+
+**Propósito**  
+Iniciar un viaje, cambiando su estado a EN CURSO y registrando la hora exacta de inicio.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+
+---
+
+**Command: CompleteTripCommand**
+
+**Propósito**  
+Finalizar un viaje, cambiando su estado a COMPLETADO y registrando la hora de cierre.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+
+---
+
+**Command: CancelTripCommand**
+
+**Propósito**  
+Cancelar un viaje, actualizar su estado a CANCELADO y guardar la razón de la cancelación.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- reason: Motivo de la cancelación.
+
+---
+
+**Command: UpdateRouteForTripCommand**
+
+**Propósito**  
+Actualizar la ruta de un viaje antes de que inicie, garantizando que la información sea válida y actualizada.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- newRoute: Nueva ruta a asociar.
+
+**Query: GetTripByIdQuery**
+
+**Propósito**  
+Obtener la información completa de un viaje específico mediante su identificador único.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+
+---
+
+**Query: GetTripsByStatusQuery**
+
+**Propósito**  
+Listar los viajes filtrados por su estado (Pendiente, En curso, Completado o Cancelado).
+
+**Parámetros**
+
+- status: Estado de los viajes a consultar.
+
+---
+
+**Query: GetTripsByClientIdQuery**
+
+**Propósito**  
+Obtener todos los viajes asociados a un cliente específico.
+
+**Parámetros**
+
+- clientId: Identificador único del cliente.
+
+---
+
+**Query: GetAllTripsQuery**
+
+**Propósito**  
+Recuperar todos los viajes registrados en el sistema, sin aplicar filtros.
+
+**Parámetros**  
+_(No requiere parámetros)_
+
+---
+
+**Event: TripCreatedEvent**
+
+**Propósito**  
+Notificar que un nuevo viaje ha sido creado en el sistema.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- clientId: Identificador del cliente.
+- driverId: Identificador del conductor asignado.
+- vehicleId: Identificador del vehículo asignado.
+- route: Ruta definida para el viaje.
+- createdAt: Fecha y hora en que se creó el viaje.
+
+---
+
+**Event: DriverAssignedEvent**
+
+**Propósito**  
+Notificar que un conductor fue asignado a un viaje.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- driverId: Identificador del conductor asignado.
+- assignedAt: Fecha y hora de la asignación.
+
+---
+
+**Event: VehicleAssignedEvent**
+
+**Propósito**  
+Notificar que un vehículo fue asignado a un viaje.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- vehicleId: Identificador del vehículo asignado.
+- assignedAt: Fecha y hora de la asignación.
+
+---
+
+**Event: TripStartedEvent**
+
+**Propósito**  
+Notificar que un viaje ha iniciado oficialmente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- startedAt: Fecha y hora de inicio del viaje.
+
+---
+
+**Event: TripCompletedEvent**
+
+**Propósito**  
+Notificar que un viaje se ha completado satisfactoriamente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- completedAt: Fecha y hora de finalización del viaje.
+
+---
+
+**Event: TripCancelledEvent**
+
+**Propósito**  
+Notificar que un viaje ha sido cancelado.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- reason: Motivo de la cancelación.
+- cancelledAt: Fecha y hora en que se canceló el viaje.
+
+#### 4.2.5.2. Interface Layer.
+
+**Controllers**
+
+- TripController: Controlador que maneja las solicitudes relacionadas con los viajes. Atiende operaciones como crear un nuevo viaje, asignar un conductor, actualizar la ruta, iniciar, completar o cancelar un viaje, así como consultar información de viajes por identificador, estado, cliente o recuperar todos los viajes registrados.
+
+- RouteController: Controlador que maneja las solicitudes relacionadas con las rutas de los viajes. Permite registrar una nueva ruta, actualizarla antes del inicio de un viaje y consultar la información de rutas específicas o asociadas a un viaje.
+
+#### 4.2.5.3. Application Layer.
+
+**Command Services**
+
+- TripCommandService: Se encarga de recibir y coordinar los comandos relacionados a un viaje. Dentro de él se manejan distintos handlers, cada uno especializado en ejecutar un comando específico como iniciar, completar, cancelar o asignar recursos al viaje.
+
+- RouteCommandService: Se encarga de coordinar los comandos relacionados con rutas. Administra la creación, actualización y recalculo de rutas para garantizar que los trayectos estén completos y actualizados antes de iniciar un viaje.
+
+---
+
+**Query Services**
+
+- TripQueryService: Se encarga de atender las consultas relacionadas a los viajes. Contiene handlers que procesan queries para obtener información, por ejemplo: consultar un viaje por su identificador, listar viajes por estado o recuperar todos los viajes de un cliente.
+
+- RouteQueryService: Atiende las consultas relacionadas a las rutas de los viajes. Permite obtener información de rutas específicas o de las rutas asociadas a un viaje.
+
+---
+
+**Event Services**
+
+- TripEventService: Se encarga de atender los eventos relacionados a un viaje. Dentro de él se gestionan distintos servicios especializados que reaccionan a cada evento, como creación, asignación de recursos, inicio, finalización o cancelación del viaje, ejecutando las acciones necesarias después de que ocurren.
+
+#### 4.2.5.4. Infrastructure Layer.
 
 **Repositories**
 
-**DashboardRepository** (implementa IDashboardRepository)
-- Persistencia de dashboards y configuraciones
-- Optimizado para consultas por usuario
-- Cache de dashboards frecuentemente accedidos
+- ITripRepository: Repositorio que define las operaciones de acceso a los viajes, como guardar, actualizar y recuperar información de un viaje.
+- IRouteRepository: Repositorio que define las operaciones de acceso a las rutas, como registrar nuevas rutas, actualizarlas y consultarlas en relación con un viaje.
 
-**ReportRepository** (implementa IReportRepository)
-- Almacenamiento de reportes generados
-- Gestión de archivos de reporte
-- Limpieza automática de reportes antiguos
+#### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams.
 
-**MetricsRepository** (implementa IMetricsRepository)
-- Consultas optimizadas para métricas agregadas
-- Conexión con base de datos de time-series
-- Cache de métricas calculadas
+Diagrama de componentes - Backend - Trip Management
 
-**ChartDataRepository** (implementa IChartDataRepository)
-- Transformación de datos para visualización
-- Consultas optimizadas para gráficos
-- Manejo de grandes volúmenes de datos temporales
+<img src="assets/C4/TripManagement-C4-Backend-Diagram.png"/>
 
-#### 4.2.7.5. Bounded Context Software Architecture Component Level Diagrams
+Diagrama de componentes - Application Web - Trip Management
 
-**Diagrama de Componentes - Backend - Visualization Analytics**
+<!-- <img src="assets/C4/Alert-C4-WebApp-Diagram.png"/> -->
 
-![Visualization Analytics - Backend Components](assets/C4/VisualizationAnalytics-C4-Backend-Diagram.png)
+Diagrama de componentes - Mobile App - Trip Management
 
-Este diagrama ilustra la arquitectura del bounded context de Visualization Analytics en el backend. Los controllers manejan requests relacionados con dashboards, reportes y análisis. Los services en Application Layer coordinan la lógica de negocio, mientras que los repositories optimizan el acceso a datos tanto transaccionales como de time-series para métricas y visualizaciones.
+<!-- <img src="assets/C4/Alert-C4-Mobile-Diagram.png"/> -->
 
-**Diagrama de Componentes - Frontend Web - Visualization Analytics**
+#### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
 
-![Visualization Analytics - Frontend Components](assets/C4/VisualizationAnalytics-C4-WebApp-Diagram.png)
+##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.
 
-El frontend web del módulo de analytics utiliza componentes especializados para visualización de datos. Los chart components renderizarán gráficos interactivos, mientras que dashboard components gestionarán la composición y layout de widgets. Los services manejan la comunicación con APIs de datos y el cache local de métricas.
+![Trip Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-Class-Diagram.puml)
 
-**Diagrama de Componentes - Mobile - Visualization Analytics**
+##### 4.2.5.6.2. Bounded Context Database Design Diagram.
 
-![Visualization Analytics - Mobile Components](assets/C4/VisualizationAnalytics-C4-Mobile-Diagram.png)
-
-La aplicación móvil prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline.
-
-#### 4.2.7.6. Bounded Context Software Architecture Code Level Diagrams
-
-##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams
-
-**Backend - Visualization Analytics Domain Layer Class Diagram**
-
-![Visualization Analytics - Backend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Backend_Classes.puml)
-
-El diagrama de clases del backend de Analytics muestra las entidades principales para visualización y análisis de datos. Dashboard actúa como aggregate root conteniendo múltiples Widgets. Los Reports están asociados a usuarios y pueden ser programados para generación automática. ChartData encapsula la información procesada para visualizaciones, mientras que los services coordinan la agregación y cálculo de métricas.
-
-**Frontend - Visualization Analytics Domain Layer Class Diagram**
-
-![Visualization Analytics - Frontend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Frontend_Classes.puml)
-
-El diagrama del frontend Angular muestra los componentes especializados para visualización de datos. Los chart components renderizan gráficos interactivos usando librerías como Chart.js o D3.js, mientras que dashboard components gestionan la composición y layout de widgets. Los services manejan la comunicación con APIs de datos y el cache local de métricas para optimizar rendimiento.
-
-**Mobile - Visualization Analytics Domain Layer Class Diagram**
-
-![Visualization Analytics - Mobile Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Mobile_Classes.puml)
-
-La aplicación móvil Flutter prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline, permitiendo consulta de métricas básicas sin conectividad.
-
-##### 4.2.7.6.2. Bounded Context Database Design Diagram
-
-![Visualization Analytics - Database Design](assets/VisualizationAnalyticsDatabaseDiagram.png)
-
-El diseño de base de datos del módulo Analytics está optimizado para consultas analíticas y agregaciones. Las tablas principales (DASHBOARDS, WIDGETS, REPORTS) mantienen configuraciones de usuario, mientras que las tablas de métricas están desnormalizadas para consultas rápidas. Se incluyen índices especializados para consultas temporales y agregaciones frecuentes.
-
-
-# Bibliografía
-
-Bogdanov, V. (2024, 23 octubre). _Real-Time Supply Chain Visibility: a Game-Changer_. rinf.tech. https://www.rinf.tech/real-time-supply-chain-visibility-a-game-changer/
-
-_Flock Freight | 2023 F&B Research Study._ (s. f.). https://www.flockfreight.com/2023-food-beverage-research-study
-
-Perfectplanner. (2025, 30 enero). _Enhancing Supply Chain Visibility through Real-Time Tracking Technologies._ Perfect Planner. https://perfectplanner.io/enhancing-supply-chain-visibility/
-
-Technavio. (2024, 27 marzo). Cold Chain Logistics Market For Pharmaceuticals Industry size is set to grow by USD 12.81 bn from 2024-2028, Agility Public Warehousing Co. K.S.C.P, Air Canada & AVINEX, and more to emerge as Some of the Key Vendors, Technavio. PR Newswire. https://www.prnewswire.com/news-releases/cold-chain-logistics-market-for-pharmaceuticals-industry-size-is-set-to-grow-by-usd-12-81-bn-from-2024-2028--agility-public-warehousing-co-kscp-air-canada--avinex-and-more-to-emerge-as-some-of-the-key-vendors-technavio-302099252.html
+![Trip Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-DataBase-Diagram.puml)
