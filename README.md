@@ -1520,6 +1520,214 @@ Esta infraestructura permite un sistema escalable, resiliente y con capacidades 
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
+### 4.2.1. Bounded Context: Identity and Access Management
+
+#### 4.2.1.1. Domain Layer
+
+**Entidades Principales**
+
+**User (Aggregate Root)**
+
+- **Propósito**: Representa un usuario del sistema con capacidades de autenticación y autorización
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `username`: Nombre de usuario único
+  - `email`: Correo electrónico único
+  - `passwordHash`: Hash seguro de la contraseña
+  - `firstName`, `lastName`: Datos personales
+  - `isEnabled`: Estado activo/inactivo
+  - `createdAt`, `updatedAt`: Timestamps de auditoría
+- **Métodos principales**:
+  - `authenticate(password)`: Valida credenciales
+  - `changePassword(oldPassword, newPassword)`: Cambia contraseña con validación
+  - `assignRole(role)`: Asigna rol al usuario
+  - `enable()`, `disable()`: Gestión de estado
+
+Role (Entity)
+
+- Propósito: Define roles y permisos en el sistema
+- Atributos principales:
+  - `id`: Identificador único
+  - `name`: Nombre del rol (ADMIN, LOGISTICS_MANAGER, END_CUSTOMER)
+  - `description`: Descripción del rol
+  - `permissions`: Lista de permisos asociados
+- **Métodos principales**:
+  - `hasPermission(permission)`: Verifica si el rol tiene un permiso específico
+  - `addPermission(permission)`: Agrega permiso al rol
+
+**Token (Entity)**
+
+- **Propósito**: Gestiona tokens de acceso y refresh tokens
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `token`: Token JWT
+  - `userId`: Referencia al usuario
+  - `expiryDate`: Fecha de expiración
+  - `isRevoked`: Estado de revocación
+- **Métodos principales**:
+  - `isExpired()`: Verifica si el token ha expirado
+  - `revoke()`: Revoca el token
+
+**Value Objects**
+
+- **Email**: Valida formato de correo electrónico
+- **Password**: Encapsula reglas de contraseñas seguras
+- **Permission**: Representa un permiso específico (recurso + acción)
+- **TokenClaims**: Información contenida en el JWT
+
+**Domain Services**
+
+- **PasswordService**: Gestión de hash y validación de contraseñas
+- **TokenService**: Generación y validación de tokens JWT
+- **AuthorizationService**: Lógica de autorización basada en roles
+
+**Commands**
+
+- **LoginCommand**: Comando para autenticación
+- **RegisterUserCommand**: Comando para registro de usuario
+- **ChangePasswordCommand**: Comando para cambio de contraseña
+- **AssignRoleCommand**: Comando para asignación de roles
+
+**Queries**
+
+- **GetUserByIdQuery**: Obtiene usuario por ID
+- **GetUserByEmailQuery**: Obtiene usuario por email
+- **GetUserRolesQuery**: Obtiene roles de un usuario
+
+**Events**
+
+- **UserRegisteredEvent**: Usuario registrado exitosamente
+- **UserLoggedInEvent**: Usuario autenticado
+- **PasswordChangedEvent**: Contraseña cambiada
+- **UserDisabledEvent**: Usuario deshabilitado
+
+#### 4.2.1.2. Interface Layer
+
+**Controllers Principales**
+
+**AuthController**
+
+- `POST /auth/login`: Autenticación de usuarios
+- `POST /auth/logout`: Cierre de sesión
+- `POST /auth/refresh`: Renovación de tokens
+- `POST /auth/forgot-password`: Solicitud de recuperación de contraseña
+
+**UserController**
+
+- `POST /users/register`: Registro de nuevos usuarios
+- `GET /users/profile`: Obtiene perfil del usuario actual
+- `PUT /users/profile`: Actualiza perfil del usuario
+- `PUT /users/change-password`: Cambio de contraseña
+- `GET /users/{id}`: Obtiene usuario por ID (solo admins)
+
+#### 4.2.1.3. Application Layer
+
+**Command Services**
+
+**UserCommandService**
+
+- Maneja comandos de escritura para usuarios
+- Coordina operaciones de creación, actualización y eliminación
+- Publica eventos de dominio correspondientes
+
+**AuthCommandService**
+
+- Gestiona procesos de autenticación y autorización
+- Maneja tokens y sesiones de usuario
+- Coordina flujos de recuperación de contraseña
+
+**Query Services**
+
+**UserQueryService**
+
+- Proporciona consultas de solo lectura para usuarios
+- Optimizado para vistas y reportes
+- Maneja proyecciones de datos de usuario
+
+**AuthQueryService**
+
+- Consultas relacionadas con autenticación
+- Validación de tokens y permisos
+- Información de sesiones activas
+
+**Event Handlers**
+
+**UserRegisteredEventHandler**
+
+- Procesa eventos de registro de usuario
+- Envía emails de bienvenida
+- Configura datos iniciales del usuario
+
+#### 4.2.1.4. Infrastructure Layer
+
+**Repositories**
+
+**UserRepository** (implementa IUserRepository)
+
+- Persistencia y consulta de datos de usuarios
+- Implementación con Spring Data JPA
+- Operaciones CRUD optimizadas
+
+**RoleRepository** (implementa IRoleRepository)
+
+- Gestión de roles y permisos
+- Consultas para autorización
+- Cache de roles frecuentemente usados
+
+**TokenRepository** (implementa ITokenRepository)
+
+- Gestión de tokens JWT
+- Limpieza automática de tokens expirados
+- Blacklist de tokens revocados
+
+#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+Diagrama de Componentes - Backend - Identity and Access Management
+
+![Identity & Access Management - Backend Components](assets/C4/IAM-C4-Backend-Diagram.png)
+
+Este diagrama muestra la arquitectura por capas del bounded context IAM en el backend. La separación clara entre Interface, Application, Domain e Infrastructure layers permite un diseño mantenible y testeable. Los controllers en la Interface Layer reciben requests HTTP y delegan a los command/query services en Application Layer, que utilizan el dominio y persisten através de repositories en Infrastructure Layer.
+
+**Diagrama de Componentes - Frontend Web - Identity and Access Management**
+
+![Identity & Access Management - Frontend Angular Components](assets/C4/IAM-C4-WebApp-Diagram.png)
+
+El diagrama del frontend web muestra los componentes Angular organizados por responsabilidades. Las páginas (Login, Register, User Profile) interactúan con services que manejan la lógica de negocio y state management. La comunicación con el backend se realiza através de HTTP services que consumen la API REST.
+
+**Diagrama de Componentes - Mobile - Identity and Access Management**
+
+![Identity & Access Management - Mobile Flutter Components](assets/C4/IAM-C4-Mobile-Diagram.png)
+
+La aplicación móvil utiliza Flutter con arquitectura BLoC para state management. Las pantallas (screens) envían eventos a BLoCs que manejan el estado y coordinan con services. Los services se comunican tanto con el backend API como con la base de datos local SQLite para funcionalidad offline.
+
+#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Backend - Identity & Access Management Domain Layer Class Diagram**
+
+![Identity & Access Management - Backend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/IAM_Backend_Classes.puml)
+
+El diagrama de clases del backend muestra las entidades principales del IAM bounded context en la capa de dominio. La entidad User actúa como aggregate root y maneja la lógica de autenticación y autorización. Los roles están conectados através de relaciones many-to-many con usuarios, mientras que los tokens gestionan las sesiones y refresh tokens. La estructura implementa el patrón Repository para la persistencia.
+
+**Frontend - Identity & Access Management Domain Layer Class Diagram**
+
+![Identity & Access Management - Frontend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/IAM_Frontend_Classes.puml)
+
+El diagrama del frontend Angular muestra la arquitectura de componentes y services para el manejo de identidad. Los components (Login, Register, Profile) interactúan con services específicos que manejan el estado de autenticación. El AuthService centraliza la lógica de comunicación con el backend API, mientras que los guards protegen las rutas según permisos.
+
+**Mobile - Identity & Access Management Domain Layer Class Diagram**
+
+![Identity & Access Management - Mobile Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/IAM_Mobile_Classes.puml)
+
+La aplicación móvil Flutter implementa BLoC pattern para el manejo de estado de autenticación. Los BLoCs (AuthBloc, UserBloc) coordinan entre las pantallas y los services, mientras que el local storage permite funcionalidad offline. La arquitectura asegura sincronización de credenciales entre la app y el backend.
+
+##### 4.2.1.6.2. Bounded Context Database Design Diagram
+
+![Identity & Access Management - Database Design](assets/IdentityAndAccessManagementDatabaseDiagram.png)
+
+El diagrama de base de datos implementa un modelo RBAC (Role-Based Access Control) robusto. Las tablas principales (USERS, ROLES, PERMISSIONS) están conectadas através de tablas de unión que permiten relaciones many-to-many. Se incluyen tablas auxiliares para tokens de sesión, logs de auditoría y tokens de recuperación de contraseña. La estructura está optimizada para consultas frecuentes de autorización y mantiene integridad referencial.
+
 ### 4.2.2. Bounded Context: _Subscriptions and Billing_
 
 #### 4.2.2.1. Domain Layer
