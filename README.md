@@ -64,6 +64,60 @@
   </div>
 </div>
 
+# Registro de Versiones del Informe
+
+| Versión | Fecha | Autor | Descripción de modificación |
+| ------- | ----- | ----- | --------------------------- |
+| 1.0     |       |       |                             |
+
+---
+
+# Project Report Collaboration Insights
+
+---
+
+# Student Outcome
+
+El curso contribuye de manera directa al desarrollo y cumplimiento del Student Outcome 5 definido por ABET – EAC, asegurando que los estudiantes alcancen las competencias establecidas en dicho resultado.
+
+Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros juntos proporcionan liderazgo, crean un entorno de colaboración e inclusivo, establecen objetivos, planifican tareas y cumplen objetivos. En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 5.
+
+<table>
+  <thead>
+    <tr>
+      <th class="outcome-column">Criterio Específico</th>
+      <th class="details-column">
+        Acciones Realizadas por Miembro (por Avance)
+      </th>
+      <th class="final-comment-column">Conclusiones del Equipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Trabaja en equipo para proporcionar liderazgo conjunto</td>
+      <td>
+        <span class="person">Marcelo Fabian Garro Vega</span><br />
+        <span class="entry-order">TB1:</span><br/>
+        Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, donde contribuí con ideas clave para definir el flujo de negocio, fomentando así la claridad y el consenso entre todos los miembros del equipo. También participé activamente en la elaboración de la arquitectura de software y en el diseño táctico siguiendo los principios de Domain Driven Design. <br />
+      </td>
+      <td class="final-comment-column">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Crea un entorno colaborativo e inclusivo, establece metas, planifica
+        tareas y cumple objetivos.
+      </td>
+      <td>
+        <span class="person">Marcelo Fabian Garro Vega</span><br />
+        <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo dentro del equipo, promoviendo la participación activa de todos los miembros mediante el envío constante de retroalimentaciones constructivas. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que estas aportan al negocio. Para ello, tomé en cuenta las opiniones de mis compañeros, lo cual permitió definir metas claras, planificar de manera efectiva y cumplir con los objetivos propuestos bajo los principios de Domain Driven Design. <br />
+      </td>
+      <td class="final-comment-column">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ---
 
 # Capítulo I: Introducción
