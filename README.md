@@ -1138,6 +1138,14 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 
 ## 3.2. Impact Mapping
 
+### Empresa (Gestores de transporte)
+
+<img src="assets/Impact_map_Carlos.png"/>
+
+### Clientes Finales (Consumidores finales)
+
+<img src="assets/Impact_map_Maria.png"/>
+
 ## 3.3. Product Backlog
 
 | # Orden | User Story ID | Título                                      | Descripción                                                                                                                                                 | Story Points |
