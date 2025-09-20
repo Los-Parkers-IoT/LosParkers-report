@@ -1251,7 +1251,7 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 
 ### 4.1.1. Design-Level EventStorming
 
-## 4.1.1.1 Candidate Context Discovery
+#### 4.1.1.1 Candidate Context Discovery
 
 Para esta etapa se llevó a cabo una sesión, la sesión tuvo una duración aproximada de 90 minutos y permitió identificar los bounded contexts del sistema CargaSafe. Durante el proceso se aplicaron las técnicas start-with-value, start-with-simple y look-for-pivotal-events, que facilitaron la agrupación de eventos y entidades según su afinidad y valor para el negocio.
 
@@ -1512,7 +1512,7 @@ Esta infraestructura permite un sistema escalable, resiliente y con capacidades 
 
 ### 4.2.2. Bounded Context: _Subscriptions and Billing_
 
-### 4.2.2.1. Domain Layer
+#### 4.2.2.1. Domain Layer
 
 _Entities_
 
@@ -1571,7 +1571,7 @@ _Entities_
 **SubscriptionCanceled**: Suscripción cancelada.
 **PaymentSucceeded / PaymentFailed**: Resultado de pago.
 
-### 4.2.2.2. Interface Layer
+#### 4.2.2.2. Interface Layer
 
 **Controllers**
 
@@ -1580,7 +1580,7 @@ _Entities_
 - **PlanController**: Endpoints para listar planes disponibles.
 - **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
 
-### 4.2.2.3. Application Layer
+#### 4.2.2.3. Application Layer
 
 **Command Services**
 
@@ -1597,7 +1597,7 @@ _Entities_
 - **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
 - **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
 
-### 4.2.2.4. Infrastructure Layer
+#### 4.2.2.4. Infrastructure Layer
 
 **Repositories (Interfaces)**
 
