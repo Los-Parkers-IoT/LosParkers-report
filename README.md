@@ -1537,7 +1537,7 @@ _Entities_
 
 _Diagrama de componentes - Backend - Subscriptions and Billing_
 
-![Component diagrams](assets/Component_diagram_backend.png)
+![Component diagrams](assets/Component_backend_subscription.png)
 
 El backend del bounded context de Suscripciones y Pagos está organizado en cuatro capas principales:
 
