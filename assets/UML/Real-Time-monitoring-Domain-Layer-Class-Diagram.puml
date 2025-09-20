@@ -27,21 +27,6 @@ class DataEnrichmentService <<DomainService>> #B3E5FC {
     + enrichWithRouteInformation(data: TelemetryData): TelemetryData
 }
 
-' Repository Interfaces
-interface IMonitoringSessionRepository <<Repository>> #E1E1E1 {
-    + findById(sessionId: SessionId): MonitoringSession
-    + save(session: MonitoringSession)
-    + findByTripId(tripId: TripId): MonitoringSession
-    + update(session: MonitoringSession)
-}
-
-interface ITelemetryDataRepository <<Repository>> #E1E1E1 {
-    + save(data: TelemetryData)
-    + findBySessionId(sessionId: SessionId): List<TelemetryData>
-    + findByTimeRange(sessionId: SessionId, start: DateTime, end: DateTime): List<TelemetryData>
-    + saveBatch(dataList: List<TelemetryData>)
-}
-
 ' Aggregate Root
 class MonitoringSessionAggregate <<AggregateRoot>> #F5E6A3 {
     □ sessionId: SessionId
@@ -51,7 +36,7 @@ class MonitoringSessionAggregate <<AggregateRoot>> #F5E6A3 {
     □ startTime: DateTime
     □ endTime: DateTime
     □ telemetryData: List<TelemetryData>
-
+    
     ● startSession()
     ● endSession()
     ● addTelemetryData(data: TelemetryData)
@@ -67,7 +52,7 @@ class TelemetryData <<Entity>> #F5E6A3 {
     □ location: Location
     □ timestamp: DateTime
     □ deviceId: DeviceId
-
+    
     ● isWithinRange(range: TemperatureRange): boolean
     ● getTemperature(): Temperature
     ● getHumidity(): Humidity
@@ -80,7 +65,7 @@ class Incident <<Entity>> #F5E6A3 {
     □ description: String
     □ createdAt: DateTime
     □ status: IncidentStatus
-
+    
     ● resolve(description: String)
     ● escalate()
 }
@@ -96,14 +81,14 @@ class SensorReading <<ValueObject>> #C8E6C9 {
 class TemperatureRange <<ValueObject>> #C8E6C9 {
     □ minTemperature: Temperature
     □ maxTemperature: Temperature
-
+    
     ● isWithinRange(temperature: Temperature): boolean
 }
 
 class Location <<ValueObject>> #C8E6C9 {
     □ latitude: double
     □ longitude: double
-
+    
     ● distanceTo(other: Location): Distance
 }
 
@@ -164,14 +149,11 @@ MonitoringSessionAggregate --> Incident
 TelemetryData --> SensorReading
 TelemetryData --> Location
 SensorReading --> Temperature
-SensorReading --> Humidity
+SensorReading --> Humidity  
 SensorReading --> Vibration
 SensorReading --> SignalStatus
 
 Incident --> AlertType
 Incident --> IncidentStatus
-
-IMonitoringSessionRepository ..> MonitoringSessionAggregate
-ITelemetryDataRepository ..> TelemetryData
 
 @enduml
