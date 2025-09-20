@@ -3224,6 +3224,17 @@ Almacenar configuraciones personalizadas de idioma, zona horaria y notificacione
 
 #### 4.2.7.5. Bounded Context Software Architecture Component Level Diagrams.
 
+Diagrama de componentes - Backend - Profiles and Preferences Management
+
+<img src="assets/C4/ProfileAndPreferencesManagement-C4-Backend-Diagram.png"/>
+
+Diagrama de componentes - Application Web - Profiles and Preferences Management
+
+<img src="assets/C4/ProfileAndPreferencesManagement-C4-WebApp-Diagram.png"/>
+
+Diagrama de componentes - Mobile App - Profiles and Preferences Management
+<img src="assets/C4/ProfileAndPreferencesManagement-C4-MobileApp-Diagram.png"/>
+
 #### 4.2.7.6. Bounded Context Software Architecture Code Level Diagrams.
 
 ##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams.
