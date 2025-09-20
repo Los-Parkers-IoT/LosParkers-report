@@ -905,6 +905,18 @@ Permite crear incidentes vinculados a una alerta y un viaje, y consultar el deta
 
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+Diagrama de componentes - Backend - Alerts & Resolution
+
+<img src="assets/C4/Alert-C4-Backend-Diagram.png"/>
+
+Diagrama de componentes - Application Web - Alerts & Resolution
+
+<img src="assets/C4/Alert-C4-WebApp-Diagram.png"/>
+
+Diagrama de componentes - Mobile App - Alerts & Resolution
+
+<img src="assets/C4/Alert-C4-Mobile-Diagram.png"/>
+
 #### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
