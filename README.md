@@ -2323,6 +2323,18 @@ Notificar que se ha creado un nuevo incidente basado en las alertas detectadas.
 
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
 
+Diagrama de componentes - Backend - Real-Time Monitoring
+
+<img src="assets/C4/RealTimeMonitoring-C4-Backend-Diagram.png"/>
+
+Diagrama de componentes - Application Web - Real-Time Monitoring
+
+<img src="assets/C4/RealTimeMonitoring-C4-Web-Diagram.png"/>
+
+Diagrama de componentes - Mobile App - Real-Time Monitoring
+
+<img src="assets/C4/RealTimeMonitoring-C4-Mobile-Diagram.png"/>
+
 #### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
