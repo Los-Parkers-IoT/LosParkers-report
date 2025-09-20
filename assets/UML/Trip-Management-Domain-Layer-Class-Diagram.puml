@@ -1,28 +1,51 @@
-@startuml
-' Estereotipos de colores
+@startuml Trip-Management-Domain-Layer-Class-Diagram
+' ========================
+' Stereotypes colors
+' ========================
 skinparam class {
     BackgroundColor<<Entity>> LightYellow
     BackgroundColor<<AggregateRoot>> Wheat
     BackgroundColor<<ValueObject>> LightGreen
     BackgroundColor<<Factory>> LightBlue
     BackgroundColor<<DomainService>> LightCyan
-    BackgroundColor<<Repository>> LightGray
 }
 
 ' ========================
-' Entities y Aggregate
+' Entities and Aggregate
 ' ========================
-class Trip <<Entity>> {
+class Trip <<AggregateRoot>> {
   - tripId: long
-  - driverId: long
   - clientId: long
+  - driverId: long
   - vehicleId: long
-  - route: Route
+  - requestedAt: DateTime
   - status: TripStatus
+  - route: Route
+
+  + assignDriver(driverId: long)
+  + assignVehicle(vehicleId: long)
+  + startTrip()
+  + completeTrip()
+  + cancelTrip(reason: String)
+  + canTransitionTo(nextStatus: TripStatus): boolean
 }
 
 class TripAggregate <<AggregateRoot>> {
-  + ensureValidTrip()
+  + validateTripReady(trip: Trip)
+  + ensureValidTransition(current: TripStatus, next: TripStatus)
+}
+
+class Route <<Entity>> {
+  - routeId: long
+  - origin: GeoCoordinate
+  - destination: GeoCoordinate
+  - totalDistance: Distance
+  - totalDuration: Duration
+
+  + addSegment(segment: RouteSegment)
+  + updateDestination(newDestination: GeoCoordinate)
+  + recalculateTotals()
+  + isValid(): boolean
 }
 
 ' ========================
@@ -31,35 +54,39 @@ class TripAggregate <<AggregateRoot>> {
 class GeoCoordinate <<ValueObject>> {
   - latitude: double
   - longitude: double
+
+  + distanceTo(other: GeoCoordinate): Distance
 }
 
 class Polyline <<ValueObject>> {
   - encodedPath: String
+
+  + decode(): List<GeoCoordinate>
+  + isEmpty(): boolean
 }
 
 class RouteSegment <<ValueObject>> {
   - coordinates: List<GeoCoordinate>
   - distance: Distance
   - duration: Duration
-}
 
-class Route <<ValueObject>> {
-  - origin: GeoCoordinate
-  - destination: GeoCoordinate
-  - segments: List<RouteSegment>
-  - polyline: Polyline
-  - totalDistance: Distance
-  - totalDuration: Duration
+  + averageSpeed(): double
 }
 
 class Distance <<ValueObject>> {
   - value: double
   - unit: String
+
+  + to(unit: String): Distance
+  + add(other: Distance): Distance
 }
 
 class Duration <<ValueObject>> {
   - value: double
   - unit: String
+
+  + to(unit: String): Duration
+  + add(other: Duration): Duration
 }
 
 enum TripStatus <<ValueObject>> {
@@ -70,58 +97,44 @@ enum TripStatus <<ValueObject>> {
 }
 
 ' ========================
-' Factories
+' Factory
 ' ========================
 class TripFactory <<Factory>> {
-  + createTrip(driverId: long, clientId: long, vehicleId: long, route: Route): Trip
+  + createTrip(clientId: long, driverId: long, vehicleId: long, route: Route): Trip
 }
 
 ' ========================
 ' Domain Services
 ' ========================
 class RoutePlanningService <<DomainService>> {
-  + planRoute(origin: GeoCoordinate, destination: GeoCoordinate): Route
+  + generateRoute(origin: GeoCoordinate, destination: GeoCoordinate): Route
+  + estimateDuration(route: Route): Duration
 }
 
 class TripSchedulerService <<DomainService>> {
-  + validateAvailability(driverId: long, vehicleId: long): boolean
+  + checkDriverAvailability(driverId: long, timeRange: DateTimeRange): boolean
+  + checkVehicleAvailability(vehicleId: long, timeRange: DateTimeRange): boolean
 }
 
 ' ========================
-' Repositories
+' Main Relationships
 ' ========================
-interface ITripRepository <<Repository>> {
-  + findById(tripId: long): Trip
-  + save(trip: Trip)
-  + findByStatus(status: TripStatus): List<Trip>
-  + findByClientId(clientId: long): List<Trip>
-  + findAll(): List<Trip>
-}
+Trip *-- "1" Route : has
+Trip o-- "1" TripStatus : status
 
-interface IRouteRepository <<Repository>> {
-  + findById(routeId: long): Route
-  + save(route: Route)
-  + findAll(): List<Route>
-}
+Route *-- "1..*" RouteSegment : composed of
+Route --> "1" GeoCoordinate : origin
+Route --> "1" GeoCoordinate : destination
+Route --> "0..1" Polyline : polyline
+Route --> "1" Distance : totalDistance
+Route --> "1" Duration : totalDuration
 
-' ========================
-' Relaciones principales
-' ========================
-TripAggregate --> Trip
-Trip --> Route
-Trip --> TripStatus
-Route --> RouteSegment
-Route --> GeoCoordinate
-RouteSegment --> GeoCoordinate
-RouteSegment --> Distance
-RouteSegment --> Duration
-Route --> Polyline
-Route --> Distance
-Route --> Duration
-TripFactory --> Trip
-RoutePlanningService --> Route
-TripSchedulerService --> Trip
-ITripRepository --> Trip
-IRouteRepository --> Route
+RouteSegment o-- "2..*" GeoCoordinate : coordinates
+RouteSegment --> "1" Distance
+RouteSegment --> "1" Duration
 
+TripFactory ..> Trip : creates
+TripAggregate ..> Trip : validates
+RoutePlanningService ..> Route
+TripSchedulerService ..> Trip
 @enduml
