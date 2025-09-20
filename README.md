@@ -554,7 +554,7 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 4.2.2.1. Domain Layer
 
-*Entities*
+_Entities_
 
 **Subscription**
 
@@ -620,7 +620,7 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 - **PlanController**: Endpoints para listar planes disponibles.
 - **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
 
-4.2.2.3. Application Layer
+  4.2.2.3. Application Layer
 
 **Command Services**
 
@@ -633,10 +633,11 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 **PaymentQueryService**: Consulta pagos por suscripción o estado.
 
 **Event Handlers**
+
 - **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
 - **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
 
-4.2.2.4. Infrastructure Layer
+  4.2.2.4. Infrastructure Layer
 
 **Repositories (Interfaces)**
 
@@ -658,6 +659,7 @@ El backend del bounded context de Suscripciones y Pagos está organizado en cuat
 - **Infrastructure Layer**: implementa repositorios y conectores hacia la base de datos y sistemas externos. Se encarga de la persistencia y de la integración técnica.
 
 Las conexiones externas son:
+
 - Postgres para persistencia transaccional (suscripciones, pagos, compañías).
 - Stripe para procesamiento de pagos.
 - Firebase Cloud Messaging (FCM) para envío de notificaciones push.
@@ -714,43 +716,45 @@ Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos de
 **Entity: Alert (Aggregate Root)**  
 **Propósito principal**  
 Centralizar la gestión del ciclo de vida de una alerta y garantizar que se cumplan las reglas de negocio.  
-**Atributos principales**  
-- alertId: Identificador único de la alerta.  
-- type: Tipo de alerta (OutOfRange, Offline, RouteDeviation).  
-- status: Estado actual de la alerta (OPEN, ACKNOWLEDGED, CLOSED).  
-- sensorType: Tipo de sensor que la generó (TEMPERATURE, HUMIDITY, VIBRATION, TILT, LOCATION, BATTERY).  
-- createdAt: Fecha y hora de creación de la alerta.  
-- acknowledgedAt: Momento en que fue reconocida.  
-- closedAt: Momento en que fue cerrada.  
-**Métodos principales**  
-- acknowledge(): Marca la alerta como reconocida.  
-- close(): Cierra la alerta si ya fue reconocida.  
-- escalate(): Incrementa la criticidad si no fue atendida a tiempo.  
+**Atributos principales**
 
+- alertId: Identificador único de la alerta.
+- type: Tipo de alerta (OutOfRange, Offline, RouteDeviation).
+- status: Estado actual de la alerta (OPEN, ACKNOWLEDGED, CLOSED).
+- sensorType: Tipo de sensor que la generó (TEMPERATURE, HUMIDITY, VIBRATION, TILT, LOCATION, BATTERY).
+- createdAt: Fecha y hora de creación de la alerta.
+- acknowledgedAt: Momento en que fue reconocida.
+- closedAt: Momento en que fue cerrada.  
+  **Métodos principales**
+- acknowledge(): Marca la alerta como reconocida.
+- close(): Cierra la alerta si ya fue reconocida.
+- escalate(): Incrementa la criticidad si no fue atendida a tiempo.
 
 **Entity: Notification**  
 **Propósito principal**  
 Representar un mensaje enviado a un usuario sobre una alerta.  
-**Atributos principales**  
-- notificationId: Identificador único de la notificación.  
-- alertId: Referencia a la alerta asociada.  
-- channel: Canal de comunicación (EMAIL, SMS, FCM).  
-- message: Contenido del mensaje.  
+**Atributos principales**
+
+- notificationId: Identificador único de la notificación.
+- alertId: Referencia a la alerta asociada.
+- channel: Canal de comunicación (EMAIL, SMS, FCM).
+- message: Contenido del mensaje.
 - sentAt: Fecha y hora de envío.  
-**Métodos principales**  
-- markAsSent(): Actualiza el estado de la notificación como enviada.  
+  **Métodos principales**
+- markAsSent(): Actualiza el estado de la notificación como enviada.
 
 **Entity: Incident**  
 **Propósito principal**  
 Registrar un evento relacionado con un viaje que se crea a partir de una alerta.  
-**Atributos principales**  
-- incidentId: Identificador único del incidente.  
-- alertId: Referencia a la alerta origen.  
-- tripId: Identificador del viaje asociado.  
-- description: Detalle del incidente.  
+**Atributos principales**
+
+- incidentId: Identificador único del incidente.
+- alertId: Referencia a la alerta origen.
+- tripId: Identificador del viaje asociado.
+- description: Detalle del incidente.
 - createdAt: Fecha y hora de creación.  
-**Métodos principales**  
-- resolve(description): Marca el incidente como resuelto con detalles.  
+  **Métodos principales**
+- resolve(description): Marca el incidente como resuelto con detalles.
 
 ### Objetos de Valor (Value Objects)
 
@@ -763,100 +767,113 @@ Registrar un evento relacionado con un viaje que se crea a partir de una alerta.
 #### Commands
 
 **Command: CreateAlertCommand**  
-**Parámetros**  
+**Parámetros**
+
 - type, sensorType, createdAt.  
-**Cómo funciona**  
-Se ejecuta al detectar un evento anómalo. Crea una nueva alerta validando reglas como la ventana de persistencia y evitando duplicación.  
+  **Cómo funciona**  
+  Se ejecuta al detectar un evento anómalo. Crea una nueva alerta validando reglas como la ventana de persistencia y evitando duplicación.
 
 **Command: AcknowledgeAlertCommand**  
-**Parámetros**  
+**Parámetros**
+
 - alertId.  
-**Cómo funciona**  
-Permite a un operador reconocer la alerta. Cambia su estado a *ACKNOWLEDGED* y registra la hora.  
+  **Cómo funciona**  
+  Permite a un operador reconocer la alerta. Cambia su estado a _ACKNOWLEDGED_ y registra la hora.
 
 **Command: CloseAlertCommand**  
-**Parámetros**  
+**Parámetros**
+
 - alertId.  
-**Cómo funciona**  
-Cierra una alerta reconocida, cambiando su estado a *CLOSED* y registrando la fecha de cierre.  
+  **Cómo funciona**  
+  Cierra una alerta reconocida, cambiando su estado a _CLOSED_ y registrando la fecha de cierre.
 
 **Command: EscalateAlertCommand**  
-**Parámetros**  
+**Parámetros**
+
 - alertId.  
-**Cómo funciona**  
-Incrementa la criticidad de una alerta que lleva demasiado tiempo sin ser reconocida, generando un evento de escalamiento.  
+  **Cómo funciona**  
+  Incrementa la criticidad de una alerta que lleva demasiado tiempo sin ser reconocida, generando un evento de escalamiento.
 
 **Command: CreateIncidentFromAlertCommand**  
-**Parámetros**  
+**Parámetros**
+
 - alertId, tripId, description.  
-**Cómo funciona**  
-Crea un incidente asociado a un viaje a partir de una alerta específica, permitiendo registrar el detalle del evento.  
+  **Cómo funciona**  
+  Crea un incidente asociado a un viaje a partir de una alerta específica, permitiendo registrar el detalle del evento.
 
 **Command: SendNotificationCommand**  
-**Parámetros**  
+**Parámetros**
+
 - alertId, channel, message.  
-**Cómo funciona**  
-Ordena enviar una notificación al canal definido (Email, SMS, FCM) para informar al usuario o empresa sobre la alerta.  
+  **Cómo funciona**  
+  Ordena enviar una notificación al canal definido (Email, SMS, FCM) para informar al usuario o empresa sobre la alerta.
 
 #### Queries
 
 **Query: GetAlertByIdQuery**  
-**Parámetros**  
+**Parámetros**
+
 - alertId.  
-**Cómo funciona**  
-Recupera los detalles de una alerta específica, incluyendo su estado, tipo y fechas clave.  
+  **Cómo funciona**  
+  Recupera los detalles de una alerta específica, incluyendo su estado, tipo y fechas clave.
 
 **Query: GetAlertsByStatusQuery**  
-**Parámetros**  
+**Parámetros**
+
 - status.  
-**Cómo funciona**  
-Devuelve todas las alertas con un estado determinado (ej. abiertas, reconocidas, cerradas).  
+  **Cómo funciona**  
+  Devuelve todas las alertas con un estado determinado (ej. abiertas, reconocidas, cerradas).
 
 **Query: GetAlertsByTypeQuery**  
-**Parámetros**  
+**Parámetros**
+
 - type.  
-**Cómo funciona**  
-Recupera todas las alertas de un tipo específico (ej. RouteDeviation).  
+  **Cómo funciona**  
+  Recupera todas las alertas de un tipo específico (ej. RouteDeviation).
 
 **Query: GetNotificationsByAlertIdQuery**  
-**Parámetros**  
+**Parámetros**
+
 - alertId.  
-**Cómo funciona**  
-Devuelve todas las notificaciones emitidas en relación con una alerta.  
+  **Cómo funciona**  
+  Devuelve todas las notificaciones emitidas en relación con una alerta.
 
 **Query: GetIncidentsByAlertIdQuery**  
-**Parámetros**  
+**Parámetros**
+
 - alertId.  
-**Cómo funciona**  
-Obtiene todos los incidentes generados a partir de una alerta determinada.  
+  **Cómo funciona**  
+  Obtiene todos los incidentes generados a partir de una alerta determinada.
 
 ### Events
 
 **Event: AlertCreatedEvent**  
-Se emite cuando una nueva alerta es registrada en el sistema.  
+Se emite cuando una nueva alerta es registrada en el sistema.
 
 **Event: AlertAcknowledgedEvent**  
-Se emite cuando una alerta es reconocida.  
+Se emite cuando una alerta es reconocida.
 
 **Event: AlertClosedEvent**  
-Se emite cuando una alerta se cierra exitosamente.  
+Se emite cuando una alerta se cierra exitosamente.
 
 **Event: AlertEscalatedEvent**  
-Se emite cuando una alerta aumenta de criticidad por falta de respuesta.  
+Se emite cuando una alerta aumenta de criticidad por falta de respuesta.
 
 **Event: NotificationSentEvent**  
-Se emite al enviar una notificación a un usuario o empresa.  
+Se emite al enviar una notificación a un usuario o empresa.
 
 **Event: IncidentCreatedEvent**  
-Se emite cuando se genera un incidente a partir de una alerta. 
+Se emite cuando se genera un incidente a partir de una alerta.
 
-### Fábricas (Factories) 
-- AlertFactory: encapsula la lógica de creación de una alerta a partir de eventos recibidos (ejemplo: sensor fuera de rango). 
+### Fábricas (Factories)
+
+- AlertFactory: encapsula la lógica de creación de una alerta a partir de eventos recibidos (ejemplo: sensor fuera de rango).
 - IncidentFactory: crea incidentes asociados a un viaje cuando una alerta lo requiere.
 
-### Repositorios (Interfaces) 
-- AlertRepository: interfaz para guardar, actualizar y recuperar alertas. 
-- NotificationRepository: interfaz para manejar el historial y el estado de notificaciones. 
+### Repositorios (Interfaces)
+
+- AlertRepository: interfaz para guardar, actualizar y recuperar alertas.
+- NotificationRepository: interfaz para manejar el historial y el estado de notificaciones.
 - IncidentRepository: interfaz para registrar incidentes asociados a viajes
 
 #### 4.2.3.2. Interface Layer
@@ -1033,7 +1050,6 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 - **EventBusKafkaAdapter**: Se integra con el bus de eventos (Kafka) para consumir y publicar mensajes de dominio.
 - **GoogleMapsAdapter**: Adapta la API de Google Maps para obtener información de geolocalización y rutas.
 
-
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
 
 #### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
@@ -1042,7 +1058,7 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
 
-### 4.2.5. Bounded Context: Trip management
+### 4.2.5. Bounded Context: _Trip management_
 
 #### 4.2.5.1. Domain Layer.
 
@@ -1163,62 +1179,352 @@ Escuchan eventos de dominio y reaccionan a ellos para ejecutar acciones adiciona
 
 #### 4.2.5.1. Domain Layer.
 
-**Entities**
+**Entity: Trip (Aggregate Root)**
 
-- **Trip (Aggregate Root)**: Representa un viaje de transporte. Es el núcleo del agregado y coordina las reglas de negocio. Contiene la referencia al conductor mediante un driverId, al cliente mediante un clientId, al vehículo mediante un vehicleId, además de la ruta y el estado del viaje.
+**Propósito principal**  
+Representar un viaje y centralizar su ciclo de vida, asegurando que se cumplan las reglas de negocio relacionadas con cliente, conductor, vehículo y ruta.
 
-**Value Objects**
+**Atributos principales**
 
-- **GeoCoordinate**: Valor inmutable que representa una coordenada geográfica compuesta por una latitud y una longitud válidas.
-- **Polyline**: Cadena de texto que representa la ruta en forma compacta y que siempre puede convertirse a una lista de coordenadas geográficas.
-- **RouteSegment**: Tramo de la ruta entre dos puntos. Incluye la lista de coordenadas que describen el trayecto, la distancia recorrida y la duración estimada.
-- **Route**: Valor que encapsula toda la información de la ruta de un viaje, incluyendo origen, destino, los segmentos que la componen, la representación en polyline, la distancia total y la duración total.
-- **Distance**: Valor que expresa una magnitud de distancia junto con su unidad de medida, por ejemplo kilómetros.
-- **Duration**: Valor que expresa un intervalo de tiempo junto con su unidad, por ejemplo minutos.
-- **TripStatus**: Representa el estado del viaje dentro de su ciclo de vida. Los estados posibles son Pendiente, En curso, Completado o Cancelado.
+- tripId: Identificador único del viaje.
+- clientId: Identificador del cliente.
+- driverId: Identificador del conductor.
+- vehicleId: Identificador del vehículo.
+- route: Ruta definida para el trayecto.
+- status: Estado del viaje (CREATED, IN_PROGRESS, COMPLETED, CANCELLED).
+- requestedAt: Fecha y hora de la solicitud.
 
-**Aggregate**
+**Métodos principales**
 
-- **TripAggregate**: El agregado principal que asegura la consistencia de un viaje. Garantiza que un viaje siempre tenga cliente, conductor, vehículo y ruta válidos antes de iniciarse. Controla los invariantes de negocio como no iniciar un viaje sin ruta definida.
+- assignDriver(driverId): Asigna un conductor al viaje.
+- assignVehicle(vehicleId): Vincula un vehículo al viaje.
+- startTrip(): Inicia el viaje y cambia su estado a “En curso”.
+- completeTrip(): Finaliza el viaje y cambia su estado a “Completado”.
+- cancelTrip(reason): Cancela el viaje y registra el motivo.
 
-**Factories**
+---
 
-- **TripFactory**: Responsable de crear instancias de Trip en estado inicial Pendiente. Se asegura de que el viaje cuente con referencias válidas a driverId, clientId, vehicleId y con una ruta completa.
+**Value Object: GeoCoordinate**
 
-**Domain Services**
+**Propósito principal**  
+Representar un punto geográfico inmutable.
 
-- **RoutePlanningService**: Servicio de dominio que encapsula la lógica de planificación de rutas. Genera un objeto Route válido con origen, destino, segmentos, distancia y duración.
-- **TripSchedulerService**: Servicio de dominio que valida la disponibilidad de conductores y vehículos. Impide asignar el mismo recurso a viajes en paralelo.
+**Atributos principales**
 
-**Repositories (interfaces)**
+- latitude: Latitud válida.
+- longitude: Longitud válida.
 
-- **ITripRepository**: Contrato de persistencia para almacenar y recuperar viajes. Proporciona métodos como buscar un viaje por su identificador, guardar cambios, encontrar viajes por estado o consultar los viajes de un cliente específico.
+---
 
-**Commands**
+**Value Object: RouteSegment**
 
-- **CreateTripCommand**: Orden para crear un nuevo viaje con cliente, conductor, vehículo y ruta asignados.
-- **AssignDriverToTripCommand**: Orden para asignar un conductor a un viaje existente.
-- **AssignVehicleToTripCommand**: Orden para asignar un vehículo a un viaje existente.
-- **StartTripCommand**: Orden para iniciar un viaje, cambiando su estado a En curso.
-- **CompleteTripCommand**: Orden para marcar un viaje como finalizado correctamente.
-- **CancelTripCommand**: Orden para cancelar un viaje, cambiando su estado a Cancelado.
-- **UpdateRouteForTripCommand**: Orden para actualizar la ruta asociada a un viaje antes de iniciarlo.
+**Propósito principal**  
+Modelar un tramo de ruta entre dos puntos.
 
-**Queries**
+**Atributos principales**
 
-- **GetTripByIdQuery**: Consulta que devuelve la información de un viaje a partir de su identificador.
-- **GetTripsByStatusQuery**: Consulta que devuelve los viajes según su estado, ya sea Pendiente, En curso, Completado o Cancelado.
-- **GetTripsByClientIdQuery**: Consulta que devuelve todos los viajes asociados a un cliente específico.
-- **GetAllTripsQuery**: Consulta que devuelve todos los viajes registrados en el sistema.
+- coordinates: Lista de coordenadas que forman el tramo.
+- distance: Distancia recorrida en el segmento.
+- duration: Tiempo estimado del segmento.
 
-**Events**
+---
 
-- **TripCreatedEvent**: Evento que se emite cuando un viaje es creado.
-- **DriverAssignedEvent**: Evento que se emite cuando un conductor es asignado a un viaje.
-- **VehicleAssignedEvent**: Evento que se emite cuando un vehículo es asignado a un viaje.
-- **TripStartedEvent**: Evento que se emite cuando un viaje inicia oficialmente.
-- **TripCompletedEvent**: Evento que se emite cuando un viaje se completa satisfactoriamente.
-- **TripCancelledEvent**: Evento que se emite cuando un viaje es cancelado.
+**Value Object: Route**
+
+**Propósito principal**  
+Encapsular la información completa de la ruta de un viaje.
+
+**Atributos principales**
+
+- origin: Punto de inicio.
+- destination: Punto final.
+- segments: Lista de tramos de la ruta.
+- totalDistance: Distancia total del viaje.
+- totalDuration: Duración total estimada.
+
+---
+
+**Value Object: Distance**
+
+**Propósito principal**  
+Expresar una magnitud de distancia.
+
+**Atributos principales**
+
+- value: Cantidad numérica de la distancia.
+- unit: Unidad de medida (ej. km).
+
+---
+
+**Value Object: Duration**
+
+**Propósito principal**  
+Expresar un intervalo de tiempo.
+
+**Atributos principales**
+
+- value: Cantidad numérica de tiempo.
+- unit: Unidad de medida (ej. minutos).
+
+---
+
+**Value Object: TripStatus**
+
+**Propósito principal**  
+Representar el estado del viaje en su ciclo de vida.
+
+**Atributos principales**
+
+- status: Valor posible (PENDING, IN_PROGRESS, COMPLETED, CANCELLED).
+
+---
+
+**Aggregate: TripAggregate**
+
+**Propósito principal**  
+Asegurar la consistencia de un viaje como unidad de negocio.
+
+**Métodos principales**
+
+- validateTripReady(): Verifica que el viaje tenga cliente, conductor, vehículo y ruta antes de iniciar.
+
+---
+
+**Factory: TripFactory**
+
+**Propósito principal**  
+Crear instancias de **Trip** en estado inicial válido.
+
+**Métodos principales**
+
+- createTrip(clientId, driverId, vehicleId, route): Genera un viaje en estado PENDING con todos los datos requeridos.
+
+---
+
+**Domain Service: RoutePlanningService**
+
+**Propósito principal**  
+Encapsular la lógica de planificación de rutas.
+
+**Métodos principales**
+
+- generateRoute(origin, destination): Construye una ruta válida con segmentos, distancia y duración.
+
+---
+
+**Domain Service: TripSchedulerService**
+
+**Propósito principal**  
+Validar disponibilidad de recursos antes de asignarlos a un viaje.
+
+**Métodos principales**
+
+- checkDriverAvailability(driverId, timeRange): Verifica si un conductor está libre.
+- checkVehicleAvailability(vehicleId, timeRange): Verifica si un vehículo está disponible.
+
+---
+
+**Command: CreateTripCommand**
+
+**Propósito**  
+Crear un nuevo viaje en estado PENDING con las referencias de cliente, conductor, vehículo y ruta.
+
+**Parámetros**
+
+- clientId: Identificador del cliente.
+- driverId: Identificador del conductor.
+- vehicleId: Identificador del vehículo.
+- route: Ruta completa del viaje.
+
+---
+
+**Command: AssignDriverToTripCommand**
+
+**Propósito**  
+Asignar un conductor disponible a un viaje existente y actualizar la referencia correspondiente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- driverId: Identificador del conductor.
+
+---
+
+**Command: AssignVehicleToTripCommand**
+
+**Propósito**  
+Asignar un vehículo disponible a un viaje existente y actualizar la referencia correspondiente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- vehicleId: Identificador del vehículo.
+
+---
+
+**Command: StartTripCommand**
+
+**Propósito**  
+Iniciar un viaje, cambiando su estado a EN CURSO y registrando la hora exacta de inicio.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+
+---
+
+**Command: CompleteTripCommand**
+
+**Propósito**  
+Finalizar un viaje, cambiando su estado a COMPLETADO y registrando la hora de cierre.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+
+---
+
+**Command: CancelTripCommand**
+
+**Propósito**  
+Cancelar un viaje, actualizar su estado a CANCELADO y guardar la razón de la cancelación.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- reason: Motivo de la cancelación.
+
+---
+
+**Command: UpdateRouteForTripCommand**
+
+**Propósito**  
+Actualizar la ruta de un viaje antes de que inicie, garantizando que la información sea válida y actualizada.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- newRoute: Nueva ruta a asociar.
+
+**Query: GetTripByIdQuery**
+
+**Propósito**  
+Obtener la información completa de un viaje específico mediante su identificador único.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+
+---
+
+**Query: GetTripsByStatusQuery**
+
+**Propósito**  
+Listar los viajes filtrados por su estado (Pendiente, En curso, Completado o Cancelado).
+
+**Parámetros**
+
+- status: Estado de los viajes a consultar.
+
+---
+
+**Query: GetTripsByClientIdQuery**
+
+**Propósito**  
+Obtener todos los viajes asociados a un cliente específico.
+
+**Parámetros**
+
+- clientId: Identificador único del cliente.
+
+---
+
+**Query: GetAllTripsQuery**
+
+**Propósito**  
+Recuperar todos los viajes registrados en el sistema, sin aplicar filtros.
+
+**Parámetros**  
+_(No requiere parámetros)_
+
+---
+
+**Event: TripCreatedEvent**
+
+**Propósito**  
+Notificar que un nuevo viaje ha sido creado en el sistema.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- clientId: Identificador del cliente.
+- driverId: Identificador del conductor asignado.
+- vehicleId: Identificador del vehículo asignado.
+- route: Ruta definida para el viaje.
+- createdAt: Fecha y hora en que se creó el viaje.
+
+---
+
+**Event: DriverAssignedEvent**
+
+**Propósito**  
+Notificar que un conductor fue asignado a un viaje.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- driverId: Identificador del conductor asignado.
+- assignedAt: Fecha y hora de la asignación.
+
+---
+
+**Event: VehicleAssignedEvent**
+
+**Propósito**  
+Notificar que un vehículo fue asignado a un viaje.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- vehicleId: Identificador del vehículo asignado.
+- assignedAt: Fecha y hora de la asignación.
+
+---
+
+**Event: TripStartedEvent**
+
+**Propósito**  
+Notificar que un viaje ha iniciado oficialmente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- startedAt: Fecha y hora de inicio del viaje.
+
+---
+
+**Event: TripCompletedEvent**
+
+**Propósito**  
+Notificar que un viaje se ha completado satisfactoriamente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- completedAt: Fecha y hora de finalización del viaje.
+
+---
+
+**Event: TripCancelledEvent**
+
+**Propósito**  
+Notificar que un viaje ha sido cancelado.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- reason: Motivo de la cancelación.
+- cancelledAt: Fecha y hora en que se canceló el viaje.
 
 #### 4.2.5.2. Interface Layer.
 
