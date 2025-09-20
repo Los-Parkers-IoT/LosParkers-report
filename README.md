@@ -3262,3 +3262,257 @@ Diagrama de componentes - Mobile App - Profiles and Preferences Management
 ##### 4.2.7.6.2. Bounded Context Database Design Diagram
 
 ![Profile And Preferences Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/ProfileAndPreferencesManagement-Database-Diagram.puml)
+
+### 4.2.8. Bounded Context: Visualization Analytics
+
+#### 4.2.8.1. Domain Layer
+
+**Entidades Principales**
+
+**Dashboard (Aggregate Root)**
+
+- **Propósito**: Representa un dashboard personalizable con widgets y métricas específicas
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `name`: Nombre del dashboard
+  - `userId`: Propietario del dashboard
+  - `layout`: Configuración de layout de widgets
+  - `isDefault`: Indica si es dashboard por defecto
+  - `createdAt`, `updatedAt`: Timestamps de auditoría
+- **Métodos principales**:
+  - `addWidget(widget)`: Agrega widget al dashboard
+  - `removeWidget(widgetId)`: Remueve widget
+  - `updateLayout(layout)`: Actualiza disposición de widgets
+  - `clone()`: Crea copia del dashboard
+
+**Widget (Entity)**
+
+- **Propósito**: Componente visual que muestra métricas específicas
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `type`: Tipo de widget (CHART, KPI, TABLE, MAP)
+  - `title`: Título del widget
+  - `dataSource`: Fuente de datos
+  - `configuration`: Configuración específica del widget
+  - `position`: Posición en el dashboard
+- **Métodos principales**:
+  - `updateConfiguration(config)`: Actualiza configuración
+  - `refresh()`: Refresca datos del widget
+  - `validateConfiguration()`: Valida configuración del widget
+
+**Report (Entity)**
+
+- **Propósito**: Reporte generado con datos históricos y métricas
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `name`: Nombre del reporte
+  - `type`: Tipo de reporte (TRIP_SUMMARY, COMPLIANCE, PERFORMANCE)
+  - `parameters`: Parámetros del reporte
+  - `generatedAt`: Fecha de generación
+  - `format`: Formato del reporte (PDF, EXCEL, CSV)
+- **Métodos principales**:
+  - `generate()`: Genera el reporte
+  - `schedule(frequency)`: Programa generación automática
+  - `export(format)`: Exporta en formato específico
+
+**ChartData (Entity)**
+
+- **Propósito**: Datos procesados para visualización en charts
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `chartType`: Tipo de gráfico (LINE, BAR, PIE, SCATTER)
+  - `dataPoints`: Puntos de datos
+  - `labels`: Etiquetas de los ejes
+  - `metadata`: Metadatos adicionales
+- **Métodos principales**:
+  - `addDataPoint(point)`: Agrega punto de dato
+  - `aggregate(groupBy)`: Agrupa datos
+  - `filter(criteria)`: Filtra datos
+
+**Value Objects**
+
+- **TimeRange**: Rango de tiempo para consultas
+- **ChartConfiguration**: Configuración específica de gráficos
+- **KPIMetric**: Métrica de rendimiento clave
+- **DataFilter**: Filtros aplicados a datos
+- **ColorSchema**: Esquema de colores para visualizaciones
+
+**Domain Services**
+
+- **DataAggregationService**: Agregación y cálculo de métricas
+- **ChartRenderingService**: Lógica de renderizado de gráficos
+- **ReportGenerationService**: Generación de reportes complejos
+- **MetricsCalculationService**: Cálculo de KPIs y métricas derivadas
+
+**Commands**
+
+- **CreateDashboardCommand**: Comando para crear dashboard
+- **UpdateWidgetCommand**: Comando para actualizar widget
+- **GenerateReportCommand**: Comando para generar reporte
+- **RefreshDataCommand**: Comando para refrescar datos
+
+**Queries**
+
+- **GetDashboardQuery**: Obtiene dashboard por ID
+- **GetTripMetricsQuery**: Obtiene métricas de viajes
+- **GetComplianceDataQuery**: Obtiene datos de cumplimiento
+- **GetTemperatureHistoryQuery**: Obtiene historial de temperatura
+
+**Events**
+
+- **DashboardCreatedEvent**: Dashboard creado
+- **ReportGeneratedEvent**: Reporte generado
+- **DataRefreshedEvent**: Datos refrescados
+- **AlertThresholdExceededEvent**: Umbral de alerta excedido
+
+#### 4.2.8.2. Interface Layer
+
+**Controllers Principales**
+
+**DashboardController**
+
+- `GET /dashboards`: Lista dashboards del usuario
+- `POST /dashboards`: Crea nuevo dashboard
+- `PUT /dashboards/{id}`: Actualiza dashboard
+- `DELETE /dashboards/{id}`: Elimina dashboard
+- `GET /dashboards/{id}/data`: Obtiene datos del dashboard
+
+**AnalyticsController**
+
+- `GET /analytics/trips`: Métricas de viajes
+- `GET /analytics/compliance`: Datos de cumplimiento
+- `GET /analytics/performance`: Métricas de rendimiento
+- `GET /analytics/temperature-history`: Historial de temperatura
+
+**ReportController**
+
+- `POST /reports/generate`: Genera reporte bajo demanda
+- `GET /reports`: Lista reportes generados
+- `GET /reports/{id}/download`: Descarga reporte
+- `POST /reports/schedule`: Programa reporte automático
+
+**VisualizationController**
+
+- `GET /visualizations/chart-data`: Datos para gráficos
+- `POST /visualizations/custom-chart`: Genera gráfico personalizado
+- `GET /visualizations/kpis`: Obtiene KPIs calculados
+
+#### 4.2.8.3. Application Layer
+
+**Command Services**
+
+**DashboardCommandService**
+
+- Maneja creación y modificación de dashboards
+- Coordina actualización de widgets
+- Gestiona permisos de acceso a dashboards
+
+**ReportCommandService**
+
+- Gestiona generación de reportes
+- Maneja programación de reportes automáticos
+- Coordina exportación en diferentes formatos
+
+**Query Services**
+
+**AnalyticsQueryService**
+
+- Proporciona métricas y KPIs calculados
+- Optimizado para consultas complejas de análisis
+- Maneja agregaciones temporales
+
+**VisualizationQueryService**
+
+- Consultas optimizadas para gráficos
+- Transformación de datos para visualización
+- Cache de datos frecuentemente consultados
+
+**Event Handlers**
+
+**TripCompletedEventHandler**
+
+- Procesa finalización de viajes
+- Actualiza métricas de rendimiento
+- Genera alertas si es necesario
+
+**TemperatureViolationEventHandler**
+
+- Procesa violaciones de temperatura
+- Actualiza métricas de cumplimiento
+- Notifica a dashboards relevantes
+
+#### 4.2.8.4. Infrastructure Layer
+
+**Repositories**
+
+**DashboardRepository** (implementa IDashboardRepository)
+
+- Persistencia de dashboards y configuraciones
+- Optimizado para consultas por usuario
+- Cache de dashboards frecuentemente accedidos
+
+**ReportRepository** (implementa IReportRepository)
+
+- Almacenamiento de reportes generados
+- Gestión de archivos de reporte
+- Limpieza automática de reportes antiguos
+
+**MetricsRepository** (implementa IMetricsRepository)
+
+- Consultas optimizadas para métricas agregadas
+- Conexión con base de datos de time-series
+- Cache de métricas calculadas
+
+**ChartDataRepository** (implementa IChartDataRepository)
+
+- Transformación de datos para visualización
+- Consultas optimizadas para gráficos
+- Manejo de grandes volúmenes de datos temporales
+
+#### 4.2.8.5. Bounded Context Software Architecture Component Level Diagrams
+
+**Diagrama de Componentes - Backend - Visualization Analytics**
+
+![Visualization Analytics - Backend Components](assets/C4/VisualizationAnalytics-C4-Backend-Diagram.png)
+
+Este diagrama ilustra la arquitectura del bounded context de Visualization Analytics en el backend. Los controllers manejan requests relacionados con dashboards, reportes y análisis. Los services en Application Layer coordinan la lógica de negocio, mientras que los repositories optimizan el acceso a datos tanto transaccionales como de time-series para métricas y visualizaciones.
+
+**Diagrama de Componentes - Frontend Web - Visualization Analytics**
+
+![Visualization Analytics - Frontend Components](assets/C4/VisualizationAnalytics-C4-WebApp-Diagram.png)
+
+El frontend web del módulo de analytics utiliza componentes especializados para visualización de datos. Los chart components renderizarán gráficos interactivos, mientras que dashboard components gestionarán la composición y layout de widgets. Los services manejan la comunicación con APIs de datos y el cache local de métricas.
+
+**Diagrama de Componentes - Mobile - Visualization Analytics**
+
+![Visualization Analytics - Mobile Components](assets/C4/VisualizationAnalytics-C4-Mobile-Diagram.png)
+
+La aplicación móvil prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline.
+
+#### 4.2.8.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.8.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Backend - Visualization Analytics Domain Layer Class Diagram**
+
+![Visualization Analytics - Backend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Backend_Classes.puml)
+
+El diagrama de clases del backend de Analytics muestra las entidades principales para visualización y análisis de datos. Dashboard actúa como aggregate root conteniendo múltiples Widgets. Los Reports están asociados a usuarios y pueden ser programados para generación automática. ChartData encapsula la información procesada para visualizaciones, mientras que los services coordinan la agregación y cálculo de métricas.
+
+**Frontend - Visualization Analytics Domain Layer Class Diagram**
+
+![Visualization Analytics - Frontend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Frontend_Classes.puml)
+
+El diagrama del frontend Angular muestra los componentes especializados para visualización de datos. Los chart components renderizan gráficos interactivos usando librerías como Chart.js o D3.js, mientras que dashboard components gestionan la composición y layout de widgets. Los services manejan la comunicación con APIs de datos y el cache local de métricas para optimizar rendimiento.
+
+**Mobile - Visualization Analytics Domain Layer Class Diagram**
+
+![Visualization Analytics - Mobile Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Mobile_Classes.puml)
+
+La aplicación móvil Flutter prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline, permitiendo consulta de métricas básicas sin conectividad.
+
+##### 4.2.8.6.2. Bounded Context Database Design Diagram
+
+![Visualization Analytics - Database Design](assets/VisualizationAnalyticsDatabaseDiagram.png)
+
+El diseño de base de datos del módulo Analytics está optimizado para consultas analíticas y agregaciones. Las tablas principales (DASHBOARDS, WIDGETS, REPORTS) mantienen configuraciones de usuario, mientras que las tablas de métricas están desnormalizadas para consultas rápidas. Se incluyen índices especializados para consultas temporales y agregaciones frecuentes.
