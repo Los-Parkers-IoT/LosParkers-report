@@ -845,7 +845,7 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Edad**: 26 años
 - **Ocupación**: Responsable de recepción y control de productos sensibles a temperatura.
 - **Empresa/Sector**: Sector de salud
-- **Enlace**: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EcMuUYlqskNEqzaICMJSTwIBwtDXay1luNLbNZm9ulDSZw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=nQqEpO 
+- **Enlace**: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EcMuUYlqskNEqzaICMJSTwIBwtDXay1luNLbNZm9ulDSZw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=nQqEpO
 
   <img src="assets/entrevista_cliente_3.png">
 
@@ -866,7 +866,7 @@ Los clientes finales son los consumidores de los productos transportados por las
 **Necesidades Identificadas:** Miguel necesita urgentemente un sistema de monitoreo en tiempo real, alertas automáticas cuando la temperatura llegue a niveles críticos, y reportes sencillos. También mencionó que le gustaría tener un dashboard, aunque no está muy seguro del concepto. Quiere que los clientes puedan verificar remotamente el estado de sus pedidos desde una computadora.
 
 **Disposición de Pago:** Está dispuesto a contratar un servicio que solucione estos problemas, preferiblemente con suscripción mensual o mejor aún, un pago anual para evitar gestiones mensuales. Ve esto como una inversión para recuperar la confianza de los clientes y tener soporte 24/7.
-  <br/>
+<br/>
 
 - **Nombre**: [Nombre del entrevistado]
 
@@ -2744,7 +2744,11 @@ Diagrama de componentes - Mobile App - Trip Management
 
 ##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.
 
-![Trip Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-Class-Diagram.puml)
+![Trip Management Domain Layer Class Diagram Backend](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Trip-Management-Domain-Layer-Class-Diagram.puml)
+
+![Trip Management Domain Layer Class Diagram Web App](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Trip-Management-Domain-Layer-Class-Diagram-Frontend.puml)
+
+![Trip Management Domain Layer Class Diagram Mobile App](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Trip-Management-Domain-Layer-Class-Diagram-Mobile.puml)
 
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
 
