@@ -345,7 +345,7 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 4. Creemos que la facilidad de uso es más importante que las funcionalidades avanzadas para nuestro mercado objetivo.
 
-5. Creemos que un modelo SaaS es más atractivo que la compra de licencias perpetuas para nuestros usuarios.
+5. Creemos que un modelo de suscripción mensual es más atractivo que la compra de licencias perpetuas para nuestros usuarios.
 
 6. Creemos que la inclusión de parámetros adicionales como humedad, vibración y volcado aumentará el valor percibido de nuestra solución.
 
@@ -405,7 +405,7 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
       • Sistema de alertas automáticas (vibración, volcado, energía, etc.)<br>
       • Dashboard intuitivo de gestión de flota<br>
       • Reportes automatizados de trazabilidad completa<br>
-      • Modelo SaaS escalable
+      • Modelo de suscripción escalable
     </td>
     <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
       <strong>3. BUSINESS OUTCOMES</strong><br><br>
@@ -440,7 +440,7 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
     </td>
     <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
       <strong>6. HYPOTHESES</strong><br><br>
-      <strong>Creemos que</strong> las PYMEs de transporte adoptarán una solución SaaS de monitoreo multiparamétrico si es accesible y fácil de usar.<br><br>
+      <strong>Creemos que</strong> las PYMEs de transporte adoptarán una solución de monitoreo multiparamétrico si es accesible y fácil de usar.<br><br>
       <strong>Para validar</strong> desarrollaremos un MVP con funcionalidades core (temp, humedad, ubicación) y mediremos adoption rate.
     </td>
   </tr>
@@ -462,7 +462,7 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
       • Precio $ 25-150/mes es aceptable<br>
       • Facilidad de uso > funcionalidades avanzadas<br>
       • Dispositivos IoT low-cost son suficientes<br>
-      • Modelo SaaS preferido vs. CAPEX
+      • Modelo de suscripción preferido vs. CAPEX
     </td>
   </tr>
 </table>
@@ -615,7 +615,7 @@ Los clientes finales son los consumidores de los productos transportados por las
   <tr>
     <td valign="top">Amenazas</td>
     <td valign="top">• Startups ágiles con precios más bajos en LATAM</td>
-    <td valign="top">• Competidores regionales con soluciones SaaS más adaptadas</td>
+    <td valign="top">• Competidores regionales con soluciones más adaptadas</td>
     <td valign="top">• Startups regionales con mejor relación costo-beneficio</td>
     <td valign="top">• Copia rápida de modelo por competidores grandes o locales<br/>• Regulaciones de transporte cambiantes</td>
   </tr>
@@ -623,7 +623,7 @@ Los clientes finales son los consumidores de los productos transportados por las
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-- **Precios accesibles y modelo SaaS flexible**  
+- **Precios accesibles y modelo de suscripción flexible**  
   Plan básico desde $29/mes por dispositivo con suscripción mensual sin compromisos a largo plazo, contrastando con licencias anuales costosas de Sensitech y Emerson.
 
 - **Soporte local y personalización regional**  
