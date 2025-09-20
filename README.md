@@ -2353,7 +2353,12 @@ Diagrama de componentes - Mobile App - Real-Time Monitoring
 
 ##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-![Real Time Monitoring Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Real-time-monitoring-Domain-Layer-Class-Diagram.puml)
+![Real-Time Monitoring Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Real-Time-monitoring-Domain-Layer-Class-Diagram.puml)
+
+**WebApp / Mobile App Class Diagram**
+
+![Real-Time Monitoring Domain Layer WebApp MobileApp Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Real-Time-monitoring-Domain-Layer-WebApp-MobileApp-Class-Diagram.puml)
+
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
 
