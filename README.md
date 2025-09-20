@@ -431,15 +431,15 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 #### Hypothesis 1:
 
-<b> Creemos que </b> implementar un sistema de alertas en tiempo real por incumplimiento de parámetros de temperatura, humedad y volcado <b> para <b/> empresas de transporte <b> resultará en <b/> una reducción del 30% en pérdidas de productos y un aumento del 25% en la satisfacción del cliente. _Sabremos que esto es cierto cuando_ veamos una reducción mensurable en reportes de incidentes y recibamos feedback positivo de al menos el 80% de los usuarios.
+<b> Creemos que </b> implementar un sistema de alertas en tiempo real por incumplimiento de parámetros de temperatura, humedad y volcado <b> para </b> empresas de transporte <b> resultará en </b> una reducción del 30% en pérdidas de productos y un aumento del 25% en la satisfacción del cliente. _Sabremos que esto es cierto cuando_ veamos una reducción mensurable en reportes de incidentes y recibamos feedback positivo de al menos el 80% de los usuarios.
 
 #### Hypothesis 2:
 
-<b> Creemos que </b> ofrecer dashboards intuitivos con visualización del estado completo de la flota (temperatura, humedad, vibración, ubicación) <b> para <b/> gerentes de operaciones <b> resultará en <b/> una mejora del 40% en la eficiencia operativa y tiempo de respuesta ante incidentes. _Sabremos que esto es cierto cuando_ observemos una reducción en el tiempo promedio de respuesta a alertas de más de 4 horas a menos de 30 minutos.
+<b> Creemos que </b> ofrecer dashboards intuitivos con visualización del estado completo de la flota (temperatura, humedad, vibración, ubicación) <b> para </b> gerentes de operaciones <b> resultará en </b> una mejora del 40% en la eficiencia operativa y tiempo de respuesta ante incidentes. _Sabremos que esto es cierto cuando_ observemos una reducción en el tiempo promedio de respuesta a alertas de más de 4 horas a menos de 30 minutos.
 
 #### Hypothesis 3:
 
-<b> Creemos que </b> implementar un modelo de suscripción flexible con diferentes niveles de servicio <b> para <b/> PYMEs de transporte <b> resultará en </b> una adopción del 15% del mercado objetivo en el primer año. _Sabremos que esto es cierto cuando_ alcancemos 150 empresas suscritas activamente usando la plataforma.
+<b> Creemos que </b> implementar un modelo de suscripción flexible con diferentes niveles de servicio <b> para </b> PYMEs de transporte <b> resultará en </b> una adopción del 15% del mercado objetivo en el primer año. _Sabremos que esto es cierto cuando_ alcancemos 150 empresas suscritas activamente usando la plataforma.
 
 #### Hypothesis 4:
 
