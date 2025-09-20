@@ -166,30 +166,31 @@ Entre sus principales productos destaca CargaSafe, una solución integral que pe
 <table width="100%">
   <tr>
     <td rowspan="4" align="center" width="25%">
-      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+      <img src="assets/Marcelo Garro.png" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
     </td>
     <td align="left">
       <b>Nombre y Apellido:</b><br>
-      Escribir Nombre y Apellido
+      Marcelo Fabian Garro Vega
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Código:</b><br>
-      Escribir Código
+      u20201c410
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Carrera:</b><br>
-      Escribir Carrera
+      Ingeniería de Software
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Acerca de:</b><br>
-      Escribir Descripción
-    </td>
+      Soy un estudiante de 22 años apasionado por el desarrollo web y móvil, con un enfoque especial en la experiencia de usuario y el diseño de interfaces (UX/UI). Me especializo en el desarrollo Frontend, siempre buscando crear aplicaciones intuitivas y funcionales. Además de mi formación técnica, me comprometo a compartir mis conocimientos y experiencias con mis compañeros, fomentando el aprendizaje en equipo. Mi objetivo es aportar tanto en el ámbito creativo como en el técnico, para contribuir al diseño y construcción de soluciones de software que generen impacto real.
+</td>
+
   </tr>
 </table>
 
