@@ -1,4 +1,4 @@
-@startuml Real-Time-Monitoring-Domain-Layer-Class-Diagram
+@startuml
 
 ' Estereotipos de colores
 skinparam class {
@@ -151,3 +151,4 @@ IMonitoringSessionRepository --> MonitoringSession
 ITelemetryDataRepository --> TelemetryData
 
 @enduml
+
