@@ -1,29 +1,24 @@
 @startuml
-
 entity SessionStatus {
     ○ status_id : int <<PK>>
     --
     name : varchar
 }
-
 entity SignalStatus {
     ○ status_id : int <<PK>>
     --
     name : varchar
 }
-
 entity AlertType {
     ○ type_id : int <<PK>>
     --
     name : varchar
 }
-
 entity IncidentStatus {
     ○ status_id : int <<PK>>
     --
     name : varchar
 }
-
 entity MonitoringSession {
     ○ session_id : bigint <<PK>>
     --
@@ -36,7 +31,6 @@ entity MonitoringSession {
     end_time : timestamp
     created_at : timestamp
 }
-
 entity TelemetryData {
     ○ data_id : bigint <<PK>>
     --
@@ -54,7 +48,6 @@ entity TelemetryData {
     timestamp : timestamp
     created_at : timestamp
 }
-
 entity Alert {
     ○ alert_id : bigint <<PK>>
     --
@@ -68,7 +61,6 @@ entity Alert {
     actual_value : decimal
     created_at : timestamp
 }
-
 entity Incident {
     ○ incident_id : bigint <<PK>>
     --
@@ -80,7 +72,6 @@ entity Incident {
     created_at : timestamp
     resolved_at : timestamp
 }
-
 entity DeviceStatus {
     ○ device_status_id : bigint <<PK>>
     --
@@ -92,30 +83,15 @@ entity DeviceStatus {
     is_online : boolean
     created_at : timestamp
 }
-
-entity MonitoringLog {
-    ○ log_id : bigint <<PK>>
-    --
-    session_id : bigint <<FK>>
-    event_type : varchar
-    event_description : text
-    metadata : json
-    created_at : timestamp
-}
-
 ' Relationships
 SessionStatus ||--o{ MonitoringSession : 1:N
 SignalStatus ||--o{ TelemetryData : 1:N
 AlertType ||--o{ Alert : 1:1
 IncidentStatus ||--o{ Incident : 1:1
-
 MonitoringSession ||--o{ TelemetryData : 1:N
 MonitoringSession ||--o{ Alert : 1:N
 MonitoringSession ||--o{ Incident : 1:N
 MonitoringSession ||--o{ DeviceStatus : 1:N
-MonitoringSession ||--o{ MonitoringLog : 1:N
-
 TelemetryData ||--o{ Alert : 1:N
 Alert ||--o| Incident : 1:N
-
 @enduml
