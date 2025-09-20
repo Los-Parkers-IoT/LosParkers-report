@@ -2362,6 +2362,9 @@ Diagrama de componentes - Mobile App - Real-Time Monitoring
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
 
+![Real-Time Monitoring Domain Layer Database Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Real-Time-Monitoring-Domain-Layer-Database-Diagram.puml)
+
+
 ### 4.2.5. Bounded Context: _Trip management_
 
 #### 4.2.5.1. Domain Layer.
