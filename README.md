@@ -111,9 +111,6 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, aportando ideas clave para definir el flujo de negocio y la estructura de la solución. Colaboré en la elaboración de la arquitectura de software y en el diseño táctico bajo los principios de Domain Driven Design, asegurando claridad y consenso entre los miembros del equipo. Además, contribuí en la documentación de los artefactos de usuario y en la organización de tareas, promoviendo un entorno colaborativo y alineado con los objetivos del proyecto.<br />
-        <br><span class="person">George Arturo Aliaga Pimentel</span><br />
-        <span class="entry-order">TB1:</span><br/>
-        Durante este proyecto, estuve muy involucrado en reuniones tanto en persona como en línea, donde contribuí con ideas para la realización del proyecto. Trabajé junto al equipo en la elaboración de la arquitectura de software y en el diseño táctico, utilizando los principios de Domain Driven Design para asegurarnos de que todos estuviéramos en sintonía y de que el plan fuera claro. También ayudé a crear la documentación y a organizar las tareas, manteniendo así al equipo enfocado y productivo. <br />
       </td>
       </td>
       <td class="final-comment-column">
@@ -133,9 +130,6 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         Estuve enfocado en fomentar un ambiente de colaboración dentro del equipo. Trabajé en conjunto con mis compañeros para definir los objetivos y tareas del proyecto. Colaboré en el análisis competitivo y en la definición de segmentos clave como el de gestion de transportes y clientes finales. Además, me encargué de crear user stories e impact mapping para estos segmentos, asegurando que el desarrollo del producto estuviera alineado con las necesidades del usuario. Cada semana establecí un límite personal para realizar las secciones de cada capítulo, de esta forma me aseguré de que todas las tareas estuvieran bien organizadas y distribuidas para cumplir con los objetivos establecidos. <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo, promoviendo la participación activa de todos los miembros mediante retroalimentación constante y constructiva. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que aportan al negocio. Participé en la definición de metas y organización de tareas, asegurando que el equipo trabajara con orden y alcanzara los objetivos propuestos bajo los principios de Domain Driven Design.<br />
-         <br><span class="person">George Arturo Aliaga Pimentel</span><br />
-        <span class="entry-order">TB1:</span><br/>
-        Durante el desarrollo del proyecto, colaboré activamente en la construcción de un entorno de trabajo cooperativo y eficaz, donde la retroalimentación continua fue clave para que todos los miembros del equipo participaran de forma proactiva. Mi contribución principal se centró en el análisis y la definición de la solución, específicamente en la elaboración de Solution Profiles, incluyendo la identificación de antecedentes, problemáticas, el proceso Lean UX y los segmentos de usuarios clave. Además, ayudé a definir objetivos y planificar las tareas, asegurando que el trabajo del equipo estuviera alineado con los principios de Domain Driven Design y enfocado en entregar valor.
       </td>
       <td class="final-comment-column">
       </td>
@@ -166,31 +160,30 @@ Entre sus principales productos destaca CargaSafe, una solución integral que pe
 <table width="100%">
   <tr>
     <td rowspan="4" align="center" width="25%">
-      <img src="assets/Marcelo Garro.png" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
     </td>
     <td align="left">
       <b>Nombre y Apellido:</b><br>
-      Marcelo Fabian Garro Vega
+      Escribir Nombre y Apellido
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Código:</b><br>
-      u20201c410
+      Escribir Código
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Carrera:</b><br>
-      Ingeniería de Software
+      Escribir Carrera
     </td>
   </tr>
   <tr>
     <td align="left">
       <b>Acerca de:</b><br>
-      Soy un estudiante de 22 años apasionado por el desarrollo web y móvil, con un enfoque especial en la experiencia de usuario y el diseño de interfaces (UX/UI). Me especializo en el desarrollo Frontend, siempre buscando crear aplicaciones intuitivas y funcionales. Además de mi formación técnica, me comprometo a compartir mis conocimientos y experiencias con mis compañeros, fomentando el aprendizaje en equipo. Mi objetivo es aportar tanto en el ámbito creativo como en el técnico, para contribuir al diseño y construcción de soluciones de software que generen impacto real.
-</td>
-
+      Escribir Descripción
+    </td>
   </tr>
 </table>
 
@@ -820,7 +813,7 @@ Los clientes finales son los consumidores de los productos transportados por las
 
   <br/>
 
-- **Nombre**: Mario Hinostroza
+- **Nombre**: Mario Hernandez
 - **Edad**: 22 años
 - **Ocupación**: Operador Logístico
 - **Empresa**: Urbano - Distribuidora Ecommerces
@@ -889,19 +882,11 @@ Los clientes finales son los consumidores de los productos transportados por las
 **Disposición de Pago:** Está dispuesto a contratar un servicio que solucione estos problemas, preferiblemente con suscripción mensual o mejor aún, un pago anual para evitar gestiones mensuales. Ve esto como una inversión para recuperar la confianza de los clientes y tener soporte 24/7.
 <br/>
 
-<br />
+- **Nombre**: [Nombre del entrevistado]
 
-- **Nombre**: Mario Hinostroza
+- **Entrevistador**: [Nombre del entrevistador]
 
-- **Entrevistador**: Marcelo Fabian Garro Vega
-
-  Mario Hinostroza, de 22 años, trabaja en el sector de alimentos y actualmente controla la temperatura de la mercadería utilizando el sistema de refrigeración del camión junto a un termómetro portátil. La planificación de viajes la realiza a partir de una hoja de ruta con puntos de entrega y horarios, y lleva un registro manual en una bitácora. Además, entrega reportes que incluyen la hoja de viaje firmada y los datos de temperatura recogidos durante el recorrido.
-
-  Entre los principales problemas que enfrenta, destaca que el monitoreo es un proceso manual que demanda mucha atención constante. También existe un alto riesgo de fallas en el motor de frío, lo que provoca pérdida de mercadería y reclamos de los clientes. La detección de incidencias suele depender de su experiencia personal o de lo que muestra el panel del camión, lo que limita la capacidad de respuesta inmediata.
-
-  En cuanto a las necesidades identificadas, Mario considera indispensable contar con un sistema automatizado que reduzca la carga manual. Para él sería muy valiosa la integración del panel del camión con una aplicación móvil que alerte en tiempo real sobre variaciones de temperatura, garantizando mayor confiabilidad en la cadena de frío y reduciendo el riesgo de pérdidas y reclamos.
-
-  Respecto a la disposición de pago, Mario señala que la decisión recae en la empresa, pero enfatiza que lo fundamental es que el servicio ofrezca un valor tangible. Si la plataforma demuestra un impacto real y positivo en el negocio, la empresa estaría dispuesta a pagar por ella, más allá del costo que implique.
+  [...]
 
   <br/>
 
@@ -1497,7 +1482,7 @@ Esta infraestructura permite un sistema escalable, resiliente y con capacidades 
 
 ### 4.2.2. Bounded Context: _Subscriptions and Billing_
 
-#### 4.2.2.1. Domain Layer
+### 4.2.2.1. Domain Layer
 
 _Entities_
 
@@ -1556,7 +1541,7 @@ _Entities_
 **SubscriptionCanceled**: Suscripción cancelada.
 **PaymentSucceeded / PaymentFailed**: Resultado de pago.
 
-#### 4.2.2.2. Interface Layer
+### 4.2.2.2. Interface Layer
 
 **Controllers**
 
@@ -1565,7 +1550,7 @@ _Entities_
 - **PlanController**: Endpoints para listar planes disponibles.
 - **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
 
-#### 4.2.2.3. Application Layer
+### 4.2.2.3. Application Layer
 
 **Command Services**
 
@@ -1582,7 +1567,7 @@ _Entities_
 - **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
 - **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
 
-#### 4.2.2.4. Infrastructure Layer
+### 4.2.2.4. Infrastructure Layer
 
 **Repositories (Interfaces)**
 
@@ -2378,9 +2363,11 @@ Diagrama de componentes - Mobile App - Real-Time Monitoring
 
 ![Real-Time Monitoring Domain Layer Mobile Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Real-time-monitoring-Domain-Layer-Class-Diagram-Mobile.puml)
 
+
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
 
 ![Real-Time Monitoring Domain Layer Database Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Real-Time-monitoring-Domain-Layer-Database-Diagram.puml)
+
 
 ### 4.2.5. Bounded Context: _Trip management_
 
@@ -2785,11 +2772,11 @@ Diagrama de componentes - Backend - Trip Management
 
 Diagrama de componentes - Application Web - Trip Management
 
-<img src="assets/C4/TripManagement-C4-WebApp-Diagram.png"/>
+<!-- <img src="assets/C4/Alert-C4-WebApp-Diagram.png"/> -->
 
 Diagrama de componentes - Mobile App - Trip Management
 
-<img src="assets/C4/TripManagement-C4-MobileApp-Diagram.png"/>
+<!-- <img src="assets/C4/Alert-C4-Mobile-Diagram.png"/> -->
 
 #### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
 
@@ -2805,6 +2792,7 @@ Diagrama de componentes - Mobile App - Trip Management
 
 ![Trip Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-DataBase-Diagram.puml)
 
+
 ### 4.2.6. Bounded Context: Fleet Management
 
 #### 4.2.6.1. Domain Layer
@@ -2819,8 +2807,8 @@ Diagrama de componentes - Mobile App - Trip Management
 
   - id (UUID)
   - plate (única)
-  - make
-  - model
+  - make 
+  - model 
   - active (bool)
   - tenantId
   - createdAt
@@ -2835,9 +2823,8 @@ Diagrama de componentes - Mobile App - Trip Management
 
 - Propósito: Registrar y administrar dispositivos/sensores instalados en unidades.
 
-- Atributos:
-
-  - id,
+- Atributos: 
+  - id, 
   - type (temp|gps|humidity|door…)
   - serial (único)
   - lastCalibrationAt?
@@ -2846,7 +2833,7 @@ Diagrama de componentes - Mobile App - Trip Management
   - tenantId
   - createdAt
 
-- Métodos:
+- Métodos: 
   - create(data)
   - update(data)
   - attachToVehicle(vehicleId)
@@ -2869,16 +2856,16 @@ Diagrama de componentes - Mobile App - Trip Management
 - ActivateVehicleCommand
 - DeactivateVehicleCommand
 
-- CreateDeviceCommand
+- CreateDeviceCommand 
 - UpdateDeviceCommand
-- AttachDeviceCommand
-- DetachDeviceCommand
-- ActivateDeviceCommand
+- AttachDeviceCommand 
+- DetachDeviceCommand 
+- ActivateDeviceCommand 
 - DeactivateDeviceCommand
 
 **Queries**
 
-- GetVehicleByIdQuery
+- GetVehicleByIdQuery 
 - ListVehiclesQuery
 - GetDeviceByIdQuery
 - ListDevicesQuery (con filtro por vehicleId)
@@ -2951,8 +2938,8 @@ Diagrama de componentes - Mobile App - Trip Management
 
 - Validaciones: fleet:write/fleet:admin; unicidad serial por tenantId; en attach: vehículo existe y mismo tenantId, dispositivo no asociado; en detach: dispositivo asociado.
 
-- Dependencias:
-  - DeviceRepository
+- Dependencias: 
+  - DeviceRepository 
   - VehicleRepository
   - IAMClient
 
@@ -2968,8 +2955,8 @@ Diagrama de componentes - Mobile App - Trip Management
 
   - handle(GetDeviceByIdQuery) / handle(ListDevicesQuery) (filtros por vehicleId)
 
-- Dependencias:
-  - VehicleRepository
+- Dependencias: 
+  - VehicleRepository 
   - DeviceRepository
   - IAMClient (scope fleet:read, resolución de tenantId)
 
@@ -3001,5 +2988,33 @@ Diagrama de componentes - Mobile App - Trip Management
 - DeviceRepository (PostgreSQL)
 
 **Integraciones y seguridad**
-
 - IAMClient para validar JWT/claims (ACLs).
+
+#### 4.2.6.5. Bounded Context Software Architecture Component Level Diagrams.
+
+Diagrama de componentes - Backend - Fleet Management
+
+<img src="assets/C4/TripManagement-C4-Backend-Diagram.png"/>
+
+Diagrama de componentes - Application Web - Fleet Management
+
+
+
+Diagrama de componentes - Mobile App - Fleet Management
+
+
+
+#### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
+
+##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.
+
+![Fleet Management Domain Layer Class Diagram Backend](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Fleet-Management-Domain-Layer-Class-Diagram.puml)
+
+![Fleet Management Domain Layer Class Diagram Web App](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Fleet-Management-Domain-Layer-Class-Diagram-Frontend.puml)
+
+![Fleet Management Domain Layer Class Diagram Mobile App](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Fleet-Management-Domain-Layer-Class-Diagram-Mobile.puml)
+
+##### 4.2.5.6.2. Bounded Context Database Design Diagram.
+
+![Fleet Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Fleet-Management-Domain-Layer-DataBase-Diagram.puml)
+
