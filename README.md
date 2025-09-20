@@ -3045,3 +3045,21 @@ Diagrama de componentes - Mobile App - Fleet Management
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
 
 ![Fleet Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Fleet-Management-Domain-Layer-DataBase-Diagram.puml)
+
+### 4.2.7. Bounded Context: Profile and Preferences Management
+
+#### 4.2.7.1. Domain Layer.
+
+#### 4.2.7.2. Interface Layer.
+
+#### 4.2.7.3. Application Layer.
+
+#### 4.2.7.4. Infrastructure Layer.
+
+#### 4.2.7.5. Bounded Context Software Architecture Component Level Diagrams.
+
+#### 4.2.7.6. Bounded Context Software Architecture Code Level Diagrams.
+
+##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams.
+
+##### 4.2.7.6.2. Bounded Context Database Design Diagram
