@@ -23,7 +23,7 @@
     <p>
       <strong>Startup:</strong> Los Parkers 
       <br />
-      <strong>Producto:</strong> Macetech
+      <strong>Producto:</strong> CargoSafe
     </p>
 
   <div>
@@ -42,8 +42,16 @@
             <td>Garro Vega, Marcelo Fabian</td>
           </tr>
           <tr>
-            <td>u...</td>
-            <td>Apellidos, Nombres</td>
+            <td>u202113324</td>
+            <td>Sanchez Ignacio, Jefrey Martin</td>
+          </tr>
+          <tr>
+            <td>u20211c273</td>
+            <td>Aliaga Pimentel, George Arturo</td>
+          </tr>
+          <tr>
+            <td>u202113640</td>
+            <td>Bernardo Eusebio Alessandro Joaquin</td>
           </tr>
         </tbody>
       </table>
@@ -56,6 +64,65 @@
   </div>
 </div>
 
+# Registro de Versiones del Informe
+
+| Versión | Fecha | Autor | Descripción de modificación |
+| ------- | ----- | ----- | --------------------------- |
+| 1.0     |       |       |                             |
+
+---
+
+# Project Report Collaboration Insights
+
+---
+
+# Student Outcome
+
+El curso contribuye de manera directa al desarrollo y cumplimiento del Student Outcome 5 definido por ABET – EAC, asegurando que los estudiantes alcancen las competencias establecidas en dicho resultado.
+
+Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros juntos proporcionan liderazgo, crean un entorno de colaboración e inclusivo, establecen objetivos, planifican tareas y cumplen objetivos. En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 5.
+
+<table>
+  <thead>
+    <tr>
+      <th class="outcome-column">Criterio Específico</th>
+      <th class="details-column">
+        Acciones Realizadas por Miembro (por Avance)
+      </th>
+      <th class="final-comment-column">Conclusiones del Equipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Trabaja en equipo para proporcionar liderazgo conjunto</td>
+      <td>
+        <span class="person">Marcelo Fabian Garro Vega</span><br />
+        <span class="entry-order">TB1:</span><br/>
+        Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, donde contribuí con ideas clave para definir el flujo de negocio, fomentando así la claridad y el consenso entre todos los miembros del equipo. También participé activamente en la elaboración de la arquitectura de software y en el diseño táctico siguiendo los principios de Domain Driven Design. <br /> <br><span class="person">Jefrey Sanchez Ignacio</span><br />
+        <span class="entry-order">TB1:</span><br/>
+        Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br />
+      </td>
+      </td>
+      <td class="final-comment-column">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Crea un entorno colaborativo e inclusivo, establece metas, planifica
+        tareas y cumple objetivos.
+      </td>
+      <td>
+        <span class="person">Marcelo Fabian Garro Vega</span><br />
+        <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo dentro del equipo, promoviendo la participación activa de todos los miembros mediante el envío constante de retroalimentaciones constructivas. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que estas aportan al negocio. Para ello, tomé en cuenta las opiniones de mis compañeros, lo cual permitió definir metas claras, planificar de manera efectiva y cumplir con los objetivos propuestos bajo los principios de Domain Driven Design. <br /> <br> <span class="person">Jefrey Sanchez Ignacio</span><br />
+        <span class="entry-order">TB1:</span><br/>
+        Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br />
+      </td>
+      <td class="final-comment-column">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ---
 
 # Capítulo I: Introducción
@@ -64,23 +131,422 @@
 
 ### 1.1.1. Descripción de la Startup
 
+Los Parkers es una startup innovadora, especializada en el desarrollo de soluciones tecnológicas de monitoreo y trazabilidad para el sector logístico y de transporte. Surge de la iniciativa de un equipo multidisciplinario de estudiantes de la Universidad Peruana de Ciencias Aplicadas, quienes comparten una visión común: transformar la manera en que se gestionan y se supervisan las cadenas de suministro de productos sensibles, utilizando tecnología IoT.
+
+Los Parkers se distingue por su enfoque centrado en el usuario, trabajando de forma colaborativa con profesionales del ámbito de la logística para diseñar plataformas intuitivas, inteligentes y adaptadas a las necesidades reales de la industria. Su equipo combina conocimientos técnicos de vanguardia en IoT con una comprensión profunda de los desafíos actuales en materia de cadena de frío, trazabilidad de productos y gestión de riesgos.
+
+Entre sus principales productos destaca CargaSafe, una solución integral que permite a las empresas de transporte y a sus clientes monitorear en tiempo real las condiciones de sus cargas, generando reportes y alertas automáticas respaldadas por tecnología inteligente. Los Parkers emplea metodologías ágiles y tecnologías modernas para garantizar que sus soluciones sean robustas, escalables y capaces de evolucionar con las necesidades del mercado. Además, la empresa ofrece soporte continuo y mejora constante a sus plataformas, priorizando siempre la experiencia del usuario.
+
+**Visión:** La visión de Los Parkers es convertirse en líder global en el desarrollo de soluciones tecnológicas aplicadas a la logística y la cadena de suministro, empoderando a las empresas para que tomen decisiones más eficientes, informadas y seguras.
+
+**Misión:** La misión de Los Parkers es diseñar y desarrollar herramientas digitales innovadoras, accesibles y personalizadas que contribuyan a mejorar la eficiencia, la transparencia y la seguridad en el transporte de mercancías
+
 ### 1.1.2. Perfiles de integrantes del equipo
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      Escribir Nombre y Apellido
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      Escribir Código
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Escribir Carrera
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Escribir Descripción
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="assets/JefreyProfile.png" alt="Imagen del integrante Jefrey" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      Jefrey Martin Sanchez Ignacio
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      U202113324
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Ingeniería de Software
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Actualmente cursando el octavo ciclo de mi carrera, Soy una persona responsable, proactiva. Espero aprender mucho del curso y sobretodo de este proyecto.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="assets/GeorgeProfile.png" alt="Imagen del integrante George" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      George Arturo Aliaga Pimentel
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      U20211c273
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Ingeniería de Software
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Me llamo George Arturo Aliaga Pimentel y soy de la carrera de Ingeniería de Software. Estoy cursando el septimo ciclo. Me considero una persona cooperativa y responsable, lo cual es totalmente requerido para un proyecto grupal. Tengo la meta de ser un gran ingeniero y espero mejorar cada dia para lograr un buen desempeño en la carrera.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="assets/NicolasProfile.png" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      Nicolas Alejandro Vera Nuñez
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+    u202214869
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+        Ingeniería de Software
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Soy estudiante de la UPC, tengo 21 años. Estoy en la carrera de Ingeniería de Software, ya que, siempre me gustó la tecnología, el analisis de datos y el desarrollo web. Estoy cursando el 7mo ciclo de la carrera y mis habilidades son Angular, Java con Springboot, Docker, Python, HTML y JavaScript. También soy una persona analitica y que encuentra soluciones inovadoras a varios problemas.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="assets/DanielProfile.png" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      Daniel Rodrigo Chirinos Arevalo
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      202019577
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Ingenería de Software
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Me llamo Daniel Chirinos Arevalo y soy de la carrera de Ingeniería de 
+      Software. Mi experiencia en la universidad es bastante normal y me encuentro 
+      cursando el sexto ciclo. A lo largo del tiempo, sí que tuve algunas dificultades 
+      con algunos cursos, pero logré enfrentarlos. Mi habilidad es ser líder en 
+      algunas ocasiones, trabajar con tiempo y lo más importante, ser siempre 
+      amistoso con el equipo.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table width="100%">
+  <tr>
+    <td rowspan="4" align="center" width="25%">
+      <img src="assets/AlessandroProfile.png" alt="Imagen del integrante" width="150" style="margin-bottom: 5px;"/>
+    </td>
+    <td align="left">
+      <b>Nombre y Apellido:</b><br>
+      Bernardo Eusebio Alessandro Joaquin
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Código:</b><br>
+      u202113640
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Carrera:</b><br>
+      Ingenieria de software
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <b>Acerca de:</b><br>
+      Soy Alessandro Joaquin Bernardo Eusebio, estudiante de la carrera de Ingeniería de software. Actualmente estoy bastante orgulloso del progreso que tengo actualmente aprendiendo tanto dentro de la facultad como en mi experiencia autonoma y en el trabajo. Me inclino mas a ser un analista de datos y ampliar mis conocimientos sobre Machine Learning, modelos predicitvos y AWS.
+    </td>
+  </tr>
+</table>
 
 ## 1.2. Solution Profile
 
 ### 1.2.1. Antecedentes y problemática
 
+### What (¿Qué?)
+
+El transporte de mercancías sensibles a la temperatura y las condiciones ambientales sigue siendo un desafío logístico global. Una falla en la cadena de frío o la falta de visibilidad en el recorrido de una carga puede resultar en un deterioro significativo del producto. Según estudios recientes, la industria de alimentos y bebidas en Estados Unidos reportó pérdidas de más de $6 millones de dólares anuales por empresa en 2022, principalmente debido a daños, pérdidas y retrasos en el transporte (Flock Freight, 2023). En el sector farmacéutico, se proyecta que el mercado de logística de cadena de frío para productos como vacunas y biológicos crecerá en $12.81 mil millones de dólares entre 2024 y 2028, lo que subraya la criticidad de mantener la integridad de estos productos durante su tránsito (Technavio, 2024).
+
+### Who (¿Quién?)
+
+Este problema impacta a dos actores clave:
+
+1. Empresas transportistas y de logística: Enfrentan el riesgo financiero de pérdidas de carga, reclamos de clientes y el daño a su reputación por entregas fallidas.
+
+2. El cliente final: Se ve afectado al recibir productos en mal estado, caducados o, en el caso de medicamentos, que han perdido su efectividad, lo cual representa un riesgo para la salud y la seguridad.
+
+### Where (¿Dónde?)
+
+La problemática se manifiesta a lo largo de toda la cadena de suministro, desde el almacén de origen hasta la entrega final. Es particularmente crítica en los tramos de larga distancia (transporte terrestre, aéreo y marítimo) y en los "puntos de transferencia" entre diferentes vehículos o almacenes, donde la supervisión manual es más difícil. La adopción de tecnologías de monitoreo es una tendencia global que se acelera en mercados con infraestructura logística desarrollada y una creciente demanda de comercio electrónico.
+
+### When (¿Cuándo?)
+
+La necesidad de visibilidad en tiempo real se ha intensificado desde la pandemia de COVID-19, la cual puso de manifiesto la vulnerabilidad de las cadenas de suministro. El aumento del transporte de productos médicos y la expectativa de los consumidores por entregas rápidas y transparentes han impulsado la demanda de soluciones tecnológicas. Hoy en día, la mayoría de los clientes esperan poder rastrear sus pedidos en tiempo real, lo que convierte la visibilidad de la carga en un estándar de mercado, no solo una ventaja competitiva (Perfect Planner, 2025).
+
+### Why (¿Por qué?)
+
+La principal causa de esta problemática es la falta de información oportuna. Las empresas no tienen acceso a datos críticos sobre la temperatura, ubicación o condiciones de su carga en el momento en que ocurren las desviaciones. Esto impide la toma de acciones correctivas inmediatas, como ajustar el termostato de un camión, cambiar una ruta o notificar al cliente sobre un posible retraso. Sin esta visibilidad, los problemas solo se descubren al final del trayecto, cuando ya es demasiado tarde para evitar la pérdida del producto.
+
+### How (¿Cómo?)
+
+Actualmente, el monitoreo se realiza con métodos ineficientes o no integrados. Muchas empresas aún dependen de registradores de datos manuales que requieren ser revisados al final del viaje o utilizan múltiples sistemas (GPS para ubicación, sensores para temperatura) que no se comunican entre sí. Esta fragmentación reduce la eficiencia operativa y aumenta el riesgo de errores humanos. La falta de una plataforma integral que centralice toda la información limita la capacidad de las empresas para optimizar sus rutas, gestionar riesgos y, en última instancia, ofrecer un servicio de alta calidad (Bogdanov, 2024).
+
+### How much (¿Cuánto?)
+
+El impacto de la falta de un monitoreo efectivo es funcional, operativo y estratégico. Las empresas pierden tiempo y recursos reubicando información o lidiando con problemas logísticos que podrían haberse evitado. Operativamente, esta deficiencia se traduce en mayores costos de seguro y en gastos asociados al desperdicio de productos. Desde una perspectiva de negocio, esta brecha representa una oportunidad clara para monetizar al ofrecer una solución de valor que mejore la fidelización del cliente y construya una reputación de confiabilidad, lo que constituye una ventaja competitiva en el mercado.
+
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
 
+Nuestra solución busca proveer a las empresas de transporte y a sus clientes con una plataforma tecnológica integral que les permita monitorear el estado de sus cargas en tiempo real, garantizando la seguridad, calidad y eficiencia de la cadena de suministro. Buscamos que las empresas no sufran pérdidas económicas o daños a su reputación por falta de control, facilitando exponencialmente la supervisión de sus activos críticos, especialmente cuando se trata de productos sensibles que requieren condiciones específicas como temperatura, humedad, o que son susceptibles a vibración y golpes.
+
+Hemos observado que nuestros usuarios, al no tener una plataforma en la cual puedan monitorear la carga en un solo lugar, tienen un problema para estructurar el control de sus activos y guardarlo en un solo lugar, causando que a través de diferentes plataformas o métodos tradicionales guarden sus diferentes recursos, causando además un desorden e incluso pérdida de algunos de estos datos de temperatura, humedad, vibración y ubicación.
+
+¿Cómo podemos ofrecer una plataforma para que las empresas y sus clientes puedan visualizar de forma organizada la información de la carga, consolidando todos los parámetros críticos?
+
+Hemos notado que las empresas que contratan servicios de transporte desean tener visibilidad completa sobre el estado de sus productos. Esta necesidad se presenta normalmente en industrias donde el producto final es perecedero o de alto valor, y el cliente requiere una verificación constante para asegurar que su mercancía llegará en perfectas condiciones, protegiéndola no solo de cambios de temperatura, sino también de golpes o accidentes.
+
+¿Cómo podemos crear una plataforma que mejore la eficiencia y transparencia para todos los actores de la cadena de suministro, proporcionando visibilidad sobre el estado completo de la carga?
+
+Hemos notado que las plataformas que usan las empresas para el monitoreo de cargas no están diseñadas para la simplicidad, tienen un diseño poco atractivo y cuentan con interfaces poco intuitivas o limitan las acciones que se pueden realizar dentro de la misma para algunos usuarios.
+
+¿Cómo podemos diseñar una solución que sea intuitiva y fácil de usar, sin importar el nivel de conocimiento tecnológico del usuario, a pesar de la complejidad de los múltiples datos que monitoreamos?
+
 #### 1.2.2.2. Lean UX Assumptions
+
+### Business Assumptions:
+
+1. Creemos que hay una demanda significativa de soluciones de monitoreo accesibles que incluyan múltiples parámetros para el sector de transporte en Latinoamérica.
+
+2. Creemos que las empresas estarán dispuestas a pagar una suscripción mensual por una solución que les permita reducir pérdidas y mejorar la confianza de sus clientes al tener control sobre múltiples variables.
+
+3. Creemos que los dispositivos IoT de bajo costo pueden proporcionar la precisión necesaria para el monitoreo de la cadena de frío, además de vibración, ubicación y energía.
+
+4. Creemos que la facilidad de uso es más importante que las funcionalidades avanzadas para nuestro mercado objetivo.
+
+5. Creemos que un modelo de suscripción mensual es más atractivo que la compra de licencias perpetuas para nuestros usuarios.
+
+6. Creemos que la inclusión de parámetros adicionales como humedad, vibración y volcado aumentará el valor percibido de nuestra solución.
+
+### User Assumptions:
+
+1. Nuestros usuarios principales son gerentes de operaciones y conductores de empresas de transporte de productos sensibles.
+
+2. Los usuarios necesitan alertas inmediatas cuando se rompe la cadena de frío, hay vibraciones excesivas, o se detecta un volcado para tomar acciones correctivas.
+
+3. Los usuarios quieren dashboards simples e intuitivos que muestren el estado completo de todos sus vehículos en una sola pantalla.
+
+4. Los usuarios valoran la generación automática de reportes que incluyan todos los parámetros monitoreados para sus clientes.
+
+5. Los usuarios prefieren soluciones que no requieran capacitación técnica extensiva.
+
+### Feature Assumptions:
+
+1. Creemos que el monitoreo en tiempo real de temperatura, humedad, vibración y ubicación es la funcionalidad más crítica.
+
+2. Creemos que las alertas automáticas mediante la aplicación son fundamentales para eventos críticos como volcado y baja energía.
+
+3. Creemos que la gestión de múltiples vehículos y activos desde una sola plataforma es fundamental.
+
+4. Creemos que los reportes históricos son necesarios para el cumplimiento regulatorio y la trazabilidad.
+
+5. Creemos que la integración con dispositivos IoT existentes ampliará nuestro mercado potencial.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
+#### Hypothesis 1:
+
+<b> Creemos que </b> implementar un sistema de alertas en tiempo real por incumplimiento de parámetros de temperatura, humedad y volcado <b> para </b> empresas de transporte <b> resultará en </b> una reducción del 30% en pérdidas de productos y un aumento del 25% en la satisfacción del cliente. _Sabremos que esto es cierto cuando_ veamos una reducción mensurable en reportes de incidentes y recibamos feedback positivo de al menos el 80% de los usuarios.
+
+#### Hypothesis 2:
+
+<b> Creemos que </b> ofrecer dashboards intuitivos con visualización del estado completo de la flota (temperatura, humedad, vibración, ubicación) <b> para </b> gerentes de operaciones <b> resultará en </b> una mejora del 40% en la eficiencia operativa y tiempo de respuesta ante incidentes. _Sabremos que esto es cierto cuando_ observemos una reducción en el tiempo promedio de respuesta a alertas de más de 4 horas a menos de 30 minutos.
+
+#### Hypothesis 3:
+
+<b> Creemos que </b> implementar un modelo de suscripción flexible con diferentes niveles de servicio <b> para </b> PYMEs de transporte <b> resultará en </b> una adopción del 15% del mercado objetivo en el primer año. _Sabremos que esto es cierto cuando_ alcancemos 150 empresas suscritas activamente usando la plataforma.
+
+#### Hypothesis 4:
+
+<b> Creemos que </b> proporcionar reportes automatizados y trazabilidad completa <b> para </b> clientes finales de servicios de transporte <b> resultará en </b> un aumento del 20% en la retención de clientes de nuestros usuarios. _Sabremos que esto es cierto cuando_ nuestros usuarios reporten una reducción en cancelaciones de contratos y solicitudes de nuevos servicios.
+
 #### 1.2.2.4. Lean UX Canvas
 
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+  <tr>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>1. BUSINESS PROBLEM</strong><br><br>
+      Las empresas de transporte de productos sensibles necesitan soluciones accesibles para monitorear múltiples parámetros de la carga (temperatura, humedad, vibración, etc.) y evitar pérdidas económicas por incumplimiento de parámetros.
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>2. SOLUTION IDEAS</strong><br><br>
+      • Plataforma IoT de monitoreo en tiempo real (múltiples sensores)<br>
+      • Sistema de alertas automáticas (vibración, volcado, energía, etc.)<br>
+      • Dashboard intuitivo de gestión de flota<br>
+      • Reportes automatizados de trazabilidad completa<br>
+      • Modelo de suscripción escalable
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>3. BUSINESS OUTCOMES</strong><br><br>
+      • 150 empresas suscritas en año 1<br>
+      • Reducción 30% pérdidas de clientes<br>
+      • 80% satisfacción de usuarios<br>
+      • Revenue recurrente de $180K anuales<br>
+      • Expansión a 3 países LATAM
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>4. USERS</strong><br><br>
+      <strong>Primarios:</strong><br>
+      • Gerentes de operaciones de transporte<br>
+      • Conductores de vehículos<br><br>
+      <strong>Secundarios:</strong><br>
+      • Clientes finales de servicios de transporte<br>
+      • Administradores de empresas de transporte
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 40%; vertical-align: top;">
+      <strong>5. USER OUTCOMES & BENEFITS</strong><br><br>
+      <strong>Empresas de Transporte:</strong><br>
+      • Reducción de pérdidas por múltiples factores (temperatura, vibración, etc.)<br>
+      • Mayor confianza de clientes<br>
+      • Cumplimiento regulatorio automatizado<br>
+      • Optimización de rutas y recursos<br><br>
+      <strong>Clientes Finales:</strong><br>
+      • Visibilidad completa del estado de sus productos<br>
+      • Reportes de trazabilidad en tiempo real<br>
+      • Reducción de riesgos operativos
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>6. HYPOTHESES</strong><br><br>
+      <strong>Creemos que</strong> las PYMEs de transporte adoptarán una solución de monitoreo multiparamétrico si es accesible y fácil de usar.<br><br>
+      <strong>Para validar</strong> desarrollaremos un MVP con funcionalidades core (temp, humedad, ubicación) y mediremos adoption rate.
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>7. WHAT'S THE MOST IMPORTANT THING WE NEED TO LEARN FIRST?</strong><br><br>
+      ¿Están las PYMEs de transporte dispuestas a pagar por una solución de monitoreo multiparamétrico IoT y cuál es el precio óptimo que maximiza adopción y rentabilidad?
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>8. WHAT'S THE LEAST AMOUNT OF WORK WE NEED TO DO TO LEARN THE NEXT MOST IMPORTANT THING?</strong><br><br>
+      • Desarrollar landing page con pricing y funcionalidades<br>
+      • Realizar 20 entrevistas con empresas target<br>
+      • Crear prototipo de dashboard con múltiples datos<br>
+      • Validar willingness to pay con pre-orders
+    </td>
+    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
+      <strong>9. ASSUMPTIONS</strong><br><br>
+      • Demanda existe en mercado LATAM<br>
+      • Precio $ 25-150/mes es aceptable<br>
+      • Facilidad de uso > funcionalidades avanzadas<br>
+      • Dispositivos IoT low-cost son suficientes<br>
+      • Modelo de suscripción preferido vs. CAPEX
+    </td>
+  </tr>
+</table>
+
 ## 1.3. Segmentos objetivo
+
+### 1.3.1 Segmento 1: Empresas Clientes
+
+Estas empresas, dedicadas a la logística, distribución o producción de bienes sensibles, necesitan un control exhaustivo sobre sus cargas para asegurar la calidad y evitar pérdidas económicas. Su objetivo es tener una visibilidad completa en tiempo real de sus productos, centralizando toda la información en una sola plataforma para optimizar sus operaciones, cumplir con las normativas y generar confianza en sus propios clientes.
+
+**Caracteristícas:**
+
+- **Rol:** Gerentes o responsables de logística, calidad o distribución.
+- **Ubicación:** Empresas ubicadas en zonas con alta actividad logística y acceso a tecnologías de digitalización.
+- **Sector de la industria:** Alimentos perecederos, farmacéuticos, químicos, flores y otros productos que requieren condiciones especiales de conservación.
+
+### 1.3.2 Segmento 2: Clientes Finales
+
+Los clientes finales son los consumidores de los productos transportados por las empresas. Su necesidad principal es la transparencia y la seguridad, ya que buscan la tranquilidad de saber que el producto que adquieren ha sido manejado bajo los estándares de calidad correctos. Valoran la capacidad de verificar el estado de su pedido, desde el origen hasta la entrega, a través de una plataforma sencilla y confiable.
+
+**Características:**
+
+- **Edad:** Mayor a 18 años
+- **Ubicación:** Lima, Peru
+- **Nivel Socioeconomico:** Medio a alto
 
 # Capítulo II: Requirements Elicitation & Analysis
 
@@ -208,7 +674,7 @@
   <tr>
     <td valign="top">Amenazas</td>
     <td valign="top">• Startups ágiles con precios más bajos en LATAM</td>
-    <td valign="top">• Competidores regionales con soluciones SaaS más adaptadas</td>
+    <td valign="top">• Competidores regionales con soluciones más adaptadas</td>
     <td valign="top">• Startups regionales con mejor relación costo-beneficio</td>
     <td valign="top">• Copia rápida de modelo por competidores grandes o locales<br/>• Regulaciones de transporte cambiantes</td>
   </tr>
@@ -216,7 +682,7 @@
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-- **Precios accesibles y modelo SaaS flexible**  
+- **Precios accesibles y modelo de suscripción flexible**  
   Plan básico desde $29/mes por dispositivo con suscripción mensual sin compromisos a largo plazo, contrastando con licencias anuales costosas de Sensitech y Emerson.
 
 - **Soporte local y personalización regional**  
@@ -321,7 +787,7 @@
 
 ### 2.2.2. Registro de entrevistas
 
-### Segmento 1: Empresa (Gestores de transporte)
+### Segmento 1: Empresa
 
 - **Nombre**: Miguel Ruiz
 - **Edad**: 28 años
@@ -343,11 +809,11 @@
 
     <br/>
 
-- **Nombre**: [Nombre del entrevistado]
-- **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa]
-- **Empresa**: [Nombre de la empresa/Sector]
-- **Enlace**: [URL del video de la entrevista]
+- **Nombre**: Luis Torres Arevalo
+- **Edad**: 58 años
+- **Ocupación**: Encargado de gestión logística
+- **Empresa**: Urbano . Distribuidor de Alimentos
+- **Enlace**: [Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/Ec5KSgrGMjNPlJoOazHShZMBqFEAizPkP20c9TOB4DuaWA?e=GDXX0k&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
   <img src="assets/entrevista_empresa_3.png">
 
@@ -387,7 +853,7 @@
 
 ### 2.2.3. Análisis de entrevistas
 
-### Segmento 1: Empresa (Gestores de transporte)
+### Segmento 1: Empresa
 
 - **Nombre**: Miguel Ruiz
 
@@ -410,11 +876,11 @@
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
+- **Nombre**: Luis Torres Arevalo
 
-- **Entrevistador**: [Nombre del entrevistador]
+- **Entrevistador**: Alessandro Joaquin Bernardo Eusebio
 
-  [...]
+  La entrevista con el seño Luis Torres evidencia que la gestión de la cadena de frío se realizaba de manera muy básica y sin tecnología especializada, lo que generaba altos riesgos de pérdida de productos y desconfianza en los clientes. Luis dependía de controles manuales, registros en papel y la responsabilidad del chofer, sin capacidad de reacción ante incidentes durante el trayecto. Esta falta de monitoreo en tiempo real implicaba costos elevados cuando se rompía la cadena de frío y limitaba la capacidad de generar reportes confiables. No obstante, identifica con claridad las funciones clave de una solución ideal: monitoreo en tiempo real, alertas inmediatas y generación automática de reportes, además de preferir un modelo de pago por suscripción mensual que le permita prever costos.
 
 ### Segmento 2: Clientes Finales (Consumidores finales)
 
@@ -623,9 +1089,117 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 
 ## 3.1. User Stories
 
+| Epic / Story ID | Título                                        | Descripción                                                                                                                                                                                                                  | Criterios de Aceptación                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Relacionado con (Epic ID) |
+| --------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| E1              | Landing Page                                  | Página principal con secciones informativas y de contacto para captar y orientar a los visitantes.                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                           |
+| E2              | Autenticación                                 | Módulo de registro e inicio de sesión seguro para usuarios.                                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                           |
+| E3              | Gestión de flota                              | Administración de la flota: registro, actualización y baja de vehículos.                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                           |
+| E4              | Planificador de viajes                        | Creación y actualización de estados de los viajes.                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                           |
+| E5              | Monitoreo en tiempo real                      | Engloba funcionalidades de monitoreo de temperatura en tiempo real y alertas.                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                           |
+| E6              | Dashboard de viajes                           | Engloba pantallas, gráficos e informes relacionados a los viajes.                                                                                                                                                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                           |
+| E7              | Módulo de suscripciones                       | Engloba funcionalidades de pago, manejo y control de suscripciones.                                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                           |
+| US001           | Navegación en landing page                    | **Como** visitante <br>**quiero** navegar entre las secciones de la landing page <br>**para** acceder fácilmente a la información sobre el servicio.                                                                         | Scenario: Visualización del menú <br>Given un visitante ingresa a la landing page <br>When visualiza la parte superior de la página <br>Then encuentra un menú con secciones principales (Inicio, Características, Planes, Contacto)<br><br>Scenario: Navegación entre secciones <br>Given un visitante hace clic en un enlace del menú <br>When la página carga la sección correspondiente <br>Then el visitante accede al contenido correcto <br>And el menú permanece accesible en todo momento                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | E1                        |
+| US002           | Sección portada                               | Como visitante, <br>quiero ver una portada con mensaje principal, <br>para entender rápidamente el propósito de la plataforma.                                                                                               | Scenario: Visualizar mensaje principal<br>Given un visitante accede a la Landing Page<br>When la portada se muestra<br>Then el visitante visualiza un mensaje claro sobre el servicio                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | E1                        |
+| US003           | Sección de funcionalidades                    | Como visitante, <br>quiero visualizar una sección con las funcionalidades principales, <br>para conocer qué ofrece la plataforma.                                                                                            | Scenario: Visualizar funcionalidades<br>Given un visitante accede a la Landing Page<br>When navega a la sección de funcionalidades<br>Then se muestran al menos tres funcionalidades principales de la plataforma                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | E1                        |
+| US004           | Sección de beneficios                         | **Como** visitante, <br>**quiero** ver una sección con beneficios, <br>**para** entender qué valor obtengo al usar la plataforma.                                                                                            | Scenario: Visualizar beneficios<br>Given un visitante accede a la Landing Page<br>When navega a la sección de beneficios<br>Then se muestran los beneficios de la plataforma en formato claro y resumido                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | E1                        |
+| US005           | Sección de testimonios                        | Como visitante, <br>quiero ver testimonios de otros clientes, <br>para ganar confianza en el servicio.                                                                                                                       | Scenario: Visualizar testimonios<br>Given un visitante accede a la Landing Page<br>When navega a la sección de testimonios<br>Then se muestran al menos dos opiniones de clientes con sus nombres o cargos                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | E1                        |
+| US006           | Sección de contáctanos                        | Como visitante, <br>quiero acceder a un formulario de contacto, <br>para comunicarme con la empresa y solicitar más información.                                                                                             | Scenario: Enviar mensaje de contacto válido<br>Given un visitante completa el formulario con nombre, correo y mensaje válidos<br>When envía la información<br>Then el sistema confirma el envío exitoso<br><br>Scenario: Enviar mensaje con datos inválidos<br>Given un visitante omite el correo electrónico<br>When intenta enviar el formulario<br>Then el sistema rechaza el envío y muestra un error de validación                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | E1                        |
+| US007           | Call to Action a la aplicación web            | **Como** visitante <br>**quiero** encontrar un botón de acceso a la aplicación web <br>**para** registrarme o iniciar sesión y usar el servicio desde un navegador.                                                          | Scenario: Visualización del call to action <br>Given un visitante navega por la landing page <br>When llega a la sección principal <br>Then encuentra un botón de acceso a la aplicación web<br><br>Scenario: Redirección a la app web <br>Given un visitante hace clic en el botón de acceso a la aplicación web <br>When el sistema procesa la acción <br>Then el visitante es redirigido a la URL de la aplicación web                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | E1                        |
+| US008           | Call to Action de descarga de App Móvil       | **Como** visitante <br>**quiero** encontrar botones de descarga de la aplicación móvil <br>**para** instalar la app en mi dispositivo iOS o Android.                                                                         | Scenario: Visualización de botones de descarga <br>Given un visitante navega por la landing page <br>When accede a la sección de descarga <br>Then visualiza botones con enlaces a App Store y Google Play<br><br>Scenario: Redirección a la tienda correspondiente <br>Given un visitante hace clic en un botón de descarga <br>When el sistema procesa la acción <br>Then se abre la tienda de aplicaciones correspondiente (App Store o Google Play)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | E1                        |
+| US009           | Registro de usuario                           | **Como** usuario<br>**quiero** registrarme en la plataforma<br>**para** acceder a mi cuenta y funcionalidades personalizadas.                                                                                                | Scenario: Registro de cuenta válida<br>Given un usuario se registra<br>When ingresa sus credenciales en el registro<br>Then el sistema autentica y permite acceso<br><br>Scenario: Registro de cuenta inválido<br>Given un usuario se registra<br>When ingresa credenciales en el registro incorrectas<br>Then el sistema rechaza la autenticación y muestra error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | E2                        |
+| US010           | Inicio de sesión                              | **Como** usuario<br>**quiero** iniciar sesión en la plataforma<br>**para** acceder a mi cuenta y funcionalidades personalizadas.                                                                                             | Scenario: Inicio de sesión válido<br>Given un usuario registrado<br>When ingresa credenciales correctas<br>Then el sistema autentica y permite acceso<br><br>Scenario: Inicio de sesión inválido<br>Given un usuario registrado<br>When ingresa credenciales incorrectas<br>Then el sistema rechaza la autenticación y muestra error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | E2                        |
+| US011           | Cerrar sesión                                 | **Como** usuario autenticado<br>**quiero** cerrar sesión desde la aplicación <br>**para** que mi cuenta deje de estar accesible en el dispositivo actual.                                                                    | Scenario 1: Cierre de sesión exitoso<br><br>Given que el usuario tiene un token válido y está autenticado<br>When solicita cerrar sesión<br>Then se elimina el token del lado del cliente<br>And los siguientes intentos de acceder a recursos requieren autenticación nuevamente                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | E2                        |
+| US012           | Recuperar contraseña                          | **Como** usuario<br>**quiero** recuperar el acceso a mi cuenta mediante un proceso de restablecimiento de contraseña <br>**para** poder ingresar nuevamente en caso de olvidar mis credenciales.<br><br>                     | **Scenario 1: Solicitud de recuperación** <br>Given un cliente no recuerda su contraseña <br>When solicita la recuperación en la pantalla de inicio de sesión e ingresa su correo registrado <br>Then el sistema envía un correo electrónico con un enlace seguro para restablecer la contraseña<br><br><br>**Scenario 2: Enlace válido y único** <br>Given el cliente recibe un enlace de restablecimiento <br>When hace clic en el enlace dentro del tiempo de validez (ej. 15 minutos) <br>Then el sistema muestra un formulario para crear una nueva contraseña <br>And valida que el enlace no haya sido usado previamente<br><br>**Scenario 3: Enlace expirado** <br>Given un cliente recibe un enlace de restablecimiento <br>When intenta usarlo después del tiempo de validez <br>Then el sistema rechaza el intento <br>And muestra el mensaje “El enlace ha expirado, solicita nuevamente la recuperación de contraseña”<br><br>**Scenario 4: Contraseña actualizada correctamente** <br>Given el cliente ingresa una nueva contraseña válida <br>When confirma el restablecimiento <br>Then el sistema actualiza la contraseña en la base de datos <br>And notifica al cliente que el cambio se realizó con éxito                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | E2                        |
+| US013           | Registro de vehículos de carga                | **Como** administrador logístico, <br>**quiero** registrar vehículos en la plataforma, <br>**para** mantener un inventario actualizado de la flota.                                                                          | Scenario: Registrar un vehículo válido<br>Given el administrador cuenta con los datos de marca, modelo, placa, capacidad y dimensiones<br>When el administrador registra el vehículo en la plataforma<br>Then el sistema guarda el vehículo como parte de la flota activa<br><br>Scenario: Registro sin datos obligatorios<br>Given el administrador omite campos requeridos como marca, modelo o placa<br>When intenta registrar el vehículo<br>Then el sistema rechaza el registro y muestra un error de validación<br><br>Scenario: Validar formato de placa<br>Given el administrador ingresa un formato de placa incorrecto<br>When intenta registrar el vehículo<br>Then el sistema rechaza el registro y solicita un formato válido<br><br>Scenario: Validar dimensiones del vehículo<br>Given el administrador ingresa dimensiones físicas del vehículo (alto, ancho, largo)<br>When las dimensiones son numéricas y positivas<br>Then el sistema acepta los valores y guarda la información<br><br>Scenario: Validar capacidad de carga<br>Given el administrador ingresa capacidad de carga en kilogramos<br>When la capacidad es mayor a 0<br>Then el sistema guarda el valor correctamente<br>And el sistema rechaza valores negativos o nulos                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | E3                        |
+| US014           | Actualización de datos de vehículos de carga  | **Como** administrador logístico, **quiero** editar la información de los vehículos, **para** mantener actualizado su estado operativo.                                                                                      | Scenario: Actualizar información básica del vehículo<br>Given existe un vehículo registrado en la plataforma<br>When el administrador modifica la marca, modelo o dimensiones<br>Then el sistema actualiza la información y guarda los cambios en el historial<br><br>Scenario: Validar actualización de placa duplicada<br>Given un vehículo ya tiene registrada una placa única<br>When el administrador intenta asignar esa misma placa a otro vehículo<br>Then el sistema rechaza la actualización y muestra un error de duplicidad<br><br>Scenario: Mantener consistencia en datos obligatorios<br>Given existe un vehículo registrado<br>When el administrador elimina un dato obligatorio como marca o modelo<br>Then el sistema rechaza la actualización y mantiene los datos anteriores                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | E3                        |
+| US015           | Eliminación de vehículos de carga             | **Como** administrador logístico, **quiero** eliminar vehículos de la plataforma, **para** mantener un inventario actualizado y evitar registros obsoletos.                                                                  | Scenario: Eliminar vehículo activo<br>Given un vehículo está registrado en la flota<br>When el administrador elimina el vehículo<br>Then el sistema cambia su estado a "inactivo"<br>And conserva su historial de viajes y mantenimientos<br><br>Scenario: Intentar eliminar vehículo con viaje en curso<br>Given un vehículo tiene un viaje activo<br>When el administrador intenta eliminarlo<br>Then el sistema rechaza la eliminación<br>And muestra un mensaje indicando que el vehículo tiene viajes pendientes<br><br>Scenario: Eliminación exitosa de vehículo sin viajes en curso<br>Given un vehículo no tiene viajes activos<br>When el administrador lo elimina<br>Then el sistema lo marca como eliminado<br>And ya no aparece en el inventario activo de la flota                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | E3                        |
+| US016           | Registro de dispositivos IoT                  | **Como** Administrador Logístico <br>**quiero** registrar un dispositivo IoT en la plataforma <br>**para** asociarlo a la flota y comenzar a recibir sus datos.                                                              | Scenario: Registro exitoso de dispositivo nuevo <br>Given un dispositivo IoT con un ID único <br>When el administrador lo registra en la plataforma <br>Then el sistema almacena el dispositivo en la base de datos <br>And queda disponible para asignarlo a un vehículo de carga<br><br>Scenario: Intentar registrar dispositivo duplicado <br>Given un dispositivo IoT con un ID ya registrado <br>When el administrador intenta registrarlo nuevamente <br>Then el sistema rechaza el registro <br>And muestra un mensaje "El dispositivo ya está registrado"<br><br>Scenario: Validación de campos obligatorios <br>Given un administrador intenta registrar un dispositivo sin datos requeridos como deviceId o tipo <br>When envía la solicitud de registro <br>Then el sistema rechaza el registro <br>And muestra un mensaje indicando los campos faltantes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | E3                        |
+| US017           | Eliminar dispositivo IoT                      | **Como** Administrador Logístico, <br>**quiero** eliminar un dispositivo IoT de la plataforma, <br>**para** darlo de baja en caso de falla o reemplazo.                                                                      | **Scenario: Eliminar dispositivo inactivo** <br>**Given** un dispositivo IoT está registrado en la plataforma y no transmite datos <br>**When** el administrador elimina el dispositivo <br>**Then** el sistema cambia su estado a _“inactivo”_ <br>**And** conserva su historial de transmisiones y alertas<br><br>**Scenario: Intentar eliminar dispositivo activo** <br>**Given** un dispositivo está enviando datos en tiempo real <br>**When** el administrador intenta eliminarlo <br>**Then** el sistema rechaza la eliminación <br>**And** muestra un mensaje indicando que el dispositivo sigue activo<br><br>**Scenario: Eliminación exitosa de dispositivo sin actividad reciente** <br>**Given** un dispositivo no transmite datos desde hace más de 24h <br>**When** el administrador lo elimina <br>**Then** el sistema lo marca como _“eliminado”_ <br>**And** ya no aparece en la lista de dispositivos activos                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | E3                        |
+| US018           | Asignar dispositivo a vehiculo de carga       | **Como** Administrador Logístico <br>**quiero** asignar un dispositivo IoT a un vehículo de carga <br>**para** identificar a qué unidad pertenece cada transmisión de datos<br><br>                                          | Scenario: Asignar dispositivo a vehículo disponible <br>Given un dispositivo IoT registrado y sin asignar <br>When el administrador selecciona un vehículo de la flota <br>Then el sistema vincula el dispositivo a ese vehículo <br>And las próximas transmisiones aparecen bajo ese vehículo<br><br>Scenario: Intentar asignar dispositivo ya vinculado <br>Given un dispositivo IoT ya asignado a un vehículo <br>When el administrador intenta asignarlo a otro sin liberar la relación <br>Then el sistema rechaza la acción <br>And muestra el mensaje "Dispositivo ya vinculado"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | E3                        |
+| US019           | Cambiar dispositvo de vehiculo                | **Como** Administrador Logístico <br>**quiero** reasignar un dispositivo IoT de un vehículo a otro <br>**para** reutilizarlo en caso de mantenimiento o rotación de la flota.                                                | Scenario: Reasignar dispositivo a otro vehículo <br>Given un dispositivo IoT asignado a un vehículo <br>When el administrador lo reasigna a un vehículo diferente <br>Then el sistema actualiza la relación <br>And las transmisiones futuras aparecen bajo el nuevo vehículo<br><br>Scenario: Confirmar cambio en inventario <br>Given un dispositivo IoT reasignado de un vehículo a otro <br>When el administrador consulta el vehículo anterior <br>Then el dispositivo ya no aparece en su lista de dispositivos asociados                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | E3                        |
+| US020           | Ver vehículos de carga                        | **Como** Administrador Logístico <br>**quiero** visualizar la lista de vehículos de carga registrados en la plataforma <br>**para** supervisar y gestionar el inventario de transporte.                                      | **Scenario: Consulta de lista de vehículos** <br>Given existen vehículos registrados en la base de datos <br>When el administrador accede a la sección de vehículos <br>Then el sistema muestra la lista con placa, modelo, estado y capacidad de cada vehículo<br><br>**Scenario: Lista vacía de vehículos** <br>Given no existen vehículos registrados en la base de datos <br>When el administrador consulta la sección de vehículos <br>Then el sistema muestra un mensaje “No hay vehículos registrados”<br><br>**Scenario: Consulta de detalle de vehículo** <br>Given un vehículo está registrado en la base de datos <br>When el administrador selecciona un vehículo de la lista <br>Then el sistema muestra su información completa                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | E3                        |
+| US021           | Ver dispositivos IoT                          | **Como** Administrador Logístico <br>**quiero** visualizar la lista de dispositivos IoT registrados en la plataforma <br>**para** supervisar su estado y administración en la flota.                                         | **Scenario: Consulta de lista de dispositivos** <br>Given existen dispositivos IoT registrados en la base de datos <br>When el administrador accede a la sección de dispositivos <br>Then el sistema muestra la lista con ID, tipo, estado y vehículo asignado de cada dispositivo<br><br>**Scenario: Lista vacía de dispositivos** <br>Given no existen dispositivos IoT registrados en la base de datos <br>When el administrador consulta la sección de dispositivos <br>Then el sistema muestra un mensaje “No hay dispositivos registrados”<br><br>**Scenario: Consulta de detalle de dispositivo** <br>Given un dispositivo IoT está registrado en la base de datos <br>When el administrador selecciona un dispositivo de la lista <br>Then el sistema muestra su información completa                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | E3                        |
+| US022           | Ver estado de dispositivo por vehiculo        | **Como** Administrador Logístico <br>**quiero** visualizar el estado de todos los dispositivos asociados a un vehículo en el dashboard <br>**para** monitorear su conectividad y funcionamiento.                             | Scenario: Ver dispositivos conectados <br>Given un vehículo con dispositivos asignados <br>When el administrador lo selecciona en el dashboard <br>Then se listan los dispositivos con estado online u offline<br><br>Scenario: Detectar dispositivo desconectado <br>Given un dispositivo deja de transmitir datos por más de 5 minutos <br>When el sistema verifica su estado <br>Then lo marca como "Desconectado"<br><br>Scenario: Recuperar estado conectado <br>Given un dispositivo previamente desconectado <br>When transmite datos nuevamente <br>Then la plataforma actualiza su estado a "Conectado"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | E3                        |
+| US023           | Ver estado de dispositivo en el módulo fisico | **Como** usuario del dispositivo<br>**quiero** que el dispositivo tenga un indicador físico de estado (ej. LED) <br>**para** verificar rápidamente si funciona sin depender de la aplicación.                                | Scenario: Dispositivo encendido y conectado <br>Given el dispositivo está encendido y con conexión activa <br>When el conductor observa el módulo físico <br>Then el LED verde permanece encendido<br><br>Scenario: Dispositivo sin conexión <br>Given el dispositivo pierde conectividad <br>When el conductor observa el módulo físico <br>Then el LED rojo parpadea cada 2 segundos<br><br>Scenario: Batería baja <br>Given el dispositivo tiene nivel de batería inferior al 20% <br>When el conductor observa el módulo físico <br>Then el LED amarillo permanece encendido<br><br>Scenario: Dispositivo apagado <br>Given el dispositivo ha sido apagado manualmente <br>When el conductor observa el módulo físico <br>Then todos los indicadores permanecen apagados                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | E3                        |
+| US024           | Creación de viajes                            | **Como** administrador logístico, <br>**quiero** crear viajes asignando vehículo y ruta, <br>**para** planificar el transporte de mercancías.                                                                                | Scenario: Crear viaje válido<br>Given existe un vehículo disponible<br>When el administrador crea un viaje con origen y destino<br>Then el sistema registra el viaje con estado "Pendiente"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | E4                        |
+| US025           | Actualización de estados de viaje             | **Como** administrador logístico, <br>**quiero** actualizar el estado de un viaje, <br>**para** mantener informados a gerentes y clientes sobre el progreso de la entrega.                                                   | Scenario: Cambiar estado de viaje a "En ruta"<br>Given existe un viaje con estado "Pendiente"<br>When el administrador cambia su estado a "En ruta"<br>Then el sistema actualiza el estado del viaje a "En ruta"<br>And notifica a los clientes asociados<br><br>Scenario: Cambiar estado de viaje a "Finalizado"<br>Given existe un viaje en estado "En ruta"<br>When el administrador cambia el estado a "Finalizado"<br>Then el sistema marca el viaje como finalizado<br>And registra la fecha y hora de finalización<br><br>Scenario: Intentar cambiar estado de un viaje cancelado<br>Given un viaje está en estado "Cancelado"<br>When el administrador intenta modificar el estado<br>Then el sistema rechaza la actualización<br>And muestra un mensaje de restricción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | E4                        |
+| US026           | Reprogramación de viajes                      | **Como** administrador logístico, <br>**quiero** reprogramar un viaje ya creado, <br>**para** ajustar fechas y horarios en caso de cambios operativos.                                                                       | Scenario: Reprogramar un viaje válido<br>Given existe un viaje programado con estado “Pendiente”<br>When el administrador modifica la fecha y hora de inicio<br>Then el sistema actualiza la información del viaje y guarda el cambio en el historial<br><br>Scenario: Intentar reprogramar un viaje en curso<br>Given existe un viaje con estado “En ruta”<br>When el administrador intenta cambiar la fecha u hora de inicio<br>Then el sistema rechaza la reprogramación y muestra un mensaje de restricción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | E4                        |
+| US027           | Código de viaje para cliente                  | **Como** cliente final, <br>**quiero** recibir un código único de viaje, <br>**para** poder consultar fácilmente el estado de mi pedido.                                                                                     | Scenario: Generar código de viaje al crear pedido<br>Given el administrador crea un viaje nuevo<br>When el sistema registra el viaje<br>Then se genera un código único y se envía al cliente por correo o notificación en la aplicación<br><br>Scenario: Consultar estado con código de viaje<br>Given un cliente cuenta con el código de su viaje<br>When ingresa el código en la aplicación<br>Then el sistema muestra el estado actual del viaje en tiempo real                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | E4                        |
+| US028           | Reprogramación de viajes                      | **Como** administrador logístico, <br>**quiero** reprogramar un viaje ya creado, <br>**para** ajustar fechas y horarios en caso de cambios operativos.                                                                       | Scenario: Reprogramar un viaje válido<br>Given existe un viaje programado con estado “Pendiente”<br>When el administrador modifica la fecha y hora de inicio<br>Then el sistema actualiza la información del viaje y guarda el cambio en el historial<br><br>Scenario: Intentar reprogramar un viaje en curso<br>Given existe un viaje con estado “En ruta”<br>When el administrador intenta cambiar la fecha u hora de inicio<br>Then el sistema rechaza la reprogramación y muestra un mensaje de restricción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | E4                        |
+| US029           | Actualización de temperatura en tiempo real   | Como empresa, <br>quiero recibir la temperatura en tiempo real de mis dispositivos IoT, <br>para supervisar la cadena de frío de los viajes.                                                                                 | Given un sensor IoT transmite datos de temperatura<br>When el sistema recibe los datos<br>Then la temperatura se actualiza en la plataforma sin retrasos.<br><br>Given un dispositivo pierde conexión<br>When intenta enviar datos<br>Then el sistema muestra la última lectura disponible y marca estado de conexión.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | E4                        |
+| US030           | Alertas por incumplimiento de temperatura     | Como cliente final, <br>quiero recibir alertas cuando la temperatura sobrepasa los límites definidos, <br>para tomar acciones correctivas.                                                                                   | Given la temperatura excede el rango permitido<br>When el sistema procesa la lectura<br>Then se genera una alerta y se notifica al usuario.<br><br>Given un usuario tiene notificaciones activadas<br>When recibe una alerta<br>Then visualiza el mensaje en el sistema o correo/SMS.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | E5                        |
+| US031           | Alertas de conexión IoT                       | Como empresa, <br>quiero recibir alertas cuando un dispositivo IoT deja de enviar datos, <br>para actuar de inmediato.                                                                                                       | Given un dispositivo deja de transmitir por más de X minutos<br>When el sistema detecta la ausencia<br>Then genera una alerta para la empresa.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | E5                        |
+| US032           | Roles y permisos de acceso                    | Como empresa, <br>quiero que el sistema gestione roles y permisos de usuarios (admin, cliente, operador), <br>para controlar accesos.                                                                                        | Given un usuario con rol administrador<br>When accede al panel de gestión<br>Then puede realizar todas las operaciones.<br><br>Given un usuario con rol cliente<br>When accede al sistema<br>Then solo puede ver información de sus viajes y suscripciones.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | E5                        |
+| US033           | Lista de viajes registrados                   | Como empresa, <br>quiero ver una lista de todos los viajes registrados <br>para gestionarlos de forma rápida.                                                                                                                | Given un usuario autenticado accede al dashboard<br>When solicita la lista de viajes<br>Then el sistema muestra todos los viajes con sus datos principales.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | E6                        |
+| US034           | Detalle de viaje                              | Como cliente final, <br>quiero consultar el detalle de un viaje, <br>para verificar información específica como ruta, estado y temperatura.                                                                                  | Given un viaje está registrado<br>When el usuario selecciona un viaje de la lista<br>Then se muestran todos sus detalles asociados.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | E6                        |
+| US035           | Gráficos de tiempo y temperatura              | Como cliente final, <br>quiero ver gráficos de evolución de la temperatura durante el viaje, <br>para verificar el cumplimiento de parámetros.                                                                               | Given un viaje cuenta con datos de temperatura<br>When se consulta el detalle<br>Then el sistema despliega un gráfico de línea con los valores.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | E6                        |
+| US036           | Gráficos de incidencias por mes               | Como empresa, <br>quiero ver un gráfico mensual de incidencias <br>para identificar patrones de fallos.                                                                                                                      | Given existen incidencias en el histórico<br>When el usuario consulta el dashboard<br>Then se muestra un gráfico con número de incidencias por mes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | E6                        |
+| US037           | Filtrado de viajes por fecha                  | Como empresa, <br>quiero filtrar la lista de viajes por rango de fechas, <br>para analizar un periodo específico.                                                                                                            | Given un usuario aplica un filtro de fechas<br>When el sistema procesa la consulta<br>Then se muestran solo los viajes que cumplen el criterio.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | E6                        |
+| US038           | Descarga de reporte de viajes                 | Como cliente final, <br>quiero descargar un reporte en PDF de un viaje con su información y gráficos, <br>para archivarlo o compartirlo.                                                                                     | Given un usuario selecciona un viaje<br>When solicita la exportación<br>Then el sistema genera y entrega un archivo PDF con la información del viaje.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | E6                        |
+| US039           | Cancelar suscripción                          | Como cliente final, <br>quiero cancelar mi suscripción, <br>para detener los cobros futuros.                                                                                                                                 | Given un cliente con suscripción activa<br>When solicita la cancelación<br>Then el sistema marca la suscripción como cancelada y detiene próximos pagos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | E7                        |
+| US040           | Visualizar información de suscripción         | Como cliente final, <br>quiero ver mi estado de suscripción y fecha de expiración, <br>para gestionar mi acceso al servicio.                                                                                                 | Given un cliente autenticado accede a la sección de suscripción<br>When consulta su información<br>Then el sistema muestra el plan, estado y fecha de expiración.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | E7                        |
+| US041           | Historial de pagos                            | Como empresa, <br>quiero que los clientes consulten su historial de pagos, <br>para brindar transparencia.                                                                                                                   | Given un cliente autenticado<br>When accede al historial de pagos<br>Then el sistema muestra todas las transacciones registradas con fecha y monto.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | E7                        |
+| US042           | Notificación de renovación próxima            | Como cliente final, <br>quiero recibir una notificación antes de que mi suscripción se renueve, <br>para decidir si continúo o cancelo.                                                                                      | Given una suscripción está próxima a renovarse (ej. 3 días antes)<br>When el sistema procesa la fecha<br>Then envía una notificación al cliente.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | E7                        |
+| TS001           | API de autenticación                          | **Como** developer <br>**quiero** implementar múltiples endpoints de autenticación (login, logout, refresh y validación de sesión) <br>**para** que los usuarios puedan gestionar de forma segura su acceso a la plataforma. | **Scenario: Login exitoso** <br>Given un usuario envía credenciales válidas al endpoint de login <br>When el backend valida usuario y contraseña <br>Then el sistema responde con código **200 OK** <br>And devuelve un token de acceso y un refresh token<br><br>**Scenario: Login fallido** <br>Given un usuario envía credenciales inválidas al endpoint de login <br>When el backend intenta validarlas <br>Then el sistema responde con código **401 Unauthorized** <br>And devuelve un mensaje de error de autenticación<br><br>**Scenario: Logout exitoso** <br>Given un usuario tiene sesión activa con un refresh token válido <br>When envía solicitud al endpoint de logout <br>Then el backend responde con código **200 OK** <br>And el refresh token queda invalidado<br><br>**Scenario: Registro exitoso de usuario** <br>Given un nuevo usuario envía datos válidos (correo, contraseña y nombre) al endpoint de registro <br>When el backend valida la información y la almacena en la base de datos <br>Then el sistema responde con código **201 Created** <br>And devuelve un mensaje confirmando la creación del usuario<br><br>**Scenario: Registro con correo duplicado** <br>Given un correo ya existe en la base de datos <br>When un usuario intenta registrarse con ese mismo correo <br>Then el sistema responde con código **409 Conflict** <br>And devuelve un mensaje “El correo ya está registrado”<br><br>**Scenario: Refresh token válido** <br>Given un usuario tiene un refresh token válido <br>When envía solicitud al endpoint de refresh <br>Then el backend responde con código **200 OK** <br>And devuelve un nuevo par de tokens de acceso y refresh<br><br>**Scenario: Token inválido o expirado en validación** <br>Given un usuario envía un token inválido o expirado al endpoint de validación <br>When el backend procesa el token <br>Then el sistema responde con código **401 Unauthorized** <br>And devuelve un mensaje “Token inválido o expirado” | E2                        |
+| TS002           | Servicio de autenticación con JWT             | **Como** developer, <br>**quiero** implementar autenticación basada en JWT, <br>**para** asegurar la comunicación entre cliente y servidor.                                                                                  | **Scenario: Generación de token JWT** <br>Given un usuario inicia sesión exitosamente <br>When el backend autentica sus credenciales <br>Then genera un token JWT con payload que incluye `userId`, `rol` y fecha de expiración<br><br>**Scenario: Verificación de token JWT válido** <br>Given un cliente envía un token JWT válido en la cabecera Authorization <br>When el backend lo verifica con la clave secreta <br>Then acepta la solicitud <br>And permite acceso al recurso protegido<br><br>**Scenario: Verificación de token JWT inválido** <br>Given un cliente envía un token JWT alterado o mal formado <br>When el backend lo valida <br>Then rechaza la solicitud <br>And devuelve un error 401 Unauthorized<br><br>**Scenario: Token expirado** <br>Given un cliente envía un token JWT expirado <br>When el backend intenta validarlo <br>Then rechaza la solicitud <br>And devuelve un error 401 Unauthorized con mensaje “Token expirado”<br><br>**Scenario: Renovación de sesión con refresh token** <br>Given un access token está expirado <br>When el cliente envía un refresh token válido <br>Then el backend genera un nuevo JWT de acceso <br>And responde con los nuevos tokens                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | E2                        |
+| TS003           | API de vehículos de carga                     | **Como** developer, <br>**quiero** exponer un endpoint para registrar, <br>modificar y consultar vehículos de carga, **para** que el backend gestione el inventario de la flota.                                             | Scenario: Registro exitoso de vehículo <br>Given un vehículo con datos válidos (placa, modelo, año, capacidad) <br>When se envía una solicitud POST al endpoint de vehículos <br>Then el sistema almacena el vehículo en la base de datos <br>And devuelve un código 201 con el detalle del vehículo registrado<br><br>Scenario: Intentar registrar vehículo duplicado <br>Given un vehículo con una placa ya existente en el sistema <br>When el developer intenta registrarlo nuevamente <br>Then el sistema rechaza la solicitud <br>And devuelve un código 409 con el mensaje "El vehículo ya está registrado"<br><br>Scenario: Modificar datos de un vehículo existente <br>Given un vehículo registrado en la base de datos <br>When se envía una solicitud PUT con los campos actualizados <br>Then el sistema actualiza los datos del vehículo <br>And devuelve un código 200 con el detalle actualizado<br><br>Scenario: Consultar vehículo por ID <br>Given un vehículo registrado en la base de datos <br>When se envía una solicitud GET al endpoint con su identificador <br>Then el sistema devuelve un código 200 <br>And muestra los datos completos del vehículo<br><br>Scenario: Consultar lista de vehículos <br>Given existen varios vehículos registrados en la base de datos <br>When se envía una solicitud GET al endpoint de vehículos <br>Then el sistema devuelve un código 200 <br>And muestra la lista completa de vehículos disponibles en el inventario                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | E3                        |
+| TS004           | API de dispositivos IoT                       | Como developer<br>quiero exponer un endpoint de dispositivos <br>para que la plataforma pueda registrar y administrar los dispositivos IoT.                                                                                  | Scenario: Registro exitoso de dispositivo <br>Given un dispositivo IoT con datos válidos (deviceId, tipo, estado inicial) <br>When se envía una solicitud POST al endpoint de dispositivos <br>Then el sistema almacena el dispositivo en la base de datos <br>And devuelve un código 201 con el detalle del dispositivo registrado<br><br>Scenario: Intentar registrar dispositivo duplicado <br>Given un dispositivo IoT con un deviceId ya existente en la base de datos <br>When se intenta registrarlo nuevamente <br>Then el sistema rechaza la solicitud <br>And devuelve un código 409 con el mensaje "El dispositivo ya está registrado"<br><br>Scenario: Consultar dispositivo por ID <br>Given un dispositivo IoT registrado en la base de datos <br>When se envía una solicitud GET al endpoint con su identificador <br>Then el sistema devuelve un código 200 <br>And muestra los datos completos del dispositivo<br><br>Scenario: Consultar lista de dispositivos <br>Given existen varios dispositivos IoT registrados en la base de datos <br>When se envía una solicitud GET al endpoint de dispositivos <br>Then el sistema devuelve un código 200 <br>And muestra la lista completa de dispositivos registrados<br><br>Scenario: Modificar datos de un dispositivo <br>Given un dispositivo IoT registrado en la base de datos <br>When se envía una solicitud PUT con campos actualizados (ej. nombre, estado, vehículo asignado) <br>Then el sistema actualiza los datos del dispositivo <br>And devuelve un código 200 con el detalle actualizado<br><br>Scenario: Eliminar dispositivo registrado <br>Given un dispositivo IoT existe en la base de datos y no tiene transmisiones activas <br>When se envía una solicitud DELETE al endpoint de dispositivos <br>Then el sistema cambia su estado a "inactivo" <br>And conserva su historial de transmisiones y eventos                                                                                                         | E3                        |
+| TS005           | API de viajes                                 | **Como** developer, <br>**quiero** exponer un endpoint RESTful para registrar viajes, <br>**para** que la aplicación guarde y gestione la información.                                                                       | **Scenario: Registro exitoso de viaje** <br>Given un cliente envía los datos válidos de un viaje (vehículo, dispositivo IoT, fecha de inicio, destino) al endpoint de viajes <br>When el backend valida la información <br>Then el sistema responde con código **201 Created** <br>And almacena el viaje en la base de datos<br><br>**Scenario: Registro con datos incompletos** <br>Given un cliente envía una solicitud de registro sin todos los campos obligatorios <br>When el backend procesa la solicitud <br>Then el sistema responde con código **400 Bad Request** <br>And devuelve un mensaje indicando los campos faltantes<br><br>**Scenario: Registro con vehículo no existente** <br>Given el identificador de vehículo no existe en la base de datos <br>When el cliente intenta registrar un viaje con ese vehículo <br>Then el sistema responde con código **404 Not Found** <br>And devuelve un mensaje “Vehículo no encontrado”<br><br>**Scenario: Registro con dispositivo IoT no existente** <br>Given el identificador de dispositivo IoT no existe en la base de datos <br>When el cliente intenta registrar un viaje con ese dispositivo <br>Then el sistema responde con código **404 Not Found** <br>And devuelve un mensaje “Dispositivo IoT no encontrado”<br><br>**Scenario: Validación de solapamiento de viajes** <br>Given un vehículo ya tiene un viaje activo en la base de datos <br>When se intenta registrar un nuevo viaje con el mismo vehículo en paralelo <br>Then el sistema responde con código **409 Conflict** <br>And devuelve un mensaje “El vehículo ya tiene un viaje activo”                                                                                                                                                                                                                                                                                                                                                                          | E4                        |
+
 ## 3.2. Impact Mapping
 
+### Empresa (Gestores de transporte)
+
+<img src="assets/Impact_map_Carlos.png"/>
+
+### Clientes Finales (Consumidores finales)
+
+<img src="assets/Impact_map_Maria.png"/>
+
 ## 3.3. Product Backlog
+
+| # Orden | User Story ID | Título                                      | Descripción                                                                                                                                                 | Story Points |
+| ------- | ------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| 1       | US013         | Sección portada                             | Como visitante, quiero ver una portada con mensaje principal, para entender rápidamente el propósito de la plataforma.                                      | 3            |
+| 2       | US014         | Sección de funcionalidades                  | Como visitante, quiero visualizar una sección con las funcionalidades principales, para conocer qué ofrece la plataforma.                                   | 3            |
+| 3       | US015         | Sección de beneficios                       | Como visitante, quiero ver una sección con beneficios, para entender qué valor obtengo al usar la plataforma.                                               | 2            |
+| 4       | US016         | Sección de testimonios                      | Como visitante, quiero ver testimonios de otros clientes, para ganar confianza en el servicio.                                                              | 2            |
+| 5       | US017         | Sección de contáctanos                      | Como visitante, quiero acceder a un formulario de contacto, para comunicarme con la empresa y solicitar más información.                                    | 3            |
+| 6       | US018         | Registro de usuario                         | Como usuario, quiero registrarme en la plataforma, para acceder a mi cuenta y funcionalidades personalizadas.                                               | 3            |
+| 7       | TS001         | API de registro                             | Como developer, quiero implementar autenticación basada en JWT, para asegurar la comunicación entre cliente y servidor.                                     | 8            |
+| 8       | US007         | Inicio de sesión                            | Como usuario registrado, quiero iniciar sesión en la plataforma, para acceder a mi cuenta y funcionalidades personalizadas.                                 | 3            |
+| 9       | TS002         | Servicio de autenticación con JWT           | Como developer, quiero implementar autenticación basada en JWT, para asegurar la comunicación entre cliente y servidor.                                     | 8            |
+| 10      | US001         | Actualización de temperatura en tiempo real | Como empresa, quiero recibir la temperatura en tiempo real de mis dispositivos IoT, para supervisar la cadena de frío de los viajes.                        | 8            |
+| 11      | US002         | Alertas por incumplimiento de temperatura   | Como cliente final, quiero recibir alertas cuando la temperatura sobrepasa los límites definidos, para tomar acciones correctivas.                          | 5            |
+| 12      | US019         | Alertas de conexión IoT                     | Como empresa, quiero recibir alertas cuando un dispositivo IoT deja de enviar datos, para actuar de inmediato.                                              | 5            |
+| 13      | US020         | Roles y permisos de acceso                  | Como empresa, quiero que el sistema gestione roles y permisos de usuarios (admin, cliente, operador), para controlar accesos.                               | 8            |
+| 14      | US003         | Lista de viajes registrados                 | Como empresa, quiero ver una lista de todos los viajes registrados para gestionarlos de forma rápida.                                                       | 3            |
+| 15      | US004         | Detalle de viaje                            | Como cliente final, quiero consultar el detalle de un viaje, para verificar información específica como ruta, estado y temperatura.                         | 3            |
+| 16      | US005         | Gráficos de tiempo y temperatura            | Como cliente final, quiero ver gráficos de evolución de la temperatura durante el viaje, para verificar el cumplimiento de parámetros.                      | 5            |
+| 17      | US006         | Gráficos de incidencias por mes             | Como empresa, quiero ver un gráfico mensual de incidencias para identificar patrones de fallos.                                                             | 5            |
+| 18      | US007         | Filtrado de viajes por fecha                | Como empresa, quiero filtrar la lista de viajes por rango de fechas, para analizar un periodo específico.                                                   | 3            |
+| 19      | US008         | Descarga de reporte de viajes               | Como cliente final, quiero descargar un reporte en PDF de un viaje con su información y gráficos, para archivarlo o compartirlo.                            | 5            |
+| 20      | US009         | Cancelar suscripción                        | Como cliente final, quiero cancelar mi suscripción, para detener los cobros futuros.                                                                        | 2            |
+| 21      | US010         | Visualizar información de suscripción       | Como cliente final, quiero ver mi estado de suscripción y fecha de expiración, para gestionar mi acceso al servicio.                                        | 2            |
+| 22      | US011         | Historial de pagos                          | Como empresa, quiero que los clientes consulten su historial de pagos, para brindar transparencia.                                                          | 3            |
+| 23      | US012         | Notificación de renovación próxima          | Como cliente final, quiero recibir una notificación antes de que mi suscripción se renueve, para decidir si continúo o cancelo.                             | 3            |
+| 24      | US023         | Registro de vehículos                       | Como administrador logístico, quiero registrar vehículos en la plataforma, para mantener un inventario actualizado de la flota.                             | 5            |
+| 25      | US024         | Actualización de datos de vehículos         | Como administrador logístico, quiero editar la información de los vehículos, para mantener actualizado su estado operativo.                                 | 3            |
+| 26      | US025         | Eliminación de vehículos                    | Como administrador logístico, quiero eliminar vehículos de la plataforma, para mantener un inventario actualizado y evitar registros obsoletos.             | 3            |
+| 27      | TS003         | API de vehículos                            | Como developer, quiero exponer un endpoint para registrar, modificar y consultar vehículos, para que el backend gestione el inventario de la flota.         | 8            |
+| 28      | US026         | Creación de viajes                          | Como administrador logístico, quiero crear viajes asignando vehículo y ruta, para planificar el transporte de mercancías.                                   | 5            |
+| 29      | US027         | Actualización de estados de viaje           | Como administrador logístico, quiero actualizar el estado de un viaje, para mantener informados a gerentes y clientes sobre el progreso de la entrega.      | 5            |
+| 30      | TS004         | API de viajes                               | Como developer, quiero exponer un endpoint RESTful para registrar viajes, para que la aplicación guarde y gestione la información.                          | 8            |
+| 31      | US028         | Visualización de viajes                     | Como cliente final, quiero visualizar el estado de mis pedidos en tiempo real, para tener transparencia en la entrega.                                      | 5            |
+| 32      | TS005         | API de tracking de viajes                   | Como developer, quiero exponer un endpoint que devuelva el estado actual de un viaje, para que los clientes puedan consultar el seguimiento en tiempo real. | 8            |
+| 33      | US029         | Reprogramación de viajes                    | Como administrador logístico, quiero reprogramar un viaje ya creado, para ajustar fechas y horarios en caso de cambios operativos.                          | 5            |
+| 34      | US030         | Código de viaje para cliente                | Como cliente final, quiero recibir un código único de viaje, para poder consultar fácilmente el estado de mi pedido.                                        | 5            |
+| 35      | US031         | Formulario de soporte y reclamos            | Como cliente final, quiero acceder a un formulario de soporte y reclamos, para comunicar incidencias o problemas con mis viajes.                            | 3            |
+| 36      | US032         | Recepción de reclamos por viajes            | Como administrador logístico, quiero recibir los reclamos enviados por los clientes, para analizarlos y dar respuesta oportuna.                             | 3            |
+
+<img src="assets/Trello.png">
+
+**Link del Trello:** https://trello.com/invite/b/68c988fa65c37d7ded09248f/ATTId7fe8515afa46ad0ba2a3eb460ca5c06BCFF0CFB/losparkersiot-productbacklog
 
 # Capítulo IV: Solution Software Design
 
@@ -633,40 +1207,1195 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 
 ### 4.1.1. Design-Level EventStorming
 
-#### 4.1.1.1. Candidate Context Discovery
+## 4.1.1.1 Candidate Context Discovery
+
+Para esta etapa se llevó a cabo una sesión, la sesión tuvo una duración aproximada de 90 minutos y permitió identificar los bounded contexts del sistema CargaSafe. Durante el proceso se aplicaron las técnicas start-with-value, start-with-simple y look-for-pivotal-events, que facilitaron la agrupación de eventos y entidades según su afinidad y valor para el negocio.
+
+Como resultado, se identificaron ocho bounded contexts:
+
+- **Identity and Access Management**: administración de usuarios, autenticación y control de accesos.
+- **Profiles and Preferences Management**: gestión de perfiles de usuario y configuración de preferencias.
+- **Fleet management**: gestión de vehículos y dispositivos IoT.
+- **Execution of the trip**: creación y ejecución de viajes.
+- **Real-time monitoring**: monitoreo de condiciones en tiempo real.
+- **Alerts and resolution**: generación de alertas.
+- **Visualization/Analytics**: visualización de métricas y reportes.
+- **Subscriptions and payments**: gestión de suscripciones y pagos con Stripe.
+
+![EventStorming – Candidate Context Discovery](assets/Candidate_Context_Discovery_Image.png)
+
+### Leyenda utilizada en el EventStorming
+
+- 🟧 **Event**: describe algo que ocurrió en el dominio (Viaje iniciado, Alerta generada).
+- 🟦 **Command**: una instrucción o acción que dispara un evento (Registrar viaje).
+- 🟪 **Policy**: regla de negocio que determina qué ocurre ante ciertas condiciones (Si falta dispositivo → bloquear inicio del viaje).
+- 🟨 **Aggregate**: entidad principal que concentra datos y operaciones (Viaje, Suscripción).
+- 🟩 **UI**: vistas o pantallas del sistema que muestran información al usuario (Dashboard de KPIs).
+- ⚪ **Actor**: roles que interactúan con el sistema (Operador, Conductor).
+- ⬛ **Sistema externo**: integraciones con servicios de terceros (Google Maps, Stripe).
+
+Con esta estructura, el EventStorming permitió organizar y simplificar el dominio de CargaSafe, evidenciando de forma clara los contextos candidatos y la interacción entre actores, procesos y sistemas externos.
+
+[Ver gráfico en Miro](https://miro.com/app/board/uXjVJMskjeA=/?share_link_id=697373503273)
 
 #### 4.1.1.2. Domain Message Flows Modeling
 
+En esta etapa se desarrolló el **modelado de flujos de mensajes de dominio (Domain Message Flows)** con el objetivo de visualizar cómo colaboran los bounded contexts identificados en el Candidate Context Discovery para resolver los principales casos de negocio del sistema CargaSafe.
+
+Para la construcción de estos flujos se aplicó la técnica de **Domain Storytelling**, la cual permite describir las interacciones en un lenguaje natural, mostrando cómo un evento generado en un bounded context desencadena comandos o nuevos eventos en otros contextos. De este modo se logra una visión clara de la cooperación entre módulos y del ciclo de vida de la información dentro de la plataforma.
+
+### Historias de dominio (Domain Stories)
+
+1. **Gestión de identidad y perfiles**
+
+   - Cuando un _usuario se registra_ en **Identity and Access Management**, se genera un evento que es consumido por **Profiles and Preferences**, el cual crea automáticamente el perfil asociado.
+   - Si un _usuario edita sus preferencias_, se guarda la configuración en **Profiles**, y en caso de referirse a notificaciones, estas se utilizan en **Alerts** para personalizar los canales de envío.
+
+2. **Control de acceso y suscripciones**
+
+   - Cuando un _pago es procesado exitosamente_ en **Subscriptions & Billing**, se envía un evento a **Identity and Access Management**, que habilita el acceso al sistema.
+   - Si un _pago falla_, el mismo flujo comunica a IAM que debe restringir o bloquear el acceso del usuario hasta regularizar su situación.
+
+3. **Gestión de flota y ejecución de viajes**
+
+   - Al _registrarse un vehículo o dispositivo IoT_ en **Fleet Management**, este queda disponible para **Trip Management**, que puede asignarlo a un viaje planificado.
+   - Cuando un _operador crea e inicia un viaje_ en **Trip Management**, se emite un evento que da origen a una sesión de monitoreo en **Monitoring**.
+
+4. **Monitoreo en tiempo real y alertas**
+
+   - **Monitoring** recibe continuamente _lecturas de sensores_ (temperatura, ubicación, señal). Si se detecta una condición fuera de rango, se genera un evento que es consumido por **Alerts**.
+   - **Alerts** crea la alerta correspondiente y la notifica a los usuarios, aplicando las preferencias definidas en **Profiles** (por ejemplo, envío por SMS, correo o notificación push).
+
+5. **Analítica y reportes**
+   - Cada _alerta generada o reconocida_ en **Alerts** actualiza los indicadores en **Dashboard & Analytics**, alimentando las métricas de cumplimiento y los reportes de incidentes.
+   - Cuando **Dashboard & Analytics** genera un _reporte final_, este puede personalizarse de acuerdo con las preferencias almacenadas en **Profiles**, permitiendo al usuario recibir información ajustada a su rol o necesidades.
+
+![EventStorming – Domain Message Flows Modeling](assets/Domain_Message_Flows_Modeling.png)
+
+### Resultados
+
+Los flujos de mensajes de dominio evidencian la cooperación entre los ocho bounded contexts de CargaSafe:
+
+- **Identity and Access Management**
+- **Profiles and Preferences Management**
+- **Fleet Management**
+- **Execution of the trip**
+- **Real-time monitoring**
+- **Alerts and resolution**
+- **Visualization/Analytics**
+- **Subscriptions and payments**
+
+Este ejercicio permitió comprender cómo un evento local en un contexto puede impactar en otros, asegurando la trazabilidad del negocio y la correcta interacción entre los distintos módulos de la solución.
+
 #### 4.1.1.3. Bounded Context Canvases
 
+En esta sección se elaboraron los Bounded Context Canvases de CargaSafe para los ocho contextos identificados. El objetivo fue delimitar con precisión responsabilidades, lenguaje ubicuo y decisiones de negocio, además de explicitar las comunicaciones (Queries, Commands y Events) y colaboradores (otros BC, sistemas externos y frontend). Cada canvas documenta: Descripción, Clasificación estratégica (core/supporting/generic), Rol de dominio (draft/execution/analysis/gateway), Inbound/Outbound communication, Ubiquitous Language, Business Decisions y Collaborators. Esta definición fija ownership de datos, reduce ambigüedades y prepara los contratos de integración que se implementarán en APIs y mensajería.
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_iam.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_profiles.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_subscriptions.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_alerts.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_fleet.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_tripManagement.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_realtimeMonitoring.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_analytics.png)
+
+[Ver gráfico en Miro](https://miro.com/app/board/uXjVJJ2PHqk=/?share_link_id=762570504671)
+
 ### 4.1.2. Context Mapping
+
+En esta etapa se construyó el **Context Map** de CargaSafe con los ocho bounded contexts identificados. El objetivo fue representar las **relaciones estructurales** entre ellos aplicando patrones de Domain-Driven Design como Customer/Supplier, Conformist y Anti-Corruption Layer (ACL).
+
+### Resultado
+
+El mapa final permitió:
+
+1. **Visualizar las dependencias entre contextos**, mostrando qué módulos proveen información y cuáles la consumen.
+2. **Identificar los contextos core** (Trip Management, Monitoring, Alerts), los de soporte (Fleet, Profiles, Analytics) y los genéricos (IAM, Billing).
+3. **Clasificar las relaciones**:
+   - Customer/Supplier en la mayoría de flujos operativos (Billing → IAM, Trip → Monitoring, Monitoring → Alerts).
+   - Conformist en el consumo de datos por Analytics.
+   - Anti-Corruption Layer en la interacción Analytics → Profiles.
+
+De esta manera, el Context Mapping consolida una visión global del sistema, mostrando cómo los distintos contextos colaboran para dar soporte al negocio.
+
+![EventStorming – Context Mapping](assets/Context_Mapping.png)
 
 ### 4.1.3. Software Architecture
 
 #### 4.1.3.1. Software Architecture System Landscape Diagram
 
+El **System Landscape Diagram** ofrece una visión de alto nivel del **ecosistema empresarial** en el que se integra CargaSafe. Este diagrama no se centra únicamente en un sistema, sino que representa **todas las personas y sistemas de software relevantes**, tanto internos como externos, que participan en la operación logística.
+
+### Propósito
+
+El objetivo de este diagrama es:
+
+1. Mostrar el alcance de la organización y cómo conviven sus distintos sistemas.
+2. Identificar a las **personas, sistemas internos, SaaS externos y proveedores** que colaboran en la cadena de valor.
+3. Resaltar cómo **CargaSafe (SaaS)** se conecta dentro de este panorama, en interacción con otros actores y servicios.
+
+![Software Architecture – System Landscape Diagram](assets/System_Landscape_Diagram.png)
+
+### Elementos incluidos
+
+- **Personas**: Company Operator, Driver and End Customer.
+- **Sistemas internos**: Logistics Planning and Power BI Data.
+- **Sistemas y proveedores externos**: CargaSafe (SaaS), Stripe, Google Maps, Notification Services e IoT Devices (sensors).
+- **Grupos**: Se organizaron en cuatro dominios principales:
+  - Logistics company
+  - Field / Devices
+  - Customers and Regulators
+  - SaaS and Vendors
+
+### Relaciones principales
+
+- Logistics Planning → CargaSafe (SaaS): exporta planes y asignaciones de viaje.
+- IoT Devices → CargaSafe (SaaS): envía telemetría (temperatura, humedad, vibración, volcado/inclinación, GPS, energía/baterías).
+- CargaSafe (SaaS) → Google Maps: consulta rutas y tiempos estimados.
+- CargaSafe (SaaS) → Notification Services: envía alertas a los usuarios.
+- CargaSafe (SaaS) → Stripe: procesa pagos de suscripción.
+- CargaSafe (SaaS) → Power BI Data: exporta datasets consolidados para analítica.
+- Company Operator / Driver ↔ CargaSafe (SaaS): planifican, ejecutan y reportan el estado operativo.
+- End customer ← CargaSafe (SaaS): consulta estado y recibe reportes.
+
+### Resultado
+
+El diagrama muestra a CargaSafe (SaaS) como el núcleo de integración entre operaciones (Company Operator, Driver, Logistics Planning), telemetría IoT (sensores en campo) y servicios externos (ruteo, notificaciones y pagos), además de su aporte a la inteligencia de negocio mediante Power BI Data. Esta representación proporciona una visión clara e integral de las dependencias y colaboraciones que sustentan la operación logística y la gestión de la cadena de frío.
+
 #### 4.1.3.2. Software Architecture Context Level Diagrams
+
+El **Context Diagram** de CargaSafe muestra una visión de alto nivel del sistema y de cómo se relaciona con los actores humanos y los sistemas externos que lo rodean.
+
+![Software Architecture – Context Level Diagram](assets/Context_Level_Diagram.png)
+
+En el centro se ubica CargaSafe (SaaS), que representa el sistema principal encargado del monitoreo de la cadena de frío, la trazabilidad y la generación de alertas en los viajes logísticos.
+
+Alrededor del sistema se identifican los siguientes actores:
+
+- _Company Operator_: gestiona viajes, flota y reportes desde la plataforma.
+- _Driver_: completa viajes y reporta información desde la aplicación móvil.
+- _End customer_: recibe enlaces de estado, alertas y reportes generados por el sistema.
+
+Asimismo, se destacan las interacciones con sistemas externos que complementan las funcionalidades de CargaSafe:
+
+- Google Maps: provee rutas, geocodificación y cálculo de ETA.
+- Firebase Cloud Messaging: entrega notificaciones push.
+  Stripe: procesa pagos y facturación de suscripciones.
+  Este diagrama permite visualizar de manera clara las responsabilidades de cada actor y sistema, y cómo CargaSafe se convierte en el núcleo que articula la comunicación entre usuarios, dispositivos IoT y servicios externos, garantizando la operación eficiente y segura de la cadena logística.
 
 #### 4.1.3.2. Software Architecture Container Level Diagrams
 
+En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus contenedores internos, las tecnologías que utilizamos y cómo se comunican entre sí y con los sistemas externos.
+
+![Software Architecture – Container Level Diagram](assets/Container_Diagram.png)
+
+El diagrama de contenedores muestra cómo se organiza internamente CargaSafe (SaaS) y cómo se relaciona con los actores y sistemas externos.
+
+Dentro de la plataforma tenemos varios contenedores:
+
+- _Landing Page:_ sitio público que sirve para marketing y como punto de acceso, redirigiendo tanto a la Web App, al Single Web como a la Mobile App (descarga o deeplinks).
+- _Web Frontend:_ aplicación usada por los operadores para gestionar viajes, flota y reportes.
+- _Single Web:_ vista pública en línea donde los clientes finales pueden consultar estados y reportes sin necesidad de autenticarse.
+- _Mobile App:_ aplicación móvil para los conductores, con soporte offline-first. Se conecta a su propia base de datos embebida SQLite para cache y operación sin conexión.
+- _Backend API:_ núcleo de la lógica de negocio, responsable de gestionar viajes, monitoreo, alertas y suscripciones.
+- _Relational Database (PostgreSQL):_ base de datos principal donde se almacenan usuarios, vehículos, dispositivos, viajes, telemetría, alertas y suscripciones.
+- _Edge Application (Python):_ agente que corre en instalaciones o vehículos, con capacidad de procesamiento local, cache y sincronización confiable con el backend. Usa su propia Edge Database local para tolerar desconexiones.
+- _Embedded Application (C++):_ componente ligero que corre en dispositivos restringidos, captura datos y los envía hacia la aplicación edge para su posterior sincronización.
+
+Los actores principales interactúan con los contenedores:
+
+- Company Operator usa la Web App para planificar y supervisar operaciones.
+- Driver utiliza la Mobile App para recibir instrucciones y reportar estado de los viajes.
+- End Customer accede tanto a la Single Web (para reportes públicos) como a la Mobile App (para recibir notificaciones y links de estado).
+
+Además, CargaSafe se integra con varios sistemas externos:
+
+- _Google Maps_: para rutas, geocodificación y cálculo de ETA.
+- _Stripe_: para pagos y facturación de suscripciones.
+- _Firebase Cloud Messaging (FCM)_: para notificaciones push hacia aplicaciones móviles y web.
+  En conjunto, el diagrama muestra cómo CargaSafe se estructura en contenedores especializados que soportan las necesidades de operadores, conductores y clientes, asegurando tanto la operación online como offline en distintos puntos de la cadena logística.
+
 #### 4.1.3.3. Software Architecture Deployment Diagrams
+
+El Deployment Diagram de CargaSafe muestra cómo se despliega la solución en un entorno de producción real, representando los nodos de infraestructura, los contenedores de software y las interacciones entre ellos.
+
+![Software Architecture – Deployment Diagram](assets/Deployment_Diagram.png)
+
+**Clientes:**
+
+- Los usuarios finales acceden desde navegadores web, donde la Landing Page y el Web Frontend se sirven por separado desde CDNs independientes (CloudFlare/AWS CloudFront) para optimizar la entrega de contenido.
+- Los conductores utilizan una aplicación móvil Flutter en dispositivos Android/iOS, que incluye una base de datos SQLite local para almacenamiento offline y sincronización de datos.
+- Todas las peticiones de API se realizan mediante HTTPS y son redirigidas hacia el Load Balancer, encargado de enrutar el tráfico hacia los servicios backend.
+
+**Backend y orquestación**
+
+- El Backend API (Spring Boot) se despliega dentro de un Kubernetes Cluster en múltiples pods de aplicaciones para alta disponibilidad y escalabilidad.
+- El backend centraliza la lógica de negocio, gestiona operaciones de viajes, monitoreo de cadena de frío y orquestación de alertas en tiempo real.
+
+**Base de datos**
+
+- El sistema utiliza una base de datos PostgreSQL gestionada (AWS RDS/Google Cloud SQL), con una instancia primaria para operaciones de escritura y réplicas de solo lectura para consultas distribuidas y balanceo de carga.
+- Los dispositivos móviles mantienen datos críticos localmente en SQLite para funcionamiento offline durante los viajes.
+
+**Integraciones externas**
+El backend consume servicios de terceros para extender sus capacidades:
+
+- Google Maps para rutas, geocodificación y cálculo de ETA en tiempo real.
+- Stripe para procesamiento de pagos y facturación de subscripciones.
+- Firebase Cloud Messaging (FCM) para la entrega de notificaciones push directamente a los dispositivos móviles de los conductores.
+
+**Resultado**
+El diagrama de despliegue muestra que la solución CargaSafe está organizada bajo una arquitectura cloud-native optimizada, con:
+
+- Separación de responsabilidades: Landing page y aplicación web servidas independientemente
+- Capacidades offline: Base de datos local SQLite en dispositivos móviles
+- Kubernetes para la orquestación de contenedores del backend
+- CDNs separados para optimizar la entrega de contenido estático
+- Base de datos gestionada con réplicas para mejorar el rendimiento y disponibilidad
+- Notificaciones push nativas a través de FCM
+
+Esta infraestructura permite un sistema escalable, resiliente y con capacidades offline críticas para la operación de conductores en campo, garantizando la continuidad operativa en la gestión de la cadena de frío incluso sin conectividad permanente.
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
-### 4.2.1. Bounded Context: `<Bounded Context Name>`
+### 4.2.2. Bounded Context: _Subscriptions and Billing_
 
-#### 4.2.1.1. Domain Layer
+### 4.2.2.1. Domain Layer
 
-#### 4.2.1.2. Interface Layer
+_Entities_
 
-#### 4.2.1.3. Application Layer
+**Subscription**
 
-#### 4.2.1.4. Infrastructure Layer
+- **Propósito**: Gestionar el ciclo de vida de la suscripción de una empresa.
+- **Atributos principales**: subscriptionId, companyId, plan, billingCycle, status (ACTIVE, CANCELED), startedAt, expiresAt.
+- **Métodos principales**: activate(), changePlan(newPlan), renew(), cancel().
 
-#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
+**Payment**
 
-#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
+- **Propósito**: Representar pagos asociados a una suscripción.
+- **Atributos principales**: paymentId, subscriptionId, amount, status (PENDING, SUCCEEDED, FAILED), date.
+- **Métodos principales**: markSucceeded(), markFailed().
 
-##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
+**Company**
 
-##### 4.2.1.6.2. Bounded Context Database Design Diagram
+- **Propósito**: Entidad que consume el servicio y depende de su suscripción activa.
+- **Atributos principales**: companyId, name, vehicleCount.
+- **Métodos principales**: canFitPlan(plan).
+
+**Value Objects**
+
+- **Plan**: Define límites y beneficios (code, vehicleLimit, price).
+- **BillingCycle**: Periodo de facturación (type, startDate, endDate).
+- **GracePeriod**: Tolerancia tras vencimiento (days).
+
+**Domain Services**
+
+- **BillingService**: Calcula montos y renovaciones.
+- **PaymentPolicy**: Aplica reglas de activación y cancelación según pagos.
+
+**Factory**
+
+- **SubscriptionFactory**: Crea una suscripción válida con plan y ciclo inicial.
+
+**Commands**
+
+- **CreateSubscriptionCommand**: Crea una nueva suscripción.
+- **ChangePlanCommand**: Cambia de plan.
+- **CancelSubscriptionCommand**: Cancela una suscripción.
+- **RenewSubscriptionCommand**: Renueva periodo.
+- **RecordPaymentCommand**: Registra un pago.
+
+**Queries**
+
+**GetSubscriptionByIdQuery**: Consulta suscripción por ID.
+**GetActiveSubscriptionByCompanyQuery**: Consulta suscripción activa de una compañía.
+**ListPaymentsBySubscriptionQuery**: Lista pagos de una suscripción.
+
+**Events**
+
+**SubscriptionCreated**: Suscripción creada.
+**PlanChanged**: Cambio de plan.
+**SubscriptionRenewed**: Renovación realizada.
+**SubscriptionCanceled**: Suscripción cancelada.
+**PaymentSucceeded / PaymentFailed**: Resultado de pago.
+
+### 4.2.2.2. Interface Layer
+
+**Controllers**
+
+- **SubscriptionController**: Endpoints para crear, renovar, cambiar plan y cancelar suscripciones.
+- **PaymentController**: Endpoints para registrar y consultar pagos.
+- **PlanController**: Endpoints para listar planes disponibles.
+- **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
+
+### 4.2.2.3. Application Layer
+
+**Command Services**
+
+- **SubscriptionCommandService**: Ejecuta comandos de suscripción (crear, cambiar, renovar, cancelar).
+- **PaymentCommandService**: Registra pagos y actualiza estado de suscripción.
+
+**Query Services**
+
+**SubscriptionQueryService**: Consulta suscripciones por id, estado o compañía.
+**PaymentQueryService**: Consulta pagos por suscripción o estado.
+
+**Event Handlers**
+
+- **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
+- **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
+
+### 4.2.2.4. Infrastructure Layer
+
+**Repositories (Interfaces)**
+
+- **ISubscriptionRepository**: Acceso a datos de suscripciones.
+- **IPaymentRepository**: Acceso a datos de pagos.
+- **ICompanyRepository**: Acceso a datos de compañías.
+
+#### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+_Diagrama de componentes - Backend - Subscriptions and Billing_
+
+![Component diagrams](assets/Component_backend_subscription.png)
+
+El backend del bounded context de Suscripciones y Pagos está organizado en cuatro capas principales:
+
+- **Interface Layer**: expone los controladores REST que atienden operaciones de suscripciones, pagos, planes y compañías. Es la puerta de entrada para los usuarios y sistemas que consumen la API.
+- **Application Layer**: orquesta los casos de uso mediante Command Services, Query Services y Event Handlers. Aquí se coordinan las operaciones y se invocan las reglas de negocio.
+- **Domain Layer**: concentra la lógica de negocio del contexto, con entidades, objetos de valor, servicios de dominio y fábricas. Define las reglas que rigen el ciclo de vida de suscripciones y pagos.
+- **Infrastructure Layer**: implementa repositorios y conectores hacia la base de datos y sistemas externos. Se encarga de la persistencia y de la integración técnica.
+
+Las conexiones externas son:
+
+- Postgres para persistencia transaccional (suscripciones, pagos, compañías).
+- Stripe para procesamiento de pagos.
+- Firebase Cloud Messaging (FCM) para envío de notificaciones push.
+- Google Maps para consultas de rutas y tiempos estimados (ETA).
+
+_Diagrama de componentes - Application Web - Subscriptions and Billing_
+
+![Component diagrams](assets/Component_diagram_applicationweb.png)
+
+La aplicación web se conecta al bounded context **Subscriptions & Billing** únicamente a través de las APIs: la _Subscriptions API_ (para enviar comandos como crear o cancelar una suscripción) y la _Query API_ (para consultar datos como facturas o planes activos).
+
+En el lado del cliente, la app se organiza en tres partes:
+• **UI (interfaz de usuario)**: pantallas de suscripciones, facturación y pagos.
+• **Estado de aplicación:** maneja la sesión del usuario, el cache de consultas y el control de autenticación.
+• **Servicios de datos:** cliente HTTP que llama a las APIs, agrega el token de seguridad y gestiona reintentos o errores.
+
+La aplicación web no implementa lógica de negocio propia, solo muestra la información y envía las intenciones del usuario al backend. Todo lo que es reglas, validaciones o persistencia está en el backend.
+
+_Diagrama de componentes - Mobile Application - Subscriptions and Billing_
+
+![Component diagrams](assets/Component_diagram_mobile.png)
+
+La aplicación móvil de **Subscriptions & Billing** es muy parecido a la versión web, ya que también se conecta al backend por la _Subscriptions API_ y la _Query API_. La diferencia es que en el móvil contamos con una base de datos local (SQLite), que nos permite trabajar en modo offline: la app guarda datos y puede seguir operando aunque no haya conexión, y luego sincroniza cuando vuelve el internet.
+
+La app se organiza en pantallas de suscripciones y facturación, un estado de aplicación que maneja la sesión y el cache, y un API Client que envía las solicitudes al backend siempre agregando el token de autenticación. Toda la lógica de negocio sigue estando en el backend; en el cliente solo mostramos información y enviamos las acciones que hace el usuario.
+
+#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+![layer diagrams](assets/layer_class_diagram.png)
+
+##### Explicación del diagrama
+
+El diagrama de clases del Domain Layer muestra a Subscription como Aggregate Root, cuyo ciclo de vida se gestiona a través de estados definidos en SubscriptionStatus (Active y Canceled) y su relación con múltiples Payment, cada uno con su propio PaymentStatus (Pending, Succeeded, Failed). Los Value Objects Plan y Money encapsulan reglas de negocio como límites de vehículos y montos monetarios. El modelo incluye la SubscriptionFactory para la creación controlada de agregados, los Repositories para la persistencia de entidades y el PaymentProcessingService como servicio de dominio para la gestión de pagos. En conjunto, este diseño asegura encapsulamiento, claridad en las reglas del negocio e independencia tecnológica en el dominio.
+
+##### 4.2.2.6.2. Bounded Context Database Design Diagram
+
+![layer diagrams](assets/layer_database_diagram.png)
+
+##### Explicación del diagrama
+
+Define la persistencia mínima y suficiente para gestionar compañías, suscripciones y pagos integrados con Stripe. La tabla companies centraliza la información de cada cliente.
+Sobre ella, la tabla _subscriptions_ modela el ciclo de vida de la suscripción, incluyendo plan, estado y próxima renovación, con la restricción de que solo puede existir una suscripción activa por compañía.
+La tabla _payments_ registra cada intento de cobro asociado a una suscripción, asegurando unicidad mediante el identificador del proveedor (provider_ref).
+Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos desde Stripe y se vincula con los pagos para garantizar trazabilidad e idempotencia en el procesamiento de transacciones.
+
+### 4.2.3. Bounded Context: _Alerts & Resolution_
+
+#### 4.2.3.1. Domain Layer
+
+**Entidades (Entities)**
+
+**Entity: Alert (Aggregate Root)**  
+**Propósito principal**  
+Centralizar la gestión del ciclo de vida de una alerta y garantizar que se cumplan las reglas de negocio.  
+**Atributos principales**
+
+- alertId: Identificador único de la alerta.
+- type: Tipo de alerta (OutOfRange, Offline, RouteDeviation).
+- status: Estado actual de la alerta (OPEN, ACKNOWLEDGED, CLOSED).
+- sensorType: Tipo de sensor que la generó (TEMPERATURE, HUMIDITY, VIBRATION, TILT, LOCATION, BATTERY).
+- createdAt: Fecha y hora de creación de la alerta.
+- acknowledgedAt: Momento en que fue reconocida.
+- closedAt: Momento en que fue cerrada.  
+  **Métodos principales**
+- acknowledge(): Marca la alerta como reconocida.
+- close(): Cierra la alerta si ya fue reconocida.
+- escalate(): Incrementa la criticidad si no fue atendida a tiempo.
+
+**Entity: Notification**  
+**Propósito principal**  
+Representar un mensaje enviado a un usuario sobre una alerta.  
+**Atributos principales**
+
+- notificationId: Identificador único de la notificación.
+- alertId: Referencia a la alerta asociada.
+- channel: Canal de comunicación (EMAIL, SMS, FCM).
+- message: Contenido del mensaje.
+- sentAt: Fecha y hora de envío.  
+  **Métodos principales**
+- markAsSent(): Actualiza el estado de la notificación como enviada.
+
+**Entity: Incident**  
+**Propósito principal**  
+Registrar un evento relacionado con un viaje que se crea a partir de una alerta.  
+**Atributos principales**
+
+- incidentId: Identificador único del incidente.
+- alertId: Referencia a la alerta origen.
+- tripId: Identificador del viaje asociado.
+- description: Detalle del incidente.
+- createdAt: Fecha y hora de creación.  
+  **Métodos principales**
+- resolve(description): Marca el incidente como resuelto con detalles.
+
+**Objetos de Valor (Value Objects)**
+
+- AlertType: clasifica los tipos de alertas (OutOfRange, Offline, RouteDeviation).
+- AlertStatus: define en qué etapa se encuentra la alerta (Open, Acknowledged, Closed).
+- NotificationChannel: indica el medio de comunicación usado (Email, SMS, FCM).
+- PersistenceWindow: define el tiempo mínimo que debe cumplirse para que un evento se considere válido como alerta.
+- SensorType: clasifica la fuente de monitoreo (TEMPERATURE, HUMIDITY, VIBRATION, TILT, LOCATION, BATTERY).
+
+**Commands**
+
+**Command: CreateAlertCommand**  
+**Parámetros**
+
+- type, sensorType, createdAt.  
+  **Cómo funciona**  
+  Se ejecuta al detectar un evento anómalo. Crea una nueva alerta validando reglas como la ventana de persistencia y evitando duplicación.
+
+**Command: AcknowledgeAlertCommand**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Permite a un operador reconocer la alerta. Cambia su estado a _ACKNOWLEDGED_ y registra la hora.
+
+**Command: CloseAlertCommand**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Cierra una alerta reconocida, cambiando su estado a _CLOSED_ y registrando la fecha de cierre.
+
+**Command: EscalateAlertCommand**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Incrementa la criticidad de una alerta que lleva demasiado tiempo sin ser reconocida, generando un evento de escalamiento.
+
+**Command: CreateIncidentFromAlertCommand**  
+**Parámetros**
+
+- alertId, tripId, description.  
+  **Cómo funciona**  
+  Crea un incidente asociado a un viaje a partir de una alerta específica, permitiendo registrar el detalle del evento.
+
+**Command: SendNotificationCommand**  
+**Parámetros**
+
+- alertId, channel, message.  
+  **Cómo funciona**  
+  Ordena enviar una notificación al canal definido (Email, SMS, FCM) para informar al usuario o empresa sobre la alerta.
+
+**Queries**
+
+**Query: GetAlertByIdQuery**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Recupera los detalles de una alerta específica, incluyendo su estado, tipo y fechas clave.
+
+**Query: GetAlertsByStatusQuery**  
+**Parámetros**
+
+- status.  
+  **Cómo funciona**  
+  Devuelve todas las alertas con un estado determinado (ej. abiertas, reconocidas, cerradas).
+
+**Query: GetAlertsByTypeQuery**  
+**Parámetros**
+
+- type.  
+  **Cómo funciona**  
+  Recupera todas las alertas de un tipo específico (ej. RouteDeviation).
+
+**Query: GetNotificationsByAlertIdQuery**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Devuelve todas las notificaciones emitidas en relación con una alerta.
+
+**Query: GetIncidentsByAlertIdQuery**  
+**Parámetros**
+
+- alertId.  
+  **Cómo funciona**  
+  Obtiene todos los incidentes generados a partir de una alerta determinada.
+
+**Events**
+
+**Event: AlertCreatedEvent**  
+Se emite cuando una nueva alerta es registrada en el sistema.
+
+**Event: AlertAcknowledgedEvent**  
+Se emite cuando una alerta es reconocida.
+
+**Event: AlertClosedEvent**  
+Se emite cuando una alerta se cierra exitosamente.
+
+**Event: AlertEscalatedEvent**  
+Se emite cuando una alerta aumenta de criticidad por falta de respuesta.
+
+**Event: NotificationSentEvent**  
+Se emite al enviar una notificación a un usuario o empresa.
+
+**Event: IncidentCreatedEvent**  
+Se emite cuando se genera un incidente a partir de una alerta.
+
+**Fábricas (Factories)**
+
+- AlertFactory: encapsula la lógica de creación de una alerta a partir de eventos recibidos (ejemplo: sensor fuera de rango).
+- IncidentFactory: crea incidentes asociados a un viaje cuando una alerta lo requiere.
+
+#### 4.2.3.2. Interface Layer
+
+En esta capa se definen **Controllers (REST)**.
+
+**Controllers (REST — Spring Web)**
+
+**AlertController**  
+Este controlador permite crear nuevas alertas a partir de eventos detectados, reconocer (ACK) alertas activas, cerrarlas una vez reconocidas, y obtener tanto el detalle de una alerta específica como la lista de alertas activas (estados OPEN o ACKNOWLEDGED).
+
+**NotificationController**  
+Su responsabilidad es consultar y actualizar las preferencias de notificación de los usuarios, por ejemplo, los canales permitidos (EMAIL, SMS o FCM) y los tiempos de escalamiento configurados.
+
+**IncidentController**  
+Permite crear incidentes vinculados a una alerta y un viaje, y consultar el detalle de incidentes registrados.
+
+#### 4.2.3.3. Application Layer
+
+**Command Services**
+
+- AlertCommandService: Ejecuta todos los comandos de las alertas.
+
+**Event Services**
+
+- OutOfRangeDetectedEvent: maneja eventos de sensores fuera de rango.
+- DeviceOfflineDetectedEvent: maneja eventos de desconexión de dispositivos.
+- RouteDeviationDetectedEvent: maneja desvíos de ruta.
+- AlertAcknowledgedEvent: actúa tras el reconocimiento de una alerta (ejemplo: detener escalamiento).
+- AlertClosedEvent: actúa tras el cierre de una alerta (ejemplo: notificar a analíticas).
+- TemperatureOutOfRangeEvent: crea alerta de temperatura.
+- HumidityOutOfRangeEvent: crea alerta de humedad.
+- VibrationDetectedEvent: maneja vibración anómala.
+- TiltOrDumpDetectedEvent: maneja vuelcos o inclinaciones.
+- LowBatteryDetectedEvent: maneja alerta de energía.
+
+**Query Services**
+
+- AlertQueryService: Consulta las alertas.
+
+**Outbound Services**
+
+- NotificationService: Servicio para el envío de notificaciones a través de diferentes canales (Email, SMS, Push). Su implementación concreta delega en proveedores externos como Firebase Cloud Messaging (FCM).
+
+#### 4.2.3.4. Infrastructure Layer
+
+- Notification Repository: Repositorio para acceder a las notificaciones.
+- Alert Repository: Repositorio para acceder a las alertas.
+- Incident Repository: Repositorio para acceder a los incidentes.
+
+#### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+Diagrama de componentes - Backend - Alerts & Resolution
+
+<img src="assets/C4/Alert-C4-Backend-Diagram.png"/>
+
+Diagrama de componentes - Application Web - Alerts & Resolution
+
+<img src="assets/C4/Alert-C4-WebApp-Diagram.png"/>
+
+Diagrama de componentes - Mobile App - Alerts & Resolution
+
+<img src="assets/C4/Alert-C4-Mobile-Diagram.png"/>
+
+#### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Domain Layer Class Diagram**
+
+![Alert Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-Class-Diagram.puml&v=3)
+
+**WebApp / Mobile App Class Diagram**
+
+![Alert Management Domain Layer WebApp MobileApp Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-WebApp-MobileApp-Class-Diagram.puml)
+
+##### 4.2.3.6.2. Bounded Context Database Design Diagram
+
+![Alert Management Domain Layer Database Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-DataBase-Diagram.puml)
+
+### 4.2.4. Bounded Context: _Real-Time Monitoring_
+
+#### 4.2.4.1. Domain Layer.
+
+**Entities**
+
+- **MonitoringSession**: Representa una sesión de monitoreo para un viaje específico. Almacena el estado de la sesión, los parámetros de referencia (`TemperatureRange`) y las lecturas recibidas.
+- **TelemetryData**: Registra una única lectura de un sensor, incluyendo temperatura, humedad, vibración, ubicación y la hora de la lectura.
+
+**Value Objects**
+
+- **SensorReading**: Encapsula los datos de una lectura específica (ej. temperatura, humedad).
+- **TemperatureRange**: Define los límites mínimos y máximos de temperatura aceptables.
+- **Location**: Representa las coordenadas geográficas (latitud, longitud).
+- **SignalStatus**: Indica el estado de la conexión del dispositivo (ONLINE, OFFLINE).
+- **SessionStatus**: Describe el estado de una sesión (ACTIVE, INACTIVE, COMPLETED).
+
+**Agregados (Aggregates)**
+
+- **MonitoringSessionAggregate**: Agrupa la `MonitoringSession` con sus `TelemetryData` relacionadas, asegurando que todas las lecturas de un viaje estén coherentemente gestionadas bajo una única sesión.
+
+**Factories**
+
+- **MonitoringSessionFactory**: Crea una nueva sesión de monitoreo a partir de los datos de un viaje.
+
+**Domain Services**
+
+- **DataIngestionService**: Procesa y valida las lecturas de telemetría entrantes desde los dispositivos IoT.
+- **RuleEvaluationService**: Analiza las lecturas en tiempo real para detectar violaciones de parámetros.
+- **DataEnrichmentService**: Enriquece los datos de telemetría con información adicional (ej. ruta).
+
+**Repositories (interfaces)**
+
+- **IMonitoringSessionRepository**: Contrato para guardar y recuperar sesiones de monitoreo.
+- **ITelemetryDataRepository**: Contrato para persistir y consultar las lecturas de telemetría.
+
+**Commands**
+
+- **StartMonitoringSessionCommand**: Orden para iniciar una nueva sesión de monitoreo para un viaje.
+- **EndMonitoringSessionCommand**: Orden para cerrar una sesión de monitoreo.
+
+**Queries**
+
+- **GetMonitoringSessionByIdQuery**: Consulta que devuelve el estado actual de una sesión de monitoreo.
+- **GetTelemetryDataBySessionQuery**: Consulta que devuelve lecturas de telemetría de una sesión.
+
+**Events**
+
+- **MonitoringSessionStartedEvent**: Evento que se emite cuando se inicia una sesión de monitoreo.
+- **MonitoringSessionCompletedEvent**: Evento que se emite cuando una sesión se completa.
+- **OutOfRangeDetectedEvent**: Evento que se emite cuando una lectura de sensor está fuera de rango.
+- **DeviceOfflineDetectedEvent**: Evento que se emite cuando un dispositivo IoT deja de enviar datos.
+- **TelemetryDataReceivedEvent**: Evento que se emite con cada lectura de sensor procesada.
+
+---
+
+#### 4.2.4.2. Interface Layer.
+
+**Controllers**
+
+- **MonitoringController**: Expone endpoints REST para consultas de estado de monitoreo. Recibe solicitudes del cliente y las convierte en comandos o queries para el Application Layer.
+  - getSessionDetails: permite obtener el estado actual de una sesión de monitoreo.
+  - getTelemetryData: consulta las lecturas de telemetría de una sesión.
+  - getLiveMapData: provee datos en tiempo real para la visualización en el mapa.
+  - getChartData: provee datos de temperatura para gráficos.
+
+**Consumers**
+
+- **TelemetryConsumer**: Consume eventos de telemetría provenientes de los dispositivos IoT.
+- **TripEventsConsumer**: Consume eventos como `TripStartedEvent` y `TripCompletedEvent` del contexto de `Trip management` para orquestar la sesión de monitoreo.
+
+---
+
+#### 4.2.4.3. Application Layer.
+
+**Command Handlers**
+
+- **StartMonitoringSessionCommandHandler**: Procesa la orden para iniciar una sesión de monitoreo, creando una nueva instancia de `MonitoringSession` y persistiendo los datos.
+- **EndMonitoringSessionCommandHandler**: Procesa la orden para finalizar una sesión, actualizando su estado a `COMPLETED` y deteniendo el procesamiento de datos.
+
+**Query Handlers**
+
+- **GetMonitoringSessionByIdQueryHandler**: Procesa la consulta para obtener los detalles de una sesión de monitoreo.
+- **GetTelemetryDataBySessionQueryHandler**: Procesa la consulta para obtener las lecturas de telemetría de una sesión.
+
+**Event Handlers**
+
+- **TripStartedHandler**: Reacciona al evento `TripStarted` para iniciar una nueva sesión de monitoreo.
+- **TripCompletedHandler**: Reacciona al evento `TripCompleted` para finalizar la sesión de monitoreo.
+- **TelemetryDataReceivedHandler**: Procesa las lecturas de sensores entrantes, valida los datos, los enriquece y, si es necesario, genera eventos de alerta.
+
+---
+
+#### 4.2.4.4. Infrastructure Layer.
+
+**Repositories (implementaciones)**
+
+- **MonitoringSessionRepository**: Implementación de `IMonitoringSessionRepository` para interactuar con la base de datos (ej. PostgreSQL).
+- **TelemetryDataRepository**: Implementación de `ITelemetryDataRepository` optimizada para escrituras masivas (ej. base de datos de series de tiempo).
+
+**Components**
+
+- **IoTMQTTAdapter**: Adapta el protocolo MQTT para consumir mensajes de telemetría de los dispositivos.
+- **TripManagementAPIAdapter**: Adapta la API del contexto de Trip Management para recibir notificaciones de eventos.
+- **GoogleMapsAdapter**: Adapta la API de Google Maps para obtener información de geolocalización y rutas.
+- **AlertsAPIAdapter**: Adapta la API del contexto de Alerts & Resolution para enviar eventos de alerta.
+
+#### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Real Time Monitoring Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Real-time-monitoring-Domain-Layer-Class-Diagram.puml)
+
+##### 4.2.4.6.2. Bounded Context Database Design Diagram
+
+### 4.2.5. Bounded Context: _Trip management_
+
+#### 4.2.5.1. Domain Layer.
+
+**Entity: Trip (Aggregate Root)**
+
+**Propósito principal**  
+Representar un viaje y centralizar su ciclo de vida, asegurando que se cumplan las reglas de negocio relacionadas con cliente, conductor, vehículo y ruta.
+
+**Atributos principales**
+
+- tripId: Identificador único del viaje.
+- clientId: Identificador del cliente.
+- driverId: Identificador del conductor.
+- vehicleId: Identificador del vehículo.
+- route: Ruta definida para el trayecto.
+- status: Estado del viaje (CREATED, IN_PROGRESS, COMPLETED, CANCELLED).
+- requestedAt: Fecha y hora de la solicitud.
+
+**Métodos principales**
+
+- assignDriver(driverId): Asigna un conductor al viaje.
+- assignVehicle(vehicleId): Vincula un vehículo al viaje.
+- startTrip(): Inicia el viaje y cambia su estado a “En curso”.
+- completeTrip(): Finaliza el viaje y cambia su estado a “Completado”.
+- cancelTrip(reason): Cancela el viaje y registra el motivo.
+
+---
+
+**Entity: Route**
+
+**Propósito principal**  
+Representar la ruta de un viaje como una entidad con identidad propia, capaz de almacenar y gestionar la información de los tramos, distancias y duración total.
+
+**Atributos principales**
+
+- routeId: Identificador único de la ruta.
+- origin: Punto de inicio.
+- destination: Punto final.
+- segments: Lista de tramos de la ruta.
+- totalDistance: Distancia total del viaje.
+- totalDuration: Duración total estimada.
+
+**Métodos principales**
+
+- addSegment(segment): Agrega un tramo adicional a la ruta.
+- updateDestination(newDestination): Cambia el destino de la ruta antes de iniciar el viaje.
+- recalculateTotals(): Recalcula la distancia y la duración total a partir de los segmentos actuales.
+
+---
+
+**Value Object: GeoCoordinate**
+
+**Propósito principal**  
+Representar un punto geográfico inmutable.
+
+**Atributos principales**
+
+- latitude: Latitud válida.
+- longitude: Longitud válida.
+
+---
+
+**Value Object: RouteSegment**
+
+**Propósito principal**  
+Modelar un tramo de ruta entre dos puntos.
+
+**Atributos principales**
+
+- coordinates: Lista de coordenadas que forman el tramo.
+- distance: Distancia recorrida en el segmento.
+- duration: Tiempo estimado del segmento.
+
+---
+
+**Value Object: Distance**
+
+**Propósito principal**  
+Expresar una magnitud de distancia.
+
+**Atributos principales**
+
+- value: Cantidad numérica de la distancia.
+- unit: Unidad de medida (ej. km).
+
+---
+
+**Value Object: Duration**
+
+**Propósito principal**  
+Expresar un intervalo de tiempo.
+
+**Atributos principales**
+
+- value: Cantidad numérica de tiempo.
+- unit: Unidad de medida (ej. minutos).
+
+---
+
+**Value Object: TripStatus**
+
+**Propósito principal**  
+Representar el estado del viaje en su ciclo de vida.
+
+**Atributos principales**
+
+- status: Valor posible (PENDING, IN_PROGRESS, COMPLETED, CANCELLED).
+
+---
+
+**Aggregate: TripAggregate**
+
+**Propósito principal**  
+Asegurar la consistencia de un viaje como unidad de negocio.
+
+**Métodos principales**
+
+- validateTripReady(): Verifica que el viaje tenga cliente, conductor, vehículo y ruta antes de iniciar.
+
+---
+
+**Factory: TripFactory**
+
+**Propósito principal**  
+Crear instancias de **Trip** en estado inicial válido.
+
+**Métodos principales**
+
+- createTrip(clientId, driverId, vehicleId, route): Genera un viaje en estado PENDING con todos los datos requeridos.
+
+---
+
+**Domain Service: RoutePlanningService**
+
+**Propósito principal**  
+Encapsular la lógica de planificación de rutas.
+
+**Métodos principales**
+
+- generateRoute(origin, destination): Construye una ruta válida con segmentos, distancia y duración.
+
+---
+
+**Domain Service: TripSchedulerService**
+
+**Propósito principal**  
+Validar disponibilidad de recursos antes de asignarlos a un viaje.
+
+**Métodos principales**
+
+- checkDriverAvailability(driverId, timeRange): Verifica si un conductor está libre.
+- checkVehicleAvailability(vehicleId, timeRange): Verifica si un vehículo está disponible.
+
+---
+
+**Command: CreateTripCommand**
+
+**Propósito**  
+Crear un nuevo viaje en estado PENDING con las referencias de cliente, conductor, vehículo y ruta.
+
+**Parámetros**
+
+- clientId: Identificador del cliente.
+- driverId: Identificador del conductor.
+- vehicleId: Identificador del vehículo.
+- route: Ruta completa del viaje.
+
+---
+
+**Command: AssignDriverToTripCommand**
+
+**Propósito**  
+Asignar un conductor disponible a un viaje existente y actualizar la referencia correspondiente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- driverId: Identificador del conductor.
+
+---
+
+**Command: AssignVehicleToTripCommand**
+
+**Propósito**  
+Asignar un vehículo disponible a un viaje existente y actualizar la referencia correspondiente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- vehicleId: Identificador del vehículo.
+
+---
+
+**Command: StartTripCommand**
+
+**Propósito**  
+Iniciar un viaje, cambiando su estado a EN CURSO y registrando la hora exacta de inicio.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+
+---
+
+**Command: CompleteTripCommand**
+
+**Propósito**  
+Finalizar un viaje, cambiando su estado a COMPLETADO y registrando la hora de cierre.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+
+---
+
+**Command: CancelTripCommand**
+
+**Propósito**  
+Cancelar un viaje, actualizar su estado a CANCELADO y guardar la razón de la cancelación.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- reason: Motivo de la cancelación.
+
+---
+
+**Command: UpdateRouteForTripCommand**
+
+**Propósito**  
+Actualizar la ruta de un viaje antes de que inicie, garantizando que la información sea válida y actualizada.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- newRoute: Nueva ruta a asociar.
+
+**Query: GetTripByIdQuery**
+
+**Propósito**  
+Obtener la información completa de un viaje específico mediante su identificador único.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+
+---
+
+**Query: GetTripsByStatusQuery**
+
+**Propósito**  
+Listar los viajes filtrados por su estado (Pendiente, En curso, Completado o Cancelado).
+
+**Parámetros**
+
+- status: Estado de los viajes a consultar.
+
+---
+
+**Query: GetTripsByClientIdQuery**
+
+**Propósito**  
+Obtener todos los viajes asociados a un cliente específico.
+
+**Parámetros**
+
+- clientId: Identificador único del cliente.
+
+---
+
+**Query: GetAllTripsQuery**
+
+**Propósito**  
+Recuperar todos los viajes registrados en el sistema, sin aplicar filtros.
+
+**Parámetros**  
+_(No requiere parámetros)_
+
+---
+
+**Event: TripCreatedEvent**
+
+**Propósito**  
+Notificar que un nuevo viaje ha sido creado en el sistema.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- clientId: Identificador del cliente.
+- driverId: Identificador del conductor asignado.
+- vehicleId: Identificador del vehículo asignado.
+- route: Ruta definida para el viaje.
+- createdAt: Fecha y hora en que se creó el viaje.
+
+---
+
+**Event: DriverAssignedEvent**
+
+**Propósito**  
+Notificar que un conductor fue asignado a un viaje.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- driverId: Identificador del conductor asignado.
+- assignedAt: Fecha y hora de la asignación.
+
+---
+
+**Event: VehicleAssignedEvent**
+
+**Propósito**  
+Notificar que un vehículo fue asignado a un viaje.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- vehicleId: Identificador del vehículo asignado.
+- assignedAt: Fecha y hora de la asignación.
+
+---
+
+**Event: TripStartedEvent**
+
+**Propósito**  
+Notificar que un viaje ha iniciado oficialmente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- startedAt: Fecha y hora de inicio del viaje.
+
+---
+
+**Event: TripCompletedEvent**
+
+**Propósito**  
+Notificar que un viaje se ha completado satisfactoriamente.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- completedAt: Fecha y hora de finalización del viaje.
+
+---
+
+**Event: TripCancelledEvent**
+
+**Propósito**  
+Notificar que un viaje ha sido cancelado.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- reason: Motivo de la cancelación.
+- cancelledAt: Fecha y hora en que se canceló el viaje.
+
+#### 4.2.5.2. Interface Layer.
+
+**Controllers**
+
+- TripController: Controlador que maneja las solicitudes relacionadas con los viajes. Atiende operaciones como crear un nuevo viaje, asignar un conductor, actualizar la ruta, iniciar, completar o cancelar un viaje, así como consultar información de viajes por identificador, estado, cliente o recuperar todos los viajes registrados.
+
+- RouteController: Controlador que maneja las solicitudes relacionadas con las rutas de los viajes. Permite registrar una nueva ruta, actualizarla antes del inicio de un viaje y consultar la información de rutas específicas o asociadas a un viaje.
+
+#### 4.2.5.3. Application Layer.
+
+**Command Services**
+
+- TripCommandService: Se encarga de recibir y coordinar los comandos relacionados a un viaje. Dentro de él se manejan distintos handlers, cada uno especializado en ejecutar un comando específico como iniciar, completar, cancelar o asignar recursos al viaje.
+
+- RouteCommandService: Se encarga de coordinar los comandos relacionados con rutas. Administra la creación, actualización y recalculo de rutas para garantizar que los trayectos estén completos y actualizados antes de iniciar un viaje.
+
+---
+
+**Query Services**
+
+- TripQueryService: Se encarga de atender las consultas relacionadas a los viajes. Contiene handlers que procesan queries para obtener información, por ejemplo: consultar un viaje por su identificador, listar viajes por estado o recuperar todos los viajes de un cliente.
+
+- RouteQueryService: Atiende las consultas relacionadas a las rutas de los viajes. Permite obtener información de rutas específicas o de las rutas asociadas a un viaje.
+
+---
+
+**Event Services**
+
+- TripEventService: Se encarga de atender los eventos relacionados a un viaje. Dentro de él se gestionan distintos servicios especializados que reaccionan a cada evento, como creación, asignación de recursos, inicio, finalización o cancelación del viaje, ejecutando las acciones necesarias después de que ocurren.
+
+#### 4.2.5.4. Infrastructure Layer.
+
+**Repositories**
+
+- ITripRepository: Repositorio que define las operaciones de acceso a los viajes, como guardar, actualizar y recuperar información de un viaje.
+- IRouteRepository: Repositorio que define las operaciones de acceso a las rutas, como registrar nuevas rutas, actualizarlas y consultarlas en relación con un viaje.
+
+#### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams.
+
+Diagrama de componentes - Backend - Trip Management
+
+<img src="assets/C4/TripManagement-C4-Backend-Diagram.png"/>
+
+Diagrama de componentes - Application Web - Trip Management
+
+<!-- <img src="assets/C4/Alert-C4-WebApp-Diagram.png"/> -->
+
+Diagrama de componentes - Mobile App - Trip Management
+
+<!-- <img src="assets/C4/Alert-C4-Mobile-Diagram.png"/> -->
+
+#### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
+
+##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.
+
+![Trip Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-Class-Diagram.puml)
+
+##### 4.2.5.6.2. Bounded Context Database Design Diagram.
+
+![Trip Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-DataBase-Diagram.puml)
