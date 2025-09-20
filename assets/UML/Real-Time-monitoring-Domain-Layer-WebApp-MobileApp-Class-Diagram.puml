@@ -1,0 +1,111 @@
+@startuml
+title WebApp / Mobile App Class Diagram
+
+class MonitoringSession {
+    ○ sessionId: number
+    ○ tripId: number
+    ○ status: string
+    ○ temperatureRange: object
+    ○ startTime: Date
+    ○ endTime: Date
+    ○ currentReading: object
+}
+
+class TelemetryData {
+    ○ dataId: number
+    ○ sessionId: number
+    ○ temperature: number
+    ○ humidity: number
+    ○ vibration: number
+    ○ latitude: number
+    ○ longitude: number
+    ○ timestamp: Date
+    ○ deviceStatus: string
+}
+
+class LiveMapData {
+    ○ sessionId: number
+    ○ currentLocation: object
+    ○ route: object
+    ○ markers: array
+    ○ temperatureStatus: string
+    ○ lastUpdate: Date
+}
+
+class ChartData {
+    ○ sessionId: number
+    ○ timeLabels: array
+    ○ temperatureValues: array
+    ○ humidityValues: array
+    ○ vibrationValues: array
+    ○ alerts: array
+}
+
+class Alert {
+    ○ alertId: number
+    ○ sessionId: number
+    ○ type: string
+    ○ severity: string
+    ○ message: string
+    ○ timestamp: Date
+    ○ isRead: boolean
+}
+
+class DeviceStatus {
+    ○ deviceId: number
+    ○ sessionId: number
+    ○ status: string
+    ○ batteryLevel: number
+    ○ signalStrength: number
+    ○ lastSeen: Date
+}
+
+class TemperatureRange {
+    ○ minTemperature: number
+    ○ maxTemperature: number
+    ○ unit: string
+    ○ isViolated: boolean
+}
+
+class Location {
+    ○ latitude: number
+    ○ longitude: number
+    ○ accuracy: number
+    ○ address: string
+}
+
+class Incident {
+    ○ incidentId: number
+    ○ sessionId: number
+    ○ alertId: number
+    ○ description: string
+    ○ status: string
+    ○ createdAt: Date
+    ○ resolvedAt: Date
+}
+
+class Notification {
+    ○ notificationId: number
+    ○ sessionId: number
+    ○ title: string
+    ○ message: string
+    ○ type: string
+    ○ isRead: boolean
+    ○ sentAt: Date
+}
+
+' Relationships
+MonitoringSession ||--|| TemperatureRange
+MonitoringSession ||--o{ TelemetryData
+MonitoringSession ||--|| LiveMapData
+MonitoringSession ||--|| ChartData
+MonitoringSession ||--o{ Alert
+MonitoringSession ||--|| DeviceStatus
+
+TelemetryData ||--|| Location
+Alert ||--o| Incident
+Alert ||--o| Notification
+
+LiveMapData ||--|| Location
+
+@enduml

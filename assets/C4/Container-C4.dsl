@@ -8,38 +8,34 @@ workspace "CargaSafe - Container Diagram" "C4 Level 2: Containers of the CargaSa
 
     cargasafe = softwareSystem "CargaSafe (SaaS)" "Cold chain monitoring, alerts and traceability for logistics trips." {
 
-      landing = container "Landing Page" "HTML/CSS" "Public marketing site and redirects to the apps."
-      webapp  = container "Web Frontend" "Angular" "Operations UI for operators."
-      singleWeb = container "Single Web" "SPA/SSR" "Public tracking and report views (read-only)."
+      landing = container "Landing Page" "Public marketing site and redirects to the apps." "HTML/CSS"
+      webapp  = container "Web App" "Operations UI for operators." "Angular"
 
-      mobile  = container "Mobile App" "Flutter" "Mobile application for drivers; offline-first."
-      backend = container "Backend API" "Spring Boot" "Domain logic, trip management, monitoring sessions, alert orchestration."
+      mobile  = container "Mobile App" "Mobile application for drivers; offline-first." "Flutter"
+      backend = container "Backend API" "Domain logic, trip management, monitoring sessions, alert orchestration." "Spring Boot"
 
-      db = container "Relational Database" "PostgreSQL" "Persistent storage: users, vehicles, devices, trips, telemetry, alerts, subscriptions." {
+      db = container "Relational Database" "Persistent storage: users, vehicles, devices, trips, telemetry, alerts, subscriptions." "PostgreSQL" {
         tags "Database"
       }
 
-      embeddedApp = container "Embedded Application" "C++" "Lightweight embedded app/component that runs on constrained environments to capture data and buffer events for later sync."
-      edgeApp     = container "Edge Application" "Python" "On-prem/edge agent for depots/vehicles: local processing, caching and reliable sync with Backend API during intermittent connectivity."
-      edgeDb      = container "Edge Database" "SQLite/Embedded DB" "Local storage for edge caching, spool and retry." {
+      embeddedApp = container "Embedded Application" "Lightweight embedded app/component that runs on constrained environments to capture data and buffer events for later sync." "C++"
+      edgeApp     = container "Edge Application" "On-prem/edge agent for depots/vehicles: local processing, caching and reliable sync with Backend API during intermittent connectivity." "Python"
+      edgeDb      = container "Edge Database" "Local storage for edge caching, spool and retry." "SQLite/Embedded DB" {
         tags "Database"
       }
 
-      mobileDb = container "Database (Mobile)" "SQLite/Isar" "Local storage for offline-first UX: trips, checkpoints, media, pending events." {
+      mobileDb = container "Database (Mobile)" "Local storage for offline-first UX: trips, checkpoints, media, pending events." "SQLite/Isar" {
         tags "Database"
       }
 
       operator    -> webapp   "Uses (manage trips, fleet, reports)"
       driver      -> mobile   "Uses (trip instructions, status updates)"
-      endCustomer -> singleWeb "Views public tracking and reports"
       endCustomer -> mobile   "Receives status links/notifications"
 
       landing -> webapp    "Redirects/sign-in links"
-      landing -> singleWeb "Redirects to public tracking"
       landing -> mobile    "App download / deep links"
 
       webapp  -> backend   "API calls (REST/JSON)"
-      singleWeb -> backend "API calls (REST/JSON) – read-only"
       mobile  -> backend   "API calls (REST/JSON, background sync)"
 
       mobile  -> mobileDb  "Reads/Writes (offline cache)"
@@ -56,9 +52,9 @@ workspace "CargaSafe - Container Diagram" "C4 Level 2: Containers of the CargaSa
     fcm          = softwareSystem "Firebase Cloud Messaging" "Push notifications to mobile/web."
     sendgrid     = softwareSystem "SendGrid" "Email delivery service for notifications and reports."
 
-    backend      -> gmaps   "Requests routes and ETA"
-    backend      -> stripe  "Processes subscription payments"
-    backend      -> fcm     "Sends push notifications"
+    backend      -> gmaps    "Requests routes and ETA"
+    backend      -> stripe   "Processes subscription payments"
+    backend      -> fcm      "Sends push notifications"
     backend      -> sendgrid "Sends email notifications and reports"
   }
 

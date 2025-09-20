@@ -1,0 +1,121 @@
+@startuml
+
+entity SessionStatus {
+    ○ status_id : int <<PK>>
+    --
+    name : varchar
+}
+
+entity SignalStatus {
+    ○ status_id : int <<PK>>
+    --
+    name : varchar
+}
+
+entity AlertType {
+    ○ type_id : int <<PK>>
+    --
+    name : varchar
+}
+
+entity IncidentStatus {
+    ○ status_id : int <<PK>>
+    --
+    name : varchar
+}
+
+entity MonitoringSession {
+    ○ session_id : bigint <<PK>>
+    --
+    trip_id : bigint
+    status_id : int <<FK>>
+    min_temperature : decimal
+    max_temperature : decimal
+    temperature_unit : varchar
+    start_time : timestamp
+    end_time : timestamp
+    created_at : timestamp
+}
+
+entity TelemetryData {
+    ○ data_id : bigint <<PK>>
+    --
+    session_id : bigint <<FK>>
+    device_id : varchar
+    temperature_value : decimal
+    temperature_unit : varchar
+    humidity_value : decimal
+    humidity_unit : varchar
+    vibration_value : decimal
+    vibration_unit : varchar
+    latitude : decimal
+    longitude : decimal
+    signal_status_id : int <<FK>>
+    timestamp : timestamp
+    created_at : timestamp
+}
+
+entity Alert {
+    ○ alert_id : bigint <<PK>>
+    --
+    session_id : bigint <<FK>>
+    data_id : bigint <<FK>>
+    type_id : int <<FK>>
+    severity : varchar
+    message : text
+    violated_parameter : varchar
+    threshold_value : decimal
+    actual_value : decimal
+    created_at : timestamp
+}
+
+entity Incident {
+    ○ incident_id : bigint <<PK>>
+    --
+    session_id : bigint <<FK>>
+    alert_id : bigint <<FK>>
+    status_id : int <<FK>>
+    description : text
+    assigned_to : varchar
+    created_at : timestamp
+    resolved_at : timestamp
+}
+
+entity DeviceStatus {
+    ○ device_status_id : bigint <<PK>>
+    --
+    session_id : bigint <<FK>>
+    device_id : varchar
+    battery_level : decimal
+    signal_strength : decimal
+    last_seen : timestamp
+    is_online : boolean
+    created_at : timestamp
+}
+
+entity MonitoringLog {
+    ○ log_id : bigint <<PK>>
+    --
+    session_id : bigint <<FK>>
+    event_type : varchar
+    event_description : text
+    metadata : json
+    created_at : timestamp
+}
+
+' Relationships
+SessionStatus ||--o{ MonitoringSession : 1:N
+SignalStatus ||--o{ TelemetryData : 1:N
+AlertType ||--o{ Alert : 1:1
+IncidentStatus ||--o{ Incident : 1:1
+
+MonitoringSession ||--o{ TelemetryData : 1:N
+MonitoringSession ||--o{ Alert : 1:N
+MonitoringSession ||--o{ Incident : 1:N
+MonitoringSession ||--o{ DeviceStatus : 1:N
+MonitoringSession ||--o{ MonitoringLog : 1:N
+
+TelemetryData ||--o{ Alert : 1:N
+Alert ||--o| Incident : 1:N
+
+@enduml
