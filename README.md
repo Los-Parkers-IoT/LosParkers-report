@@ -552,7 +552,7 @@ Responsabilidad: Ingestar y evaluar telemetría (temperatura/GPS/humedad) contra
 
 ### 4.2.2. Bounded Context: _Subscriptions and Billing_
 
-4.2.2.1. Domain Layer
+### 4.2.2.1. Domain Layer
 
 _Entities_
 
@@ -611,7 +611,7 @@ _Entities_
 **SubscriptionCanceled**: Suscripción cancelada.
 **PaymentSucceeded / PaymentFailed**: Resultado de pago.
 
-4.2.2.2. Interface Layer
+### 4.2.2.2. Interface Layer
 
 **Controllers**
 
@@ -620,7 +620,7 @@ _Entities_
 - **PlanController**: Endpoints para listar planes disponibles.
 - **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
 
-  4.2.2.3. Application Layer
+### 4.2.2.3. Application Layer
 
 **Command Services**
 
@@ -637,7 +637,7 @@ _Entities_
 - **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
 - **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
 
-  4.2.2.4. Infrastructure Layer
+### 4.2.2.4. Infrastructure Layer
 
 **Repositories (Interfaces)**
 
@@ -711,7 +711,7 @@ Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos de
 
 #### 4.2.3.1. Domain Layer
 
-### Entidades (Entities)
+**Entidades (Entities)**
 
 **Entity: Alert (Aggregate Root)**  
 **Propósito principal**  
@@ -756,7 +756,7 @@ Registrar un evento relacionado con un viaje que se crea a partir de una alerta.
   **Métodos principales**
 - resolve(description): Marca el incidente como resuelto con detalles.
 
-### Objetos de Valor (Value Objects)
+**Objetos de Valor (Value Objects)**
 
 - AlertType: clasifica los tipos de alertas (OutOfRange, Offline, RouteDeviation).
 - AlertStatus: define en qué etapa se encuentra la alerta (Open, Acknowledged, Closed).
@@ -764,7 +764,7 @@ Registrar un evento relacionado con un viaje que se crea a partir de una alerta.
 - PersistenceWindow: define el tiempo mínimo que debe cumplirse para que un evento se considere válido como alerta.
 - SensorType: clasifica la fuente de monitoreo (TEMPERATURE, HUMIDITY, VIBRATION, TILT, LOCATION, BATTERY).
 
-#### Commands
+**Commands**
 
 **Command: CreateAlertCommand**  
 **Parámetros**
@@ -808,7 +808,7 @@ Registrar un evento relacionado con un viaje que se crea a partir de una alerta.
   **Cómo funciona**  
   Ordena enviar una notificación al canal definido (Email, SMS, FCM) para informar al usuario o empresa sobre la alerta.
 
-#### Queries
+**Queries**
 
 **Query: GetAlertByIdQuery**  
 **Parámetros**
@@ -845,7 +845,7 @@ Registrar un evento relacionado con un viaje que se crea a partir de una alerta.
   **Cómo funciona**  
   Obtiene todos los incidentes generados a partir de una alerta determinada.
 
-### Events
+**Events**
 
 **Event: AlertCreatedEvent**  
 Se emite cuando una nueva alerta es registrada en el sistema.
@@ -865,22 +865,16 @@ Se emite al enviar una notificación a un usuario o empresa.
 **Event: IncidentCreatedEvent**  
 Se emite cuando se genera un incidente a partir de una alerta.
 
-### Fábricas (Factories)
+**Fábricas (Factories)**
 
 - AlertFactory: encapsula la lógica de creación de una alerta a partir de eventos recibidos (ejemplo: sensor fuera de rango).
 - IncidentFactory: crea incidentes asociados a un viaje cuando una alerta lo requiere.
-
-### Repositorios (Interfaces)
-
-- AlertRepository: interfaz para guardar, actualizar y recuperar alertas.
-- NotificationRepository: interfaz para manejar el historial y el estado de notificaciones.
-- IncidentRepository: interfaz para registrar incidentes asociados a viajes
 
 #### 4.2.3.2. Interface Layer
 
 En esta capa se definen **Controllers (REST)**.
 
-## Controllers (REST — Spring Web)
+**Controllers (REST — Spring Web)**
 
 **AlertController**  
 Este controlador permite crear nuevas alertas a partir de eventos detectados, reconocer (ACK) alertas activas, cerrarlas una vez reconocidas, y obtener tanto el detalle de una alerta específica como la lista de alertas activas (estados OPEN o ACKNOWLEDGED).
@@ -893,11 +887,11 @@ Permite crear incidentes vinculados a una alerta y un viaje, y consultar el deta
 
 #### 4.2.3.3. Application Layer
 
-## Command Services
+**Command Services**
 
 - AlertCommandService: Ejecuta todos los comandos de las alertas.
 
-## Event Services
+**Event Services**
 
 - OutOfRangeDetectedEvent: maneja eventos de sensores fuera de rango.
 - DeviceOfflineDetectedEvent: maneja eventos de desconexión de dispositivos.
@@ -910,7 +904,7 @@ Permite crear incidentes vinculados a una alerta y un viaje, y consultar el deta
 - TiltOrDumpDetectedEvent: maneja vuelcos o inclinaciones.
 - LowBatteryDetectedEvent: maneja alerta de energía.
 
-## Query Services
+**Query Services**
 
 - AlertQueryService: Consulta las alertas.
 
