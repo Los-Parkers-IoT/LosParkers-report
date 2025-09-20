@@ -65,7 +65,7 @@
       </table>
       <p style="text-align: center">
         <br />
-        <strong>Agosto 2025</strong>
+        <strong>Setiembre 2025</strong>
       </p>
     </div>
 
@@ -74,9 +74,9 @@
 
 # Registro de Versiones del Informe
 
-| Versión | Fecha | Autor | Descripción de modificación |
-| ------- | ----- | ----- | --------------------------- |
-| 1.0     |       |       |                             |
+| Versión | Fecha      | Autor                   | Descripción de modificación                                                                                                                                                                                                                                                                                                                              |
+| ------- | ---------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.0     | 20/09/2025 | Todos los participantes | Se entregó una primera entrega del informe con los siguientes apartados: Carátula, Registro de Versiones, Project Report Collaboration Insights, Contenido, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design y Bibliografía. |
 
 ---
 
