@@ -840,21 +840,21 @@ Los clientes finales son los consumidores de los productos transportados por las
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
-- **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa consumidora]
-- **Empresa/Sector**: [Nombre de la empresa o sector de actividad]
-- **Enlace**: [URL del video de la entrevista]
+- **Nombre**: Brenda Calderon
+- **Edad**: 20 años
+- **Ocupación**: Trabajadora de medio tiempo en un minimarket, responsable de compras de insumos para refrigeración
+- **Empresa/Sector**: Retail alimentario local – Consumo final
+- **Enlace**: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/ETZJCs5-UXdFnmhsbphFM7gBm-D9N0q1TO-57qQHVY9bNg?e=2AZjQ6&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
   <img src="assets/entrevista_cliente_2.png">
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
-- **Edad**: [Edad] años
-- **Ocupación**: [Cargo/Rol en la empresa consumidora]
-- **Empresa/Sector**: [Nombre de la empresa o sector de actividad]
-- **Enlace**: [URL del video de la entrevista]
+- **Nombre**: Gabriel Díaz
+- **Edad**: 26 años
+- **Ocupación**: Responsable de recepción y control de productos sensibles a temperatura.
+- **Empresa/Sector**: Sector de salud
+- **Enlace**: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EcMuUYlqskNEqzaICMJSTwIBwtDXay1luNLbNZm9ulDSZw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=nQqEpO 
 
   <img src="assets/entrevista_cliente_3.png">
 
@@ -864,12 +864,17 @@ Los clientes finales son los consumidores de los productos transportados por las
 
 ### Segmento 1: Empresa
 
-- **Nombre**: [Nombre del entrevistado]
+- **Nombre**: Miguel Ruiz
 
-- **Entrevistador**: [Nombre del entrevistador]
+- **Entrevistador**: Jefrey Sanchez Ignacio
 
-  [...].
+**Situación Actual:** Miguel Ruiz Sánchez es gestor de transporte de coolers en una empresa logística. Actualmente manejan el monitoreo de temperatura de forma completamente manual - los conductores verifican los coolers durante las paradas usando termómetros digitales y reportan problemas por teléfono. Solo cuentan con GPS básico que no es muy preciso.
 
+**Principales Problemas:** No tienen monitoreo en tiempo real, las alertas dependen de que los conductores llamen cuando algo falla, y esto genera retrasos en las entregas que molestan a los clientes. Cuando un cooler se daña, tienen que enviar otro transporte de emergencia para salvar el producto. Para justificarse ante clientes molestos, solo pueden mostrar reportes de ruta básicos.
+
+**Necesidades Identificadas:** Miguel necesita urgentemente un sistema de monitoreo en tiempo real, alertas automáticas cuando la temperatura llegue a niveles críticos, y reportes sencillos. También mencionó que le gustaría tener un dashboard, aunque no está muy seguro del concepto. Quiere que los clientes puedan verificar remotamente el estado de sus pedidos desde una computadora.
+
+**Disposición de Pago:** Está dispuesto a contratar un servicio que solucione estos problemas, preferiblemente con suscripción mensual o mejor aún, un pago anual para evitar gestiones mensuales. Ve esto como una inversión para recuperar la confianza de los clientes y tener soporte 24/7.
   <br/>
 
 - **Nombre**: [Nombre del entrevistado]
@@ -896,19 +901,19 @@ Los clientes finales son los consumidores de los productos transportados por las
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
+- **Nombre**: Brenda Calderon
 
-- **Entrevistador**: [Nombre del entrevistador]
+- **Entrevistador**: Nicolas Vera
 
-  [...]
+  La entrevistada Brenda Carolina, compradora frecuente de alimentos online, manifiesta que al recibir productos sensibles a temperatura verifica el empaque, la ausencia de humedad, que los alimentos lleguen fríos al tacto y que la fecha de vencimiento esté visible, ya que ha tenido experiencias negativas como rechazar un lote de yogures en mal estado. Señala que los reportes de temperatura que recibe de los proveedores suelen ser genéricos y poco confiables, por lo que considera fundamental contar con registros más detallados y trazables en tiempo real. Para ella, la información más valiosa incluye la temperatura a lo largo del trayecto, retrasos o eventos que afecten la cadena de frío, y prefiere acceder a estos datos mediante un portal o aplicación con notificaciones breves y claras. Valora interfaces simples con gráficos fáciles de interpretar, así como funcionalidades como alertas en tiempo real, reportes descargables e historial de pedidos, y espera que un sistema IoT le brinde mayor seguridad y control en sus compras, aunque le preocupa el costo de implementación y la confiabilidad técnica de los equipos.
 
   <br/>
 
-- **Nombre**: [Nombre del entrevistado]
+- **Nombre**: Gabriel Díaz
 
-- **Entrevistador**: [Nombre del entrevistador]
+- **Entrevistador**: Daniel Arevalo
 
-  [...]
+  El entrevistado Gabriel Díaz, responsable de recepción y control de productos sensibles a temperatura en el sector salud, expone la problemática de confiar únicamente en reportes básicos y revisiones visuales al recibir insumos médicos, lo que genera incertidumbre sobre la cadena de frío. Destaca la necesidad de contar con un monitoreo continuo y alertas en tiempo real para actuar preventivamente, ya que ha debido rechazar pedidos por fallas en la temperatura. Su interés en un sistema IoT refleja la importancia que le asigna a la trazabilidad, la seguridad y la eficiencia, aunque expresa preocupación por los costos y la dependencia de la conectividad.
 
 ## 2.3. Needfinding
 
@@ -1399,7 +1404,7 @@ Asimismo, se destacan las interacciones con sistemas externos que complementan l
 
 En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus contenedores internos, las tecnologías que utilizamos y cómo se comunican entre sí y con los sistemas externos.
 
-![Software Architecture – Container Level Diagram](assets/Container_Diagram.png)
+![Software Architecture – Container Level Diagram](assets/Container_Diagram1.png)
 
 El diagrama de contenedores muestra cómo se organiza internamente CargaSafe (SaaS) y cómo se relaciona con los actores y sistemas externos.
 
@@ -1872,110 +1877,472 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 
 #### 4.2.4.1. Domain Layer.
 
-**Entities**
+**Entity: MonitoringSession (Aggregate Root)**
 
-- **MonitoringSession**: Representa una sesión de monitoreo para un viaje específico. Almacena el estado de la sesión, los parámetros de referencia (`TemperatureRange`) y las lecturas recibidas.
-- **TelemetryData**: Registra una única lectura de un sensor, incluyendo temperatura, humedad, vibración, ubicación y la hora de la lectura.
+**Propósito principal**  
+Representar una sesión de monitoreo para un viaje específico y centralizar su ciclo de vida, asegurando que se cumplan las reglas de negocio relacionadas con la captura y validación de datos de telemetría.
 
-**Value Objects**
+**Atributos principales**
 
-- **SensorReading**: Encapsula los datos de una lectura específica (ej. temperatura, humedad).
-- **TemperatureRange**: Define los límites mínimos y máximos de temperatura aceptables.
-- **Location**: Representa las coordenadas geográficas (latitud, longitud).
-- **SignalStatus**: Indica el estado de la conexión del dispositivo (ONLINE, OFFLINE).
-- **SessionStatus**: Describe el estado de una sesión (ACTIVE, INACTIVE, COMPLETED).
+- sessionId: Identificador único de la sesión de monitoreo.
+- tripId: Identificador del viaje asociado.
+- status: Estado de la sesión (ACTIVE, INACTIVE, COMPLETED, PAUSED).
+- temperatureRange: Rango de temperatura aceptable para el viaje.
+- startTime: Fecha y hora de inicio de la sesión.
+- endTime: Fecha y hora de finalización de la sesión.
 
-**Agregados (Aggregates)**
+**Métodos principales**
 
-- **MonitoringSessionAggregate**: Agrupa la `MonitoringSession` con sus `TelemetryData` relacionadas, asegurando que todas las lecturas de un viaje estén coherentemente gestionadas bajo una única sesión.
-
-**Factories**
-
-- **MonitoringSessionFactory**: Crea una nueva sesión de monitoreo a partir de los datos de un viaje.
-
-**Domain Services**
-
-- **DataIngestionService**: Procesa y valida las lecturas de telemetría entrantes desde los dispositivos IoT.
-- **RuleEvaluationService**: Analiza las lecturas en tiempo real para detectar violaciones de parámetros.
-- **DataEnrichmentService**: Enriquece los datos de telemetría con información adicional (ej. ruta).
-
-**Repositories (interfaces)**
-
-- **IMonitoringSessionRepository**: Contrato para guardar y recuperar sesiones de monitoreo.
-- **ITelemetryDataRepository**: Contrato para persistir y consultar las lecturas de telemetría.
-
-**Commands**
-
-- **StartMonitoringSessionCommand**: Orden para iniciar una nueva sesión de monitoreo para un viaje.
-- **EndMonitoringSessionCommand**: Orden para cerrar una sesión de monitoreo.
-
-**Queries**
-
-- **GetMonitoringSessionByIdQuery**: Consulta que devuelve el estado actual de una sesión de monitoreo.
-- **GetTelemetryDataBySessionQuery**: Consulta que devuelve lecturas de telemetría de una sesión.
-
-**Events**
-
-- **MonitoringSessionStartedEvent**: Evento que se emite cuando se inicia una sesión de monitoreo.
-- **MonitoringSessionCompletedEvent**: Evento que se emite cuando una sesión se completa.
-- **OutOfRangeDetectedEvent**: Evento que se emite cuando una lectura de sensor está fuera de rango.
-- **DeviceOfflineDetectedEvent**: Evento que se emite cuando un dispositivo IoT deja de enviar datos.
-- **TelemetryDataReceivedEvent**: Evento que se emite con cada lectura de sensor procesada.
+- startSession(): Inicia la sesión de monitoreo y cambia su estado a "ACTIVE".
+- endSession(): Finaliza la sesión de monitoreo y cambia su estado a "COMPLETED".
+- pauseSession(): Pausa temporalmente la sesión de monitoreo.
+- resumeSession(): Reanuda una sesión pausada.
+- addTelemetryData(data): Agrega una nueva lectura de telemetría a la sesión.
+- isActive(): Verifica si la sesión está activa.
 
 ---
+
+**Entity: TelemetryData**
+
+**Propósito principal**  
+Representar una única lectura de sensor con identidad propia, capaz de almacenar y gestionar información específica de temperatura, humedad, vibración y ubicación.
+
+**Atributos principales**
+
+- dataId: Identificador único de la lectura de telemetría.
+- sessionId: Identificador de la sesión de monitoreo asociada.
+- sensorReading: Datos específicos de la lectura del sensor.
+- location: Coordenadas geográficas de la lectura.
+- timestamp: Fecha y hora de la lectura.
+- deviceId: Identificador del dispositivo IoT.
+
+**Métodos principales**
+
+- isWithinRange(range): Verifica si la lectura está dentro del rango aceptable.
+- getTemperature(): Obtiene el valor de temperatura de la lectura.
+- getHumidity(): Obtiene el valor de humedad de la lectura.
+- getVibration(): Obtiene el valor de vibración de la lectura.
+
+---
+
+**Entity: Incident**
+
+**Propósito principal**  
+Representar un incidente detectado durante el monitoreo como una entidad con identidad propia.
+
+**Atributos principales**
+
+- incidentId: Identificador único del incidente.
+- sessionId: Identificador de la sesión de monitoreo asociada.
+- alertType: Tipo de alerta que generó el incidente.
+- description: Descripción detallada del incidente.
+- createdAt: Fecha y hora de creación del incidente.
+- status: Estado del incidente (OPEN, IN_PROGRESS, RESOLVED, ESCALATED).
+
+**Métodos principales**
+
+- resolve(description): Marca el incidente como resuelto.
+- escalate(): Escala el incidente a un nivel superior.
+- updateStatus(newStatus): Actualiza el estado del incidente.
+
+---
+
+**Value Object: SensorReading**
+
+**Propósito principal**  
+Encapsular los datos de una lectura específica de sensores de forma inmutable.
+
+**Atributos principales**
+
+- temperature: Valor de temperatura medido.
+- humidity: Valor de humedad medido.
+- vibration: Valor de vibración medido.
+- signalStatus: Estado de la señal del dispositivo.
+
+---
+
+**Value Object: TemperatureRange**
+
+**Propósito principal**  
+Definir los límites mínimos y máximos de temperatura aceptables para un viaje.
+
+**Atributos principales**
+
+- minTemperature: Temperatura mínima aceptable.
+- maxTemperature: Temperatura máxima aceptable.
+
+**Métodos principales**
+
+- isWithinRange(temperature): Verifica si una temperatura está dentro del rango.
+
+---
+
+**Value Object: Location**
+
+**Propósito principal**  
+Representar un punto geográfico inmutable con coordenadas precisas.
+
+**Atributos principales**
+
+- latitude: Latitud de la ubicación.
+- longitude: Longitud de la ubicación.
+
+**Métodos principales**
+
+- distanceTo(other): Calcula la distancia a otra ubicación.
+
+---
+
+**Value Object: SessionStatus**
+
+**Propósito principal**  
+Representar el estado de una sesión de monitoreo en su ciclo de vida.
+
+**Atributos principales**
+
+- status: Valor posible (ACTIVE, INACTIVE, COMPLETED, PAUSED).
+
+---
+
+**Value Object: SignalStatus**
+
+**Propósito principal**  
+Indicar el estado de conectividad del dispositivo IoT.
+
+**Atributos principales**
+
+- status: Valor posible (ONLINE, OFFLINE, WEAK_SIGNAL).
+
+---
+
+**Value Object: AlertType**
+
+**Propósito principal**  
+Clasificar los diferentes tipos de alertas que pueden generarse durante el monitoreo.
+
+**Atributos principales**
+
+- type: Valor posible (TEMPERATURE_HIGH, TEMPERATURE_LOW, DEVICE_OFFLINE, ROUTE_DEVIATION, VIBRATION_EXCESSIVE).
+
+---
+
+**Value Object: Temperature**
+
+**Propósito principal**  
+Expresar una magnitud de temperatura con su unidad correspondiente.
+
+**Atributos principales**
+
+- value: Valor numérico de la temperatura.
+- unit: Unidad de medida (ej. °C, °F).
+
+---
+
+**Value Object: Humidity**
+
+**Propósito principal**  
+Expresar un porcentaje de humedad relativa.
+
+**Atributos principales**
+
+- value: Valor numérico de humedad.
+- unit: Unidad de medida (ej. %).
+
+---
+
+**Value Object: Vibration**
+
+**Propósito principal**  
+Expresar una magnitud de vibración con su unidad correspondiente.
+
+**Atributos principales**
+
+- value: Valor numérico de vibración.
+- unit: Unidad de medida (ej. g, m/s²).
+
+---
+
+**Aggregate: MonitoringSessionAggregate**
+
+**Propósito principal**  
+Asegurar la consistencia de una sesión de monitoreo como unidad de negocio, agrupando la sesión con sus datos de telemetría relacionados.
+
+**Métodos principales**
+
+- validateSessionReady(): Verifica que la sesión tenga todos los parámetros necesarios antes de iniciar.
+- evaluateRules(): Evalúa las reglas de negocio sobre las lecturas recibidas.
+
+---
+
+**Factory: MonitoringSessionFactory**
+
+**Propósito principal**  
+Crear instancias de **MonitoringSession** en estado inicial válido.
+
+**Métodos principales**
+
+- createSession(tripId, temperatureRange): Genera una sesión de monitoreo en estado INACTIVE con todos los datos requeridos.
+- createFromTrip(trip): Crea una sesión basada en los datos de un viaje existente.
+
+---
+
+**Domain Service: DataIngestionService**
+
+**Propósito principal**  
+Encapsular la lógica de procesamiento y validación de datos de telemetría entrantes.
+
+**Métodos principales**
+
+- processIncomingData(rawData): Procesa datos brutos de telemetría y los convierte en TelemetryData válidos.
+- validateTelemetryData(data): Valida la integridad y consistencia de los datos de telemetría.
+
+---
+
+**Domain Service: RuleEvaluationService**
+
+**Propósito principal**  
+Analizar las lecturas en tiempo real para detectar violaciones de parámetros y generar alertas.
+
+**Métodos principales**
+
+- evaluateTemperatureRules(data, range): Evalúa si las lecturas de temperatura están dentro del rango aceptable.
+- evaluateDeviceConnectivity(lastReading): Verifica el estado de conectividad del dispositivo.
+- detectAnomalies(dataList): Detecta patrones anómalos en las lecturas de sensores.
+
+---
+
+**Domain Service: DataEnrichmentService**
+
+**Propósito principal**  
+Enriquecer los datos de telemetría con información contextual adicional.
+
+**Métodos principales**
+
+- enrichWithLocationData(data): Enriquece los datos con información geográfica adicional.
+- enrichWithRouteInformation(data): Agrega información de ruta a los datos de telemetría.
+
+---
+
+**Command: StartMonitoringSessionCommand**
+
+**Propósito**  
+Iniciar una nueva sesión de monitoreo para un viaje específico.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+- temperatureRange: Rango de temperatura aceptable para el monitoreo.
+
+---
+
+**Command: EndMonitoringSessionCommand**
+
+**Propósito**  
+Finalizar una sesión de monitoreo activa, cambiando su estado a COMPLETED.
+
+**Parámetros**
+
+- sessionId: Identificador único de la sesión de monitoreo.
+
+---
+
+**Command: PauseMonitoringSessionCommand**
+
+**Propósito**  
+Pausar temporalmente una sesión de monitoreo activa.
+
+**Parámetros**
+
+- sessionId: Identificador único de la sesión de monitoreo.
+
+---
+
+**Command: ResumeMonitoringSessionCommand**
+
+**Propósito**  
+Reanudar una sesión de monitoreo previamente pausada.
+
+**Parámetros**
+
+- sessionId: Identificador único de la sesión de monitoreo.
+
+---
+
+**Query: GetMonitoringSessionByIdQuery**
+
+**Propósito**  
+Obtener la información completa de una sesión de monitoreo específica mediante su identificador único.
+
+**Parámetros**
+
+- sessionId: Identificador único de la sesión de monitoreo.
+
+---
+
+**Query: GetTelemetryDataBySessionQuery**
+
+**Propósito**  
+Obtener todas las lecturas de telemetría asociadas a una sesión específica de monitoreo.
+
+**Parámetros**
+
+- sessionId: Identificador único de la sesión de monitoreo.
+- startTime: Fecha y hora de inicio del rango de consulta (opcional).
+- endTime: Fecha y hora de fin del rango de consulta (opcional).
+
+---
+
+**Query: GetActiveSessionsQuery**
+
+**Propósito**  
+Listar todas las sesiones de monitoreo que se encuentran actualmente activas.
+
+**Parámetros**  
+_(No requiere parámetros)_
+
+---
+
+**Query: GetSessionsByTripIdQuery**
+
+**Propósito**  
+Obtener todas las sesiones de monitoreo asociadas a un viaje específico.
+
+**Parámetros**
+
+- tripId: Identificador único del viaje.
+
+---
+
+**Event: MonitoringSessionStartedEvent**
+
+**Propósito**  
+Notificar que una nueva sesión de monitoreo ha sido iniciada.
+
+**Parámetros**
+
+- sessionId: Identificador único de la sesión de monitoreo.
+- tripId: Identificador del viaje asociado.
+- temperatureRange: Rango de temperatura configurado.
+- startedAt: Fecha y hora de inicio de la sesión.
+
+---
+
+**Event: MonitoringSessionCompletedEvent**
+
+**Propósito**  
+Notificar que una sesión de monitoreo se ha completado satisfactoriamente.
+
+**Parámetros**
+
+- sessionId: Identificador único de la sesión de monitoreo.
+- totalReadings: Número total de lecturas procesadas.
+- completedAt: Fecha y hora de finalización de la sesión.
+
+---
+
+**Event: TelemetryDataReceivedEvent**
+
+**Propósito**  
+Notificar que se ha recibido y procesado una nueva lectura de telemetría.
+
+**Parámetros**
+
+- sessionId: Identificador único de la sesión de monitoreo.
+- telemetryData: Datos de telemetría recibidos.
+- receivedAt: Fecha y hora de recepción.
+
+---
+
+**Event: OutOfRangeDetectedEvent**
+
+**Propósito**  
+Notificar que se ha detectado una lectura fuera del rango aceptable.
+
+**Parámetros**
+
+- sessionId: Identificador único de la sesión de monitoreo.
+- telemetryData: Datos de telemetría que causaron la alerta.
+- violatedParameter: Parámetro que está fuera de rango.
+- detectedAt: Fecha y hora de detección.
+
+---
+
+**Event: DeviceOfflineDetectedEvent**
+
+**Propósito**  
+Notificar que un dispositivo IoT ha dejado de enviar datos de telemetría.
+
+**Parámetros**
+
+- deviceId: Identificador único del dispositivo.
+- sessionId: Identificador de la sesión de monitoreo afectada.
+- lastSeenTime: Última vez que se recibieron datos del dispositivo.
+- detectedAt: Fecha y hora de detección del problema.
+
+---
+
+**Event: IncidentCreatedEvent**
+
+**Propósito**  
+Notificar que se ha creado un nuevo incidente basado en las alertas detectadas.
+
+**Parámetros**
+
+- incidentId: Identificador único del incidente.
+- sessionId: Identificador de la sesión de monitoreo asociada.
+- alertType: Tipo de alerta que originó el incidente.
+- createdAt: Fecha y hora de creación del incidente.
 
 #### 4.2.4.2. Interface Layer.
 
 **Controllers**
 
-- **MonitoringController**: Expone endpoints REST para consultas de estado de monitoreo. Recibe solicitudes del cliente y las convierte en comandos o queries para el Application Layer.
-  - getSessionDetails: permite obtener el estado actual de una sesión de monitoreo.
-  - getTelemetryData: consulta las lecturas de telemetría de una sesión.
-  - getLiveMapData: provee datos en tiempo real para la visualización en el mapa.
-  - getChartData: provee datos de temperatura para gráficos.
+- MonitoringController: Controlador que maneja las solicitudes relacionadas con el monitoreo de viajes. Atiende operaciones como iniciar una nueva sesión de monitoreo, finalizar o pausar una sesión, así como consultar información de sesiones por identificador, estado del viaje, o recuperar datos de telemetría en tiempo real para visualización en mapas y gráficos.
 
-**Consumers**
-
-- **TelemetryConsumer**: Consume eventos de telemetría provenientes de los dispositivos IoT.
-- **TripEventsConsumer**: Consume eventos como `TripStartedEvent` y `TripCompletedEvent` del contexto de `Trip management` para orquestar la sesión de monitoreo.
-
----
+- TelemetryController: Controlador que maneja las solicitudes relacionadas con los datos de telemetría. Permite consultar lecturas específicas, obtener históricos de datos de sensores y generar reportes de monitoreo para análisis posterior.
 
 #### 4.2.4.3. Application Layer.
 
-**Command Handlers**
+**Command Services**
 
-- **StartMonitoringSessionCommandHandler**: Procesa la orden para iniciar una sesión de monitoreo, creando una nueva instancia de `MonitoringSession` y persistiendo los datos.
-- **EndMonitoringSessionCommandHandler**: Procesa la orden para finalizar una sesión, actualizando su estado a `COMPLETED` y deteniendo el procesamiento de datos.
+- MonitoringCommandService: Se encarga de recibir y coordinar los comandos relacionados a las sesiones de monitoreo. Dentro de él se manejan distintos handlers, cada uno especializado en ejecutar un comando específico como iniciar, finalizar, pausar o reanudar sesiones de monitoreo.
 
-**Query Handlers**
-
-- **GetMonitoringSessionByIdQueryHandler**: Procesa la consulta para obtener los detalles de una sesión de monitoreo.
-- **GetTelemetryDataBySessionQueryHandler**: Procesa la consulta para obtener las lecturas de telemetría de una sesión.
-
-**Event Handlers**
-
-- **TripStartedHandler**: Reacciona al evento `TripStarted` para iniciar una nueva sesión de monitoreo.
-- **TripCompletedHandler**: Reacciona al evento `TripCompleted` para finalizar la sesión de monitoreo.
-- **TelemetryDataReceivedHandler**: Procesa las lecturas de sensores entrantes, valida los datos, los enriquece y, si es necesario, genera eventos de alerta.
+- TelemetryCommandService: Se encarga de coordinar los comandos relacionados con el procesamiento de datos de telemetría. Administra la ingesta, validación y enriquecimiento de datos para garantizar que las lecturas sean procesadas correctamente.
 
 ---
 
+**Query Services**
+
+- MonitoringQueryService: Se encarga de atender las consultas relacionadas a las sesiones de monitoreo. Contiene handlers que procesan queries para obtener información, por ejemplo: consultar una sesión por su identificador, listar sesiones activas o recuperar todas las sesiones de un viaje.
+
+- TelemetryQueryService: Atiende las consultas relacionadas a los datos de telemetría. Permite obtener lecturas específicas, históricos de datos de sensores y generar agregaciones para reportes y visualizaciones.
+
+---
+
+**Event Services**
+
+- MonitoringEventService: Se encarga de atender los eventos relacionados a las sesiones de monitoreo. Dentro de él se gestionan distintos servicios especializados que reaccionan a cada evento, como inicio y finalización de sesiones, recepción de datos de telemetría, detección de alertas y creación de incidentes, ejecutando las acciones necesarias después de que ocurren.
+
 #### 4.2.4.4. Infrastructure Layer.
 
-**Repositories (implementaciones)**
+**Repositories**
 
-- **MonitoringSessionRepository**: Implementación de `IMonitoringSessionRepository` para interactuar con la base de datos (ej. PostgreSQL).
-- **TelemetryDataRepository**: Implementación de `ITelemetryDataRepository` optimizada para escrituras masivas (ej. base de datos de series de tiempo).
-
-**Components**
-
-- **IoTMQTTAdapter**: Adapta el protocolo MQTT para consumir mensajes de telemetría de los dispositivos.
-- **TripManagementAPIAdapter**: Adapta la API del contexto de Trip Management para recibir notificaciones de eventos.
-- **GoogleMapsAdapter**: Adapta la API de Google Maps para obtener información de geolocalización y rutas.
-- **AlertsAPIAdapter**: Adapta la API del contexto de Alerts & Resolution para enviar eventos de alerta.
+- IMonitoringSessionRepository: Repositorio que define las operaciones de acceso a las sesiones de monitoreo, como guardar, actualizar y recuperar información de una sesión.
+- ITelemetryDataRepository: Repositorio que define las operaciones de acceso a los datos de telemetría, optimizado para escrituras masivas y consultas de series de tiempo, como registrar nuevas lecturas, consultarlas por sesión y generar agregaciones.
 
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+Diagrama de componentes - Backend - Real-Time Monitoring
+
+<img src="assets/C4/RealTimeMonitoring-C4-Backend-Diagram.png"/>
+
+Diagrama de componentes - Application Web - Real-Time Monitoring
+
+<img src="assets/C4/RealTimeMonitoring-C4-Web-Diagram.png"/>
+
+Diagrama de componentes - Mobile App - Real-Time Monitoring
+
+<img src="assets/C4/RealTimeMonitoring-C4-Mobile-Diagram.png"/>
 
 #### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
 
