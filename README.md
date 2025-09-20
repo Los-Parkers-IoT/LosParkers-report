@@ -813,7 +813,7 @@ Los clientes finales son los consumidores de los productos transportados por las
 
   <br/>
 
-- **Nombre**: Mario Hernandez
+- **Nombre**: Mario Hinostroza
 - **Edad**: 22 años
 - **Ocupación**: Operador Logístico
 - **Empresa**: Urbano - Distribuidora Ecommerces
@@ -882,11 +882,19 @@ Los clientes finales son los consumidores de los productos transportados por las
 **Disposición de Pago:** Está dispuesto a contratar un servicio que solucione estos problemas, preferiblemente con suscripción mensual o mejor aún, un pago anual para evitar gestiones mensuales. Ve esto como una inversión para recuperar la confianza de los clientes y tener soporte 24/7.
 <br/>
 
-- **Nombre**: [Nombre del entrevistado]
+- **Nombre**: Mario Hinostroza
 
-- **Entrevistador**: [Nombre del entrevistador]
+- **Entrevistador**: Marcelo Fabian Garro Vega
 
-  [...]
+  Mario Hinostroza, de 22 años, trabaja en el sector de alimentos y actualmente controla la temperatura de la mercadería utilizando el sistema de refrigeración del camión junto a un termómetro portátil. La planificación de viajes la realiza a partir de una hoja de ruta con puntos de entrega y horarios, y lleva un registro manual en una bitácora. Además, entrega reportes que incluyen la hoja de viaje firmada y los datos de temperatura recogidos durante el recorrido.
+
+  Entre los principales problemas que enfrenta, destaca que el monitoreo es un proceso manual que demanda mucha atención constante. También existe un alto riesgo de fallas en el motor de frío, lo que provoca pérdida de mercadería y reclamos de los clientes. La detección de incidencias suele depender de su experiencia personal o de lo que muestra el panel del camión, lo que limita la capacidad de respuesta inmediata.
+
+  En cuanto a las necesidades identificadas, Mario considera indispensable contar con un sistema automatizado que reduzca la carga manual. Para él sería muy valiosa la integración del panel del camión con una aplicación móvil que alerte en tiempo real sobre variaciones de temperatura, garantizando mayor confiabilidad en la cadena de frío y reduciendo el riesgo de pérdidas y reclamos.
+
+  Respecto a la disposición de pago, Mario señala que la decisión recae en la empresa, pero enfatiza que lo fundamental es que el servicio ofrezca un valor tangible. Si la plataforma demuestra un impacto real y positivo en el negocio, la empresa estaría dispuesta a pagar por ella, más allá del costo que implique.
+
+  <br/>
 
   <br/>
 
@@ -2372,11 +2380,9 @@ Diagrama de componentes - Mobile App - Real-Time Monitoring
 
 ![Real-Time Monitoring Domain Layer Mobile Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Real-time-monitoring-Domain-Layer-Class-Diagram-Mobile.puml)
 
-
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
 
 ![Real-Time Monitoring Domain Layer Database Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Real-Time-monitoring-Domain-Layer-Database-Diagram.puml)
-
 
 ### 4.2.5. Bounded Context: _Trip management_
 
@@ -2801,7 +2807,6 @@ Diagrama de componentes - Mobile App - Trip Management
 
 ![Trip Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-DataBase-Diagram.puml)
 
-
 ### 4.2.6. Bounded Context: Fleet Management
 
 #### 4.2.6.1. Domain Layer
@@ -2816,8 +2821,8 @@ Diagrama de componentes - Mobile App - Trip Management
 
   - id (UUID)
   - plate (única)
-  - make 
-  - model 
+  - make
+  - model
   - active (bool)
   - tenantId
   - createdAt
@@ -2832,8 +2837,9 @@ Diagrama de componentes - Mobile App - Trip Management
 
 - Propósito: Registrar y administrar dispositivos/sensores instalados en unidades.
 
-- Atributos: 
-  - id, 
+- Atributos:
+
+  - id,
   - type (temp|gps|humidity|door…)
   - serial (único)
   - lastCalibrationAt?
@@ -2842,7 +2848,7 @@ Diagrama de componentes - Mobile App - Trip Management
   - tenantId
   - createdAt
 
-- Métodos: 
+- Métodos:
   - create(data)
   - update(data)
   - attachToVehicle(vehicleId)
@@ -2865,16 +2871,16 @@ Diagrama de componentes - Mobile App - Trip Management
 - ActivateVehicleCommand
 - DeactivateVehicleCommand
 
-- CreateDeviceCommand 
+- CreateDeviceCommand
 - UpdateDeviceCommand
-- AttachDeviceCommand 
-- DetachDeviceCommand 
-- ActivateDeviceCommand 
+- AttachDeviceCommand
+- DetachDeviceCommand
+- ActivateDeviceCommand
 - DeactivateDeviceCommand
 
 **Queries**
 
-- GetVehicleByIdQuery 
+- GetVehicleByIdQuery
 - ListVehiclesQuery
 - GetDeviceByIdQuery
 - ListDevicesQuery (con filtro por vehicleId)
@@ -2947,8 +2953,8 @@ Diagrama de componentes - Mobile App - Trip Management
 
 - Validaciones: fleet:write/fleet:admin; unicidad serial por tenantId; en attach: vehículo existe y mismo tenantId, dispositivo no asociado; en detach: dispositivo asociado.
 
-- Dependencias: 
-  - DeviceRepository 
+- Dependencias:
+  - DeviceRepository
   - VehicleRepository
   - IAMClient
 
@@ -2964,8 +2970,8 @@ Diagrama de componentes - Mobile App - Trip Management
 
   - handle(GetDeviceByIdQuery) / handle(ListDevicesQuery) (filtros por vehicleId)
 
-- Dependencias: 
-  - VehicleRepository 
+- Dependencias:
+  - VehicleRepository
   - DeviceRepository
   - IAMClient (scope fleet:read, resolución de tenantId)
 
@@ -2997,6 +3003,7 @@ Diagrama de componentes - Mobile App - Trip Management
 - DeviceRepository (PostgreSQL)
 
 **Integraciones y seguridad**
+
 - IAMClient para validar JWT/claims (ACLs).
 
 #### 4.2.6.5. Bounded Context Software Architecture Component Level Diagrams.
@@ -3007,11 +3014,7 @@ Diagrama de componentes - Backend - Fleet Management
 
 Diagrama de componentes - Application Web - Fleet Management
 
-
-
 Diagrama de componentes - Mobile App - Fleet Management
-
-
 
 #### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
 
@@ -3026,4 +3029,3 @@ Diagrama de componentes - Mobile App - Fleet Management
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
 
 ![Fleet Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Fleet-Management-Domain-Layer-DataBase-Diagram.puml)
-
