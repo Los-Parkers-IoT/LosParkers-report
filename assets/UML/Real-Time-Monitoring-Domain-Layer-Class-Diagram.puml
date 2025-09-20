@@ -1,72 +1,153 @@
-@startuml
-' === AggregateRoot ===
-class MonitoringSessionAggregate <<AggregateRoot>> {
-    + ensureValidSession()
+@startuml Real-Time-Monitoring-Domain-Layer-Class-Diagram
+
+' Estereotipos de colores
+skinparam class {
+    BackgroundColor<<Entity>> LightYellow
+    BackgroundColor<<AggregateRoot>> Wheat
+    BackgroundColor<<ValueObject>> LightGreen
+    BackgroundColor<<Factory>> LightBlue
+    BackgroundColor<<DomainService>> LightCyan
+    BackgroundColor<<Repository>> LightGray
 }
 
-' === Factory ===
-class MonitoringSessionFactory <<Factory>> {
-    + createMonitoringSession(tripId: long, range: TemperatureRange): MonitoringSession
-}
-
-' === DomainService ===
-class RuleEvaluationService <<DomainService>> {
-    + evaluate(data: TelemetryData, rules: ...): Event
-}
-
-' === Entity ===
+' ========================
+' Entities y Aggregate
+' ========================
 class MonitoringSession <<Entity>> {
-    - sessionId: long
-    - tripId: long
-    - status: SessionStatus
-    - temperatureRange: TemperatureRange
+  - sessionId: long
+  - tripId: long
+  - status: SessionStatus
+  - startTime: DateTime
+  - endTime: DateTime
+  - temperatureRange: TemperatureRange
+  - telemetryDataList: List<TelemetryData>
+  + start(): void
+  + complete(): void
+  + addTelemetryData(data: TelemetryData): void
+  + isActive(): boolean
 }
 
 class TelemetryData <<Entity>> {
-    - telemetryId: long
-    - sessionId: long
-    - timestamp: DateTime
-    - temperature: number
-    - location: Location
+  - readingId: long
+  - sessionId: long
+  - sensorReading: SensorReading
+  - location: Location
+  - timestamp: DateTime
+  - signalStatus: SignalStatus
+  + isWithinRange(range: TemperatureRange): boolean
+  + getTemperature(): double
 }
 
-' === Repositories ===
-interface IMonitoringSessionRepository <<Repository>> {
-    + save(session: MonitoringSession)
-    + findById(sessionId: long): MonitoringSession
+class MonitoringSessionAggregate <<AggregateRoot>> {
+  + ensureValidSession(): void
+  + startSession(tripId: long, temperatureRange: TemperatureRange): void
+  + addTelemetryReading(telemetryData: TelemetryData): void
+  + completeSession(): void
+  + getTelemetryData(): List<TelemetryData>
 }
 
-interface ITelemetryDataRepository <<Repository>> {
-    + save(data: TelemetryData)
-    + findBySessionId(sessionId: long): List<TelemetryData>
+' ========================
+' Value Objects
+' ========================
+class SensorReading <<ValueObject>> {
+  - temperature: double
+  - humidity: double
+  - vibration: double
+  + getTemperature(): double
+  + getHumidity(): double
+  + getVibration(): double
 }
 
-' === Value Objects ===
 class TemperatureRange <<ValueObject>> {
-    - min: number
-    - max: number
+  - minTemperature: double
+  - maxTemperature: double
+  + isWithinRange(temperature: double): boolean
+  + getMinTemperature(): double
+  + getMaxTemperature(): double
 }
 
 class Location <<ValueObject>> {
-    - latitude: double
-    - longitude: double
+  - latitude: double
+  - longitude: double
+  + getLatitude(): double
+  + getLongitude(): double
+  + distanceTo(other: Location): double
+}
+
+enum SignalStatus <<ValueObject>> {
+  ONLINE
+  OFFLINE
 }
 
 enum SessionStatus <<ValueObject>> {
-    ACTIVE
-    INACTIVE
-    COMPLETED
+  ACTIVE
+  INACTIVE
+  COMPLETED
 }
 
-' === Relationships ===
-MonitoringSessionAggregate --> MonitoringSessionFactory
-MonitoringSessionFactory --> MonitoringSession
-RuleEvaluationService --> TelemetryData
-MonitoringSession --> TemperatureRange
+' ========================
+' Factories
+' ========================
+class MonitoringSessionFactory <<Factory>> {
+  + createSession(tripId: long, temperatureRange: TemperatureRange): MonitoringSession
+  + createFromSnapshot(snapshot: MonitoringSessionSnapshot): MonitoringSession
+}
+
+' ========================
+' Domain Services
+' ========================
+class DataIngestionService <<DomainService>> {
+  + processIncomingData(rawData: RawTelemetryData): TelemetryData
+  + validateTelemetryData(data: TelemetryData): boolean
+}
+
+class RuleEvaluationService <<DomainService>> {
+  + evaluateTemperatureRules(data: TelemetryData, range: TemperatureRange): List<RuleViolation>
+  + detectAnomalies(data: TelemetryData): List<Anomaly>
+}
+
+class DataEnrichmentService <<DomainService>> {
+  + enrichWithRoute(data: TelemetryData, routeInfo: RouteInfo): TelemetryData
+  + enrichWithGeographicData(location: Location): EnrichedLocation
+}
+
+' ========================
+' Repositories
+' ========================
+interface IMonitoringSessionRepository <<Repository>> {
+  + findById(sessionId: long): MonitoringSession
+  + save(session: MonitoringSession): void
+  + findByTripId(tripId: long): MonitoringSession
+  + findByStatus(status: SessionStatus): List<MonitoringSession>
+  + update(session: MonitoringSession): void
+}
+
+interface ITelemetryDataRepository <<Repository>> {
+  + save(telemetryData: TelemetryData): void
+  + findBySessionId(sessionId: long): List<TelemetryData>
+  + findByTimeRange(sessionId: long, startTime: DateTime, endTime: DateTime): List<TelemetryData>
+  + saveBatch(telemetryDataList: List<TelemetryData>): void
+}
+
+' ========================
+' Relaciones principales
+' ========================
+MonitoringSessionAggregate --> MonitoringSession
+MonitoringSession --> TelemetryData
 MonitoringSession --> SessionStatus
+MonitoringSession --> TemperatureRange
+TelemetryData --> SensorReading
 TelemetryData --> Location
+TelemetryData --> SignalStatus
+
+MonitoringSessionFactory --> MonitoringSession
+DataIngestionService --> TelemetryData
+RuleEvaluationService --> TelemetryData
+RuleEvaluationService --> TemperatureRange
+DataEnrichmentService --> TelemetryData
+DataEnrichmentService --> Location
+
 IMonitoringSessionRepository --> MonitoringSession
 ITelemetryDataRepository --> TelemetryData
-MonitoringSessionAggregate --> MonitoringSession
-@enduml
 
+@enduml
