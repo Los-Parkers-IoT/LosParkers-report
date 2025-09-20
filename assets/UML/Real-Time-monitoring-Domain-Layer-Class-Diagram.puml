@@ -1,0 +1,177 @@
+@startuml
+!define ENTITY_COLOR #F5E6A3
+!define VALUE_OBJECT_COLOR #C8E6C9
+!define AGGREGATE_COLOR #F5E6A3
+!define SERVICE_COLOR #B3E5FC
+!define REPOSITORY_COLOR #E1E1E1
+!define FACTORY_COLOR #B3E5FC
+
+' Domain Services
+class MonitoringSessionFactory <<Factory>> #B3E5FC {
+    + createSession(tripId: TripId, temperatureRange: TemperatureRange): MonitoringSession
+}
+
+class DataIngestionService <<DomainService>> #B3E5FC {
+    + processIncomingData(rawData: RawTelemetryData): TelemetryData
+    + validateTelemetryData(data: TelemetryData): boolean
+}
+
+class RuleEvaluationService <<DomainService>> #B3E5FC {
+    + evaluateTemperatureRules(data: TelemetryData, range: TemperatureRange): List<DomainEvent>
+    + evaluateDeviceConnectivity(lastReading: DateTime): List<DomainEvent>
+    + detectAnomalies(data: List<TelemetryData>): List<DomainEvent>
+}
+
+class DataEnrichmentService <<DomainService>> #B3E5FC {
+    + enrichWithLocationData(data: TelemetryData): TelemetryData
+    + enrichWithRouteInformation(data: TelemetryData): TelemetryData
+}
+
+' Repository Interfaces
+interface IMonitoringSessionRepository <<Repository>> #E1E1E1 {
+    + findById(sessionId: SessionId): MonitoringSession
+    + save(session: MonitoringSession)
+    + findByTripId(tripId: TripId): MonitoringSession
+    + update(session: MonitoringSession)
+}
+
+interface ITelemetryDataRepository <<Repository>> #E1E1E1 {
+    + save(data: TelemetryData)
+    + findBySessionId(sessionId: SessionId): List<TelemetryData>
+    + findByTimeRange(sessionId: SessionId, start: DateTime, end: DateTime): List<TelemetryData>
+    + saveBatch(dataList: List<TelemetryData>)
+}
+
+' Aggregate Root
+class MonitoringSessionAggregate <<AggregateRoot>> #F5E6A3 {
+    □ sessionId: SessionId
+    □ tripId: TripId
+    □ status: SessionStatus
+    □ temperatureRange: TemperatureRange
+    □ startTime: DateTime
+    □ endTime: DateTime
+    □ telemetryData: List<TelemetryData>
+
+    ● startSession()
+    ● endSession()
+    ● addTelemetryData(data: TelemetryData)
+    ● evaluateRules(): List<DomainEvent>
+    ● isActive(): boolean
+}
+
+' Entities
+class TelemetryData <<Entity>> #F5E6A3 {
+    □ dataId: TelemetryDataId
+    □ sessionId: SessionId
+    □ sensorReading: SensorReading
+    □ location: Location
+    □ timestamp: DateTime
+    □ deviceId: DeviceId
+
+    ● isWithinRange(range: TemperatureRange): boolean
+    ● getTemperature(): Temperature
+    ● getHumidity(): Humidity
+}
+
+class Incident <<Entity>> #F5E6A3 {
+    □ incidentId: IncidentId
+    □ sessionId: SessionId
+    □ alertType: AlertType
+    □ description: String
+    □ createdAt: DateTime
+    □ status: IncidentStatus
+
+    ● resolve(description: String)
+    ● escalate()
+}
+
+' Value Objects
+class SensorReading <<ValueObject>> #C8E6C9 {
+    □ temperature: Temperature
+    □ humidity: Humidity
+    □ vibration: Vibration
+    □ signalStatus: SignalStatus
+}
+
+class TemperatureRange <<ValueObject>> #C8E6C9 {
+    □ minTemperature: Temperature
+    □ maxTemperature: Temperature
+
+    ● isWithinRange(temperature: Temperature): boolean
+}
+
+class Location <<ValueObject>> #C8E6C9 {
+    □ latitude: double
+    □ longitude: double
+
+    ● distanceTo(other: Location): Distance
+}
+
+class SessionStatus <<ValueObject>> #C8E6C9 {
+    {enum} ACTIVE
+    {enum} INACTIVE
+    {enum} COMPLETED
+    {enum} PAUSED
+}
+
+class SignalStatus <<ValueObject>> #C8E6C9 {
+    {enum} ONLINE
+    {enum} OFFLINE
+    {enum} WEAK_SIGNAL
+}
+
+class AlertType <<ValueObject>> #C8E6C9 {
+    {enum} TEMPERATURE_HIGH
+    {enum} TEMPERATURE_LOW
+    {enum} DEVICE_OFFLINE
+    {enum} ROUTE_DEVIATION
+    {enum} VIBRATION_EXCESSIVE
+}
+
+class IncidentStatus <<ValueObject>> #C8E6C9 {
+    {enum} OPEN
+    {enum} IN_PROGRESS
+    {enum} RESOLVED
+    {enum} ESCALATED
+}
+
+class Temperature <<ValueObject>> #C8E6C9 {
+    □ value: double
+    □ unit: String
+}
+
+class Humidity <<ValueObject>> #C8E6C9 {
+    □ value: double
+    □ unit: String
+}
+
+class Vibration <<ValueObject>> #C8E6C9 {
+    □ value: double
+    □ unit: String
+}
+
+' Relationships
+MonitoringSessionFactory --> MonitoringSessionAggregate : creates
+DataIngestionService --> TelemetryData : processes
+RuleEvaluationService --> MonitoringSessionAggregate : evaluates
+DataEnrichmentService --> TelemetryData : enriches
+
+MonitoringSessionAggregate *-- TelemetryData
+MonitoringSessionAggregate --> TemperatureRange
+MonitoringSessionAggregate --> SessionStatus
+MonitoringSessionAggregate --> Incident
+
+TelemetryData --> SensorReading
+TelemetryData --> Location
+SensorReading --> Temperature
+SensorReading --> Humidity
+SensorReading --> Vibration
+SensorReading --> SignalStatus
+
+Incident --> AlertType
+Incident --> IncidentStatus
+
+IMonitoringSessionRepository ..> MonitoringSessionAggregate
+ITelemetryDataRepository ..> TelemetryData
+
+@enduml
