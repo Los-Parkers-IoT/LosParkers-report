@@ -3050,11 +3050,177 @@ Diagrama de componentes - Mobile App - Fleet Management
 
 #### 4.2.7.1. Domain Layer.
 
+**Entity: Profile (Aggregate Root)**
+
+**Propósito principal**  
+Representar el perfil dentro del sistema, siempre asociado a un `userId`.
+
+**Atributos principales**
+
+- id: Identificador único del perfil.
+- userId: Identificador externo obligatorio asociado al perfil.
+- fullName: Nombre completo.
+- phoneNumber: Número de contacto (opcional).
+- avatarUrl: Imagen de perfil o avatar (opcional).
+- createdAt: Fecha de creación.
+- updatedAt: Fecha de última actualización.
+
+**Métodos principales**
+
+- updateContactInfo(newPhone)
+- updateAvatar(newAvatarUrl)
+- updateName(newName)
+
+---
+
+**Entity: Preferences**
+
+**Propósito principal**  
+Almacenar configuraciones personalizadas de idioma, zona horaria y notificaciones de alertas.
+
+**Atributos principales**
+
+- id: Identificador único de las preferencias.
+- profileId: Identificador del perfil asociado.
+- language: Idioma preferido.
+- timeZone: Zona horaria configurada.
+- alertEmailEnabled: Recibir alertas por correo electrónico.
+- alertPushEnabled: Recibir alertas como notificaciones push en la aplicación.
+- alertSmsEnabled: Recibir alertas vía SMS (opcional).
+
+**Métodos principales**
+
+- updateLanguage(language)
+- updateTimeZone(timeZone)
+- enableEmailAlerts(flag)
+- enablePushAlerts(flag)
+- enableSmsAlerts(flag)
+
+---
+
+**Value Object: PhoneNumber**
+
+- countryCode
+- number
+
+**Value Object: Language**
+
+- code (ej. "es", "en")
+- name
+
+**Value Object: TimeZone**
+
+- code (ej. "UTC-5")
+
+---
+
+**Aggregate: ProfileAggregate**
+
+- updateProfileAndPreferences(profile, preferences)
+
+---
+
+**Factory: ProfileFactory**
+
+- createProfile(fullName, userId)
+
+---
+
+**Domain Service: PreferencesValidationService**
+
+- validateNotificationSettings(emailFlag, pushFlag, smsFlag)
+- validateLanguage(language)
+
+---
+
+**Command: CreateProfileCommand**
+
+- fullName
+- phoneNumber
+- avatarUrl
+- userId
+
+**Command: UpdateProfileCommand**
+
+- id
+- newName
+- newPhone
+- newAvatarUrl
+
+**Command: UpdatePreferencesCommand**
+
+- id
+- language
+- timeZone
+- alertEmailEnabled
+- alertPushEnabled
+- alertSmsEnabled
+
+---
+
+**Query: GetProfileByIdQuery**
+
+- id
+
+**Query: GetPreferencesByProfileIdQuery**
+
+- profileId
+
+---
+
+**Event: ProfileCreatedEvent**
+
+- id
+- userId
+- createdAt
+
+**Event: ProfileUpdatedEvent**
+
+- id
+- updatedAt
+
+**Event: PreferencesUpdatedEvent**
+
+- id
+- updatedAt
+- changes
+
+---
+
 #### 4.2.7.2. Interface Layer.
+
+**Controllers**
+
+- **ProfileController**: Maneja las solicitudes para crear, actualizar y consultar perfiles.
+- **PreferencesController**: Maneja las solicitudes para modificar y consultar preferencias (idioma, zona horaria, notificaciones).
 
 #### 4.2.7.3. Application Layer.
 
+**Command Services**
+
+- **ProfileCommandService**: Coordina la ejecución de comandos relacionados con perfiles (creación y actualización).
+- **PreferencesCommandService**: Coordina la ejecución de comandos relacionados con preferencias (idioma, zona horaria, notificaciones).
+
+---
+
+**Query Services**
+
+- **ProfileQueryService**: Atiende consultas sobre perfiles.
+- **PreferencesQueryService**: Atiende consultas sobre las preferencias de un perfil.
+
+---
+
+**Event Services**
+
+- **ProfileEventService**: Gestiona eventos relacionados con la creación y actualización de perfiles.
+- **PreferencesEventService**: Gestiona eventos relacionados con la actualización de preferencias y su propagación a otros componentes.
+
 #### 4.2.7.4. Infrastructure Layer.
+
+**Repositories**
+
+- **IProfileRepository**: Define operaciones de acceso y persistencia para los perfiles.
+- **IPreferencesRepository**: Define operaciones de acceso y persistencia para las preferencias.
 
 #### 4.2.7.5. Bounded Context Software Architecture Component Level Diagrams.
 
