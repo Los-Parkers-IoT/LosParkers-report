@@ -5,6 +5,14 @@ workspace "CargaSafe - Alerts & Resolution Management (Backend Components)" "C4 
     user = person "End User" "CargaSafe User" "Person"
 
     cargaSafe = softwareSystem "CargaSafe" "SaaS logistics monitoring" {
+    
+      webApplication = container "Web Application" "Angular SPA for CargaSafe UI & dashboards." "Angular" {
+        tags "WebApp"
+      }
+
+      mobileApplication = container "Mobile Application" "Flutter app for CargaSafe mobile operations." "Flutter" {
+        tags "MobileApp"
+      }
 
       backend = container "Subscriptions & Billing Backend" "APIs + Workers of the bounded context" "Monolith (REST + Jobs)" {
 
@@ -23,6 +31,10 @@ workspace "CargaSafe - Alerts & Resolution Management (Backend Components)" "C4 
       }
 
     }
+    
+    webApplication -> intLayer "Consumes REST endpoints"
+     
+    mobileApplication -> intLayer "Consumes REST endpoint"
 
     firebase    = softwareSystem "Firebase Cloud Messaging" "Integration events publication" "Messaging client"
     
@@ -76,6 +88,18 @@ workspace "CargaSafe - Alerts & Resolution Management (Backend Components)" "C4 
       element "Database" {
         shape Cylinder
         background "#0B5FFF"
+        color "#ffffff"
+      }
+      
+      element "WebApp" {
+        shape WebBrowser
+        background "#00897B"
+        color "#ffffff"
+      }
+
+      element "MobileApp" {
+        shape MobileDevicePortrait
+        background "#6A1B9A"
         color "#ffffff"
       }
     }
