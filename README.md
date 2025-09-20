@@ -1482,7 +1482,7 @@ Esta infraestructura permite un sistema escalable, resiliente y con capacidades 
 
 ### 4.2.2. Bounded Context: _Subscriptions and Billing_
 
-### 4.2.2.1. Domain Layer
+#### 4.2.2.1. Domain Layer
 
 _Entities_
 
@@ -1541,7 +1541,7 @@ _Entities_
 **SubscriptionCanceled**: Suscripción cancelada.
 **PaymentSucceeded / PaymentFailed**: Resultado de pago.
 
-### 4.2.2.2. Interface Layer
+#### 4.2.2.2. Interface Layer
 
 **Controllers**
 
@@ -1550,7 +1550,7 @@ _Entities_
 - **PlanController**: Endpoints para listar planes disponibles.
 - **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
 
-### 4.2.2.3. Application Layer
+#### 4.2.2.3. Application Layer
 
 **Command Services**
 
@@ -1567,7 +1567,7 @@ _Entities_
 - **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
 - **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
 
-### 4.2.2.4. Infrastructure Layer
+#### 4.2.2.4. Infrastructure Layer
 
 **Repositories (Interfaces)**
 
@@ -2363,11 +2363,9 @@ Diagrama de componentes - Mobile App - Real-Time Monitoring
 
 ![Real-Time Monitoring Domain Layer Mobile Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Real-time-monitoring-Domain-Layer-Class-Diagram-Mobile.puml)
 
-
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
 
 ![Real-Time Monitoring Domain Layer Database Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Real-Time-monitoring-Domain-Layer-Database-Diagram.puml)
-
 
 ### 4.2.5. Bounded Context: _Trip management_
 
@@ -2772,11 +2770,11 @@ Diagrama de componentes - Backend - Trip Management
 
 Diagrama de componentes - Application Web - Trip Management
 
-<!-- <img src="assets/C4/Alert-C4-WebApp-Diagram.png"/> -->
+<img src="assets/C4/TripManagement-C4-WebApp-Diagram.png"/>
 
 Diagrama de componentes - Mobile App - Trip Management
 
-<!-- <img src="assets/C4/Alert-C4-Mobile-Diagram.png"/> -->
+<img src="assets/C4/TripManagement-C4-MobileApp-Diagram.png"/>
 
 #### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
 
@@ -2806,8 +2804,8 @@ Diagrama de componentes - Mobile App - Trip Management
 
   - id (UUID)
   - plate (única)
-  - make 
-  - model 
+  - make
+  - model
   - active (bool)
   - tenantId (multi-tenant)
   - createdAt
@@ -2829,61 +2827,64 @@ Diagrama de componentes - Mobile App - Trip Management
 
 - Propósito: Describe un sensor IoT asociado a vehículos (temperatura, GPS, humedad, puerta, etc.).
 
-- Atributos: 
-  - id, 
-  - type, 
-  - serial (único), 
-  - lastCalibrationAt, 
-  - active, 
-  - tenantId, 
+- Atributos:
+  - id,
+  - type,
+  - serial (único),
+  - lastCalibrationAt,
+  - active,
+  - tenantId,
   - vehicleId?
-- Métodos: 
-  - calibrate(at) 
+- Métodos:
+  - calibrate(at)
   - activate()
-  - deactivate() 
+  - deactivate()
   - bindToVehicle(vehicleId)
 
 **ColdChainPolicy (Entity)**
 
 - Propósito: Define umbrales y reglas de cadena de frío.
-- Atributos: 
+- Atributos:
   - id
   - name
   - temperatureRange (VO)
   - hysteresis (VO)
   - samplingMinSeconds
   - tenantId
-- Métodos: 
-  - validate() 
+- Métodos:
+  - validate()
   - (consistencia de rangos)
   - update(params)
 
 **Geofence (Entity)**
+
 - Propósito: Define áreas geográficas (circular/polígono) para control operacional.
-- Atributos: 
+- Atributos:
   - id
-  - name 
-  - shape (VO) 
-  - geojson (WKT/GeoJSON) 
+  - name
+  - shape (VO)
+  - geojson (WKT/GeoJSON)
   - tenantId
-- Métodos: 
+- Métodos:
 - updateGeometry(shape, geojson)
 
 **VehiclePolicy (Entity/Historization)**
+
 - Propósito: Historial de políticas aplicadas a un vehículo.
-- Atributos: 
-  - vehicleId 
-  - policyId 
-  - assignedAt 
-  - assignedBy 
+- Atributos:
+  - vehicleId
+  - policyId
+  - assignedAt
+  - assignedBy
   - tenantId
 
 **VehicleGeofence (Entity/Historization)**
+
 - Propósito: Asignaciones de geocercas a vehículos.
-- Atributos: 
-  - vehicleId 
-  - geofenceId 
-  - assignedAt 
+- Atributos:
+  - vehicleId
+  - geofenceId
+  - assignedAt
   - tenantId
 
 **Value Objects**
@@ -2918,7 +2919,7 @@ Diagrama de componentes - Mobile App - Trip Management
 
 **Queries**
 
-- GetVehicleByIdQuery 
+- GetVehicleByIdQuery
 - ListVehiclesQuery
 - ListSensorsByVehicleQuery
 - GetPolicyByVehicleQuery
@@ -2933,7 +2934,6 @@ Diagrama de componentes - Mobile App - Trip Management
 - PolicyUpdatedEvent / PolicyAssignedToVehicleEvent
 
 - GeofenceConfiguredEvent / GeofenceAssignedToVehicleEvent
-
 
 ### 4.2.6.2. Interface Layer
 
@@ -3017,7 +3017,6 @@ Diagrama de componentes - Mobile App - Trip Management
 
 - Auditoría (quién/cuándo) de cambios de configuración.
 
-
 ### 4.2.6.4. Infrastructure Layer
 
 **Repositories**
@@ -3047,4 +3046,3 @@ Diagrama de componentes - Mobile App - Trip Management
 **Persistencia geométrica**
 
 - Postgres + geojson (o PostGIS si está disponible) para consultas espaciales.
-
