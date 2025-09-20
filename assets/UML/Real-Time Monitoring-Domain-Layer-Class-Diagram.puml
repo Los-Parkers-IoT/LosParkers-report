@@ -1,27 +1,71 @@
 @startuml
-'https://plantuml.com/class-diagram
-
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+' === AggregateRoot ===
+class MonitoringSessionAggregate <<AggregateRoot>> {
+    + ensureValidSession()
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+' === Factory ===
+class MonitoringSessionFactory <<Factory>> {
+    + createMonitoringSession(tripId: long, range: TemperatureRange): MonitoringSession
 }
 
+' === DomainService ===
+class RuleEvaluationService <<DomainService>> {
+    + evaluate(data: TelemetryData, rules: ...): Event
+}
+
+' === Entity ===
+class MonitoringSession <<Entity>> {
+    - sessionId: long
+    - tripId: long
+    - status: SessionStatus
+    - temperatureRange: TemperatureRange
+}
+
+class TelemetryData <<Entity>> {
+    - telemetryId: long
+    - sessionId: long
+    - timestamp: DateTime
+    - temperature: number
+    - location: Location
+}
+
+' === Repositories ===
+interface IMonitoringSessionRepository <<Repository>> {
+    + save(session: MonitoringSession)
+    + findById(sessionId: long): MonitoringSession
+}
+
+interface ITelemetryDataRepository <<Repository>> {
+    + save(data: TelemetryData)
+    + findBySessionId(sessionId: long): List<TelemetryData>
+}
+
+' === Value Objects ===
+class TemperatureRange <<ValueObject>> {
+    - min: number
+    - max: number
+}
+
+class Location <<ValueObject>> {
+    - latitude: double
+    - longitude: double
+}
+
+enum SessionStatus <<ValueObject>> {
+    ACTIVE
+    INACTIVE
+    COMPLETED
+}
+
+' === Relationships ===
+MonitoringSessionAggregate --> MonitoringSessionFactory
+MonitoringSessionFactory --> MonitoringSession
+RuleEvaluationService --> TelemetryData
+MonitoringSession --> TemperatureRange
+MonitoringSession --> SessionStatus
+TelemetryData --> Location
+IMonitoringSessionRepository --> MonitoringSession
+ITelemetryDataRepository --> TelemetryData
+MonitoringSessionAggregate --> MonitoringSession
 @enduml
