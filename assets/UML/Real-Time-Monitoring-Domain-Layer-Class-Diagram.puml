@@ -69,3 +69,4 @@ IMonitoringSessionRepository --> MonitoringSession
 ITelemetryDataRepository --> TelemetryData
 MonitoringSessionAggregate --> MonitoringSession
 @enduml
+
