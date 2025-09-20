@@ -820,7 +820,7 @@ Los clientes finales son los consumidores de los productos transportados por las
 
   <br/>
 
-- **Nombre**: Mario Hernandez
+- **Nombre**: Mario Hinostroza
 - **Edad**: 22 años
 - **Ocupación**: Operador Logístico
 - **Empresa**: Urbano - Distribuidora Ecommerces
@@ -889,11 +889,19 @@ Los clientes finales son los consumidores de los productos transportados por las
 **Disposición de Pago:** Está dispuesto a contratar un servicio que solucione estos problemas, preferiblemente con suscripción mensual o mejor aún, un pago anual para evitar gestiones mensuales. Ve esto como una inversión para recuperar la confianza de los clientes y tener soporte 24/7.
 <br/>
 
-- **Nombre**: [Nombre del entrevistado]
+<br />
 
-- **Entrevistador**: [Nombre del entrevistador]
+- **Nombre**: Mario Hinostroza
 
-  [...]
+- **Entrevistador**: Marcelo Fabian Garro Vega
+
+  Mario Hinostroza, de 22 años, trabaja en el sector de alimentos y actualmente controla la temperatura de la mercadería utilizando el sistema de refrigeración del camión junto a un termómetro portátil. La planificación de viajes la realiza a partir de una hoja de ruta con puntos de entrega y horarios, y lleva un registro manual en una bitácora. Además, entrega reportes que incluyen la hoja de viaje firmada y los datos de temperatura recogidos durante el recorrido.
+
+  Entre los principales problemas que enfrenta, destaca que el monitoreo es un proceso manual que demanda mucha atención constante. También existe un alto riesgo de fallas en el motor de frío, lo que provoca pérdida de mercadería y reclamos de los clientes. La detección de incidencias suele depender de su experiencia personal o de lo que muestra el panel del camión, lo que limita la capacidad de respuesta inmediata.
+
+  En cuanto a las necesidades identificadas, Mario considera indispensable contar con un sistema automatizado que reduzca la carga manual. Para él sería muy valiosa la integración del panel del camión con una aplicación móvil que alerte en tiempo real sobre variaciones de temperatura, garantizando mayor confiabilidad en la cadena de frío y reduciendo el riesgo de pérdidas y reclamos.
+
+  Respecto a la disposición de pago, Mario señala que la decisión recae en la empresa, pero enfatiza que lo fundamental es que el servicio ofrezca un valor tangible. Si la plataforma demuestra un impacto real y positivo en el negocio, la empresa estaría dispuesta a pagar por ella, más allá del costo que implique.
 
   <br/>
 
