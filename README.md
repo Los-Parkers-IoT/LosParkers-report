@@ -917,237 +917,227 @@ Permite crear incidentes vinculados a una alerta y un viaje, y consultar el deta
 
 ### 4.2.4. Bounded Context: _Real-Time Monitoring_
 
-#### 4.2.4.1. Domain Layer
+#### 4.2.4.1. Domain Layer.
 
-### Entidades (Entities)
+**Entities**
 
-- **MonitoringSession**: representa una sesión de monitoreo para un viaje específico. Almacena el estado de la sesión, los parámetros de referencia (`TemperatureRange`) y las lecturas recibidas.
-- **TelemetryData**: registra una única lectura de un sensor, incluyendo temperatura, humedad, vibración, ubicación y la hora de la lectura.
+- **MonitoringSession**: Representa una sesión de monitoreo para un viaje específico. Almacena el estado de la sesión, los parámetros de referencia (`TemperatureRange`) y las lecturas recibidas.
+- **TelemetryData**: Registra una única lectura de un sensor, incluyendo temperatura, humedad, vibración, ubicación y la hora de la lectura.
 
-### Objetos de Valor (Value Objects)
+**Value Objects**
 
-- **SensorReading**: encapsula los datos de una lectura específica (ej. temperatura, humedad).
-- **TemperatureRange**: define los límites mínimos y máximos de temperatura aceptables.
-- **Location**: representa las coordenadas geográficas (latitud, longitud).
-- **SignalStatus**: indica el estado de la conexión del dispositivo (ONLINE, OFFLINE).
-- **SessionStatus**: describe el estado de una sesión (ACTIVE, INACTIVE, COMPLETED).
+- **SensorReading**: Encapsula los datos de una lectura específica (ej. temperatura, humedad).
+- **TemperatureRange**: Define los límites mínimos y máximos de temperatura aceptables.
+- **Location**: Representa las coordenadas geográficas (latitud, longitud).
+- **SignalStatus**: Indica el estado de la conexión del dispositivo (ONLINE, OFFLINE).
+- **SessionStatus**: Describe el estado de una sesión (ACTIVE, INACTIVE, COMPLETED).
 
-### Agregados (Aggregates)
+**Agregados (Aggregates)**
 
-- **MonitoringSessionAggregate**: agrupa la `MonitoringSession` con sus `TelemetryData` relacionadas, asegurando que todas las lecturas de un viaje estén coherentemente gestionadas bajo una única sesión.
+- **MonitoringSessionAggregate**: Agrupa la `MonitoringSession` con sus `TelemetryData` relacionadas, asegurando que todas las lecturas de un viaje estén coherentemente gestionadas bajo una única sesión.
 
-### Servicios de Dominio (Domain Services)
+**Factories**
 
-- **DataIngestionService**: procesa y valida las lecturas de telemetría entrantes desde los dispositivos IoT.
-- **RuleEvaluationService**: analiza las lecturas en tiempo real para detectar violaciones de parámetros.
-- **DataEnrichmentService**: enriquece los datos de telemetría con información adicional (ej. ruta).
+- **MonitoringSessionFactory**: Crea una nueva sesión de monitoreo a partir de los datos de un viaje.
 
-### Fábricas (Factories)
+**Domain Services**
 
-- **MonitoringSessionFactory**: crea una nueva sesión de monitoreo a partir de los datos de un viaje.
-- **TelemetryDataFactory**: encapsula la lógica para crear una instancia de `TelemetryData` a partir de una lectura de sensor.
+- **DataIngestionService**: Procesa y valida las lecturas de telemetría entrantes desde los dispositivos IoT.
+- **RuleEvaluationService**: Analiza las lecturas en tiempo real para detectar violaciones de parámetros.
+- **DataEnrichmentService**: Enriquece los datos de telemetría con información adicional (ej. ruta).
 
-### Repositorios (Interfaces)
+**Repositories (interfaces)**
 
-- **MonitoringSessionRepository**: interfaz para guardar y recuperar sesiones de monitoreo.
-- **TelemetryDataRepository**: interfaz para persistir y consultar las lecturas de telemetría.
+- **IMonitoringSessionRepository**: Contrato para guardar y recuperar sesiones de monitoreo.
+- **ITelemetryDataRepository**: Contrato para persistir y consultar las lecturas de telemetría.
 
-### Reglas Clave (Business Rules)
+**Commands**
 
-- **Umbral de Alerta**: la `TemperatureViolation` se genera solo si la temperatura está fuera del `TemperatureRange` por un período mínimo.
-- **Detección de Desconexión**: si un dispositivo deja de enviar datos por más de X minutos, su estado se marca como `OFFLINE`.
-- **Integridad de Datos**: cada lectura de `TelemetryData` debe estar asociada a una `MonitoringSession` activa.
+- **StartMonitoringSessionCommand**: Orden para iniciar una nueva sesión de monitoreo para un viaje.
+- **EndMonitoringSessionCommand**: Orden para cerrar una sesión de monitoreo.
 
----
+**Queries**
 
-#### 4.2.4.2. Interface Layer
+- **GetMonitoringSessionByIdQuery**: Consulta que devuelve el estado actual de una sesión de monitoreo.
+- **GetTelemetryDataBySessionQuery**: Consulta que devuelve lecturas de telemetría de una sesión.
 
-### A. Consumers (Mensajería)
+**Events**
 
-| Evento de entrada      | Origen                  | Descripción                                                   |
-| ---------------------- | ----------------------- | ------------------------------------------------------------- |
-| `iot.telemetry.data`   | Sensores IoT            | Consume lecturas de sensores para procesarlas en tiempo real. |
-| `trips.trip.started`   | `Execution of the trip` | Inicia una nueva sesión de monitoreo para el viaje.           |
-| `trips.trip.completed` | `Execution of the trip` | Finaliza la sesión de monitoreo.                              |
-
-### B. Controllers (REST)
-
-**Base path:** `/api/v1/monitoring`
-
-| Método | Ruta                              | Descripción                                               | Request DTO | Response DTO                | Código HTTP |
-| ------ | --------------------------------- | --------------------------------------------------------- | ----------- | --------------------------- | ----------- |
-| GET    | `/sessions/{sessionId}`           | obtiene el estado actual de una sesión de monitoreo       | —           | `MonitoringSessionDTO`      | 200 OK      |
-| GET    | `/sessions/{sessionId}/telemetry` | obtiene lecturas de telemetría de una sesión              | —           | Lista de `TelemetryDataDTO` | 200 OK      |
-| GET    | `/live-map-data/{sessionId}`      | provee datos en tiempo real para visualización en el mapa | —           | `LiveMapDataDTO`            | 200 OK      |
-| GET    | `/chart-data/{sessionId}`         | provee datos de temperatura para gráficos                 | —           | `TemperatureChartDataDTO`   | 200 OK      |
-
-### C. DTOs (principales)
-
-| DTO                       | Campos principales                                                          |
-| ------------------------- | --------------------------------------------------------------------------- |
-| `TelemetryDataDTO`        | `readingId`, `deviceId`, `timestamp`, `temperature`, `humidity`, `location` |
-| `MonitoringSessionDTO`    | `sessionId`, `tripId`, `status`, `temperatureRange`, `lastReadingAt`        |
-| `LiveMapDataDTO`          | `sessionId`, `deviceId`, `currentLocation`, `lastTimestamp`, `status`       |
-| `TemperatureChartDataDTO` | `sessionId`, `dataPoints` (lista de `timestamp`, `temperature`)             |
-
-### D. Validación y reglas en la interfaz
-
-- **Validación de datos**: las lecturas deben ser validadas para asegurar que contienen los campos requeridos.
-- **Control de acceso**: solo usuarios con permisos (`monitoring-system`) pueden enviar datos.
-- **Idempotencia**: se implementa para evitar lecturas duplicadas.
-
-### E. Errores (contratos comunes)
-
-| Código HTTP | Descripción                                                                  |
-| ----------- | ---------------------------------------------------------------------------- |
-| 400         | **Bad Request** — datos de telemetría incompletos                            |
-| 404         | **Not Found** — sesión de monitoreo inexistente                              |
-| 409         | **Conflict** — intento de iniciar una sesión de monitoreo que ya está activa |
-| 503         | **Service Unavailable** — fallo en la integración con un sistema externo     |
+- **MonitoringSessionStartedEvent**: Evento que se emite cuando se inicia una sesión de monitoreo.
+- **MonitoringSessionCompletedEvent**: Evento que se emite cuando una sesión se completa.
+- **OutOfRangeDetectedEvent**: Evento que se emite cuando una lectura de sensor está fuera de rango.
+- **DeviceOfflineDetectedEvent**: Evento que se emite cuando un dispositivo IoT deja de enviar datos.
+- **TelemetryDataReceivedEvent**: Evento que se emite con cada lectura de sensor procesada.
 
 ---
 
-# F. Seguridad y políticas
+#### 4.2.4.2. Interface Layer.
 
-- **AuthN/AuthZ**: Se utilizará JWT (OAuth2/OIDC) para asegurar las APIs. Los roles principales para este contexto serán monitoring-system (para la ingestión de datos de los dispositivos) y user (para consultas).
-- **Rate limiting**: Se implementará un límite de solicitudes en el endpoint de ingestión para prevenir abusos o ataques de denegación de servicio.
-- **API Versioning**: Se mantendrá la práctica de versionado (/api/v1/...).
-- **Observabilidad**: Se implementará el registro de trazas con un 'X-Request-Id' para correlacionar las lecturas de telemetría a través de los diferentes servicios y sistemas. Se capturarán métricas por endpoint y se auditarán las transiciones de estado de las sesiones de monitoreo.
+**Controllers**
 
-# G. Contratos de ejemplo (OpenAPI sketch)
+- **MonitoringController**: Expone endpoints REST para consultas de estado de monitoreo. Recibe solicitudes del cliente y las convierte en comandos o queries para el Application Layer.
+  - getSessionDetails: permite obtener el estado actual de una sesión de monitoreo.
+  - getTelemetryData: consulta las lecturas de telemetría de una sesión.
+  - getLiveMapData: provee datos en tiempo real para la visualización en el mapa.
+  - getChartData: provee datos de temperatura para gráficos.
 
-```yaml
-paths:
-  /api/v1/monitoring/sessions/{sessionId}:
-    get:
-      summary: Get Monitoring Session Details
-      operationId: getSessionDetails
-      parameters:
-        - name: sessionId
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
-      security:
-        - BearerAuth: []
-      responses:
-        '200':
-          description: Session details retrieved successfully.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MonitoringSessionDTO'
-        '404':
-          description: Monitoring session not found.
+**Consumers**
 
-  /api/v1/monitoring/live-map-data/{sessionId}:
-    get:
-      summary: Get Live Map Data
-      operationId: getLiveMapData
-      parameters:
-        - name: sessionId
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
-      security:
-        - BearerAuth: []
-      responses:
-        '200':
-          description: Live map data retrieved successfully.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LiveMapDataDTO'
-        '404':
-          description: Monitoring session not found.
-
-components:
-  schemas:
-    MonitoringSessionDTO:
-      type: object
-      properties:
-        sessionId:
-          type: string
-          format: uuid
-        tripId:
-          type: string
-          format: uuid
-        status:
-          type: string
-          enum: [ACTIVE, INACTIVE, COMPLETED]
-        temperatureRange:
-          type: object
-          properties:
-            min:
-              type: number
-            max:
-              type: number
-    LiveMapDataDTO:
-      type: object
-      properties:
-        sessionId:
-          type: string
-          format: uuid
-        deviceId:
-          type: string
-        currentLocation:
-          $ref: '#/components/schemas/Location'
-        lastTimestamp:
-          type: string
-          format: date-time
-        status:
-          type: string
-          enum: [ONLINE, OFFLINE]
-    Location:
-      type: object
-      properties:
-        latitude:
-          type: number
-          format: float
-        longitude:
-          type: number
-          format: float
-```
-
-#### 4.2.4.3. Application Layer
-
-### Command Handlers
-
-- **StartMonitoringSessionCommandHandler**: inicia una nueva sesión de monitoreo.
-- **EndMonitoringSessionCommandHandler**: cierra una sesión de monitoreo.
-
-### Event Handlers
-
-- **TelemetryDataReceivedHandler**: procesa una lectura de telemetría, validando y evaluando reglas.
-- **TripStartedHandler**: maneja el evento de inicio de viaje para crear una nueva sesión.
-- **TripCompletedHandler**: maneja el evento de finalización de viaje para cerrar la sesión.
-
-### Application Services (Capabilities)
-
-- **MonitoringAppService**: orquesta el ciclo de vida de las sesiones y la gestión de datos.
-- **DataProcessorAppService**: integra la ingestión de datos, la evaluación de reglas y el enriquecimiento.
-
-### Transaccionalidad & Resiliencia
-
-- **Patrón de Transacciones**: se usa en operaciones clave para asegurar consistencia.
-- **Reintentos y Backoff**: se aplican al intentar enriquecer datos con APIs externas que pueden fallar.
-- **Outbox Pattern**: para publicar eventos de dominio de forma confiable, como `OutOfRangeDetected`.
+- **TelemetryConsumer**: Consume eventos de telemetría provenientes de los dispositivos IoT.
+- **TripEventsConsumer**: Consume eventos como `TripStartedEvent` y `TripCompletedEvent` del contexto de `Trip management` para orquestar la sesión de monitoreo.
 
 ---
 
-#### 4.2.4.4. Infrastructure Layer
+#### 4.2.4.3. Application Layer.
 
-### Componentes principales
+**Command Handlers**
 
-- **TelemetryDataRepositoryPostgres**: implementación de `TelemetryDataRepository`, optimizada para escrituras masivas.
-- **MonitoringSessionRepositoryPostgres**: implementación de `MonitoringSessionRepository` con transacciones.
-- **IoTMQTTAdapter**: adapter para el protocolo MQTT que consume los mensajes de telemetría.
-- **GoogleMapsAdapter**: se integra con la API de Google Maps para enriquecimiento de datos de ubicación.
-- **EventBusKafkaAdapter**: adapter para el bus de eventos que consume eventos de otros contextos y publica los propios.
-- **OutboxKafkaPublisher**: lee la tabla de Outbox para publicar eventos de forma confiable en Kafka.
+- **StartMonitoringSessionCommandHandler**: Procesa la orden para iniciar una sesión de monitoreo, creando una nueva instancia de `MonitoringSession` y persistiendo los datos.
+- **EndMonitoringSessionCommandHandler**: Procesa la orden para finalizar una sesión, actualizando su estado a `COMPLETED` y deteniendo el procesamiento de datos.
+
+**Query Handlers**
+
+- **GetMonitoringSessionByIdQueryHandler**: Procesa la consulta para obtener los detalles de una sesión de monitoreo.
+- **GetTelemetryDataBySessionQueryHandler**: Procesa la consulta para obtener las lecturas de telemetría de una sesión.
+
+**Event Handlers**
+
+- **TripStartedHandler**: Reacciona al evento `TripStarted` para iniciar una nueva sesión de monitoreo.
+- **TripCompletedHandler**: Reacciona al evento `TripCompleted` para finalizar la sesión de monitoreo.
+- **TelemetryDataReceivedHandler**: Procesa las lecturas de sensores entrantes, valida los datos, los enriquece y, si es necesario, genera eventos de alerta.
+
+---
+
+#### 4.2.4.4. Infrastructure Layer.
+
+**Repositories (implementaciones)**
+
+- **MonitoringSessionRepository**: Implementación de `IMonitoringSessionRepository` para interactuar con la base de datos (ej. PostgreSQL).
+- **TelemetryDataRepository**: Implementación de `ITelemetryDataRepository` optimizada para escrituras masivas (ej. base de datos de series de tiempo).
+
+**Components**
+
+- **IoTMQTTAdapter**: Adapta el protocolo MQTT para consumir mensajes de telemetría de los dispositivos.
+- **EventBusKafkaAdapter**: Se integra con el bus de eventos (Kafka) para consumir y publicar mensajes de dominio.
+- **GoogleMapsAdapter**: Adapta la API de Google Maps para obtener información de geolocalización y rutas.
+
+
+#### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+##### 4.2.4.6.2. Bounded Context Database Design Diagram
+
+### 4.2.5. Bounded Context: Trip management
+
+#### 4.2.5.1. Domain Layer.
+
+**Entities**
+
+- **Trip (Aggregate Root)**: Representa un viaje de transporte. Es el núcleo del agregado y coordina las reglas de negocio. Contiene la referencia al conductor mediante un driverId, al cliente mediante un clientId, al vehículo mediante un vehicleId, además de la ruta y el estado del viaje.
+
+**Value Objects**
+
+- **GeoCoordinate**: Valor inmutable que representa una coordenada geográfica compuesta por una latitud y una longitud válidas.
+- **Polyline**: Cadena de texto que representa la ruta en forma compacta y que siempre puede convertirse a una lista de coordenadas geográficas.
+- **RouteSegment**: Tramo de la ruta entre dos puntos. Incluye la lista de coordenadas que describen el trayecto, la distancia recorrida y la duración estimada.
+- **Route**: Valor que encapsula toda la información de la ruta de un viaje, incluyendo origen, destino, los segmentos que la componen, la representación en polyline, la distancia total y la duración total.
+- **Distance**: Valor que expresa una magnitud de distancia junto con su unidad de medida, por ejemplo kilómetros.
+- **Duration**: Valor que expresa un intervalo de tiempo junto con su unidad, por ejemplo minutos.
+- **TripStatus**: Representa el estado del viaje dentro de su ciclo de vida. Los estados posibles son Pendiente, En curso, Completado o Cancelado.
+
+**Aggregate**
+
+- **TripAggregate**: El agregado principal que asegura la consistencia de un viaje. Garantiza que un viaje siempre tenga cliente, conductor, vehículo y ruta válidos antes de iniciarse. Controla los invariantes de negocio como no iniciar un viaje sin ruta definida.
+
+**Factories**
+
+- **TripFactory**: Responsable de crear instancias de Trip en estado inicial Pendiente. Se asegura de que el viaje cuente con referencias válidas a driverId, clientId, vehicleId y con una ruta completa.
+
+**Domain Services**
+
+- **RoutePlanningService**: Servicio de dominio que encapsula la lógica de planificación de rutas. Genera un objeto Route válido con origen, destino, segmentos, distancia y duración.
+- **TripSchedulerService**: Servicio de dominio que valida la disponibilidad de conductores y vehículos. Impide asignar el mismo recurso a viajes en paralelo.
+
+**Repositories (interfaces)**
+
+- **ITripRepository**: Contrato de persistencia para almacenar y recuperar viajes. Proporciona métodos como buscar un viaje por su identificador, guardar cambios, encontrar viajes por estado o consultar los viajes de un cliente específico.
+
+**Commands**
+
+- **CreateTripCommand**: Orden para crear un nuevo viaje con cliente, conductor, vehículo y ruta asignados.
+- **AssignDriverToTripCommand**: Orden para asignar un conductor a un viaje existente.
+- **AssignVehicleToTripCommand**: Orden para asignar un vehículo a un viaje existente.
+- **StartTripCommand**: Orden para iniciar un viaje, cambiando su estado a En curso.
+- **CompleteTripCommand**: Orden para marcar un viaje como finalizado correctamente.
+- **CancelTripCommand**: Orden para cancelar un viaje, cambiando su estado a Cancelado.
+- **UpdateRouteForTripCommand**: Orden para actualizar la ruta asociada a un viaje antes de iniciarlo.
+
+**Queries**
+
+- **GetTripByIdQuery**: Consulta que devuelve la información de un viaje a partir de su identificador.
+- **GetTripsByStatusQuery**: Consulta que devuelve los viajes según su estado, ya sea Pendiente, En curso, Completado o Cancelado.
+- **GetTripsByClientIdQuery**: Consulta que devuelve todos los viajes asociados a un cliente específico.
+- **GetAllTripsQuery**: Consulta que devuelve todos los viajes registrados en el sistema.
+
+**Events**
+
+- **TripCreatedEvent**: Evento que se emite cuando un viaje es creado.
+- **DriverAssignedEvent**: Evento que se emite cuando un conductor es asignado a un viaje.
+- **VehicleAssignedEvent**: Evento que se emite cuando un vehículo es asignado a un viaje.
+- **TripStartedEvent**: Evento que se emite cuando un viaje inicia oficialmente.
+- **TripCompletedEvent**: Evento que se emite cuando un viaje se completa satisfactoriamente.
+- **TripCancelledEvent**: Evento que se emite cuando un viaje es cancelado.
+
+#### 4.2.5.2. Interface Layer.
+
+**Controllers**
+
+- **TripController**: expone endpoints REST para gestionar los viajes. Recibe solicitudes del cliente y las convierte en comandos o queries para el Application Layer.
+  - createTrip: permite registrar un nuevo viaje a partir de la información del cliente, conductor, vehículo y ruta.
+  - assignDriver: asigna un conductor a un viaje existente.
+  - assignVehicle: asigna un vehículo a un viaje existente.
+  - startTrip: cambia el estado de un viaje a “En curso”.
+  - completeTrip: marca un viaje como finalizado.
+  - cancelTrip: cancela un viaje en curso o pendiente.
+  - updateRoute: permite actualizar la ruta asociada a un viaje antes de iniciarse.
+  - getTripById: consulta la información de un viaje específico mediante su identificador.
+  - getTripsByStatus: devuelve la lista de viajes filtrados por estado.
+  - getTripsByClient: consulta los viajes asociados a un cliente específico.
+  - getAllTrips: devuelve todos los viajes registrados en el sistema.
+
+#### 4.2.5.3. Application Layer.
+
+**Command Handlers**  
+Se encargan de ejecutar la lógica de cada comando y modificar el estado del dominio.
+
+- **CreateTripCommandHandler**: procesa la creación de un viaje nuevo usando TripFactory y persiste el agregado en ITripRepository.
+- **AssignDriverToTripCommandHandler**: recibe un comando de asignación de conductor, valida la referencia y actualiza el Trip.
+- **AssignVehicleToTripCommandHandler**: procesa la asignación de un vehículo a un viaje.
+- **StartTripCommandHandler**: cambia el estado del viaje a “En curso” y emite el evento TripStartedEvent.
+- **CompleteTripCommandHandler**: marca el viaje como finalizado y emite el evento TripCompletedEvent.
+- **CancelTripCommandHandler**: cambia el estado del viaje a “Cancelado” y emite el evento TripCancelledEvent.
+- **UpdateRouteForTripCommandHandler**: procesa la actualización de la ruta de un viaje antes de su inicio.
+
+**Query Handlers**  
+Procesan consultas de solo lectura y devuelven DTOs o proyecciones.
+
+- **GetTripByIdQueryHandler**: busca un viaje por su identificador y devuelve su representación.
+- **GetTripsByStatusQueryHandler**: devuelve los viajes filtrados por estado (Pendiente, En curso, Completado, Cancelado).
+- **GetTripsByClientIdQueryHandler**: devuelve los viajes asociados a un cliente específico.
+- **GetAllTripsQueryHandler**: obtiene todos los viajes registrados en el sistema.
+
+**Event Handlers**  
+Escuchan eventos de dominio y reaccionan a ellos para ejecutar acciones adicionales dentro del mismo bounded context o preparar datos para otros.
+
+- **TripCreatedEventHandler**: maneja el evento de creación de un viaje, inicializando procesos asociados como auditoría o métricas internas.
+- **DriverAssignedEventHandler**: reacciona a la asignación de un conductor, garantizando consistencia en registros relacionados.
+- **VehicleAssignedEventHandler**: maneja la asignación de un vehículo, actualizando estados necesarios.
+- **TripStartedEventHandler**: responde al inicio de un viaje, registrando la hora de inicio y disparando procesos de seguimiento.
+- **TripCompletedEventHandler**: procesa la finalización de un viaje, generando datos para reportes o notificaciones al cliente.
+- **TripCancelledEventHandler**: maneja la cancelación de un viaje, liberando recursos y actualizando métricas de cancelación.
 
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
 
