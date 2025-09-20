@@ -2787,3 +2787,145 @@ Diagrama de componentes - Mobile App - Trip Management
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
 
 ![Trip Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-DataBase-Diagram.puml)
+
+### 4.2.6. Bounded Context: Fleet Management
+
+#### 4.2.6.1. Domain Layer
+
+**Entidades Principales**
+
+**Vehicle (Aggregate Root)**
+
+- Propósito: Representa una unidad de transporte registrada y gobernada por políticas de cadena de frío y geocercas.
+
+- Atributos principales:
+
+  - id (UUID)
+  - plate (única)
+  - make 
+  - model 
+  - active (bool)
+  - tenantId (multi-tenant)
+  - createdAt
+  - updatedAt
+
+- Métodos principales:
+
+  - register(data), update(data)
+
+  - attachSensor(sensorId) / detachSensor(sensorId)
+
+  - applyPolicy(policyId)
+
+  - assignGeofence(geofenceId) / removeGeofence(geofenceId)
+
+  - deactivate() / activate()
+
+**Sensor (Entity)**
+
+- Propósito: Describe un sensor IoT asociado a vehículos (temperatura, GPS, humedad, puerta, etc.).
+
+- Atributos: 
+  - id, 
+  - type, 
+  - serial (único), 
+  - lastCalibrationAt, 
+  - active, 
+  - tenantId, 
+  - vehicleId?
+- Métodos: 
+  - calibrate(at) 
+  - activate()
+  - deactivate() 
+  - bindToVehicle(vehicleId)
+
+**ColdChainPolicy (Entity)**
+
+- Propósito: Define umbrales y reglas de cadena de frío.
+- Atributos: 
+  - id
+  - name
+  - temperatureRange (VO)
+  - hysteresis (VO)
+  - samplingMinSeconds
+  - tenantId
+- Métodos: 
+  - validate() 
+  - (consistencia de rangos)
+  - update(params)
+
+**Geofence (Entity)**
+- Propósito: Define áreas geográficas (circular/polígono) para control operacional.
+- Atributos: 
+  - id
+  - name 
+  - shape (VO) 
+  - geojson (WKT/GeoJSON) 
+  - tenantId
+- Métodos: 
+- updateGeometry(shape, geojson)
+
+**VehiclePolicy (Entity/Historization)**
+- Propósito: Historial de políticas aplicadas a un vehículo.
+- Atributos: 
+  - vehicleId 
+  - policyId 
+  - assignedAt 
+  - assignedBy 
+  - tenantId
+
+**VehicleGeofence (Entity/Historization)**
+- Propósito: Asignaciones de geocercas a vehículos.
+- Atributos: 
+  - vehicleId 
+  - geofenceId 
+  - assignedAt 
+  - tenantId
+
+**Value Objects**
+
+- Plate (formato y unicidad por país/tenant).
+
+- TemperatureRange (minC, maxC, validación minC < maxC).
+
+- Hysteresis (delta de amortiguación para evitar ruido).
+
+- GeoShape (circle|polygon + parámetros válidos).
+
+- CalibrationCertificate (fecha y emisor, opcional para compliance).
+
+**Domain Services**
+
+- PolicyAssignmentService: valida y aplica políticas a un vehículo (revisa compatibilidad de tipo de carga, plan vigente y redundancia de sensores).
+
+- SensorAttachmentService: garantiza reglas de calibración vigente y asociaciones válidas (no duplicadas).
+
+- GeofencingService: valida intersecciones y consistencia de geocercas por vehículo/flota.
+
+**Commands**
+
+- RegisterVehicleCommand, UpdateVehicleCommand
+
+- CreateSensorCommand, CalibrateSensorCommand, AttachSensorCommand
+
+- DefineColdChainPolicyCommand, AssignPolicyToVehicleCommand
+
+- CreateGeofenceCommand, AssignGeofenceToVehicleCommand
+
+**Queries**
+
+- GetVehicleByIdQuery 
+- ListVehiclesQuery
+- ListSensorsByVehicleQuery
+- GetPolicyByVehicleQuery
+- ListGeofencesByVehicleQuery
+
+**Events**
+
+- VehicleRegisteredEvent
+
+- SensorAttachedEvent
+
+- PolicyUpdatedEvent / PolicyAssignedToVehicleEvent
+
+- GeofenceConfiguredEvent / GeofenceAssignedToVehicleEvent
