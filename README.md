@@ -940,8 +940,6 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 
 ![Alert Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-Class-Diagram.puml&v=3)
 
-
-
 **WebApp / Mobile App Class Diagram**
 
 ![Alert Management Domain Layer WebApp MobileApp Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-WebApp-MobileApp-Class-Diagram.puml)
@@ -1057,7 +1055,6 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 - **GoogleMapsAdapter**: Adapta la API de Google Maps para obtener información de geolocalización y rutas.
 - **AlertsAPIAdapter**: Adapta la API del contexto de Alerts & Resolution para enviar eventos de alerta.
 
-  
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
 
 #### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
@@ -1067,7 +1064,6 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 ![Real Time Monitoring Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Real-time-monitoring-Domain-Layer-Class-Diagram.puml)
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
-
 
 ### 4.2.5. Bounded Context: _Trip management_
 
@@ -1485,3 +1481,5 @@ Diagrama de componentes - Mobile App - Trip Management
 ![Trip Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-Class-Diagram.puml)
 
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
+
+![Trip Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Trip-Management-Domain-Layer-DataBase-Diagram.puml)
