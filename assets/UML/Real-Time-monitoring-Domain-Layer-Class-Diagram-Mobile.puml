@@ -1,0 +1,148 @@
+@startuml Real-Time-Monitoring-Mobile-Domain-Classes
+' ========================
+' Stereotypes colors
+' ========================
+skinparam class {
+    BackgroundColor<<Entity>> LightYellow
+    BackgroundColor<<ValueObject>> LightGreen
+    BackgroundColor<<Enum>> Wheat
+}
+' ========================
+' Entities
+' ========================
+class MonitoringSession <<Entity>> {
+  - id: int
+  - tripId: int
+  - status: SessionStatus
+  - temperatureRange: TemperatureRange
+  - startTime: DateTime
+  - endTime: DateTime
+  - currentReading: TelemetryData
+  - alerts: List<Alert>
+}
+
+class TelemetryData <<Entity>> {
+  - id: int
+  - sessionId: int
+  - deviceId: String
+  - timestamp: DateTime
+  - sensorReading: SensorReading
+  - location: GeoCoordinate
+  - deviceStatus: DeviceStatus
+}
+
+class Alert <<Entity>> {
+  - id: int
+  - sessionId: int
+  - type: AlertType
+  - severity: String
+  - message: String
+  - violatedParameter: String
+  - thresholdValue: double
+  - actualValue: double
+  - createdAt: DateTime
+  - isRead: boolean
+}
+
+class Incident <<Entity>> {
+  - id: int
+  - sessionId: int
+  - alertId: int
+  - description: String
+  - status: IncidentStatus
+  - assignedTo: String
+  - createdAt: DateTime
+  - resolvedAt: DateTime
+}
+
+' ========================
+' Value Objects
+' ========================
+class TemperatureRange <<ValueObject>> {
+  - minTemperature: double
+  - maxTemperature: double
+  - unit: String
+}
+
+class SensorReading <<ValueObject>> {
+  - temperature: double
+  - humidity: double
+  - vibration: double
+  - temperatureUnit: String
+  - humidityUnit: String
+  - vibrationUnit: String
+}
+
+class GeoCoordinate <<ValueObject>> {
+  - latitude: double
+  - longitude: double
+  - accuracy: double
+}
+
+class DeviceStatus <<ValueObject>> {
+  - batteryLevel: double
+  - signalStrength: double
+  - lastSeen: DateTime
+  - isOnline: boolean
+}
+
+class ChartDataPoint <<ValueObject>> {
+  - timestamp: DateTime
+  - value: double
+  - unit: String
+  - isOutOfRange: boolean
+}
+
+class LiveMapMarker <<ValueObject>> {
+  - position: GeoCoordinate
+  - type: String
+  - icon: String
+  - popupContent: String
+}
+
+' ========================
+' Enums
+' ========================
+enum SessionStatus <<Enum>> {
+  active
+  inactive
+  completed
+  paused
+}
+
+enum AlertType <<Enum>> {
+  temperatureHigh
+  temperatureLow
+  deviceOffline
+  routeDeviation
+  vibrationExcessive
+}
+
+enum IncidentStatus <<Enum>> {
+  open
+  inProgress
+  resolved
+  escalated
+}
+
+' ========================
+' Relationships
+' ========================
+MonitoringSession *-- "1" TemperatureRange
+MonitoringSession --> SessionStatus
+MonitoringSession *-- "0..*" TelemetryData
+MonitoringSession *-- "0..*" Alert
+MonitoringSession --> "0..1" TelemetryData : currentReading
+
+TelemetryData --> "1" SensorReading
+TelemetryData --> "1" GeoCoordinate : location
+TelemetryData --> "1" DeviceStatus
+
+Alert --> AlertType
+Alert --> "0..1" Incident
+
+Incident --> IncidentStatus
+
+SensorReading *-- ChartDataPoint : generates
+GeoCoordinate *-- LiveMapMarker : creates
+@enduml
