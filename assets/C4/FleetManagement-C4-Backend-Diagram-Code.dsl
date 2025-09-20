@@ -1,45 +1,44 @@
-workspace "CargaSafe - Fleet Management Components (Backend)" "C4 Component view for the Fleet Management Context of CargaSafe" {
+workspace "CargaSafe - Fleet Management Components" "C4 Component view for the Fleet Management Context of CargaSafe" {
 
   model {
 
     cargaSafe = softwareSystem "CargaSafe" "SaaS logistics monitoring platform" {
 
-
-    webApplication = container "Web Application" "Angular SPA for CargaSafe UI & dashboards." "Angular" {
+      webApplication = container "Web Application" "Angular SPA for CargaSafe UI & dashboards." "Angular" {
         tags "WebApp"
       }
 
       mobileApplication = container "Mobile Application" "Flutter app for CargaSafe mobile operations." "Flutter" {
         tags "MobileApp"
       }
-      // ===== Fleet BC (Backend) =====
-      fleetContext = container "Fleet Management Backend" "CRUD Vehicles/Devices (REST API)" "Spring Boot / Node" {
 
-        intLayer    = component "Interface Layer (REST)" "Controllers: VehicleController, DeviceController" "Framework"
-        appLayer    = component "Application Layer" "VehicleCommandServiceImpl, DeviceCommandServiceImpl, FleetQueryServiceImpl" "Framework"
-        domainLayer = component "Domain Layer" "Aggregates & Domain Services: Vehicle, Device, DeviceAttachmentService" "Language/Runtime"
-        infLayer    = component "Infrastructure Layer" "VehicleRepository, DeviceRepository, IAMClient adapter" "Framework"
+      fleetContext = container "Fleet Management Context" "APIs + Workers of the bounded context" "Spring Boot (REST + Jobs)" {
+
+        fleetIntLayer    = component "Fleet Management Interface Layer" "Controllers (REST): Vehicle, Device" "Spring Boot"
+        fleetAppLayer    = component "Fleet Management Application Layer" "Use case orchestration (Command Services, Query Services)" "Spring Boot"
+        fleetDomainLayer = component "Fleet Management Domain Layer" "Entities, Value Objects, Aggregates, Domain Services (Vehicle, Device, DeviceAttachmentService)" "Spring Boot"
+        fleetInfLayer    = component "Fleet Management Infrastructure Layer" "Repositories and database connectors (VehicleRepository, DeviceRepository, IAMClient adapter)" "Spring Boot"
       }
 
-      postgres = container "Postgress" "Vehicles & Devices" "PostgreSQL" {
+      fleetPostgres = container "Postgres" "Relational database for vehicles and devices" "RDBMS" {
         tags "Database"
       }
     }
 
-    // ===== Relaciones por capas =====
-    webApplication     -> intLayer "Consumes REST endpoints"
-    mobileApplication  -> intLayer "Consumes REST endpoints"
-    intLayer  -> appLayer    "Invokes commands/queries"
-    appLayer  -> domainLayer "Delegates invariants"
-    appLayer  -> infLayer    "Uses repositories/ports"
-    infLayer  -> postgres                 "Read/Write"
+    webApplication     -> fleetIntLayer "Consumes REST endpoints"
+    mobileApplication  -> fleetIntLayer "Consumes REST endpoints"
+    fleetIntLayer -> fleetAppLayer "Invokes commands and queries"
+    fleetAppLayer -> fleetDomainLayer "Applies domain logic"
+    fleetAppLayer -> fleetInfLayer "Uses repositories"
+    fleetInfLayer -> fleetPostgres "Read/write vehicles and devices data"
+    
   }
 
   views {
 
     component fleetContext {
-      title "Fleet Management - Backend Component Diagram"
-      description "Internal layered components (Interface, Application, Domain, Infrastructure) for the Fleet Management BC inside CargaSafe."
+      title "Fleet Management Context - Component Diagram"
+      description "Internal layered components of the Fleet Management Context inside CargaSafe."
       include *
       autoLayout tb
     }
