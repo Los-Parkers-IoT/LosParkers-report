@@ -111,6 +111,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, aportando ideas clave para definir el flujo de negocio y la estructura de la solución. Colaboré en la elaboración de la arquitectura de software y en el diseño táctico bajo los principios de Domain Driven Design, asegurando claridad y consenso entre los miembros del equipo. Además, contribuí en la documentación de los artefactos de usuario y en la organización de tareas, promoviendo un entorno colaborativo y alineado con los objetivos del proyecto.<br />
+        <br><span class="person">George Arturo Aliaga Pimentel</span><br />
+        <span class="entry-order">TB1:</span><br/>
+        Durante este proyecto, estuve muy involucrado en reuniones tanto en persona como en línea, donde contribuí con ideas para la realización del proyecto. Trabajé junto al equipo en la elaboración de la arquitectura de software y en el diseño táctico, utilizando los principios de Domain Driven Design para asegurarnos de que todos estuviéramos en sintonía y de que el plan fuera claro. También ayudé a crear la documentación y a organizar las tareas, manteniendo así al equipo enfocado y productivo. <br />
       </td>
       </td>
       <td class="final-comment-column">
@@ -130,6 +133,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         Estuve enfocado en fomentar un ambiente de colaboración dentro del equipo. Trabajé en conjunto con mis compañeros para definir los objetivos y tareas del proyecto. Colaboré en el análisis competitivo y en la definición de segmentos clave como el de gestion de transportes y clientes finales. Además, me encargué de crear user stories e impact mapping para estos segmentos, asegurando que el desarrollo del producto estuviera alineado con las necesidades del usuario. Cada semana establecí un límite personal para realizar las secciones de cada capítulo, de esta forma me aseguré de que todas las tareas estuvieran bien organizadas y distribuidas para cumplir con los objetivos establecidos. <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo, promoviendo la participación activa de todos los miembros mediante retroalimentación constante y constructiva. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que aportan al negocio. Participé en la definición de metas y organización de tareas, asegurando que el equipo trabajara con orden y alcanzara los objetivos propuestos bajo los principios de Domain Driven Design.<br />
+         <br><span class="person">George Arturo Aliaga Pimentel</span><br />
+        <span class="entry-order">TB1:</span><br/>
+        Durante el desarrollo del proyecto, colaboré activamente en la construcción de un entorno de trabajo cooperativo y eficaz, donde la retroalimentación continua fue clave para que todos los miembros del equipo participaran de forma proactiva. Mi contribución principal se centró en el análisis y la definición de la solución, específicamente en la elaboración de Solution Profiles, incluyendo la identificación de antecedentes, problemáticas, el proceso Lean UX y los segmentos de usuarios clave. Además, ayudé a definir objetivos y planificar las tareas, asegurando que el trabajo del equipo estuviera alineado con los principios de Domain Driven Design y enfocado en entregar valor.
       </td>
       <td class="final-comment-column">
       </td>
@@ -2798,7 +2804,7 @@ Diagrama de componentes - Mobile App - Trip Management
 
 **Vehicle (Aggregate Root)**
 
-- Propósito: Representa una unidad de transporte registrada y gobernada por políticas de cadena de frío y geocercas.
+- Propósito: Representa una unidad de transporte registrada en el sistema de flota.
 
 - Atributos principales:
 
@@ -2807,133 +2813,66 @@ Diagrama de componentes - Mobile App - Trip Management
   - make
   - model
   - active (bool)
-  - tenantId (multi-tenant)
+  - tenantId
   - createdAt
   - updatedAt
 
 - Métodos principales:
 
   - register(data), update(data)
-
-  - attachSensor(sensorId) / detachSensor(sensorId)
-
-  - applyPolicy(policyId)
-
-  - assignGeofence(geofenceId) / removeGeofence(geofenceId)
-
   - deactivate() / activate()
 
-**Sensor (Entity)**
+**Device (Entity)**
 
-- Propósito: Describe un sensor IoT asociado a vehículos (temperatura, GPS, humedad, puerta, etc.).
+- Propósito: Registrar y administrar dispositivos/sensores instalados en unidades.
 
 - Atributos:
+
   - id,
-  - type,
-  - serial (único),
-  - lastCalibrationAt,
-  - active,
-  - tenantId,
+  - type (temp|gps|humidity|door…)
+  - serial (único)
+  - lastCalibrationAt?
+  - active
   - vehicleId?
+  - tenantId
+  - createdAt
+
 - Métodos:
-  - calibrate(at)
+  - create(data)
+  - update(data)
+  - attachToVehicle(vehicleId)
+  - detach(),
   - activate()
   - deactivate()
-  - bindToVehicle(vehicleId)
-
-**ColdChainPolicy (Entity)**
-
-- Propósito: Define umbrales y reglas de cadena de frío.
-- Atributos:
-  - id
-  - name
-  - temperatureRange (VO)
-  - hysteresis (VO)
-  - samplingMinSeconds
-  - tenantId
-- Métodos:
-  - validate()
-  - (consistencia de rangos)
-  - update(params)
-
-**Geofence (Entity)**
-
-- Propósito: Define áreas geográficas (circular/polígono) para control operacional.
-- Atributos:
-  - id
-  - name
-  - shape (VO)
-  - geojson (WKT/GeoJSON)
-  - tenantId
-- Métodos:
-- updateGeometry(shape, geojson)
-
-**VehiclePolicy (Entity/Historization)**
-
-- Propósito: Historial de políticas aplicadas a un vehículo.
-- Atributos:
-  - vehicleId
-  - policyId
-  - assignedAt
-  - assignedBy
-  - tenantId
-
-**VehicleGeofence (Entity/Historization)**
-
-- Propósito: Asignaciones de geocercas a vehículos.
-- Atributos:
-  - vehicleId
-  - geofenceId
-  - assignedAt
-  - tenantId
 
 **Value Objects**
 
 - Plate (formato y unicidad por país/tenant).
 
-- TemperatureRange (minC, maxC, validación minC < maxC).
-
-- Hysteresis (delta de amortiguación para evitar ruido).
-
-- GeoShape (circle|polygon + parámetros válidos).
-
-- CalibrationCertificate (fecha y emisor, opcional para compliance).
-
 **Domain Services**
 
-- PolicyAssignmentService: valida y aplica políticas a un vehículo (revisa compatibilidad de tipo de carga, plan vigente y redundancia de sensores).
-
-- SensorAttachmentService: garantiza reglas de calibración vigente y asociaciones válidas (no duplicadas).
-
-- GeofencingService: valida intersecciones y consistencia de geocercas por vehículo/flota.
+- DeviceAttachmentService: valida que el vehículo exista y pertenezca al mismo tenantId antes de asociar/desasociar.
 
 **Commands**
 
-- RegisterVehicleCommand, UpdateVehicleCommand
+- RegisterVehicleCommand
+- UpdateVehicleCommand
+- ActivateVehicleCommand
+- DeactivateVehicleCommand
 
-- CreateSensorCommand, CalibrateSensorCommand, AttachSensorCommand
-
-- DefineColdChainPolicyCommand, AssignPolicyToVehicleCommand
-
-- CreateGeofenceCommand, AssignGeofenceToVehicleCommand
+- CreateDeviceCommand
+- UpdateDeviceCommand
+- AttachDeviceCommand
+- DetachDeviceCommand
+- ActivateDeviceCommand
+- DeactivateDeviceCommand
 
 **Queries**
 
 - GetVehicleByIdQuery
 - ListVehiclesQuery
-- ListSensorsByVehicleQuery
-- GetPolicyByVehicleQuery
-- ListGeofencesByVehicleQuery
-
-**Events**
-
-- VehicleRegisteredEvent
-
-- SensorAttachedEvent
-
-- PolicyUpdatedEvent / PolicyAssignedToVehicleEvent
-
-- GeofenceConfiguredEvent / GeofenceAssignedToVehicleEvent
+- GetDeviceByIdQuery
+- ListDevicesQuery (con filtro por vehicleId)
 
 ### 4.2.6.2. Interface Layer
 
@@ -2945,104 +2884,113 @@ Diagrama de componentes - Mobile App - Trip Management
 
 - PUT /vehicles/{id} : Actualizar datos
 
-- POST /vehicles/{id}/policies/{policyId} : Aplicar política
+- PATCH /vehicles/{id}/activate | /deactivate
 
-- POST /vehicles/{id}/geofences/{geofenceId} : Asignar geocerca
+- GET /vehicles/{id} | GET /vehicles?search=&page=&size=
 
-- GET /vehicles/{id} : Obtener detalle
+**DeviceController**
 
-- GET /vehicles : Listado/paginado
+- POST /devices : Crear sensor
 
-**SensorController**
+- PUT /devices/{id}
 
-- POST /sensors : Crear sensor
+- POST /devices/{id}/attach/{vehicleId}
 
-- POST /sensors/{id}/calibrate : Registrar calibración
+- POST /devices/{id}/detach
 
-- POST /sensors/{id}/attach/{vehicleId} : Asociar a vehículo
+- PATCH /devices/{id}/activate | /deactivate
 
-- GET /vehicles/{id}/sensors : Sensores por vehículo
+- GET /devices/{id} | GET /devices?vehicleId=&page=&size=
 
-**PolicyController**
+**Seguridad (ACLs)**
 
-- POST /policies : Crear/actualizar política
-
-- GET /vehicles/{id}/policy : Política efectiva del vehículo
-
-**GeofenceController**
-
-- POST /geofences: Crear geocerca
-
-- POST /vehicles/{id}/geofences/{geofenceId} : Asignar a vehículo
-
-- GET /vehicles/{id}/geofences : Geocercas aplicadas
-
-- Seguridad/Scopes: OIDC/JWT vía IAM (fleet:write, fleet:read, fleet:admin).
+- OIDC/JWT con IAM; scopes: fleet:read, fleet:write, fleet:admin.
 
 ### 4.2.6.3. Application Layer
 
-**VehicleCommandService**
+**Command Services**
 
-- Orquesta register/update, aplica policy inheritance (por flota→vehículo), valida unicidad de plate.
+**VehicleCommandServiceImpl**
 
-- Publica VehicleRegisteredEvent.
+- Propósito: gestionar creación/actualización/activación de vehículos.
 
-**SensorCommandService**
+- Métodos:
 
-- Aplica reglas de calibración vigente y redundancia mínima por tipo.
+  - handle(RegisterVehicleCommand)
 
-- Ejecuta attachToVehicle y emite SensorAttachedEvent.
+  - handle(UpdateVehicleCommand)
 
-**PolicyCommandService**
+  - handle(ActivateVehicleCommand) / handle(DeactivateVehicleCommand)
 
-- Crea/actualiza políticas; valida TemperatureRange y Hysteresis.
+- Validaciones: fleet:write/fleet:admin; unicidad plate por tenantId; existencia de vehículo en updates.
 
-- assignPolicyToVehicle → registra histórico (VehiclePolicy) y emite PolicyAssignedToVehicleEvent.
+- Dependencias: VehicleRepository, IAMClient.
 
-**GeofenceCommandService**
+**DeviceCommandServiceImpl**
 
-- Crea/actualiza geocercas y asignaciones; valida forma/geojson y conflictos.
+- Propósito: ciclo de vida de dispositivos y asociación a vehículos.
 
-- Emite GeofenceConfiguredEvent / GeofenceAssignedToVehicleEvent.
+- Métodos:
 
-**FleetQueryService**
+  - handle(CreateDeviceCommand)
 
-- Consultas optimizadas para Backoffice (paginación, filtros por tenant, índices compuestos).
+  - handle(UpdateDeviceCommand)
 
-**Patrones transversales (Application):**
+  - handle(AttachDeviceCommand) / handle(DetachDeviceCommand)
 
-- Transactional Outbox para publicar eventos a Kafka.
+  - handle(ActivateDeviceCommand) / handle(DeactivateDeviceCommand)
 
-- Idempotencia en comandos sensibles (RegisterVehicle, AttachSensor).
+- Validaciones: fleet:write/fleet:admin; unicidad serial por tenantId; en attach: vehículo existe y mismo tenantId, dispositivo no asociado; en detach: dispositivo asociado.
 
-- Auditoría (quién/cuándo) de cambios de configuración.
+- Dependencias:
+  - DeviceRepository
+  - VehicleRepository
+  - IAMClient
+
+**Query Services**
+
+**FleetQueryServiceImpl**
+
+- Propósito: consultas de solo lectura para vehículos y dispositivos.
+
+- Métodos:
+
+  - handle(GetVehicleByIdQuery) / handle(ListVehiclesQuery)
+
+  - handle(GetDeviceByIdQuery) / handle(ListDevicesQuery) (filtros por vehicleId)
+
+- Dependencias:
+  - VehicleRepository
+  - DeviceRepository
+  - IAMClient (scope fleet:read, resolución de tenantId)
+
+**Outbound Services (ACL)**
+
+**IAMClient**
+
+- assertScope(token, scope) — valida fleet:read|write|admin.
+
+- getTenantId(token) — scoping multi-tenant.
+
+- getUserId(token) — auditoría
+
+**Consideraciones transversales**
+
+- Transacciones: 1 comando = 1 transacción (implementada por Infra, p. ej. @Transactional).
+
+- Idempotencia: RegisterVehicle por (tenantId, plate); CreateDevice por (tenantId, serial).
+
+- Auditoría: createdAt/updatedAt (y opcional createdBy/updatedBy).
+
+- Errores estándar: Forbidden (ACL), NotFound, Conflict, ValidationError.
 
 ### 4.2.6.4. Infrastructure Layer
 
 **Repositories**
 
 - VehicleRepository (PostgreSQL)
+- DeviceRepository (PostgreSQL)
 
-- SensorRepository (PostgreSQL)
+**Integraciones y seguridad**
 
-- PolicyRepository (PostgreSQL)
-
-- GeofenceRepository (PostgreSQL con tipos geométricos/GeoJSON)
-
-- OutboxRepository (tabla outbox para integración con Kafka)
-
-**Mensajería/Integraciones**
-
-- Kafka (topic fleet.events): VehicleRegistered, SensorAttached, PolicyUpdated, GeofenceConfigured.
-
-- IAMClient: introspección JWT y “permission checks”.
-
-- Billing webhook/consumer: reacciona a SubscriptionActivated / PlanLimitsUpdated para habilitar límites por plan.
-
-**Cache**
-
-- Redis opcional para listas frecuentes (vehículos por tenant, sensores por vehículo).
-
-**Persistencia geométrica**
-
-- Postgres + geojson (o PostGIS si está disponible) para consultas espaciales.
+- IAMClient para validar JWT/claims (ACLs).

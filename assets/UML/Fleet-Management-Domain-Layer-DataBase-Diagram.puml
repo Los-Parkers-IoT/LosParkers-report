@@ -1,0 +1,36 @@
+@startuml
+title Fleet Management - Database Design (PostgreSQL)
+
+entity vehicles {
+  * id : uuid <<PK>>
+  --
+  plate : varchar(16)
+  make  : varchar(40)
+  model : varchar(40)
+  active : boolean
+  tenant_id : uuid
+  created_at : timestamp
+  updated_at : timestamp
+  --
+  {unique} (tenant_id, plate)
+}
+
+entity devices {
+  * id : uuid <<PK>>
+  --
+  type : varchar(24)
+  serial : varchar(64)
+  last_calibration_at : timestamp
+  active : boolean
+  vehicle_id : uuid
+  tenant_id : uuid
+  created_at : timestamp
+  updated_at : timestamp
+  --
+  {unique} (tenant_id, serial)
+  {index} (vehicle_id)
+}
+
+vehicles ||--o{ devices : has
+
+@enduml
