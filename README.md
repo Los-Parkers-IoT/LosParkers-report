@@ -1270,7 +1270,7 @@ Como resultado, se identificaron ocho bounded contexts:
 - **Identity and Access Management**: administración de usuarios, autenticación y control de accesos.
 - **Profiles and Preferences Management**: gestión de perfiles de usuario y configuración de preferencias.
 - **Fleet management**: gestión de vehículos y dispositivos IoT.
-- **Execution of the trip**: creación y ejecución de viajes.
+- **Trip management**: creación y ejecución de viajes.
 - **Real-time monitoring**: monitoreo de condiciones en tiempo real.
 - **Alerts and resolution**: generación de alertas.
 - **Visualization/Analytics**: visualización de métricas y reportes.
@@ -1333,7 +1333,7 @@ Los flujos de mensajes de dominio evidencian la cooperación entre los ocho boun
 - **Identity and Access Management**
 - **Profiles and Preferences Management**
 - **Fleet Management**
-- **Execution of the trip**
+- **Trip management**
 - **Real-time monitoring**
 - **Alerts and resolution**
 - **Visualization/Analytics**
