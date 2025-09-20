@@ -3012,3 +3012,35 @@ Diagrama de componentes - Mobile App - Trip Management
 - Idempotencia en comandos sensibles (RegisterVehicle, AttachSensor).
 
 - Auditoría (quién/cuándo) de cambios de configuración.
+
+
+### 4.2.6.4. Infrastructure Layer
+
+**Repositories**
+
+- VehicleRepository (PostgreSQL)
+
+- SensorRepository (PostgreSQL)
+
+- PolicyRepository (PostgreSQL)
+
+- GeofenceRepository (PostgreSQL con tipos geométricos/GeoJSON)
+
+- OutboxRepository (tabla outbox para integración con Kafka)
+
+**Mensajería/Integraciones**
+
+- Kafka (topic fleet.events): VehicleRegistered, SensorAttached, PolicyUpdated, GeofenceConfigured.
+
+- IAMClient: introspección JWT y “permission checks”.
+
+- Billing webhook/consumer: reacciona a SubscriptionActivated / PlanLimitsUpdated para habilitar límites por plan.
+
+**Cache**
+
+- Redis opcional para listas frecuentes (vehículos por tenant, sensores por vehículo).
+
+**Persistencia geométrica**
+
+- Postgres + geojson (o PostGIS si está disponible) para consultas espaciales.
+
