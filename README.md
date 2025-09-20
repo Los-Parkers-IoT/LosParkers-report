@@ -2931,7 +2931,7 @@ Diagrama de componentes - Mobile App - Trip Management
 - GeofenceConfiguredEvent / GeofenceAssignedToVehicleEvent
 
 
-### 4.2.8.2. Interface Layer
+### 4.2.6.2. Interface Layer
 
 #### Controllers Principales (HTTP REST)
 
@@ -2975,3 +2975,40 @@ Diagrama de componentes - Mobile App - Trip Management
 
 - Seguridad/Scopes: OIDC/JWT vía IAM (fleet:write, fleet:read, fleet:admin).
 
+### 4.2.6.3. Application Layer
+
+**VehicleCommandService**
+
+- Orquesta register/update, aplica policy inheritance (por flota→vehículo), valida unicidad de plate.
+
+- Publica VehicleRegisteredEvent.
+
+**SensorCommandService**
+
+- Aplica reglas de calibración vigente y redundancia mínima por tipo.
+
+- Ejecuta attachToVehicle y emite SensorAttachedEvent.
+
+**PolicyCommandService**
+
+- Crea/actualiza políticas; valida TemperatureRange y Hysteresis.
+
+- assignPolicyToVehicle → registra histórico (VehiclePolicy) y emite PolicyAssignedToVehicleEvent.
+
+**GeofenceCommandService**
+
+- Crea/actualiza geocercas y asignaciones; valida forma/geojson y conflictos.
+
+- Emite GeofenceConfiguredEvent / GeofenceAssignedToVehicleEvent.
+
+**FleetQueryService**
+
+- Consultas optimizadas para Backoffice (paginación, filtros por tenant, índices compuestos).
+
+**Patrones transversales (Application):**
+
+- Transactional Outbox para publicar eventos a Kafka.
+
+- Idempotencia en comandos sensibles (RegisterVehicle, AttachSensor).
+
+- Auditoría (quién/cuándo) de cambios de configuración.
