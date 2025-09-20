@@ -59,7 +59,7 @@
           </tr>
           <tr>
             <td>u202214869</td>
-            <td>vera Nuñez Nicolas Alejandro</td>
+            <td>Vera Nuñez Nicolas Alejandro</td>
           </tr>
         </tbody>
       </table>
@@ -81,6 +81,17 @@
 ---
 
 # Project Report Collaboration Insights
+
+Repositorios:
+
+- Project Report: https://github.com/Los-Parkers-IoT/LosParkers-report
+
+**Entrega TB1**
+
+Para la entrega del TB1 se realizaron las actividades necesarias para completar los capítulos I, II, III y IV, resaltando la importancia de la constancia en el trabajo. Como equipo, mantuvimos una frecuencia adecuada de commits y actualizaciones, proyectada como óptima para el desarrollo futuro, y se incluyen en el informe las evidencias de los cambios efectuados.
+
+![Contributions per user insights](assets/insights-contributors-tb1.png)
+[Colaboración de repositorios] Evidencia de colaboraciones del repositorio para la entrega TB1 en el informe.
 
 ---
 
@@ -1250,7 +1261,7 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 
 ### 4.1.1. Design-Level EventStorming
 
-## 4.1.1.1 Candidate Context Discovery
+#### 4.1.1.1 Candidate Context Discovery
 
 Para esta etapa se llevó a cabo una sesión, la sesión tuvo una duración aproximada de 90 minutos y permitió identificar los bounded contexts del sistema CargaSafe. Durante el proceso se aplicaron las técnicas start-with-value, start-with-simple y look-for-pivotal-events, que facilitaron la agrupación de eventos y entidades según su afinidad y valor para el negocio.
 
@@ -1509,9 +1520,217 @@ Esta infraestructura permite un sistema escalable, resiliente y con capacidades 
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
+### 4.2.1. Bounded Context: Identity and Access Management
+
+#### 4.2.1.1. Domain Layer
+
+**Entidades Principales**
+
+**User (Aggregate Root)**
+
+- **Propósito**: Representa un usuario del sistema con capacidades de autenticación y autorización
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `username`: Nombre de usuario único
+  - `email`: Correo electrónico único
+  - `passwordHash`: Hash seguro de la contraseña
+  - `firstName`, `lastName`: Datos personales
+  - `isEnabled`: Estado activo/inactivo
+  - `createdAt`, `updatedAt`: Timestamps de auditoría
+- **Métodos principales**:
+  - `authenticate(password)`: Valida credenciales
+  - `changePassword(oldPassword, newPassword)`: Cambia contraseña con validación
+  - `assignRole(role)`: Asigna rol al usuario
+  - `enable()`, `disable()`: Gestión de estado
+
+Role (Entity)
+
+- Propósito: Define roles y permisos en el sistema
+- Atributos principales:
+  - `id`: Identificador único
+  - `name`: Nombre del rol (ADMIN, LOGISTICS_MANAGER, END_CUSTOMER)
+  - `description`: Descripción del rol
+  - `permissions`: Lista de permisos asociados
+- **Métodos principales**:
+  - `hasPermission(permission)`: Verifica si el rol tiene un permiso específico
+  - `addPermission(permission)`: Agrega permiso al rol
+
+**Token (Entity)**
+
+- **Propósito**: Gestiona tokens de acceso y refresh tokens
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `token`: Token JWT
+  - `userId`: Referencia al usuario
+  - `expiryDate`: Fecha de expiración
+  - `isRevoked`: Estado de revocación
+- **Métodos principales**:
+  - `isExpired()`: Verifica si el token ha expirado
+  - `revoke()`: Revoca el token
+
+**Value Objects**
+
+- **Email**: Valida formato de correo electrónico
+- **Password**: Encapsula reglas de contraseñas seguras
+- **Permission**: Representa un permiso específico (recurso + acción)
+- **TokenClaims**: Información contenida en el JWT
+
+**Domain Services**
+
+- **PasswordService**: Gestión de hash y validación de contraseñas
+- **TokenService**: Generación y validación de tokens JWT
+- **AuthorizationService**: Lógica de autorización basada en roles
+
+**Commands**
+
+- **LoginCommand**: Comando para autenticación
+- **RegisterUserCommand**: Comando para registro de usuario
+- **ChangePasswordCommand**: Comando para cambio de contraseña
+- **AssignRoleCommand**: Comando para asignación de roles
+
+**Queries**
+
+- **GetUserByIdQuery**: Obtiene usuario por ID
+- **GetUserByEmailQuery**: Obtiene usuario por email
+- **GetUserRolesQuery**: Obtiene roles de un usuario
+
+**Events**
+
+- **UserRegisteredEvent**: Usuario registrado exitosamente
+- **UserLoggedInEvent**: Usuario autenticado
+- **PasswordChangedEvent**: Contraseña cambiada
+- **UserDisabledEvent**: Usuario deshabilitado
+
+#### 4.2.1.2. Interface Layer
+
+**Controllers Principales**
+
+**AuthController**
+
+- `POST /auth/login`: Autenticación de usuarios
+- `POST /auth/logout`: Cierre de sesión
+- `POST /auth/refresh`: Renovación de tokens
+- `POST /auth/forgot-password`: Solicitud de recuperación de contraseña
+
+**UserController**
+
+- `POST /users/register`: Registro de nuevos usuarios
+- `GET /users/profile`: Obtiene perfil del usuario actual
+- `PUT /users/profile`: Actualiza perfil del usuario
+- `PUT /users/change-password`: Cambio de contraseña
+- `GET /users/{id}`: Obtiene usuario por ID (solo admins)
+
+#### 4.2.1.3. Application Layer
+
+**Command Services**
+
+**UserCommandService**
+
+- Maneja comandos de escritura para usuarios
+- Coordina operaciones de creación, actualización y eliminación
+- Publica eventos de dominio correspondientes
+
+**AuthCommandService**
+
+- Gestiona procesos de autenticación y autorización
+- Maneja tokens y sesiones de usuario
+- Coordina flujos de recuperación de contraseña
+
+**Query Services**
+
+**UserQueryService**
+
+- Proporciona consultas de solo lectura para usuarios
+- Optimizado para vistas y reportes
+- Maneja proyecciones de datos de usuario
+
+**AuthQueryService**
+
+- Consultas relacionadas con autenticación
+- Validación de tokens y permisos
+- Información de sesiones activas
+
+**Event Handlers**
+
+**UserRegisteredEventHandler**
+
+- Procesa eventos de registro de usuario
+- Envía emails de bienvenida
+- Configura datos iniciales del usuario
+
+#### 4.2.1.4. Infrastructure Layer
+
+**Repositories**
+
+**UserRepository** (implementa IUserRepository)
+
+- Persistencia y consulta de datos de usuarios
+- Implementación con Spring Data JPA
+- Operaciones CRUD optimizadas
+
+**RoleRepository** (implementa IRoleRepository)
+
+- Gestión de roles y permisos
+- Consultas para autorización
+- Cache de roles frecuentemente usados
+
+**TokenRepository** (implementa ITokenRepository)
+
+- Gestión de tokens JWT
+- Limpieza automática de tokens expirados
+- Blacklist de tokens revocados
+
+#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+Diagrama de Componentes - Backend - Identity and Access Management
+
+![Identity & Access Management - Backend Components](assets/C4/IAM-C4-Backend-Diagram.png)
+
+Este diagrama muestra la arquitectura por capas del bounded context IAM en el backend. La separación clara entre Interface, Application, Domain e Infrastructure layers permite un diseño mantenible y testeable. Los controllers en la Interface Layer reciben requests HTTP y delegan a los command/query services en Application Layer, que utilizan el dominio y persisten através de repositories en Infrastructure Layer.
+
+**Diagrama de Componentes - Frontend Web - Identity and Access Management**
+
+![Identity & Access Management - Frontend Angular Components](assets/C4/IAM-C4-WebApp-Diagram.png)
+
+El diagrama del frontend web muestra los componentes Angular organizados por responsabilidades. Las páginas (Login, Register, User Profile) interactúan con services que manejan la lógica de negocio y state management. La comunicación con el backend se realiza através de HTTP services que consumen la API REST.
+
+**Diagrama de Componentes - Mobile - Identity and Access Management**
+
+![Identity & Access Management - Mobile Flutter Components](assets/C4/IAM-C4-Mobile-Diagram.png)
+
+La aplicación móvil utiliza Flutter con arquitectura BLoC para state management. Las pantallas (screens) envían eventos a BLoCs que manejan el estado y coordinan con services. Los services se comunican tanto con el backend API como con la base de datos local SQLite para funcionalidad offline.
+
+#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Backend - Identity & Access Management Domain Layer Class Diagram**
+
+![Identity & Access Management - Backend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/IAM_Backend_Classes.puml)
+
+El diagrama de clases del backend muestra las entidades principales del IAM bounded context en la capa de dominio. La entidad User actúa como aggregate root y maneja la lógica de autenticación y autorización. Los roles están conectados através de relaciones many-to-many con usuarios, mientras que los tokens gestionan las sesiones y refresh tokens. La estructura implementa el patrón Repository para la persistencia.
+
+**Frontend - Identity & Access Management Domain Layer Class Diagram**
+
+![Identity & Access Management - Frontend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/IAM_Frontend_Classes.puml)
+
+El diagrama del frontend Angular muestra la arquitectura de componentes y services para el manejo de identidad. Los components (Login, Register, Profile) interactúan con services específicos que manejan el estado de autenticación. El AuthService centraliza la lógica de comunicación con el backend API, mientras que los guards protegen las rutas según permisos.
+
+**Mobile - Identity & Access Management Domain Layer Class Diagram**
+
+![Identity & Access Management - Mobile Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/IAM_Mobile_Classes.puml)
+
+La aplicación móvil Flutter implementa BLoC pattern para el manejo de estado de autenticación. Los BLoCs (AuthBloc, UserBloc) coordinan entre las pantallas y los services, mientras que el local storage permite funcionalidad offline. La arquitectura asegura sincronización de credenciales entre la app y el backend.
+
+##### 4.2.1.6.2. Bounded Context Database Design Diagram
+
+![Identity & Access Management - Database Design](assets/IdentityAndAccessManagementDatabaseDiagram.png)
+
+El diagrama de base de datos implementa un modelo RBAC (Role-Based Access Control) robusto. Las tablas principales (USERS, ROLES, PERMISSIONS) están conectadas através de tablas de unión que permiten relaciones many-to-many. Se incluyen tablas auxiliares para tokens de sesión, logs de auditoría y tokens de recuperación de contraseña. La estructura está optimizada para consultas frecuentes de autorización y mantiene integridad referencial.
+
 ### 4.2.2. Bounded Context: _Subscriptions and Billing_
 
-### 4.2.2.1. Domain Layer
+#### 4.2.2.1. Domain Layer
 
 _Entities_
 
@@ -1570,7 +1789,7 @@ _Entities_
 **SubscriptionCanceled**: Suscripción cancelada.
 **PaymentSucceeded / PaymentFailed**: Resultado de pago.
 
-### 4.2.2.2. Interface Layer
+#### 4.2.2.2. Interface Layer
 
 **Controllers**
 
@@ -1579,7 +1798,7 @@ _Entities_
 - **PlanController**: Endpoints para listar planes disponibles.
 - **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
 
-### 4.2.2.3. Application Layer
+#### 4.2.2.3. Application Layer
 
 **Command Services**
 
@@ -1596,7 +1815,7 @@ _Entities_
 - **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
 - **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
 
-### 4.2.2.4. Infrastructure Layer
+#### 4.2.2.4. Infrastructure Layer
 
 **Repositories (Interfaces)**
 
@@ -1899,9 +2118,13 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 
 ![Alert Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-Class-Diagram.puml&v=3)
 
-**WebApp / Mobile App Class Diagram**
+**WebApp Class Diagram**
 
-![Alert Management Domain Layer WebApp MobileApp Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-WebApp-MobileApp-Class-Diagram.puml)
+![Alert Management Domain Layer WebApp Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-WebApp-Class-Diagram.puml)
+
+**Mobile App Class Diagram**
+
+![Alert Management Domain Layer MobileApp Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-MobileApp-Class-Diagram.puml)
 
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram
 
@@ -3026,7 +3249,10 @@ Diagrama de componentes - Backend - Fleet Management
 
 Diagrama de componentes - Application Web - Fleet Management
 
+<img src="assets/C4/FleetManagement-C4-WebApp-Diagram.png"/>
+
 Diagrama de componentes - Mobile App - Fleet Management
+<img src="assets/C4/FleetManagement-C4-MobileApp-Diagram.png"/>
 
 #### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
 
@@ -3041,3 +3267,460 @@ Diagrama de componentes - Mobile App - Fleet Management
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
 
 ![Fleet Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Fleet-Management-Domain-Layer-DataBase-Diagram.puml)
+
+### 4.2.7. Bounded Context: Profile and Preferences Management
+
+#### 4.2.7.1. Domain Layer.
+
+**Entity: Profile (Aggregate Root)**
+
+**Propósito principal**  
+Representar el perfil dentro del sistema, siempre asociado a un `userId`.
+
+**Atributos principales**
+
+- id: Identificador único del perfil.
+- userId: Identificador externo obligatorio asociado al perfil.
+- fullName: Nombre completo.
+- phoneNumber: Número de contacto (opcional).
+- avatarUrl: Imagen de perfil o avatar (opcional).
+- createdAt: Fecha de creación.
+- updatedAt: Fecha de última actualización.
+
+**Métodos principales**
+
+- updateContactInfo(newPhone)
+- updateAvatar(newAvatarUrl)
+- updateName(newName)
+
+---
+
+**Entity: Preferences**
+
+**Propósito principal**  
+Almacenar configuraciones personalizadas de idioma, zona horaria y notificaciones de alertas.
+
+**Atributos principales**
+
+- id: Identificador único de las preferencias.
+- profileId: Identificador del perfil asociado.
+- language: Idioma preferido.
+- timeZone: Zona horaria configurada.
+- alertEmailEnabled: Recibir alertas por correo electrónico.
+- alertPushEnabled: Recibir alertas como notificaciones push en la aplicación.
+- alertSmsEnabled: Recibir alertas vía SMS (opcional).
+
+**Métodos principales**
+
+- updateLanguage(language)
+- updateTimeZone(timeZone)
+- enableEmailAlerts(flag)
+- enablePushAlerts(flag)
+- enableSmsAlerts(flag)
+
+---
+
+**Value Object: PhoneNumber**
+
+- countryCode
+- number
+
+**Value Object: Language**
+
+- code (ej. "es", "en")
+- name
+
+**Value Object: TimeZone**
+
+- code (ej. "UTC-5")
+
+---
+
+**Aggregate: ProfileAggregate**
+
+- updateProfileAndPreferences(profile, preferences)
+
+---
+
+**Factory: ProfileFactory**
+
+- createProfile(fullName, userId)
+
+---
+
+**Domain Service: PreferencesValidationService**
+
+- validateNotificationSettings(emailFlag, pushFlag, smsFlag)
+- validateLanguage(language)
+
+---
+
+**Command: CreateProfileCommand**
+
+- fullName
+- phoneNumber
+- avatarUrl
+- userId
+
+**Command: UpdateProfileCommand**
+
+- id
+- newName
+- newPhone
+- newAvatarUrl
+
+**Command: UpdatePreferencesCommand**
+
+- id
+- language
+- timeZone
+- alertEmailEnabled
+- alertPushEnabled
+- alertSmsEnabled
+
+---
+
+**Query: GetProfileByIdQuery**
+
+- id
+
+**Query: GetPreferencesByProfileIdQuery**
+
+- profileId
+
+---
+
+**Event: ProfileCreatedEvent**
+
+- id
+- userId
+- createdAt
+
+**Event: ProfileUpdatedEvent**
+
+- id
+- updatedAt
+
+**Event: PreferencesUpdatedEvent**
+
+- id
+- updatedAt
+- changes
+
+---
+
+#### 4.2.7.2. Interface Layer.
+
+**Controllers**
+
+- **ProfileController**: Maneja las solicitudes para crear, actualizar y consultar perfiles.
+- **PreferencesController**: Maneja las solicitudes para modificar y consultar preferencias (idioma, zona horaria, notificaciones).
+
+#### 4.2.7.3. Application Layer.
+
+**Command Services**
+
+- **ProfileCommandService**: Coordina la ejecución de comandos relacionados con perfiles (creación y actualización).
+- **PreferencesCommandService**: Coordina la ejecución de comandos relacionados con preferencias (idioma, zona horaria, notificaciones).
+
+---
+
+**Query Services**
+
+- **ProfileQueryService**: Atiende consultas sobre perfiles.
+- **PreferencesQueryService**: Atiende consultas sobre las preferencias de un perfil.
+
+---
+
+**Event Services**
+
+- **ProfileEventService**: Gestiona eventos relacionados con la creación y actualización de perfiles.
+- **PreferencesEventService**: Gestiona eventos relacionados con la actualización de preferencias y su propagación a otros componentes.
+
+#### 4.2.7.4. Infrastructure Layer.
+
+**Repositories**
+
+- **IProfileRepository**: Define operaciones de acceso y persistencia para los perfiles.
+- **IPreferencesRepository**: Define operaciones de acceso y persistencia para las preferencias.
+
+#### 4.2.7.5. Bounded Context Software Architecture Component Level Diagrams.
+
+Diagrama de componentes - Backend - Profiles and Preferences Management
+
+<img src="assets/C4/ProfileAndPreferencesManagement-C4-Backend-Diagram.png"/>
+
+Diagrama de componentes - Application Web - Profiles and Preferences Management
+
+<img src="assets/C4/ProfileAndPreferencesManagement-C4-WebApp-Diagram.png"/>
+
+Diagrama de componentes - Mobile App - Profiles and Preferences Management
+<img src="assets/C4/ProfileAndPreferencesManagement-C4-MobileApp-Diagram.png"/>
+
+#### 4.2.7.6. Bounded Context Software Architecture Code Level Diagrams.
+
+##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams.
+
+![Profile And Preferences Management Domain Layer Class Diagram Backend](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/ProfileAndPreferencesManagement-Domain-Layer-Class-Diagram.puml)
+
+![Profile And Preferences Management Domain Layer Class Diagram Web App](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/ProfileAndPreferencesManagement-Domain-Layer-Class-Diagram-Frontend.puml)
+
+![Profile And Preferences Management Domain Layer Class Diagram Mobile App](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/ProfileAndPreferencesManagement-Domain-Layer-Class-Diagram-Mobile.puml)
+
+##### 4.2.7.6.2. Bounded Context Database Design Diagram
+
+![Profile And Preferences Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/ProfileAndPreferencesManagement-Database-Diagram.puml)
+
+### 4.2.8. Bounded Context: Visualization Analytics
+
+#### 4.2.8.1. Domain Layer
+
+**Entidades Principales**
+
+**Dashboard (Aggregate Root)**
+
+- **Propósito**: Representa un dashboard personalizable con widgets y métricas específicas
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `name`: Nombre del dashboard
+  - `userId`: Propietario del dashboard
+  - `layout`: Configuración de layout de widgets
+  - `isDefault`: Indica si es dashboard por defecto
+  - `createdAt`, `updatedAt`: Timestamps de auditoría
+- **Métodos principales**:
+  - `addWidget(widget)`: Agrega widget al dashboard
+  - `removeWidget(widgetId)`: Remueve widget
+  - `updateLayout(layout)`: Actualiza disposición de widgets
+  - `clone()`: Crea copia del dashboard
+
+**Widget (Entity)**
+
+- **Propósito**: Componente visual que muestra métricas específicas
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `type`: Tipo de widget (CHART, KPI, TABLE, MAP)
+  - `title`: Título del widget
+  - `dataSource`: Fuente de datos
+  - `configuration`: Configuración específica del widget
+  - `position`: Posición en el dashboard
+- **Métodos principales**:
+  - `updateConfiguration(config)`: Actualiza configuración
+  - `refresh()`: Refresca datos del widget
+  - `validateConfiguration()`: Valida configuración del widget
+
+**Report (Entity)**
+
+- **Propósito**: Reporte generado con datos históricos y métricas
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `name`: Nombre del reporte
+  - `type`: Tipo de reporte (TRIP_SUMMARY, COMPLIANCE, PERFORMANCE)
+  - `parameters`: Parámetros del reporte
+  - `generatedAt`: Fecha de generación
+  - `format`: Formato del reporte (PDF, EXCEL, CSV)
+- **Métodos principales**:
+  - `generate()`: Genera el reporte
+  - `schedule(frequency)`: Programa generación automática
+  - `export(format)`: Exporta en formato específico
+
+**ChartData (Entity)**
+
+- **Propósito**: Datos procesados para visualización en charts
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `chartType`: Tipo de gráfico (LINE, BAR, PIE, SCATTER)
+  - `dataPoints`: Puntos de datos
+  - `labels`: Etiquetas de los ejes
+  - `metadata`: Metadatos adicionales
+- **Métodos principales**:
+  - `addDataPoint(point)`: Agrega punto de dato
+  - `aggregate(groupBy)`: Agrupa datos
+  - `filter(criteria)`: Filtra datos
+
+**Value Objects**
+
+- **TimeRange**: Rango de tiempo para consultas
+- **ChartConfiguration**: Configuración específica de gráficos
+- **KPIMetric**: Métrica de rendimiento clave
+- **DataFilter**: Filtros aplicados a datos
+- **ColorSchema**: Esquema de colores para visualizaciones
+
+**Domain Services**
+
+- **DataAggregationService**: Agregación y cálculo de métricas
+- **ChartRenderingService**: Lógica de renderizado de gráficos
+- **ReportGenerationService**: Generación de reportes complejos
+- **MetricsCalculationService**: Cálculo de KPIs y métricas derivadas
+
+**Commands**
+
+- **CreateDashboardCommand**: Comando para crear dashboard
+- **UpdateWidgetCommand**: Comando para actualizar widget
+- **GenerateReportCommand**: Comando para generar reporte
+- **RefreshDataCommand**: Comando para refrescar datos
+
+**Queries**
+
+- **GetDashboardQuery**: Obtiene dashboard por ID
+- **GetTripMetricsQuery**: Obtiene métricas de viajes
+- **GetComplianceDataQuery**: Obtiene datos de cumplimiento
+- **GetTemperatureHistoryQuery**: Obtiene historial de temperatura
+
+**Events**
+
+- **DashboardCreatedEvent**: Dashboard creado
+- **ReportGeneratedEvent**: Reporte generado
+- **DataRefreshedEvent**: Datos refrescados
+- **AlertThresholdExceededEvent**: Umbral de alerta excedido
+
+#### 4.2.8.2. Interface Layer
+
+**Controllers Principales**
+
+**DashboardController**
+
+- `GET /dashboards`: Lista dashboards del usuario
+- `POST /dashboards`: Crea nuevo dashboard
+- `PUT /dashboards/{id}`: Actualiza dashboard
+- `DELETE /dashboards/{id}`: Elimina dashboard
+- `GET /dashboards/{id}/data`: Obtiene datos del dashboard
+
+**AnalyticsController**
+
+- `GET /analytics/trips`: Métricas de viajes
+- `GET /analytics/compliance`: Datos de cumplimiento
+- `GET /analytics/performance`: Métricas de rendimiento
+- `GET /analytics/temperature-history`: Historial de temperatura
+
+**ReportController**
+
+- `POST /reports/generate`: Genera reporte bajo demanda
+- `GET /reports`: Lista reportes generados
+- `GET /reports/{id}/download`: Descarga reporte
+- `POST /reports/schedule`: Programa reporte automático
+
+**VisualizationController**
+
+- `GET /visualizations/chart-data`: Datos para gráficos
+- `POST /visualizations/custom-chart`: Genera gráfico personalizado
+- `GET /visualizations/kpis`: Obtiene KPIs calculados
+
+#### 4.2.8.3. Application Layer
+
+**Command Services**
+
+**DashboardCommandService**
+
+- Maneja creación y modificación de dashboards
+- Coordina actualización de widgets
+- Gestiona permisos de acceso a dashboards
+
+**ReportCommandService**
+
+- Gestiona generación de reportes
+- Maneja programación de reportes automáticos
+- Coordina exportación en diferentes formatos
+
+**Query Services**
+
+**AnalyticsQueryService**
+
+- Proporciona métricas y KPIs calculados
+- Optimizado para consultas complejas de análisis
+- Maneja agregaciones temporales
+
+**VisualizationQueryService**
+
+- Consultas optimizadas para gráficos
+- Transformación de datos para visualización
+- Cache de datos frecuentemente consultados
+
+**Event Handlers**
+
+**TripCompletedEventHandler**
+
+- Procesa finalización de viajes
+- Actualiza métricas de rendimiento
+- Genera alertas si es necesario
+
+**TemperatureViolationEventHandler**
+
+- Procesa violaciones de temperatura
+- Actualiza métricas de cumplimiento
+- Notifica a dashboards relevantes
+
+#### 4.2.8.4. Infrastructure Layer
+
+**Repositories**
+
+**DashboardRepository** (implementa IDashboardRepository)
+
+- Persistencia de dashboards y configuraciones
+- Optimizado para consultas por usuario
+- Cache de dashboards frecuentemente accedidos
+
+**ReportRepository** (implementa IReportRepository)
+
+- Almacenamiento de reportes generados
+- Gestión de archivos de reporte
+- Limpieza automática de reportes antiguos
+
+**MetricsRepository** (implementa IMetricsRepository)
+
+- Consultas optimizadas para métricas agregadas
+- Conexión con base de datos de time-series
+- Cache de métricas calculadas
+
+**ChartDataRepository** (implementa IChartDataRepository)
+
+- Transformación de datos para visualización
+- Consultas optimizadas para gráficos
+- Manejo de grandes volúmenes de datos temporales
+
+#### 4.2.8.5. Bounded Context Software Architecture Component Level Diagrams
+
+**Diagrama de Componentes - Backend - Visualization Analytics**
+
+![Visualization Analytics - Backend Components](assets/C4/VisualizationAnalytics-C4-Backend-Diagram.png)
+
+Este diagrama ilustra la arquitectura del bounded context de Visualization Analytics en el backend. Los controllers manejan requests relacionados con dashboards, reportes y análisis. Los services en Application Layer coordinan la lógica de negocio, mientras que los repositories optimizan el acceso a datos tanto transaccionales como de time-series para métricas y visualizaciones.
+
+**Diagrama de Componentes - Frontend Web - Visualization Analytics**
+
+![Visualization Analytics - Frontend Components](assets/C4/VisualizationAnalytics-C4-WebApp-Diagram.png)
+
+El frontend web del módulo de analytics utiliza componentes especializados para visualización de datos. Los chart components renderizarán gráficos interactivos, mientras que dashboard components gestionarán la composición y layout de widgets. Los services manejan la comunicación con APIs de datos y el cache local de métricas.
+
+**Diagrama de Componentes - Mobile - Visualization Analytics**
+
+![Visualization Analytics - Mobile Components](assets/C4/VisualizationAnalytics-C4-Mobile-Diagram.png)
+
+La aplicación móvil prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline.
+
+#### 4.2.8.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.8.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Backend - Visualization Analytics Domain Layer Class Diagram**
+
+![Visualization Analytics - Backend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Backend_Classes.puml)
+
+El diagrama de clases del backend de Analytics muestra las entidades principales para visualización y análisis de datos. Dashboard actúa como aggregate root conteniendo múltiples Widgets. Los Reports están asociados a usuarios y pueden ser programados para generación automática. ChartData encapsula la información procesada para visualizaciones, mientras que los services coordinan la agregación y cálculo de métricas.
+
+**Frontend - Visualization Analytics Domain Layer Class Diagram**
+
+![Visualization Analytics - Frontend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Frontend_Classes.puml)
+
+El diagrama del frontend Angular muestra los componentes especializados para visualización de datos. Los chart components renderizan gráficos interactivos usando librerías como Chart.js o D3.js, mientras que dashboard components gestionan la composición y layout de widgets. Los services manejan la comunicación con APIs de datos y el cache local de métricas para optimizar rendimiento.
+
+**Mobile - Visualization Analytics Domain Layer Class Diagram**
+
+![Visualization Analytics - Mobile Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Mobile_Classes.puml)
+
+La aplicación móvil Flutter prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline, permitiendo consulta de métricas básicas sin conectividad.
+
+##### 4.2.8.6.2. Bounded Context Database Design Diagram
+
+![Visualization Analytics - Database Design](assets/VisualizationAnalyticsDatabaseDiagram.png)
+
+El diseño de base de datos del módulo Analytics está optimizado para consultas analíticas y agregaciones. Las tablas principales (DASHBOARDS, WIDGETS, REPORTS) mantienen configuraciones de usuario, mientras que las tablas de métricas están desnormalizadas para consultas rápidas. Se incluyen índices especializados para consultas temporales y agregaciones frecuentes.
