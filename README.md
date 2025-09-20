@@ -2929,3 +2929,49 @@ Diagrama de componentes - Mobile App - Trip Management
 - PolicyUpdatedEvent / PolicyAssignedToVehicleEvent
 
 - GeofenceConfiguredEvent / GeofenceAssignedToVehicleEvent
+
+
+### 4.2.8.2. Interface Layer
+
+#### Controllers Principales (HTTP REST)
+
+**VehicleController**
+
+- POST /vehicles : Registrar vehículo
+
+- PUT /vehicles/{id} : Actualizar datos
+
+- POST /vehicles/{id}/policies/{policyId} : Aplicar política
+
+- POST /vehicles/{id}/geofences/{geofenceId} : Asignar geocerca
+
+- GET /vehicles/{id} : Obtener detalle
+
+- GET /vehicles : Listado/paginado
+
+**SensorController**
+
+- POST /sensors : Crear sensor
+
+- POST /sensors/{id}/calibrate : Registrar calibración
+
+- POST /sensors/{id}/attach/{vehicleId} : Asociar a vehículo
+
+- GET /vehicles/{id}/sensors : Sensores por vehículo
+
+**PolicyController**
+
+- POST /policies : Crear/actualizar política
+
+- GET /vehicles/{id}/policy : Política efectiva del vehículo
+
+**GeofenceController**
+
+- POST /geofences: Crear geocerca
+
+- POST /vehicles/{id}/geofences/{geofenceId} : Asignar a vehículo
+
+- GET /vehicles/{id}/geofences : Geocercas aplicadas
+
+- Seguridad/Scopes: OIDC/JWT vía IAM (fleet:write, fleet:read, fleet:admin).
+
