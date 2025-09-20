@@ -908,6 +908,10 @@ Permite crear incidentes vinculados a una alerta y un viaje, y consultar el deta
 
 - AlertQueryService: Consulta las alertas.
 
+**Outbound Services**
+
+- NotificationService: Servicio para el envío de notificaciones a través de diferentes canales (Email, SMS, Push). Su implementación concreta delega en proveedores externos como Firebase Cloud Messaging (FCM).
+
 #### 4.2.3.4. Infrastructure Layer
 
 - Notification Repository: Repositorio para acceder a las notificaciones.
@@ -932,7 +936,15 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 
 ##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
 
+**Domain Layer Class Diagram**
+
 ![Alert Management Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-Class-Diagram.puml&v=3)
+
+
+
+**WebApp / Mobile App Class Diagram**
+
+![Alert Management Domain Layer WebApp MobileApp Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Alert-Management-Domain-Layer-WebApp-MobileApp-Class-Diagram.puml)
 
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram
 
