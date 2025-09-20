@@ -3249,4 +3249,12 @@ Diagrama de componentes - Mobile App - Profiles and Preferences Management
 
 ##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams.
 
+![Profile And Preferences Management Domain Layer Class Diagram Backend](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/ProfileAndPreferencesManagement-Domain-Layer-Class-Diagram.puml)
+
+![Profile And Preferences Management Domain Layer Class Diagram Web App](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/ProfileAndPreferencesManagement-Domain-Layer-Class-Diagram-Frontend.puml)
+
+![Profile And Preferences Management Domain Layer Class Diagram Mobile App](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/ProfileAndPreferencesManagement-Domain-Layer-Class-Diagram-Mobile.puml)
+
 ##### 4.2.7.6.2. Bounded Context Database Design Diagram
+
+![Profile And Preferences Management Domain Layer Database Design Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/ProfileAndPreferencesManagement-Database-Diagram.puml)
