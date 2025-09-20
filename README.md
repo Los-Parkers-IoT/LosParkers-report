@@ -1416,51 +1416,38 @@ Notificar que un viaje ha sido cancelado.
 
 **Controllers**
 
-- **TripController**: expone endpoints REST para gestionar los viajes. Recibe solicitudes del cliente y las convierte en comandos o queries para el Application Layer.
-  - createTrip: permite registrar un nuevo viaje a partir de la información del cliente, conductor, vehículo y ruta.
-  - assignDriver: asigna un conductor a un viaje existente.
-  - assignVehicle: asigna un vehículo a un viaje existente.
-  - startTrip: cambia el estado de un viaje a “En curso”.
-  - completeTrip: marca un viaje como finalizado.
-  - cancelTrip: cancela un viaje en curso o pendiente.
-  - updateRoute: permite actualizar la ruta asociada a un viaje antes de iniciarse.
-  - getTripById: consulta la información de un viaje específico mediante su identificador.
-  - getTripsByStatus: devuelve la lista de viajes filtrados por estado.
-  - getTripsByClient: consulta los viajes asociados a un cliente específico.
-  - getAllTrips: devuelve todos los viajes registrados en el sistema.
+- TripController: Controlador que maneja las solicitudes relacionadas con los viajes. Atiende operaciones como crear un nuevo viaje, asignar un conductor, actualizar la ruta, iniciar, completar o cancelar un viaje, así como consultar información de viajes por identificador, estado, cliente o recuperar todos los viajes registrados.
+
+- RouteController: Controlador que maneja las solicitudes relacionadas con las rutas de los viajes. Permite registrar una nueva ruta, actualizarla antes del inicio de un viaje y consultar la información de rutas específicas o asociadas a un viaje.
 
 #### 4.2.5.3. Application Layer.
 
-**Command Handlers**  
-Se encargan de ejecutar la lógica de cada comando y modificar el estado del dominio.
+**Command Services**
 
-- **CreateTripCommandHandler**: procesa la creación de un viaje nuevo usando TripFactory y persiste el agregado en ITripRepository.
-- **AssignDriverToTripCommandHandler**: recibe un comando de asignación de conductor, valida la referencia y actualiza el Trip.
-- **AssignVehicleToTripCommandHandler**: procesa la asignación de un vehículo a un viaje.
-- **StartTripCommandHandler**: cambia el estado del viaje a “En curso” y emite el evento TripStartedEvent.
-- **CompleteTripCommandHandler**: marca el viaje como finalizado y emite el evento TripCompletedEvent.
-- **CancelTripCommandHandler**: cambia el estado del viaje a “Cancelado” y emite el evento TripCancelledEvent.
-- **UpdateRouteForTripCommandHandler**: procesa la actualización de la ruta de un viaje antes de su inicio.
+- TripCommandService: Se encarga de recibir y coordinar los comandos relacionados a un viaje. Dentro de él se manejan distintos handlers, cada uno especializado en ejecutar un comando específico como iniciar, completar, cancelar o asignar recursos al viaje.
 
-**Query Handlers**  
-Procesan consultas de solo lectura y devuelven DTOs o proyecciones.
+- RouteCommandService: Se encarga de coordinar los comandos relacionados con rutas. Administra la creación, actualización y recalculo de rutas para garantizar que los trayectos estén completos y actualizados antes de iniciar un viaje.
 
-- **GetTripByIdQueryHandler**: busca un viaje por su identificador y devuelve su representación.
-- **GetTripsByStatusQueryHandler**: devuelve los viajes filtrados por estado (Pendiente, En curso, Completado, Cancelado).
-- **GetTripsByClientIdQueryHandler**: devuelve los viajes asociados a un cliente específico.
-- **GetAllTripsQueryHandler**: obtiene todos los viajes registrados en el sistema.
+---
 
-**Event Handlers**  
-Escuchan eventos de dominio y reaccionan a ellos para ejecutar acciones adicionales dentro del mismo bounded context o preparar datos para otros.
+**Query Services**
 
-- **TripCreatedEventHandler**: maneja el evento de creación de un viaje, inicializando procesos asociados como auditoría o métricas internas.
-- **DriverAssignedEventHandler**: reacciona a la asignación de un conductor, garantizando consistencia en registros relacionados.
-- **VehicleAssignedEventHandler**: maneja la asignación de un vehículo, actualizando estados necesarios.
-- **TripStartedEventHandler**: responde al inicio de un viaje, registrando la hora de inicio y disparando procesos de seguimiento.
-- **TripCompletedEventHandler**: procesa la finalización de un viaje, generando datos para reportes o notificaciones al cliente.
-- **TripCancelledEventHandler**: maneja la cancelación de un viaje, liberando recursos y actualizando métricas de cancelación.
+- TripQueryService: Se encarga de atender las consultas relacionadas a los viajes. Contiene handlers que procesan queries para obtener información, por ejemplo: consultar un viaje por su identificador, listar viajes por estado o recuperar todos los viajes de un cliente.
+
+- RouteQueryService: Atiende las consultas relacionadas a las rutas de los viajes. Permite obtener información de rutas específicas o de las rutas asociadas a un viaje.
+
+---
+
+**Event Services**
+
+- TripEventService: Se encarga de atender los eventos relacionados a un viaje. Dentro de él se gestionan distintos servicios especializados que reaccionan a cada evento, como creación, asignación de recursos, inicio, finalización o cancelación del viaje, ejecutando las acciones necesarias después de que ocurren.
 
 #### 4.2.5.4. Infrastructure Layer.
+
+**Repositories**
+
+- ITripRepository: Repositorio que define las operaciones de acceso a los viajes, como guardar, actualizar y recuperar información de un viaje.
+- IRouteRepository: Repositorio que define las operaciones de acceso a las rutas, como registrar nuevas rutas, actualizarlas y consultarlas en relación con un viaje.
 
 #### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams.
 
