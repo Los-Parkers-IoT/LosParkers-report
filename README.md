@@ -694,7 +694,7 @@ La app se organiza en pantallas de suscripciones y facturación, un estado de ap
 
 ##### Explicación del diagrama
 
-El diagrama de clases del Domain Layer muestra a **Subscription** como _Aggregate Root_, con su ciclo de vida gestionado a través de estados (**SubscriptionStatus**) y la relación con múltiples Payment, cada uno asociado a su propio estado (**PaymentStatus**). Los Value Objects Plan y Money encapsulan reglas de negocio como límites de vehículos y montos monetarios. Asimismo, el modelo se apoya en la _SubscriptionFactory_ para la creación controlada de agregados, en los _Repositories_ para la persistencia de entidades y en el \*_PaymentProcessingService_ para la integración con Stripe y la gestión de pagos. En conjunto, este diseño asegura encapsulamiento, consistencia e independencia tecnológica en el dominio.
+El diagrama de clases del Domain Layer muestra a Subscription como Aggregate Root, cuyo ciclo de vida se gestiona a través de estados definidos en SubscriptionStatus (Active y Canceled) y su relación con múltiples Payment, cada uno con su propio PaymentStatus (Pending, Succeeded, Failed). Los Value Objects Plan y Money encapsulan reglas de negocio como límites de vehículos y montos monetarios. El modelo incluye la SubscriptionFactory para la creación controlada de agregados, los Repositories para la persistencia de entidades y el PaymentProcessingService como servicio de dominio para la gestión de pagos. En conjunto, este diseño asegura encapsulamiento, claridad en las reglas del negocio e independencia tecnológica en el dominio.
 
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram
 
@@ -1041,18 +1041,21 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 **Components**
 
 - **IoTMQTTAdapter**: Adapta el protocolo MQTT para consumir mensajes de telemetría de los dispositivos.
-- **EventBusKafkaAdapter**: Se integra con el bus de eventos (Kafka) para consumir y publicar mensajes de dominio.
+- **TripManagementAPIAdapter**: Adapta la API del contexto de Trip Management para recibir notificaciones de eventos.
 - **GoogleMapsAdapter**: Adapta la API de Google Maps para obtener información de geolocalización y rutas.
+- **AlertsAPIAdapter**: Adapta la API del contexto de Alerts & Resolution para enviar eventos de alerta.
 
+  
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
 
 #### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
 
+![Real Time Monitoring Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Real-time-monitoring-Domain-Layer-Class-Diagram.puml)
+
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram
 
-![Real-Time-Monitoring Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-4/assets/UML/Real-Time-Monitoring-Domain-Layer-Class-Diagram.puml)
 
 ### 4.2.5. Bounded Context: _Trip management_
 
