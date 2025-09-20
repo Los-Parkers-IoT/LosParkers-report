@@ -1367,7 +1367,7 @@ Asimismo, se destacan las interacciones con sistemas externos que complementan l
 
 En esta parte expandimos el sistema **CargaSafe (SaaS)** para mostrar sus contenedores internos, las tecnologías que utilizamos y cómo se comunican entre sí y con los sistemas externos.
 
-![Software Architecture – Container Level Diagram](assets/Container_Level_Diagram.png)
+![Software Architecture – Container Level Diagram](assets/Container_Diagram.png)
 
 El diagrama de contenedores muestra cómo se organiza internamente CargaSafe (SaaS) y cómo se relaciona con los actores y sistemas externos.
 
