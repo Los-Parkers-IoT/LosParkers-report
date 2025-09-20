@@ -111,6 +111,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, aportando ideas clave para definir el flujo de negocio y la estructura de la solución. Colaboré en la elaboración de la arquitectura de software y en el diseño táctico bajo los principios de Domain Driven Design, asegurando claridad y consenso entre los miembros del equipo. Además, contribuí en la documentación de los artefactos de usuario y en la organización de tareas, promoviendo un entorno colaborativo y alineado con los objetivos del proyecto.<br />
+        <br><span class="person">George Arturo Aliaga Pimentel</span><br />
+        <span class="entry-order">TB1:</span><br/>
+        Durante este proyecto, estuve muy involucrado en reuniones tanto en persona como en línea, donde contribuí con ideas para la realización del proyecto. Trabajé junto al equipo en la elaboración de la arquitectura de software y en el diseño táctico, utilizando los principios de Domain Driven Design para asegurarnos de que todos estuviéramos en sintonía y de que el plan fuera claro. También ayudé a crear la documentación y a organizar las tareas, manteniendo así al equipo enfocado y productivo. <br />
       </td>
       </td>
       <td class="final-comment-column">
@@ -130,6 +133,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         Estuve enfocado en fomentar un ambiente de colaboración dentro del equipo. Trabajé en conjunto con mis compañeros para definir los objetivos y tareas del proyecto. Colaboré en el análisis competitivo y en la definición de segmentos clave como el de gestion de transportes y clientes finales. Además, me encargué de crear user stories e impact mapping para estos segmentos, asegurando que el desarrollo del producto estuviera alineado con las necesidades del usuario. Cada semana establecí un límite personal para realizar las secciones de cada capítulo, de esta forma me aseguré de que todas las tareas estuvieran bien organizadas y distribuidas para cumplir con los objetivos establecidos. <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo, promoviendo la participación activa de todos los miembros mediante retroalimentación constante y constructiva. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que aportan al negocio. Participé en la definición de metas y organización de tareas, asegurando que el equipo trabajara con orden y alcanzara los objetivos propuestos bajo los principios de Domain Driven Design.<br />
+         <br><span class="person">George Arturo Aliaga Pimentel</span><br />
+        <span class="entry-order">TB1:</span><br/>
+        Durante el desarrollo del proyecto, colaboré activamente en la construcción de un entorno de trabajo cooperativo y eficaz, donde la retroalimentación continua fue clave para que todos los miembros del equipo participaran de forma proactiva. Mi contribución principal se centró en el análisis y la definición de la solución, específicamente en la elaboración de Solution Profiles, incluyendo la identificación de antecedentes, problemáticas, el proceso Lean UX y los segmentos de usuarios clave. Además, ayudé a definir objetivos y planificar las tareas, asegurando que el trabajo del equipo estuviera alineado con los principios de Domain Driven Design y enfocado en entregar valor.
       </td>
       <td class="final-comment-column">
       </td>
