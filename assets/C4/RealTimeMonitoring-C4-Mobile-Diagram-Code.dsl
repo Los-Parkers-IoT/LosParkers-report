@@ -1,6 +1,7 @@
 workspace "CargaSafe - Real-Time Monitoring (Mobile app Components)" "C4 Component view for the Mobile App of the Real-Time Monitoring BC" {
   model {
     user = person "End User" "CargaSafe User (Mobile)"
+    logisticsOperator = person "Logistics Operator" "Operations team member monitoring shipments"
     cargaSafe = softwareSystem "CargaSafe" "SaaS logistics monitoring" {
       mobileApp = container "Mobile Application" "Mobile app for real-time monitoring" "Flutter" {
         uiDashboardM     = component "UI - Dashboard (Mobile)" "Mobile monitoring dashboard screens"
@@ -19,6 +20,10 @@ workspace "CargaSafe - Real-Time Monitoring (Mobile app Components)" "C4 Compone
         user -> uiMapM "use"
         user -> uiChartsM "use"
         user -> uiAlertsM "use"
+        logisticsOperator -> uiDashboardM "use"
+        logisticsOperator -> uiMapM "use"
+        logisticsOperator -> uiChartsM "use"
+        logisticsOperator -> uiAlertsM "use"
         uiDashboardM -> localCache "read/write"
         uiMapM -> localCache "read/write"
         uiChartsM -> localCache "read/write"
@@ -38,7 +43,6 @@ workspace "CargaSafe - Real-Time Monitoring (Mobile app Components)" "C4 Compone
         mapApi        = component "Map API" "Provides real-time location and route data"
         chartApi      = component "Chart API" "Serves temperature and sensor data for charts"
       }
-      
     }
     
     // External system

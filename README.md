@@ -2343,11 +2343,11 @@ Diagrama de componentes - Backend - Real-Time Monitoring
 
 Diagrama de componentes - Application Web - Real-Time Monitoring
 
-<img src="assets/C4/RealTimeMonitoring-C4-Web-Diagram.png"/>
+<img src="assets/C4/RealTimemonitoring-C4-Web-Diagram.png"/>
 
 Diagrama de componentes - Mobile App - Real-Time Monitoring
 
-<img src="assets/C4/RealTimeMonitoring-C4-Mobile-Diagram.png"/>
+<img src="assets/C4/RealTimemonitoring-C4-Mobile-Diagram.png"/>
 
 #### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
 

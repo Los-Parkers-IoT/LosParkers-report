@@ -1,6 +1,7 @@
 workspace "CargaSafe - Real-Time Monitoring (Web App Components)" "C4 Component view for the Web Application of the Real-Time Monitoring BC" {
   model {
     user = person "End User" "CargaSafe User (Web)"
+    logisticsOperator = person "Logistics Operator" "Operations team member monitoring shipments"
     cargaSafe = softwareSystem "CargaSafe" "SaaS logistics monitoring" {
       webApp = container "Web Application" "Web frontend for real-time monitoring" "Angular" {
         uiDashboard     = component "UI - Dashboard" "Monitoring dashboard screens"
@@ -16,6 +17,10 @@ workspace "CargaSafe - Real-Time Monitoring (Web App Components)" "C4 Component 
         user -> uiLiveMap "Uses"
         user -> uiCharts "Uses"
         user -> uiSessions "Uses"
+        logisticsOperator -> uiDashboard "Uses"
+        logisticsOperator -> uiLiveMap "Uses"
+        logisticsOperator -> uiCharts "Uses"
+        logisticsOperator -> uiSessions "Uses"
         uiDashboard -> appState "Read/write state"
         uiLiveMap -> appState "Read/write state"
         uiCharts -> appState "Read/write state"
