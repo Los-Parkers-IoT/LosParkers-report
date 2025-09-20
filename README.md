@@ -807,8 +807,9 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Edad**: 28 años
 - **Ocupación**: Supervisor
 - **Empresa**: Ofertimaq - Distribuidora
-- **Enlace**: [[Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/ER0ImJYYarNDpK11odR8b0gB1yAHBcte3ss8JSkB8lTqSA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=eydJDA)]
-
+- **Enlace**: [Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=KIofFP&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7fX0%3D)
+- **Fecha de entrevista**: 10 de Setiembre del 2025
+- **Tiempo inicio - tiempo fin**: 00:00:00 - 00:07:28
   <img src="assets/entrevista_empresa_1.png">
 
   <br/>
@@ -817,7 +818,9 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Edad**: 22 años
 - **Ocupación**: Operador Logístico
 - **Empresa**: Urbano - Distribuidora Ecommerces
-- **Enlace**: [Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/Ea3nawSxes5HpXpXNXpmntkBArT4L5c45yFoHVFv6A-TYQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=IPrKED)
+- **Enlace**: [Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=RHa6s0&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6NDQ5LjQ4fX0%3D)
+- **Fecha de entrevista**: 11 de Setiembre del 2025
+- **Tiempo inicio - tiempo fin**: 00:07:28 - 00:13:36
 
     <img src="assets/entrevista_empresa_2.png">
 
@@ -827,7 +830,9 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Edad**: 58 años
 - **Ocupación**: Encargado de gestión logística
 - **Empresa**: Urbano . Distribuidor de Alimentos
-- **Enlace**: [Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/Ec5KSgrGMjNPlJoOazHShZMBqFEAizPkP20c9TOB4DuaWA?e=GDXX0k&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+- **Enlace**: [Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=yULe1a&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6ODE2LjY4fX0%3D)
+- **Fecha de entrevista**: 10 de Setiembre del 2025
+- **Tiempo inicio - tiempo fin**: 00:13:36 - 00:20:51
 
   <img src="assets/entrevista_empresa_3.png">
 
@@ -839,7 +844,9 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Edad**: 23 años
 - **Ocupación**: Responsable de parrilla en un negocio de comida rápida
 - **Empresa/Sector**: Negocio local de comida rápida / Sector alimentario
-- **Enlace**: [URL del video de la entrevista]
+- **Enlace**: [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=xwhjks&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTI1MS44OX19)
+- **Fecha de entrevista**: 10 de Setiembre del 2025
+- **Tiempo inicio - tiempo fin**: 00:20:51 - 00:30:50
 
   <img src="assets/entrevista_cliente_1.png">
 
@@ -849,7 +856,9 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Edad**: 20 años
 - **Ocupación**: Trabajadora de medio tiempo en un minimarket, responsable de compras de insumos para refrigeración
 - **Empresa/Sector**: Retail alimentario local – Consumo final
-- **Enlace**: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/ETZJCs5-UXdFnmhsbphFM7gBm-D9N0q1TO-57qQHVY9bNg?e=2AZjQ6&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+- **Enlace**: [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=xwhjks&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTI1MS44OX19)
+- **Fecha de entrevista**: 13 de Setiembre del 2025
+- **Tiempo inicio - tiempo fin**: 00:31:00 - 00:37:20
 
   <img src="assets/entrevista_cliente_2.png">
 
@@ -859,7 +868,9 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Edad**: 26 años
 - **Ocupación**: Responsable de recepción y control de productos sensibles a temperatura.
 - **Empresa/Sector**: Sector de salud
-- **Enlace**: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EcMuUYlqskNEqzaICMJSTwIBwtDXay1luNLbNZm9ulDSZw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=nQqEpO
+- **Enlace**: [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=q84dUy&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MjI0MS40NH19)
+- **Fecha de entrevista**: 16 de Setiembre del 2025
+- **Tiempo inicio - tiempo fin**: 00:37:20 - 00:43:15
 
   <img src="assets/entrevista_cliente_3.png">
 
