@@ -1,4 +1,3 @@
-
 workspace "CargaSafe - Real-Time Monitoring (Mobile app Components)" "C4 Component view for the Mobile App of the Real-Time Monitoring BC" {
   model {
     user = person "End User" "CargaSafe User (Mobile)"
@@ -11,6 +10,7 @@ workspace "CargaSafe - Real-Time Monitoring (Mobile app Components)" "C4 Compone
         localCache       = component "Local Cache & Session" "Lightweight persistence and offline state"
         apiClientM       = component "API Client" "REST calls with token and retry logic"
         authAdapterM     = component "Auth Adapter" "OIDC/JWT for mobile"
+        googleFacadeM    = component "Google Facade Service" "Google Maps integration for mobile"
         
         sqlite     = component "SQLite Store" "local / offline (SQLite)" "SQLite" {
           tags "Database"
@@ -26,6 +26,8 @@ workspace "CargaSafe - Real-Time Monitoring (Mobile app Components)" "C4 Compone
         localCache -> apiClientM "requests data"
         apiClientM -> authAdapterM "attach token"
         
+        uiMapM -> googleFacadeM "use maps services"
+        
         localCache -> sqlite "save/read data offline"
         apiClientM -> sqlite "updates/reads local cache"
         
@@ -36,12 +38,20 @@ workspace "CargaSafe - Real-Time Monitoring (Mobile app Components)" "C4 Compone
         mapApi        = component "Map API" "Provides real-time location and route data"
         chartApi      = component "Chart API" "Serves temperature and sensor data for charts"
       }
+      
     }
+    
+    // External system
+    googleMaps = softwareSystem "Google Maps API" "External mapping and location services"
+    
     // Relaciones mobile App -> Backend
     apiClientM -> sessionApi "GET Queries"
     apiClientM -> telemetryApi "GET Queries"
     apiClientM -> mapApi "GET Queries"
     apiClientM -> chartApi "GET Queries"
+    
+    // Google Maps integration
+    googleFacadeM -> googleMaps "API calls"
   }
   views {
     component mobileApp {
@@ -49,7 +59,6 @@ workspace "CargaSafe - Real-Time Monitoring (Mobile app Components)" "C4 Compone
       include *
       autoLayout lr
     }
-
     styles {
       element "Container" {
         background "#0B5FFF"
