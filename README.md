@@ -1124,33 +1124,37 @@ Los clientes finales son los consumidores de los productos transportados por las
 
 **Segmento: Empresa (Gestores de transporte)**
 
-| Tarea                                                  | Frecuencia | Importancia |
-| ------------------------------------------------------ | ---------- | ----------- |
-| Configurar dispositivos IoT para nuevos vehículos      | Media      | Alta        |
-| Registrar nuevos viajes y establecer parámetros        | Alta       | Alta        |
-| Monitorear temperatura en tiempo real durante viajes   | Alta       | Alta        |
-| Recibir y gestionar alertas de incumplimiento          | Media      | Alta        |
-| Revisar dashboards de estado de flota                  | Alta       | Alta        |
-| Generar reportes de viajes para clientes               | Media      | Alta        |
-| Analizar gráficos de incidencias mensuales             | Baja       | Media       |
-| Gestionar suscripciones y pagos del sistema            | Baja       | Media       |
-| Actualizar parámetros de temperatura según producto    | Media      | Alta        |
-| Coordinar respuesta ante emergencias de cadena de frío | Baja       | Alta        |
+| Tarea | Frecuencia | Importancia |
+|-------|------------|-------------|
+| Llamar a conductores para verificar temperatura manualmente | Alta | Alta |
+| Revisar termómetros físicos al final del viaje | Alta | Alta |
+| Completar bitácoras en papel con datos de temperatura | Alta | Media |
+| Buscar información de viajes en múltiples hojas de cálculo | Alta | Media |
+| Coordinar por teléfono cuando hay problemas de temperatura | Media | Alta |
+| Recopilar firmas y documentos físicos de entregas | Alta | Media |
+| Armar reportes manuales combinando datos de diferentes fuentes | Media | Alta |
+| Enviar camiones de emergencia cuando se detecta falla | Baja | Alta |
+| Responder quejas de clientes por falta de información | Media | Alta |
+| Revisar rutas en GPS básico sin integración con temperatura | Alta | Baja |
+| Capacitar conductores en el uso correcto de termómetros | Baja | Media |
+| Verificar manualmente el funcionamiento del sistema de refrigeración | Alta | Alta |
 
 **Segmento: Clientes Finales (Consumidores finales)**
 
-| Tarea                                            | Frecuencia | Importancia |
-| ------------------------------------------------ | ---------- | ----------- |
-| Verificar estado de pedidos en tránsito          | Alta       | Alta        |
-| Consultar certificados de cadena de frío         | Media      | Alta        |
-| Revisar reportes de cumplimiento de temperatura  | Media      | Alta        |
-| Rastrear ubicación y progreso de entrega         | Alta       | Media       |
-| Recibir alertas sobre problemas en el transporte | Media      | Alta        |
-| Validar condiciones del producto al recibirlo    | Alta       | Alta        |
-| Descargar documentación oficial de cumplimiento  | Media      | Alta        |
-| Consultar historial de entregas anteriores       | Baja       | Media       |
-| Reportar productos rechazados por incumplimiento | Baja       | Alta        |
-| Acceder a soporte para resolver incidencias      | Baja       | Media       |
+| Tarea | Frecuencia | Importancia |
+|-------|------------|-------------|
+| Verificar productos visualmente al recibirlos | Alta | Alta |
+| Revisar temperatura al tacto de productos refrigerados | Alta | Alta |
+| Llamar al proveedor para preguntar estado del envío | Media | Media |
+| Inspeccionar empaques buscando señales de deterioro | Alta | Alta |
+| Rechazar productos que parecen haber perdido cadena de frío | Media | Alta |
+| Solicitar reportes de temperatura que suelen ser genéricos | Media | Alta |
+| Esperar sin información sobre retrasos en entregas | Media | Alta |
+| Revisar fechas de vencimiento manualmente | Alta | Alta |
+| Documentar manualmente incidencias de productos en mal estado | Baja | Alta |
+| Aceptar productos por confianza sin datos objetivos | Alta | Media |
+| Gestionar reclamos por productos deteriorados | Baja | Alta |
+| Almacenar documentación física de entregas | Media | Baja |
 
 ### 2.3.3. User Journey Mapping
 
