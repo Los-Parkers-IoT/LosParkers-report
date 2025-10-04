@@ -1352,14 +1352,6 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 
 | # Orden | User Story ID | Título                                      | Descripción                                                                                                                                                 | Story Points |
 | ------- | ------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| 1       | US013         | Sección portada                             | Como visitante, quiero ver una portada con mensaje principal, para entender rápidamente el propósito de la plataforma.                                      | 3            |
-| 2       | US014         | Sección de funcionalidades                  | Como visitante, quiero visualizar una sección con las funcionalidades principales, para conocer qué ofrece la plataforma.                                   | 3            |
-| 3       | US015         | Sección de beneficios                       | Como visitante, quiero ver una sección con beneficios, para entender qué valor obtengo al usar la plataforma.                                               | 2            |
-| 4       | US016         | Sección de testimonios                      | Como visitante, quiero ver testimonios de otros clientes, para ganar confianza en el servicio.                                                              | 2            |
-| 5       | US017         | Sección de contáctanos                      | Como visitante, quiero acceder a un formulario de contacto, para comunicarme con la empresa y solicitar más información.                                    | 3            |
-| 6       | US018         | Registro de usuario                         | Como usuario, quiero registrarme en la plataforma, para acceder a mi cuenta y funcionalidades personalizadas.                                               | 3            |
-| 7       | TS001         | API de registro                             | Como developer, quiero implementar autenticación basada en JWT, para asegurar la comunicación entre cliente y servidor.                                     | 8            |
-| 8       | US007         | Inicio de sesión                            | Como usuario registrado, quiero iniciar sesión en la plataforma, para acceder a mi cuenta y funcionalidades personalizadas.                                 | 3            |
 | 9       | TS002         | Servicio de autenticación con JWT           | Como developer, quiero implementar autenticación basada en JWT, para asegurar la comunicación entre cliente y servidor.                                     | 8            |
 | 10      | US001         | Actualización de temperatura en tiempo real | Como empresa, quiero recibir la temperatura en tiempo real de mis dispositivos IoT, para supervisar la cadena de frío de los viajes.                        | 8            |
 | 11      | US002         | Alertas por incumplimiento de temperatura   | Como cliente final, quiero recibir alertas cuando la temperatura sobrepasa los límites definidos, para tomar acciones correctivas.                          | 5            |
@@ -1371,9 +1363,6 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 | 17      | US006         | Gráficos de incidencias por mes             | Como empresa, quiero ver un gráfico mensual de incidencias para identificar patrones de fallos.                                                             | 5            |
 | 18      | US007         | Filtrado de viajes por fecha                | Como empresa, quiero filtrar la lista de viajes por rango de fechas, para analizar un periodo específico.                                                   | 3            |
 | 19      | US008         | Descarga de reporte de viajes               | Como cliente final, quiero descargar un reporte en PDF de un viaje con su información y gráficos, para archivarlo o compartirlo.                            | 5            |
-| 20      | US009         | Cancelar suscripción                        | Como cliente final, quiero cancelar mi suscripción, para detener los cobros futuros.                                                                        | 2            |
-| 21      | US010         | Visualizar información de suscripción       | Como cliente final, quiero ver mi estado de suscripción y fecha de expiración, para gestionar mi acceso al servicio.                                        | 2            |
-| 22      | US011         | Historial de pagos                          | Como empresa, quiero que los clientes consulten su historial de pagos, para brindar transparencia.                                                          | 3            |
 | 23      | US012         | Notificación de renovación próxima          | Como cliente final, quiero recibir una notificación antes de que mi suscripción se renueve, para decidir si continúo o cancelo.                             | 3            |
 | 24      | US023         | Registro de vehículos                       | Como administrador logístico, quiero registrar vehículos en la plataforma, para mantener un inventario actualizado de la flota.                             | 5            |
 | 25      | US024         | Actualización de datos de vehículos         | Como administrador logístico, quiero editar la información de los vehículos, para mantener actualizado su estado operativo.                                 | 3            |
@@ -1388,10 +1377,22 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 | 34      | US030         | Código de viaje para cliente                | Como cliente final, quiero recibir un código único de viaje, para poder consultar fácilmente el estado de mi pedido.                                        | 5            |
 | 35      | US031         | Formulario de soporte y reclamos            | Como cliente final, quiero acceder a un formulario de soporte y reclamos, para comunicar incidencias o problemas con mis viajes.                            | 3            |
 | 36      | US032         | Recepción de reclamos por viajes            | Como administrador logístico, quiero recibir los reclamos enviados por los clientes, para analizarlos y dar respuesta oportuna.                             | 3            |
+| 21      | US010         | Visualizar información de suscripción       | Como cliente final, quiero ver mi estado de suscripción y fecha de expiración, para gestionar mi acceso al servicio.                                        | 2            |
+| 22      | US011         | Historial de pagos                          | Como empresa, quiero que los clientes consulten su historial de pagos, para brindar transparencia.                                                          | 3            |
+| 20      | US009         | Cancelar suscripción                        | Como cliente final, quiero cancelar mi suscripción, para detener los cobros futuros.                                                                        | 2            |
+| 6       | US018         | Registro de usuario                         | Como usuario, quiero registrarme en la plataforma, para acceder a mi cuenta y funcionalidades personalizadas.                                               | 3            |
+| 8       | US007         | Inicio de sesión                            | Como usuario registrado, quiero iniciar sesión en la plataforma, para acceder a mi cuenta y funcionalidades personalizadas.                                 | 3            |
+| 7       | TS001         | API de registro                             | Como developer quiero implementar múltiples endpoints de autenticación (login, logout, refresh y validación de sesión) para que los usuarios puedan gestionar de forma segura su acceso a la plataforma.                                    | 5            
+| 1       | US013         | Sección portada                             | Como visitante, quiero ver una portada con mensaje principal, para entender rápidamente el propósito de la plataforma.                                      | 3            |
+| 2       | US014         | Sección de funcionalidades                  | Como visitante, quiero visualizar una sección con las funcionalidades principales, para conocer qué ofrece la plataforma.                                   | 3            |
+| 3       | US015         | Sección de beneficios                       | Como visitante, quiero ver una sección con beneficios, para entender qué valor obtengo al usar la plataforma.                                               | 2            |
+| 4       | US016         | Sección de testimonios                      | Como visitante, quiero ver testimonios de otros clientes, para ganar confianza en el servicio.                                                              | 2            |
+| 5       | US017         | Sección de contáctanos                      | Como visitante, quiero acceder a un formulario de contacto, para comunicarme con la empresa y solicitar más información.                                    | 3            |
 
-<img src="assets/Trello.png">
+<img src="assets/productbacklog1.png">
+<img src="assets/productbacklog2.png">
 
-**Link del Trello:** https://trello.com/invite/b/68c988fa65c37d7ded09248f/ATTId7fe8515afa46ad0ba2a3eb460ca5c06BCFF0CFB/losparkersiot-productbacklog
+**Link del Jira:** https://reales-iot.atlassian.net/jira/software/projects/CS/boards/9/backlog?atlOrigin=eyJpIjoiNzc2ZGE3MGQ2OTk0NGRkZmEyZDczNGE4NDI4MTc1YWUiLCJwIjoiaiJ9 
 
 # Capítulo IV: Solution Software Design
 
