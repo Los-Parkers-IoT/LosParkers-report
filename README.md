@@ -1440,10 +1440,11 @@ Alrededor del sistema se identifican los siguientes actores:
 
 Asimismo, se destacan las interacciones con sistemas externos que complementan las funcionalidades de CargaSafe:
 
-- Google Maps: provee rutas, geocodificación y cálculo de ETA.
-- Firebase Cloud Messaging: entrega notificaciones push.
-  Stripe: procesa pagos y facturación de suscripciones.
-  Este diagrama permite visualizar de manera clara las responsabilidades de cada actor y sistema, y cómo CargaSafe se convierte en el núcleo que articula la comunicación entre usuarios, dispositivos IoT y servicios externos, garantizando la operación eficiente y segura de la cadena logística.
+- _Google Maps_: provee servicios de rutas, geocodificación y cálculo de ETA, utilizados tanto por el backend para estimar tiempos y trayectos, como por las aplicaciones web y móviles para la visualización de mapas y direcciones.
+- _Firebase Cloud Messaging (FCM)_: entrega notificaciones push a dispositivos móviles y navegadores web para alertas, actualizaciones de viajes y eventos críticos.
+- _Stripe_: procesa pagos y gestiona la facturación de las suscripciones dentro de la plataforma.
+- _SendGrid_: se utiliza para el envío de correos electrónicos transaccionales, reportes automáticos y notificaciones.
+- _CargaSafe Monitoring Device_: dispositivos físicos instalados en vehículos que capturan datos ambientales (temperatura, humedad, vibración, GPS) y los transmiten hacia el ecosistema CargaSafe mediante las aplicaciones embebidas y edge.
 
 #### 4.1.3.2. Software Architecture Container Level Diagrams
 
@@ -1455,14 +1456,41 @@ El diagrama de contenedores muestra cómo se organiza internamente CargaSafe (Sa
 
 Dentro de la plataforma tenemos varios contenedores:
 
-- _Landing Page:_ sitio público que sirve para marketing y como punto de acceso, redirigiendo tanto a la Web App, al Single Web como a la Mobile App (descarga o deeplinks).
-- _Web Frontend:_ aplicación usada por los operadores para gestionar viajes, flota y reportes.
-- _Single Web:_ vista pública en línea donde los clientes finales pueden consultar estados y reportes sin necesidad de autenticarse.
-- _Mobile App:_ aplicación móvil para los conductores, con soporte offline-first. Se conecta a su propia base de datos embebida SQLite para cache y operación sin conexión.
-- _Backend API:_ núcleo de la lógica de negocio, responsable de gestionar viajes, monitoreo, alertas y suscripciones.
-- _Relational Database (PostgreSQL):_ base de datos principal donde se almacenan usuarios, vehículos, dispositivos, viajes, telemetría, alertas y suscripciones.
-- _Edge Application (Python):_ agente que corre en instalaciones o vehículos, con capacidad de procesamiento local, cache y sincronización confiable con el backend. Usa su propia Edge Database local para tolerar desconexiones.
-- _Embedded Application (C++):_ componente ligero que corre en dispositivos restringidos, captura datos y los envía hacia la aplicación edge para su posterior sincronización.
+- _Landing Page_  
+  Sitio público de marketing y punto de acceso principal. Redirige a la aplicación web o descarga de la aplicación movil.
+
+- _Web Application_  
+  Portal utilizado por los operadores para gestionar flota, viajes, alertas y reportes. Entrega contenido estático y sirve la **Single Page Application**.
+
+- _Single Page Application_  
+  Interfaz dinámica en el navegador para operadores y clientes, que ofrece monitoreo en tiempo real, seguimiento de viajes y visualización de datos utilizando el SDK de Google Maps.
+
+- _Mobile App_  
+  Aplicación móvil usada por los conductores para recibir instrucciones, actualizar estados y registrar reportes.  
+  Soporta modo **offline-first** gracias a una **base de datos embebida (SQLite)**, permitiendo continuar operaciones sin conexión.
+
+- _Mobile Database_  
+  Base de datos local embebida utilizada por la **Mobile App** para cache y operación sin conexión (órdenes de viaje, eventos, checkpoints, adjuntos), con colas de sincronización y resolución de conflictos al reconectar.
+
+- _Backend API_  
+  Núcleo de la lógica de negocio del sistema.  
+  Gestiona usuarios, dispositivos, viajes, alertas, notificaciones, suscripciones y datos de telemetría.  
+  Expone endpoints REST/GraphQL y se comunica con servicios externos como **Google Maps**, **Stripe**, **Firebase Cloud Messaging** y **SendGrid**.
+
+- _Relational Database_  
+  Base de datos principal que almacena información persistente de usuarios, vehículos, dispositivos IoT, viajes, alertas, reportes y suscripciones.
+
+- _Edge Application_  
+  Agente que se ejecuta en instalaciones o vehículos con capacidad de procesamiento local.  
+  Permite cachear datos, realizar análisis preliminar y sincronizar con el **Backend API** cuando la conexión está disponible.  
+  Utiliza su propia **Edge Database** para resiliencia ante desconexiones.
+
+- _Edge Database_  
+  Almacenamiento local de respaldo para los datos capturados por la aplicación Edge, asegurando continuidad operacional incluso en entornos con conectividad limitada.
+
+- _Embedded Application_  
+  Componente ligero desplegado en los dispositivos de monitoreo físicos.  
+  Captura datos ambientales (temperatura, humedad, GPS) y los envía a la **Edge Application** para su procesamiento y sincronización.
 
 Los actores principales interactúan con los contenedores:
 
@@ -1472,10 +1500,15 @@ Los actores principales interactúan con los contenedores:
 
 Además, CargaSafe se integra con varios sistemas externos:
 
-- _Google Maps_: para rutas, geocodificación y cálculo de ETA.
-- _Stripe_: para pagos y facturación de suscripciones.
+- _Google Maps_: Provee servicios de geocodificación, cálculo de rutas y estimación de tiempo de llegada (ETA).  
+  Es utilizado tanto por el **Backend API** (para procesamiento de rutas) como por la **SPA** y la **Mobile App** (para visualización e interacción con mapas).
+
+- _Stripe_: Maneja los pagos y la facturación de las suscripciones de la plataforma.
 - _Firebase Cloud Messaging (FCM)_: para notificaciones push hacia aplicaciones móviles y web.
   En conjunto, el diagrama muestra cómo CargaSafe se estructura en contenedores especializados que soportan las necesidades de operadores, conductores y clientes, asegurando tanto la operación online como offline en distintos puntos de la cadena logística.
+
+- _SendGrid_  
+   Servicio de mensajería utilizado para el envío de correos electrónicos transaccionales, reportes y alertas.
 
 #### 4.1.3.3. Software Architecture Deployment Diagrams
 

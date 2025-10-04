@@ -27,7 +27,8 @@ workspace "CargaSafe - Context Diagram" "C4 Level 1: System Context" {
     // Relaciones (actores ↔ CargaSafe)
     operator   -> cargasafe "Manages trips, fleet and reports"
     driver     -> cargasafe "Sends status, receives trip instructions"
-    cargasafe  -> endCustomer "Sends status links and reports"
+    endCustomer -> cargasafe "Check trip status"
+    # cargasafe  -> endCustomer "Sends status links and reports"
     
     // Relaciones (sistemas externos ↔ CargaSafe)
     cargasafe -> gmaps "Requests routes and ETA"
@@ -38,8 +39,8 @@ workspace "CargaSafe - Context Diagram" "C4 Level 1: System Context" {
   
   views {
     systemContext cargasafe "cargasafe-context" "CargaSafe - System Context" {
-      include *
-     // autoLayout lr
+        include *
+        autolayout
     }
     
     styles {
