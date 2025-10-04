@@ -265,8 +265,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <span class="entry-order">TB1:</span><br/>
         Participé de manera activa en reuniones virtuales y presenciales, aportando propuestas relevantes para la definición de la arquitectura de software del Fleet Management. Lideré la elaboración de los diagramas C4 (contexto, contenedores y componentes) y colaboré en el diseño táctico bajo los principios de Domain Driven Design (DDD). Asimismo, contribuí en la identificación y documentación de los Bounded Contexts, garantizando una delimitación clara y consistente del sistema, y elaboré el Bounded Context Canvases, facilitando la comprensión de las responsabilidades y alcances de cada contexto.<br />
       </td>
-      </td>
-      <td class="final-comment-column">
+      <td class="conclusions-column">
+      <span class="entry-order">TB1:</span><br/>
+        A lo largo del proyecto asumimos un liderazgo compartido, distribuyendo responsabilidades y tomando decisiones en conjunto. Cada uno de nosotros aportó ideas y conocimientos que permitieron definir con claridad el flujo de negocio, la arquitectura y los artefactos necesarios bajo los principios de Domain Driven Design. Esta forma de trabajo nos ayudó a consolidar una visión común y avanzar con mayor seguridad en cada fase.
       </td>
     </tr>
     <tr>
@@ -287,7 +288,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <span class="entry-order">TB1:</span><br/>
         Promoví un entorno colaborativo mediante la coordinación de los artefactos de arquitectura y la integración de los diagramas en el informe. Contribuí en la planificación de tareas técnicas vinculadas a la arquitectura de software, asegurando la consistencia de los entregables y su alineación con los objetivos del proyecto. Además, facilité retroalimentación constructiva, incentivando la participación activa de todos los miembros del equipo.<br />
       </td>
-      <td class="final-comment-column">
+      <td class="conclusions-column">
+      <span class="entry-order">TB1:</span><br/>
+        Durante el desarrollo creamos un entorno colaborativo e inclusivo en el que cada aporte fue escuchado y valorado. Establecimos metas claras, organizamos tareas de manera conjunta y planificamos los avances para asegurar el cumplimiento de los objetivos. Gracias a la comunicación constante y al compromiso colectivo, conseguimos mantener la cohesión del grupo, garantizar la calidad de los entregables y alcanzar los resultados propuestos.
       </td>
     </tr>
   </tbody>
