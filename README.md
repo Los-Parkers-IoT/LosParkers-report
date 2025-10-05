@@ -2171,24 +2171,23 @@ Diagrama de componentes - Mobile App - Alerts & Resolution
 **Entity: MonitoringSession (Aggregate Root)**
 
 **Propósito principal**  
-Representar una sesión de monitoreo para un viaje específico y centralizar su ciclo de vida, asegurando que se cumplan las reglas de negocio relacionadas con la captura y validación de datos de telemetría.
+Representar una sesión de monitoreo asociada a un viaje y dispositivo, centralizando su ciclo de vida y estado.
 
 **Atributos principales**
 
-- sessionId: Identificador único de la sesión de monitoreo.
+- id: Identificador único de la sesión de monitoreo.
 - tripId: Identificador del viaje asociado.
-- status: Estado de la sesión (ACTIVE, INACTIVE, COMPLETED, PAUSED).
-- temperatureRange: Rango de temperatura aceptable para el viaje.
+- deviceId: Identificador del dispositivo IoT.
 - startTime: Fecha y hora de inicio de la sesión.
-- endTime: Fecha y hora de finalización de la sesión.
+- endTime: Fecha y hora de finalización de la sesión (nullable).
+- createdAt: Fecha y hora de creación de la sesión.
+- sessionStatus: Estado actual de la sesión (relación con MonitoringSessionStatus).
 
 **Métodos principales**
 
 - startSession(): Inicia la sesión de monitoreo y cambia su estado a "ACTIVE".
 - endSession(): Finaliza la sesión de monitoreo y cambia su estado a "COMPLETED".
-- pauseSession(): Pausa temporalmente la sesión de monitoreo.
-- resumeSession(): Reanuda una sesión pausada.
-- addTelemetryData(data): Agrega una nueva lectura de telemetría a la sesión.
+- updateStatus(newStatus): Cambia el estado de la sesión (ej. ACTIVE → PAUSED).
 - isActive(): Verifica si la sesión está activa.
 
 ---
@@ -2196,82 +2195,48 @@ Representar una sesión de monitoreo para un viaje específico y centralizar su 
 **Entity: TelemetryData**
 
 **Propósito principal**  
-Representar una única lectura de sensor con identidad propia, capaz de almacenar y gestionar información específica de temperatura, humedad, vibración y ubicación.
+Representar una lectura de telemetría tomada durante una sesión de monitoreo.
 
 **Atributos principales**
 
-- dataId: Identificador único de la lectura de telemetría.
-- sessionId: Identificador de la sesión de monitoreo asociada.
-- sensorReading: Datos específicos de la lectura del sensor.
-- location: Coordenadas geográficas de la lectura.
-- timestamp: Fecha y hora de la lectura.
-- deviceId: Identificador del dispositivo IoT.
+- id: Identificador único de la lectura de telemetría.
+- monitoringSessionId: Identificador de la sesión de monitoreo asociada.
+- temperature: Valor de temperatura registrado.
+- humidity: Valor de humedad registrado.
+- vibration: Valor de vibración registrado.
+- latitude: Latitud geográfica registrada.
+- longitude: Longitud geográfica registrada.
+- createdAt: Fecha y hora de la lectura.
 
 **Métodos principales**
 
-- isWithinRange(range): Verifica si la lectura está dentro del rango aceptable.
-- getTemperature(): Obtiene el valor de temperatura de la lectura.
-- getHumidity(): Obtiene el valor de humedad de la lectura.
-- getVibration(): Obtiene el valor de vibración de la lectura.
+- getTemperature(): Obtiene el valor de temperatura.
+- getHumidity(): Obtiene el valor de humedad.
+- getVibration(): Obtiene el valor de vibración.
+- getLocation(): Retorna la ubicación (latitud, longitud).
 
 ---
 
-**Entity: Incident**
+**Entity: MonitoringSessionStatus**
 
 **Propósito principal**  
-Representar un incidente detectado durante el monitoreo como una entidad con identidad propia.
+Representar el estado de una sesión de monitoreo como entidad independiente.
 
 **Atributos principales**
 
-- incidentId: Identificador único del incidente.
-- sessionId: Identificador de la sesión de monitoreo asociada.
-- alertType: Tipo de alerta que generó el incidente.
-- description: Descripción detallada del incidente.
-- createdAt: Fecha y hora de creación del incidente.
-- status: Estado del incidente (OPEN, IN_PROGRESS, RESOLVED, ESCALATED).
+- id: Identificador único del estado.
+- name: Nombre del estado (ej. ACTIVE, COMPLETED, PAUSED).
 
 **Métodos principales**
 
-- resolve(description): Marca el incidente como resuelto.
-- escalate(): Escala el incidente a un nivel superior.
-- updateStatus(newStatus): Actualiza el estado del incidente.
-
----
-
-**Value Object: SensorReading**
-
-**Propósito principal**  
-Encapsular los datos de una lectura específica de sensores de forma inmutable.
-
-**Atributos principales**
-
-- temperature: Valor de temperatura medido.
-- humidity: Valor de humedad medido.
-- vibration: Valor de vibración medido.
-- signalStatus: Estado de la señal del dispositivo.
-
----
-
-**Value Object: TemperatureRange**
-
-**Propósito principal**  
-Definir los límites mínimos y máximos de temperatura aceptables para un viaje.
-
-**Atributos principales**
-
-- minTemperature: Temperatura mínima aceptable.
-- maxTemperature: Temperatura máxima aceptable.
-
-**Métodos principales**
-
-- isWithinRange(temperature): Verifica si una temperatura está dentro del rango.
+- isFinal(): Verifica si el estado es terminal (ej. COMPLETED).
 
 ---
 
 **Value Object: Location**
 
 **Propósito principal**  
-Representar un punto geográfico inmutable con coordenadas precisas.
+Representar una ubicación geográfica precisa.
 
 **Atributos principales**
 
@@ -2287,339 +2252,233 @@ Representar un punto geográfico inmutable con coordenadas precisas.
 **Value Object: SessionStatus**
 
 **Propósito principal**  
-Representar el estado de una sesión de monitoreo en su ciclo de vida.
+Encapsular el estado de una sesión en su ciclo de vida.
 
 **Atributos principales**
 
-- status: Valor posible (ACTIVE, INACTIVE, COMPLETED, PAUSED).
-
----
-
-**Value Object: SignalStatus**
-
-**Propósito principal**  
-Indicar el estado de conectividad del dispositivo IoT.
-
-**Atributos principales**
-
-- status: Valor posible (ONLINE, OFFLINE, WEAK_SIGNAL).
-
----
-
-**Value Object: AlertType**
-
-**Propósito principal**  
-Clasificar los diferentes tipos de alertas que pueden generarse durante el monitoreo.
-
-**Atributos principales**
-
-- type: Valor posible (TEMPERATURE_HIGH, TEMPERATURE_LOW, DEVICE_OFFLINE, ROUTE_DEVIATION, VIBRATION_EXCESSIVE).
-
----
-
-**Value Object: Temperature**
-
-**Propósito principal**  
-Expresar una magnitud de temperatura con su unidad correspondiente.
-
-**Atributos principales**
-
-- value: Valor numérico de la temperatura.
-- unit: Unidad de medida (ej. °C, °F).
-
----
-
-**Value Object: Humidity**
-
-**Propósito principal**  
-Expresar un porcentaje de humedad relativa.
-
-**Atributos principales**
-
-- value: Valor numérico de humedad.
-- unit: Unidad de medida (ej. %).
-
----
-
-**Value Object: Vibration**
-
-**Propósito principal**  
-Expresar una magnitud de vibración con su unidad correspondiente.
-
-**Atributos principales**
-
-- value: Valor numérico de vibración.
-- unit: Unidad de medida (ej. g, m/s²).
+- status: Valor posible definido en monitoring_session_status (ej. ACTIVE, INACTIVE, COMPLETED, PAUSED).
 
 ---
 
 **Aggregate: MonitoringSessionAggregate**
 
 **Propósito principal**  
-Asegurar la consistencia de una sesión de monitoreo como unidad de negocio, agrupando la sesión con sus datos de telemetría relacionados.
+Garantizar la consistencia de una sesión de monitoreo, agrupando la sesión y sus datos de telemetría relacionados.
 
 **Métodos principales**
 
-- validateSessionReady(): Verifica que la sesión tenga todos los parámetros necesarios antes de iniciar.
-- evaluateRules(): Evalúa las reglas de negocio sobre las lecturas recibidas.
+- addTelemetryData(data): Agrega una nueva lectura de telemetría.
+- validateSessionStatus(): Verifica que la sesión esté en un estado válido antes de aceptar lecturas.
 
 ---
 
 **Factory: MonitoringSessionFactory**
 
 **Propósito principal**  
-Crear instancias de **MonitoringSession** en estado inicial válido.
+Crear instancias válidas de MonitoringSession.
 
 **Métodos principales**
 
-- createSession(tripId, temperatureRange): Genera una sesión de monitoreo en estado INACTIVE con todos los datos requeridos.
-- createFromTrip(trip): Crea una sesión basada en los datos de un viaje existente.
+- createSession(tripId, deviceId): Genera una nueva sesión en estado inicial (ej. INACTIVE).
 
 ---
 
-**Domain Service: DataIngestionService**
+**Domain Service: TelemetryProcessingService**
 
 **Propósito principal**  
-Encapsular la lógica de procesamiento y validación de datos de telemetría entrantes.
+Encapsular la lógica de procesamiento de datos de telemetría.
 
 **Métodos principales**
 
-- processIncomingData(rawData): Procesa datos brutos de telemetría y los convierte en TelemetryData válidos.
-- validateTelemetryData(data): Valida la integridad y consistencia de los datos de telemetría.
+- processTelemetry(rawData): Procesa datos brutos y crea TelemetryData.
+- validateTelemetry(data): Valida integridad y consistencia de los datos.
 
 ---
 
-**Domain Service: RuleEvaluationService**
+**Domain Service: SessionLifecycleService**
 
 **Propósito principal**  
-Analizar las lecturas en tiempo real para detectar violaciones de parámetros y generar alertas.
+Gestionar el ciclo de vida de una sesión de monitoreo.
 
 **Métodos principales**
 
-- evaluateTemperatureRules(data, range): Evalúa si las lecturas de temperatura están dentro del rango aceptable.
-- evaluateDeviceConnectivity(lastReading): Verifica el estado de conectividad del dispositivo.
-- detectAnomalies(dataList): Detecta patrones anómalos en las lecturas de sensores.
-
----
-
-**Domain Service: DataEnrichmentService**
-
-**Propósito principal**  
-Enriquecer los datos de telemetría con información contextual adicional.
-
-**Métodos principales**
-
-- enrichWithLocationData(data): Enriquece los datos con información geográfica adicional.
-- enrichWithRouteInformation(data): Agrega información de ruta a los datos de telemetría.
+- startSession(session): Inicia la sesión.
+- endSession(session): Finaliza la sesión.
+- pauseSession(session): Pausa una sesión activa.
+- resumeSession(session): Reanuda una sesión pausada.
 
 ---
 
 **Command: StartMonitoringSessionCommand**
 
 **Propósito**  
-Iniciar una nueva sesión de monitoreo para un viaje específico.
+Iniciar una nueva sesión de monitoreo.
 
 **Parámetros**
 
-- tripId: Identificador único del viaje.
-- temperatureRange: Rango de temperatura aceptable para el monitoreo.
+- tripId
+- deviceId
 
 ---
 
 **Command: EndMonitoringSessionCommand**
 
 **Propósito**  
-Finalizar una sesión de monitoreo activa, cambiando su estado a COMPLETED.
+Finalizar una sesión activa.
 
 **Parámetros**
 
-- sessionId: Identificador único de la sesión de monitoreo.
+- sessionId
 
 ---
 
 **Command: PauseMonitoringSessionCommand**
 
 **Propósito**  
-Pausar temporalmente una sesión de monitoreo activa.
+Pausar temporalmente una sesión de monitoreo.
 
 **Parámetros**
 
-- sessionId: Identificador único de la sesión de monitoreo.
+- sessionId
 
 ---
 
 **Command: ResumeMonitoringSessionCommand**
 
 **Propósito**  
-Reanudar una sesión de monitoreo previamente pausada.
+Reanudar una sesión previamente pausada.
 
 **Parámetros**
 
-- sessionId: Identificador único de la sesión de monitoreo.
+- sessionId
 
 ---
 
 **Query: GetMonitoringSessionByIdQuery**
 
 **Propósito**  
-Obtener la información completa de una sesión de monitoreo específica mediante su identificador único.
+Obtener información de una sesión específica.
 
 **Parámetros**
 
-- sessionId: Identificador único de la sesión de monitoreo.
+- sessionId
 
 ---
 
 **Query: GetTelemetryDataBySessionQuery**
 
 **Propósito**  
-Obtener todas las lecturas de telemetría asociadas a una sesión específica de monitoreo.
+Obtener lecturas de telemetría de una sesión.
 
 **Parámetros**
 
-- sessionId: Identificador único de la sesión de monitoreo.
-- startTime: Fecha y hora de inicio del rango de consulta (opcional).
-- endTime: Fecha y hora de fin del rango de consulta (opcional).
+- sessionId
+- startTime (opcional)
+- endTime (opcional)
 
 ---
 
 **Query: GetActiveSessionsQuery**
 
 **Propósito**  
-Listar todas las sesiones de monitoreo que se encuentran actualmente activas.
-
-**Parámetros**  
-_(No requiere parámetros)_
+Listar todas las sesiones activas.
 
 ---
 
 **Query: GetSessionsByTripIdQuery**
 
 **Propósito**  
-Obtener todas las sesiones de monitoreo asociadas a un viaje específico.
+Obtener todas las sesiones de un viaje.
 
 **Parámetros**
 
-- tripId: Identificador único del viaje.
+- tripId
 
 ---
 
 **Event: MonitoringSessionStartedEvent**
 
 **Propósito**  
-Notificar que una nueva sesión de monitoreo ha sido iniciada.
+Notificar inicio de una sesión.
 
 **Parámetros**
 
-- sessionId: Identificador único de la sesión de monitoreo.
-- tripId: Identificador del viaje asociado.
-- temperatureRange: Rango de temperatura configurado.
-- startedAt: Fecha y hora de inicio de la sesión.
+- sessionId
+- tripId
+- deviceId
+- startedAt
 
 ---
 
 **Event: MonitoringSessionCompletedEvent**
 
 **Propósito**  
-Notificar que una sesión de monitoreo se ha completado satisfactoriamente.
+Notificar finalización de una sesión.
 
 **Parámetros**
 
-- sessionId: Identificador único de la sesión de monitoreo.
-- totalReadings: Número total de lecturas procesadas.
-- completedAt: Fecha y hora de finalización de la sesión.
+- sessionId
+- completedAt
 
 ---
 
 **Event: TelemetryDataReceivedEvent**
 
 **Propósito**  
-Notificar que se ha recibido y procesado una nueva lectura de telemetría.
+Notificar recepción de una lectura de telemetría.
 
 **Parámetros**
 
-- sessionId: Identificador único de la sesión de monitoreo.
-- telemetryData: Datos de telemetría recibidos.
-- receivedAt: Fecha y hora de recepción.
+- sessionId
+- telemetryData
+- receivedAt
 
 ---
-
-**Event: OutOfRangeDetectedEvent**
-
-**Propósito**  
-Notificar que se ha detectado una lectura fuera del rango aceptable.
-
-**Parámetros**
-
-- sessionId: Identificador único de la sesión de monitoreo.
-- telemetryData: Datos de telemetría que causaron la alerta.
-- violatedParameter: Parámetro que está fuera de rango.
-- detectedAt: Fecha y hora de detección.
-
----
-
-**Event: DeviceOfflineDetectedEvent**
-
-**Propósito**  
-Notificar que un dispositivo IoT ha dejado de enviar datos de telemetría.
-
-**Parámetros**
-
-- deviceId: Identificador único del dispositivo.
-- sessionId: Identificador de la sesión de monitoreo afectada.
-- lastSeenTime: Última vez que se recibieron datos del dispositivo.
-- detectedAt: Fecha y hora de detección del problema.
-
----
-
-**Event: IncidentCreatedEvent**
-
-**Propósito**  
-Notificar que se ha creado un nuevo incidente basado en las alertas detectadas.
-
-**Parámetros**
-
-- incidentId: Identificador único del incidente.
-- sessionId: Identificador de la sesión de monitoreo asociada.
-- alertType: Tipo de alerta que originó el incidente.
-- createdAt: Fecha y hora de creación del incidente.
 
 #### 4.2.4.2. Interface Layer.
 
 **Controllers**
 
-- MonitoringController: Controlador que maneja las solicitudes relacionadas con el monitoreo de viajes. Atiende operaciones como iniciar una nueva sesión de monitoreo, finalizar o pausar una sesión, así como consultar información de sesiones por identificador, estado del viaje, o recuperar datos de telemetría en tiempo real para visualización en mapas y gráficos.
+- **MonitoringController**: Maneja solicitudes de inicio, fin, pausa, reanudación y consulta de sesiones.
 
-- TelemetryController: Controlador que maneja las solicitudes relacionadas con los datos de telemetría. Permite consultar lecturas específicas, obtener históricos de datos de sensores y generar reportes de monitoreo para análisis posterior.
+- **TelemetryController**: Maneja solicitudes relacionadas con datos de telemetría (consultas, históricos, gráficos).
+
+---
 
 #### 4.2.4.3. Application Layer.
 
 **Command Services**
 
-- MonitoringCommandService: Se encarga de recibir y coordinar los comandos relacionados a las sesiones de monitoreo. Dentro de él se manejan distintos handlers, cada uno especializado en ejecutar un comando específico como iniciar, finalizar, pausar o reanudar sesiones de monitoreo.
+- **MonitoringCommandService**: Coordina comandos relacionados a las sesiones.
 
-- TelemetryCommandService: Se encarga de coordinar los comandos relacionados con el procesamiento de datos de telemetría. Administra la ingesta, validación y enriquecimiento de datos para garantizar que las lecturas sean procesadas correctamente.
+- **TelemetryCommandService**: Coordina el procesamiento de datos de telemetría.
 
 ---
 
 **Query Services**
 
-- MonitoringQueryService: Se encarga de atender las consultas relacionadas a las sesiones de monitoreo. Contiene handlers que procesan queries para obtener información, por ejemplo: consultar una sesión por su identificador, listar sesiones activas o recuperar todas las sesiones de un viaje.
+- **MonitoringQueryService**: Atiende consultas sobre sesiones.
 
-- TelemetryQueryService: Atiende las consultas relacionadas a los datos de telemetría. Permite obtener lecturas específicas, históricos de datos de sensores y generar agregaciones para reportes y visualizaciones.
+- **TelemetryQueryService**: Atiende consultas sobre lecturas de telemetría.
 
 ---
 
 **Event Services**
 
-- MonitoringEventService: Se encarga de atender los eventos relacionados a las sesiones de monitoreo. Dentro de él se gestionan distintos servicios especializados que reaccionan a cada evento, como inicio y finalización de sesiones, recepción de datos de telemetría, detección de alertas y creación de incidentes, ejecutando las acciones necesarias después de que ocurren.
+- **MonitoringEventService**: Atiende eventos de sesiones (inicio, fin, recepción de telemetría).
+
+---
 
 #### 4.2.4.4. Infrastructure Layer.
 
 **Repositories**
 
-- IMonitoringSessionRepository: Repositorio que define las operaciones de acceso a las sesiones de monitoreo, como guardar, actualizar y recuperar información de una sesión.
-- ITelemetryDataRepository: Repositorio que define las operaciones de acceso a los datos de telemetría, optimizado para escrituras masivas y consultas de series de tiempo, como registrar nuevas lecturas, consultarlas por sesión y generar agregaciones.
+- **IMonitoringSessionRepository**: Persistencia de sesiones.
+
+- **ITelemetryDataRepository**: Persistencia y consulta de lecturas de telemetría.
+
+- **ISessionStatusRepository**: Acceso a los estados posibles de sesión.ReintentarClaude aún no tiene la capacidad de ejecutar el código que genera.
+
 
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
 
