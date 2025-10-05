@@ -987,33 +987,39 @@ Los clientes finales son los consumidores de los productos transportados por las
 
 **Segmento: Empresa (Gestores de transporte)**
 
-| Tarea                                                  | Frecuencia | Importancia |
-| ------------------------------------------------------ | ---------- | ----------- |
-| Configurar dispositivos IoT para nuevos vehículos      | Media      | Alta        |
-| Registrar nuevos viajes y establecer parámetros        | Alta       | Alta        |
-| Monitorear temperatura en tiempo real durante viajes   | Alta       | Alta        |
-| Recibir y gestionar alertas de incumplimiento          | Media      | Alta        |
-| Revisar dashboards de estado de flota                  | Alta       | Alta        |
-| Generar reportes de viajes para clientes               | Media      | Alta        |
-| Analizar gráficos de incidencias mensuales             | Baja       | Media       |
-| Gestionar suscripciones y pagos del sistema            | Baja       | Media       |
-| Actualizar parámetros de temperatura según producto    | Media      | Alta        |
-| Coordinar respuesta ante emergencias de cadena de frío | Baja       | Alta        |
+| Tarea | Frecuencia | Importancia |
+|-------|------------|-------------|
+| Llamar a conductores para verificar condiciones de carga manualmente | Alta | Alta |
+| Revisar múltiples parámetros (temperatura, humedad, vibración) al final del viaje | Alta | Alta |
+| Completar bitácoras en papel con datos de condiciones del cargamento | Alta | Media |
+| Buscar información de viajes en múltiples sistemas desintegrados | Alta | Media |
+| Coordinar por teléfono cuando hay incidencias en las condiciones de transporte | Media | Alta |
+| Recopilar firmas y documentos físicos de entregas | Alta | Media |
+| Armar reportes manuales combinando datos de diferentes fuentes | Media | Alta |
+| Enviar unidades de emergencia cuando se detecta falla en el transporte | Baja | Alta |
+| Atender consultas de clientes por falta de visibilidad en tiempo real | Media | Alta |
+| Revisar rutas en GPS básico sin integración con sensores de carga | Alta | Media |
+| Capacitar conductores en procedimientos de verificación de carga | Baja | Media |
+| Verificar manualmente el funcionamiento de sistemas de conservación | Alta | Alta |
+| Consolidar información de múltiples dispositivos y plataformas | Alta | Alta |
 
 **Segmento: Clientes Finales (Consumidores finales)**
 
-| Tarea                                            | Frecuencia | Importancia |
-| ------------------------------------------------ | ---------- | ----------- |
-| Verificar estado de pedidos en tránsito          | Alta       | Alta        |
-| Consultar certificados de cadena de frío         | Media      | Alta        |
-| Revisar reportes de cumplimiento de temperatura  | Media      | Alta        |
-| Rastrear ubicación y progreso de entrega         | Alta       | Media       |
-| Recibir alertas sobre problemas en el transporte | Media      | Alta        |
-| Validar condiciones del producto al recibirlo    | Alta       | Alta        |
-| Descargar documentación oficial de cumplimiento  | Media      | Alta        |
-| Consultar historial de entregas anteriores       | Baja       | Media       |
-| Reportar productos rechazados por incumplimiento | Baja       | Alta        |
-| Acceder a soporte para resolver incidencias      | Baja       | Media       |
+| Tarea | Frecuencia | Importancia |
+|-------|------------|-------------|
+| Verificar productos visualmente al recibirlos | Alta | Alta |
+| Inspeccionar condiciones físicas de productos sensibles | Alta | Alta |
+| Llamar al proveedor para preguntar estado del envío | Media | Media |
+| Examinar empaques buscando señales de deterioro o daños | Alta | Alta |
+| Rechazar productos que muestran signos de mal manejo | Media | Alta |
+| Solicitar reportes de trazabilidad que suelen ser genéricos o incompletos | Media | Alta |
+| Esperar sin información sobre el estado real de sus pedidos | Media | Alta |
+| Revisar fechas de vencimiento y condiciones de almacenamiento | Alta | Alta |
+| Registrar incidencias de productos que llegan en mal estado | Baja | Alta |
+| Aceptar productos sin evidencia objetiva de las condiciones de transporte | Alta | Media |
+| Realizar reclamos por productos deteriorados o fuera de especificación | Baja | Alta |
+| Archivar documentación física de entregas | Media | Baja |
+| Validar cumplimiento de condiciones especiales sin datos verificables | Alta | Alta |
 
 ### 2.3.3. User Journey Mapping
 
