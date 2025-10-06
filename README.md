@@ -1007,17 +1007,17 @@ App/portal web, notificaciones breves; móvil como dispositivo principal.
   <img src="assets/entrevista_cliente_3.png">
 <br/>
 
-**Resumen**
+**Resumen** <br/>
 Revisa empaque e indicadores de temperatura; busca signos de condensación. Confianza media si reporte es básico; aumenta con registro continuo y claro. Necesita alertas en trayecto y pre-aviso de llegada. Ha rechazado lotes por salirse del rango; impacto: retrasos y reprocesos. Prefiere canales digitales (correo/app). Requiere interfaces claras, colores de alerta, validación automática de cumplimiento y reportes de auditoría.
 
-**Tecnología & canales**
+**Tecnología & canales** <br/>
 - Email/app; PC y smartphone; sensibilidad a conectividad (preocupación).
 
-**Dolores / Oportunidades**
+**Dolores / Oportunidades** <br/>
 *Pain*: Falta de seguimiento y validación automática.
 *Need*: Registro de procesos, como una auditoria para prevenir fallos
 
-**Implicancias para CargaSafe**
+**Implicancias para CargaSafe** <br/>
 *Requisitos*: Motor de validación (rango por perfil de producto), alertas multi-canal.
 
 
