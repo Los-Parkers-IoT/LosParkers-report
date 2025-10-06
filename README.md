@@ -832,14 +832,38 @@ Los clientes finales son los consumidores de los productos transportados por las
 
 - **Nombre**: Miguel Ruiz
 - **Edad**: 28 años
-- **Ocupación**: Supervisor
+- **Ocupación**: Gestor de transportes - linea de frio
 - **Empresa**: Ofertimaq - Distribuidora
 - **Enlace**: [Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=KIofFP&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7fX0%3D)
 - **Fecha de entrevista**: 10 de Setiembre del 2025
 - **Tiempo inicio - tiempo fin**: 00:00:00 - 00:07:28
-  <img src="assets/entrevista_empresa_1.png">
+  <img src="assets/entrevista_empresa_1.png"><br/>
+ <br/>
+
+**Resumen** <br/>
+Monitorea la temperatura de forma manual a través de choferes que revisan el cooler en paradas y con termómetro digital. Usa GPS para validar paradas y kilometraje, no para temperatura. La planificación la hace un asistente considerando tráfico de Lima (Waze) con holguras, y exige verificación de cooler en puntos de parada. La detección de problemas depende de llamadas de choferes; cuando hay incidente, redirigen un vehículo cercano para salvar producto. Gestiona reportes de ruta como evidencia frente a reclamos. No han implementado sensores; demanda una plataforma con monitoreo en tiempo real, alertas automáticas, y reportes simples/dashboards. Prefiere suscripción mensual (mejor aún prepago/largo plazo) y acceso del cliente a un link para seguimiento.
+
+**Rasgos objetivos** <br/>
+- *Herramientas*: GPS, termómetro digital, Waze/Mapas.
+- *Canales*: Llamadas, mensajería interna.
+- *Dispositivos*: Smartphone de choferes + PC oficina.
+- *Reportes*: Hoja de ruta; auditorías sanitarias.
+
+**Rasgos subjetivos** <br/>
+- Perfil operativo, orientado a continuidad y respuesta rápida.
+- Valora trazabilidad visible para clientes.
+
+**Dolores y oportunidades** <br/>
+*Pain*: Dependencia de manualidad y llamadas; falta de visibilidad en ruta.
+*Need*: Telemetría + alertas; portal cliente; evidencia automática.
+
+**Implicancias para CargaSafe** <br/>
+Requisitos: Sensor temperatura; alertas; linea de tiempo por viaje; Link para compartir seguimiento.
 
   <br/>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<br/>
+
 
 - **Nombre**: Mario Hinostroza
 - **Edad**: 22 años
@@ -849,9 +873,33 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Fecha de entrevista**: 11 de Setiembre del 2025
 - **Tiempo inicio - tiempo fin**: 00:07:28 - 00:13:36
 
-    <img src="assets/entrevista_empresa_2.png">
+    <img src="assets/entrevista_empresa_2.png"><br/>
 
-    <br/>
+<br/>
+
+**Resumen** <br/>
+Controla temperatura con termómetro portátil en paradas y el indicador del camión. El sistema de cadena de frío es nativo del vehículo, elegido por sencillez. Planifica con hojas de ruta y bitácora manual. Cuando falla el frío, se avisa a central; los daños impactan tiempos y reclamos. Emite hoja de viaje firmada con datos de temperatura. Percibe el monitoreo como pesado y manual. Pide una plataforma que integre panel del camión + app móvil con notificaciones cuando se sale del estándar.
+
+**Rasgos objetivos** <br/>
+*Herramientas*: Indicador del camión, termómetro, bitácora.
+*Canales*: Llamada a central.
+*Dispositivo*: Celular personal; cabina camión.
+
+**Rasgos subjetivos**
+- Busca simplicidad y automatización de tareas repetitivas.
+
+**Dolores / Oportunidades**
+*Pain*: Monitoreo manual constante; reacción tardía.
+*Need*: App móvil con push alerts, captura automática de lecturas.
+
+**Implicancias para CargaSafe**
+*Requisitos*: App conductor (checklist, lecturas guiadas, foto/nota), notificaciones.
+
+
+<br/>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<br/>
 
 - **Nombre**: Luis Torres Arevalo
 - **Edad**: 58 años
@@ -860,10 +908,32 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Enlace**: [Click aquí para ver la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=yULe1a&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6ODE2LjY4fX0%3D)
 - **Fecha de entrevista**: 10 de Setiembre del 2025
 - **Tiempo inicio - tiempo fin**: 00:13:36 - 00:20:51
-
+<br/>
   <img src="assets/entrevista_empresa_3.png">
+<br/>
+
+**Resumen**<br/>
+Operaba con dos mediciones (salida/llegada); en ruta no había monitoreo. Control con termómetros en almacén y delivery; registros en papel/Excel. La ruptura de cadena implicaba devoluciones y pérdida de confianza. Respuesta en ruta nula por falta de visibilidad. Autoridades exigían tablas de control de temperatura continua; no podían cumplir plenamente. Considera imprescindibles temperatura en tiempo real, alertas y almacenamiento automático para auditoría. Prefiere suscripción mensual por unidad; clave: que funcione y no genere costos ocultos.
+
+**Rasgos objetivos**<br/>
+*Herramientas*: Papel/Excel, termómetros.
+*Canales*: Presencial/correo.
+*Dispositivos*: PC oficina.
+
+**Rasgos subjetivos**<br/>
+- Valora cumplimiento regulatorio y evidencias.
+
+**Dolores / Oportunidades**<br/>
+*Pain*: Sin datos en ruta; auditorías exigentes.
+*Need*: Historian de temperatura, descargables (PDF/CSV), firmas digitales.
+
+**Implicancias para CargaSafe**<br/>
+Requisitos: dispositivo electrónico portátil que mide y registra automáticamente datos de diversas variables como temperatura, retención de datos, rango, desviaciones y firmas.
 
   <br/>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<br/>
 
 ### Segmento 2: Clientes Finales (Consumidores finales)
 
@@ -874,10 +944,28 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Enlace**: [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=xwhjks&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTI1MS44OX19)
 - **Fecha de entrevista**: 10 de Setiembre del 2025
 - **Tiempo inicio - tiempo fin**: 00:20:51 - 00:30:50
-
+<br/>
   <img src="assets/entrevista_cliente_1.png">
+<br/>
 
+**Resumen** <br/>
+*Verifica al recibir*: estado físico, frío al tacto, indicadores simples; desconfía de la cadena previa. Aumenta confianza con datos en tiempo real y trazabilidad. 
+*Información valiosa*: tiempo y temperatura en trayecto; notificaciones ante retrasos (tráfico) o temperaturas fuera de rango. Prefiere WhatsApp para avisos y un portal/app para consultar detalles on-demand. Quiere interfaces claras, en °C y tipografía grande. Pide notificaciones al proveedor además del cliente.
+
+**Tecnología & canales** <br/>
+- WhatsApp como principal; App/portal web como consulta.
+- Smartphone predominante.
+
+**Dolores / Oportunidades** <br/>
+*Pain*: Incertidumbre en ruta; impacto de retrasos.
+*Need*: ETA (calculo de duracion de ruta) + temperatura en vivo; doble notificación (cliente/proveedor).
+
+**Implicancias para CargaSafe** <br/>
+*Requisitos*: Link para seguimiento, push WhatsApp/SMS configurable, UI accesible (alto contraste, números grandes).
   <br/>
+
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<br/>
 
 - **Nombre**: Brenda Calderon
 - **Edad**: 20 años
@@ -886,10 +974,27 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Enlace**: [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=xwhjks&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTI1MS44OX19)
 - **Fecha de entrevista**: 13 de Setiembre del 2025
 - **Tiempo inicio - tiempo fin**: 00:31:00 - 00:37:20
-
+<br/>
   <img src="assets/entrevista_cliente_2.png">
+<br/>
+
+**Resumen** <br/>
+*Audita recepción*: integridad del empaque, condensación, frío al tacto, fecha de vencimiento. Confía parcialmente en reportes; requiere datos trazables y consistentes con lo recibido. *Información clave*: temperatura a lo largo del trayecto, eventos fuera de rango, tiempos. Rechazó lote de yogures por tibieza/inflado; proveedor sin justificación. Prefiere portal o app para consultar sin llamadas; notificaciones breves ante retrasos/problemas. Valora interfaces simples con gráficos y reportes descargables para evidencias.
+
+**Tecnología & canales** <br/>
+App/portal web, notificaciones breves; móvil como dispositivo principal.
+
+**Dolores / Oportunidades** <br/>
+*Pain*: Reportes genéricos; inconsistencias.
+*Need*: Logs detallados, exportables y comparables por pedido.
+
+**Implicancias para CargaSafe** <br/>
+*Requisitos*: Panel cliente con histórico por pedido, botón Descargar PDF/CSV, alertas de retraso y anomalía térmica.
 
   <br/>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<br/>
 
 - **Nombre**: Gabriel Díaz
 - **Edad**: 26 años
@@ -898,74 +1003,39 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Enlace**: [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=q84dUy&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MjI0MS40NH19)
 - **Fecha de entrevista**: 16 de Setiembre del 2025
 - **Tiempo inicio - tiempo fin**: 00:37:20 - 00:43:15
-
+<br/>
   <img src="assets/entrevista_cliente_3.png">
+<br/>
+
+**Resumen**
+Revisa empaque e indicadores de temperatura; busca signos de condensación. Confianza media si reporte es básico; aumenta con registro continuo y claro. Necesita alertas en trayecto y pre-aviso de llegada. Ha rechazado lotes por salirse del rango; impacto: retrasos y reprocesos. Prefiere canales digitales (correo/app). Requiere interfaces claras, colores de alerta, validación automática de cumplimiento y reportes de auditoría.
+
+**Tecnología & canales**
+- Email/app; PC y smartphone; sensibilidad a conectividad (preocupación).
+
+**Dolores / Oportunidades**
+*Pain*: Falta de seguimiento y validación automática.
+*Need*: Registro de procesos, como una auditoria para prevenir fallos
+
+**Implicancias para CargaSafe**
+*Requisitos*: Motor de validación (rango por perfil de producto), alertas multi-canal.
+
 
   <br/>
 
 ### 2.2.3. Análisis de entrevistas
-
-### Segmento 1: Empresa
-
-- **Nombre**: Miguel Ruiz
-
-- **Entrevistador**: Jefrey Sanchez Ignacio
-
-**Situación Actual:** Miguel Ruiz Sánchez es gestor de transporte de coolers en una empresa logística. Actualmente manejan el monitoreo de temperatura de forma completamente manual - los conductores verifican los coolers durante las paradas usando termómetros digitales y reportan problemas por teléfono. Solo cuentan con GPS básico que no es muy preciso.
-
-**Principales Problemas:** No tienen monitoreo en tiempo real, las alertas dependen de que los conductores llamen cuando algo falla, y esto genera retrasos en las entregas que molestan a los clientes. Cuando un cooler se daña, tienen que enviar otro transporte de emergencia para salvar el producto. Para justificarse ante clientes molestos, solo pueden mostrar reportes de ruta básicos.
-
-**Necesidades Identificadas:** Miguel necesita urgentemente un sistema de monitoreo en tiempo real, alertas automáticas cuando la temperatura llegue a niveles críticos, y reportes sencillos. También mencionó que le gustaría tener un dashboard, aunque no está muy seguro del concepto. Quiere que los clientes puedan verificar remotamente el estado de sus pedidos desde una computadora.
-
-**Disposición de Pago:** Está dispuesto a contratar un servicio que solucione estos problemas, preferiblemente con suscripción mensual o mejor aún, un pago anual para evitar gestiones mensuales. Ve esto como una inversión para recuperar la confianza de los clientes y tener soporte 24/7.
+<br/>
 <br/>
 
-- **Nombre**: Mario Hinostroza
+<img src="assets/analisis_clientes_cargasafe.png">
 
-- **Entrevistador**: Marcelo Fabian Garro Vega
+<br/>
+<br/>
 
-  Mario Hinostroza, de 22 años, trabaja en el sector de alimentos y actualmente controla la temperatura de la mercadería utilizando el sistema de refrigeración del camión junto a un termómetro portátil. La planificación de viajes la realiza a partir de una hoja de ruta con puntos de entrega y horarios, y lleva un registro manual en una bitácora. Además, entrega reportes que incluyen la hoja de viaje firmada y los datos de temperatura recogidos durante el recorrido.
+<img src="assets/analisis_empresas_cargasafe.png">
 
-  Entre los principales problemas que enfrenta, destaca que el monitoreo es un proceso manual que demanda mucha atención constante. También existe un alto riesgo de fallas en el motor de frío, lo que provoca pérdida de mercadería y reclamos de los clientes. La detección de incidencias suele depender de su experiencia personal o de lo que muestra el panel del camión, lo que limita la capacidad de respuesta inmediata.
-
-  En cuanto a las necesidades identificadas, Mario considera indispensable contar con un sistema automatizado que reduzca la carga manual. Para él sería muy valiosa la integración del panel del camión con una aplicación móvil que alerte en tiempo real sobre variaciones de temperatura, garantizando mayor confiabilidad en la cadena de frío y reduciendo el riesgo de pérdidas y reclamos.
-
-  Respecto a la disposición de pago, Mario señala que la decisión recae en la empresa, pero enfatiza que lo fundamental es que el servicio ofrezca un valor tangible. Si la plataforma demuestra un impacto real y positivo en el negocio, la empresa estaría dispuesta a pagar por ella, más allá del costo que implique.
-
-  <br/>
-
-  <br/>
-
-- **Nombre**: Luis Torres Arevalo
-
-- **Entrevistador**: Alessandro Joaquin Bernardo Eusebio
-
-  La entrevista con el seño Luis Torres evidencia que la gestión de la cadena de frío se realizaba de manera muy básica y sin tecnología especializada, lo que generaba altos riesgos de pérdida de productos y desconfianza en los clientes. Luis dependía de controles manuales, registros en papel y la responsabilidad del chofer, sin capacidad de reacción ante incidentes durante el trayecto. Esta falta de monitoreo en tiempo real implicaba costos elevados cuando se rompía la cadena de frío y limitaba la capacidad de generar reportes confiables. No obstante, identifica con claridad las funciones clave de una solución ideal: monitoreo en tiempo real, alertas inmediatas y generación automática de reportes, además de preferir un modelo de pago por suscripción mensual que le permita prever costos.
-
-### Segmento 2: Clientes Finales (Consumidores finales)
-
-- **Nombre**: Adrian Zapata
-
-- **Entrevistador**: George Aliaga
-
-  Nuestro entrevistado Adrián Zapata, encargado de la parrilla en un negocio de comida rápida, expone una problemática clave en la recepción de productos sensibles a temperatura: la falta de control y visibilidad durante el transporte. Actualmente depende de inspecciones visuales y táctiles, lo que limita la precisión y genera incertidumbre. Señala la importancia del tiempo de entrega, la temperatura constante y la comunicación oportuna, idealmente a través de notificaciones por WhatsApp. También destaca la necesidad de interfaces claras y datos legibles, especialmente en grados Celsius. Su interés en un sistema IoT revela el valor que asigna a la trazabilidad, el monitoreo en tiempo real y la posibilidad de actuar preventivamente ante fallas en la cadena de frío.
-
-  <br/>
-
-- **Nombre**: Brenda Calderon
-
-- **Entrevistador**: Nicolas Vera
-
-  La entrevistada Brenda Carolina, compradora frecuente de alimentos online, manifiesta que al recibir productos sensibles a temperatura verifica el empaque, la ausencia de humedad, que los alimentos lleguen fríos al tacto y que la fecha de vencimiento esté visible, ya que ha tenido experiencias negativas como rechazar un lote de yogures en mal estado. Señala que los reportes de temperatura que recibe de los proveedores suelen ser genéricos y poco confiables, por lo que considera fundamental contar con registros más detallados y trazables en tiempo real. Para ella, la información más valiosa incluye la temperatura a lo largo del trayecto, retrasos o eventos que afecten la cadena de frío, y prefiere acceder a estos datos mediante un portal o aplicación con notificaciones breves y claras. Valora interfaces simples con gráficos fáciles de interpretar, así como funcionalidades como alertas en tiempo real, reportes descargables e historial de pedidos, y espera que un sistema IoT le brinde mayor seguridad y control en sus compras, aunque le preocupa el costo de implementación y la confiabilidad técnica de los equipos.
-
-  <br/>
-
-- **Nombre**: Gabriel Díaz
-
-- **Entrevistador**: Daniel Arevalo
-
-  El entrevistado Gabriel Díaz, responsable de recepción y control de productos sensibles a temperatura en el sector salud, expone la problemática de confiar únicamente en reportes básicos y revisiones visuales al recibir insumos médicos, lo que genera incertidumbre sobre la cadena de frío. Destaca la necesidad de contar con un monitoreo continuo y alertas en tiempo real para actuar preventivamente, ya que ha debido rechazar pedidos por fallas en la temperatura. Su interés en un sistema IoT refleja la importancia que le asigna a la trazabilidad, la seguridad y la eficiencia, aunque expresa preocupación por los costos y la dependencia de la conectividad.
-
+<br/>
+<br/>
 ## 2.3. Needfinding
 
 ### 2.3.1. User Personas
