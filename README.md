@@ -78,7 +78,7 @@
 | ------- | ---------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1.0     | 20/09/2025 | George | Se entregó una primera entrega del informe con los siguientes apartados: Carátula, Registro de Versiones, Project Report Collaboration Insights, Contenido, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design y Bibliografía. |
 | 1.2     | 13/09/2025 | Daniel y Marcelo | Se añadió el capitulo 3 que es en base al product backlog que se trabajará en el proyecto |
-
+| 1.3     | 12/09/2025 | Jefrey y Nicolas | Se añadió el capitulo 4 que es en base a las soluciones en diseño del software que trabajaremos en el proyecto |
 ---
 
 # Project Report Collaboration Insights
@@ -1153,23 +1153,23 @@ El Ubiquitous Language de CargoSafe establece un vocabulario común y preciso en
 **Cold Chain (Cadena de Frío)**  
 Proceso logístico que mantiene productos perecederos dentro de rangos específicos de temperatura desde el origen hasta el destino final, garantizando su calidad e integridad.
 
-**Trip (Viaje)**  
-Instancia de transporte que incluye origen, destino, carga específica, parámetros térmicos requeridos y duración estimada. Representa la unidad básica de monitoreo en el sistema.
+**Shipment(Envio)**  
+Conjunto de productos o carga que se transportan desde un punto de origen hacia un destino determinado bajo una misma guía o registro.
 
-**Temperature Range (Rango de Temperatura)**  
-Límites mínimos y máximos de temperatura permitidos para una carga específica durante el transporte. Se define según el tipo de producto (farmacéutico, alimentario, etc.).
+**Carrier (Transportista)**  
+Conjunto de productos o carga que se transportan desde un punto de origen hacia un destino determinado bajo una misma guía o registro.
 
-**IoT Sensor (Sensor IoT)**  
-Dispositivo físico que mide y transmite automáticamente lecturas de temperatura en intervalos regulares durante el viaje. Puede ser integrado al vehículo o portable.
+**Route Plan (Plan de ruta)**  
+Persona o empresa responsable de trasladar los productos y asegurar que se cumplan las condiciones de transporte definidas.
 
-**Temperature Violation (Violación de Temperatura)**  
-Evento que ocurre cuando las lecturas del sensor salen del rango permitido por un período determinado, comprometiendo potencialmente la integridad del producto.
+**Delivery Point (Punto de entrega)**  
+Itinerario de transporte que define el recorrido, tiempos estimados, puntos de parada y condiciones necesarias para completar la entrega.
 
-**Cold Chain Alert (Alerta de Cadena de Frío)**  
-Notificación automática generada por el sistema cuando se detecta una violación de temperatura, enviada inmediatamente a los responsables para acción correctiva.
+**Temperature Range (Rango de temperatura)**  
+Margen aceptable de grados dentro del cual debe mantenerse el producto durante el transporte para conservar su calidad.
 
-**Compliance Report (Reporte de Cumplimiento)**  
-Documento oficial que certifica que el transporte se realizó dentro de los parámetros térmicos requeridos, utilizado para auditorías y certificaciones regulatorias.
+**Temperature Deviation (Desviacion de temperatura)**  
+Diferencia entre la temperatura real de la carga y el rango permitido, que puede afectar la integridad del producto.
 
 ### **Términos de Actores**
 
@@ -1182,19 +1182,6 @@ Usuario operativo que recibe alertas durante el transporte y ejecuta acciones co
 **Final Client (Cliente Final)**  
 Receptor de la carga que requiere visibilidad del estado del transporte y documentación de cumplimiento térmico para aceptar o rechazar productos.
 
-### **Términos Técnicos**
-
-**Real-time Monitoring (Monitoreo en Tiempo Real)**  
-Capacidad del sistema de recibir, procesar y mostrar datos de temperatura de manera continua con latencia mínima durante el transporte.
-
-**Temperature Log (Registro de Temperatura)**  
-Secuencia cronológica de todas las lecturas de temperatura capturadas durante un viaje, almacenada para análisis posterior y generación de reportes.
-
-**Incident (Incidencia)**  
-Registro oficial de cualquier evento que comprometa la cadena de frío, incluyendo duración, causa probable y acciones tomadas para su resolución.
-
-**Dashboard**  
-Interfaz visual que presenta en tiempo real el estado de múltiples viajes, alertas activas, métricas de rendimiento y resúmenes de cumplimiento.
 
 ### **Términos de Procesos de Negocio**
 
