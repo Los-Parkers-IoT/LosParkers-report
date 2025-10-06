@@ -2588,7 +2588,7 @@ Diagrama de componentes - Mobile App - Real-Time Monitoring
 
 **WebApp Class Diagram**
 
-![Real-Time Monitoring Domain Layer WebApp Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/main/assets/UML/Real-time-monitoring-Domain-Layer-Class-Diagram-Frontend.puml)
+![Real-Time monitoring Domain Layer WebApp Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/main/assets/UML/Real-time-monitoring-Domain-Layer-Class-Diagram-Frontend.puml)
 
 **Mobile Class Diagram**
 
