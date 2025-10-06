@@ -10,7 +10,7 @@ skinparam class {
 }
 
 ' ========================
-' Entities (from backend)
+' Entities
 ' ========================
 class MonitoringSession <<Entity>> {
   - id: number
@@ -23,9 +23,10 @@ class MonitoringSession <<Entity>> {
   - sessionStatus: MonitoringSessionStatus
   - telemetryReadings: TelemetryData[]
   --
+  + startSession(): void
+  + endSession(): void
+  + updateStatus(newStatus: SessionStatus): void
   + isActive(): boolean
-  + getDuration(): number
-  + getFormattedStatus(): string
 }
 
 class TelemetryData <<Entity>> {
@@ -49,99 +50,31 @@ class MonitoringSessionStatus <<Entity>> {
   - name: string
   --
   + isFinal(): boolean
-  + isActive(): boolean
-  + getDisplayName(): string
 }
 
 ' ========================
-' Value Objects (from backend + UI representation)
+' Value Objects
 ' ========================
 class Location <<ValueObject>> {
   - latitude: number
   - longitude: number
   --
   + distanceTo(other: Location): number
-  + isValid(): boolean
-  + toLatLng(): [number, number]
 }
 
-class SensorReading <<ValueObject>> {
-  - temperature: number
-  - humidity: number
-  - vibration: number
-  --
-  + isValid(): boolean
-  + toArray(): number[]
-}
-
-class ChartDataPoint <<ValueObject>> {
-  - timestamp: Date
-  - value: number
-  - label: string
-  --
-  + formatForChart(): object
-}
-
-class MapMarker <<ValueObject>> {
-  - position: Location
-  - sessionId: number
-  - timestamp: Date
-  - sensorData: SensorReading
-  --
-  + getPopupContent(): string
-  + getMarkerIcon(): string
-}
-
-class SessionTimeRange <<ValueObject>> {
-  - startTime: Date
-  - endTime: Date | null
-  --
-  + isOngoing(): boolean
-  + getDuration(): number
-  + getFormattedDuration(): string
-}
-
-' ========================
-' Enums
-' ========================
-enum SessionStatus <<Enum>> {
-  ACTIVE
-  INACTIVE
-  COMPLETED
-  PAUSED
-}
-
-enum SensorType <<Enum>> {
-  TEMPERATURE
-  HUMIDITY
-  VIBRATION
+class SessionStatus <<ValueObject>> {
+  - status: string
 }
 
 ' ========================
 ' Relationships
 ' ========================
-
-' MonitoringSession relationships
 MonitoringSession *-- "1" MonitoringSessionStatus : has
 MonitoringSession *-- "0..*" TelemetryData : contains
-MonitoringSession *-- "1" SessionTimeRange : has
+MonitoringSession --> SessionStatus : uses
 
-' MonitoringSessionStatus relationships
-MonitoringSessionStatus --> SessionStatus : type
-
-' TelemetryData relationships
 TelemetryData --> "1" Location : has
-TelemetryData --> "1" SensorReading : creates from
 
-' SensorReading relationships
-SensorReading ..> ChartDataPoint : generates
-SensorReading --> SensorType : categorized by
-
-' Location relationships
-Location ..> MapMarker : used in
-
-' MapMarker relationships
-MapMarker *-- Location : contains
-MapMarker --> SensorReading : displays
+MonitoringSessionStatus --> SessionStatus : represents
 
 @enduml
