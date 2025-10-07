@@ -116,11 +116,9 @@ De las contribuciones del equipo y commits se concluye lo siguiente:
 - El equipo considera que hubo falta de organización durante la realización de la TB1.
 
 
-Para el control de versiones, decidimos emplear **7 ramas principales**:
+Para el control de versiones, decidimos emplear **6 ramas principales**:
 
 <b> main </b> : Esta rama se mantiene como un reflejo del documento en su última versión estable. El estado del documento será listo para entregar.
-
-<b> develop </b> : Esta rama actúa como la rama de integración principal para la nueva documentación por capítulo y correcciones del informe.
 
 <b> chapter-1, chapter-2, chapter-3 y chapter-4 </b>: Estas ramas permiten integrar los artefactos solicitados por capítulo. Se trabaja de esta manera para asegurar una integración controlada, una colaboración enfocada y un aislamiento de cambios.
 
