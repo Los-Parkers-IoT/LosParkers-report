@@ -415,19 +415,48 @@ El impacto de la falta de un monitoreo efectivo es funcional, operativo y estrat
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-Nuestra solución busca proveer a las empresas de transporte y a sus clientes con una plataforma tecnológica integral que les permita monitorear el estado de sus cargas en tiempo real, garantizando la seguridad, calidad y eficiencia de la cadena de suministro. Buscamos que las empresas no sufran pérdidas económicas o daños a su reputación por falta de control, facilitando exponencialmente la supervisión de sus activos críticos, especialmente cuando se trata de productos sensibles que requieren condiciones específicas como temperatura, humedad, o que son susceptibles a vibración y golpes.
+**Domain**
 
-Hemos observado que nuestros usuarios, al no tener una plataforma en la cual puedan monitorear la carga en un solo lugar, tienen un problema para estructurar el control de sus activos y guardarlo en un solo lugar, causando que a través de diferentes plataformas o métodos tradicionales guarden sus diferentes recursos, causando además un desorden e incluso pérdida de algunos de estos datos de temperatura, humedad, vibración y ubicación.
+El proyecto se enmarca en el sector logístico y de transporte de carga, específicamente en el control y monitoreo de condiciones de mercancías sensibles durante su traslado. En este dominio, la información en tiempo real sobre el estado de la carga resulta esencial para garantizar la trazabilidad, la seguridad y el cumplimiento de normativas relacionadas con la cadena de frío, productos farmacéuticos y bienes perecibles.
 
-¿Cómo podemos ofrecer una plataforma para que las empresas y sus clientes puedan visualizar de forma organizada la información de la carga, consolidando todos los parámetros críticos?
+**Customer Segments**
 
-Hemos notado que las empresas que contratan servicios de transporte desean tener visibilidad completa sobre el estado de sus productos. Esta necesidad se presenta normalmente en industrias donde el producto final es perecedero o de alto valor, y el cliente requiere una verificación constante para asegurar que su mercancía llegará en perfectas condiciones, protegiéndola no solo de cambios de temperatura, sino también de golpes o accidentes.
+Empresas de transporte y operadores logísticos: responsables de gestionar flotas y garantizar la integridad de los productos durante el traslado.
 
-¿Cómo podemos crear una plataforma que mejore la eficiencia y transparencia para todos los actores de la cadena de suministro, proporcionando visibilidad sobre el estado completo de la carga?
+Clientes corporativos o distribuidores de productos sensibles: demandan transparencia, control y evidencia del cumplimiento de condiciones óptimas de transporte.
 
-Hemos notado que las plataformas que usan las empresas para el monitoreo de cargas no están diseñadas para la simplicidad, tienen un diseño poco atractivo y cuentan con interfaces poco intuitivas o limitan las acciones que se pueden realizar dentro de la misma para algunos usuarios.
+Estos segmentos comparten la necesidad de contar con información precisa, en tiempo real, y herramientas que les permitan actuar de forma proactiva ante incidentes.
 
-¿Cómo podemos diseñar una solución que sea intuitiva y fácil de usar, sin importar el nivel de conocimiento tecnológico del usuario, a pesar de la complejidad de los múltiples datos que monitoreamos?
+**Pain Points**
+
+Falta de visibilidad en tiempo real de las condiciones de temperatura, humedad y localización de la carga.
+
+Pérdida económica por ruptura de la cadena de frío o manipulación inadecuada.
+
+Comunicación deficiente entre transportistas y clientes frente a incidentes.
+
+Ausencia de trazabilidad digital que permita auditar condiciones y responsabilidades.
+
+Procesos manuales y fragmentados que dificultan la gestión operativa y la toma de decisiones.
+
+**Gap**
+
+Actualmente, las empresas del sector utilizan herramientas aisladas —como GPS o registradores de temperatura— que no ofrecen una integración completa entre monitoreo, trazabilidad y comunicación.
+Existe una brecha entre la información disponible y la capacidad de reaccionar ante eventos críticos, lo que impide una gestión eficiente y preventiva.
+
+**Vision / Strategy**
+
+La visión de Los Parkers con CargaSafe es transformar el monitoreo logístico tradicional en un proceso inteligente, preventivo y conectado.
+La estrategia consiste en desarrollar una plataforma IoT integral, donde sensores embarcados recopilan datos de las condiciones ambientales y los transmiten a un sistema central que analiza, alerta y visualiza la información en tiempo real.
+De esta manera, las empresas podrán anticiparse a riesgos, reducir pérdidas y aumentar la confianza de sus clientes mediante reportes automáticos y trazabilidad verificable.
+
+**Initial Segment**
+
+El proyecto iniciará su implementación con empresas de transporte de productos perecibles y farmacéuticos que operan en Lima Metropolitana.
+Este segmento fue seleccionado por su alta sensibilidad a las condiciones ambientales y su interés demostrado en la digitalización de procesos logísticos, representando un entorno ideal para validar la propuesta tecnológica y de negocio.
+
+**Resumen del enfoque:**
+Este conjunto de Problem Statements establece las bases para las siguientes etapas del Lean UX Process, en las que se derivarán las Assumptions, Hypothesis Statements y el Lean UX Canvas, alineando los objetivos de negocio con las necesidades reales de los usuarios.
 
 #### 1.2.2.2. Lean UX Assumptions
 
