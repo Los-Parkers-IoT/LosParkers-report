@@ -18,12 +18,8 @@ class MonitoringSession <<Entity>> <<AggregateRoot>> ENTITY_COLOR {
     --
     + startSession(): void
     + endSession(): void
-    + pauseSession(): void
-    + resumeSession(): void
     + updateStatus(newStatus: SessionStatus): void
-    + addTelemetryData(data: TelemetryData): void
     + isActive(): boolean
-    + calculateSessionDuration(): long
 }
 
 ' ==================== ENTITIES ====================
@@ -37,11 +33,10 @@ class TelemetryData <<Entity>> ENTITY_COLOR {
     - longitude: decimal
     - createdAt: timestampz
     --
-    + getTemperature(): Temperature
-    + getHumidity(): Humidity
-    + getVibration(): Vibration
+    + getTemperature(): number
+    + getHumidity(): number
+    + getVibration(): number
     + getLocation(): Location
-    + isWithinRange(range: TemperatureRange): boolean
 }
 
 class MonitoringSessionStatus <<Entity>> ENTITY_COLOR {
@@ -49,8 +44,6 @@ class MonitoringSessionStatus <<Entity>> ENTITY_COLOR {
     - name: string
     --
     + isFinal(): boolean
-    + isActive(): boolean
-    + canTransitionTo(targetStatus: MonitoringSessionStatus): boolean
 }
 
 ' ==================== VALUE OBJECTS ====================
@@ -59,54 +52,10 @@ class Location <<ValueObject>> VALUE_OBJECT_COLOR {
     - longitude: decimal
     --
     + distanceTo(other: Location): decimal
-    + isValid(): boolean
-    + equals(other: Location): boolean
-}
-
-class Temperature <<ValueObject>> VALUE_OBJECT_COLOR {
-    - value: decimal
-    - unit: string
-    --
-    + convertTo(unit: string): Temperature
-    + isValid(): boolean
-    + equals(other: Temperature): boolean
-}
-
-class Humidity <<ValueObject>> VALUE_OBJECT_COLOR {
-    - value: decimal
-    - unit: string
-    --
-    + isValid(): boolean
-    + equals(other: Humidity): boolean
-}
-
-class Vibration <<ValueObject>> VALUE_OBJECT_COLOR {
-    - value: decimal
-    - unit: string
-    --
-    + isValid(): boolean
-    + exceedsThreshold(threshold: decimal): boolean
-    + equals(other: Vibration): boolean
-}
-
-class SensorReading <<ValueObject>> VALUE_OBJECT_COLOR {
-    - temperature: Temperature
-    - humidity: Humidity
-    - vibration: Vibration
-    --
-    + isValid(): boolean
-    + equals(other: SensorReading): boolean
 }
 
 class SessionStatus <<ValueObject>> VALUE_OBJECT_COLOR {
-    {enum} ACTIVE
-    {enum} INACTIVE
-    {enum} COMPLETED
-    {enum} PAUSED
-    --
-    + isActive(): boolean
-    + isCompleted(): boolean
-    + isPaused(): boolean
+    - status: string
 }
 
 ' ==================== AGGREGATE ====================
@@ -115,105 +64,54 @@ class MonitoringSessionAggregate <<Aggregate>> AGGREGATE_COLOR {
     - telemetryDataList: List<TelemetryData>
     - sessionStatus: MonitoringSessionStatus
     --
-    + validateSessionReady(): boolean
-    + evaluateRules(): void
-    + canAddTelemetry(): boolean
     + addTelemetryData(data: TelemetryData): void
     + validateSessionStatus(): boolean
-    + calculateSessionDuration(): long
-    + getRoot(): MonitoringSession
 }
 
 ' ==================== FACTORY ====================
 class MonitoringSessionFactory <<Factory>> FACTORY_COLOR {
     --
     + createSession(tripId: int, deviceId: int): MonitoringSession
-    + createActiveSession(tripId: int, deviceId: int): MonitoringSession
-    + createFromTrip(trip: Trip): MonitoringSession
 }
 
 ' ==================== DOMAIN SERVICES ====================
-class DataIngestionService <<DomainService>> SERVICE_COLOR {
+class TelemetryProcessingService <<DomainService>> SERVICE_COLOR {
     --
-    + processIncomingData(rawData: RawTelemetryData): TelemetryData
-    + validateTelemetryData(data: TelemetryData): boolean
-    + enrichTelemetryData(data: TelemetryData): TelemetryData
-}
-
-class RuleEvaluationService <<DomainService>> SERVICE_COLOR {
-    --
-    + evaluateTemperatureRules(telemetry: TelemetryData, threshold: decimal): boolean
-    + evaluateHumidityRules(telemetry: TelemetryData, threshold: decimal): boolean
-    + evaluateVibrationRules(telemetry: TelemetryData, threshold: decimal): boolean
-    + evaluateLocationDeviation(telemetry: TelemetryData, expectedRoute: Route): boolean
-    + detectAnomalies(telemetryList: List<TelemetryData>): List<Anomaly>
+    + processTelemetry(rawData: RawData): TelemetryData
+    + validateTelemetry(data: TelemetryData): boolean
 }
 
 class SessionLifecycleService <<DomainService>> SERVICE_COLOR {
     --
-    + canTransitionTo(currentStatus: SessionStatus, targetStatus: SessionStatus): boolean
-    + transitionSessionStatus(session: MonitoringSession, newStatus: SessionStatus): void
     + startSession(session: MonitoringSession): void
     + endSession(session: MonitoringSession): void
     + pauseSession(session: MonitoringSession): void
     + resumeSession(session: MonitoringSession): void
-    + autoCompleteExpiredSessions(): void
 }
-
-class TelemetryProcessingService <<DomainService>> SERVICE_COLOR {
-    --
-    + processTelemetry(rawData: RawTelemetryData): TelemetryData
-    + validateTelemetry(data: TelemetryData): boolean
-    + enrichWithLocationData(data: TelemetryData): TelemetryData
-}
-
-' ==================== LAYOUT ====================
-' Posicionamiento de clases principales
-MonitoringSession -[hidden]down- MonitoringSessionAggregate
-MonitoringSessionAggregate -[hidden]down- TelemetryData
-
-' Posicionamiento de Value Objects
-Temperature -[hidden]right- Humidity
-Humidity -[hidden]right- Vibration
-Location -[hidden]down- SessionStatus
-
-' Posicionamiento de Services
-DataIngestionService -[hidden]right- TelemetryProcessingService
-SessionLifecycleService -[hidden]right- RuleEvaluationService
 
 ' ==================== RELATIONSHIPS ====================
 
 ' Aggregate composition
-MonitoringSessionAggregate *-down- MonitoringSession
-MonitoringSessionAggregate o-down- TelemetryData
-MonitoringSessionAggregate o-right- MonitoringSessionStatus
+MonitoringSessionAggregate *-- "1" MonitoringSession : contains
+MonitoringSessionAggregate o-- "0..*" TelemetryData : manages
+MonitoringSessionAggregate o-- "1" MonitoringSessionStatus : references
 
 ' MonitoringSession relationships
-MonitoringSession *-down- TelemetryData
-MonitoringSession -right-> MonitoringSessionStatus
+MonitoringSession "1" *-- "0..*" TelemetryData : contains
+MonitoringSession --> "1" MonitoringSessionStatus : has
 
 ' TelemetryData uses Value Objects
-TelemetryData -down-> Location
-TelemetryData -down-> SensorReading
-TelemetryData .up.> Temperature
-TelemetryData .up.> Humidity
-TelemetryData .up.> Vibration
+TelemetryData --> Location : uses
 
-' SensorReading composition
-SensorReading *-- Temperature
-SensorReading *-- Humidity
-SensorReading *-- Vibration
+' MonitoringSessionStatus uses Value Object
+MonitoringSessionStatus --> SessionStatus : represents
 
 ' Factory creates entities
-MonitoringSessionFactory .right.> MonitoringSession : <<creates>>
-MonitoringSessionFactory .down.> MonitoringSessionAggregate : <<creates>>
+MonitoringSessionFactory ..> MonitoringSession : <<creates>>
+MonitoringSessionFactory ..> MonitoringSessionAggregate : <<creates>>
 
 ' Domain Services work with entities
-DataIngestionService .down.> TelemetryData : <<processes>>
-TelemetryProcessingService .down.> TelemetryData : <<processes>>
-RuleEvaluationService .left.> TelemetryData : <<evaluates>>
-RuleEvaluationService .left.> MonitoringSession : <<evaluates>>
-SessionLifecycleService .up.> MonitoringSession : <<manages>>
-SessionLifecycleService .right.> MonitoringSessionStatus : <<uses>>
+TelemetryProcessingService ..> TelemetryData : <<processes>>
+SessionLifecycleService ..> MonitoringSession : <<manages>>
 
 @enduml
