@@ -3764,7 +3764,7 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 ### 6.1.3. Source Code Style Guide & Conventions.
 ### 6.1.4. Software Deployment Configuration.
 ## 6.2. Landing Page, Services & Applications Implementation.
-## 6.2.1. Sprint 1
+### 6.2.1. Sprint 1
 #### 6.2.1.1. Sprint Planning 1.
 #### 6.2.1.2. Aspect Leaders and Collaborators.
 #### 6.2.1.3. Sprint Backlog 1.
