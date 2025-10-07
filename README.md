@@ -411,6 +411,8 @@ El impacto de la falta de un monitoreo efectivo es funcional, operativo y estrat
 
 ### 1.2.2. Lean UX Process
 
+
+
 #### 1.2.2.1. Lean UX Problem Statements
 
 Nuestra solución busca proveer a las empresas de transporte y a sus clientes con una plataforma tecnológica integral que les permita monitorear el estado de sus cargas en tiempo real, garantizando la seguridad, calidad y eficiencia de la cadena de suministro. Buscamos que las empresas no sufran pérdidas económicas o daños a su reputación por falta de control, facilitando exponencialmente la supervisión de sus activos críticos, especialmente cuando se trata de productos sensibles que requieren condiciones específicas como temperatura, humedad, o que son susceptibles a vibración y golpes.
@@ -429,137 +431,116 @@ Hemos notado que las plataformas que usan las empresas para el monitoreo de carg
 
 #### 1.2.2.2. Lean UX Assumptions
 
-### Business Assumptions:
+### Business Assumptions
 
-1. Creemos que hay una demanda significativa de soluciones de monitoreo accesibles que incluyan múltiples parámetros para el sector de transporte en Latinoamérica.
+1. Creemos que existe demanda significativa en transporte LATAM por monitoreo accesible con múltiples parámetros (frío, vibración, ubicación, energía).
+   Validamos cuando ≥15 entrevistas B2B y ≥30% de respuestas en encuesta indiquen "intención de evaluar" o mayor.
 
-2. Creemos que las empresas estarán dispuestas a pagar una suscripción mensual por una solución que les permita reducir pérdidas y mejorar la confianza de sus clientes al tener control sobre múltiples variables.
+2. Creemos que las empresas pagan una suscripción mensual por una solución que reduce pérdidas y mejora confianza del cliente.
+  Validamos cuando obtenemos ≥5 cartas de intención con rango de precio mensual especificado.
 
-3. Creemos que los dispositivos IoT de bajo costo pueden proporcionar la precisión necesaria para el monitoreo de la cadena de frío, además de vibración, ubicación y energía.
+3. Creemos que dispositivos IoT de bajo costo alcanzan la precisión necesaria para cadena de frío, vibración, ubicación y energía.
+   Validamos cuando las pruebas de campo muestran ±0.5 °C en temperatura, detección de vibración y GPS dentro de 10 m en ≥95% de lecturas.
 
-4. Creemos que la facilidad de uso es más importante que las funcionalidades avanzadas para nuestro mercado objetivo.
+4. Creemos que el modelo de suscripción resulta más atractivo que licencias perpetuas en el segmento meta.
+   Validamos cuando el ≥70% de decisiones simuladas o cotizaciones reales eligen suscripción sobre perpetuo, dado el mismo alcance.
 
-5. Creemos que un modelo de suscripción mensual es más atractivo que la compra de licencias perpetuas para nuestros usuarios.
+5. Creemos que incluir parámetros adicionales (humedad, vibración, volcado) eleva el valor percibido.
+   Validamos cuando las pruebas de pricing A/B muestran disposición a pagar ≥15% más por el paquete multiparámetro.
 
-6. Creemos que la inclusión de parámetros adicionales como humedad, vibración y volcado aumentará el valor percibido de nuestra solución.
+### Business Outcome Assumptions
 
-### User Assumptions:
+1. Creemos que reducir incidentes de cadena de frío disminuye costos de merma para clientes.
+   Validamos cuando los conductores muestran ≥20% menos eventos críticos/mes vs. línea base.
 
-1. Nuestros usuarios principales son gerentes de operaciones y conductores de empresas de transporte de productos sensibles.
+2. Creemos que visibilidad en tiempo real acorta el ciclo de cobro por menos disputas.
+   Validamos cuando el DSO (days sales outstanding) baja ≥10% en 2 meses de uso.
 
-2. Los usuarios necesitan alertas inmediatas cuando se rompe la cadena de frío, hay vibraciones excesivas, o se detecta un volcado para tomar acciones correctivas.
+3. Creemos que el producto acelera ventas en el segmento objetivo.
+   Validamos cuando la conversión piloto pago es ≥40% y ciclo de venta ≤60 días.
 
-3. Los usuarios quieren dashboards simples e intuitivos que muestren el estado completo de todos sus vehículos en una sola pantalla.
+4. Creemos que el servicio retiene cuentas con valor sostenido.
+   Validamos cuando la retención mensual ≤3% y NRR (net revenue retention) ≥100% a 6 meses.
 
-4. Los usuarios valoran la generación automática de reportes que incluyan todos los parámetros monitoreados para sus clientes.
+5. Creemos que la propuesta escala con márgenes sanos.
+   Validamos cuando margen bruto de servicio IoT ≥60% a partir de 50 dispositivos activos/cliente.
 
-5. Los usuarios prefieren soluciones que no requieran capacitación técnica extensiva.
+### User Assumptions
 
-### Feature Assumptions:
+1. Creemos que los usuarios principales son gerentes de operaciones y conductores de transporte de productos sensibles.
+   Validamos cuando el ≥80% de entrevistas y sesiones sombra confirman estos roles como usuarios frecuentes.
 
-1. Creemos que el monitoreo en tiempo real de temperatura, humedad, vibración y ubicación es la funcionalidad más crítica.
+2. Creemos que los usuarios necesitan alertas inmediatas ante ruptura de frío, vibración excesiva o volcado para actuar.
+   Validamos cuando el ≥70% prioriza "alertas en tiempo real" en ejercicios de priorización (MoSCoW/stack ranking).
 
-2. Creemos que las alertas automáticas mediante la aplicación son fundamentales para eventos críticos como volcado y baja energía.
+3. Creemos que los usuarios quieren un dashboard simple con estado de toda la flota en una sola vista.
+   Validamos cuando las pruebas de usabilidad logran "localizar vehículo en riesgo" en <10 s por ≥80% de participantes.
 
-3. Creemos que la gestión de múltiples vehículos y activos desde una sola plataforma es fundamental.
+4. Creemos que los usuarios valoran reportes automáticos que integran todos los parámetros para sus clientes.
+   Validamos cuando el ≥60% selecciona "reportes automáticos" dentro de su top-3 beneficios en encuesta.
 
-4. Creemos que los reportes históricos son necesarios para el cumplimiento regulatorio y la trazabilidad.
+5. Creemos que los usuarios prefieren baja necesidad de capacitación frente a mayor complejidad funcional.
+   Validamos cuando el onboarding autoguiado (sin formación formal) obtiene SUS ≥70 y tareas clave completadas por ≥80% en la primera sesión.
 
-5. Creemos que la integración con dispositivos IoT existentes ampliará nuestro mercado potencial.
+### User Outcomes & Benefits Assumptions
+
+1. Creemos que con alertas y vista unificada, los equipos responden más rápido a eventos críticos.
+   Validamos cuando tiempo de respuesta medio baja ≥30% vs. línea base en 4 semanas.
+
+2. Creemos que con práctica operativa guiada, los conductores cometen menos incidencias (puertas abiertas, detenciones no planificadas).
+   Validamos cuando incidencias por 1,000 km bajan ≥15% en 8 semanas.
+
+3. Creemos que con reportes automáticos, los gerentes ahorran tiempo en auditorías y atención de reclamos.
+   Validamos cuando tiempo semanal en compilación/reportes baja ≥50% medido por time-tracking.
+
+4. Creemos que con trazabilidad histórica, aumenta la tasa de auditorías aprobadas.
+   Validamos cuando tasa de auditoría/cliente sube ≥10 pp en el primer trimestre.
+
+5. Creemos que con visibilidad y control, mejora la confianza del cliente final.
+   Validamos cuando NPS de clientes finales sube ≥10 puntos a los 3 meses.
+
+### Feature Assumptions
+
+1. Creemos que el monitoreo en tiempo real de temperatura, humedad, vibración y ubicación es crítico.
+   Validamos cuando ≥80% de cuentas activas mantiene dispositivos online >95% del tiempo y consulta la vista en tiempo real semanalmente.
+
+2. Creemos que alertas automática para volcado, baja energía y ruptura de frío son fundamentales.
+   Validamos cuando ≥70% de eventos críticos genera apertura de alerta y ≥40% desencadena acción registrada.
+
+3. Creemos que la gestión multi-vehículo en una sola plataforma es necesaria.
+   Validamos cuando usuarios gestionan ≥20 vehículos por cuenta sin caída de rendimiento percibido (tiempos <2 s por acción).
+
+4. Creemos que reportes históricos son necesarios para cumplimiento y trazabilidad.
+   Validamos cuando ≥60% programa reportes recurrentes y consulta históricos ≥1 vez/semana.
+
+5. Creemos que la integración con IoT existente amplía mercado.
+   Validamos cuando al menos 2 integraciones con hardware de terceros se usan en producción y representan ≥25% de dispositivos activos.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-#### Hypothesis 1:
+#### Hipótesis 1 
 
-<b> Creemos que </b> implementar un sistema de alertas en tiempo real por incumplimiento de parámetros de temperatura, humedad y volcado <b> para </b> empresas de transporte <b> resultará en </b> una reducción del 30% en pérdidas de productos y un aumento del 25% en la satisfacción del cliente. _Sabremos que esto es cierto cuando_ veamos una reducción mensurable en reportes de incidentes y recibamos feedback positivo de al menos el 80% de los usuarios.
+Creemos que reducir en 30% las pérdidas de producto y aumentar en 25% la satisfacción del cliente se logrará si las empresas de transporte logran responder a tiempo a eventos críticos (ruptura de frío, humedad fuera de rango, volcado) con un sistema de alertas en tiempo real.
+Lo sabremos cuando los incidentes reportados bajen ≥30% y el CSAT/NPS suba ≥10 puntos en 8 semanas de piloto, con ≥80% de feedback positivo.
 
-#### Hypothesis 2:
+#### Hipótesis 2 
 
-<b> Creemos que </b> ofrecer dashboards intuitivos con visualización del estado completo de la flota (temperatura, humedad, vibración, ubicación) <b> para </b> gerentes de operaciones <b> resultará en </b> una mejora del 40% en la eficiencia operativa y tiempo de respuesta ante incidentes. _Sabremos que esto es cierto cuando_ observemos una reducción en el tiempo promedio de respuesta a alertas de más de 4 horas a menos de 30 minutos.
+Creemos que mejorar en 40% la eficiencia operativa se logrará si los gerentes de operaciones logran detectar y priorizar incidentes en minutos con un dashboard intuitivo que muestra el estado completo de la flota (temperatura, humedad, vibración, ubicación).
+Lo sabremos cuando el tiempo medio de respuesta baje de >4 h a <30 min y el tiempo para identificar el vehículo en riesgo sea <10 s para ≥80% de usuarios en 4 semanas.
 
-#### Hypothesis 3:
+#### Hipótesis 3
 
-<b> Creemos que </b> implementar un modelo de suscripción flexible con diferentes niveles de servicio <b> para </b> PYMEs de transporte <b> resultará en </b> una adopción del 15% del mercado objetivo en el primer año. _Sabremos que esto es cierto cuando_ alcancemos 150 empresas suscritas activamente usando la plataforma.
+Creemos que alcanzar 15% de adopción del mercado objetivo en 12 meses se logrará si los decisores de las empresas de transporte logran seleccionar el plan adecuado a su valor percibido con un modelo de suscripción flexible por niveles.
+Lo sabremos cuando tengamos ≥150 empresas activas, conversión piloto→pago ≥40% y churn mensual ≤3% dentro de 12 meses.
 
-#### Hypothesis 4:
+#### Hipótesis 4 
 
-<b> Creemos que </b> proporcionar reportes automatizados y trazabilidad completa <b> para </b> clientes finales de servicios de transporte <b> resultará en </b> un aumento del 20% en la retención de clientes de nuestros usuarios. _Sabremos que esto es cierto cuando_ nuestros usuarios reporten una reducción en cancelaciones de contratos y solicitudes de nuevos servicios.
+Creemos que aumentar en 20% la retención de clientes de nuestros usuarios se logrará si los gerentes de operaciones logran demostrar trazabilidad completa a sus clientes con reportes automáticos e historial auditado.
+Lo sabremos cuando la tasa de renovación suba ≥20%, el tiempo de preparación de auditorías baje ≥50%, y se programen reportes recurrentes en ≥60% de cuentas en 1 trimestre.
 
 #### 1.2.2.4. Lean UX Canvas
 
-<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-  <tr>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>1. BUSINESS PROBLEM</strong><br><br>
-      Las empresas de transporte de productos sensibles necesitan soluciones accesibles para monitorear múltiples parámetros de la carga (temperatura, humedad, vibración, etc.) y evitar pérdidas económicas por incumplimiento de parámetros.
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>2. SOLUTION IDEAS</strong><br><br>
-      • Plataforma IoT de monitoreo en tiempo real (múltiples sensores)<br>
-      • Sistema de alertas automáticas (vibración, volcado, energía, etc.)<br>
-      • Dashboard intuitivo de gestión de flota<br>
-      • Reportes automatizados de trazabilidad completa<br>
-      • Modelo de suscripción escalable
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>3. BUSINESS OUTCOMES</strong><br><br>
-      • 150 empresas suscritas en año 1<br>
-      • Reducción 30% pérdidas de clientes<br>
-      • 80% satisfacción de usuarios<br>
-      • Revenue recurrente de $180K anuales<br>
-      • Expansión a 3 países LATAM
-    </td>
-  </tr>
-  <tr>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>4. USERS</strong><br><br>
-      <strong>Primarios:</strong><br>
-      • Gerentes de operaciones de transporte<br>
-      • Conductores de vehículos<br><br>
-      <strong>Secundarios:</strong><br>
-      • Clientes finales de servicios de transporte<br>
-      • Administradores de empresas de transporte
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 40%; vertical-align: top;">
-      <strong>5. USER OUTCOMES & BENEFITS</strong><br><br>
-      <strong>Empresas de Transporte:</strong><br>
-      • Reducción de pérdidas por múltiples factores (temperatura, vibración, etc.)<br>
-      • Mayor confianza de clientes<br>
-      • Cumplimiento regulatorio automatizado<br>
-      • Optimización de rutas y recursos<br><br>
-      <strong>Clientes Finales:</strong><br>
-      • Visibilidad completa del estado de sus productos<br>
-      • Reportes de trazabilidad en tiempo real<br>
-      • Reducción de riesgos operativos
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>6. HYPOTHESES</strong><br><br>
-      <strong>Creemos que</strong> las PYMEs de transporte adoptarán una solución de monitoreo multiparamétrico si es accesible y fácil de usar.<br><br>
-      <strong>Para validar</strong> desarrollaremos un MVP con funcionalidades core (temp, humedad, ubicación) y mediremos adoption rate.
-    </td>
-  </tr>
-  <tr>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>7. WHAT'S THE MOST IMPORTANT THING WE NEED TO LEARN FIRST?</strong><br><br>
-      ¿Están las PYMEs de transporte dispuestas a pagar por una solución de monitoreo multiparamétrico IoT y cuál es el precio óptimo que maximiza adopción y rentabilidad?
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>8. WHAT'S THE LEAST AMOUNT OF WORK WE NEED TO DO TO LEARN THE NEXT MOST IMPORTANT THING?</strong><br><br>
-      • Desarrollar landing page con pricing y funcionalidades<br>
-      • Realizar 20 entrevistas con empresas target<br>
-      • Crear prototipo de dashboard con múltiples datos<br>
-      • Validar willingness to pay con pre-orders
-    </td>
-    <td style="border: 2px solid #333; padding: 15px; width: 20%; vertical-align: top;">
-      <strong>9. ASSUMPTIONS</strong><br><br>
-      • Demanda existe en mercado LATAM<br>
-      • Precio $ 25-150/mes es aceptable<br>
-      • Facilidad de uso > funcionalidades avanzadas<br>
-      • Dispositivos IoT low-cost son suficientes<br>
-      • Modelo de suscripción preferido vs. CAPEX
-    </td>
-  </tr>
-</table>
+<img src="assets/leanuxcanvas.png"/>
 
 ## 1.3. Segmentos objetivo
 
