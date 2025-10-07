@@ -83,16 +83,48 @@
 
 # Project Report Collaboration Insights
 
-Repositorios:
+En esta sección, se registra las colaboraciones realizadas por los miembros del equipo durante el desarrollo del informe del proyecto. En primer lugar, se brinda el enlace del repositorio del reporte del proyecto en la plataforma GitHub.
 
-- Project Report: https://github.com/Los-Parkers-IoT/LosParkers-report
+-**Project Report:** https://github.com/Los-Parkers-IoT/LosParkers-report
 
-**Entrega TB1**
+A continuación, se explicará todo a cerca del desarrollo de activades para la elaboración del informe. Adicionalmente, se presentan las métricas de las acciones del equipo del Project Report de cada entrega correspondiente en forma de contribuciones, commits y network graph registrados en GitHub.
+
+## TB1 Project Report Collaboration Insights
 
 Para la entrega del TB1 se realizaron las actividades necesarias para completar los capítulos I, II, III y IV, resaltando la importancia de la constancia en el trabajo. Como equipo, mantuvimos una frecuencia adecuada de commits y actualizaciones, proyectada como óptima para el desarrollo futuro, y se incluyen en el informe las evidencias de los cambios efectuados.
 
+_Vista general de las contribuciones del equipo_
+
+![Team contributions](assets/team-contributions-tb1.png)
+
+_Contribuciones de cada miembro del equipo para la TB1_
 ![Contributions per user insights](assets/insights-contributors-tb1.png)
-[Colaboración de repositorios] Evidencia de colaboraciones del repositorio para la entrega TB1 en el informe.
+
+_Commits_
+![CommitsTB1](assets/commits-tb1.png)
+
+_Network Graph_
+![NetworkGraphTB1](assets/network-graph-tb1.png)
+
+
+De las contribuciones del equipo y commits se concluye lo siguiente:
+
+- Para esta entrega, se han realizado un total de **262 commits** aproximadamente por parte del equipo.
+
+- La mayor concentración de commits se dio en la semana del 15 de septiembre, alcanzando aproximadamente 200 contribuciones.
+
+- El equipo considera que hubo falta de organización durante la realización de la TB1.
+
+
+Para el control de versiones, decidimos emplear **7 ramas principales**:
+
+<b> main </b> : Esta rama se mantiene como un reflejo del documento en su última versión estable. El estado del documento será listo para entregar.
+
+<b> develop </b> : Esta rama actúa como la rama de integración principal para la nueva documentación por capítulo y correcciones del informe.
+
+<b> chapter-1, chapter-2, chapter-3 y chapter-4 </b>: Estas ramas permiten integrar los artefactos solicitados por capítulo. Se trabaja de esta manera para asegurar una integración controlada, una colaboración enfocada y un aislamiento de cambios.
+
+<b> chapter-1-2-3-4 </b>: Esta rama funciona como zona de integración pre-producción donde se consolidan y revisan todos los capítulos antes de fusionarlos a `main`. Permite realizar pruebas de integración completas, verificar la coherencia entre capítulos y realizar ajustes finales sin afectar la rama principal. Actúa como un paso intermedio de validación antes del merge final.
 
 ---
 
