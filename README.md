@@ -1164,15 +1164,86 @@ El empathy map de María revela a una profesional responsable que prioriza la ca
 
 ## 2.4. Big Picture EventStorming
 
-El Big Picture Event Storming es una técnica colaborativa de Domain-Driven Design que permitió al equipo identificar y mapear todos los eventos de dominio relevantes para el core business de CargoSafe. Durante el proceso de brainstorming, se siguió una metodología estructurada donde el equipo utilizó sticky notes naranjas para representar eventos de dominio, azules para comandos, amarillas para agregados, y rosadas para hot spots o áreas problemáticas.
+El Big Picture Event Storming es una técnica colaborativa que permitió al equipo comprender el dominio del negocio de monitoreo de transporte de carga sensible de manera visual y participativa. Esta metodología se utilizó como una primera aproximación para mapear los procesos clave, identificar eventos de negocio significativos, analizar la interacción entre actores (gestores de transporte, conductores, clientes finales) y sistemas tecnológicos (sensores IoT, plataforma de monitoreo) y descubrir oportunidades de mejora que guiarán el diseño de la solución. A través de la representación en una línea de tiempo de los eventos, se generó un lenguaje compartido entre todos los participantes, reduciendo ambigüedades y facilitando la alineación estratégica para las siguientes fases del desarrollo.
 
-El proceso comenzó con una lluvia de ideas donde todos los participantes escribieron eventos que consideraban importantes para el monitoreo de cadena de frío, siguiendo la regla de usar verbos en infinitivo en inglés. Posteriormente, se organizaron temporalmente los eventos de izquierda a derecha, formando el flujo cronológico natural del negocio. Se identificaron actores clave, sistemas externos y se marcaron los hot spots donde existían incertidumbres, riesgos o complejidades que requerían atención especial.
+Link Big Picture Event Storming: [Big Picture Event Storming](https://miro.com/app/board/uXjVJ9KCnxI=/?share_link_id=669250901429)
 
-<img src="assets/big picture event storming.png">
+#### 1. Preparing the Room
 
-**Descripción del Event Storming de CargoSafe:**
+El equipo inició la sesión preparando el espacio de trabajo colaborativo. Se creó un tablero compartido en Miro para registrar los eventos a medida que ocurrían y se definió el propósito principal: analizar el dominio del monitoreo de transporte de carga sensible con tecnología IoT, abarcando todo el ciclo de vida del servicio, desde la solicitud inicial hasta la evaluación posterior a la entrega.
 
-El Event Storming resultante se enfoca exclusivamente en el core business del monitoreo de cadena de frío durante el transporte. Los eventos están organizados en un flujo cronológico que abarca desde la creación del viaje hasta la generación del reporte final de cumplimiento. Los 10 eventos de dominio identificados representan las actividades críticas que agregan valor al negocio y que deben ser soportadas por la plataforma tecnológica.
+#### 2. Energizing the audience
+
+Para involucrar a los participantes, se realizaron actividades de integración que resaltaron la importancia del proceso. También se presentaron ejemplos prácticos de “eventos de negocio” basados en la guía “Step by Step Guide to run your Big Picture Event Storming”, con el fin de ilustrar cómo estos elementos contribuyen a construir una comprensión integral del sistema.
+
+#### 3. Briefing and Presenting the Agenda
+
+Se explicó el alcance de la sesión:
+
+- Analizar cómo interactúan los gestores de transporte, conductores y clientes finales
+- Identificar los eventos clave desde que se solicita un servicio de transporte hasta la entrega, monitoreo y análisis de datos
+- Identificar a los actores y sistemas externos (sensores IoT, sistema de alertas, plataforma de pagos)
+
+#### 4. Generating Domain Events
+
+Los participantes propusieron todos los eventos posibles sin orden específico, anotándolos en tarjetas.
+
+<img src="assets/Event Storming.jpg">
+
+
+#### 5. Sorting Domain Events
+
+Se organizó la secuencia de eventos siguiendo una línea de tiempo lógica desde el inicio (solicitud de servicio) hasta el final (cierre de operación y análisis). Esto permitió visualizar de forma clara el flujo completo y detectar posibles cuellos de botella o redundancias.
+
+<img src="assets/Sorting Domain Events.jpg">
+
+#### 6. Adding Actors and External Systems
+
+Se identificaron los actores clave que participan en los eventos:
+
+### Actores:
+- **Gestor de Transporte** (gestiona operaciones, rutas, costos y SLA)
+- **Conductor** (ejecuta el viaje, reporta incidentes)
+- **Cliente Final** (recibe productos, valida condiciones)
+- **Sistema IoT** (sensores de temperatura, humedad, vibración, GPS, puerta)
+
+### Sistemas Externos:
+- **Sistema de Alertas** (notificaciones automáticas)
+- **Sistema de Pagos** (facturación y cobros)
+- **Plataforma de Monitoreo** (dashboard centralizado)
+
+Además, se incluyeron sistemas como las aplicaciones y servicios de gestión de flotas.
+
+<img src="assets/Adding Actors and External Systems.jpg">
+
+#### 7. Storytelling
+
+El equipo narró la experiencia desde la perspectiva del gestor de transporte:
+
+**Perspectiva del Gestor de Transporte:**
+
+Un gestor de transporte recibe una solicitud de servicio, genera una cotización, acuerda un SLA con el cliente y planifica la ruta considerando paradas, capacidad del vehículo y requisitos especiales. Prepara la documentación, asigna un conductor y un vehículo, y reserva slots en cross-docks. Al llegar el cargamento al muelle, se verifican las mercancías, se asignan etiquetas y se aprueba el plan de carga. Durante el viaje, los sensores IoT monitorean temperatura, humedad, vibración y ubicación en tiempo real. Si se detecta una desviación (temperatura fuera de rango, puerta abierta, vibración excesiva), el sistema genera alertas automáticas que el gestor puede atender inmediatamente. Al finalizar, el sistema genera reportes detallados con toda la trazabilidad del viaje, facilitando la facturación, resolución de disputas y análisis de KPIs.
+
+**Perspectiva del Cliente Final:**
+
+Un cliente final recibe notificaciones sobre el estado del envío en tiempo real. Puede acceder a un portal o recibir un link para consultar la temperatura, humedad y ubicación del cargamento durante todo el trayecto. Al momento de la entrega, verifica las condiciones físicas del producto y valida que los parámetros registrados coincidan con lo esperado. Si hay discrepancias, puede revisar el histórico completo de eventos y generar reportes de trazabilidad para reclamaciones o auditorías. El acceso a información transparente y verificable aumenta su confianza en el proveedor de transporte.
+
+#### 8. Reverse Storytelling
+
+Se utilizó la técnica de narración inversa para verificar la consistencia del flujo: Comenzando desde el cierre de operación y el reporte final del gestor, y retrocediendo paso a paso hasta el evento inicial de solicitud de servicio. Esto ayudó a confirmar que no faltaba ningún evento crítico y que las políticas de negocio estaban correctamente representadas.
+
+#### 9. Closing
+
+Se recopilaron los principales aprendizajes de la sesión:
+
+- El sistema debe manejar eventos críticos en tiempo real (temperatura, humedad, vibración, puerta, ubicación)
+- La automatización mediante IoT es la clave diferenciadora frente a soluciones convencionales de solo GPS
+- Es importante documentar políticas de negocio claras para evitar conflictos (tiempos de gracia, umbrales de temperatura, tarifas, reembolsos)
+- Los sensores IoT deben integrarse seamlessly con la plataforma para proporcionar visibilidad unificada
+- Las alertas deben ser accionables y contextualizadas para facilitar la toma de decisiones
+- Los reportes automáticos de trazabilidad son fundamentales para cumplimiento regulatorio y resolución de disputas
+- La experiencia del cliente final (transparencia, acceso a datos) es tan importante como la del gestor de transporte
+
 
 ## 2.5. Ubiquitous Language
 
