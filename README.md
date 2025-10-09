@@ -4104,7 +4104,7 @@ Estas directrices en conjunto garantizan que CargaSafe mantenga una identidad vi
 
 ### 5.2.1. Organization Systems.
 
-Objetivo: definir cómo se estructura la información en CargaSafe según tipo de contenido, tarea y audiencia. Combinamos sistemas visuales (jerárquica, secuencial, matricial) y esquemas de categorización (alfabético, cronológico, por tópicos, por audiencia).
+En esta sección se define cómo se estructura la información en CargaSafe según el tipo de contenido, la tarea y la audiencia. Se combinan sistemas visuales (jerárquica, secuencial, matricial) y esquemas de categorización (alfabético, cronológico, por tópicos y por audiencia).
 
 
 **Sistemas visuales**
@@ -4135,16 +4135,32 @@ Objetivo: definir cómo se estructura la información en CargaSafe según tipo d
 
   - Secundario si hay incidentes; criticidad manda.
 
-- **Cronológico:** Alerts (timestamp DESC); Trips (Upcoming/In Progress/Completed); Telemetry (series temporales).
+- **Cronológico:** Alerts (`timestamp DESC`); Trips (Upcoming/In Progress/Completed); Telemetry (series temporales).
 
 - **Por tópicos:** Help/Docs (Setup, Fleet, Trips, Monitoring, Alerts, Billing); Settings/Admin.
 
 - **Según audiencia:** Fleet Manager, Dispatcher, Driver, Customer (visibilidad, lenguaje y CTA por rol/scope).
 
 
+**Matriz guía**
+
+| Grupo                 | Organización visual                       | Categorización                       |
+| --------------------- | ----------------------------------------- | ------------------------------------ |
+| Dashboard             | Jerárquica                                | Por audiencia + por tópicos          |
+| Fleet → Vehicles      | Jerárquica + Matricial (Status×Severity)  | Alfabético (Plate) + por estado      |
+| Fleet → Devices       | Jerárquica + Matricial                    | Alfabético (Serial) + disponibilidad |
+| Trips                 | Secuencial (creación) + Jerárquica (list) | Cronológico                          |
+| Alerts                | Jerárquica                                | Cronológico + severidad              |
+| Monitoring/Telemetry  | Matricial (Tiempo×KPI)                    | Cronológico                          |
+| Settings/Rules        | Jerárquica                                | Por tópicos (+ A–Z en listados)      |
+| Billing/Subscriptions | Secuencial + Jerárquica                   | Por audiencia (admin) + cronológico  |
+
+
+
+
 ### 5.2.2. Labeling Systems.
 
-Objetivo: asegurar etiquetas claras, mínimas y accesibles, evitando confusión.
+En esta sección se establecen los criterios de rotulado para representar los datos con simplicidad y consistencia, definiendo etiquetas mínimas, CTAs, filtros y mensajes de estado, junto con pautas de accesibilidad.
 
 **Convenciones de nombres y UI**
 
@@ -4165,13 +4181,24 @@ Objetivo: asegurar etiquetas claras, mínimas y accesibles, evitando confusión.
 - **Mensajes de estado:** No vehicles found, No alerts in the selected range, Vehicle created successfully, Failed to attach device.
 
 
+**Asociaciones**
+
+| Etiqueta / CTA    | ¿Qué representa?                       | Asociación mental del usuario               |
+| ----------------- | -------------------------------------- | ------------------------------------------- |
+| **Contact**       | Ir a información de contacto (Landing) | “Aquí encuentro email/teléfono/redes”       |
+| **Attach Device** | Vincular un dispositivo a un vehículo  | “Emparejar Serial con Plate”                |
+| **Acknowledge**   | Marcar una alerta atendida             | “Se registró responsable; cambia el estado” |
+| **Export**        | Descargar tabla filtrada               | “Obtener CSV/Excel de lo que veo”           |
+
+
+
 **Accesibilidad**
 
-- aria-label específico en botones (“Acknowledge alert #123”).
+- `aria-label` específico en botones (“Acknowledge alert #123”).
 
-- Imágenes decorativas con alt="" y aria-hidden="true".
+- Imágenes decorativas con `alt=""` y `aria-hidden="true"`.
 
-- Notificaciones con aria-live="polite".
+- Notificaciones con `aria-live="polite"`.
 
 **Estilo**
 
@@ -4181,12 +4208,40 @@ Objetivo: asegurar etiquetas claras, mínimas y accesibles, evitando confusión.
 
 - Chips de severidad con texto + color (no solo color).
 
+
+
+
 ### 5.2.3. SEO Tags and Meta Tags
+
+En esta sección se documentan las SEO Tags y Meta Tags de la Landing Page y la WebApp —Title, Description, Keywords y Author— además de Open Graph y Twitter, mostrando los valores como código para su inclusión en los archivos HTML.
+
+**Landing Page**
+
+| Tag            | Ejemplo (inline) |
+| -------------- | ---------------- |
+| Title          | &lt;title&gt;CargaSafe &#124; Smart Monitoring for Reliable Transportation&lt;/title&gt; |
+| Description    | &lt;meta name="description" content="Real-time telemetry, smart alerts, and fleet visibility."&gt; |
+| Keywords       | &lt;meta name="keywords" content="fleet monitoring, cold chain, IoT telemetry, logistics alerts, geofencing, temperature monitoring"&gt; |
+| Author         | &lt;meta name="author" content="CargaSafe Team"&gt; |
+| OG Title       | &lt;meta property="og:title" content="CargaSafe – Smart Monitoring for Reliable Transportation"&gt; |
+| OG Description | &lt;meta property="og:description" content="Monitor your fleet in real-time with alerts, telemetry and reports."&gt; |
+| Twitter Card   | &lt;meta name="twitter:card" content="summary_large_image"&gt; |
+| Favicon        | &lt;link rel="icon" href="assets/logo.png" type="image/png"&gt; |
+
+**WebApp – Fleet → Vehicles**
+
+| Tag         | Ejemplo (inline) |
+| ----------- | ---------------- |
+| Title       | &lt;title&gt;Fleet – Vehicles &#124; CargaSafe&lt;/title&gt; |
+| Description | &lt;meta name="description" content="Manage vehicles: status, assignments and device attachments."&gt; |
+| Keywords    | &lt;meta name="keywords" content="fleet vehicles, status, device attachment, maintenance, logistics"&gt; |
+| Author      | &lt;meta name="author" content="CargaSafe Team"&gt; |
+
 
 
 ### 5.2.4. Searching Systems.
 
-Objetivo: encontrar rápidamente vehículos, dispositivos, viajes y alertas.
+En esta sección se especifican los sistemas de búsqueda que habilitan la localización rápida de información: búsqueda global y por módulo, filtros y ordenamientos, operadores mínimos, criterios de rendimiento y métricas de éxito.
 
 **Patrones**
 
@@ -4224,7 +4279,7 @@ Objetivo: encontrar rápidamente vehículos, dispositivos, viajes y alertas.
 
 ### 5.2.5. Navigation Systems.
 
-Objetivo: orientar a los usuarios por Landing y WebApp para cumplir metas.
+En esta sección se describen los sistemas de navegación que guían a los usuarios por la Landing Page y la WebApp, abarcando navegación global, local y contextual, comportamientos responsivos, flujos guiados, guardas y criterios de aceptación.
 
 **Estructura**
 
