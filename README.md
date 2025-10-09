@@ -3757,8 +3757,21 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 ### 5.2.4. Searching Systems.
 ### 5.2.5. Navigation Systems.
 ## 5.3. Landing Page UI Design.
+
+La propuesta de interfaz de usuario (UI) para el Landing Page de CargaSafe se fundamenta en una arquitectura de información clara y jerárquica, que guía al usuario desde la comprensión del servicio hasta la conversión final. Se priorizó una navegación intuitiva mediante un menú superior fijo que agrupa secciones clave (Features, Benefits, Testimonials, Plans y Contact), permitiendo un flujo de lectura progresivo y coherente. El uso de espacios amplios, tipografía legible y un contraste cromático basado en tonos naranjas y grises traduce las decisiones de diseño hacia una experiencia confiable, moderna y alineada con la identidad de marca de CargaSafe. Cada bloque de contenido responde a un objetivo informativo o de conversión, aplicando principios de jerarquía visual, consistencia, alineación y accesibilidad para asegurar una comunicación efectiva con usuarios de distintos perfiles.
+
 ### 5.3.1. Landing Page Wireframe.
+
+![Wireframe Landing Page](assets/WireframeLandingPage.png)
+
+Los wireframes desarrollados para la versión de escritorio y móvil representan la estructura base del Landing Page, evidenciando la aplicación de principios de diseño como equilibrio, proximidad y alineación, además de una arquitectura de información secuencial que facilita la comprensión del servicio. En la versión desktop, se distribuyen los elementos en una cuadrícula de tres columnas para destacar los beneficios y planes de suscripción, mientras que en la versión mobile se adoptó una disposición vertical con prioridad en la legibilidad y accesibilidad táctil. El diseño inclusivo se garantiza mediante textos descriptivos, botones amplios y contrastes adecuados, favoreciendo la interacción de usuarios con distintas capacidades visuales o motoras. Asimismo, se emplearon convenciones reconocibles (íconos, etiquetas claras y jerarquías tipográficas) que mejoran la usabilidad y reducen la carga cognitiva del usuario. Ambas versiones se diseñaron bajo criterios responsive, garantizando una experiencia consistente y fluida independientemente del tamaño de pantalla o dispositivo utilizado.
+
 ### 5.3.2. Landing Page Mock-up.
+
+![Mockup Landing Page](assets/MockupLandingPage.png)
+
+Los mock-ups finales traducen la estructura del wireframe en una experiencia visual completa, implementando el Design System definido para los productos digitales de CargaSafe, el cual contempla una paleta cromática corporativa (naranja, negro y blanco), tipografía moderna y componentes reutilizables (botones, cards, formularios y secciones de testimonios). En la versión de escritorio, se refuerza la identidad visual mediante imágenes contextuales del transporte de carga y un llamado a la acción destacado con alto contraste. En la versión móvil, los componentes se reestructuran de manera responsive, adaptando el tamaño, espaciado y jerarquía visual para mantener legibilidad y accesibilidad sin sacrificar estética. La coherencia en íconos, tipografía y color refuerza la unidad del sistema, mientras que la disposición progresiva del contenido sigue la arquitectura de información planteada, conduciendo al usuario de la exploración del servicio hacia la conversión final de contacto o suscripción.
+
 ## 5.4. Applications UX/UI Design.
 ### 5.4.1. Applications Wireframes.
 ### 5.4.2. Applications Wireflow Diagrams.
@@ -3770,7 +3783,7 @@ El sistema prioriza la visualización inmediata de datos críticos mediante card
 
 ![Web Prototype Presentation](assets/WebPrototypePresentation.png)
 
-**Enlace al video de presentación del prototipo web:**
+**Enlace al video de presentación del prototipo:**
 [Ver presentación del prototipo web](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113640_upc_edu_pe/EX4I9LxC-aVKgb9GKfRVWbUB7z2IzhL6d3ee8BtbquIA-A?e=T6vAgj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
 ![Mobile Prototype Presentation](assets/MobilePrototypePresentation.png)
