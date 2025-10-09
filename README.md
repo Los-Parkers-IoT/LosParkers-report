@@ -291,6 +291,8 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, aportando ideas clave para definir el flujo de negocio y la estructura de la solución. Colaboré en la elaboración de la arquitectura de software y en el diseño táctico bajo los principios de Domain Driven Design, asegurando claridad y consenso entre los miembros del equipo. Además, contribuí en la documentación de los artefactos de usuario y en la organización de tareas, promoviendo un entorno colaborativo y alineado con los objetivos del proyecto.<br />
+        <span class="entry-order">TP1:</span><br/>
+        Durante este avance, asumí un rol activo de liderazgo en la elaboración del bounded context de Visualization and Analytics, contribuyendo con propuestas técnicas y coordinando con el equipo para asegurar su correcta integración con los demás contextos del sistema. Además, lideré el diseño y desarrollo de los prototipos en Figma, tanto para la versión web como móvil, garantizando una experiencia de usuario coherente y alineada con los objetivos del proyecto. También participé activamente en la construcción del landing page, colaborando en decisiones de estructura, diseño visual y optimización para conversión.<br />
         <br><span class="person">Vera Nuñez Nicolas Alejandro</span><br />
         <span class="entry-order">TB1:</span><br/>
         Participé de manera activa en reuniones virtuales y presenciales, aportando propuestas relevantes para la definición de la arquitectura de software del Fleet Management. Lideré la elaboración de los diagramas C4 (contexto, contenedores y componentes) y colaboré en el diseño táctico bajo los principios de Domain Driven Design (DDD). Asimismo, contribuí en la identificación y documentación de los Bounded Contexts, garantizando una delimitación clara y consistente del sistema, y elaboré el Bounded Context Canvases, facilitando la comprensión de las responsabilidades y alcances de cada contexto.<br /> <br> <br>
@@ -300,7 +302,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
       </td>
       <td class="conclusions-column">
       <span class="entry-order">TB1:</span><br/>
-        A lo largo del proyecto asumimos un liderazgo compartido, distribuyendo responsabilidades y tomando decisiones en conjunto. Cada uno de nosotros aportó ideas y conocimientos que permitieron definir con claridad el flujo de negocio, la arquitectura y los artefactos necesarios bajo los principios de Domain Driven Design. Esta forma de trabajo nos ayudó a consolidar una visión común y avanzar con mayor seguridad en cada fase.
+        A lo largo del proyecto asumimos un liderazgo compartido, distribuyendo responsabilidades y tomando decisiones en conjunto. Cada uno de nosotros aportó ideas y conocimientos que permitieron definir con claridad el flujo de negocio, la arquitectura y los artefactos necesarios bajo los principios de Domain Driven Design. Esta forma de trabajo nos ayudó a consolidar una visión común y avanzar con mayor seguridad en cada fase.<br/><br/>
+      <span class="entry-order">TP1:</span><br/>
+        En esta iteración demostramos un liderazgo conjunto enfocado en el diseño de la experiencia de usuario y la arquitectura de información. La colaboración entre los miembros permitió integrar los bounded contexts, desarrollar prototipos funcionales y construir un landing page coherente con la identidad del producto. El liderazgo compartido facilitó la toma de decisiones técnicas y visuales, asegurando que cada entregable cumpliera con los objetivos del sprint y contribuyera al avance del proyecto.
       </td>
     </tr>
     <tr>
@@ -317,6 +321,7 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         Estuve enfocado en fomentar un ambiente de colaboración dentro del equipo. Trabajé en conjunto con mis compañeros para definir los objetivos y tareas del proyecto. Colaboré en el análisis competitivo y en la definición de segmentos clave como el de gestion de transportes y clientes finales. Además, me encargué de crear user stories e impact mapping para estos segmentos, asegurando que el desarrollo del producto estuviera alineado con las necesidades del usuario. Cada semana establecí un límite personal para realizar las secciones de cada capítulo, de esta forma me aseguré de que todas las tareas estuvieran bien organizadas y distribuidas para cumplir con los objetivos establecidos. <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo, promoviendo la participación activa de todos los miembros mediante retroalimentación constante y constructiva. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que aportan al negocio. Participé en la definición de metas y organización de tareas, asegurando que el equipo trabajara con orden y alcanzara los objetivos propuestos bajo los principios de Domain Driven Design.<br />
+        <span class="entry-order">TP1:</span> Durante este avance, establecí metas claras de diseño y prototipado, planificando las tareas técnicas relacionadas con la elaboración del bounded context de Visualization and Analytics y la creación de los prototipos interactivos. Fomenté un ambiente inclusivo mediante sesiones de revisión colaborativa del diseño en Figma, donde recibí y di retroalimentación constructiva para mejorar la experiencia de usuario. Asimismo, coordiné con el equipo para asegurar que el landing page cumpliera con los estándares de usabilidad, accesibilidad y alineación con la identidad visual del proyecto, cumpliendo con los objetivos establecidos en el sprint.<br />
         <br><span class="person">Vera Nuñez Nicolas Alejandro</span><br />
         <span class="entry-order">TB1:</span><br/>
         Promoví un entorno colaborativo mediante la coordinación de los artefactos de arquitectura y la integración de los diagramas en el informe. Contribuí en la planificación de tareas técnicas vinculadas a la arquitectura de software, asegurando la consistencia de los entregables y su alineación con los objetivos del proyecto. Además, facilité retroalimentación constructiva, incentivando la participación activa de todos los miembros del equipo.<br /> <br> <br>
@@ -326,7 +331,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
       </td>
       <td class="conclusions-column">
       <span class="entry-order">TB1:</span><br/>
-        Durante el desarrollo creamos un entorno colaborativo e inclusivo en el que cada aporte fue escuchado y valorado. Establecimos metas claras, organizamos tareas de manera conjunta y planificamos los avances para asegurar el cumplimiento de los objetivos. Gracias a la comunicación constante y al compromiso colectivo, conseguimos mantener la cohesión del grupo, garantizar la calidad de los entregables y alcanzar los resultados propuestos.
+        Durante el desarrollo creamos un entorno colaborativo e inclusivo en el que cada aporte fue escuchado y valorado. Establecimos metas claras, organizamos tareas de manera conjunta y planificamos los avances para asegurar el cumplimiento de los objetivos. Gracias a la comunicación constante y al compromiso colectivo, conseguimos mantener la cohesión del grupo, garantizar la calidad de los entregables y alcanzar los resultados propuestos.<br/><br/>
+      <span class="entry-order">TP1:</span><br/>
+        En esta iteración fortalecimos el entorno colaborativo mediante sesiones de trabajo conjunto en el diseño de prototipos y la definición de bounded contexts. Establecimos metas específicas relacionadas con la experiencia de usuario, la arquitectura de información y el desarrollo del landing page. La planificación conjunta y la retroalimentación constante nos permitieron cumplir con los objetivos establecidos, asegurando que cada componente (prototipos, bounded contexts, landing page) estuviera alineado con la visión del producto y las expectativas de los usuarios finales.
       </td>
     </tr>
   </tbody>
@@ -3999,9 +4006,19 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 
 ## 5.3. Landing Page UI Design.
 
+La propuesta de interfaz de usuario (UI) para el Landing Page de CargaSafe se fundamenta en una arquitectura de información clara y jerárquica, que guía al usuario desde la comprensión del servicio hasta la conversión final. Se priorizó una navegación intuitiva mediante un menú superior fijo que agrupa secciones clave (Features, Benefits, Testimonials, Plans y Contact), permitiendo un flujo de lectura progresivo y coherente. El uso de espacios amplios, tipografía legible y un contraste cromático basado en tonos naranjas y grises traduce las decisiones de diseño hacia una experiencia confiable, moderna y alineada con la identidad de marca de CargaSafe. Cada bloque de contenido responde a un objetivo informativo o de conversión, aplicando principios de jerarquía visual, consistencia, alineación y accesibilidad para asegurar una comunicación efectiva con usuarios de distintos perfiles.
+
 ### 5.3.1. Landing Page Wireframe.
 
+![Wireframe Landing Page](assets/WireframeLandingPage.png)
+
+Los wireframes desarrollados para la versión de escritorio y móvil representan la estructura base del Landing Page, evidenciando la aplicación de principios de diseño como equilibrio, proximidad y alineación, además de una arquitectura de información secuencial que facilita la comprensión del servicio. En la versión desktop, se distribuyen los elementos en una cuadrícula de tres columnas para destacar los beneficios y planes de suscripción, mientras que en la versión mobile se adoptó una disposición vertical con prioridad en la legibilidad y accesibilidad táctil. El diseño inclusivo se garantiza mediante textos descriptivos, botones amplios y contrastes adecuados, favoreciendo la interacción de usuarios con distintas capacidades visuales o motoras. Asimismo, se emplearon convenciones reconocibles (íconos, etiquetas claras y jerarquías tipográficas) que mejoran la usabilidad y reducen la carga cognitiva del usuario. Ambas versiones se diseñaron bajo criterios responsive, garantizando una experiencia consistente y fluida independientemente del tamaño de pantalla o dispositivo utilizado.
+
 ### 5.3.2. Landing Page Mock-up.
+
+![Mockup Landing Page](assets/MockupLandingPage.png)
+
+Los mock-ups finales traducen la estructura del wireframe en una experiencia visual completa, implementando el Design System definido para los productos digitales de CargaSafe, el cual contempla una paleta cromática corporativa (naranja, negro y blanco), tipografía moderna y componentes reutilizables (botones, cards, formularios y secciones de testimonios). En la versión de escritorio, se refuerza la identidad visual mediante imágenes contextuales del transporte de carga y un llamado a la acción destacado con alto contraste. En la versión móvil, los componentes se reestructuran de manera responsive, adaptando el tamaño, espaciado y jerarquía visual para mantener legibilidad y accesibilidad sin sacrificar estética. La coherencia en íconos, tipografía y color refuerza la unidad del sistema, mientras que la disposición progresiva del contenido sigue la arquitectura de información planteada, conduciendo al usuario de la exploración del servicio hacia la conversión final de contacto o suscripción.
 
 ## 5.4. Applications UX/UI Design.
 
@@ -4019,7 +4036,7 @@ El sistema prioriza la visualización inmediata de datos críticos mediante card
 
 ![Web Prototype Presentation](assets/WebPrototypePresentation.png)
 
-**Enlace al video de presentación del prototipo web:**
+**Enlace al video de presentación del prototipo:**
 [Ver presentación del prototipo web](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113640_upc_edu_pe/EX4I9LxC-aVKgb9GKfRVWbUB7z2IzhL6d3ee8BtbquIA-A?e=T6vAgj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
 ![Mobile Prototype Presentation](assets/MobilePrototypePresentation.png)
