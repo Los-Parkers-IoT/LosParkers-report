@@ -4104,6 +4104,44 @@ Estas directrices en conjunto garantizan que CargaSafe mantenga una identidad vi
 
 ### 5.2.1. Organization Systems.
 
+Objetivo: definir cómo se estructura la información en CargaSafe según tipo de contenido, tarea y audiencia. Combinamos sistemas visuales (jerárquica, secuencial, matricial) y esquemas de categorización (alfabético, cronológico, por tópicos, por audiencia).
+
+
+**Sistemas visuales**
+
+- **Jerárquica (visual hierarchy)**
+
+  - Dónde: Dashboard; Fleet → Vehicles/Devices (listas); Alerts (lista).
+
+  - Regla: lo crítico y reciente arriba; metadatos en segundo plano.
+
+  - Patrones: H1/H2/H3 consistentes; KPI cards; chips/badges de severidad; sort por criticidad por defecto.
+
+- **Secuencial (step-by-step to accomplish)**
+
+  - Dónde: Vincular dispositivo↔vehículo; Crear viaje (Trip); Onboarding.
+
+  - Patrones: MatStepper; validación por paso; CTA único; resumen final.
+
+- **Matricial (cruce de variables)**
+
+  - Dónde: Operación (Estado×Severidad); Analítica (Vehículo×Regla); Reportes (Tiempo×KPI).
+
+  - Patrones: tabla/board con filtros persistentes (chips); heatmap/badges.
+
+**Esquemas de categorización**
+
+- **Alfabético:** Vehicles por Plate (A–Z); Devices por Serial (A–Z); Rules por nombre.
+
+  - Secundario si hay incidentes; criticidad manda.
+
+- **Cronológico:** Alerts (timestamp DESC); Trips (Upcoming/In Progress/Completed); Telemetry (series temporales).
+
+- **Por tópicos:** Help/Docs (Setup, Fleet, Trips, Monitoring, Alerts, Billing); Settings/Admin.
+
+- **Según audiencia:** Fleet Manager, Dispatcher, Driver, Customer (visibilidad, lenguaje y CTA por rol/scope).
+
+
 ### 5.2.2. Labeling Systems.
 
 Objetivo: asegurar etiquetas claras, mínimas y accesibles, evitando confusión.
