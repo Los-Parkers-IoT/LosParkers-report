@@ -13,13 +13,13 @@ skinparam class {
 ' Entities
 ' ========================
 class MonitoringSession <<Entity>> {
-  - id: int
-  - tripId: int
-  - deviceId: int
+  - id: number
+  - tripId: number
+  - deviceId: number
   - startTime: Date
   - endTime: Date | null
   - createdAt: Date
-  - sessionStatusId: int
+  - sessionStatusId: number
   - sessionStatus: MonitoringSessionStatus
   - telemetryReadings: TelemetryData[]
   --
@@ -30,23 +30,23 @@ class MonitoringSession <<Entity>> {
 }
 
 class TelemetryData <<Entity>> {
-  - id: int
-  - monitoringSessionId: int
-  - temperature: int
-  - humidity: int
-  - vibration: int
-  - latitude: int
-  - longitude: int
+  - id: number
+  - monitoringSessionId: number
+  - temperature: number
+  - humidity: number
+  - vibration: number
+  - latitude: number
+  - longitude: number
   - createdAt: Date
   --
-  + getTemperature(): int
-  + getHumidity(): int
-  + getVibration(): int
+  + getTemperature(): number
+  + getHumidity(): number
+  + getVibration(): number
   + getLocation(): Location
 }
 
 class MonitoringSessionStatus <<Entity>> {
-  - id: int
+  - id: number
   - name: string
   --
   + isFinal(): boolean
@@ -56,10 +56,10 @@ class MonitoringSessionStatus <<Entity>> {
 ' Value Objects
 ' ========================
 class Location <<ValueObject>> {
-  - latitude: int
-  - longitude: int
+  - latitude: number
+  - longitude: number
   --
-  + distanceTo(other: Location): int
+  + distanceTo(other: Location): number
 }
 
 class SessionStatus <<ValueObject>> {
