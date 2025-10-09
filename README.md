@@ -4074,7 +4074,31 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 
 ### 5.1.1. General Style Guidelines.
 
+El diseño visual del proyecto CargaSafe se basa en un sistema de estilos que prioriza la claridad, la coherencia y la accesibilidad. La identidad visual se sustenta en una paleta de colores cálidos y confiables, encabezada por el color naranja (#F5821F) como tono primario, que transmite energía, dinamismo y cercanía con el usuario. El color azul (#183D5C) se emplea como secundario, reforzando la percepción de confianza y profesionalismo. Se complementan colores de estado (verde para éxito, amarillo para advertencia y rojo para error), junto con una gama de grises para lograr jerarquía visual y contraste equilibrado.<br>
+
+La tipografía principal utilizada es Source Sans 3, seleccionada por su legibilidad y estilo moderno. Se aplica en distintas jerarquías tipográficas que van desde los títulos (Heading 1 – 56px) hasta los textos pequeños (Small Text – 14px), garantizando consistencia en todos los tamaños de pantalla.<br>
+
+El lenguaje visual del proyecto combina un tono formal y profesional, pero con una interfaz accesible y amigable. Se emplean botones con esquinas suavemente redondeadas, íconos derivados de la librería Material Design, y espaciados definidos en múltiplos de 4px para mantener uniformidad y ritmo visual en cada componente.
+En cuanto a componentes interactivos, se establecen directrices claras para botones, selectores, campos de texto e iconografía, priorizando la usabilidad y el reconocimiento inmediato de acciones. Los botones principales mantienen un color sólido naranja para llamadas a la acción (CTA), mientras que los secundarios y estados hover o active usan variantes más claras u opacas del mismo tono.<br>
+
+
+![Visualization Style Guideline](assets/style1.png)
+
 ### 5.1.2. Web, Mobile and IoT Style Guidelines.
+
+El diseño adaptable del ecosistema CargaSafe se rige por un enfoque responsive, garantizando que la experiencia de usuario sea fluida y consistente en dispositivos web, móviles y entornos IoT.<br>
+
+En la versión web, se prioriza la disposición horizontal de los elementos, con paneles y tarjetas informativas que aprovechan el espacio y mantienen una jerarquía visual clara. Los márgenes, paddings y tamaños tipográficos se ajustan automáticamente para conservar legibilidad en pantallas amplias.<br> 
+
+Para la versión mobile, la interfaz mantiene los mismos principios visuales, pero reestructura los componentes en una distribución vertical optimizada para la interacción táctil. Se emplean botones de mayor tamaño, espaciados más amplios y textos ajustados a resoluciones menores, conservando la armonía visual del sistema.<br>
+
+En el contexto IoT, la guía se orienta a la presentación de datos de monitoreo, paneles de control y visualización de alertas. Se mantiene la misma paleta de colores y tipografía, asegurando que los gráficos, indicadores y notificaciones se perciban con claridad en pantallas de control o dispositivos conectados.<br>
+
+Estas directrices en conjunto garantizan que CargaSafe mantenga una identidad visual sólida, coherente y escalable a través de todos sus entornos digitales, reforzando la percepción de una plataforma tecnológica moderna, confiable y centrada en el usuario.<br>
+
+
+![Visualization Style Guideline2](assets/style2.png)
+
 
 ## 5.2. Information Architecture.
 
