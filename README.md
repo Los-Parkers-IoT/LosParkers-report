@@ -4112,6 +4112,42 @@ Estas directrices en conjunto garantizan que CargaSafe mantenga una identidad vi
 
 ### 5.2.5. Navigation Systems.
 
+Objetivo: orientar a los usuarios por Landing y WebApp para cumplir metas.
+
+**Estructura**
+
+- Global: Dashboard, Fleet (Vehicles, Devices), Trips, Alerts, Monitoring, Settings, Billing. (Visibilidad por rol/scope)
+
+- Local: tabs por estado (e.g., Trips: Upcoming / In Progress / Completed).
+
+- Contextual: acciones en fila/detalle (Edit, Attach Device, Acknowledge, Export).
+
+- Breadcrumbs (opcional): Fleet / Vehicles / ABC-123.
+
+**Comportamientos**
+
+- Responsive:
+
+    - Móvil → menú hamburguesa; tablas → cards con CTAs visibles.
+
+    - Desktop → sidebar fija; tablas con sort/paginator.
+
+- Flujos guiados (secuencial): steppers con validación por paso (Create Trip, Attach Device).
+
+- Guardas: canActivate (auth/rol) y canDeactivate (evitar pérdida de datos).
+
+- Estado de UI: preservar filtros/scroll al volver; estados vacíos con CTA.
+
+**Criterios de aceptación**
+
+- Llegar de Dashboard a Vehicle Detail ≤ 2 clics.
+
+- Completar Create Trip ≤ 60 s (usuario entrenado).
+
+- Sin 404 visibles; Not Found con enlace de retorno.
+
+
+
 ## 5.3. Landing Page UI Design.
 
 La propuesta de interfaz de usuario (UI) para el Landing Page de CargaSafe se fundamenta en una arquitectura de información clara y jerárquica, que guía al usuario desde la comprensión del servicio hasta la conversión final. Se priorizó una navegación intuitiva mediante un menú superior fijo que agrupa secciones clave (Features, Benefits, Testimonials, Plans y Contact), permitiendo un flujo de lectura progresivo y coherente. El uso de espacios amplios, tipografía legible y un contraste cromático basado en tonos naranjas y grises traduce las decisiones de diseño hacia una experiencia confiable, moderna y alineada con la identidad de marca de CargaSafe. Cada bloque de contenido responde a un objetivo informativo o de conversión, aplicando principios de jerarquía visual, consistencia, alineación y accesibilidad para asegurar una comunicación efectiva con usuarios de distintos perfiles.
