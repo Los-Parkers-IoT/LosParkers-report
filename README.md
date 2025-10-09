@@ -4132,6 +4132,22 @@ Los mock-ups finales traducen la estructura del wireframe en una experiencia vis
 
 ### 5.4.1. Applications Wireframes.
 
+Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego serán diseñadas más a detalle. A continuación, se presentan los wireframes de las pantallas de las aplicaciones web y móvil.
+
+### App Web 
+- Autenticación
+![Wireframe Login](assets/LoginWireframe.png)
+
+![Wireframe Register](assets/RegisterClientWireframe.png)
+
+![Wireframe Register2](assets/RegisterShippingWireframe.png)
+
+![Wireframe Password1](assets/Password1Wireframe.png)
+
+![Wireframe Password2](assets/Password2Wireframe.png)
+
+![Wireframe Password3](assets/Password3Wireframe.png)
+
 ### 5.4.2. Applications Wireflow Diagrams.
 
 ### 5.4.2. Applications Mock-ups.
