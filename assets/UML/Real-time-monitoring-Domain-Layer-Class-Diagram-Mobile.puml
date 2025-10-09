@@ -1,4 +1,5 @@
-@startuml Real-Time-Monitoring-Mobile-Domain-Classes
+@startuml Real-Time-Monitoring-WebApp-Domain-Classes
+
 ' ========================
 ' Stereotypes colors
 ' ========================
@@ -7,142 +8,73 @@ skinparam class {
     BackgroundColor<<ValueObject>> LightGreen
     BackgroundColor<<Enum>> Wheat
 }
+
 ' ========================
 ' Entities
 ' ========================
 class MonitoringSession <<Entity>> {
   - id: int
   - tripId: int
-  - status: SessionStatus
-  - temperatureRange: TemperatureRange
-  - startTime: DateTime
-  - endTime: DateTime
-  - currentReading: TelemetryData
-  - alerts: List<Alert>
+  - deviceId: int
+  - startTime: Date
+  - endTime: Date | null
+  - createdAt: Date
+  - sessionStatusId: int
+  - sessionStatus: MonitoringSessionStatus
+  - telemetryReadings: TelemetryData[]
+  --
+  + startSession(): void
+  + endSession(): void
+  + updateStatus(newStatus: SessionStatus): void
+  + isActive(): boolean
 }
 
 class TelemetryData <<Entity>> {
   - id: int
-  - sessionId: int
-  - deviceId: String
-  - timestamp: DateTime
-  - sensorReading: SensorReading
-  - location: GeoCoordinate
-  - deviceStatus: DeviceStatus
+  - monitoringSessionId: int
+  - temperature: int
+  - humidity: int
+  - vibration: int
+  - latitude: int
+  - longitude: int
+  - createdAt: Date
+  --
+  + getTemperature(): int
+  + getHumidity(): int
+  + getVibration(): int
+  + getLocation(): Location
 }
 
-class Alert <<Entity>> {
+class MonitoringSessionStatus <<Entity>> {
   - id: int
-  - sessionId: int
-  - type: AlertType
-  - severity: String
-  - message: String
-  - violatedParameter: String
-  - thresholdValue: double
-  - actualValue: double
-  - createdAt: DateTime
-  - isRead: boolean
-}
-
-class Incident <<Entity>> {
-  - id: int
-  - sessionId: int
-  - alertId: int
-  - description: String
-  - status: IncidentStatus
-  - assignedTo: String
-  - createdAt: DateTime
-  - resolvedAt: DateTime
+  - name: string
+  --
+  + isFinal(): boolean
 }
 
 ' ========================
 ' Value Objects
 ' ========================
-class TemperatureRange <<ValueObject>> {
-  - minTemperature: double
-  - maxTemperature: double
-  - unit: String
+class Location <<ValueObject>> {
+  - latitude: int
+  - longitude: int
+  --
+  + distanceTo(other: Location): int
 }
 
-class SensorReading <<ValueObject>> {
-  - temperature: double
-  - humidity: double
-  - vibration: double
-  - temperatureUnit: String
-  - humidityUnit: String
-  - vibrationUnit: String
-}
-
-class GeoCoordinate <<ValueObject>> {
-  - latitude: double
-  - longitude: double
-  - accuracy: double
-}
-
-class DeviceStatus <<ValueObject>> {
-  - batteryLevel: double
-  - signalStrength: double
-  - lastSeen: DateTime
-  - isOnline: boolean
-}
-
-class ChartDataPoint <<ValueObject>> {
-  - timestamp: DateTime
-  - value: double
-  - unit: String
-  - isOutOfRange: boolean
-}
-
-class LiveMapMarker <<ValueObject>> {
-  - position: GeoCoordinate
-  - type: String
-  - icon: String
-  - popupContent: String
-}
-
-' ========================
-' Enums
-' ========================
-enum SessionStatus <<Enum>> {
-  active
-  inactive
-  completed
-  paused
-}
-
-enum AlertType <<Enum>> {
-  temperatureHigh
-  temperatureLow
-  deviceOffline
-  routeDeviation
-  vibrationExcessive
-}
-
-enum IncidentStatus <<Enum>> {
-  open
-  inProgress
-  resolved
-  escalated
+class SessionStatus <<ValueObject>> {
+  - status: string
 }
 
 ' ========================
 ' Relationships
 ' ========================
-MonitoringSession *-- "1" TemperatureRange
-MonitoringSession --> SessionStatus
-MonitoringSession *-- "0..*" TelemetryData
-MonitoringSession *-- "0..*" Alert
-MonitoringSession --> "0..1" TelemetryData : currentReading
+MonitoringSession *-- "1" MonitoringSessionStatus : has
+MonitoringSession *-- "0..*" TelemetryData : contains
+MonitoringSession --> SessionStatus : uses
 
-TelemetryData --> "1" SensorReading
-TelemetryData --> "1" GeoCoordinate : location
-TelemetryData --> "1" DeviceStatus
+TelemetryData --> "1" Location : has
 
-Alert --> AlertType
-Alert --> "0..1" Incident
+MonitoringSessionStatus --> SessionStatus : represents
 
-Incident --> IncidentStatus
-
-SensorReading *-- ChartDataPoint : generates
-GeoCoordinate *-- LiveMapMarker : creates
 @enduml
