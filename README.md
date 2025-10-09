@@ -4299,6 +4299,8 @@ En esta sección se describen los sistemas de navegación que guían a los usuar
 
     - Desktop → sidebar fija; tablas con sort/paginator.
 
+    - LandingPage → navbar.
+
 - Flujos guiados (secuencial): steppers con validación por paso (Create Trip, Attach Device).
 
 - Guardas: canActivate (auth/rol) y canDeactivate (evitar pérdida de datos).
