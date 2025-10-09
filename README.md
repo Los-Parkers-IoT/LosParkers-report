@@ -4110,6 +4110,42 @@ Estas directrices en conjunto garantizan que CargaSafe mantenga una identidad vi
 
 ### 5.2.4. Searching Systems.
 
+Objetivo: encontrar rápidamente vehículos, dispositivos, viajes y alertas.
+
+**Patrones**
+
+- Búsqueda global (header): por Plate, Serial, Trip ID, Rule (typeahead + “recent searches”).
+
+- Búsqueda local (por módulo): caja de búsqueda sobre la tabla (incremental).
+
+- Filtros (facetas): Status, Severity, Type, Assigned, Date Range.
+
+- Ordenamiento: por defecto criticidad/reciente; alternativo A–Z, Health, Last Seen.
+
+**Operadores mínimos**
+
+- Texto exacto: "ABC-123"
+
+- Prefijo/propiedad: plate:ABC, serial:SN-
+
+- Rango de fechas: date:2025-10-01..2025-10-09
+
+**Rendimiento y UX**
+
+- Debounce ~300 ms; indicador de carga; vacíos explicativos.
+
+- Paginación con contador; sticky filters; accesible por teclado; aria-live para resultados.
+
+**Métricas**
+
+- Tiempo a primer resultado local < 500 ms.
+
+- Éxito en primera búsqueda > 85% (pruebas moderadas).
+
+
+
+
+
 ### 5.2.5. Navigation Systems.
 
 Objetivo: orientar a los usuarios por Landing y WebApp para cumplir metas.
