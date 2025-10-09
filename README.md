@@ -4106,7 +4106,45 @@ Estas directrices en conjunto garantizan que CargaSafe mantenga una identidad vi
 
 ### 5.2.2. Labeling Systems.
 
+Objetivo: asegurar etiquetas claras, mínimas y accesibles, evitando confusión.
+
+**Convenciones de nombres y UI**
+
+- **Entidades:** Vehicle, Device, Trip, Alert, Rule, Customer, User.
+
+- **Campos clave (listas):**
+
+  - Vehicles: Plate, Type, Capabilities, Status (Available/Busy/Out of Service).
+
+  - Devices: Serial, Model, Health, Attached To, Status.
+
+  - Alerts: Severity (Critical/Major/Minor), Rule, Vehicle, Timestamp, State (Open/Acknowledged/Resolved).
+
+- **Acciones (CTA)**: Add Vehicle, Edit, Delete, Attach Device, Set Available, Set Out of Service, Acknowledge, Export.
+
+- **Filtros comunes:** Status, Severity, Type, Date Range, Assigned/Unassigned.
+
+- **Mensajes de estado:** No vehicles found, No alerts in the selected range, Vehicle created successfully, Failed to attach device.
+
+
+**Accesibilidad**
+
+- aria-label específico en botones (“Acknowledge alert #123”).
+
+- Imágenes decorativas con alt="" y aria-hidden="true".
+
+- Notificaciones con aria-live="polite".
+
+**Estilo**
+
+- Inglés; Title Case en títulos, Sentence case en descripciones.
+
+- Unidades explícitas (°C, km/h).
+
+- Chips de severidad con texto + color (no solo color).
+
 ### 5.2.3. SEO Tags and Meta Tags
+
 
 ### 5.2.4. Searching Systems.
 
