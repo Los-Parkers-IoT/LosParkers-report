@@ -3770,7 +3770,7 @@ El sistema prioriza la visualización inmediata de datos críticos mediante card
 
 ![Web Prototype Presentation](assets/WebPrototypePresentation.png)
 
-**Enlace al video de presentación del prototipo:**
+**Enlace al video de presentación del prototipo web:**
 [Ver presentación del prototipo web](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113640_upc_edu_pe/EX4I9LxC-aVKgb9GKfRVWbUB7z2IzhL6d3ee8BtbquIA-A?e=T6vAgj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
 ![Mobile Prototype Presentation](assets/MobilePrototypePresentation.png)
