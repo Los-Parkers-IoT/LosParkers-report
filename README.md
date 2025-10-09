@@ -3759,10 +3759,242 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 # Capítulo VI: Product Implementation, Validation & Deployment
 
 ## 6.1. Software Configuration Management.
+
+El objetivo de esta sección es asegurar que todos los miembros usen las mismas herramientas, convenciones y procesos para:
+
+- Desarrollar código
+- Hacer pruebas
+- Desplegar versiones
+- Documentar el software
+
 ### 6.1.1. Software Development Environment Configuration.
+
+| **Categoría**               | **Herramienta / Producto** | **Propósito en el proyecto**                                                                                                                                               | **Tipo**            | **Ruta / Enlace de referencia**                                                      |
+| --------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------ |
+| **Project Management**      | **Jira**                   | Facilita la planificación, organización y seguimiento de tareas del equipo. Permite asignar responsables, estimar tiempos y monitorear el progreso de manera colaborativa. | SaaS                | [https://www.atlassian.com/software/jira](https://www.atlassian.com/software/jira)   |
+| **Project Management**      | **Discord**                | Herramienta de comunicación interna del equipo. Permite reuniones, compartir pantalla y mantener comunicación fluida mediante mensajes, imágenes y video.                  | SaaS / Escritorio   | [https://discord.com/](https://discord.com/) 
+| **Project Management**      | **WhatsApp**                | Herramienta de comunicación para mantener conectividad continua entre los integrantes del equipo.                  | SaaS   | [https://web.whatsapp.com](https://web.whatsapp.com/)                                        |
+| **Requirements Management** | **UXPressia**              | Desarrolla User Personas, Customer Journey Maps, Empathy Maps e Impact Maps. Facilita la colaboración en tiempo real y la documentación visual de requisitos de usuario.   | SaaS                | [https://uxpressia.com/](https://uxpressia.com/)                                     |
+| **Requirements Management** | **Miro**                   | Herramienta para crear mapas de escenarios y procesos, permitiendo visualizar la experiencia del usuario y definir los segmentos de usuarios.                              | SaaS                | [https://miro.com/](https://miro.com/)                                               |
+| **UX/UI Design**            | **Figma**                  | Diseño y prototipado de interfaces interactivas. Permite trabajo colaborativo simultáneo y garantiza la coherencia visual en el desarrollo de la UI.                       | SaaS                | [https://www.figma.com/](https://www.figma.com/)                                     |
+| **Source Code Management**  | **Git & GitHub**           | Git gestiona versiones de código y ramas de desarrollo. GitHub aloja los repositorios y facilita la colaboración remota, control de versiones y revisión de código.        | SaaS / Local        | [https://github.com/](https://github.com/)                                           |
+| **Backend Development**     | **Spring Boot (Java)**     | Framework para el desarrollo del backend. Facilita la creación de servicios REST escalables y estructurados, con integración a bases de datos y herramientas externas.     | Local               | [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)     |
+| **Frontend Development**    | **Visual Studio Code**     | IDE utilizado para el desarrollo del frontend. Permite integración con frameworks modernos (Angular, React) y control de versiones con Git.                                | Local               | [https://code.visualstudio.com/](https://code.visualstudio.com/)                     |
+| **Backend Development**     | **IntelliJ IDEA**          | IDE usado para el desarrollo backend con Spring Boot. Proporciona herramientas integradas de depuración, testing y control de dependencias.                                | Local               | [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)                   |
+| **Mobile Development**      | **Android Studio**         | Entorno de desarrollo para la aplicación móvil Android. Facilita el diseño, compilación y depuración de aplicaciones nativas.                                              | Local               | [https://developer.android.com/studio](https://developer.android.com/studio)         |
+| **Software Testing**        | **Postman**                | Plataforma para pruebas de APIs REST. Permite validar endpoints, realizar pruebas automatizadas e integrar con pipelines CI/CD.                                            | SaaS / Local        | [https://www.postman.com/](https://www.postman.com/)                                 |
+| **Software Deployment**     | **Firebase Hosting**       | Servicio para desplegar aplicaciones web de forma rápida y segura. Ofrece CDN global, HTTPS automático e integración con Firebase Functions.                               | SaaS                | [https://firebase.google.com/docs/hosting](https://firebase.google.com/docs/hosting) |
+| **Software Deployment**     | **Microsoft Azure**        | Plataforma en la nube para el despliegue y administración de servicios, bases de datos y APIs. Permite escalabilidad, monitoreo y seguridad.                               | SaaS                | [https://azure.microsoft.com/](https://azure.microsoft.com/)                         |
+| **Software Documentation**  | **Markdown**               | Lenguaje de marcado ligero usado para la documentación técnica del proyecto (README, manuales, guías de instalación).                                                      | Local | [https://www.markdownguide.org/](https://www.markdownguide.org/)                     |
+
+
 ### 6.1.2. Source Code Management.
+
+El equipo utiliza Git como sistema de control de versiones distribuido y GitHub como plataforma de alojamiento remoto de repositorios. Esta configuración permite la colaboración en equipo, el seguimiento de cambios y la integración con flujos de CI/CD.
+
+**Repositorio de los productos:**
+
+- Repositorio del Landing Page: https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-landing 
+- Repositorio del Frontend Web Applications: https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend
+- Repositorio del App Mobile: https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-mobile
+- Repositorio del Web Service: https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend 
+
+Se implementa el flujo de trabajo GitFlow. Este modelo organiza el desarrollo en ramas con funciones específicas para mantener la estabilidad de la rama principal **`main`** y facilitar el desarrollo paralelo de nuevas características.
+
+- **`main`**: contiene el código estable y listo para producción.
+- **`develop`**: integra las nuevas funcionalidades desarrolladas y sirve como base para las versiones futuras.
+- **`feature`**: se utiliza para desarrollar nuevas funcionalidades. Cada funcionalidad tiene su propia rama basada en **`develop`** y se fusiona nuevamente en **`develop`** al completarse.
+- **`release`**: se crea a partir de **`develop`** cuando se prepara una versión para producción. Permite realizar pruebas y ajustes menores antes del lanzamiento.
+- **`hotfix`**: se crea desde **`main`** para corregir errores críticos detectados en producción. Una vez solucionado, se fusiona en **`main`** y **`develop`**.
+
+**Convenciones de nombres de ramas:**
+- Feature branches: **`feature/nombre`** -> Ejemplo: **`feature/trip-management`**
+- Release branches: **`release/vX.Y.Z`** -> Ejemplo: **`release/v0.0.1`**
+- Hotfix branches: **`hotfix/vX.Y.Z`** -> Ejemplo: **`hotfix/v1.0.1`**
+
+Se adopta el esquema **Semantinc Versioning 2.0.0** para identificar las versiones de los productos digitales.
+Formato: **`MAJOR.MINOR.PATCH`**
+- MAJOR: cambios incompatibles.
+- MINOR: nuevas funcionalidades compatibles.
+- PATCH: correción de errores o mejoras menores.
+
+Ejemplo: **`v1.0.0`**.**`v1.1.0`**.**`v1.1.1`**
+
+Se utiliza el estándar Conventional Commits para mantener una trazabilidad clara del historial de cambios.
+Formato: **`<tipo>(<alcance>): <descripción>`**
+Ejemplos:
+- **`feat(alert-and-resolutions)`**: add alert and resolutions page
+- **`fix(trip-managment)`**: update trip info
+- **`docs(chap-6)`**: add software configuration management
+
+Tipos principales:
+- **`feat`**: nueva funcionalidad.
+- **`fix`**: corrección de error.
+- **`docs`**: documentación.
+- **`style`**: formato o estilos (sin cambio funcional).
+- **`refactor`**: reestructuración del código.
+- **`test`**: adición o mejora de pruebas.
+- **`chore`**: tareas de mantenimiento o configuración.
+
+Toda nueva funcionalidad o correción debe ser revisada mediante Pull Request (PR). Al aprobarse, la rama se fusiona (**`merge`**) en **`develop`** o **`main`** según el caso. 
+
+A continuación se detallarán las ramas creadas y las convenciones que se aplicarán:
+
+| Tipo de Rama           | Nombre                                                   | Propósito                                                            | Rama en la que se crea | Rama en la que se fusiona         |
+| ---------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------- | ---------------------- | --------------------------------- |
+| **Main branch**        | `main`                                                             | Código estable listo para producción                                 | —                      | —                                 |
+| **Development branch** | `develop`                                                          | Integrar todas las nuevas funcionalidades antes de lanzar            | Creada desde `main`    | Recibe merges de `feature/*`      |
+| **Feature branches**   | `feature/IAM`, `feature/alerts-and-resolutions`, `feature/fleet-management`, `feature/subscriptions`, `feature/visualization-and-analytics`,`feature/trip-management`| Contienen el desarrollo de nuevas funcionalidades específicas        | Desde `develop`        | Se fusionan en `develop`          |
+| **Release branches**   | `release/v1.0.0`, `release/v1.1.0`                                 | Preparar una versión candidata con ajustes menores y pruebas finales | Desde `develop`        | Se fusionan en `main` y `develop` |
+| **Hotfix branches**    | `hotfix/v1.0.1`, `hotfix/v1.1.1`                                   | Corregir errores críticos que aparecen en producción                 | Desde `main`           | Se fusionan en `main` y `develop` |
+
 ### 6.1.3. Source Code Style Guide & Conventions.
+
+Se detallarán las convenciones de codificación y nomenclatura que el equipo adoptará para los lenguajes y frameworks utilizados en la solución CargaSafe.
+Todas las convenciones se aplicarán en inglés con el objetivo de mantener la consistencia, claridad y estandarización del código entre todos los miembros del equipo.
+
+**HTML**
+
+https://google.github.io/styleguide/htmlcssguide.html
+
+Convenciones:
+- Utilizar minúsculas para todos los nombres de elementos, atributos y valores.
+- Anidar correctamente las etiquetas y mantener una estructura jerárquica clara.
+- Indentación de espacios por nivel.
+- Los atributos debenllevar comillas dobles (")
+- Usar nombres descriptivos y semánticos en las clases y los identificadores.
+- Evitar el uso de estilos en línea; preferir archivos CSS o clases.
+
+Ejemplo:
+
+```html
+<section class="device-list">
+  <h2 class="section-title">Example</h2>
+</section>
+```
+**CSS**
+
+https://google.github.io/styleguide/htmlcssguide.html
+
+Convenciones: 
+- Utilizar Kebab-case para los nombres de clases e identificadores (**`.button-primary`**, **`.nav-bar`**)
+- Agrupar propiedades relacionadas y ordenar alfabéticamente.
+- Evitar el uso excesivo de selectores anidados.
+- Indentación de 2 espacios.
+- Cada bloque debe terminar con un salto de línea.
+
+```css
+.example-list {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+}
+```
+**JavaScript**
+
+https://google.github.io/styleguide/jsguide.html
+
+Convenciones:
+- Usar camelCase para variables y funciones.
+- Usar PascalCase para clases.
+- Constantes globales en UPPER_CASE.
+- Preferir **`const`** y **`let`** sobre **`var`**
+- Evitar funciones anidadas innecesarias y callbacks excesivos.
+- Usar arrow functions y template literals.
+- Cada archivo debe contener una sola clase o módulo.
+
+```js
+const API_URL = 'https://api.cargasafe.com';
+
+class Example {
+  constructor(exampleId) {
+    this.exampleId = exampleId;
+  }
+
+  getStatus() {
+    return `${this.exampleId} is active`;
+  }
+}
+```
+
+**Java**
+
+https://google.github.io/styleguide/javaguide.html 
+
+Convenciones:
+- Usar PascalCase para clases e interfaces.
+- Usar camelCase para métodos y variables.
+- Los paquetes se nombran en minúsculas, separados por puntos (e.g., **`com.cargasafe.backend`**)
+- Indentación de 4 espacios.
+- Líneas de máximo 120 caracteres.
+- Los nombres deben ser descriptivos, evitando abreviaciones innecesarias.
+- Cada clase pública debe estar en su propio archivo con el mismo nombre.
+
+```java
+package com.cargasafe.backend.services;
+
+public class ExampleService {
+    private int alertCount;
+
+    public void sendAlert(String message) {
+        System.out.println("Alert: " + message);
+    }
+}
+```
+
+**Dart**
+
+https://dart.dev/effective-dart/style
+
+Convenciones:
+- Usar camelCase para variables y funciones.
+- Usar PascalCase para clases, enumeraciones y typedefs.
+- Constantes en UPPER_CASE.
+- Cada archivo debe contener una sola clase o widget principal.
+- Preferir interpolación de strings (**`Hello $name`**) sobre concatenación.
+- Usar **`final`** y **`const`** siempre que sea posible para garantizar inmutabilidad.
+
+```dart
+class ExampleCard extends StatelessWidget {
+  final String deviceName;
+
+  const ExampleCard({required this.exampleName, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text('Example: $exampleName');
+  }
+}
+```
+
+**Gherkin**
+
+https://cucumber.io/docs/gherkin/reference/
+
+Convenciones:
+- Usar mayúscula inicial en cada palabra clave (**`Feature`**, **`Sceneario`**, **`Given`**, **`When`**, **`Then`**).
+- Describir escenarios de forma clara, usando lenguaje natural.
+- Una sola característica (**`Feature`**) por archivo.
+- Mantener consistencia en la redacción de pasos.
+- Incluir etiquetas (**`@tag`**) para clasificar los escenarios.
+
+```gherkin
+Feature: User Login
+
+  Scenario: Successful login with valid credentials
+    Given the user is on the login page
+    When the user enters valid credentials
+    Then the dashboard is displayed
+```
+
 ### 6.1.4. Software Deployment Configuration.
+
+El proceso de despliegue de la solución CargaSafe se basa en la integración continua (CI) y la entrega continua (CD) a través de repositorios en GitHub.
+Cada producto digital cuenta con su propia configuración de despliegue para garantizar la disponibilidad, seguridad y escalabilidad del sistema.
+
+
+
+
 ## 6.2. Landing Page, Services & Applications Implementation.
 ### 6.2.1. Sprint 1
 #### 6.2.1.1. Sprint Planning 1.
