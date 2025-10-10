@@ -76,10 +76,12 @@
 
 | Versión | Fecha      | Autor            | Descripción de modificación                                                                                                                                                                                                                                                                                                                              |
 | ------- | ---------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.0     | 20/09/2025 | George | Se entregó una primera entrega del informe con los siguientes apartados: Carátula, Registro de Versiones, Project Report Collaboration Insights, Contenido, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design y Bibliografía. |
+| 1.0     | 20/09/2025 | George           | Se entregó una primera entrega del informe con los siguientes apartados: Carátula, Registro de Versiones, Project Report Collaboration Insights, Contenido, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design y Bibliografía. |
 | 1.2     | 12/09/2025 | Daniel y Marcelo | Se añadió el capitulo 3 que es en base al product backlog que se trabajará en el proyecto                                                                                                                                                                                                                                                                |
 | 1.3     | 13/09/2025 | Jefrey y Nicolas | Se añadió el capitulo 4 que es en base a las soluciones en diseño del software que trabajaremos en el proyecto                                                                                                                                                                                                                                           |
-| 2.1     | 09/10/2025 | Daniel | Se realizaron las correciones y se añadió el capitulo 6 que es la configuración y el uso de las herramientas que se utilizaran durante el ciclo. |
+| 2.1     | 09/10/2025 | Daniel           | Se realizaron las correciones y se añadió el capitulo 6 que es la configuración y el uso de las herramientas que se utilizaran durante el ciclo.                                                                                                                                                                                                         |
+| 2.2     | 09/10/2025 | Marcelo          | Se agrego proceso de event storming con sus resultados finales                                                                                                                                                                                                                                                                                           |
+
 ---
 
 # Project Report Collaboration Insights
@@ -188,12 +190,12 @@ _Tabla de contenidos_
   - [Segmento: Empresa (Gestores de transporte) - Carlos Mendoza](#segmento-empresa-gestores-de-transporte---carlos-mendoza)
   - [Segmento: Clientes Finales (Consumidores finales) - María González](#segmento-clientes-finales-consumidores-finales---maría-gonzález)
   - [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
-      - [1. Preparing the Room](#1-preparing-the-room)
-      - [2. Energizing the audience](#2-energizing-the-audience)
-      - [3. Briefing and Presenting the Agenda](#3-briefing-and-presenting-the-agenda)
-      - [4. Generating Domain Events](#4-generating-domain-events)
-      - [5. Sorting Domain Events](#5-sorting-domain-events)
-      - [6. Adding Actors and External Systems](#6-adding-actors-and-external-systems)
+    - [1. Preparing the Room](#1-preparing-the-room)
+    - [2. Energizing the audience](#2-energizing-the-audience)
+    - [3. Briefing and Presenting the Agenda](#3-briefing-and-presenting-the-agenda)
+    - [4. Generating Domain Events](#4-generating-domain-events)
+    - [5. Sorting Domain Events](#5-sorting-domain-events)
+    - [6. Adding Actors and External Systems](#6-adding-actors-and-external-systems)
     - [Actores:](#actores)
     - [Sistemas Externos:](#sistemas-externos)
       - [7. Storytelling](#7-storytelling)
@@ -1478,7 +1480,7 @@ Se identificaron los actores clave que participan en los eventos:
 - **Transport Manager (Gestor de Transporte)** : Gestiona operaciones, rutas, costos y SLA
 - **Dock Staff (Personal del Muelle)** : Encargado de la carga, descarga y verificación de mercancía en el muelle. Asegura que los productos correctos se carguen en los vehículos apropiados.
 - **Driver (Conductor)** : Encargado de ejecutar el viaje
-- **Logistic Staff (Personal Logístico)** : Coordina el flujo de mercancías desde el origen hasta el destino. Gestiona el inventario, el almacenamiento y la documentación 
+- **Logistic Staff (Personal Logístico)** : Coordina el flujo de mercancías desde el origen hasta el destino. Gestiona el inventario, el almacenamiento y la documentación
 
 ### Sistemas Externos:
 
@@ -1494,11 +1496,9 @@ El equipo narró la experiencia desde dos perspectivas:
 
 Un gestor de transporte recibe una solicitud de servicio, genera una cotización, acuerda un SLA con el cliente y planifica la ruta considerando paradas, capacidad del vehículo y requisitos especiales. Prepara la documentación, asigna un conductor y un vehículo, y reserva slots en cross-docks. Al llegar el cargamento al muelle, se verifican las mercancías, se asignan etiquetas y se aprueba el plan de carga. Durante el viaje, el gestor no tiene visibilidad real, pues depende de las llamadas esporádicas del conductor para saber la ubicación y el estado de la carga. Si hay un problema de temperatura o desvío, solo se entera después del hecho.
 
-
 **Perspectiva del Cliente Final:**
 
 El cliente no recibe notificaciones de estado ni puede rastrear su envío en tiempo real. Al recibir la mercancía, solo puede hacer una inspección visual, pues no hay datos de temperatura o vibración para validar. La falta de datos históricos y verificables complica la confianza y hace que la resolución de cualquier problema o reclamo sea lenta y dependiente del papeleo.
-
 
 #### 8. Reverse Storytelling
 
@@ -1514,7 +1514,6 @@ Se recopilaron los principales aprendizajes y las necesidades de mejora no cubie
 - Es crucial documentar políticas de negocio claras sobre las desviaciones (tiempos de gracia, umbrales de temperatura, tarifas) para evitar conflictos y largas disputas.
 - La experiencia del cliente final es pobre debido a la falta de transparencia y el nulo acceso a datos del envío, lo cual deteriora la confianza en el proveedor.
 - La resolución de disputas y el cumplimiento normativo se ven severamente obstaculizados por la ausencia de reportes automáticos y datos históricos verificables.
-
 
 ## 2.5. Ubiquitous Language
 
@@ -1707,14 +1706,51 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 <img src="assets/productbacklog1.png">
 <img src="assets/productbacklog2.png">
 
-**Link del Jira:** [Click aquí para ver el jira](https://reales-iot.atlassian.net/jira/software/projects/CS/boards/9/backlog?atlOrigin=eyJpIjoiNzc2ZGE3MGQ2OTk0NGRkZmEyZDczNGE4NDI4MTc1YWUiLCJwIjoiaiJ9) 
-
+**Link del Jira:** [Click aquí para ver el jira](https://reales-iot.atlassian.net/jira/software/projects/CS/boards/9/backlog?atlOrigin=eyJpIjoiNzc2ZGE3MGQ2OTk0NGRkZmEyZDczNGE4NDI4MTc1YWUiLCJwIjoiaiJ9)
 
 # Capítulo IV: Solution Software Design
 
 ## 4.1. Strategic-Level Domain-Driven Design
 
 ### 4.1.1. Design-Level EventStorming
+
+En esta sección se realizó un Event Storming detallado para modelar y analizar el dominio del sistema CargaSafe. Se llevó a cabo en varias sesiones colaborativas donde se identificaron eventos, comandos, agregados y políticas clave del negocio. Este ejercicio permitió descubrir los bounded contexts candidatos y mapear los flujos de mensajes entre ellos, sentando las bases para el diseño de la arquitectura del sistema.
+
+**Step 1: Unstructured Exploration**  
+Se identificaron todos los eventos clave del sistema mediante una lluvia de ideas sin orden definido, abarcando registro, monitoreo, alertas, viajes y pagos.  
+![Step 1](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%201.jpg)
+
+**Step 2: Timeline**  
+Los eventos fueron organizados cronológicamente para representar los principales flujos de negocio y dependencias entre procesos.  
+![Step 2](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%202.jpg)
+
+**Step 3: Pain Points**  
+Se identificaron los puntos críticos y posibles fallas dentro de los flujos, como errores de comunicación o validación.  
+![Step 3](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%203.jpg)
+
+**Step 4: Pivotal Points**  
+Se marcaron los eventos que generan un cambio de contexto significativo dentro del sistema, como inicios o cierres de procesos.  
+![Step 4](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%204.jpg)
+
+**Step 5: Commands**  
+Se definieron los comandos que ejecutan los actores del sistema y que originan los eventos, representando las intenciones de acción.  
+![Step 5](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%205.jpg)
+
+**Step 6: Policies**  
+Se establecieron reglas automáticas que vinculan eventos con nuevos comandos, automatizando respuestas del sistema.  
+![Step 6](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%206.jpg)
+
+**Step 7: Read Models**  
+Se definieron vistas de datos que reflejan el estado actual del sistema para consulta o monitoreo en tiempo real.  
+![Step 7](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%207.jpg)
+
+**Step 8: External Systems**  
+Se identificaron los servicios externos integrados, como APIs, pasarelas de pago y plataformas de notificación.  
+![Step 8](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%208.jpg)
+
+**Step 9: Aggregates**  
+Se agruparon comandos y eventos bajo agregados que aseguran la coherencia en cada bounded context.  
+![Step 9](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%209.jpg)
 
 #### 4.1.1.1 Candidate Context Discovery
 
@@ -4111,9 +4147,9 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 
 - **Propósito**: Sedes/almacenes/puntos de entrega asociados al Merchant.
 - **Atributos principales**:
-  - `id` 
+  - `id`
   - `name`
-  - `address (VO)` 
+  - `address (VO)`
   - `latitude`
   - `longitude`
 
@@ -4121,10 +4157,10 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 
 - **Propósito**: Medio de pago registrado por el Merchant.
 - **Atributos principales**:
-  - `id` 
+  - `id`
   - `type (CARD|BANK)`
   - `card (VO)`
-  - `externalId (PSP)` 
+  - `externalId (PSP)`
   - `isDefault`
 - **Métodos principales**:
   - `makeDefault()`
@@ -4157,8 +4193,8 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 
 - **Métodos:**
 
-  - `startTrial(days)` 
-  - `activate(plan)` 
+  - `startTrial(days)`
+  - `activate(plan)`
   - `markPastDue()`
   - `cancel(at)`
   - `renew(nextPeriod)`
@@ -4170,17 +4206,17 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 - **Atributos:**
 
   - `id`
-  - `subscriptionId` 
+  - `subscriptionId`
   - `amountTotal (Money)`
-  - `status (DRAFT|OPEN|PAID|VOID)` 
-  - `issuedAt` 
+  - `status (DRAFT|OPEN|PAID|VOID)`
+  - `issuedAt`
   - `dueAt`
   - `paidAt`
-  - `externalId (PSP)` 
+  - `externalId (PSP)`
   - `pdfUrl`
 
 - **Métodos:**
-  - `markPaid(at)` 
+  - `markPaid(at)`
   - `voidInvoice(reason)`
 
 **WebhookEvent (Entity)**
@@ -4189,9 +4225,9 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 
 - **Atributos:**
 
-  - `id` 
+  - `id`
   - `provider (STRIPE|OTHER)`
-  - `eventType` 
+  - `eventType`
   - `payload`
   - `receivedAt`
   - `processedAt`
@@ -4199,7 +4235,6 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
   - `merchantId?`
   - `subscriptionId?`
   - `invoiceId?`
-
 
 **Value Objects**
 
@@ -4221,9 +4256,9 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 **Commands**
 
 - **CreateMerchantCommand**
-- **UpdateMerchantProfileCommand** 
+- **UpdateMerchantProfileCommand**
 - **SetPrimaryContactCommand**
-- **CreateSubscriptionCommand** 
+- **CreateSubscriptionCommand**
 - **CancelSubscriptionCommand**
 - **MarkSubscriptionPastDueCommand**
 - **GenerateInvoiceCommand**
@@ -4232,9 +4267,9 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 
 **Queries**
 
-- **GetMerchantByIdQuery** 
+- **GetMerchantByIdQuery**
 - **SearchMerchantsQuery**
-- **GetMerchantContactsQuery** 
+- **GetMerchantContactsQuery**
 - **GetMerchantLocationsQuery**
 - **GetPaymentMethodsQuery**
 - **GetSubscriptionsByMerchantQuery**
@@ -4245,9 +4280,9 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 - **MerchantCreatedEvent**
 - **MerchantSuspendedEvent**
 - **SubscriptionActivatedEvent**
-- **SubscriptionCanceledEvent** 
+- **SubscriptionCanceledEvent**
 - **SubscriptionPastDueEvent**
-- **InvoiceGeneratedEvent** 
+- **InvoiceGeneratedEvent**
 - **InvoicePaidEvent**
 - **PaymentMethodSetDefaultEvent**
 
@@ -4325,43 +4360,43 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 
 **MerchantCommandService**
 
-  - Maneja creación/actualización de Merchant
+- Maneja creación/actualización de Merchant
 
-  - Gestiona contactos, ubicaciones y método de pago por defecto
+- Gestiona contactos, ubicaciones y método de pago por defecto
 
-  - Encola eventos de auditoría (MerchantCreated/Suspended)
+- Encola eventos de auditoría (MerchantCreated/Suspended)
 
 **SubscriptionCommandService**
 
-  - Alta/cancelación/renovación de suscripciones
+- Alta/cancelación/renovación de suscripciones
 
-  - Transiciones de estado (`TRIALING → ACTIVE → PAST_DUE → CANCELED`)
+- Transiciones de estado (`TRIALING → ACTIVE → PAST_DUE → CANCELED`)
 
-  - Coordinación con PSP (crear/cancelar suscripción)
+- Coordinación con PSP (crear/cancelar suscripción)
 
 **BillingCommandService**
 
-  - Generación de facturas, aplicación de pagos
+- Generación de facturas, aplicación de pagos
 
-  - Emisión de eventos `InvoiceGenerated` y `InvoicePaid`
+- Emisión de eventos `InvoiceGenerated` y `InvoicePaid`
 
 **Query Services**
 
 **MerchantQueryService**
 
-  - Búsquedas y lecturas optimizadas de Merchant/Contacts/Locations/PaymentMethods
+- Búsquedas y lecturas optimizadas de Merchant/Contacts/Locations/PaymentMethods
 
 **BillingQueryService**
 
-  - Consultas de suscripciones e invoices (paginadas, por periodo/estado)
+- Consultas de suscripciones e invoices (paginadas, por periodo/estado)
 
 **Event Handlers**
 
 **PaymentWebhookEventHandler**
 
-  - Procesa webhooks del PSP (idempotente)
+- Procesa webhooks del PSP (idempotente)
 
-  - Sincroniza estados de `Subscription`/`Invoice`, publica eventos internos
+- Sincroniza estados de `Subscription`/`Invoice`, publica eventos internos
 
 **SubscriptionActivatedEventHandler**
 
@@ -4377,29 +4412,29 @@ El diseño de base de datos del módulo Analytics está optimizado para consulta
 
 **MerchantRepository** (implementa `IMerchantRepository`)
 
-  - Persistencia de Merchants y relaciones (contacts, locations)
+- Persistencia de Merchants y relaciones (contacts, locations)
 
-  - Búsqueda por criterios (nombre, taxId, status)
+- Búsqueda por criterios (nombre, taxId, status)
 
-  - Caché de Merchants de alta frecuencia
+- Caché de Merchants de alta frecuencia
 
 **PaymentMethodRepository** (implementa `IPaymentMethodRepository`)
 
-  - Almacenamiento de métodos de pago, `isDefault`
+- Almacenamiento de métodos de pago, `isDefault`
 
-  - Resolución por `externalId` (PSP)
+- Resolución por `externalId` (PSP)
 
 **SubscriptionRepository** (implementa `ISubscriptionRepository`)
 
-  - Persistencia de suscripciones y periodos
+- Persistencia de suscripciones y periodos
 
-  - Consultas por estado/merchant
+- Consultas por estado/merchant
 
 **InvoiceRepository** (implementa `IInvoiceRepository`)
 
-  - Persistencia y búsqueda de facturas
+- Persistencia y búsqueda de facturas
 
-  - Gestión de pdfUrl y correlación externalId
+- Gestión de pdfUrl y correlación externalId
 
 **WebhookEventRepository** (implementa `IWebhookEventRepository`)
 
@@ -4468,14 +4503,13 @@ La tipografía principal utilizada es Source Sans 3, seleccionada por su legibil
 El lenguaje visual del proyecto combina un tono formal y profesional, pero con una interfaz accesible y amigable. Se emplean botones con esquinas suavemente redondeadas, íconos derivados de la librería Material Design, y espaciados definidos en múltiplos de 4px para mantener uniformidad y ritmo visual en cada componente.
 En cuanto a componentes interactivos, se establecen directrices claras para botones, selectores, campos de texto e iconografía, priorizando la usabilidad y el reconocimiento inmediato de acciones. Los botones principales mantienen un color sólido naranja para llamadas a la acción (CTA), mientras que los secundarios y estados hover o active usan variantes más claras u opacas del mismo tono.<br>
 
-
 ![Visualization Style Guideline](assets/style1.png)
 
 ### 5.1.2. Web, Mobile and IoT Style Guidelines.
 
 El diseño adaptable del ecosistema CargaSafe se rige por un enfoque responsive, garantizando que la experiencia de usuario sea fluida y consistente en dispositivos web, móviles y entornos IoT.<br>
 
-En la versión web, se prioriza la disposición horizontal de los elementos, con paneles y tarjetas informativas que aprovechan el espacio y mantienen una jerarquía visual clara. Los márgenes, paddings y tamaños tipográficos se ajustan automáticamente para conservar legibilidad en pantallas amplias.<br> 
+En la versión web, se prioriza la disposición horizontal de los elementos, con paneles y tarjetas informativas que aprovechan el espacio y mantienen una jerarquía visual clara. Los márgenes, paddings y tamaños tipográficos se ajustan automáticamente para conservar legibilidad en pantallas amplias.<br>
 
 Para la versión mobile, la interfaz mantiene los mismos principios visuales, pero reestructura los componentes en una distribución vertical optimizada para la interacción táctil. Se emplean botones de mayor tamaño, espaciados más amplios y textos ajustados a resoluciones menores, conservando la armonía visual del sistema.<br>
 
@@ -4483,16 +4517,13 @@ En el contexto IoT, la guía se orienta a la presentación de datos de monitoreo
 
 Estas directrices en conjunto garantizan que CargaSafe mantenga una identidad visual sólida, coherente y escalable a través de todos sus entornos digitales, reforzando la percepción de una plataforma tecnológica moderna, confiable y centrada en el usuario.<br>
 
-
 ![Visualization Style Guideline2](assets/style2.png)
-
 
 ## 5.2. Information Architecture.
 
 ### 5.2.1. Organization Systems.
 
 En esta sección se define cómo se estructura la información en CargaSafe según el tipo de contenido, la tarea y la audiencia. Se combinan sistemas visuales (jerárquica, secuencial, matricial) y esquemas de categorización (alfabético, cronológico, por tópicos y por audiencia).
-
 
 **Sistemas visuales**
 
@@ -4528,7 +4559,6 @@ En esta sección se define cómo se estructura la información en CargaSafe seg�
 
 - **Según audiencia:** Fleet Manager, Dispatcher, Driver, Customer (visibilidad, lenguaje y CTA por rol/scope).
 
-
 **Matriz guía**
 
 | Grupo                 | Organización visual                       | Categorización                       |
@@ -4541,9 +4571,6 @@ En esta sección se define cómo se estructura la información en CargaSafe seg�
 | Monitoring/Telemetry  | Matricial (Tiempo×KPI)                    | Cronológico                          |
 | Settings/Rules        | Jerárquica                                | Por tópicos (+ A–Z en listados)      |
 | Billing/Subscriptions | Secuencial + Jerárquica                   | Por audiencia (admin) + cronológico  |
-
-
-
 
 ### 5.2.2. Labeling Systems.
 
@@ -4567,7 +4594,6 @@ En esta sección se establecen los criterios de rotulado para representar los da
 
 - **Mensajes de estado:** No vehicles found, No alerts in the selected range, Vehicle created successfully, Failed to attach device.
 
-
 **Asociaciones**
 
 | Etiqueta / CTA    | ¿Qué representa?                       | Asociación mental del usuario               |
@@ -4576,8 +4602,6 @@ En esta sección se establecen los criterios de rotulado para representar los da
 | **Attach Device** | Vincular un dispositivo a un vehículo  | “Emparejar Serial con Plate”                |
 | **Acknowledge**   | Marcar una alerta atendida             | “Se registró responsable; cambia el estado” |
 | **Export**        | Descargar tabla filtrada               | “Obtener CSV/Excel de lo que veo”           |
-
-
 
 **Accesibilidad**
 
@@ -4595,36 +4619,31 @@ En esta sección se establecen los criterios de rotulado para representar los da
 
 - Chips de severidad con texto + color (no solo color).
 
-
-
-
 ### 5.2.3. SEO Tags and Meta Tags
 
 En esta sección se documentan las SEO Tags y Meta Tags de la Landing Page y la WebApp —Title, Description, Keywords y Author— además de Open Graph y Twitter, mostrando los valores como código para su inclusión en los archivos HTML.
 
 **Landing Page**
 
-| Tag            | Ejemplo (inline) |
-| -------------- | ---------------- |
-| Title          | &lt;title&gt;CargaSafe &#124; Smart Monitoring for Reliable Transportation&lt;/title&gt; |
-| Description    | &lt;meta name="description" content="Real-time telemetry, smart alerts, and fleet visibility."&gt; |
+| Tag            | Ejemplo (inline)                                                                                                                         |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Title          | &lt;title&gt;CargaSafe &#124; Smart Monitoring for Reliable Transportation&lt;/title&gt;                                                 |
+| Description    | &lt;meta name="description" content="Real-time telemetry, smart alerts, and fleet visibility."&gt;                                       |
 | Keywords       | &lt;meta name="keywords" content="fleet monitoring, cold chain, IoT telemetry, logistics alerts, geofencing, temperature monitoring"&gt; |
-| Author         | &lt;meta name="author" content="CargaSafe Team"&gt; |
-| OG Title       | &lt;meta property="og:title" content="CargaSafe – Smart Monitoring for Reliable Transportation"&gt; |
-| OG Description | &lt;meta property="og:description" content="Monitor your fleet in real-time with alerts, telemetry and reports."&gt; |
-| Twitter Card   | &lt;meta name="twitter:card" content="summary_large_image"&gt; |
-| Favicon        | &lt;link rel="icon" href="assets/logo.png" type="image/png"&gt; |
+| Author         | &lt;meta name="author" content="CargaSafe Team"&gt;                                                                                      |
+| OG Title       | &lt;meta property="og:title" content="CargaSafe – Smart Monitoring for Reliable Transportation"&gt;                                      |
+| OG Description | &lt;meta property="og:description" content="Monitor your fleet in real-time with alerts, telemetry and reports."&gt;                     |
+| Twitter Card   | &lt;meta name="twitter:card" content="summary_large_image"&gt;                                                                           |
+| Favicon        | &lt;link rel="icon" href="assets/logo.png" type="image/png"&gt;                                                                          |
 
 **WebApp – Fleet → Vehicles**
 
-| Tag         | Ejemplo (inline) |
-| ----------- | ---------------- |
-| Title       | &lt;title&gt;Fleet – Vehicles &#124; CargaSafe&lt;/title&gt; |
-| Description | &lt;meta name="description" content="Manage vehicles: status, assignments and device attachments."&gt; |
+| Tag         | Ejemplo (inline)                                                                                         |
+| ----------- | -------------------------------------------------------------------------------------------------------- |
+| Title       | &lt;title&gt;Fleet – Vehicles &#124; CargaSafe&lt;/title&gt;                                             |
+| Description | &lt;meta name="description" content="Manage vehicles: status, assignments and device attachments."&gt;   |
 | Keywords    | &lt;meta name="keywords" content="fleet vehicles, status, device attachment, maintenance, logistics"&gt; |
-| Author      | &lt;meta name="author" content="CargaSafe Team"&gt; |
-
-
+| Author      | &lt;meta name="author" content="CargaSafe Team"&gt;                                                      |
 
 ### 5.2.4. Searching Systems.
 
@@ -4660,10 +4679,6 @@ En esta sección se especifican los sistemas de búsqueda que habilitan la local
 
 - Éxito en primera búsqueda > 85% (pruebas moderadas).
 
-
-
-
-
 ### 5.2.5. Navigation Systems.
 
 En esta sección se describen los sistemas de navegación que guían a los usuarios por la Landing Page y la WebApp, abarcando navegación global, local y contextual, comportamientos responsivos, flujos guiados, guardas y criterios de aceptación.
@@ -4682,11 +4697,11 @@ En esta sección se describen los sistemas de navegación que guían a los usuar
 
 - Responsive:
 
-    - Móvil → menú hamburguesa; tablas → cards con CTAs visibles.
+  - Móvil → menú hamburguesa; tablas → cards con CTAs visibles.
 
-    - Desktop → sidebar fija; tablas con sort/paginator.
+  - Desktop → sidebar fija; tablas con sort/paginator.
 
-    - LandingPage → navbar.
+  - LandingPage → navbar.
 
 - Flujos guiados (secuencial): steppers con validación por paso (Create Trip, Attach Device).
 
@@ -4701,8 +4716,6 @@ En esta sección se describen los sistemas de navegación que guían a los usuar
 - Completar Create Trip ≤ 60 s (usuario entrenado).
 
 - Sin 404 visibles; Not Found con enlace de retorno.
-
-
 
 ## 5.3. Landing Page UI Design.
 
@@ -4728,32 +4741,31 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 
 **Web Application**<br>
 
-*Authentication*<br>
+_Authentication_<br>
 
 ![Wireframe Authentication Web application](assets/WireframesAuthentication.png) <br>
 
-*Subscriptions*<br>
+_Subscriptions_<br>
 
 ![Wireframe Subscriptions Web application](assets/wireframeAppwebSubscriptions.png) <br>
 
-*Alerts*<br>
+_Alerts_<br>
 
 <img src="assets/alerts3.png"/>
 
 <img src="assets/alerts4.png"/>
 
+**Mobile Application**
 
-**Mobile Application** 
-
-*Authentication*<br>
+_Authentication_<br>
 
 ![Wireframe Authentication Mobile application](assets/WireframeMobileAuthentication.png) <br>
 
-*Subscriptions*<br>
+_Subscriptions_<br>
 
 ![Wireframe Subscriptions Mobile Application](assets/wireframeMobileSubscriptions.png) <br>
 
-*Alerts*<br>
+_Alerts_<br>
 
 <img src="assets/alerts7.png"/>
 
@@ -4761,37 +4773,35 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 
 ### 5.4.2. Applications Wireflow Diagrams.
 
-
-
 ### 5.4.2. Applications Mock-ups.
 
-**Web Application** 
+**Web Application**
 
-*Authentication*<br>
+_Authentication_<br>
 
 ![Mockups Authentication Web application](assets/MockupAuthentication.png) <br>
 
-*Subscriptions*<br>
+_Subscriptions_<br>
 
 ![Mockups Subscriptions Web application](assets/mockupsAppwebSubscriptions.png) <br>
 
-*Alerts*<br>
+_Alerts_<br>
 
 <img src="assets/alert1.png"/>
 
 <img src="assets/alert2.png"/>
 
-**Mobile Application** 
+**Mobile Application**
 
-*Authentication*<br>
+_Authentication_<br>
 
 ![Mockups Authentication Mobile application](assets/MockupMobileAuthentication.png) <br>
 
-*Subscriptions*<br>
+_Subscriptions_<br>
 
 ![Mockups Subscriptions Mobile Application](assets/mockupsMobileSubscriptions.png) <br>
 
-*Alerts*<br>
+_Alerts_<br>
 
 <img src="assets/alerts5.png"/>
 
@@ -4828,7 +4838,6 @@ Descarga de los reportes de viajes:
 - Descripción: El usuario se encuentra en la pantalla de inicio de sesión y no tiene una cuenta registrada, deberá dar click en "Sign up here". Deberá llenar sus datos completos y ya podrá iniciar sesión en su cuenta registrada.
 
 <img src="assets/UserFlow/userflow6.png"/>
-
 
 **Web Application - Empresa**
 
@@ -5287,6 +5296,7 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
 </table>
 
 **Leyenda:**
+
 - **L (Leader)**: Responsable principal del aspecto, encargado de la coordinación, toma de decisiones técnicas y revisión final del código.
 - **C (Collaborator)**: Contribuye activamente al desarrollo del aspecto, apoya en la implementación de funcionalidades y participa en las revisiones de código.
 
@@ -5300,58 +5310,56 @@ La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se
 
 <img src="assets/backlog.png">
 
-| Sprint # | Sprint 1 |  |  |  |  |  |  |
-|----------------|------------------|----------|-------------|------------------|--------------------|--------------|--------|
-| User Story | Work-Item / Task |  |  |  |  |  |  |
+| Sprint #   | Sprint 1         |     |     |     |     |     |     |
+| ---------- | ---------------- | --- | --- | --- | --- | --- | --- |
+| User Story | Work-Item / Task |     |     |     |     |     |     |
 
-| User Story Id | User Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
-|----------------|------------------|----------|-------------|------------------|--------------------|--------------|--------|
-| US01 | Sección portada | T01 | Maquetar versión desktop del hero | Crear estructura visual y contenido de la sección hero en versión desktop | 2 | Daniel Chirinos | Done |
-| US01 | Sección portada | T02 | Maquetar versión mobile del hero | Adaptar diseño del hero a dispositivos móviles | 2 | Daniel Chirinos | Done |
-| US02 | Sección de testimonios | T03 | Maquetar versión desktop de testimonios | Diseñar estructura y estilo de la sección de testimonios para desktop | 2 | Jefrey Sanchez | Done |
-| US02 | Sección de testimonios | T04 | Maquetar versión mobile de testimonios | Adaptar la sección de testimonios a vista móvil | 2 | Jefrey Sanchez | Done |
-| US03 | Sección precios | T05 | Maquetar versión desktop de precios | Crear layout de la tabla de precios con estilos y estructura responsive | 2 | Jefrey Sanchez | Done |
-| US03 | Sección precios | T06 | Maquetar versión mobile de precios | Optimizar diseño de precios para dispositivos móviles | 2 | Jefrey Sanchez | Done |
-| US04 | Sección contáctanos | T07 | Maquetar versión desktop de contáctanos | Crear formulario y disposición de la sección de contacto en desktop | 2 | Nicolas Vera | Done |
-| US04 | Sección contáctanos | T08 | Maquetar versión mobile de contáctanos | Adaptar formulario y estilos a versión móvil | 2 | Nicolas Vera | Done |
-| US05 | Sección footer | T09 | Maquetar versión desktop del footer | Crear estructura de pie de página con enlaces y estilos base | 2 | Nicolas Vera | Done |
-| US05 | Sección footer | T10 | Maquetar versión mobile del footer | Ajustar estructura del footer a vista móvil | 2 | Nicolas Vera | Done |
-| US06 | Sección de beneficios | T11 | Maquetar versión desktop de beneficios | Crear diseño informativo para los beneficios del producto | 2 | George Aliaga | Done |
-| US06 | Sección de beneficios | T12 | Maquetar versión mobile de beneficios | Ajustar diseño de beneficios a pantalla móvil | 2 | George Aliaga | Done |
-| US07 | Sección de funcionalidades | T13 | Maquetar versión desktop de funcionalidades | Diseñar estructura informativa de funcionalidades IoT | 2 | Alessandro Bernardo | Done |
-| US07 | Sección de funcionalidades | T14 | Maquetar versión mobile de funcionalidades | Adaptar funcionalidades IoT a vista móvil | 2 | Alessandro Bernardo | Done |
-| US08 | Call to Action de descarga de App Móvil | T15 | Crear CTA de descarga | Implementar botones de descarga para Android e iOS | 2 | Marcelo Garro | Done |
-| US09 | Call to Action a la aplicación web | T16 | Crear CTA a la aplicación web | Crear enlace directo desde la landing hacia la app web | 2 | Marcelo Garro | Done |
-| US10 | Internacionalización de contenido | T17 | Crear sistema de internacionalización | Implementar cambio dinámico de idioma en la landing | 3 | George Aliaga | Done |
-| US10 | Internacionalización de contenido | T18 | Traducir contenido general | Adaptar textos y secciones al idioma inglés | 6 | George Aliaga | Done |
-| US11 | Navegación en landing page | T19 | Crear navegación desktop | Implementar menú principal y navegación entre secciones | 2 | Marcelo Garro | Done |
-| US11 | Navegación en landing page | T20 | Crear navegación mobile | Crear menú hamburguesa para navegación en móviles | 2 | Marcelo Garro | Done |
-| US12 | Registro de vehículos de carga | T21 | Implementar formulario de registro | Diseñar formulario funcional para registrar nuevos vehículos | 3 | Nicolas Vera | Done |
-| US13 | Eliminación de vehículos de carga | T22 | Crear acción de eliminación | Implementar botón y lógica para eliminar vehículos registrados | 2 | Nicolas Vera | Done |
-| US14 | Ver todos los vehículos de carga | T23 | Mostrar lista de vehículos | Implementar tabla de visualización de vehículos registrados | 2 | Nicolas Vera | Done |
-| US15 | Lista de viajes registrados | T24 | Mostrar viajes registrados | Desarrollar listado con datos de viajes del usuario | 3 | Marcelo Garro | Done |
-| US16 | Detalle de viaje | T25 | Implementar vista detallada | Mostrar información completa de un viaje seleccionado | 3 | Marcelo Garro | Done |
-| US17 | Filtrado de viajes por fecha | T26 | Crear filtros por fecha | Implementar filtros dinámicos en la lista de viajes | 2 | Nicolas Vera | Done |
-| US18 | Historial de pagos | T27 | Mostrar historial de pagos | Desarrollar interfaz para mostrar transacciones realizadas | 2 | Jefrey Sanchez | Done |
-| US19 | Confirmar suscripción | T28 | Crear flujo de confirmación | Implementar pantalla de confirmación para suscripción activa | 1 | Jefrey Sanchez | Done |
-| US20 | Cancelar suscripción | T29 | Implementar cancelación de suscripción | Agregar opción y modal para cancelar suscripción | 1 | Jefrey Sanchez | Done |
-| US21 | Visualizar información de suscripción actual | T30 | Mostrar datos de suscripción | Crear interfaz para visualizar tipo de plan y estado actual | 2 | Nicolas Vera | Done |
-| US22 | Recuperar contraseña | T31 | Implementar recuperación de contraseña | Desarrollar flujo para restablecer credenciales de usuario | 1 | George Aliaga | Done |
-| US23 | Registro de dispositivos IoT | T32 | Crear formulario de registro IoT | Diseñar formulario para vincular nuevos dispositivos IoT | 3 | Nicolas Vera | Done |
-| US24 | Eliminar dispositivo IoT | T33 | Implementar eliminación de dispositivo | Agregar opción para eliminar dispositivos registrados | 2 | Nicolas Vera | Done |
-| US25 | Asignar dispositivo a vehículo de carga | T34 | Crear flujo de asignación | Desarrollar relación entre vehículo y dispositivo IoT | 2.5 | Nicolas Vera | Done |
-| US26 | Ver todos los dispositivos IoT en la plataforma | T35 | Listar dispositivos IoT | Mostrar todos los dispositivos vinculados a la cuenta | 2 | Nicolas Vera | Done |
-| US27 | Ver estado de dispositivo por vehículo | T36 | Mostrar estado del dispositivo | Implementar vista de estado de sensor IoT por vehículo | 2 | Nicolas Vera | Done |
-| US28 | Alertas por incumplimiento de temperatura | T37 | Implementar alertas IoT | Crear sistema de notificación por temperaturas fuera de rango | 2 | Daniel Chirinos | Done |
-| US29 | Gráficos de tiempo y temperatura | T38 | Crear gráficos de temperatura | Implementar gráficos de línea para mostrar variaciones térmicas | 4 | Alessandro Bernardo | Done |
-| US30 | Gráficos de incidencias por mes | T39 | Crear gráfico de incidencias | Mostrar estadísticas mensuales de incidentes | 4 | Alessandro Bernardo | Done |
-| US31 | Creación de viajes | T40 | Implementar formulario de creación | Crear vista y formulario para registrar nuevos viajes | 2 | Marcelo Garro | In progress |
-| US32 | Actualización de estados de viaje | T41 | Implementar cambio de estado | Crear función para modificar estado de viajes registrados | 5 | Marcelo Garro | To-Do |
-| US32 | Actualización de estados de viaje | T42 | Confirmar acción de actualización | Desarrollar modal de confirmación para cambios de estado | 5 | Marcelo Garro | To-Do |
-| US33 | Filtrado de viajes por fecha | T43 | Implementar opciones de filtrado | Crear filtros dinámicos por fecha y estado de viaje | 1 | Marcelo Garro | In progress |
-| US34 | Actualización de layout de lista de viajes | T44 | Rediseñar layout de lista | Mejorar presentación visual de la lista de viajes registrados | 1 | Marcelo Garro | In progress |
-
-
+| User Story Id | User Story Title                                | Task Id | Task Title                                  | Task Description                                                          | Estimation (Hours) | Assigned To         | Status      |
+| ------------- | ----------------------------------------------- | ------- | ------------------------------------------- | ------------------------------------------------------------------------- | ------------------ | ------------------- | ----------- |
+| US01          | Sección portada                                 | T01     | Maquetar versión desktop del hero           | Crear estructura visual y contenido de la sección hero en versión desktop | 2                  | Daniel Chirinos     | Done        |
+| US01          | Sección portada                                 | T02     | Maquetar versión mobile del hero            | Adaptar diseño del hero a dispositivos móviles                            | 2                  | Daniel Chirinos     | Done        |
+| US02          | Sección de testimonios                          | T03     | Maquetar versión desktop de testimonios     | Diseñar estructura y estilo de la sección de testimonios para desktop     | 2                  | Jefrey Sanchez      | Done        |
+| US02          | Sección de testimonios                          | T04     | Maquetar versión mobile de testimonios      | Adaptar la sección de testimonios a vista móvil                           | 2                  | Jefrey Sanchez      | Done        |
+| US03          | Sección precios                                 | T05     | Maquetar versión desktop de precios         | Crear layout de la tabla de precios con estilos y estructura responsive   | 2                  | Jefrey Sanchez      | Done        |
+| US03          | Sección precios                                 | T06     | Maquetar versión mobile de precios          | Optimizar diseño de precios para dispositivos móviles                     | 2                  | Jefrey Sanchez      | Done        |
+| US04          | Sección contáctanos                             | T07     | Maquetar versión desktop de contáctanos     | Crear formulario y disposición de la sección de contacto en desktop       | 2                  | Nicolas Vera        | Done        |
+| US04          | Sección contáctanos                             | T08     | Maquetar versión mobile de contáctanos      | Adaptar formulario y estilos a versión móvil                              | 2                  | Nicolas Vera        | Done        |
+| US05          | Sección footer                                  | T09     | Maquetar versión desktop del footer         | Crear estructura de pie de página con enlaces y estilos base              | 2                  | Nicolas Vera        | Done        |
+| US05          | Sección footer                                  | T10     | Maquetar versión mobile del footer          | Ajustar estructura del footer a vista móvil                               | 2                  | Nicolas Vera        | Done        |
+| US06          | Sección de beneficios                           | T11     | Maquetar versión desktop de beneficios      | Crear diseño informativo para los beneficios del producto                 | 2                  | George Aliaga       | Done        |
+| US06          | Sección de beneficios                           | T12     | Maquetar versión mobile de beneficios       | Ajustar diseño de beneficios a pantalla móvil                             | 2                  | George Aliaga       | Done        |
+| US07          | Sección de funcionalidades                      | T13     | Maquetar versión desktop de funcionalidades | Diseñar estructura informativa de funcionalidades IoT                     | 2                  | Alessandro Bernardo | Done        |
+| US07          | Sección de funcionalidades                      | T14     | Maquetar versión mobile de funcionalidades  | Adaptar funcionalidades IoT a vista móvil                                 | 2                  | Alessandro Bernardo | Done        |
+| US08          | Call to Action de descarga de App Móvil         | T15     | Crear CTA de descarga                       | Implementar botones de descarga para Android e iOS                        | 2                  | Marcelo Garro       | Done        |
+| US09          | Call to Action a la aplicación web              | T16     | Crear CTA a la aplicación web               | Crear enlace directo desde la landing hacia la app web                    | 2                  | Marcelo Garro       | Done        |
+| US10          | Internacionalización de contenido               | T17     | Crear sistema de internacionalización       | Implementar cambio dinámico de idioma en la landing                       | 3                  | George Aliaga       | Done        |
+| US10          | Internacionalización de contenido               | T18     | Traducir contenido general                  | Adaptar textos y secciones al idioma inglés                               | 6                  | George Aliaga       | Done        |
+| US11          | Navegación en landing page                      | T19     | Crear navegación desktop                    | Implementar menú principal y navegación entre secciones                   | 2                  | Marcelo Garro       | Done        |
+| US11          | Navegación en landing page                      | T20     | Crear navegación mobile                     | Crear menú hamburguesa para navegación en móviles                         | 2                  | Marcelo Garro       | Done        |
+| US12          | Registro de vehículos de carga                  | T21     | Implementar formulario de registro          | Diseñar formulario funcional para registrar nuevos vehículos              | 3                  | Nicolas Vera        | Done        |
+| US13          | Eliminación de vehículos de carga               | T22     | Crear acción de eliminación                 | Implementar botón y lógica para eliminar vehículos registrados            | 2                  | Nicolas Vera        | Done        |
+| US14          | Ver todos los vehículos de carga                | T23     | Mostrar lista de vehículos                  | Implementar tabla de visualización de vehículos registrados               | 2                  | Nicolas Vera        | Done        |
+| US15          | Lista de viajes registrados                     | T24     | Mostrar viajes registrados                  | Desarrollar listado con datos de viajes del usuario                       | 3                  | Marcelo Garro       | Done        |
+| US16          | Detalle de viaje                                | T25     | Implementar vista detallada                 | Mostrar información completa de un viaje seleccionado                     | 3                  | Marcelo Garro       | Done        |
+| US17          | Filtrado de viajes por fecha                    | T26     | Crear filtros por fecha                     | Implementar filtros dinámicos en la lista de viajes                       | 2                  | Nicolas Vera        | Done        |
+| US18          | Historial de pagos                              | T27     | Mostrar historial de pagos                  | Desarrollar interfaz para mostrar transacciones realizadas                | 2                  | Jefrey Sanchez      | Done        |
+| US19          | Confirmar suscripción                           | T28     | Crear flujo de confirmación                 | Implementar pantalla de confirmación para suscripción activa              | 1                  | Jefrey Sanchez      | Done        |
+| US20          | Cancelar suscripción                            | T29     | Implementar cancelación de suscripción      | Agregar opción y modal para cancelar suscripción                          | 1                  | Jefrey Sanchez      | Done        |
+| US21          | Visualizar información de suscripción actual    | T30     | Mostrar datos de suscripción                | Crear interfaz para visualizar tipo de plan y estado actual               | 2                  | Nicolas Vera        | Done        |
+| US22          | Recuperar contraseña                            | T31     | Implementar recuperación de contraseña      | Desarrollar flujo para restablecer credenciales de usuario                | 1                  | George Aliaga       | Done        |
+| US23          | Registro de dispositivos IoT                    | T32     | Crear formulario de registro IoT            | Diseñar formulario para vincular nuevos dispositivos IoT                  | 3                  | Nicolas Vera        | Done        |
+| US24          | Eliminar dispositivo IoT                        | T33     | Implementar eliminación de dispositivo      | Agregar opción para eliminar dispositivos registrados                     | 2                  | Nicolas Vera        | Done        |
+| US25          | Asignar dispositivo a vehículo de carga         | T34     | Crear flujo de asignación                   | Desarrollar relación entre vehículo y dispositivo IoT                     | 2.5                | Nicolas Vera        | Done        |
+| US26          | Ver todos los dispositivos IoT en la plataforma | T35     | Listar dispositivos IoT                     | Mostrar todos los dispositivos vinculados a la cuenta                     | 2                  | Nicolas Vera        | Done        |
+| US27          | Ver estado de dispositivo por vehículo          | T36     | Mostrar estado del dispositivo              | Implementar vista de estado de sensor IoT por vehículo                    | 2                  | Nicolas Vera        | Done        |
+| US28          | Alertas por incumplimiento de temperatura       | T37     | Implementar alertas IoT                     | Crear sistema de notificación por temperaturas fuera de rango             | 2                  | Daniel Chirinos     | Done        |
+| US29          | Gráficos de tiempo y temperatura                | T38     | Crear gráficos de temperatura               | Implementar gráficos de línea para mostrar variaciones térmicas           | 4                  | Alessandro Bernardo | Done        |
+| US30          | Gráficos de incidencias por mes                 | T39     | Crear gráfico de incidencias                | Mostrar estadísticas mensuales de incidentes                              | 4                  | Alessandro Bernardo | Done        |
+| US31          | Creación de viajes                              | T40     | Implementar formulario de creación          | Crear vista y formulario para registrar nuevos viajes                     | 2                  | Marcelo Garro       | In progress |
+| US32          | Actualización de estados de viaje               | T41     | Implementar cambio de estado                | Crear función para modificar estado de viajes registrados                 | 5                  | Marcelo Garro       | To-Do       |
+| US32          | Actualización de estados de viaje               | T42     | Confirmar acción de actualización           | Desarrollar modal de confirmación para cambios de estado                  | 5                  | Marcelo Garro       | To-Do       |
+| US33          | Filtrado de viajes por fecha                    | T43     | Implementar opciones de filtrado            | Crear filtros dinámicos por fecha y estado de viaje                       | 1                  | Marcelo Garro       | In progress |
+| US34          | Actualización de layout de lista de viajes      | T44     | Rediseñar layout de lista                   | Mejorar presentación visual de la lista de viajes registrados             | 1                  | Marcelo Garro       | In progress |
 
 #### 6.2.1.4. Development Evidence for Sprint Review
 
