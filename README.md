@@ -1705,7 +1705,8 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 <img src="assets/productbacklog1.png">
 <img src="assets/productbacklog2.png">
 
-**Link del Jira:** https://reales-iot.atlassian.net/jira/software/projects/CS/boards/9/backlog?atlOrigin=eyJpIjoiNzc2ZGE3MGQ2OTk0NGRkZmEyZDczNGE4NDI4MTc1YWUiLCJwIjoiaiJ9
+**Link del Jira:** [Click aquí para ver el jira](https://reales-iot.atlassian.net/jira/software/projects/CS/boards/9/backlog?atlOrigin=eyJpIjoiNzc2ZGE3MGQ2OTk0NGRkZmEyZDczNGE4NDI4MTc1YWUiLCJwIjoiaiJ9) 
+
 
 # Capítulo IV: Solution Software Design
 
@@ -4339,25 +4340,49 @@ Los mock-ups finales traducen la estructura del wireframe en una experiencia vis
 
 Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego serán diseñadas más a detalle. A continuación, se presentan los wireframes de las pantallas de las aplicaciones web y móvil.
 
-### App Web 
-- Autenticación
-![Wireframe Login](assets/LoginWireframe.png)
+**Web Application**<br>
 
-![Wireframe Register](assets/RegisterClientWireframe.png)
+*Autenticación*<br>
 
-![Wireframe Register2](assets/RegisterShippingWireframe.png)
 
-![Wireframe Password1](assets/Password1Wireframe.png)
 
-![Wireframe Password2](assets/Password2Wireframe.png)
+*Subscriptions*<br>
 
-![Wireframe Password3](assets/Password3Wireframe.png)
+![Wireframe Subscriptions Web application](assets/wireframeAppwebSubscriptions.png) <br>
+
+
+
+
+**Mobile Application** 
+
+*Subscriptions*<br>
+
+![Wireframe Subscriptions Mobile Application](assets/wireframeMobileSubscriptions.png) <br>
+
+
+
 
 ### 5.4.2. Applications Wireflow Diagrams.
 
 
 
 ### 5.4.2. Applications Mock-ups.
+
+**Web Application** 
+
+
+*Subscriptions*<br>
+
+![Mockups Subscriptions Web application](assets/mockupsAppwebSubscriptions.png) <br>
+
+
+**Mobile Application** 
+
+*Subscriptions*<br>
+
+![Mockups Subscriptions Mobile Application](assets/mockupsMobileSubscriptions.png) <br>
+
+
 
 ### 5.4.3. Applications User Flow Diagrams.
 
@@ -4459,10 +4484,10 @@ El equipo utiliza Git como sistema de control de versiones distribuido y GitHub 
 
 **Repositorio de los productos:**
 
-- Repositorio del Landing Page: https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-landing
-- Repositorio del Frontend Web Applications: https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend
-- Repositorio del App Mobile: https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-mobile
-- Repositorio del Web Service: https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend
+- Repositorio del Landing Page: [Click aquí](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-landing)
+- Repositorio del Frontend Web Applications: [Click aquí](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend)
+- Repositorio del App Mobile: [Click aquí](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-mobile)
+- Repositorio del Web Service: [Click aquí](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend)
 
 Se implementa el flujo de trabajo GitFlow. Este modelo organiza el desarrollo en ramas con funciones específicas para mantener la estabilidad de la rama principal **`main`** y facilitar el desarrollo paralelo de nuevas características.
 
@@ -4946,8 +4971,8 @@ _Sección de planes de suscripción con precios y descripción de beneficios_ <b
 ![Landing Page – Seccion de precios](assets/evidenceLandingPage2.png)
 <br>
 
-Repositorio: [https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-landing](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-landing)  
-Enlace: [https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/](https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/)
+Repositorio: [Click aquí](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-landing)
+Enlace: [Click aquí](https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing)
 
 <br>
 <br>
@@ -4960,11 +4985,11 @@ _Dashboard principal con métricas de viajes, incidencias y alertas activas_ <br
 _Vista del módulo de alertas con listado, estado y acciones de resolución_ <br>
 ![Web App – Alerts Module](assets/evidenceAppWeb2.png)
 
-Repositorio: [https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend)  
-Aplicación en línea: [https://carga-safe.web.app/](https://carga-safe.web.app/)
+Repositorio: [Click aquí](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend)
+Aplicación en línea: [Click aquí](https://carga-safe.web.app/)
 
 **Video de ejecución del Sprint:**  
-https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113324_upc_edu_pe/EevVYOqHNntJlmo8kGIjpv4BHIR0RaeMZU67h4qwxKuqMw
+[Click aquí para ver el video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113324_upc_edu_pe/EevVYOqHNntJlmo8kGIjpv4BHIR0RaeMZU67h4qwxKuqMw)
 <br>
 
 **Conclusión:**
@@ -5016,7 +5041,7 @@ _Configuración y despliegue de la landing mediante GitHub Pages_ <br>
 ![GitHub Pages Deployment – Landing Page](assets/evidenceDeploymnetLanding.png)
 
 URL de la landing:  
-[https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/](https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/)
+[Click aquí para ver la Landing Page](https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/)
 
 _GitHub Actions_ <br>
 ![GitHub Pages Deployment – Landing Page](assets/evidenceGitHubActions.png)
