@@ -131,56 +131,102 @@ _Tabla de contenidos_
 
 - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
+  - [TB1 Project Report Collaboration Insights](#tb1-project-report-collaboration-insights)
+- [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
-
 - [Capítulo I: Introducción](#capítulo-i-introducción)
-
   - [1.1. Startup Profile](#11-startup-profile)
     - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
     - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
   - [1.2. Solution Profile](#12-solution-profile)
     - [1.2.1. Antecedentes y problemática](#121-antecedentes-y-problemática)
+    - [What (¿Qué?)](#what-qué)
+    - [Who (¿Quién?)](#who-quién)
+    - [Where (¿Dónde?)](#where-dónde)
+    - [When (¿Cuándo?)](#when-cuándo)
+    - [Why (¿Por qué?)](#why-por-qué)
+    - [How (¿Cómo?)](#how-cómo)
+    - [How much (¿Cuánto?)](#how-much-cuánto)
     - [1.2.2. Lean UX Process](#122-lean-ux-process)
       - [1.2.2.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
       - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
+    - [Business Assumptions](#business-assumptions)
+    - [Business Outcome Assumptions](#business-outcome-assumptions)
+    - [User Assumptions](#user-assumptions)
+    - [User Outcomes \& Benefits Assumptions](#user-outcomes--benefits-assumptions)
+    - [Feature Assumptions](#feature-assumptions)
       - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
+      - [Hipótesis 1](#hipótesis-1)
+      - [Hipótesis 2](#hipótesis-2)
+      - [Hipótesis 3](#hipótesis-3)
+      - [Hipótesis 4](#hipótesis-4)
       - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
   - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
     - [1.3.1 Segmento 1: Empresas Clientes](#131-segmento-1-empresas-clientes)
     - [1.3.2 Segmento 2: Clientes Finales](#132-segmento-2-clientes-finales)
-
-- [Capítulo II: Requirements Elicitation & Analysis](#capítulo-ii-requirements-elicitation--analysis)
-
+- [Capítulo II: Requirements Elicitation \& Analysis](#capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
     - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
   - [2.2. Entrevistas](#22-entrevistas)
     - [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
+    - [1. Preguntas generales](#1-preguntas-generales)
+    - [2. Preguntas — **Segmento: Empresa (Gestores de transporte)**](#2-preguntas--segmento-empresa-gestores-de-transporte)
+    - [3. Preguntas — **Segmento: Clientes Finales (Consumidores finales)**](#3-preguntas--segmento-clientes-finales-consumidores-finales)
     - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
+    - [Segmento 1: Empresa](#segmento-1-empresa)
+  - [](#)
+    - [Segmento 2: Clientes Finales (Consumidores finales)](#segmento-2-clientes-finales-consumidores-finales)
     - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
   - [2.3. Needfinding](#23-needfinding)
     - [2.3.1. User Personas](#231-user-personas)
     - [2.3.2. User Task Matrix](#232-user-task-matrix)
     - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
+  - [Journey Map: Carlos Mendoza (Gestor de transporte)](#journey-map-carlos-mendoza-gestor-de-transporte)
+  - [Journey Map: María González (Gerente de Compras de Restaurante)](#journey-map-maría-gonzález-gerente-de-compras-de-restaurante)
     - [2.3.4. Empathy Mapping](#234-empathy-mapping)
+  - [Segmento: Empresa (Gestores de transporte) - Carlos Mendoza](#segmento-empresa-gestores-de-transporte---carlos-mendoza)
+  - [Segmento: Clientes Finales (Consumidores finales) - María González](#segmento-clientes-finales-consumidores-finales---maría-gonzález)
   - [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
+      - [1. Preparing the Room](#1-preparing-the-room)
+      - [2. Energizing the audience](#2-energizing-the-audience)
+      - [3. Briefing and Presenting the Agenda](#3-briefing-and-presenting-the-agenda)
+      - [4. Generating Domain Events](#4-generating-domain-events)
+      - [5. Sorting Domain Events](#5-sorting-domain-events)
+      - [6. Adding Actors and External Systems](#6-adding-actors-and-external-systems)
+    - [Actores:](#actores)
+    - [Sistemas Externos:](#sistemas-externos)
+      - [7. Storytelling](#7-storytelling)
+      - [8. Reverse Storytelling](#8-reverse-storytelling)
+      - [9. Closing](#9-closing)
   - [2.5. Ubiquitous Language](#25-ubiquitous-language)
-
+    - [**Términos del Dominio Central**](#términos-del-dominio-central)
+    - [**Términos de Actores**](#términos-de-actores)
+    - [**Términos de Procesos de Negocio**](#términos-de-procesos-de-negocio)
+    - [**Contexto de Métricas y KPIs**](#contexto-de-métricas-y-kpis)
 - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
-
   - [3.1. User Stories](#31-user-stories)
-  - [3.2. Product Backlog](#32-product-backlog)
-  - [3.3. Impact Mapping](#33-impact-mapping)
-
+  - [3.2. Impact Mapping](#32-impact-mapping)
+    - [Empresa (Gestores de transporte)](#empresa-gestores-de-transporte)
+    - [Clientes Finales (Consumidores finales)](#clientes-finales-consumidores-finales)
+  - [3.3. Product Backlog](#33-product-backlog)
 - [Capítulo IV: Solution Software Design](#capítulo-iv-solution-software-design)
   - [4.1. Strategic-Level Domain-Driven Design](#41-strategic-level-domain-driven-design)
     - [4.1.1. Design-Level EventStorming](#411-design-level-eventstorming)
-      - [4.1.1.1. Candidate Context Discovery](#4111-candidate-context-discovery)
+      - [4.1.1.1 Candidate Context Discovery](#4111-candidate-context-discovery)
+    - [Leyenda utilizada en el EventStorming](#leyenda-utilizada-en-el-eventstorming)
       - [4.1.1.2. Domain Message Flows Modeling](#4112-domain-message-flows-modeling)
+    - [Historias de dominio (Domain Stories)](#historias-de-dominio-domain-stories)
+    - [Resultados](#resultados)
       - [4.1.1.3. Bounded Context Canvases](#4113-bounded-context-canvases)
     - [4.1.2. Context Mapping](#412-context-mapping)
+    - [Resultado](#resultado)
     - [4.1.3. Software Architecture](#413-software-architecture)
       - [4.1.3.1. Software Architecture System Landscape Diagram](#4131-software-architecture-system-landscape-diagram)
+    - [Propósito](#propósito)
+    - [Elementos incluidos](#elementos-incluidos)
+    - [Relaciones principales](#relaciones-principales)
+    - [Resultado](#resultado-1)
       - [4.1.3.2. Software Architecture Context Level Diagrams](#4132-software-architecture-context-level-diagrams)
       - [4.1.3.2. Software Architecture Container Level Diagrams](#4132-software-architecture-container-level-diagrams)
       - [4.1.3.3. Software Architecture Deployment Diagrams](#4133-software-architecture-deployment-diagrams)
@@ -194,7 +240,7 @@ _Tabla de contenidos_
       - [4.2.1.6. Bounded Context Software Architecture Code Level Diagrams](#4216-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.1.6.1. Bounded Context Domain Layer Class Diagrams](#42161-bounded-context-domain-layer-class-diagrams)
         - [4.2.1.6.2. Bounded Context Database Design Diagram](#42162-bounded-context-database-design-diagram)
-    - [4.2.2. Bounded Context: Subscriptions and Billing](#422-bounded-context-subscriptions-and-billing)
+    - [4.2.2. Bounded Context: _Subscriptions and Billing_](#422-bounded-context-subscriptions-and-billing)
       - [4.2.2.1. Domain Layer](#4221-domain-layer)
       - [4.2.2.2. Interface Layer](#4222-interface-layer)
       - [4.2.2.3. Application Layer](#4223-application-layer)
@@ -202,8 +248,10 @@ _Tabla de contenidos_
       - [4.2.2.5. Bounded Context Software Architecture Component Level Diagrams](#4225-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.2.6. Bounded Context Software Architecture Code Level Diagrams](#4226-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.2.6.1. Bounded Context Domain Layer Class Diagrams](#42261-bounded-context-domain-layer-class-diagrams)
+        - [Explicación del diagrama](#explicación-del-diagrama)
         - [4.2.2.6.2. Bounded Context Database Design Diagram](#42262-bounded-context-database-design-diagram)
-    - [4.2.3. Bounded Context: Alerts & Resolution](#423-bounded-context-alerts--resolution)
+        - [Explicación del diagrama](#explicación-del-diagrama-1)
+    - [4.2.3. Bounded Context: _Alerts \& Resolution_](#423-bounded-context-alerts--resolution)
       - [4.2.3.1. Domain Layer](#4231-domain-layer)
       - [4.2.3.2. Interface Layer](#4232-interface-layer)
       - [4.2.3.3. Application Layer](#4233-application-layer)
@@ -212,41 +260,42 @@ _Tabla de contenidos_
       - [4.2.3.6. Bounded Context Software Architecture Code Level Diagrams](#4236-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.3.6.1. Bounded Context Domain Layer Class Diagrams](#42361-bounded-context-domain-layer-class-diagrams)
         - [4.2.3.6.2. Bounded Context Database Design Diagram](#42362-bounded-context-database-design-diagram)
-    - [4.2.4. Bounded Context: Real-Time Monitoring](#424-bounded-context-real-time-monitoring)
-      - [4.2.4.1. Domain Layer](#4241-domain-layer)
-      - [4.2.4.2. Interface Layer](#4242-interface-layer)
-      - [4.2.4.3. Application Layer](#4243-application-layer)
-      - [4.2.4.4. Infrastructure Layer](#4244-infrastructure-layer)
+    - [4.2.4. Bounded Context: _Real-Time Monitoring_](#424-bounded-context-real-time-monitoring)
+      - [4.2.4.1. Domain Layer.](#4241-domain-layer)
+      - [4.2.4.2. Interface Layer.](#4242-interface-layer)
+      - [4.2.4.3. Application Layer.](#4243-application-layer)
+      - [4.2.4.4. Infrastructure Layer.](#4244-infrastructure-layer)
       - [4.2.4.5. Bounded Context Software Architecture Component Level Diagrams](#4245-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.4.6. Bounded Context Software Architecture Code Level Diagrams](#4246-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.4.6.1. Bounded Context Domain Layer Class Diagrams](#42461-bounded-context-domain-layer-class-diagrams)
         - [4.2.4.6.2. Bounded Context Database Design Diagram](#42462-bounded-context-database-design-diagram)
-    - [4.2.5. Bounded Context: Trip Management](#425-bounded-context-trip-management)
-      - [4.2.5.1. Domain Layer](#4251-domain-layer)
-      - [4.2.5.2. Interface Layer](#4252-interface-layer)
-      - [4.2.5.3. Application Layer](#4253-application-layer)
-      - [4.2.5.4. Infrastructure Layer](#4254-infrastructure-layer)
-      - [4.2.5.5. Bounded Context Software Architecture Component Level Diagrams](#4255-bounded-context-software-architecture-component-level-diagrams)
-      - [4.2.5.6. Bounded Context Software Architecture Code Level Diagrams](#4256-bounded-context-software-architecture-code-level-diagrams)
-        - [4.2.5.6.1. Bounded Context Domain Layer Class Diagrams](#42561-bounded-context-domain-layer-class-diagrams)
-        - [4.2.5.6.2. Bounded Context Database Design Diagram](#42562-bounded-context-database-design-diagram)
+    - [4.2.5. Bounded Context: _Trip management_](#425-bounded-context-trip-management)
+      - [4.2.5.1. Domain Layer.](#4251-domain-layer)
+      - [4.2.5.2. Interface Layer.](#4252-interface-layer)
+      - [4.2.5.3. Application Layer.](#4253-application-layer)
+      - [4.2.5.4. Infrastructure Layer.](#4254-infrastructure-layer)
+      - [4.2.5.5. Bounded Context Software Architecture Component Level Diagrams.](#4255-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.](#4256-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.](#42561-bounded-context-domain-layer-class-diagrams)
+        - [4.2.5.6.2. Bounded Context Database Design Diagram.](#42562-bounded-context-database-design-diagram)
     - [4.2.6. Bounded Context: Fleet Management](#426-bounded-context-fleet-management)
       - [4.2.6.1. Domain Layer](#4261-domain-layer)
-      - [4.2.6.2. Interface Layer](#4262-interface-layer)
-      - [4.2.6.3. Application Layer](#4263-application-layer)
-      - [4.2.6.4. Infrastructure Layer](#4264-infrastructure-layer)
-      - [4.2.6.5. Bounded Context Software Architecture Component Level Diagrams](#4265-bounded-context-software-architecture-component-level-diagrams)
-      - [4.2.6.6. Bounded Context Software Architecture Code Level Diagrams](#4266-bounded-context-software-architecture-code-level-diagrams)
-        - [4.2.6.6.1. Bounded Context Domain Layer Class Diagrams](#42661-bounded-context-domain-layer-class-diagrams)
-        - [4.2.6.6.2. Bounded Context Database Design Diagram](#42662-bounded-context-database-design-diagram)
+    - [4.2.6.2. Interface Layer](#4262-interface-layer)
+      - [Controllers Principales (HTTP REST)](#controllers-principales-http-rest)
+    - [4.2.6.3. Application Layer](#4263-application-layer)
+    - [4.2.6.4. Infrastructure Layer](#4264-infrastructure-layer)
+      - [4.2.6.5. Bounded Context Software Architecture Component Level Diagrams.](#4265-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.](#4256-bounded-context-software-architecture-code-level-diagrams-1)
+        - [4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.](#42561-bounded-context-domain-layer-class-diagrams-1)
+        - [4.2.5.6.2. Bounded Context Database Design Diagram.](#42562-bounded-context-database-design-diagram-1)
     - [4.2.7. Bounded Context: Profile and Preferences Management](#427-bounded-context-profile-and-preferences-management)
-      - [4.2.7.1. Domain Layer](#4271-domain-layer)
-      - [4.2.7.2. Interface Layer](#4272-interface-layer)
-      - [4.2.7.3. Application Layer](#4273-application-layer)
-      - [4.2.7.4. Infrastructure Layer](#4274-infrastructure-layer)
-      - [4.2.7.5. Bounded Context Software Architecture Component Level Diagrams](#4275-bounded-context-software-architecture-component-level-diagrams)
-      - [4.2.7.6. Bounded Context Software Architecture Code Level Diagrams](#4276-bounded-context-software-architecture-code-level-diagrams)
-        - [4.2.7.6.1. Bounded Context Domain Layer Class Diagrams](#42761-bounded-context-domain-layer-class-diagrams)
+      - [4.2.7.1. Domain Layer.](#4271-domain-layer)
+      - [4.2.7.2. Interface Layer.](#4272-interface-layer)
+      - [4.2.7.3. Application Layer.](#4273-application-layer)
+      - [4.2.7.4. Infrastructure Layer.](#4274-infrastructure-layer)
+      - [4.2.7.5. Bounded Context Software Architecture Component Level Diagrams.](#4275-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.7.6. Bounded Context Software Architecture Code Level Diagrams.](#4276-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.7.6.1. Bounded Context Domain Layer Class Diagrams.](#42761-bounded-context-domain-layer-class-diagrams)
         - [4.2.7.6.2. Bounded Context Database Design Diagram](#42762-bounded-context-database-design-diagram)
     - [4.2.8. Bounded Context: Visualization Analytics](#428-bounded-context-visualization-analytics)
       - [4.2.8.1. Domain Layer](#4281-domain-layer)
@@ -257,7 +306,42 @@ _Tabla de contenidos_
       - [4.2.8.6. Bounded Context Software Architecture Code Level Diagrams](#4286-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.8.6.1. Bounded Context Domain Layer Class Diagrams](#42861-bounded-context-domain-layer-class-diagrams)
         - [4.2.8.6.2. Bounded Context Database Design Diagram](#42862-bounded-context-database-design-diagram)
-- [Conclusiones](#conclusiones)
+- [Capítulo V: Solution UI/UX Design](#capítulo-v-solution-uiux-design)
+  - [5.1. Style Guidelines.](#51-style-guidelines)
+    - [5.1.1. General Style Guidelines.](#511-general-style-guidelines)
+    - [5.1.2. Web, Mobile and IoT Style Guidelines.](#512-web-mobile-and-iot-style-guidelines)
+  - [5.2. Information Architecture.](#52-information-architecture)
+    - [5.2.1. Organization Systems.](#521-organization-systems)
+    - [5.2.2. Labeling Systems.](#522-labeling-systems)
+    - [5.2.3. SEO Tags and Meta Tags](#523-seo-tags-and-meta-tags)
+    - [5.2.4. Searching Systems.](#524-searching-systems)
+    - [5.2.5. Navigation Systems.](#525-navigation-systems)
+  - [5.3. Landing Page UI Design.](#53-landing-page-ui-design)
+    - [5.3.1. Landing Page Wireframe.](#531-landing-page-wireframe)
+    - [5.3.2. Landing Page Mock-up.](#532-landing-page-mock-up)
+  - [5.4. Applications UX/UI Design.](#54-applications-uxui-design)
+    - [5.4.1. Applications Wireframes.](#541-applications-wireframes)
+    - [5.4.2. Applications Wireflow Diagrams.](#542-applications-wireflow-diagrams)
+    - [5.4.2. Applications Mock-ups.](#542-applications-mock-ups)
+    - [5.4.3. Applications User Flow Diagrams.](#543-applications-user-flow-diagrams)
+  - [5.5. Applications Prototyping.](#55-applications-prototyping)
+- [Capítulo VI: Product Implementation, Validation \& Deployment](#capítulo-vi-product-implementation-validation--deployment)
+  - [6.1. Software Configuration Management.](#61-software-configuration-management)
+    - [6.1.1. Software Development Environment Configuration.](#611-software-development-environment-configuration)
+    - [6.1.2. Source Code Management.](#612-source-code-management)
+    - [6.1.3. Source Code Style Guide \& Conventions.](#613-source-code-style-guide--conventions)
+    - [6.1.4. Software Deployment Configuration.](#614-software-deployment-configuration)
+  - [6.2. Landing Page, Services \& Applications Implementation.](#62-landing-page-services--applications-implementation)
+    - [6.2.1. Sprint 1](#621-sprint-1)
+      - [6.2.1.1. Sprint Planning 1.](#6211-sprint-planning-1)
+      - [6.2.1.2. Aspect Leaders and Collaborators.](#6212-aspect-leaders-and-collaborators)
+      - [6.2.1.3. Sprint Backlog 1.](#6213-sprint-backlog-1)
+      - [6.2.1.4. Development Evidence for Sprint Review](#6214-development-evidence-for-sprint-review)
+      - [6.2.1.5. Testing Suite Evidence for Sprint Review.](#6215-testing-suite-evidence-for-sprint-review)
+      - [6.2.1.6. Execution Evidence for Sprint Review.](#6216-execution-evidence-for-sprint-review)
+      - [6.2.1.7. Services Documentation Evidence for Sprint Review](#6217-services-documentation-evidence-for-sprint-review)
+      - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
+      - [6.2.1.9. Team Collaboration Insights during Sprint.](#6219-team-collaboration-insights-during-sprint)
 - [Bibliografía](#bibliografía)
 
 # Student Outcome
@@ -4299,7 +4383,184 @@ Cada producto digital cuenta con su propia configuración de despliegue para gar
 
 #### 6.2.1.1. Sprint Planning 1.
 
+En esta sección se especifican los aspectos principales del Sprint Planning Meeting para el Sprint 1 del proyecto CargaSafe. Este primer sprint se enfoca en establecer las bases de la plataforma, implementando el landing page y los componentes iniciales de la aplicación web que permitan a los usuarios conocer el producto y comenzar a interactuar con las funcionalidades core del sistema de monitoreo de carga.
+
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint #</th>
+  </tr>
+  <tr>
+    <td colspan="2">Sprint 1</td>
+  </tr>
+
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint Planning Background</th>
+  </tr>
+  <tr>
+    <td style="width: 35%;">Date</td>
+    <td>2025-07-10</td>
+  </tr>
+  <tr>
+    <td>Time</td>
+    <td>08:00 PM</td>
+  </tr>
+  <tr>
+    <td>Location</td>
+    <td>Reunión virtual mediante Google Meet</td>
+  </tr>
+  <tr>
+    <td>Prepared By</td>
+    <td>Alessandro Joaquin Bernardo Eusebio</td>
+  </tr>
+  <tr>
+    <td>Attendees (to planning meeting)</td>
+    <td>Marcelo Fabian Garro Vega / Jefrey Martin Sanchez Ignacio / Daniel Rodrigo Chirinos Arevalo / Alessandro Joaquin Bernardo Eusebio / Vera Nuñez Nicolas Alejandro</td>
+  </tr>
+  <tr>
+    <td>Sprint 0 Review Summary</td>
+    <td>Al ser el primer sprint del proyecto, no existe un sprint anterior para revisar. Sin embargo, se completaron las actividades de planeamiento inicial, incluyendo la definición de la arquitectura de software bajo principios de Domain Driven Design, la elaboración de wireframes y mockups, y la especificación de user stories en el product backlog.</td>
+  </tr>
+  <tr>
+    <td>Sprint 0 Retrospective Summary</td>
+    <td>Durante la fase de planeamiento (Sprint 0), el equipo logró establecer una visión compartida del producto y definir los bounded contexts principales del sistema. Se identificaron oportunidades de mejora en la comunicación asíncrona y se acordó implementar daily stand-ups virtuales para mantener la sincronización del equipo. El equipo manifestó motivación y compromiso para comenzar la implementación del producto.</td>
+  </tr>
+
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint Goal & User Stories</th>
+  </tr>
+  <tr>
+    <td>Sprint 1 Goal</td>
+    <td>Nuestro enfoque está en establecer la presencia digital de CargaSafe mediante el landing page y desarrollar la capa frontend completa de la aplicación web para los ocho bounded contexts identificados (Identity and Access Management, Profiles and Preferences Management, Fleet Management, Execution of the Trip, Real-time Monitoring, Alerts and Resolution, Visualization/Analytics, y Subscriptions and Payments) utilizando fake APIs para simular la interacción con el backend.<br><br>
+    Creemos que esto entrega una primera impresión profesional del producto a visitantes potenciales, permite validar la experiencia de usuario completa del sistema con stakeholders, y establece una base sólida de componentes frontend reutilizables para empresas de transporte piloto.<br><br>
+    Esto se confirmará cuando el landing page esté publicado y accesible con información completa del producto, y cuando los usuarios puedan navegar por todas las funcionalidades de los ocho bounded contexts en la aplicación web desplegada, incluyendo gestión de usuarios, gestión de flotas, ejecución de viajes, monitoreo en tiempo real, gestión de alertas, visualización de analytics, gestión de perfiles y suscripciones, todo funcionando con datos simulados mediante fake APIs.</td>
+  </tr>
+  <tr>
+    <td>Sprint 1 Velocity</td>
+    <td>45 Story Points</td>
+  </tr>
+  <tr>
+    <td>Sum of Story Points</td>
+    <td>42 Story Points</td>
+  </tr>
+</table>
+
 #### 6.2.1.2. Aspect Leaders and Collaborators.
+
+Para el Sprint 1, los principales aspectos considerados corresponden a los bounded contexts core identificados en la arquitectura del sistema CargaSafe, además del Landing Page como punto de entrada al producto. Cada bounded context representa un área funcional específica del sistema que fue desarrollada a nivel de frontend utilizando fake APIs para simular la interacción con servicios backend.
+
+Los aspectos principales son:
+
+1. **Landing Page**: Página de aterrizaje con información del producto y llamados a la acción
+2. **Identity and Access Management (IAM)**: Gestión de usuarios, autenticación y control de accesos
+3. **Profiles and Preferences**: Gestión de perfiles de usuario y configuración de preferencias
+4. **Fleet Management**: Gestión de vehículos y dispositivos IoT asociados
+5. **Trip Management**: Creación, ejecución y seguimiento de viajes
+6. **Real-time Monitoring**: Monitoreo de condiciones ambientales en tiempo real
+7. **Alerts and Resolution**: Generación, visualización y resolución de alertas
+8. **Visualization and Analytics**: Dashboards, gráficos y reportes analíticos
+9. **Subscriptions and Payments**: Gestión de planes de suscripción y pagos
+
+A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix) que indica el líder (L) y los colaboradores (C) para cada aspecto del Sprint 1:
+
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%; text-align: center;">
+  <tr>
+    <th style="text-align: left;">Team Member<br>(Last Name, First Name)</th>
+    <th>GitHub Username</th>
+    <th>Landing Page<br>L / C</th>
+    <th>IAM<br>L / C</th>
+    <th>Profiles<br>L / C</th>
+    <th>Fleet Management<br>L / C</th>
+    <th>Trip Management<br>L / C</th>
+    <th>Real-time Monitoring<br>L / C</th>
+    <th>Alerts<br>L / C</th>
+    <th>Visualization<br>L / C</th>
+    <th>Subscriptions<br>L / C</th>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Garro Vega, Marcelo Fabian</td>
+    <td>Marcelo Garro</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Sanchez Ignacio, Jefrey Martin</td>
+    <td>Jefreysii20</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Aliaga Pimentel, George Arturo</td>
+    <td>GeorAliaga</td>
+    <td>C</td>
+    <td>L</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Vera Nuñez, Nicolas Alejandro</td>
+    <td>nicxlxs</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Chirinos Arevalo, Daniel Rodrigo</td>
+    <td>DanielChirinos615</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Bernardo Eusebio, Alessandro Joaquin</td>
+    <td>Alessandro Bernardo</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+  </tr>
+</table>
+
+**Leyenda:**
+- **L (Leader)**: Responsable principal del aspecto, encargado de la coordinación, toma de decisiones técnicas y revisión final del código.
+- **C (Collaborator)**: Contribuye activamente al desarrollo del aspecto, apoya en la implementación de funcionalidades y participa en las revisiones de código.
+
+Esta matriz facilita la comunicación y clarifica las responsabilidades dentro del equipo, asegurando que cada bounded context tenga un líder definido que coordine su desarrollo, mientras que todos los miembros colaboran de manera transversal para garantizar la integración coherente del sistema.
 
 #### 6.2.1.3. Sprint Backlog 1.
 
