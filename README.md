@@ -4391,8 +4391,8 @@ _Sección de planes de suscripción con precios y descripción de beneficios_ <b
 ![Landing Page – Seccion de precios](assets/evidenceLandingPage2.png)
 <br>
 
-Repositorio: [https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-landing](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-landing)  
-Enlace: [https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/](https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/)
+Repositorio: [Click aqui](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-landing)  
+Enlace: [Click aqui](https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/)
 
 <br>
 <br>
@@ -4405,11 +4405,11 @@ _Dashboard principal con métricas de viajes, incidencias y alertas activas_ <br
 _Vista del módulo de alertas con listado, estado y acciones de resolución_ <br>
 ![Web App – Alerts Module](assets/evidenceAppWeb2.png)
 
-Repositorio: [https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend)  
-Aplicación en línea: [https://carga-safe.web.app/](https://carga-safe.web.app/)
+Repositorio: [Click aqui](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend)  
+Aplicación en línea: [Click aqui](https://carga-safe.web.app/)
 
 **Video de ejecución del Sprint:**  
-https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113324_upc_edu_pe/EevVYOqHNntJlmo8kGIjpv4BHIR0RaeMZU67h4qwxKuqMw
+[Click aqui](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113324_upc_edu_pe/EevVYOqHNntJlmo8kGIjpv4BHIR0RaeMZU67h4qwxKuqMw)
 <br>
 
 **Conclusión:**
@@ -4461,7 +4461,7 @@ _Configuración y despliegue de la landing mediante GitHub Pages_ <br>
 ![GitHub Pages Deployment – Landing Page](assets/evidenceDeploymnetLanding.png)
 
 URL de la landing:  
-[https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/](https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/)
+[Click aqui](https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing/)
 
 _GitHub Actions_ <br>
 ![GitHub Pages Deployment – Landing Page](assets/evidenceGitHubActions.png)
