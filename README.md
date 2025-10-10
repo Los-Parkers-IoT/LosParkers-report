@@ -4069,6 +4069,390 @@ La aplicación móvil Flutter prioriza visualizaciones optimizadas para pantalla
 
 El diseño de base de datos del módulo Analytics está optimizado para consultas analíticas y agregaciones. Las tablas principales (DASHBOARDS, WIDGETS, REPORTS) mantienen configuraciones de usuario, mientras que las tablas de métricas están desnormalizadas para consultas rápidas. Se incluyen índices especializados para consultas temporales y agregaciones frecuentes.
 
+### 4.2.9. Bounded Context: Merchant
+
+#### 4.2.9.1. Domain Layer
+
+**Entidades Principales**
+
+**Merchant (Aggregate Root)**
+
+- **Propósito**: Representa al comercio/cliente (shipper) que utiliza CargaSafe; centraliza identidad, estado, contactos, ubicaciones y métodos de pago.
+- **Atributos principales**:
+  - `id`: Identificador único
+  - `name`: Razón social / nombre comercial
+  - `taxId`: Identificador fiscal (p. ej., RUC)
+  - `email`: Email de contacto principal
+  - `status`: ACTIVE | SUSPENDED
+  - `primaryAddress`: Dirección principal (VO)
+  - `createdAt`, `updatedAt`: Auditoría
+- **Métodos principales**:
+  - `activate()`, `suspend(reason)`
+  - `updateProfile(name, email, taxId)`
+  - `changePrimaryAddress(address)`
+  - `setPrimaryContact(contact)`
+
+**Contact (Entity)**
+
+- **Propósito**: Persona de contacto del Merchant (operaciones, facturación, admin).
+- **Atributos principales**:
+  - `id`
+  - `fullName`
+  - `email`
+  - `phone`
+  - `role (ADMIN|BILLING|OPERATIONS)`
+  - `isPrimary`
+- **Métodos principales**:
+  - `markAsPrimary()`
+
+**Location (Entity)**
+
+- **Propósito**: Sedes/almacenes/puntos de entrega asociados al Merchant.
+- **Atributos principales**:
+  - `id` 
+  - `name`
+  - `address (VO)` 
+  - `latitude`
+  - `longitude`
+
+**PaymentMethod (Entity)**
+
+- **Propósito**: Medio de pago registrado por el Merchant.
+- **Atributos principales**:
+  - `id` 
+  - `type (CARD|BANK)`
+  - `card (VO)`
+  - `externalId (PSP)` 
+  - `isDefault`
+- **Métodos principales**:
+  - `makeDefault()`
+
+**Plan (Entity)**
+
+- **Propósito:** Plan comercial ofertado (precio, periodicidad, features).
+
+- **Atributos principales:**
+  - `id`
+  - `name`
+  - `price (Money)`
+  - `billingPeriod (MONTHLY|YEARLY)`
+  - `features[]`
+  - `active`
+
+**Subscription (Aggregate Root)**
+
+**Propósito:** Suscripción del Merchant a un plan (estado y periodos).
+
+- **Atributos principales:**
+
+  - `id`
+  - `merchantId`
+  - `plan`
+  - `status (TRIALING|ACTIVE|PAST_DUE|CANCELED)`
+  - `currentPeriod (Period)`
+  - `cancelAt`
+  - `externalId (PSP)`
+
+- **Métodos:**
+
+  - `startTrial(days)` 
+  - `activate(plan)` 
+  - `markPastDue()`
+  - `cancel(at)`
+  - `renew(nextPeriod)`
+
+**Invoice (Entity)**
+
+- **Propósito:** Comprobante/cobro emitido por suscripción.
+
+- **Atributos:**
+
+  - `id`
+  - `subscriptionId` 
+  - `amountTotal (Money)`
+  - `status (DRAFT|OPEN|PAID|VOID)` 
+  - `issuedAt` 
+  - `dueAt`
+  - `paidAt`
+  - `externalId (PSP)` 
+  - `pdfUrl`
+
+- **Métodos:**
+  - `markPaid(at)` 
+  - `voidInvoice(reason)`
+
+**WebhookEvent (Entity)**
+
+- **Propósito:** Persistir eventos entrantes del proveedor de pagos (auditoría y re-procesos).
+
+- **Atributos:**
+
+  - `id` 
+  - `provider (STRIPE|OTHER)`
+  - `eventType` 
+  - `payload`
+  - `receivedAt`
+  - `processedAt`
+  - `status`
+  - `merchantId?`
+  - `subscriptionId?`
+  - `invoiceId?`
+
+
+**Value Objects**
+
+- **Email**, **Phone**, **Address** (line1, line2, city, region, countryCode, postalCode)
+
+- **Money** (`value`, `currency: USD|EUR|PEN`)
+
+- **Period** (`startAt`, `endAt`)
+
+- **PaymentCard** (`brand`, `last4`, `expMonth`, `expYear`)
+
+- **Enums:** `MerchantStatus`, `SubscriptionStatus`, `InvoiceStatus`, `PaymentMethodType`, `CurrencyCode`, `BillingPeriod`
+
+**Domain Services**
+
+- **MerchantOnboardingService**: Provisiona defaults (roles, settings) y contacto primario.
+- **BillingService**: Crea suscripciones, genera facturas, aplica pagos.
+
+**Commands**
+
+- **CreateMerchantCommand**
+- **UpdateMerchantProfileCommand** 
+- **SetPrimaryContactCommand**
+- **CreateSubscriptionCommand** 
+- **CancelSubscriptionCommand**
+- **MarkSubscriptionPastDueCommand**
+- **GenerateInvoiceCommand**
+- **ApplyPaymentCommand**
+- **SetDefaultPaymentMethodCommand**
+
+**Queries**
+
+- **GetMerchantByIdQuery** 
+- **SearchMerchantsQuery**
+- **GetMerchantContactsQuery** 
+- **GetMerchantLocationsQuery**
+- **GetPaymentMethodsQuery**
+- **GetSubscriptionsByMerchantQuery**
+- **GetInvoicesBySubscriptionQuery**
+
+**Events**
+
+- **MerchantCreatedEvent**
+- **MerchantSuspendedEvent**
+- **SubscriptionActivatedEvent**
+- **SubscriptionCanceledEvent** 
+- **SubscriptionPastDueEvent**
+- **InvoiceGeneratedEvent** 
+- **InvoicePaidEvent**
+- **PaymentMethodSetDefaultEvent**
+
+#### 4.2.9.2. Interface Layer
+
+**Controllers Principales**
+
+**MerchantController**
+
+- `GET /merchants/{id}`: Obtiene Merchant
+
+- `POST /merchants`: Crea Merchant
+
+- `PUT /merchants/{id}`: Actualiza perfil
+
+- `POST /merchants/{id}/suspend`: Suspende Merchant
+
+**ContactController**
+
+- `GET /merchants/{id}/contacts`: Lista contactos
+
+- `POST /merchants/{id}/contacts`: Crea contacto
+
+- `PUT /merchants/{id}/contacts/{contactId}`: Actualiza contacto
+
+- `POST /merchants/{id}/contacts/{contactId}/primary`: Marca como primario
+
+**LocationController**
+
+- `GET /merchants/{id}/locations`: Lista ubicaciones
+
+- `POST /merchants/{id}/locations`: Crea ubicación
+
+- `PUT /merchants/{id}/locations/{locationId}`: Actualiza ubicación
+
+- `DELETE /merchants/{id}/locations/{locationId}`: Elimina
+
+**PaymentMethodController**
+
+- `GET /merchants/{id}/payment-methods`
+
+- `POST /merchants/{id}/payment-methods`
+
+- `POST /merchants/{id}/payment-methods/{pmId}/default`
+
+- `DELETE /merchants/{id}/payment-methods/{pmId}`
+
+**SubscriptionController**
+
+- `GET /merchants/{id}/subscriptions`
+
+- `POST /merchants/{id}/subscriptions`: Crea/activa
+
+- `POST /subscriptions/{subId}/cancel`: Cancela
+
+- `GET /subscriptions/{subId}`: Detalle
+
+**InvoiceController**
+
+- `GET /subscriptions/{subId}/invoices`
+
+- `GET /invoices/{invoiceId}`
+
+- `POST /invoices/{invoiceId}/apply-payment`
+
+- `GET /invoices/{invoiceId}/pdf`: Descarga
+
+**WebhookController**
+
+- `POST /webhooks/payments`: Receptor de webhooks del PSP (validación de firma, encolado, idempotencia)
+
+#### 4.2.9.3. Application Layer
+
+**Command Services**
+
+**MerchantCommandService**
+
+  - Maneja creación/actualización de Merchant
+
+  - Gestiona contactos, ubicaciones y método de pago por defecto
+
+  - Encola eventos de auditoría (MerchantCreated/Suspended)
+
+**SubscriptionCommandService**
+
+  - Alta/cancelación/renovación de suscripciones
+
+  - Transiciones de estado (`TRIALING → ACTIVE → PAST_DUE → CANCELED`)
+
+  - Coordinación con PSP (crear/cancelar suscripción)
+
+**BillingCommandService**
+
+  - Generación de facturas, aplicación de pagos
+
+  - Emisión de eventos `InvoiceGenerated` y `InvoicePaid`
+
+**Query Services**
+
+**MerchantQueryService**
+
+  - Búsquedas y lecturas optimizadas de Merchant/Contacts/Locations/PaymentMethods
+
+**BillingQueryService**
+
+  - Consultas de suscripciones e invoices (paginadas, por periodo/estado)
+
+**Event Handlers**
+
+**PaymentWebhookEventHandler**
+
+  - Procesa webhooks del PSP (idempotente)
+
+  - Sincroniza estados de `Subscription`/`Invoice`, publica eventos internos
+
+**SubscriptionActivatedEventHandler**
+
+- Reacciona a `SubscriptionActivated` (provisiona límites/planes, notifica)
+
+**InvoicePaidEventHandler**
+
+- Actualiza saldos, envía recibos, dispara notificaciones
+
+#### 4.2.9.4. Infrastructure Layer
+
+**Repositories**
+
+**MerchantRepository** (implementa `IMerchantRepository`)
+
+  - Persistencia de Merchants y relaciones (contacts, locations)
+
+  - Búsqueda por criterios (nombre, taxId, status)
+
+  - Caché de Merchants de alta frecuencia
+
+**PaymentMethodRepository** (implementa `IPaymentMethodRepository`)
+
+  - Almacenamiento de métodos de pago, `isDefault`
+
+  - Resolución por `externalId` (PSP)
+
+**SubscriptionRepository** (implementa `ISubscriptionRepository`)
+
+  - Persistencia de suscripciones y periodos
+
+  - Consultas por estado/merchant
+
+**InvoiceRepository** (implementa `IInvoiceRepository`)
+
+  - Persistencia y búsqueda de facturas
+
+  - Gestión de pdfUrl y correlación externalId
+
+**WebhookEventRepository** (implementa `IWebhookEventRepository`)
+
+- Registro de eventos entrantes (trazabilidad, reintentos)
+
+- Control de idempotencia
+
+#### 4.2.9.5. Bounded Context Software Architecture Component Level Diagrams
+
+**Diagrama de Componentes - Backend - Merchant**
+
+![Merchant - Backend Components](assets/C4/Merchant-C4-Backend-Diagram.png)
+
+Este diagrama ilustra la arquitectura del bounded context de Visualization Analytics en el backend. Los controllers manejan requests relacionados con dashboards, reportes y análisis. Los services en Application Layer coordinan la lógica de negocio, mientras que los repositories optimizan el acceso a datos tanto transaccionales como de time-series para métricas y visualizaciones.
+
+**Diagrama de Componentes - Frontend Web - Merchant**
+
+![Merchant - Frontend Components](assets/C4/Merchant-C4-WebApp-Diagram.png)
+
+El frontend web del módulo de analytics utiliza componentes especializados para visualización de datos. Los chart components renderizarán gráficos interactivos, mientras que dashboard components gestionarán la composición y layout de widgets. Los services manejan la comunicación con APIs de datos y el cache local de métricas.
+
+**Diagrama de Componentes - Mobile - Merchant**
+
+![Merchant - Mobile Components](assets/C4/Merchant-C4-Mobile-Diagram.png)
+
+La aplicación móvil prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline.
+
+#### 4.2.9.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.9.6.1. Bounded Context Domain Layer Class Diagrams
+
+**Backend - Merchant Domain Layer Class Diagram**
+
+![Merchant - Backend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Backend_Classes.puml)
+
+El diagrama de clases del backend de Analytics muestra las entidades principales para visualización y análisis de datos. Dashboard actúa como aggregate root conteniendo múltiples Widgets. Los Reports están asociados a usuarios y pueden ser programados para generación automática. ChartData encapsula la información procesada para visualizaciones, mientras que los services coordinan la agregación y cálculo de métricas.
+
+**Frontend - Merchant Domain Layer Class Diagram**
+
+![Merchant - Frontend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Frontend_Classes.puml)
+
+El diagrama del frontend Angular muestra los componentes especializados para visualización de datos. Los chart components renderizan gráficos interactivos usando librerías como Chart.js o D3.js, mientras que dashboard components gestionan la composición y layout de widgets. Los services manejan la comunicación con APIs de datos y el cache local de métricas para optimizar rendimiento.
+
+**Mobile - Merchant Domain Layer Class Diagram**
+
+![Merchant - Mobile Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Mobile_Classes.puml)
+
+La aplicación móvil Flutter prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline, permitiendo consulta de métricas básicas sin conectividad.
+
+##### 4.2.9.6.2. Bounded Context Database Design Diagram
+
+![Visualization Analytics - Database Design](assets/)
+
+El diseño de base de datos del módulo Analytics está optimizado para consultas analíticas y agregaciones. Las tablas principales (DASHBOARDS, WIDGETS, REPORTS) mantienen configuraciones de usuario, mientras que las tablas de métricas están desnormalizadas para consultas rápidas. Se incluyen índices especializados para consultas temporales y agregaciones frecuentes.
+
 # Capítulo V: Solution UI/UX Design
 
 ## 5.1. Style Guidelines.
