@@ -1793,6 +1793,7 @@ Los flujos de mensajes de dominio evidencian la cooperación entre los ocho boun
 - **Alerts and resolution**
 - **Visualization/Analytics**
 - **Subscriptions and payments**
+- **Merchant**
 
 Este ejercicio permitió comprender cómo un evento local en un contexto puede impactar en otros, asegurando la trazabilidad del negocio y la correcta interacción entre los distintos módulos de la solución.
 
@@ -1816,7 +1817,9 @@ En esta sección se elaboraron los Bounded Context Canvases de CargaSafe para lo
 
 ![EventStorming – Bounded Context Canvases](assets/Canvases_analytics.png)
 
-[Ver gráfico en Miro](https://miro.com/app/board/uXjVJJ2PHqk=/?share_link_id=762570504671)
+![EventStorming – Bounded Context Canvases](assets/Canvases_merchant.png)
+
+[Ver gráfico en Miro](https://miro.com/app/board/uXjVJ8W56f8=/?share_link_id=323586946145)
 
 ### 4.1.2. Context Mapping
 
@@ -4423,7 +4426,7 @@ El frontend web del módulo de analytics utiliza componentes especializados para
 
 **Diagrama de Componentes - Mobile - Merchant**
 
-![Merchant - Mobile Components](assets/C4/Merchant-C4-Mobile-Diagram.png)
+![Merchant - Mobile Components](assets/C4/Merchant-C4-MobileApp-Diagram.png)
 
 La aplicación móvil prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline.
 
@@ -4433,28 +4436,41 @@ La aplicación móvil prioriza visualizaciones optimizadas para pantallas peque�
 
 **Backend - Merchant Domain Layer Class Diagram**
 
-![Merchant - Backend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Backend_Classes.puml)
+![Merchant - Backend Domain Layer Class Diagram](assets/Merchant-Backend-Class-Diagram.png)
 
-El diagrama de clases del backend de Analytics muestra las entidades principales para visualización y análisis de datos. Dashboard actúa como aggregate root conteniendo múltiples Widgets. Los Reports están asociados a usuarios y pueden ser programados para generación automática. ChartData encapsula la información procesada para visualizaciones, mientras que los services coordinan la agregación y cálculo de métricas.
+El diagrama de clases del backend de Merchant modela el dominio comercial y de facturación. Merchant es Aggregate Root para la identidad del cliente (contactos, ubicaciones, métodos de pago), mientras que Subscription es un aggregate root separado que representa la relación Plan↔Merchant y su ciclo de vida. Invoice es entidad de billing asociada a Subscription. Se emplean Value Objects (Email, Address, Money, Period, PaymentCard) y Enums (MerchantStatus, SubscriptionStatus, InvoiceStatus, PaymentMethodType, CurrencyCode, BillingPeriod). Los Domain Services (p.ej., MerchantOnboardingService, BillingService) orquestan onboarding, creación de suscripciones y aplicación de pagos; los Domain Events (MerchantCreated, SubscriptionActivated, InvoicePaid) sincronizan estados con otros BCs y el PSP.
 
 **Frontend - Merchant Domain Layer Class Diagram**
 
-![Merchant - Frontend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Frontend_Classes.puml)
+![Merchant - Frontend Domain Layer Class Diagram](assets/Merchant-Frontend-Class-Diagram.png)
 
-El diagrama del frontend Angular muestra los componentes especializados para visualización de datos. Los chart components renderizan gráficos interactivos usando librerías como Chart.js o D3.js, mientras que dashboard components gestionan la composición y layout de widgets. Los services manejan la comunicación con APIs de datos y el cache local de métricas para optimizar rendimiento.
+El diagrama del frontend (Web App) de Merchant refleja modelos de UI para perfil de merchant, contactos, ubicaciones, suscripciones e invoices. Los identificadores se manejan como string (por BIGINT en backend) y las fechas como Date. Se tipan VO y Enums (p.ej., CurrencyCode, BillingPeriod, SubscriptionStatus) para evitar errores. Los servicios de UI consumen APIs de Merchant/Billing y gestionan cache/estado (listas paginadas, filtros por estado/periodo) para una interacción rápida en administración.
 
 **Mobile - Merchant Domain Layer Class Diagram**
 
-![Merchant - Mobile Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Mobile_Classes.puml)
+![Merchant - Mobile Domain Layer Class Diagram](assets/Merchant-Mobile-Class-Diagram.png)
 
-La aplicación móvil Flutter prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline, permitiendo consulta de métricas básicas sin conectividad.
+El diagrama móvil (Flutter) de Merchant prioriza gestión ágil de perfil/ubicaciones/medios de pago y consulta de suscripciones e invoices. Los IDs se modelan como String y fechas como DateTime. Se reutilizan VO/Enums del dominio (p.ej., Money, Period, SubscriptionStatus). El state management (BLoC/Provider) coordina cache local y refresco de datos, permitiendo operaciones básicas offline (lectura) y sincronización cuando hay conectividad.
 
 ##### 4.2.9.6.2. Bounded Context Database Design Diagram
 
-![Visualization Analytics - Database Design](assets/)
+![Merchant - Database Design](assets/Merchant-Database-Diagram.png)
 
-El diseño de base de datos del módulo Analytics está optimizado para consultas analíticas y agregaciones. Las tablas principales (DASHBOARDS, WIDGETS, REPORTS) mantienen configuraciones de usuario, mientras que las tablas de métricas están desnormalizadas para consultas rápidas. Se incluyen índices especializados para consultas temporales y agregaciones frecuentes.
+El diseño de base de datos de Merchant está orientado a datos transaccionales con trazabilidad de billing e integración con el PSP. Tablas principales:
 
+- MERCHANTS (identidad, estado, dirección principal),
+
+  - CONTACTS, LOCATIONS, PAYMENT_METHODS (con external_id del PSP y is_default),
+
+  - PLANS (precio amount/currency, billing_period),
+
+  - SUBSCRIPTIONS (estado, current_period_start/end, cancel_at, external_id),
+
+  - INVOICES (monto, estado, issued_at/due_at/paid_at, external_id, pdf_url),
+
+  - WEBHOOK_EVENTS (payload, provider, event_type, received_at/processed_at, status, claves de correlación).
+
+Se incluyen índices por merchant_id, estado y rangos de fechas; claves foráneas para integridad; y idempotencia en WEBHOOK_EVENTS para procesar de forma segura los webhooks del proveedor de pagos.
 # Capítulo V: Solution UI/UX Design
 
 ## 5.1. Style Guidelines.
