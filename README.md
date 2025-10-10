@@ -4709,11 +4709,11 @@ En esta sección se especifican los aspectos principales del Sprint Planning Mee
     <td>Marcelo Fabian Garro Vega / Jefrey Martin Sanchez Ignacio / Daniel Rodrigo Chirinos Arevalo / Alessandro Joaquin Bernardo Eusebio / Vera Nuñez Nicolas Alejandro</td>
   </tr>
   <tr>
-    <td>Sprint 0 Review Summary</td>
+    <td>Sprint 1 Review Summary</td>
     <td>Al ser el primer sprint del proyecto, no existe un sprint anterior para revisar. Sin embargo, se completaron las actividades de planeamiento inicial, incluyendo la definición de la arquitectura de software bajo principios de Domain Driven Design, la elaboración de wireframes y mockups, y la especificación de user stories en el product backlog.</td>
   </tr>
   <tr>
-    <td>Sprint 0 Retrospective Summary</td>
+    <td>Sprint 1 Retrospective Summary</td>
     <td>Durante la fase de planeamiento (Sprint 0), el equipo logró establecer una visión compartida del producto y definir los bounded contexts principales del sistema. Se identificaron oportunidades de mejora en la comunicación asíncrona y se acordó implementar daily stand-ups virtuales para mantener la sincronización del equipo. El equipo manifestó motivación y compromiso para comenzar la implementación del producto.</td>
   </tr>
 
@@ -4855,6 +4855,61 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
 Esta matriz facilita la comunicación y clarifica las responsabilidades dentro del equipo, asegurando que cada bounded context tenga un líder definido que coordine su desarrollo, mientras que todos los miembros colaboran de manera transversal para garantizar la integración coherente del sistema.
 
 #### 6.2.1.3. Sprint Backlog 1.
+
+Durante este sprint, se desarrollaron las user stories dedicadas a la landing page y funcionalidades principales del frontend.
+
+La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se registraron las tareas, el estado y los responsables.
+
+<img src="assets/backlog.png">
+
+| User Story Id | User Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
+|----------------|------------------|----------|-------------|------------------|--------------------|--------------|--------|
+| US01 | Sección portada | T01 | Maquetar versión desktop del hero | Crear estructura visual y contenido de la sección hero en versión desktop | 2 | Daniel Chirinos | Done |
+| US01 | Sección portada | T02 | Maquetar versión mobile del hero | Adaptar diseño del hero a dispositivos móviles | 2 | Daniel Chirinos | Done |
+| US02 | Sección de testimonios | T03 | Maquetar versión desktop de testimonios | Diseñar estructura y estilo de la sección de testimonios para desktop | 2 | Jefrey Sanchez | Done |
+| US02 | Sección de testimonios | T04 | Maquetar versión mobile de testimonios | Adaptar la sección de testimonios a vista móvil | 2 | Jefrey Sanchez | Done |
+| US03 | Sección precios | T05 | Maquetar versión desktop de precios | Crear layout de la tabla de precios con estilos y estructura responsive | 2 | Jefrey Sanchez | Done |
+| US03 | Sección precios | T06 | Maquetar versión mobile de precios | Optimizar diseño de precios para dispositivos móviles | 2 | Jefrey Sanchez | Done |
+| US04 | Sección contáctanos | T07 | Maquetar versión desktop de contáctanos | Crear formulario y disposición de la sección de contacto en desktop | 2 | Nicolas Vera | Done |
+| US04 | Sección contáctanos | T08 | Maquetar versión mobile de contáctanos | Adaptar formulario y estilos a versión móvil | 2 | Nicolas Vera | Done |
+| US05 | Sección footer | T09 | Maquetar versión desktop del footer | Crear estructura de pie de página con enlaces y estilos base | 2 | Nicolas Vera | Done |
+| US05 | Sección footer | T10 | Maquetar versión mobile del footer | Ajustar estructura del footer a vista móvil | 2 | Nicolas Vera | Done |
+| US06 | Sección de beneficios | T11 | Maquetar versión desktop de beneficios | Crear diseño informativo para los beneficios del producto | 2 | George Aliaga | Done |
+| US06 | Sección de beneficios | T12 | Maquetar versión mobile de beneficios | Ajustar diseño de beneficios a pantalla móvil | 2 | George Aliaga | Done |
+| US07 | Sección de funcionalidades | T13 | Maquetar versión desktop de funcionalidades | Diseñar estructura informativa de funcionalidades IoT | 2 | Alessandro Bernardo | Done |
+| US07 | Sección de funcionalidades | T14 | Maquetar versión mobile de funcionalidades | Adaptar funcionalidades IoT a vista móvil | 2 | Alessandro Bernardo | Done |
+| US08 | Call to Action de descarga de App Móvil | T15 | Crear CTA de descarga | Implementar botones de descarga para Android e iOS | 2 | Marcelo Garro | Done |
+| US09 | Call to Action a la aplicación web | T16 | Crear CTA a la aplicación web | Crear enlace directo desde la landing hacia la app web | 2 | Marcelo Garro | Done |
+| US10 | Internacionalización de contenido | T17 | Crear sistema de internacionalización | Implementar cambio dinámico de idioma en la landing | 3 | George Aliaga | Done |
+| US10 | Internacionalización de contenido | T18 | Traducir contenido general | Adaptar textos y secciones al idioma inglés | 6 | George Aliaga | Done |
+| US11 | Navegación en landing page | T19 | Crear navegación desktop | Implementar menú principal y navegación entre secciones | 2 | Marcelo Garro | Done |
+| US11 | Navegación en landing page | T20 | Crear navegación mobile | Crear menú hamburguesa para navegación en móviles | 2 | Marcelo Garro | Done |
+| US12 | Registro de vehículos de carga | T21 | Implementar formulario de registro | Diseñar formulario funcional para registrar nuevos vehículos | 3 | Nicolas Vera | Done |
+| US13 | Eliminación de vehículos de carga | T22 | Crear acción de eliminación | Implementar botón y lógica para eliminar vehículos registrados | 2 | Nicolas Vera | Done |
+| US14 | Ver todos los vehículos de carga | T23 | Mostrar lista de vehículos | Implementar tabla de visualización de vehículos registrados | 2 | Nicolas Vera | Done |
+| US15 | Lista de viajes registrados | T24 | Mostrar viajes registrados | Desarrollar listado con datos de viajes del usuario | 3 | Marcelo Garro | Done |
+| US16 | Detalle de viaje | T25 | Implementar vista detallada | Mostrar información completa de un viaje seleccionado | 3 | Marcelo Garro | Done |
+| US17 | Filtrado de viajes por fecha | T26 | Crear filtros por fecha | Implementar filtros dinámicos en la lista de viajes | 2 | Nicolas Vera | Done |
+| US18 | Historial de pagos | T27 | Mostrar historial de pagos | Desarrollar interfaz para mostrar transacciones realizadas | 2 | Jefrey Sanchez | Done |
+| US19 | Confirmar suscripción | T28 | Crear flujo de confirmación | Implementar pantalla de confirmación para suscripción activa | 1 | Jefrey Sanchez | Done |
+| US20 | Cancelar suscripción | T29 | Implementar cancelación de suscripción | Agregar opción y modal para cancelar suscripción | 1 | Jefrey Sanchez | Done |
+| US21 | Visualizar información de suscripción actual | T30 | Mostrar datos de suscripción | Crear interfaz para visualizar tipo de plan y estado actual | 2 | Nicolas Vera | Done |
+| US22 | Recuperar contraseña | T31 | Implementar recuperación de contraseña | Desarrollar flujo para restablecer credenciales de usuario | 1 | George Aliaga | Done |
+| US23 | Registro de dispositivos IoT | T32 | Crear formulario de registro IoT | Diseñar formulario para vincular nuevos dispositivos IoT | 3 | Nicolas Vera | Done |
+| US24 | Eliminar dispositivo IoT | T33 | Implementar eliminación de dispositivo | Agregar opción para eliminar dispositivos registrados | 2 | Nicolas Vera | Done |
+| US25 | Asignar dispositivo a vehículo de carga | T34 | Crear flujo de asignación | Desarrollar relación entre vehículo y dispositivo IoT | 2.5 | Nicolas Vera | Done |
+| US26 | Ver todos los dispositivos IoT en la plataforma | T35 | Listar dispositivos IoT | Mostrar todos los dispositivos vinculados a la cuenta | 2 | Nicolas Vera | Done |
+| US27 | Ver estado de dispositivo por vehículo | T36 | Mostrar estado del dispositivo | Implementar vista de estado de sensor IoT por vehículo | 2 | Nicolas Vera | Done |
+| US28 | Alertas por incumplimiento de temperatura | T37 | Implementar alertas IoT | Crear sistema de notificación por temperaturas fuera de rango | 2 | Daniel Chirinos | Done |
+| US29 | Gráficos de tiempo y temperatura | T38 | Crear gráficos de temperatura | Implementar gráficos de línea para mostrar variaciones térmicas | 4 | Alessandro Bernardo | Done |
+| US30 | Gráficos de incidencias por mes | T39 | Crear gráfico de incidencias | Mostrar estadísticas mensuales de incidentes | 4 | Alessandro Bernardo | Done |
+| US31 | Creación de viajes | T40 | Implementar formulario de creación | Crear vista y formulario para registrar nuevos viajes | 2 | Marcelo Garro | In progress |
+| US32 | Actualización de estados de viaje | T41 | Implementar cambio de estado | Crear función para modificar estado de viajes registrados | 5 | Marcelo Garro | To-Do |
+| US32 | Actualización de estados de viaje | T42 | Confirmar acción de actualización | Desarrollar modal de confirmación para cambios de estado | 5 | Marcelo Garro | To-Do |
+| US33 | Filtrado de viajes por fecha | T43 | Implementar opciones de filtrado | Crear filtros dinámicos por fecha y estado de viaje | 1 | Marcelo Garro | In progress |
+| US34 | Actualización de layout de lista de viajes | T44 | Rediseñar layout de lista | Mejorar presentación visual de la lista de viajes registrados | 1 | Marcelo Garro | In progress |
+
+
 
 #### 6.2.1.4. Development Evidence for Sprint Review
 
