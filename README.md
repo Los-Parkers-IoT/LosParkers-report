@@ -4734,7 +4734,11 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 
 ![Wireframe Subscriptions Web application](assets/wireframeAppwebSubscriptions.png) <br>
 
+*Alerts*<br>
 
+<img src="assets/alerts3.png"/>
+
+<img src="assets/alerts4.png"/>
 
 
 **Mobile Application** 
@@ -4743,8 +4747,11 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 
 ![Wireframe Subscriptions Mobile Application](assets/wireframeMobileSubscriptions.png) <br>
 
+*Alerts*<br>
 
+<img src="assets/alerts7.png"/>
 
+<img src="assets/alerts8.png"/>
 
 ### 5.4.2. Applications Wireflow Diagrams.
 
@@ -4759,6 +4766,11 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 
 ![Mockups Subscriptions Web application](assets/mockupsAppwebSubscriptions.png) <br>
 
+*Alerts*<br>
+
+<img src="assets/alert1.png"/>
+
+<img src="assets/alert2.png"/>
 
 **Mobile Application** 
 
@@ -4766,7 +4778,11 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 
 ![Mockups Subscriptions Mobile Application](assets/mockupsMobileSubscriptions.png) <br>
 
+*Alerts*<br>
 
+<img src="assets/alerts5.png"/>
+
+<img src="assets/alerts6.png"/>
 
 ### 5.4.3. Applications User Flow Diagrams.
 
