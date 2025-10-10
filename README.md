@@ -191,12 +191,12 @@ _Tabla de contenidos_
   - [Segmento: Empresa (Gestores de transporte) - Carlos Mendoza](#segmento-empresa-gestores-de-transporte---carlos-mendoza)
   - [Segmento: Clientes Finales (Consumidores finales) - María González](#segmento-clientes-finales-consumidores-finales---maría-gonzález)
   - [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
-    - [1. Preparing the Room](#1-preparing-the-room)
-    - [2. Energizing the audience](#2-energizing-the-audience)
-    - [3. Briefing and Presenting the Agenda](#3-briefing-and-presenting-the-agenda)
-    - [4. Generating Domain Events](#4-generating-domain-events)
-    - [5. Sorting Domain Events](#5-sorting-domain-events)
-    - [6. Adding Actors and External Systems](#6-adding-actors-and-external-systems)
+      - [1. Preparing the Room](#1-preparing-the-room)
+      - [2. Energizing the audience](#2-energizing-the-audience)
+      - [3. Briefing and Presenting the Agenda](#3-briefing-and-presenting-the-agenda)
+      - [4. Generating Domain Events](#4-generating-domain-events)
+      - [5. Sorting Domain Events](#5-sorting-domain-events)
+      - [6. Adding Actors and External Systems](#6-adding-actors-and-external-systems)
     - [Actores:](#actores)
     - [Sistemas Externos:](#sistemas-externos)
       - [7. Storytelling](#7-storytelling)
@@ -309,6 +309,15 @@ _Tabla de contenidos_
       - [4.2.8.6. Bounded Context Software Architecture Code Level Diagrams](#4286-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.8.6.1. Bounded Context Domain Layer Class Diagrams](#42861-bounded-context-domain-layer-class-diagrams)
         - [4.2.8.6.2. Bounded Context Database Design Diagram](#42862-bounded-context-database-design-diagram)
+    - [4.2.9. Bounded Context: Merchant](#429-bounded-context-merchant)
+      - [4.2.9.1. Domain Layer](#4291-domain-layer)
+      - [4.2.9.2. Interface Layer](#4292-interface-layer)
+      - [4.2.9.3. Application Layer](#4293-application-layer)
+      - [4.2.9.4. Infrastructure Layer](#4294-infrastructure-layer)
+      - [4.2.9.5. Bounded Context Software Architecture Component Level Diagrams](#4295-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.9.6. Bounded Context Software Architecture Code Level Diagrams](#4296-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.9.6.1. Bounded Context Domain Layer Class Diagrams](#42961-bounded-context-domain-layer-class-diagrams)
+        - [4.2.9.6.2. Bounded Context Database Design Diagram](#42962-bounded-context-database-design-diagram)
 - [Capítulo V: Solution UI/UX Design](#capítulo-v-solution-uiux-design)
   - [5.1. Style Guidelines.](#51-style-guidelines)
     - [5.1.1. General Style Guidelines.](#511-general-style-guidelines)
@@ -4761,6 +4770,8 @@ Los mock-ups finales traducen la estructura del wireframe en una experiencia vis
 
 ## 5.4. Applications UX/UI Design.
 
+Esta sección presenta la propuesta visual y de interacción para las aplicaciones que constituyen la experiencia de usuario con los productos digitales de CargaSafe. El diseño de la interfaz y la experiencia de usuario se fundamentan en principios de usabilidad, accesibilidad y coherencia visual, considerando las necesidades específicas de los segmentos objetivo identificados: gestores de transporte y clientes finales. A través de wireframes, mockups y diagramas de flujo de usuario, se documenta el proceso de diseño iterativo que busca optimizar la eficiencia operativa, reducir la curva de aprendizaje y proporcionar una experiencia intuitiva tanto en entornos web como móviles. La propuesta de diseño integra los componentes visuales definidos en las Style Guidelines con patrones de navegación y arquitectura de información que facilitan el acceso rápido a funcionalidades críticas de monitoreo en tiempo real, gestión de alertas y generación de reportes, asegurando que cada interacción del usuario agregue valor tangible a sus operaciones logísticas.
+
 ### 5.4.1. Applications Wireframes.
 
 Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego serán diseñadas más a detalle. A continuación, se presentan los wireframes de las pantallas de las aplicaciones web y móvil.
@@ -4881,6 +4892,27 @@ Monitoreo de temperatura en tiempo real:
 
 <img src="assets/UserFlow/userflow4.png"/>
 
+Anulación de suscripción:
+
+- User Goal: Como empresa o cliente final, quiero anular mi suscripción actual, para dejar de utilizar el servicio y cancelar los pagos recurrentes asociados a mi cuenta.
+- Descripción: El usuario que desea cancelar su suscripción debe iniciar sesión en su cuenta y navegar a la sección de "Subscriptions" desde el menú principal. Una vez en la pantalla de suscripciones, podrá visualizar su plan activo actual con todos los detalles (tipo de plan, fecha de renovación, métodos de pago). El usuario deberá seleccionar la opción "Cancel your Plan", lo que desplegará una confirmación explicando las consecuencias de la cancelación (pérdida de acceso a funcionalidades premium, fecha efectiva de terminación del servicio). Tras confirmar la acción, el sistema procesará la solicitud, enviará un correo de confirmación y actualizará el estado de la suscripción a "Cancelada" o "Pendiente de cancelación", permitiendo al usuario seguir usando el servicio hasta el final del período ya pagado.
+
+<img src="assets/sus-flow1.png"/>
+
+Actualización de suscripción (Upgrade):
+
+- User Goal: Como empresa o cliente final, quiero actualizar mi plan de suscripción a uno superior, para acceder a más funcionalidades y beneficios que se ajusten mejor a mis necesidades operativas.
+- Descripción: El usuario que desea mejorar su plan de suscripción debe acceder al módulo de "Subscriptions" desde el menú principal de la aplicación. Una vez en la pantalla de gestión de suscripciones, el usuario visualizará su plan actual con sus características y limitaciones. Al seleccionar la opción "Change your Plan", el sistema desplegará todas las opciones de suscripción disponibles (Basic, Professional, Enterprise) con sus respectivas características, precios y beneficios comparativos. El usuario podrá revisar las diferencias entre planes y seleccionar el que mejor se adapte a sus necesidades. Posteriormente, el sistema solicitará verificar o actualizar el método de pago registrado (tarjeta de crédito/débito, información de facturación). Una vez confirmados los datos de pago, el sistema procesará la transacción de upgrade y mostrará un recibo digital detallado con la información de la nueva suscripción, fecha de activación, monto cobrado y próxima fecha de renovación. Finalmente, el usuario recibirá una confirmación por correo electrónico con el recibo adjunto y el plan quedará actualizado inmediatamente, otorgando acceso a las nuevas funcionalidades premium.
+
+<img src="assets/sus-flow2.png"/>
+
+Registro y modificación de información de vehículos:
+
+- User Goal: Como empresa de transporte, quiero registrar nuevos vehículos en el sistema o modificar la información existente de mis vehículos, para mantener actualizado el inventario de mi flota y asegurar el correcto monitoreo de cada unidad.
+- Descripción: El usuario debe acceder al módulo de "Vehículos" desde el menú principal de la aplicación. Una vez en la pantalla de gestión de flota, visualizará un listado completo de todos los vehículos registrados con información básica como placa, modelo, estado y dispositivo IoT asignado. Para agregar un nuevo vehículo, el usuario debe seleccionar el botón "Add Vehicle", lo que desplegará un formulario con los parámetros necesarios para el registro: placa del vehículo, marca, modelo, año, tipo de vehículo (camión refrigerado, van, camión seco), capacidad de carga, y datos del conductor asignado. Una vez completados todos los campos requeridos, el usuario confirma el registro y el sistema valida la información, guardando el nuevo vehículo en la base de datos. Si el usuario necesita editar la información de un vehículo existente, debe seleccionar el ícono del lápiz (edit) junto al registro del vehículo en la lista, lo que abrirá el mismo formulario con los datos actuales precargados, permitiendo modificar cualquier parámetro necesario. Tras guardar los cambios, el sistema actualiza la información y muestra una confirmación. Finalmente, el usuario puede visualizar la información completa del vehículo recién creado o modificado en la vista de detalle, incluyendo su historial de viajes, dispositivos asociados y estado operativo actual.
+
+<img src="assets/fleet-flow1.png"/>
+
 ## 5.5. Applications Prototyping.
 
 El sistema prioriza la visualización inmediata de datos críticos mediante cards estadísticas y gráficos interactivos (dashboard con métricas en tiempo real, charts con tooltips hover, y tablas filtradas). La navegación está centralizada en un sidebar persistente con iconografía Material Design que facilita el cambio rápido entre contextos. Las acciones de usuario siguen un patrón de feedback visual claro: estados de loading explícitos, filtros reactivos (búsqueda, fecha, tipo) que actualizan tablas en vivo, y cards clickeables que navegan a detalles sin recarga de página. La arquitectura de interacción refleja el dominio operacional: el dashboard como hub central de monitoreo, detalles de viajes con gráficos de sensores (temperatura/movimiento) para análisis profundo, y gestión de alertas con estados visuales (active/resolved) para triage rápido. Los formularios son minimalistas usando Material UI (outline appearance, dropdowns, checkboxes) optimizados para captura eficiente de datos IoT como IMEI, firmware y asociación de dispositivos.
@@ -4890,10 +4922,16 @@ El sistema prioriza la visualización inmediata de datos críticos mediante card
 **Enlace al video de presentación del prototipo:**
 [Ver presentación del prototipo web](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113640_upc_edu_pe/EX4I9LxC-aVKgb9GKfRVWbUB7z2IzhL6d3ee8BtbquIA-A?e=T6vAgj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
+**Enlace al prototipo interactivo en Figma (Web):**
+[Ver prototipo web en Figma](https://www.figma.com/proto/yJB6meI9ytbZJlVHmDXbqV/App-Web?node-id=57-265&p=f&t=YfLZPXtkjo5iZgAZ-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=57%3A265)
+
 ![Mobile Prototype Presentation](assets/MobilePrototypePresentation.png)
 
 **Enlace al video de presentación del prototipo móvil:**
 [Ver presentación del prototipo móvil](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113640_upc_edu_pe/ERF7JZVmawlPp3fFV_7827IBCw3QrlwAwYaJYLmz60olnw?e=QCSuuS&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+
+**Enlace al prototipo interactivo en Figma (Mobile):**
+[Ver prototipo móvil en Figma](https://www.figma.com/proto/rHPICavCttYoZqv0nnf5Xg/Mobile-app?node-id=56-271&p=f&t=ACRzMys3FStab7UA-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=56%3A271&show-proto-sidebar=1)
 
 # Capítulo VI: Product Implementation, Validation & Deployment
 
