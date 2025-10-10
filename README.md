@@ -368,7 +368,12 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
       <td>
         <span class="person">Marcelo Fabian Garro Vega</span><br />
         <span class="entry-order">TB1:</span><br/>
-        Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, donde contribuí con ideas clave para definir el flujo de negocio, fomentando así la claridad y el consenso entre todos los miembros del equipo. También participé activamente en la elaboración de la arquitectura de software y en el diseño táctico siguiendo los principios de Domain Driven Design. <br /> <br><span class="person">Jefrey Sanchez Ignacio</span><br />
+          Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, donde contribuí con ideas clave para definir el flujo de negocio, fomentando así la claridad y el consenso entre todos los miembros del equipo. También participé activamente en la elaboración de la arquitectura de software y en el diseño táctico siguiendo los principios de Domain Driven Design. 
+        </span>
+        <span class="entry-order">TP1:</span><br/>
+          En esta entrega, demostré liderazgo colaborativo al delegar tareas SMART a mis compañeros, guiarlos en la resolución de dudas técnicas y establecer un flujo de trabajo transparente que promovió la coordinación y el cumplimiento de los objetivos del equipo.
+        </span>
+        <br /> <br><span class="person">Jefrey Sanchez Ignacio</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br />
         <br><span class="person">Daniel Rodrigo Chirinos Arevalo</span><br />
@@ -402,7 +407,10 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
       </td>
       <td>
         <span class="person">Marcelo Fabian Garro Vega</span><br />
-        <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo dentro del equipo, promoviendo la participación activa de todos los miembros mediante el envío constante de retroalimentaciones constructivas. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que estas aportan al negocio. Para ello, tomé en cuenta las opiniones de mis compañeros, lo cual permitió definir metas claras, planificar de manera efectiva y cumplir con los objetivos propuestos bajo los principios de Domain Driven Design. <br /> <br> <span class="person">Jefrey Sanchez Ignacio</span><br />
+        <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo dentro del equipo, promoviendo la participación activa de todos los miembros mediante el envío constante de retroalimentaciones constructivas. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que estas aportan al negocio. Para ello, tomé en cuenta las opiniones de mis compañeros, lo cual permitió definir metas claras, planificar de manera efectiva y cumplir con los objetivos propuestos bajo los principios de Domain Driven Design. <br />
+        <span class="entry-order">TP1:</span> En esta entrega, fomenté un entorno colaborativo e inclusivo al asignar tareas del sprint backlog y coordinar sesiones de trabajo síncronas, tanto remotas como presenciales, para definir conjuntamente los objetivos y asegurar el cumplimiento de la entrega. <br />
+        </span> <br> 
+        <span class="person">Jefrey Sanchez Ignacio</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br /> <br><span class="person">Daniel Rodrigo Chirinos Arevalo</span><br />
         <span class="entry-order">TB1:</span><br/>
