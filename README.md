@@ -79,6 +79,7 @@
 | 1.0     | 20/09/2025 | George | Se entregó una primera entrega del informe con los siguientes apartados: Carátula, Registro de Versiones, Project Report Collaboration Insights, Contenido, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design y Bibliografía. |
 | 1.2     | 13/09/2025 | Daniel y Marcelo | Se añadió el capitulo 3 que es en base al product backlog que se trabajará en el proyecto |
 | 1.3     | 12/09/2025 | Jefrey y Nicolas | Se añadió el capitulo 4 que es en base a las soluciones en diseño del software que trabajaremos en el proyecto |
+| 2.3     | 09/10/2025 | Daniel | Se realizaron las correciones y se añadió el capitulo 6 que es la configuración y el uso de las herramientas que se utilizaran durante el ciclo. |
 ---
 
 # Project Report Collaboration Insights
@@ -160,6 +161,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Vera Nuñez Nicolas Alejandro</span><br />
         <span class="entry-order">TB1:</span><br/>
         Participé de manera activa en reuniones virtuales y presenciales, aportando propuestas relevantes para la definición de la arquitectura de software del Fleet Management. Lideré la elaboración de los diagramas C4 (contexto, contenedores y componentes) y colaboré en el diseño táctico bajo los principios de Domain Driven Design (DDD). Asimismo, contribuí en la identificación y documentación de los Bounded Contexts, garantizando una delimitación clara y consistente del sistema, y elaboré el Bounded Context Canvases, facilitando la comprensión de las responsabilidades y alcances de cada contexto.<br />
+        <br><span class="person">Daniel Rodrigo Chirinos Arevalo</span><br />
+        <span class="entry-order">TP:</span><br/>
+        Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
       </td>
       <td class="conclusions-column">
       <span class="entry-order">TB1:</span><br/>
@@ -183,6 +187,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Vera Nuñez Nicolas Alejandro</span><br />
         <span class="entry-order">TB1:</span><br/>
         Promoví un entorno colaborativo mediante la coordinación de los artefactos de arquitectura y la integración de los diagramas en el informe. Contribuí en la planificación de tareas técnicas vinculadas a la arquitectura de software, asegurando la consistencia de los entregables y su alineación con los objetivos del proyecto. Además, facilité retroalimentación constructiva, incentivando la participación activa de todos los miembros del equipo.<br />
+        <br><span class="person">Daniel Rodrigo Chirinos Arevalo</span><br />
+        <span class="entry-order">TP:</span><br/>
+        Colaboré en la elaboración de mi bounded context "Alerts and resolutions", tambien apoyé con las correciones de la anterior entrega y en la organización de las tareas.  <br />
       </td>
       <td class="conclusions-column">
       <span class="entry-order">TB1:</span><br/>
