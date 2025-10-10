@@ -65,7 +65,7 @@
       </table>
       <p style="text-align: center">
         <br />
-        <strong>Setiembre 2025</strong>
+        <strong>Octubre 2025</strong>
       </p>
     </div>
 
