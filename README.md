@@ -126,6 +126,35 @@ Para el control de versiones, decidimos emplear **6 ramas principales**:
 
 <b> chapter-1-2-3-4 </b>: Esta rama funciona como zona de integración pre-producción donde se consolidan y revisan todos los capítulos antes de fusionarlos a `main`. Permite realizar pruebas de integración completas, verificar la coherencia entre capítulos y realizar ajustes finales sin afectar la rama principal. Actúa como un paso intermedio de validación antes del merge final.
 
+
+## TP Project Report Collaboration Insights
+
+Para la entrega del TP se realizaron las actividades necesarias para corregir y completar los capítulos I, II, III,IV,V y VI resaltando la importancia de la constancia en el trabajo. Como equipo, mantuvimos una frecuencia adecuada de commits y actualizaciones, proyectada como óptima para el desarrollo futuro, y se incluyen en el informe las evidencias de los cambios efectuados.
+
+_Vista general de las contribuciones del equipo_
+
+![Team contributions](assets/commitsovertimeTP.png)
+
+_Contribuciones de cada miembro del equipo para la TB1_
+![Contributions per user insights](assets/contributersTP.png)
+
+_Commits_
+![CommitsTB1](assets/commitsTP.png)
+
+
+De las contribuciones del equipo y commits se concluye lo siguiente:
+
+- Para esta entrega, se han realizado un total de **262 commits** aproximadamente por parte del equipo.
+
+- El equipo considera que hubo una ligera mejor organización durante la realización de la TP1.
+
+Para el control de versiones, decidimos emplear **6 ramas principales**:
+
+<b> main </b> : Esta rama se mantiene como un reflejo del documento en su última versión estable. El estado del documento será listo para entregar.
+
+<b> chapter-1, chapter-2, chapter-3, chapter-4, chapter-5, chapter-6 </b>: Estas ramas permiten integrar los artefactos solicitados por capítulo. Se trabaja de esta manera para asegurar una integración controlada, una colaboración enfocada y un aislamiento de cambios.
+
+
 ---
 
 # Contenido
