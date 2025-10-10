@@ -144,7 +144,7 @@ _Commits_
 
 De las contribuciones del equipo y commits se concluye lo siguiente:
 
-- Para esta entrega, se han realizado un total de **262 commits** aproximadamente por parte del equipo.
+- Para esta entrega, se han realizado un total de **390 commits** aproximadamente por parte del equipo.
 
 - El equipo considera que hubo una ligera mejor organización durante la realización de la TP1.
 
