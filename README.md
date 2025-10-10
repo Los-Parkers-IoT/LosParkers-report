@@ -4292,6 +4292,60 @@ Feature: User Login
 El proceso de despliegue de la solución CargaSafe se basa en la integración continua (CI) y la entrega continua (CD) a través de repositorios en GitHub.
 Cada producto digital cuenta con su propia configuración de despliegue para garantizar la disponibilidad, seguridad y escalabilidad del sistema.
 
+Para la Landing page se utilizó GitHub Pages, los pasos a seguir son:
+
+1. **Entrar al repositorio creado**
+
+<img src="assets/pages.png">
+
+2. **Ingresar a la pestaña **`Pages`****
+
+<img src="assets/pages2.png">
+
+3. **Github te da dos opciones para desplegar el software, Github Actions y Deploy from a branch.**
+
+<img src="assets/pages3.png">
+
+4. **La mejor opción para el despliegue de la landing page es Deploy from a branch, una vez elegido esta opción, se tiene que elegir la rama que se desee, por regla general, la rama **`main`** es la que se debe elegir.**
+
+<img src="assets/pages4.png">
+
+5. **Una vez elegida la rama donde se va a desplegar la landing page, Github generará un link donde se ha desplegado el producto.**
+
+<img src="assets/pages5.png">
+
+<img src="assets/pages6.png">
+
+Para la Web Application se utilizó GitHub Actions y Firebase.
+
+1. **Se debe generar una carpeta github/workflows para que la rama **`main`** pueda actualizarse constantemente**
+
+<img src="assets/fire.png">
+
+2. **Se tiene que crear un archivo **`yml`** y colocar el siguiente codigo para firebase hosting** 
+
+<img src="assets/fire2.png">
+
+3. **Luego de generar el archivo, se debe conectar al Firebase Hosting, pero primero se debe crear una cuenta para poder utilizarlo**
+
+<img src="assets/fire3.png">
+
+4. **Una vez creada la cuenta se debe ejecutar **`npm install -g firebase-tools`** para instalar los componentes de firebase, luego de instalarlo, se debe ejecutar el comando **`firebase login`****
+
+<img src="assets/fire4.png">
+
+5. **Luego se debe ejecutar el comando firebase init hosting y se debe realizar los pasos a seguir que saldrán en pantalla**
+
+<img src="assets/fire5.png">
+
+6. **Una vez desplegado la web application, saldrá una confirmación en la rama seleccionada**
+
+<img src="assets/fire6.png">
+
+7. **Y la web application ya estará desplegada**
+
+<img src="assets/fire7.png">
+
 ## 6.2. Landing Page, Services & Applications Implementation.
 
 ### 6.2.1. Sprint 1
