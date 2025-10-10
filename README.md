@@ -1359,7 +1359,7 @@ Link Big Picture Event Storming: [Big Picture Event Storming](https://miro.com/a
 
 #### 1. Preparing the Room
 
-El equipo inició la sesión preparando el espacio de trabajo colaborativo. Se creó un tablero compartido en Miro para registrar los eventos a medida que ocurrían y se definió el propósito principal: analizar el dominio del monitoreo de transporte de carga sensible con tecnología IoT, abarcando todo el ciclo de vida del servicio, desde la solicitud inicial hasta la evaluación posterior a la entrega.
+El equipo inició la sesión preparando el espacio de trabajo colaborativo. Se creó un tablero compartido en Miro para registrar los eventos a medida que ocurrían y se definió el propósito principal: analizar el dominio del monitoreo de transporte de carga sensible, abarcando todo el ciclo de vida del servicio, desde la solicitud inicial hasta la evaluación posterior a la entrega.
 
 #### 2. Energizing the audience
 
@@ -1371,7 +1371,7 @@ Se explicó el alcance de la sesión:
 
 - Analizar cómo interactúan los gestores de transporte, conductores y clientes finales
 - Identificar los eventos clave desde que se solicita un servicio de transporte hasta la entrega, monitoreo y análisis de datos
-- Identificar a los actores y sistemas externos (sensores IoT, sistema de alertas, plataforma de pagos)
+- Identificar a los actores y sistemas externos
 
 #### 4. Generating Domain Events
 
@@ -1381,7 +1381,7 @@ Los participantes propusieron todos los eventos posibles sin orden específico, 
 
 #### 5. Sorting Domain Events
 
-Se organizó la secuencia de eventos siguiendo una línea de tiempo lógica desde el inicio (solicitud de servicio) hasta el final (cierre de operación y análisis). Esto permitió visualizar de forma clara el flujo completo y detectar posibles cuellos de botella o redundancias.
+Se organizó la secuencia de eventos siguiendo una línea de tiempo lógica desde el inicio (solicitud de envios) hasta el final (cierre de operación). Esto permitió visualizar de forma clara el flujo completo y detectar posibles cuellos de botella o redundancias.
 
 <img src="assets/Sorting Domain Events.jpg">
 
@@ -1391,48 +1391,46 @@ Se identificaron los actores clave que participan en los eventos:
 
 ### Actores:
 
-- **Gestor de Transporte** (gestiona operaciones, rutas, costos y SLA)
-- **Conductor** (ejecuta el viaje, reporta incidentes)
-- **Cliente Final** (recibe productos, valida condiciones)
-- **Sistema IoT** (sensores de temperatura, humedad, vibración, GPS, puerta)
+- **Transport Manager (Gestor de Transporte)** : Gestiona operaciones, rutas, costos y SLA
+- **Dock Staff (Personal del Muelle)** : Encargado de la carga, descarga y verificación de mercancía en el muelle. Asegura que los productos correctos se carguen en los vehículos apropiados.
+- **Driver (Conductor)** : Encargado de ejecutar el viaje
+- **Logistic Staff (Personal Logístico)** : Coordina el flujo de mercancías desde el origen hasta el destino. Gestiona el inventario, el almacenamiento y la documentación 
 
 ### Sistemas Externos:
 
-- **Sistema de Alertas** (notificaciones automáticas)
-- **Sistema de Pagos** (facturación y cobros)
-- **Plataforma de Monitoreo** (dashboard centralizado)
-
-Además, se incluyeron sistemas como las aplicaciones y servicios de gestión de flotas.
+- **Route Planning System** : Sistema encargado de calcular las rutas más eficientes para la flota de transporte, considerando variables como la distancia, el tiempo estimado de viaje, las ventanas de entrega (SLAs), la capacidad del vehículo y los costos asociados.
 
 <img src="assets/Adding Actors and External Systems.jpg">
 
 #### 7. Storytelling
 
-El equipo narró la experiencia desde la perspectiva del gestor de transporte:
+El equipo narró la experiencia desde dos perspectivas:
 
 **Perspectiva del Gestor de Transporte:**
 
-Un gestor de transporte recibe una solicitud de servicio, genera una cotización, acuerda un SLA con el cliente y planifica la ruta considerando paradas, capacidad del vehículo y requisitos especiales. Prepara la documentación, asigna un conductor y un vehículo, y reserva slots en cross-docks. Al llegar el cargamento al muelle, se verifican las mercancías, se asignan etiquetas y se aprueba el plan de carga. Durante el viaje, los sensores IoT monitorean temperatura, humedad, vibración y ubicación en tiempo real. Si se detecta una desviación (temperatura fuera de rango, puerta abierta, vibración excesiva), el sistema genera alertas automáticas que el gestor puede atender inmediatamente. Al finalizar, el sistema genera reportes detallados con toda la trazabilidad del viaje, facilitando la facturación, resolución de disputas y análisis de KPIs.
+Un gestor de transporte recibe una solicitud de servicio, genera una cotización, acuerda un SLA con el cliente y planifica la ruta considerando paradas, capacidad del vehículo y requisitos especiales. Prepara la documentación, asigna un conductor y un vehículo, y reserva slots en cross-docks. Al llegar el cargamento al muelle, se verifican las mercancías, se asignan etiquetas y se aprueba el plan de carga. Durante el viaje, el gestor no tiene visibilidad real, pues depende de las llamadas esporádicas del conductor para saber la ubicación y el estado de la carga. Si hay un problema de temperatura o desvío, solo se entera después del hecho.
+
 
 **Perspectiva del Cliente Final:**
 
-Un cliente final recibe notificaciones sobre el estado del envío en tiempo real. Puede acceder a un portal o recibir un link para consultar la temperatura, humedad y ubicación del cargamento durante todo el trayecto. Al momento de la entrega, verifica las condiciones físicas del producto y valida que los parámetros registrados coincidan con lo esperado. Si hay discrepancias, puede revisar el histórico completo de eventos y generar reportes de trazabilidad para reclamaciones o auditorías. El acceso a información transparente y verificable aumenta su confianza en el proveedor de transporte.
+El cliente no recibe notificaciones de estado ni puede rastrear su envío en tiempo real. Al recibir la mercancía, solo puede hacer una inspección visual, pues no hay datos de temperatura o vibración para validar. La falta de datos históricos y verificables complica la confianza y hace que la resolución de cualquier problema o reclamo sea lenta y dependiente del papeleo.
+
 
 #### 8. Reverse Storytelling
 
-Se utilizó la técnica de narración inversa para verificar la consistencia del flujo: Comenzando desde el cierre de operación y el reporte final del gestor, y retrocediendo paso a paso hasta el evento inicial de solicitud de servicio. Esto ayudó a confirmar que no faltaba ningún evento crítico y que las políticas de negocio estaban correctamente representadas.
+Se utilizó la técnica de narración inversa para verificar la consistencia del flujo de transporte manual. Comenzando desde el cierre de la operación (recepción de la mercancía por el Cliente Final con inspección visual) y la lenta resolución de reclamos, y retrocediendo paso a paso hasta el evento inicial de solicitud de servicio. Esto ayudó a confirmar que no faltaba ningún evento crítico, que las políticas de negocio estaban correctamente representadas y que los puntos ciegos (falta de visibilidad en tránsito) y la dependencia del papeleo eran la causa principal de la ineficiencia en el modelo actual.
 
 #### 9. Closing
 
-Se recopilaron los principales aprendizajes de la sesión:
+Se recopilaron los principales aprendizajes y las necesidades de mejora no cubiertas por el proceso manual:
 
-- El sistema debe manejar eventos críticos en tiempo real (temperatura, humedad, vibración, puerta, ubicación)
-- La automatización mediante IoT es la clave diferenciadora frente a soluciones convencionales de solo GPS
-- Es importante documentar políticas de negocio claras para evitar conflictos (tiempos de gracia, umbrales de temperatura, tarifas, reembolsos)
-- Los sensores IoT deben integrarse seamlessly con la plataforma para proporcionar visibilidad unificada
-- Las alertas deben ser accionables y contextualizadas para facilitar la toma de decisiones
-- Los reportes automáticos de trazabilidad son fundamentales para cumplimiento regulatorio y resolución de disputas
-- La experiencia del cliente final (transparencia, acceso a datos) es tan importante como la del gestor de transporte
+- La dependencia del factor humano (llamadas del conductor, papeleo) introduce puntos ciegos críticos en la visibilidad del transporte.
+- Existe una necesidad fundamental de manejar eventos críticos (temperatura, humedad, vibración, puerta, ubicación) en tiempo real para permitir una acción correctiva proactiva del gestor.
+- La trazabilidad y la validación de la condición de la carga son insuficientes; la inspección visual al final del trayecto no es una prueba de cumplimiento para la mercancía sensible.
+- Es crucial documentar políticas de negocio claras sobre las desviaciones (tiempos de gracia, umbrales de temperatura, tarifas) para evitar conflictos y largas disputas.
+- La experiencia del cliente final es pobre debido a la falta de transparencia y el nulo acceso a datos del envío, lo cual deteriora la confianza en el proveedor.
+- La resolución de disputas y el cumplimiento normativo se ven severamente obstaculizados por la ausencia de reportes automáticos y datos históricos verificables.
+
 
 ## 2.5. Ubiquitous Language
 
