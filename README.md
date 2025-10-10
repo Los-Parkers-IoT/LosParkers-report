@@ -4887,6 +4887,10 @@ La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se
 
 <img src="assets/backlog.png">
 
+| Sprint # | Sprint 1 |  |  |  |  |  |  |
+|----------------|------------------|----------|-------------|------------------|--------------------|--------------|--------|
+| User Story | Work-Item / Task |  |  |  |  |  |  |
+
 | User Story Id | User Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
 |----------------|------------------|----------|-------------|------------------|--------------------|--------------|--------|
 | US01 | Sección portada | T01 | Maquetar versión desktop del hero | Crear estructura visual y contenido de la sección hero en versión desktop | 2 | Daniel Chirinos | Done |
