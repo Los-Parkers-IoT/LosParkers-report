@@ -76,10 +76,10 @@
 
 | Versión | Fecha      | Autor            | Descripción de modificación                                                                                                                                                                                                                                                                                                                              |
 | ------- | ---------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.0     | 20/09/2025 | George           | Se entregó una primera entrega del informe con los siguientes apartados: Carátula, Registro de Versiones, Project Report Collaboration Insights, Contenido, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design y Bibliografía. |
-| 1.2     | 13/09/2025 | Daniel y Marcelo | Se añadió el capitulo 3 que es en base al product backlog que se trabajará en el proyecto                                                                                                                                                                                                                                                                |
-| 1.3     | 12/09/2025 | Jefrey y Nicolas | Se añadió el capitulo 4 que es en base a las soluciones en diseño del software que trabajaremos en el proyecto                                                                                                                                                                                                                                           |
-
+| 1.0     | 20/09/2025 | George | Se entregó una primera entrega del informe con los siguientes apartados: Carátula, Registro de Versiones, Project Report Collaboration Insights, Contenido, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design y Bibliografía. |
+| 1.2     | 12/09/2025 | Daniel y Marcelo | Se añadió el capitulo 3 que es en base al product backlog que se trabajará en el proyecto                                                                                                                                                                                                                                                                |
+| 1.3     | 13/09/2025 | Jefrey y Nicolas | Se añadió el capitulo 4 que es en base a las soluciones en diseño del software que trabajaremos en el proyecto                                                                                                                                                                                                                                           |
+| 2.1     | 09/10/2025 | Daniel | Se realizaron las correciones y se añadió el capitulo 6 que es la configuración y el uso de las herramientas que se utilizaran durante el ciclo. |
 ---
 
 # Project Report Collaboration Insights
@@ -372,6 +372,8 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Daniel Rodrigo Chirinos Arevalo</span><br />
         <span class="entry-order">TB1:</span><br/>
         Participé en reuniones virtuales y presenciales, aportando ideas sobre cómo abordar el proyecto y colaborando con mis compañeros para tomar decisiones clave respecto al caso propuesto. Además, elaboré de manera colaborativa los user stories y los diagramas de clase y C4. Para ello, realizamos reuniones de planificación y coordinación para asegurar el acuerdo sobre el desarrollo de estos diagramas.  <br />
+        <span class="entry-order">TP:</span><br/>
+        Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, aportando ideas clave para definir el flujo de negocio y la estructura de la solución. Colaboré en la elaboración de la arquitectura de software y en el diseño táctico bajo los principios de Domain Driven Design, asegurando claridad y consenso entre los miembros del equipo. Además, contribuí en la documentación de los artefactos de usuario y en la organización de tareas, promoviendo un entorno colaborativo y alineado con los objetivos del proyecto.<br />
@@ -403,6 +405,8 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br /> <br><span class="person">Daniel Rodrigo Chirinos Arevalo</span><br />
         <span class="entry-order">TB1:</span><br/>
         Estuve enfocado en fomentar un ambiente de colaboración dentro del equipo. Trabajé en conjunto con mis compañeros para definir los objetivos y tareas del proyecto. Colaboré en el análisis competitivo y en la definición de segmentos clave como el de gestion de transportes y clientes finales. Además, me encargué de crear user stories e impact mapping para estos segmentos, asegurando que el desarrollo del producto estuviera alineado con las necesidades del usuario. Cada semana establecí un límite personal para realizar las secciones de cada capítulo, de esta forma me aseguré de que todas las tareas estuvieran bien organizadas y distribuidas para cumplir con los objetivos establecidos. <br />
+        <span class="entry-order">TP:</span><br/>
+        Colaboré en la elaboración de mi bounded context "Alerts and resolutions", tambien apoyé con las correciones de la anterior entrega y en la organización de las tareas.  <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo, promoviendo la participación activa de todos los miembros mediante retroalimentación constante y constructiva. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que aportan al negocio. Participé en la definición de metas y organización de tareas, asegurando que el equipo trabajara con orden y alcanzara los objetivos propuestos bajo los principios de Domain Driven Design.<br />
         <span class="entry-order">TP1:</span> Durante este avance, establecí metas claras de diseño y prototipado, planificando las tareas técnicas relacionadas con la elaboración del bounded context de Visualization and Analytics y la creación de los prototipos interactivos. Fomenté un ambiente inclusivo mediante sesiones de revisión colaborativa del diseño en Figma, donde recibí y di retroalimentación constructiva para mejorar la experiencia de usuario. Asimismo, coordiné con el equipo para asegurar que el landing page cumpliera con los estándares de usabilidad, accesibilidad y alineación con la identidad visual del proyecto, cumpliendo con los objetivos establecidos en el sprint.<br />
@@ -1439,7 +1443,7 @@ Link Big Picture Event Storming: [Big Picture Event Storming](https://miro.com/a
 
 #### 1. Preparing the Room
 
-El equipo inició la sesión preparando el espacio de trabajo colaborativo. Se creó un tablero compartido en Miro para registrar los eventos a medida que ocurrían y se definió el propósito principal: analizar el dominio del monitoreo de transporte de carga sensible con tecnología IoT, abarcando todo el ciclo de vida del servicio, desde la solicitud inicial hasta la evaluación posterior a la entrega.
+El equipo inició la sesión preparando el espacio de trabajo colaborativo. Se creó un tablero compartido en Miro para registrar los eventos a medida que ocurrían y se definió el propósito principal: analizar el dominio del monitoreo de transporte de carga sensible, abarcando todo el ciclo de vida del servicio, desde la solicitud inicial hasta la evaluación posterior a la entrega.
 
 #### 2. Energizing the audience
 
@@ -1451,19 +1455,19 @@ Se explicó el alcance de la sesión:
 
 - Analizar cómo interactúan los gestores de transporte, conductores y clientes finales
 - Identificar los eventos clave desde que se solicita un servicio de transporte hasta la entrega, monitoreo y análisis de datos
-- Identificar a los actores y sistemas externos (sensores IoT, sistema de alertas, plataforma de pagos)
+- Identificar a los actores y sistemas externos
 
 #### 4. Generating Domain Events
 
 Los participantes propusieron todos los eventos posibles sin orden específico, anotándolos en tarjetas.
 
-<img src="assets/Event Storming.jpg">
+<img src="assets/Eventstorming.jpg">
 
 #### 5. Sorting Domain Events
 
-Se organizó la secuencia de eventos siguiendo una línea de tiempo lógica desde el inicio (solicitud de servicio) hasta el final (cierre de operación y análisis). Esto permitió visualizar de forma clara el flujo completo y detectar posibles cuellos de botella o redundancias.
+Se organizó la secuencia de eventos siguiendo una línea de tiempo lógica desde el inicio (solicitud de envios) hasta el final (cierre de operación). Esto permitió visualizar de forma clara el flujo completo y detectar posibles cuellos de botella o redundancias.
 
-<img src="assets/Sorting Domain Events.jpg">
+<img src="assets/SortingDomain Events.jpg">
 
 #### 6. Adding Actors and External Systems
 
@@ -1471,48 +1475,46 @@ Se identificaron los actores clave que participan en los eventos:
 
 ### Actores:
 
-- **Gestor de Transporte** (gestiona operaciones, rutas, costos y SLA)
-- **Conductor** (ejecuta el viaje, reporta incidentes)
-- **Cliente Final** (recibe productos, valida condiciones)
-- **Sistema IoT** (sensores de temperatura, humedad, vibración, GPS, puerta)
+- **Transport Manager (Gestor de Transporte)** : Gestiona operaciones, rutas, costos y SLA
+- **Dock Staff (Personal del Muelle)** : Encargado de la carga, descarga y verificación de mercancía en el muelle. Asegura que los productos correctos se carguen en los vehículos apropiados.
+- **Driver (Conductor)** : Encargado de ejecutar el viaje
+- **Logistic Staff (Personal Logístico)** : Coordina el flujo de mercancías desde el origen hasta el destino. Gestiona el inventario, el almacenamiento y la documentación 
 
 ### Sistemas Externos:
 
-- **Sistema de Alertas** (notificaciones automáticas)
-- **Sistema de Pagos** (facturación y cobros)
-- **Plataforma de Monitoreo** (dashboard centralizado)
+- **Route Planning System** : Sistema encargado de calcular las rutas más eficientes para la flota de transporte, considerando variables como la distancia, el tiempo estimado de viaje, las ventanas de entrega (SLAs), la capacidad del vehículo y los costos asociados.
 
-Además, se incluyeron sistemas como las aplicaciones y servicios de gestión de flotas.
-
-<img src="assets/Adding Actors and External Systems.jpg">
+<img src="assets/Adding Actors and ExternalSystems.jpg">
 
 #### 7. Storytelling
 
-El equipo narró la experiencia desde la perspectiva del gestor de transporte:
+El equipo narró la experiencia desde dos perspectivas:
 
 **Perspectiva del Gestor de Transporte:**
 
-Un gestor de transporte recibe una solicitud de servicio, genera una cotización, acuerda un SLA con el cliente y planifica la ruta considerando paradas, capacidad del vehículo y requisitos especiales. Prepara la documentación, asigna un conductor y un vehículo, y reserva slots en cross-docks. Al llegar el cargamento al muelle, se verifican las mercancías, se asignan etiquetas y se aprueba el plan de carga. Durante el viaje, los sensores IoT monitorean temperatura, humedad, vibración y ubicación en tiempo real. Si se detecta una desviación (temperatura fuera de rango, puerta abierta, vibración excesiva), el sistema genera alertas automáticas que el gestor puede atender inmediatamente. Al finalizar, el sistema genera reportes detallados con toda la trazabilidad del viaje, facilitando la facturación, resolución de disputas y análisis de KPIs.
+Un gestor de transporte recibe una solicitud de servicio, genera una cotización, acuerda un SLA con el cliente y planifica la ruta considerando paradas, capacidad del vehículo y requisitos especiales. Prepara la documentación, asigna un conductor y un vehículo, y reserva slots en cross-docks. Al llegar el cargamento al muelle, se verifican las mercancías, se asignan etiquetas y se aprueba el plan de carga. Durante el viaje, el gestor no tiene visibilidad real, pues depende de las llamadas esporádicas del conductor para saber la ubicación y el estado de la carga. Si hay un problema de temperatura o desvío, solo se entera después del hecho.
+
 
 **Perspectiva del Cliente Final:**
 
-Un cliente final recibe notificaciones sobre el estado del envío en tiempo real. Puede acceder a un portal o recibir un link para consultar la temperatura, humedad y ubicación del cargamento durante todo el trayecto. Al momento de la entrega, verifica las condiciones físicas del producto y valida que los parámetros registrados coincidan con lo esperado. Si hay discrepancias, puede revisar el histórico completo de eventos y generar reportes de trazabilidad para reclamaciones o auditorías. El acceso a información transparente y verificable aumenta su confianza en el proveedor de transporte.
+El cliente no recibe notificaciones de estado ni puede rastrear su envío en tiempo real. Al recibir la mercancía, solo puede hacer una inspección visual, pues no hay datos de temperatura o vibración para validar. La falta de datos históricos y verificables complica la confianza y hace que la resolución de cualquier problema o reclamo sea lenta y dependiente del papeleo.
+
 
 #### 8. Reverse Storytelling
 
-Se utilizó la técnica de narración inversa para verificar la consistencia del flujo: Comenzando desde el cierre de operación y el reporte final del gestor, y retrocediendo paso a paso hasta el evento inicial de solicitud de servicio. Esto ayudó a confirmar que no faltaba ningún evento crítico y que las políticas de negocio estaban correctamente representadas.
+Se utilizó la técnica de narración inversa para verificar la consistencia del flujo de transporte manual. Comenzando desde el cierre de la operación (recepción de la mercancía por el Cliente Final con inspección visual) y la lenta resolución de reclamos, y retrocediendo paso a paso hasta el evento inicial de solicitud de servicio. Esto ayudó a confirmar que no faltaba ningún evento crítico, que las políticas de negocio estaban correctamente representadas y que los puntos ciegos (falta de visibilidad en tránsito) y la dependencia del papeleo eran la causa principal de la ineficiencia en el modelo actual.
 
 #### 9. Closing
 
-Se recopilaron los principales aprendizajes de la sesión:
+Se recopilaron los principales aprendizajes y las necesidades de mejora no cubiertas por el proceso manual:
 
-- El sistema debe manejar eventos críticos en tiempo real (temperatura, humedad, vibración, puerta, ubicación)
-- La automatización mediante IoT es la clave diferenciadora frente a soluciones convencionales de solo GPS
-- Es importante documentar políticas de negocio claras para evitar conflictos (tiempos de gracia, umbrales de temperatura, tarifas, reembolsos)
-- Los sensores IoT deben integrarse seamlessly con la plataforma para proporcionar visibilidad unificada
-- Las alertas deben ser accionables y contextualizadas para facilitar la toma de decisiones
-- Los reportes automáticos de trazabilidad son fundamentales para cumplimiento regulatorio y resolución de disputas
-- La experiencia del cliente final (transparencia, acceso a datos) es tan importante como la del gestor de transporte
+- La dependencia del factor humano (llamadas del conductor, papeleo) introduce puntos ciegos críticos en la visibilidad del transporte.
+- Existe una necesidad fundamental de manejar eventos críticos (temperatura, humedad, vibración, puerta, ubicación) en tiempo real para permitir una acción correctiva proactiva del gestor.
+- La trazabilidad y la validación de la condición de la carga son insuficientes; la inspección visual al final del trayecto no es una prueba de cumplimiento para la mercancía sensible.
+- Es crucial documentar políticas de negocio claras sobre las desviaciones (tiempos de gracia, umbrales de temperatura, tarifas) para evitar conflictos y largas disputas.
+- La experiencia del cliente final es pobre debido a la falta de transparencia y el nulo acceso a datos del envío, lo cual deteriora la confianza en el proveedor.
+- La resolución de disputas y el cumplimiento normativo se ven severamente obstaculizados por la ausencia de reportes automáticos y datos históricos verificables.
+
 
 ## 2.5. Ubiquitous Language
 
