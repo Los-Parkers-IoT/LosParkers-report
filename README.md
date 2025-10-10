@@ -4726,9 +4726,9 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 
 **Web Application**<br>
 
-*Autenticación*<br>
+*Authentication*<br>
 
-
+![Wireframe Authentication Web application](assets/WireframesAuthentication.png) <br>
 
 *Subscriptions*<br>
 
@@ -4742,6 +4742,10 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 
 
 **Mobile Application** 
+
+*Authentication*<br>
+
+![Wireframe Authentication Mobile application](assets/WireframeMobileAuthentication.png) <br>
 
 *Subscriptions*<br>
 
@@ -4761,6 +4765,9 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 
 **Web Application** 
 
+*Authentication*<br>
+
+![Mockups Authentication Web application](assets/MockupAuthentication.png) <br>
 
 *Subscriptions*<br>
 
@@ -4773,6 +4780,10 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 <img src="assets/alert2.png"/>
 
 **Mobile Application** 
+
+*Authentication*<br>
+
+![Mockups Authentication Mobile application](assets/MockupMobileAuthentication.png) <br>
 
 *Subscriptions*<br>
 
