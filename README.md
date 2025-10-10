@@ -1377,13 +1377,13 @@ Se explicó el alcance de la sesión:
 
 Los participantes propusieron todos los eventos posibles sin orden específico, anotándolos en tarjetas.
 
-<img src="assets/Event Storming.jpg">
+<img src="assets/Eventstorming.jpg">
 
 #### 5. Sorting Domain Events
 
 Se organizó la secuencia de eventos siguiendo una línea de tiempo lógica desde el inicio (solicitud de envios) hasta el final (cierre de operación). Esto permitió visualizar de forma clara el flujo completo y detectar posibles cuellos de botella o redundancias.
 
-<img src="assets/Sorting Domain Events.jpg">
+<img src="assets/SortingDomain Events.jpg">
 
 #### 6. Adding Actors and External Systems
 
@@ -1400,7 +1400,7 @@ Se identificaron los actores clave que participan en los eventos:
 
 - **Route Planning System** : Sistema encargado de calcular las rutas más eficientes para la flota de transporte, considerando variables como la distancia, el tiempo estimado de viaje, las ventanas de entrega (SLAs), la capacidad del vehículo y los costos asociados.
 
-<img src="assets/Adding Actors and External Systems.jpg">
+<img src="assets/Adding Actors and ExternalSystems.jpg">
 
 #### 7. Storytelling
 
