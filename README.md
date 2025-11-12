@@ -2309,94 +2309,87 @@ El diagrama de base de datos implementa un modelo RBAC (Role-Based Access Contro
 
 _Entities_
 
+**Plan**
+
+- **Propósito**: Representar los distintos planes de suscripción disponibles.
+- **Atributos principales**: planId, name, limits, price, description.
+- **Métodos principales**: Creación mediante 'CreatePlanCommand', Getters y setters para sus atributos.
+
 **Subscription**
 
-- **Propósito**: Gestionar el ciclo de vida de la suscripción de una empresa.
-- **Atributos principales**: subscriptionId, companyId, plan, billingCycle, status (ACTIVE, CANCELED), startedAt, expiresAt.
-- **Métodos principales**: activate(), changePlan(newPlan), renew(), cancel().
+- **Propósito**: Gestionar el ciclo de vida de una suscripción asociada a un usuario.
+- **Atributos principales**: subscriptionId, userId, plan, status (ACTIVE, REVOKED, SUSPENDED), renewal, paymentMethod.
+- **Métodos principales**: changePlan(newPlan): permite cambiar de plan si el estado actual es ACTIVE, delete(): elimina la suscripción si existe, Creación mediante CreateSubscriptionCommand.
 
 **Payment**
 
-- **Propósito**: Representar pagos asociados a una suscripción.
-- **Atributos principales**: paymentId, subscriptionId, amount, status (PENDING, SUCCEEDED, FAILED), date.
-- **Métodos principales**: markSucceeded(), markFailed().
-
-**Company**
-
-- **Propósito**: Entidad que consume el servicio y depende de su suscripción activa.
-- **Atributos principales**: companyId, name, vehicleCount.
-- **Métodos principales**: canFitPlan(plan).
-
-**Value Objects**
-
-- **Plan**: Define límites y beneficios (code, vehicleLimit, price).
-- **BillingCycle**: Periodo de facturación (type, startDate, endDate).
-- **GracePeriod**: Tolerancia tras vencimiento (days).
-
-**Domain Services**
-
-- **BillingService**: Calcula montos y renovaciones.
-- **PaymentPolicy**: Aplica reglas de activación y cancelación según pagos.
-
-**Factory**
-
-- **SubscriptionFactory**: Crea una suscripción válida con plan y ciclo inicial.
+- **Propósito**: Registrar los pagos efectuados por los usuarios asociados a sus suscripciones.
+- **Atributos principales**: paymentId, userId, transactionId, amount, receiptUrl, status (PENDING, SUCCEEDED, FAILED), paymentDate.
+- **Métodos principales**: Creación mediante CreatePaymentCommand, Actualización automática del estado a SUCCEEDED al registrarse el pago.
 
 **Commands**
 
-- **CreateSubscriptionCommand**: Crea una nueva suscripción.
-- **ChangePlanCommand**: Cambia de plan.
-- **CancelSubscriptionCommand**: Cancela una suscripción.
-- **RenewSubscriptionCommand**: Renueva periodo.
-- **RecordPaymentCommand**: Registra un pago.
+- **CreatePlanCommand**
+- **CreateSubscriptionCommand**
+- **ChangePlanCommand**
+- **DeleteSubscriptionCommand**
+- **CreatePaymentCommand**
 
 **Queries**
 
-**GetSubscriptionByIdQuery**: Consulta suscripción por ID.
-**GetActiveSubscriptionByCompanyQuery**: Consulta suscripción activa de una compañía.
-**ListPaymentsBySubscriptionQuery**: Lista pagos de una suscripción.
+**GetAllPlansQuery**
+**GetPlanByIdQuery**
+**GetSubscriptionByUserIdQuery**
+**GetPaymentsByUserIdQuery**
 
-**Events**
-
-**SubscriptionCreated**: Suscripción creada.
-**PlanChanged**: Cambio de plan.
-**SubscriptionRenewed**: Renovación realizada.
-**SubscriptionCanceled**: Suscripción cancelada.
-**PaymentSucceeded / PaymentFailed**: Resultado de pago.
 
 #### 4.2.2.2. Interface Layer
 
-**Controllers**
+**PlanController**
 
-- **SubscriptionController**: Endpoints para crear, renovar, cambiar plan y cancelar suscripciones.
-- **PaymentController**: Endpoints para registrar y consultar pagos.
-- **PlanController**: Endpoints para listar planes disponibles.
-- **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
+- **POST /api/v1/plans**: Crea un nuevo plan de suscripción.
+- **GET /api/v1/plans**: Lista todos los planes disponibles.
+
+**SubscriptionController**
+
+- **POST /api/v1/subscriptions**: Crea una nueva suscripción para un usuario.
+- **PATCH /api/v1/subscriptions/{subscriptionId}/plan**: Cambia el plan actual (solo si la suscripción está ACTIVA).
+- **DELETE /api/v1/subscriptions/{subscriptionId}**: Elimina una suscripción existente.
+- **GET /api/v1/subscriptions/user-id/{userId}**: Consulta la suscripción activa de un usuario.
+
+**PaymentController**
+
+- **POST /api/v1/payments**: Registra un nuevo pago asociado a un usuario.
+- **GET /api/v1/payments/user-id/{userId}**: Lista los pagos de un usuario.
 
 #### 4.2.2.3. Application Layer
 
 **Command Services**
 
-- **SubscriptionCommandService**: Ejecuta comandos de suscripción (crear, cambiar, renovar, cancelar).
-- **PaymentCommandService**: Registra pagos y actualiza estado de suscripción.
+- **PlanCommandService**: Crea nuevos planes validando que no se repitan nombres.
+- **SubscriptionCommandService**: Gestiona creación, cambio y eliminación de suscripciones y valida que un usuario no tenga más de una suscripción activa.
+- **PaymentCommandService**: Registra pagos nuevos, validando unicidad de transactionId y marca automáticamente el estado del pago como SUCCEEDED.
 
 **Query Services**
 
-**SubscriptionQueryService**: Consulta suscripciones por id, estado o compañía.
-**PaymentQueryService**: Consulta pagos por suscripción o estado.
+**PlanQueryService**: Obtiene planes por ID o lista completa.
+**SubscriptionQueryService**: Recupera suscripción por userId.
+**PaymentQueryService**: Lista pagos por usuario.
 
-**Event Handlers**
-
-- **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
-- **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
 
 #### 4.2.2.4. Infrastructure Layer
 
 **Repositories (Interfaces)**
 
-- **ISubscriptionRepository**: Acceso a datos de suscripciones.
-- **IPaymentRepository**: Acceso a datos de pagos.
-- **ICompanyRepository**: Acceso a datos de compañías.
+- **PlanRepository**: Maneja persistencia de planes (existsByName, findAll).
+- **SubscriptionRepository**: Maneja suscripciones (existsByUserId, findByUserId).
+- **PaymentRepository**: Maneja pagos (existsByTransactionId, findAllByUserId).
+
+**Persistence & Configuration**
+
+- **Base de datos**: PostgreSQL (configurada vía application.properties).
+- **Estrategia de nombres**: SnakeCasePhysicalNamingStrategy.
+- **Variables de entorno preparadas para Stripe**: (STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET).
 
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
 
