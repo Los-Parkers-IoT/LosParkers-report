@@ -2397,40 +2397,56 @@ _Diagrama de componentes - Backend - Subscriptions and Billing_
 
 ![Component diagrams](assets/Component_backend_subscription.png)
 
-El backend del bounded context de Suscripciones y Pagos está organizado en cuatro capas principales:
+El backend del bounded context de Suscripciones y Pagos está estructurado siguiendo el enfoque de Domain-Driven Design (DDD), y se organiza en cuatro capas principales:
 
-- **Interface Layer**: expone los controladores REST que atienden operaciones de suscripciones, pagos, planes y compañías. Es la puerta de entrada para los usuarios y sistemas que consumen la API.
-- **Application Layer**: orquesta los casos de uso mediante Command Services, Query Services y Event Handlers. Aquí se coordinan las operaciones y se invocan las reglas de negocio.
-- **Domain Layer**: concentra la lógica de negocio del contexto, con entidades, objetos de valor, servicios de dominio y fábricas. Define las reglas que rigen el ciclo de vida de suscripciones y pagos.
-- **Infrastructure Layer**: implementa repositorios y conectores hacia la base de datos y sistemas externos. Se encarga de la persistencia y de la integración técnica.
+- **Interface Layer**: expone los controladores REST que atienden las operaciones de planes, suscripciones y pagos. Es la puerta de entrada para los usuarios o sistemas que consumen la API.
 
-Las conexiones externas son:
+- **Application Layer**: orquesta los casos de uso mediante Command Services, Query Services y, potencialmente, Event Handlers. En esta capa se coordinan las operaciones y se aplican las reglas de negocio definidas en el dominio.
 
-- Postgres para persistencia transaccional (suscripciones, pagos, compañías).
-- Stripe para procesamiento de pagos.
-- Firebase Cloud Messaging (FCM) para envío de notificaciones push.
-- Google Maps para consultas de rutas y tiempos estimados (ETA).
+- **Domain Layer**: concentra la lógica de negocio del contexto, incluyendo las entidades Plan, Subscription y Payment. Define los estados y comportamientos que rigen el ciclo de vida de las suscripciones y los pagos.
+
+- **Infrastructure Layer**: implementa los repositorios JPA y conectores hacia la base de datos y posibles servicios externos. Se encarga de la persistencia y de la integración técnica con sistemas externos.
+
+Conexiones externas actuales:
+	•	**Postgres**: persistencia transaccional de planes, suscripciones y pagos.
+	•	**Stripe**: pasarela de pagos (configurada mediante variables de entorno, preparada para integración futura).
+	•	**SendGrid**: servicio de envío de correos electrónicos (reservado para notificaciones de facturación y confirmaciones).
 
 _Diagrama de componentes - Application Web - Subscriptions and Billing_
 
 ![Component diagrams](assets/Component_diagram_applicationweb.png)
 
-La aplicación web se conecta al bounded context **Subscriptions & Billing** únicamente a través de las APIs: la _Subscriptions API_ (para enviar comandos como crear o cancelar una suscripción) y la _Query API_ (para consultar datos como facturas o planes activos).
+La aplicación web se comunica con el bounded context Subscriptions exclusivamente a través de endpoints REST del backend (mismo API para commands y queries). No existe un módulo separado de “Billing” ni una “Query API” independiente.
 
-En el lado del cliente, la app se organiza en tres partes:
-• **UI (interfaz de usuario)**: pantallas de suscripciones, facturación y pagos.
-• **Estado de aplicación:** maneja la sesión del usuario, el cache de consultas y el control de autenticación.
-• **Servicios de datos:** cliente HTTP que llama a las APIs, agrega el token de seguridad y gestiona reintentos o errores.
+**Estructura de la Web Application:**
 
-La aplicación web no implementa lógica de negocio propia, solo muestra la información y envía las intenciones del usuario al backend. Todo lo que es reglas, validaciones o persistencia está en el backend.
+**UI – Subscriptions**: alta de suscripción, cambio de plan, visualización del plan vigente y lista de pagos del usuario.
+**App State & Cache**: gestiona sesión/autenticación, almacén de estado y caché de consultas.
+**API Client**: cliente HTTP que invoca la Subscriptions REST API, agrega el token (vía Auth Adapter) y maneja errores/reintentos.
+**Auth Adapter**: integra OIDC/JWT para adjuntar credenciales en cada request. (Si la autenticación aún no está implementada en el backend de este BC, se mantiene como integración prevista).
+
+**Alcance funcional en el cliente**: La aplicación web no implementa lógica de negocio, solo presenta datos y envía intenciones del usuario (crear suscripción, cambiar plan, eliminar, registrar pago).
+
+*Conexiones externas representadas en el backend*:
+	•	**Postgres** (persistencia transaccional de planes, suscripciones y pagos).
+	•	**Stripe** (pasarela de pagos — integración planificada).
+	•	**SendGrid** (correos transaccionales — integración planificada).
 
 _Diagrama de componentes - Mobile Application - Subscriptions and Billing_
 
 ![Component diagrams](assets/Component_diagram_mobile.png)
 
-La aplicación móvil de **Subscriptions & Billing** es muy parecido a la versión web, ya que también se conecta al backend por la _Subscriptions API_ y la _Query API_. La diferencia es que en el móvil contamos con una base de datos local (SQLite), que nos permite trabajar en modo offline: la app guarda datos y puede seguir operando aunque no haya conexión, y luego sincroniza cuando vuelve el internet.
+La aplicación móvil de Subscriptions mantiene una arquitectura muy similar a la versión web, ya que también se conecta al backend a través de la Subscriptions REST API, utilizando comandos (POST/PUT) para ejecutar acciones y consultas (GET) para obtener datos de planes, suscripciones y pagos.
 
-La app se organiza en pantallas de suscripciones y facturación, un estado de aplicación que maneja la sesión y el cache, y un API Client que envía las solicitudes al backend siempre agregando el token de autenticación. Toda la lógica de negocio sigue estando en el backend; en el cliente solo mostramos información y enviamos las acciones que hace el usuario.
+La principal diferencia con respecto a la versión web es que en el entorno móvil se incorpora una base de datos local SQLite, la cual permite el funcionamiento offline. Gracias a esta base local, la aplicación puede continuar operando aun sin conexión, guardando temporalmente los datos y sincronizándolos cuando se restablece el acceso a internet.
+
+*La app se organiza en los siguientes componentes*:
+	•	**UI – Subscriptions**: pantallas de gestión de suscripción, cambio de plan y visualización del estado actual.
+	•	**UI – Payments**: pantallas de pagos o facturación, integradas dentro del mismo módulo.
+	•	**App State & Cache**: administra la sesión, autenticación y almacenamiento temporal de datos.
+	•	**SQLite**: guarda información localmente para permitir modo offline.
+	•	**API Client**: maneja las solicitudes HTTP al backend, incluyendo reintentos y gestión de errores.
+	•	**Auth Adapter**: adjunta el token de autenticación (OIDC/JWT) a cada petición al backend.
 
 #### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -2440,7 +2456,13 @@ La app se organiza en pantallas de suscripciones y facturación, un estado de ap
 
 ##### Explicación del diagrama
 
-El diagrama de clases del Domain Layer muestra a Subscription como Aggregate Root, cuyo ciclo de vida se gestiona a través de estados definidos en SubscriptionStatus (Active y Canceled) y su relación con múltiples Payment, cada uno con su propio PaymentStatus (Pending, Succeeded, Failed). Los Value Objects Plan y Money encapsulan reglas de negocio como límites de vehículos y montos monetarios. El modelo incluye la SubscriptionFactory para la creación controlada de agregados, los Repositories para la persistencia de entidades y el PaymentProcessingService como servicio de dominio para la gestión de pagos. En conjunto, este diseño asegura encapsulamiento, claridad en las reglas del negocio e independencia tecnológica en el dominio.
+El diagrama de clases del Domain Layer se centra en tres entidades: Subscription (aggregate), Plan (entity) y Payment(entity). 
+
+*Subscription* actúa como agregado principal y gestiona su ciclo de vida mediante el estado status, con los valores ACTIVE, REVOKED y SUSPENDED. La operación principal de negocio implementada es changePlan(newPlan), que solo procede cuando la suscripción está ACTIVE.
+
+*Plan* modela las ofertas disponibles y persiste atributos como name, limits, price y description. 
+
+*Payment* registra transacciones asociadas a un usuario (userId) con transactionId único, amount, receiptUrl, paymentDate y status (PENDING, SUCCEEDED, FAILED). 
 
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram
 
@@ -2448,10 +2470,13 @@ El diagrama de clases del Domain Layer muestra a Subscription como Aggregate Roo
 
 ##### Explicación del diagrama
 
-Define la persistencia mínima y suficiente para gestionar compañías, suscripciones y pagos integrados con Stripe. La tabla companies centraliza la información de cada cliente.
-Sobre ella, la tabla _subscriptions_ modela el ciclo de vida de la suscripción, incluyendo plan, estado y próxima renovación, con la restricción de que solo puede existir una suscripción activa por compañía.
-La tabla _payments_ registra cada intento de cobro asociado a una suscripción, asegurando unicidad mediante el identificador del proveedor (provider_ref).
-Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos desde Stripe y se vincula con los pagos para garantizar trazabilidad e idempotencia en el procesamiento de transacciones.
+El diseño de base de datos está compuesto por tres tablas principales: **plans, subscriptions y payments**. Este modelo representa la persistencia mínima necesaria para gestionar los planes disponibles, el ciclo de vida de las suscripciones y el registro de pagos asociados a los usuarios.
+
+La tabla plans almacena los planes disponibles dentro del sistema, incluye el identificador del *plan (id)*, el *nombre (name)*, los límites o características del plan (limits, en formato JSON), el precio (price) y una descripción (description). El campo name se encuentra definido como único con el fin de evitar duplicados en la configuración de planes.
+
+La tabla subscriptions representa la suscripción activa o histórica de cada usuario. Contiene el identificador de la suscripción (id), el identificador del usuario (user_id), el plan al que se encuentra asociado (plan_id), el estado de la suscripción (status, cuyos valores posibles son ACTIVE, REVOKED o SUSPENDED), la fecha de renovación (renewal) y el método de pago (payment_method). Además, almacena marcas de auditoría como created_at y updated_at. La relación con la tabla plans se establece mediante la clave foránea plan_id → plans.id, que garantiza que toda suscripción referencia un plan válido. La restricción de que un usuario solo puede mantener una suscripción en estado ACTIVE es aplicada a nivel de la capa de aplicación.
+
+La tabla payments registra los pagos realizados por los usuarios. Cada registro incluye el identificador del pago (id), el usuario asociado (user_id), el identificador único de transacción (transaction_id), el monto (amount), la URL del comprobante (receipt_url), la fecha del pago (payment_date) y el estado del pago (status, con valores permitidos PENDING, SUCCEEDED o FAILED). El campo transaction_id se define como único para garantizar idempotencia en el procesamiento de transacciones, evitando duplicidad de cobros.
 
 ### 4.2.3. Bounded Context: _Alerts & Resolution_
 
