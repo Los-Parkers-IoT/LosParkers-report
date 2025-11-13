@@ -2452,7 +2452,7 @@ La principal diferencia con respecto a la versión web es que en el entorno móv
 
 ##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-![layer diagrams](assets/layer_class_diagram.png)
+![layer diagrams](assets/subscriptions_class_diagram.png)
 
 ##### Explicación del diagrama
 
@@ -2466,7 +2466,7 @@ El diagrama de clases del Domain Layer se centra en tres entidades: Subscription
 
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram
 
-![layer diagrams](assets/layer_database_diagram.png)
+![layer diagrams](assets/subscriptions_database_diagram.png)
 
 ##### Explicación del diagrama
 
