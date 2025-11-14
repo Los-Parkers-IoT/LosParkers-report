@@ -5708,6 +5708,130 @@ _Insights de Web Application_<br>
 
 ![Image Insights collaboration apppweb](assets/InsightsAppWeb.png)
 
+### 6.2.2. Sprint 2
+
+#### 6.2.2.1. Sprint Planning 2.
+
+#### 6.2.2.2. Aspect Leaders and Collaborators.
+
+#### 6.2.2.3. Sprint Backlog 2.
+
+#### 6.2.2.4. Development Evidence for Sprint Review
+
+Durante el sprint, en la Landing se levantó la base del proyecto, se añadieron las secciones tales como (Features, Benefits, Testimonials, Plans, Contact Us), navegación, soporte bilingüe (EN/ES). Se documentó el proyecto y se ajustó la configuración de build/ignores.
+
+**Landing Page**
+
+| Repository          | Branch           | Commit Id   | Commit Message                                                        | Commit Message Body                                                              | Commited on (Date) |
+| ------------------- | ---------------- | ----------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------ |
+| `cargasafe-landing` | `main`           | **e4aaf65** | build(base): setup base template for development                      | Estructura inicial del proyecto, tooling básico y configuración para desarrollo. | 2025-10-03         |
+| `cargasafe-landing` | `hero-section`   | **5fb53f0** | feat(hero-section): add hero-section info                             | Sección **Hero** con copy, botón CTA y layout responsive.                        | 2025-10-03         |
+| `cargasafe-landing` | `functionality`  | **4816719** | feat(functionality): add functionality info section                   | Sección **Funcionalidad**: bloques con beneficios funcionales y grid responsive. | 2025-10-03         |
+| `cargasafe-landing` | `benefits`       | **5101ccc** | feat(benefits): add benefits section                                  | Sección **Beneficios** con íconos/texto, espaciados y accesibilidad básica.      | 2025-10-04         |
+| `cargasafe-landing` | `pricing`        | **fd9db54** | feat(pricing): add subscription plans section                         | Sección **Pricing** (planes) con cards y CTA a suscripción.                      | 2025-10-04         |
+| `cargasafe-landing` | `testimonials`   | **a7f149f** | feat(testimonials): add testimonials section                          | Sección **Testimonials** con testimonios y estructura para futuras fuentes.      | 2025-10-04         |
+| `cargasafe-landing` | `quotes-section` | **6a51bac** | feat(quotes-section): add quotes-section info                         | Sección **Quotes** (frases) con tipografía y espaciado consistente.              | 2025-10-05         |
+| `cargasafe-landing` | `navigation`     | **63f1a66** | feat(nav): add header and navigation system for landing page          | **Header** + navegación anclada; enlaces a secciones y estados de hover/focus.   | 2025-10-06         |
+| `cargasafe-landing` | `call-to-action` | **1223a55** | feat(cta): add app web call-to-action                                 | CTA para **App Web** enlazado; estilos y jerarquía visual.                       | 2025-10-06         |
+| `cargasafe-landing` | `call-to-action` | **8ad26fc** | feat(cta): add app mobile call-to-action                              | CTA para **App Mobile**; botones y layout responsive.                            | 2025-10-06         |
+| `cargasafe-landing` | `call-to-action` | **6df4e47** | feat(cta): add responsive for call-to-action section                  | Ajustes **responsive** de la sección CTA (breakpoints y spacing).                | 2025-10-06         |
+| `cargasafe-landing` | `intl`           | **4c8225d** | feat(intl): add english and spanish language to the entire page       | **i18n EN/ES** aplicado a toda la landing; textos externalizados.                | 2025-10-06         |
+| `cargasafe-landing` | `intl`           | **75003bc** | feat(intl): add switch language button for layout                     | **Switcher** de idioma en el layout (toggle EN/ES) y persistencia simple.        | 2025-10-06         |
+| `cargasafe-landing` | `main`           | **f1f9917** | docs: add initial project documentation for landing page              | README/guía inicial: estructura, scripts y cómo correr/desplegar.                | 2025-10-06         |
+| `cargasafe-landing` | `main`           | **b0327e7** | chore(gitignore): create gitignore file to ignore IDEs configurations | `.gitignore` para excluir configs locales/IDE.                                   | 2025-10-06         |
+
+**Web Application**
+
+Durante este sprint se implementaron los módulos principales del sistema **CargaSafe** en Angular 20.  
+El equipo desarrolló el _bounded context_ de suscripciones, gestión de flotas, monitoreo de viajes, alertas y autenticación (IAM).  
+Se integró la API simulada con `json-server`, se configuró el enrutamiento base y se estructuró la arquitectura por capas (domain, infrastructure, presentation).
+
+| Repository                                     | Branch                          | Commit Id   | Commit Message                                                                                                        | Commit Message Body                                                                            | Commited on (Date) |
+| ---------------------------------------------- | ------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------ |
+| `iot-solutions-development-cargasafe-frontend` | `main`                          | **c8dc444** | initial commit                                                                                                        | Inicio del proyecto Angular 20, configuración base y estructura inicial.                       | 2025-09-23         |
+| `iot-solutions-development-cargasafe-frontend` | `main`                          | **f8215b4** | feat: First commit. Project Setup                                                                                     | Creación del entorno Angular standalone, configuración inicial de módulos y dependencias.      | 2025-09-23         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **ebcd034** | feat(shared): implement base entity, API endpoint, assembler, and response interfaces                                 | Implementación de entidades base, endpoints comunes y ensambladores para integración de datos. | 2025-10-03         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **7026161** | feat(shared): implement root layout and routing system                                                                | Configuración del layout principal con sidebar y rutas dinámicas.                              | 2025-10-03         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **00a9220** | build(fake-api): add json-server for API REST connections                                                             | Implementación del servidor JSON local para simular endpoints REST del backend.                | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `IAM`                           | **ffa780a** | feat(iam): implement login, register and recovery password pages                                                      | Creación de pantallas de autenticación (login, registro, recuperación de contraseña).          | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `trip-management`               | **9d54bb9** | feat(trips): add DeliveryOrder, OriginPoint, TripParameter entities and update Trip entity with additional properties | Entidades principales del módulo de viajes (trip, delivery order, parámetros y origen).        | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `trip-management`               | **e5e3f55** | feat(trips): add trip list page                                                                                       | Página principal de viajes con tabla, filtro y paginación.                                     | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `trip-management`               | **6553425** | feat(trips): implement trips feature with API integration and routing                                                 | Integración del módulo de viajes con servicios REST simulados.                                 | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `alerts-and-resolutions`        | **f2e09c0** | refactor(alert screen): new icons and added db.json                                                                   | Refactor visual de alertas, íconos actualizados y datos simulados.                             | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `alerts-and-resolutions`        | **7564492** | feat(alerts): add alert screens                                                                                       | Sección de alertas del sistema con componentes modulares.                                      | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `visualization-and-analytics`   | **9ed2471** | feat(dashboard): Added charts for trip monitoring information                                                         | Dashboard con gráficos de seguimiento de viajes y estadísticas mensuales.                      | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **81e45b0** | feat(fleet): scaffold bounded context folders                                                                         | Estructura base para el módulo de gestión de flotas.                                           | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **fe46756** | feat(env): add base environment files and production config                                                           | Configuración de entornos (`environment.ts`) y build de producción.                            | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **7d43fd7** | feat(fleet-domain): add vehicle and device models                                                                     | Creación de modelos para vehículos y dispositivos IoT.                                         | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **daf642c** | feat(fleet-data): add device and vehicle data-access services                                                         | Servicios para gestión de datos de flota y dispositivos conectados.                            | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `main`                          | **a37a0b7** | feat(fleet-ui): add device-create-and-edit component                                                                  | Formulario y modal para creación/edición de dispositivos.                                      | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **47ad853** | feat(fleet-ui): add vehicle-create-and-edit component                                                                 | Componente para registrar o editar vehículos.                                                  | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **d1578c7** | feat(fleet-pages): add device-management page                                                                         | Página de administración de dispositivos.                                                      | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **e79cef8** | feat(fleet-pages): add vehicle-management page                                                                        | Página de administración de vehículos.                                                         | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **ba3f415** | feat(routes): add/modify Fleet routes and guards                                                                      | Configuración de rutas y guardas para navegación segura en Fleet.                              | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **37cc80c** | feat(shared-layout): add nav links to Vehicles and Devices management                                                 | Enlaces de navegación desde el layout principal hacia módulos de flota.                        | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `subscriptions-bounded-context` | **94e33ba** | feat(subscription): update bc content                                                                                 | Ajustes al _bounded context_ de suscripciones (contenidos y estados).                          | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **25b4a74** | fix: delete import zone.js in app.ts                                                                                  | Corrección de import redundante en configuración principal.                                    | 2025-10-08         |
+
+**Mobile Application**
+
+**Edge Application**
+
+**Embbended Application**
+
+
+#### 6.2.2.5. Testing Suite Evidence for Sprint Review.
+
+Durante este sprint no se implementaron pruebas automatizadas (Unit Tests, Integration Tests ni Acceptance Tests), ya que el alcance definido por el equipo contemplaba únicamente la construcción de la Landing Page asi como la Aplicación Web y su conexión con una Fake API mediante `json-server`.<br>
+
+El objetivo principal del sprint fue lograr la integración funcional entre la interfaz Angular y los endpoints simulados, estableciendo la arquitectura modular y los bounded contexts principales del sistema CargaSafe.<br>
+
+En esta etapa aún no se contaba con un backend definitivo ni con los servicios reales, por lo que las pruebas automatizadas se reprogramaron para el siguiente sprint, donde se incluirán los Integration Tests y Acceptance Tests asociados a los módulos de Suscriptions, Alerts, Fleet y Trips.<br>
+
+
+#### 6.2.2.6. Execution Evidence for Sprint Review.
+
+Durante este sprint se alcanzó la implementación funcional de la Landing Page y la Aplicación Web de CargaSafe, cumpliendo con los objetivos planteados en el alcance del sprint.  
+La landing fue desarrollada con HTML, CSS y Angular Material\*, enfocada en comunicar los beneficios del producto, sus planes de suscripción y la posibilidad de acceder directamente a la aplicación web.  
+Por otro lado, la aplicación web fue construida con Angular 20 bajo arquitectura modular standalone, integrándose con una Fake API (json-server) para simular la conexión con el backend y visualizar datos reales en tiempo de ejecución.
+
+
+
+#### 6.2.2.7. Services Documentation Evidence for Sprint Review
+
+
+
+#### 6.2.2.8. Software Deployment Evidence for Sprint Review
+
+Durante este sprint se realizaron los despliegues de los productos digitales correspondientes al **frontend** de CargaSafe: la **Landing Page** y la **Aplicación Web**.  
+El proceso incluyó la configuración de entornos de hosting, integración con servicios de despliegue continuo (CI/CD) y verificación de accesibilidad pública de ambos proyectos.
+
+
+
+#### 6.2.2.9. Team Collaboration Insights during Sprint.
+
+Durante este sprint, el equipo de desarrollo trabajó de forma colaborativa en la implementación de las principales funcionalidades correspondientes al alcance definido: la Landing Page y la Aplicación Web de CargaSafe. A lo largo del proceso, se mantuvo una comunicación constante mediante GitHub y los canales del equipo, asegurando una adecuada distribución de tareas y el cumplimiento de los objetivos propuestos.<br>
+
+Los analíticos de GitHub reflejan la participación activa de todos los integrantes, evidenciando commits frecuentes, revisiones de código y fusiones entre ramas, lo que demuestra un flujo de trabajo coordinado y una integración continua del proyecto. Además, se promovió la retroalimentación mutua y la resolución conjunta de incidencias técnicas, fortaleciendo el liderazgo compartido y la cooperación dentro del equipo.<br>
+
+_Insights de Landing Page_<br>
+
+
+_Insights de Web Application_<br>
+
+
+_Insights de Web Services_<br>
+
+
+_Insights de Mobile Application_<br>
+
+
+_Insights de Edge Application_<br>
+
+
+_Insights de Embbended Application_<br>
+
+
 # Bibliografía
 
 Bogdanov, V. (2024, 23 octubre). _Real-Time Supply Chain Visibility: a Game-Changer_. rinf.tech. https://www.rinf.tech/real-time-supply-chain-visibility-a-game-changer/
@@ -5717,3 +5841,4 @@ _Flock Freight | 2023 F&B Research Study._ (s. f.). https://www.flockfreight.co
 Perfectplanner. (2025, 30 enero). _Enhancing Supply Chain Visibility through Real-Time Tracking Technologies._ Perfect Planner. https://perfectplanner.io/enhancing-supply-chain-visibility/
 
 Technavio. (2024, 27 marzo). Cold Chain Logistics Market For Pharmaceuticals Industry size is set to grow by USD 12.81 bn from 2024-2028, Agility Public Warehousing Co. K.S.C.P, Air Canada & AVINEX, and more to emerge as Some of the Key Vendors, Technavio. PR Newswire. https://www.prnewswire.com/news-releases/cold-chain-logistics-market-for-pharmaceuticals-industry-size-is-set-to-grow-by-usd-12-81-bn-from-2024-2028--agility-public-warehousing-co-kscp-air-canada--avinex-and-more-to-emerge-as-some-of-the-key-vendors-technavio-302099252.html
+
