@@ -6090,13 +6090,15 @@ Comportamiento del usuario ante una alerta generada (temperatura fuera de rango,
 
 ### 6.4. Video About-the-Product.
 
-Introducción:
+Como parte del proceso de validación y comunicación de la solución propuesta, se desarrolló un video About the Product cuyo objetivo es explicar de manera clara y concisa el propósito del proyecto, el problema identificado en el mercado y la forma en que nuestra solución busca resolverlo.
+
+El material también presenta las principales funcionalidades de la aplicación web, evidenciando cómo estas responden directamente a las necesidades reales de los usuarios y de las empresas dedicadas al transporte de carga sensible. Además, se incluye la reacción y aceptación de un entrevistado de cada segmento objetivo, lo que permite reforzar la pertinencia y el valor percibido de la solución.
 
 <img src="assets/abouttheproductscree.png">
 
 **Duración: 2:23**
 
-**Video en Microsoft Stream:** https://upcedupe-my.sharepoint.com/:v:/g/personal/u202019577_upc_edu_pe/IQBU7ou9GNetS5zxDIN8WIV2Ac1stBm03__3xHSoUMVVtgs?e=lkyIaw 
+**Video en Microsoft Stream:** https://upcedupe-my.sharepoint.com/:v:/g/personal/u202019577_upc_edu_pe/IQCYKgWKcBrXR65PlG9NYDl6Adf84l5MqK0xFe_4ziO52dI?e=rNUkdK
 
 **Video en Youtube:** https://youtu.be/v0NPYFrI8V4 
 
