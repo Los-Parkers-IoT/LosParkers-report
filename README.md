@@ -5712,6 +5712,10 @@ _Insights de Web Application_<br>
 
 #### 6.2.2.1. Sprint Planning 2.
 
+En esta sección se especifican los aspectos principales del Sprint Planning Meeting para el Sprint 2 del proyecto CargaSafe. Este primer sprint se enfoca en establecer las bases de la plataforma, implementando el landing page y los componentes iniciales de la aplicación web que permitan a los usuarios conocer el producto y comenzar a interactuar con las funcionalidades core del sistema de monitoreo de carga.
+
+
+
 #### 6.2.2.2. Aspect Leaders and Collaborators.
 
 Para el Sprint 2, los principales aspectos considerados corresponden a los bounded contexts core identificados en la arquitectura del sistema CargaSafe, además del Landing Page como punto de entrada al producto. Se estableció cada …
@@ -5923,6 +5927,27 @@ _Insights de Edge Application_<br>
 
 
 _Insights de Embbended Application_<br>
+
+
+## 6.3. Validation Interviews.
+
+### 6.3.1. Diseño de Entrevistas.
+
+### 6.3.2. Registro de Entrevistas.
+
+### 6.3.3. Evaluaciones según heurísticas.
+
+### 6.4. Video About-the-Product.
+
+Introducción:
+
+<img src="assets/abouttheproductscree.png">
+
+**Duración: 2:23**
+
+**Video en Microsoft Stream:**
+
+**Video en Youtube:** https://youtu.be/v0NPYFrI8V4 
 
 
 # Bibliografía
