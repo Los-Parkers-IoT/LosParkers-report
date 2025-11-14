@@ -433,7 +433,10 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Sanchez Ignacio, Jefrey Martin</span><br />
         <span class="entry-order">TP:</span><br/>
         Durante esta etapa asumí un rol más activo en la coordinación del equipo. Ayudé a tomar decisiones sobre la estructura del Bounded Context Subscriptions. También estuve pendiente del avance en general, dando sugerencias y asegurándome de que todos sigamos las mismas pautas técnicas.<br />
-      </td>
+         <br><span class="person">Sanchez Ignacio, Jefrey Martin</span><br />
+        <span class="entry-order">TB2:</span><br/>
+        Durante esta entrega asumí un rol de liderazgo colaborativo dentro del desarrollo del Bounded Context de Trips. Coordiné con mis compañeros la definición de la estructura del front y la creación de los endpoints necesarios para asegurar la comunicación adecuada con el backend. Además, apoyé en la toma de decisiones técnicas, brindando lineamientos sobre el diseño de componentes. <br />
+        </td>
       <td class="conclusions-column">
       <span class="entry-order">TB1:</span><br/>
         A lo largo del proyecto asumimos un liderazgo compartido, distribuyendo responsabilidades y tomando decisiones en conjunto. Cada uno de nosotros aportó ideas y conocimientos que permitieron definir con claridad el flujo de negocio, la arquitectura y los artefactos necesarios bajo los principios de Domain Driven Design. Esta forma de trabajo nos ayudó a consolidar una visión común y avanzar con mayor seguridad en cada fase.<br/><br/>
@@ -467,7 +470,10 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Sanchez Ignacio, Jefrey Martin</span><br />
         <span class="entry-order">TP:</span><br/>
         En este trabajo parcial participé en la parte del Bounded Context de CargaSafe, ayudando en la conexión entre la vista y la API con json-server. Me encargué de implementar componentes con Angular Material y asegurar que el diseño se mantenga ordenado y coherente con el resto del proyecto.<br />
-      </td>
+        <br><span class="person">Sanchez Ignacio, Jefrey Martin</span><br />
+        <span class="entry-order">TB2:</span><br/>
+        En esta iteración contribuí activamente a fortalecer un entorno colaborativo al participar en la planificación del trabajo del Bounded Context de Trips. Aporté en la definición de metas técnicas, como la creación de los endpoints necesarios y la implementación del front asociada, asegurando que el flujo de información fuera claro entre la API y la interfaz. Trabajé de manera coordinada con el equipo, apoyando en la organización de tareas y manteniendo comunicación constante para resolver dudas y evitar bloqueos. Gracias a esta planificación conjunta y al seguimiento continuo, logramos cumplir los objetivos planteados y avanzar de forma alineada con la arquitectura general del proyecto.<br />
+ </td>
       <td class="conclusions-column">
       <span class="entry-order">TB1:</span><br/>
         Durante el desarrollo creamos un entorno colaborativo e inclusivo en el que cada aporte fue escuchado y valorado. Establecimos metas claras, organizamos tareas de manera conjunta y planificamos los avances para asegurar el cumplimiento de los objetivos. Gracias a la comunicación constante y al compromiso colectivo, conseguimos mantener la cohesión del grupo, garantizar la calidad de los entregables y alcanzar los resultados propuestos.<br/><br/>
