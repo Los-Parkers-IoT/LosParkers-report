@@ -5714,6 +5714,99 @@ _Insights de Web Application_<br>
 
 #### 6.2.2.2. Aspect Leaders and Collaborators.
 
+Para el Sprint 2, los principales aspectos considerados corresponden a los bounded contexts core identificados en la arquitectura del sistema CargaSafe, además del Landing Page como punto de entrada al producto. Se estableció cada …
+
+Los aspectos principales son:
+
+1. **Landing Page**: Página de aterrizaje con información del producto y llamados a la acción
+2. **Fleet Management**: Gestión de vehículos y dispositivos IoT asociados
+3. **Trip Management**: Creación, ejecución y seguimiento de viajes
+4. **Real-time Monitoring**: Monitoreo de condiciones ambientales en tiempo real
+5. **Alerts and Resolution**: Generación, visualización y resolución de alertas
+6. **Embedded Application:** Dispositivo IoT que funciona para monitoreo
+
+A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix) que indica el líder (L) y los colaboradores (C) para cada aspecto del Sprint 2:
+
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%; text-align: center;">
+  <tr>
+    <th style="text-align: left;">Team Member<br>(Last Name, First Name)</th>
+    <th>GitHub Username</th>
+    <th>Landing Page<br>L / C</th>
+    <th>Fleet Management<br>L / C</th>
+    <th>Trip Management<br>L / C</th>
+    <th>Real-time Monitoring<br>L / C</th>
+    <th>Alerts<br>L / C</th>
+    <th>Embedded Application<br>L / C</th>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Garro Vega, Marcelo Fabian</td>
+    <td>Marcelo Garro</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Sanchez Ignacio, Jefrey Martin</td>
+    <td>Jefreysii20</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Aliaga Pimentel, George Arturo</td>
+    <td>GeorAliaga</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Vera Nuñez, Nicolas Alejandro</td>
+    <td>nicxlxs</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Chirinos Arevalo, Daniel Rodrigo</td>
+    <td>DanielChirinos615</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>L</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Bernardo Eusebio, Alessandro Joaquin</td>
+    <td>Alessandro Bernardo</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+</table>
+
+**Leyenda:**
+
+- **L (Leader)**: Responsable principal del aspecto, encargado de la coordinación, toma de decisiones técnicas y revisión final del código.
+- **C (Collaborator)**: Contribuye activamente al desarrollo del aspecto, apoya en la implementación de funcionalidades y participa en las revisiones de código.
+
+Esta matriz facilita la comunicación y clarifica las responsabilidades dentro del equipo, asegurando que cada bounded context tenga un líder definido que coordine su desarrollo, mientras que todos los miembros colaboran de manera transversal para garantizar la integración coherente del sistema.
+
 #### 6.2.2.3. Sprint Backlog 2.
 
 #### 6.2.2.4. Development Evidence for Sprint Review
