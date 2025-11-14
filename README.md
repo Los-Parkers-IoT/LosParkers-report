@@ -5933,7 +5933,59 @@ _Insights de Embbended Application_<br>
 
 ### 6.3.1. Diseño de Entrevistas.
 
+Para el proceso de validación con usuarios, se emplearon los Application User Flow Diagrams desarrollados previamente en el proyecto. Estos flujos describen el recorrido natural del usuario dentro de la aplicación CargaSafe y permiten evaluar la claridad, facilidad de uso y coherencia del sistema.
+Los flujos utilizados en esta sesión fueron:
+
+**User Flow de Monitoreo en Tiempo Real**
+Uso del dashboard principal para visualizar temperatura, humedad, ubicación e indicador de estado del viaje.
+
+**User Flow de Detalle de Viaje**
+Acceso al historial o listado de viajes para revisar su estado (en proceso / completado), punto de origen y datos capturados.
+
+**User Flow de Alertas**
+Comportamiento del usuario ante una alerta generada (temperatura fuera de rango, desconexión, etc.), incluyendo reconocimiento y lectura del mensaje.
+
+### 1. Preguntas generales:
+
+- ¿Cómo describirías tu experiencia general al usar la aplicación?
+
+- ¿Qué tan fácil o difícil te resultó entender la función principal del sistema?
+
+- ¿Te parece que la aplicación muestra demasiada información o la cantidad justa?
+
+- ¿Qué funcionalidad te pareció más útil o interesante? ¿Por qué?
+
+- ¿Cómo percibes la rapidez o fluidez de la aplicación al interactuar con ella?
+
+- ¿Qué te parecieron los mensajes, alertas o notificaciones dentro del sistema? ¿Te ayudaron a entender lo que esta pasando?
+
+- ¿Qué mejoras te gustaría ver en futuras versiones de la aplicación?
+
+### 2. Preguntas - Segmento: Clientes Finales (Consumidores finales)
+
+- ¿Qué datos le interesa conocer para tener una mayor confianza o seguridad en el servicio?
+
+- ¿Qué información adicional crees que te ayudaría a confiar más en el seguimiento en tiempo real?
+
+- ¿Qué información o alerta le gustaría recibir de forma inmediata ante un posible problema?
+
+### 3. Preguntas - Segmento: Empresa (Gestores de transporte)
+
+- ¿Considera que el sistema de monitoreo proporciona información relevante para la gestión de su flota o carga?
+
+- ¿Las funcionalidades actuales le permiten tener mayor control y visibilidad sobre sus operaciones logísticas?
+
+- ¿Hay alguna información o métrica que considere esencial y que no se esté mostrando actualmente?
+
+- ¿Qué variables (temperatura, humedad, ubicación) son las más críticas para usted y por qué?
+
+- ¿Qué herramientas o funcionalidades cree que hace falta al sistema para realizar su trabajo en el día a día?
+
 ### 6.3.2. Registro de Entrevistas.
+
+#### Segmento 1: Empresa
+
+#### Segmento 2: Clientes finales
 
 ### 6.3.3. Evaluaciones según heurísticas.
 
