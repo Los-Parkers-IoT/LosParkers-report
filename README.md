@@ -6318,7 +6318,7 @@ Comportamiento del usuario ante una alerta generada (temperatura alta, desconexi
 
 #### Segmento 2: Clientes finales
 
-### 6.3.3. Evaluaciones según heurísticas.
+### 6.3.3. Evaluaciones según heurísticas
 
 ### 6.4. Video About-the-Product.
 
