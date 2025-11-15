@@ -6469,11 +6469,16 @@ Los analíticos de GitHub reflejan la participación activa de todos los integra
 
 _Insights de Landing Page_<br>
 
+![LandingPage - Insigiht](assets/Landing_Insigiht.png)
 
 _Insights de Web Application_<br>
 
+![LandingPage - Insigiht](assets/Landing_Insigiht.png)
+
 
 _Insights de Web Services_<br>
+
+![Web Service - Insigiht](assets/Frontend_Insigiht.png)
 
 
 _Insights de Mobile Application_<br>
@@ -6481,8 +6486,12 @@ _Insights de Mobile Application_<br>
 
 _Insights de Edge Application_<br>
 
+![LandingPage - Insigiht](assets/Edge_Insigiht.png)
+
 
 _Insights de Embbended Application_<br>
+
+![LandingPage - Insigiht](assets/Embedded_Insigiht.png)
 
 
 ## 6.3. Validation Interviews.
