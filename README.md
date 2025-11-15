@@ -5537,6 +5537,26 @@ La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se
 
 Durante el sprint, en la web application, web services, mobile application, edge application y embemdded application se levantó la base del proyecto, se añadieron las secciones tales como (Features, Benefits, Testimonials, Plans, Contact Us), navegación, soporte bilingüe (EN/ES). Se documentó el proyecto y se ajustó la configuración de build/ignores.
 
+**Landing Page**
+
+| Repository          | Branch           | Commit Id   | Commit Message                                                        | Commit Message Body                                                              | Commited on (Date) |
+| ------------------- | ---------------- | ----------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------ |
+| `cargasafe-landing` | `main`           | **e4aaf65** | build(base): setup base template for development                      | Estructura inicial del proyecto, tooling básico y configuración para desarrollo. | 2025-10-03         |
+| `cargasafe-landing` | `hero-section`   | **5fb53f0** | feat(hero-section): add hero-section info                             | Sección **Hero** con copy, botón CTA y layout responsive.                        | 2025-10-03         |
+| `cargasafe-landing` | `functionality`  | **4816719** | feat(functionality): add functionality info section                   | Sección **Funcionalidad**: bloques con beneficios funcionales y grid responsive. | 2025-10-03         |
+| `cargasafe-landing` | `benefits`       | **5101ccc** | feat(benefits): add benefits section                                  | Sección **Beneficios** con íconos/texto, espaciados y accesibilidad básica.      | 2025-10-04         |
+| `cargasafe-landing` | `pricing`        | **fd9db54** | feat(pricing): add subscription plans section                         | Sección **Pricing** (planes) con cards y CTA a suscripción.                      | 2025-10-04         |
+| `cargasafe-landing` | `testimonials`   | **a7f149f** | feat(testimonials): add testimonials section                          | Sección **Testimonials** con testimonios y estructura para futuras fuentes.      | 2025-10-04         |
+| `cargasafe-landing` | `quotes-section` | **6a51bac** | feat(quotes-section): add quotes-section info                         | Sección **Quotes** (frases) con tipografía y espaciado consistente.              | 2025-10-05         |
+| `cargasafe-landing` | `navigation`     | **63f1a66** | feat(nav): add header and navigation system for landing page          | **Header** + navegación anclada; enlaces a secciones y estados de hover/focus.   | 2025-10-06         |
+| `cargasafe-landing` | `call-to-action` | **1223a55** | feat(cta): add app web call-to-action                                 | CTA para **App Web** enlazado; estilos y jerarquía visual.                       | 2025-10-06         |
+| `cargasafe-landing` | `call-to-action` | **8ad26fc** | feat(cta): add app mobile call-to-action                              | CTA para **App Mobile**; botones y layout responsive.                            | 2025-10-06         |
+| `cargasafe-landing` | `call-to-action` | **6df4e47** | feat(cta): add responsive for call-to-action section                  | Ajustes **responsive** de la sección CTA (breakpoints y spacing).                | 2025-10-06         |
+| `cargasafe-landing` | `intl`           | **4c8225d** | feat(intl): add english and spanish language to the entire page       | **i18n EN/ES** aplicado a toda la landing; textos externalizados.                | 2025-10-06         |
+| `cargasafe-landing` | `intl`           | **75003bc** | feat(intl): add switch language button for layout                     | **Switcher** de idioma en el layout (toggle EN/ES) y persistencia simple.        | 2025-10-06         |
+| `cargasafe-landing` | `main`           | **f1f9917** | docs: add initial project documentation for landing page              | README/guía inicial: estructura, scripts y cómo correr/desplegar.                | 2025-10-06         |
+| `cargasafe-landing` | `main`           | **b0327e7** | chore(gitignore): create gitignore file to ignore IDEs configurations | `.gitignore` para excluir configs locales/IDE.                                   | 2025-10-06         |
+
 **Web Application**
 
 Durante este sprint se ajustaron los módulos del sistema **CargaSafe**. 
@@ -5916,26 +5936,6 @@ La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se
 #### 6.2.2.4. Development Evidence for Sprint Review
 
 Durante el sprint, en la Landing se levantó la base del proyecto, se añadieron las secciones tales como (Features, Benefits, Testimonials, Plans, Contact Us), navegación, soporte bilingüe (EN/ES). Se documentó el proyecto y se ajustó la configuración de build/ignores.
-
-**Landing Page**
-
-| Repository          | Branch           | Commit Id   | Commit Message                                                        | Commit Message Body                                                              | Commited on (Date) |
-| ------------------- | ---------------- | ----------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------ |
-| `cargasafe-landing` | `main`           | **e4aaf65** | build(base): setup base template for development                      | Estructura inicial del proyecto, tooling básico y configuración para desarrollo. | 2025-10-03         |
-| `cargasafe-landing` | `hero-section`   | **5fb53f0** | feat(hero-section): add hero-section info                             | Sección **Hero** con copy, botón CTA y layout responsive.                        | 2025-10-03         |
-| `cargasafe-landing` | `functionality`  | **4816719** | feat(functionality): add functionality info section                   | Sección **Funcionalidad**: bloques con beneficios funcionales y grid responsive. | 2025-10-03         |
-| `cargasafe-landing` | `benefits`       | **5101ccc** | feat(benefits): add benefits section                                  | Sección **Beneficios** con íconos/texto, espaciados y accesibilidad básica.      | 2025-10-04         |
-| `cargasafe-landing` | `pricing`        | **fd9db54** | feat(pricing): add subscription plans section                         | Sección **Pricing** (planes) con cards y CTA a suscripción.                      | 2025-10-04         |
-| `cargasafe-landing` | `testimonials`   | **a7f149f** | feat(testimonials): add testimonials section                          | Sección **Testimonials** con testimonios y estructura para futuras fuentes.      | 2025-10-04         |
-| `cargasafe-landing` | `quotes-section` | **6a51bac** | feat(quotes-section): add quotes-section info                         | Sección **Quotes** (frases) con tipografía y espaciado consistente.              | 2025-10-05         |
-| `cargasafe-landing` | `navigation`     | **63f1a66** | feat(nav): add header and navigation system for landing page          | **Header** + navegación anclada; enlaces a secciones y estados de hover/focus.   | 2025-10-06         |
-| `cargasafe-landing` | `call-to-action` | **1223a55** | feat(cta): add app web call-to-action                                 | CTA para **App Web** enlazado; estilos y jerarquía visual.                       | 2025-10-06         |
-| `cargasafe-landing` | `call-to-action` | **8ad26fc** | feat(cta): add app mobile call-to-action                              | CTA para **App Mobile**; botones y layout responsive.                            | 2025-10-06         |
-| `cargasafe-landing` | `call-to-action` | **6df4e47** | feat(cta): add responsive for call-to-action section                  | Ajustes **responsive** de la sección CTA (breakpoints y spacing).                | 2025-10-06         |
-| `cargasafe-landing` | `intl`           | **4c8225d** | feat(intl): add english and spanish language to the entire page       | **i18n EN/ES** aplicado a toda la landing; textos externalizados.                | 2025-10-06         |
-| `cargasafe-landing` | `intl`           | **75003bc** | feat(intl): add switch language button for layout                     | **Switcher** de idioma en el layout (toggle EN/ES) y persistencia simple.        | 2025-10-06         |
-| `cargasafe-landing` | `main`           | **f1f9917** | docs: add initial project documentation for landing page              | README/guía inicial: estructura, scripts y cómo correr/desplegar.                | 2025-10-06         |
-| `cargasafe-landing` | `main`           | **b0327e7** | chore(gitignore): create gitignore file to ignore IDEs configurations | `.gitignore` para excluir configs locales/IDE.                                   | 2025-10-06         |
 
 **Web Application**
 
