@@ -5866,6 +5866,53 @@ Esta matriz facilita la comunicación y clarifica las responsabilidades dentro d
 
 #### 6.2.2.3. Sprint Backlog 2.
 
+Durante este sprint, se desarrollaron las user stories dedicadas a la landing page y funcionalidades principales del frontend, backend y mobile.
+
+La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se registraron las tareas, el estado y los responsables.
+
+<img src="assets/backlog2.png">
+
+| Sprint #   | Sprint 2         |     |     |     |     |     |     |
+| ---------- | ---------------- | --- | --- | --- | --- | --- | --- |
+| User Story | Work-Item / Task |     |     |     |     |     |     |
+
+| User Story Id | User Story Title                                | Task Id | Task Title                                  | Task Description                                                          | Estimation (Hours) | Assigned To         | Status |
+| ------------- | ----------------------------------------------- | ------- | ------------------------------------------- | ------------------------------------------------------------------------- | ------------------ | ------------------- | ------ |
+| US38          |                                 |   T01   |     Lista de viajes registrados       | Crear layout de viajes registrados en web | 2                  | Marcelo Garro     | Done   |
+| US38          |                                 |   T02   |     Lista de viajes registrados       | Crear endpoint de viajes registrados por comercio | 2                  | Jefrey Sanchez     | Done   |
+| US38          |                                 |   T03   |     Lista de viajes registrados       | Mostrar en pantalla los viajes registrados | 2                  | Jefrey Sanchez     | Done   |
+| US24          |                                 |   T04   |     Registro de dispositivos IoT       | Crear formulario de registro en app web | 4                  | Nicolas Vera    | Done   |
+| US24          |                                 |   T05   |     Registro de dispositivos IoT       | Crear endpoint para crear dispositivos IoT | 4                  | Alessandro Bernardo   | Done   |
+| US24          |                                 |   T06   |     Registro de dispositivos IoT       | Conectar formulario de registro con backend en app web | 6                  | Alessandro Bernardo   | Done   |
+| US24          |                                 |   T07   |     Registro de dispositivos IoT       | Conectar formulario de registro con backend en app web | 6                  | Alessandro Bernardo   | Done   |
+| US35          |                                 |   T08   |     Filtrado de viajes por fecha       | Mostrar viajes en base a rango de fechas | 4                  | Jefrey Sanchez   | Done   |
+| US35          |                                 |   T09   |     Filtrado de viajes por fecha       | Crear endpoint para consultar viajes en base a fechas | 5                  | Jefrey Sanchez   | Done   |
+| US42          |                                 |   T10   |     Obtener datos de telemetria en tiempo real       | Crear bounded context de monitoring en backend | 4                  | George Aliaga   | Done   |
+| US42          |                                 |   T11   |     Obtener datos de telemetria en tiempo real       | Crear logica de obtener datos de telemetria del dispositivo y mandar data al edge application | 5                  | George Aliaga   | Done   |
+| US42          |                                 |   T12   |     Obtener datos de telemetria en tiempo real       | Crear bounded context de monitoring en edge application | 7                  | George Aliaga   | Done   |
+| US28          |                                 |   T13   |     Ver todos los vehículos de carga       | Maquetar layout de vehiculos en modo lista en web | 3                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T14   |     Ver todos los vehículos de carga       | Maquetar layout de vehiculos en modo lista en mobile | 3                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T15   |     Ver todos los vehículos de carga       | Crear endpoint para gestionar los vehiculos | 5                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T16   |     Registro de vehículos de carga       | Crear formulario de registro en web | 3                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T17   |     Registro de vehículos de carga       | Crear formulario de registro en mobile | 3                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T18   |     Registro de vehículos de carga       | Crear endpoint para crear vehiculo | 5                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T19   |     Alertas por incumplimiento de parametros       | Crear endpoint para obtener las alertas de la empresa | 5                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T20   |     Alertas por incumplimiento de parametros       | Crear endpoint para actualizar el estado de alerta (saber si esta resuelto) | 5                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T21   |     Alertas por incumplimiento de parametros       | Mostrar en pantalla las alertas registradas | 3                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T22   |     Alertas por incumplimiento de parametros       | Crear flujo UI para actualizar estado de alerta | 5                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T23   |     Alertas por incumplimiento de parametros       | Crear lógica de detección de incumplimiento de parametros por entrega | 8                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T24   |     Ver todos los dispositivos IoT en la plataforma       | Maquetar en pantalla los dispositivos registrados en web | 6                  | Nicolas Vera   | Done   |
+| US28          |                                 |   T25   |     Ver todos los dispositivos IoT en la plataforma       | Crear endpoint para obtener dispositivos de la empresa | 5                  | Alessandro Bernardo   | Done   |
+| US28          |                                 |   T26   |     Ver todos los dispositivos IoT en la plataforma       | Mostrar en pantalla los dispositivos registrados en mobile | 3                  | Alessandro Bernardo    | Done   |
+| US28          |                                 |   T27   |     Asignar dispositivo a vehiculo de carga       | Crear endpoint para asignar dispositivo a vehiculo | 6                  | Alessandro Bernardo    | Done   |
+| US28          |                                 |   T28   |     Asignar dispositivo a vehiculo de carga       | Crear formulario para asignar dispositivo a vehiculo | 3                  | Alessandro Bernardo    | Done   |
+| US28          |                                 |   T29   |     Detalle de viaje       | Crear endpoint de viaje por id | 5                  | Jefrey Sanchez    | Done   |
+| US28          |                                 |   T30   |     Detalle de viaje       | Mostrar en pantalla de detalle de viaje | 3                  | Jefrey Sanchez    | Done   |
+| US28          |                                 |   T31   |     Detalle de viaje       | Crear pagina de detalle de viaje en web | 3                  | Marcelo Garro    | Done   |
+| US28          |                                 |   T32   |     Detalle de viaje       | Crear pagina de creación de viajes | 3                  | Marcelo Garro     | Done   |
+| US28          |                                 |   T33   |     Detalle de viaje       | Crear endpoint para crear viajes | 5                  | Marcelo Garro     | Done   |
+
+
 #### 6.2.2.4. Development Evidence for Sprint Review
 
 Durante el sprint, en la Landing se levantó la base del proyecto, se añadieron las secciones tales como (Features, Benefits, Testimonials, Plans, Contact Us), navegación, soporte bilingüe (EN/ES). Se documentó el proyecto y se ajustó la configuración de build/ignores.
