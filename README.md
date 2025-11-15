@@ -389,6 +389,21 @@ _Tabla de contenidos_
       - [6.2.1.7. Services Documentation Evidence for Sprint Review](#6217-services-documentation-evidence-for-sprint-review)
       - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
       - [6.2.1.9. Team Collaboration Insights during Sprint.](#6219-team-collaboration-insights-during-sprint)
+      - [6.2.2. Sprint 2](#622-sprint-2)
+      - [6.2.2.1. Sprint Planning 2.](#6221-sprint-planning-2)
+      - [6.2.2.2. Aspect Leaders and Collaborators.](#6222-aspect-leaders-and-collaborators)
+      - [6.2.2.3. Sprint Backlog 2.](#6223-sprint-backlog-2)
+      - [6.2.2.4. Development Evidence for Sprint Review](#6224-development-evidence-for-sprint-review)
+      - [6.2.2.5. Testing Suite Evidence for Sprint Review.](#6225-testing-suite-evidence-for-sprint-review)
+      - [6.2.2.6. Execution Evidence for Sprint Review.](#6226-execution-evidence-for-sprint-review)
+      - [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
+      - [6.2.2.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
+      - [6.2.2.9. Team Collaboration Insights during Sprint.](#6229-team-collaboration-insights-during-sprint)
+  - [6.3. Validation Interviews](#63-validation-interviews)
+    - [6.3.1. Diseño de Entrevistas](#63-diseno-de-entrevistas)
+    - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
+    - [6.3.3. Evaluaciones según heurísticas](#633-evaluaciones-segun-heurísticas)
+  - [6.4. Video About-the-Product](#64-about-the-product)
 - [Bibliografía](#bibliografía)
 
 # Student Outcome
@@ -427,7 +442,7 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <span class="entry-order">TP:</span><br/>
         Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
         <span class="entry-order">TB2:</span><br/>
-        Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
+        Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizaron correctamente todos los productos que están dentro de nuestro alcance  <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, aportando ideas clave para definir el flujo de negocio y la estructura de la solución. Colaboré en la elaboración de la arquitectura de software y en el diseño táctico bajo los principios de Domain Driven Design, asegurando claridad y consenso entre los miembros del equipo. Además, contribuí en la documentación de los artefactos de usuario y en la organización de tareas, promoviendo un entorno colaborativo y alineado con los objetivos del proyecto.<br />
@@ -6579,11 +6594,11 @@ Adrián considera que la aplicación es útil, clara y fácil de usar, especialm
 Resalta como funciones más valiosas el control de temperatura, el seguimiento en el mapa y las notificaciones, que le permiten anticipar retrasos o incidentes durante el trayecto. También percibe la aplicación como fluida y sin problemas de rendimiento.
 Sobre mejoras, menciona la importancia de fortalecer la confianza y transparencia con el cliente, así como brindar más información sobre los conductores o historial de servicios para generar mayor seguridad. En general, afirma que la aplicación ofrece un servicio completo y útil que aporta valor real a su negocio.
 
-- Nombre: Adrían Zapata
+- Nombre: Gabriel Díaz
 - Edad: 22
-- Distrito: Chorrillos
-- Tiempo de inicio- tiempo fin: **00:00 - 8:26**
-- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQBb7g2bMUK5Q5YzYRErSmJuAUiQju1Yg3VzR2ufpYDh1VM?e=wigaGB&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+- Distrito: Callao
+- Tiempo de inicio- tiempo fin: **00:00 - 03:51**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCqtFhq7l8bTKDnwJXP7GCAAb5DJFOnhNqLSHd8F2HguHE?e=jEczfo&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 
 <img src="assets/persona2.png">
@@ -6592,18 +6607,16 @@ Adrián considera que la aplicación es útil, clara y fácil de usar, especialm
 Resalta como funciones más valiosas el control de temperatura, el seguimiento en el mapa y las notificaciones, que le permiten anticipar retrasos o incidentes durante el trayecto. También percibe la aplicación como fluida y sin problemas de rendimiento.
 Sobre mejoras, menciona la importancia de fortalecer la confianza y transparencia con el cliente, así como brindar más información sobre los conductores o historial de servicios para generar mayor seguridad. En general, afirma que la aplicación ofrece un servicio completo y útil que aporta valor real a su negocio.
 
-- Nombre: Adrían Zapata
+- Nombre: Brenda
 - Edad: 22
-- Distrito: Chorrillos
-- Tiempo de inicio- tiempo fin: **00:00 - 8:26**
+- Distrito: Callao
+- Tiempo de inicio- tiempo fin: **00:00 - 05:55**
 - Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCqtFhq7l8bTKDnwJXP7GCAAb5DJFOnhNqLSHd8F2HguHE?e=jEczfo&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 
 <img src="assets/persona3.png">
 
-Adrián considera que la aplicación es útil, clara y fácil de usar, especialmente después de familiarizarse con sus funciones. Señala que el sistema le ha permitido mejorar la calidad de sus productos durante el transporte, ya que puede monitorear variables críticas como la temperatura y la ubicación en tiempo real. Destaca que la información mostrada es precisa y suficiente, sin saturar la interfaz.
-Resalta como funciones más valiosas el control de temperatura, el seguimiento en el mapa y las notificaciones, que le permiten anticipar retrasos o incidentes durante el trayecto. También percibe la aplicación como fluida y sin problemas de rendimiento.
-Sobre mejoras, menciona la importancia de fortalecer la confianza y transparencia con el cliente, así como brindar más información sobre los conductores o historial de servicios para generar mayor seguridad. En general, afirma que la aplicación ofrece un servicio completo y útil que aporta valor real a su negocio.
+Brenda percibe la aplicación como una herramienta muy bien diseñada y centrada en el usuario. Destaca que la interfaz es clara, ordenada y fácil de navegar, lo que hace que su experiencia sea agradable desde el primer momento. Considera que la información mostrada es justa y bien distribuida, sin ser abrumadora. La funcionalidad que más valora es el monitoreo de temperatura en tiempo real, debido a que le permite asegurar la calidad de los insumos sin necesidad de supervisión constante. También resalta la fluidez del sistema, la claridad de las alertas y la rapidez con la que se actualiza la información. Sugiere como mejora futura la incorporación de un historial más visual (por ejemplo, gráficos), y opciones para personalizar las notificaciones. Además, le gustaría contar con datos más detallados sobre el conductor, la unidad y la cadena de transporte para reforzar la confianza y transparencia del servicio. En general, considera que la aplicación le brinda control, tranquilidad y un apoyo real en su trabajo diario.
 
 ### 6.3.3. Evaluaciones según heurísticas
 
