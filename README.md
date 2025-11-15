@@ -6551,7 +6551,7 @@ _Insights de Web Services_<br>
 
 
 _Insights de Mobile Application_<br>
-
+![Web Service - Insigiht](assets/Mobile_Insigiht.png)
 
 _Insights de Edge Application_<br>
 
