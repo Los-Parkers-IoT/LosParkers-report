@@ -389,6 +389,21 @@ _Tabla de contenidos_
       - [6.2.1.7. Services Documentation Evidence for Sprint Review](#6217-services-documentation-evidence-for-sprint-review)
       - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
       - [6.2.1.9. Team Collaboration Insights during Sprint.](#6219-team-collaboration-insights-during-sprint)
+      - [6.2.2. Sprint 2](#622-sprint-2)
+      - [6.2.2.1. Sprint Planning 2.](#6221-sprint-planning-2)
+      - [6.2.2.2. Aspect Leaders and Collaborators.](#6222-aspect-leaders-and-collaborators)
+      - [6.2.2.3. Sprint Backlog 2.](#6223-sprint-backlog-2)
+      - [6.2.2.4. Development Evidence for Sprint Review](#6224-development-evidence-for-sprint-review)
+      - [6.2.2.5. Testing Suite Evidence for Sprint Review.](#6225-testing-suite-evidence-for-sprint-review)
+      - [6.2.2.6. Execution Evidence for Sprint Review.](#6226-execution-evidence-for-sprint-review)
+      - [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
+      - [6.2.2.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
+      - [6.2.2.9. Team Collaboration Insights during Sprint.](#6229-team-collaboration-insights-during-sprint)
+  - [6.3. Validation Interviews](#63-validation-interviews)
+    - [6.3.1. Diseño de Entrevistas](#63-diseno-de-entrevistas)
+    - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
+    - [6.3.3. Evaluaciones según heurísticas](#633-evaluaciones-segun-heurísticas)
+  - [6.4. Video About-the-Product](#64-about-the-product)
 - [Bibliografía](#bibliografía)
 
 # Student Outcome
@@ -427,7 +442,7 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <span class="entry-order">TP:</span><br/>
         Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
         <span class="entry-order">TB2:</span><br/>
-        Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
+        Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizaron correctamente todos los productos que están dentro de nuestro alcance  <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, aportando ideas clave para definir el flujo de negocio y la estructura de la solución. Colaboré en la elaboración de la arquitectura de software y en el diseño táctico bajo los principios de Domain Driven Design, asegurando claridad y consenso entre los miembros del equipo. Además, contribuí en la documentación de los artefactos de usuario y en la organización de tareas, promoviendo un entorno colaborativo y alineado con los objetivos del proyecto.<br />
@@ -6318,10 +6333,50 @@ Los tests garantizan la confiabilidad de la aplicación, proporcionando cobertur
 
 #### 6.2.2.6. Execution Evidence for Sprint Review.
 
-Durante este sprint se alcanzó la implementación funcional de la Landing Page y la Aplicación Web de CargaSafe, cumpliendo con los objetivos planteados en el alcance del sprint.  
-La landing fue desarrollada con HTML, CSS y Angular Material\*, enfocada en comunicar los beneficios del producto, sus planes de suscripción y la posibilidad de acceder directamente a la aplicación web.  
-Por otro lado, la aplicación web fue construida con Angular 20 bajo arquitectura modular standalone, integrándose con una Fake API (json-server) para simular la conexión con el backend y visualizar datos reales en tiempo de ejecución.
+Durante este sprint se logró el desarrollo funcional del frontend y backend de CargaSafe, cumpliendo con los objetivos establecidos para esta iteración. El trabajo se centró en construir las vistas principales del sistema en Angular Material y consolidar la conexión con el backend desarrollado en IntelliJ, el cual expone sus servicios mediante Swagger.
 
+En el frontend, se trabajó con Angular bajo arquitectura modular standalone. Se priorizó la creación de las vistas correspondientes a los módulos Vehicles, Sensors, Trips y Alerts, asegurando consistencia visual, navegación fluida y consumo correcto de los endpoints expuestos por el backend. Cada pantalla incluye tablas, formularios y componentes reutilizables que facilitan la gestión de la información.
+
+Por otro lado, el backend fue implementado en Java dentro de IntelliJ, estructurado en capas y utilizando controladores REST documentados con Swagger UI, lo que permite validar y probar cada operación. Se implementaron los endpoints iniciales necesarios para dar soporte al frontend y permitir la visualización y manipulación de datos en tiempo real.
+
+Gracias a la integración entre ambos entornos, el sistema ya permite comunicación efectiva mediante HTTP, mostrando datos reales provenientes del backend en las vistas del frontend.
+
+**Frontend**
+
+Vista principal del módulo Vehicles
+[![imageVehiclesFrontend.png](https://i.postimg.cc/TYpT00W0/image.png)](https://postimg.cc/xcVrTK5N)
+
+Vista del módulo Sensors con listado y detalles
+[![imageSensorsFrontend.png](https://i.postimg.cc/5tqJykDr/image.png)](https://postimg.cc/nszgwTFK)
+
+Pantalla del módulo Trips mostrando historial y estados de viajes
+[![imageTripsFrontend.png](https://i.postimg.cc/mkhWdZk0/image.png)](https://postimg.cc/gL97jWvD)
+
+Módulo Alerts con alertas activas, estados y acciones disponibles
+[![imageAlertsFrontend.png](https://i.postimg.cc/VsH8JtHm/image.png)](https://postimg.cc/Sj855nhv)
+
+Repositorio Frontend: [Repositorio de CargaSafe Frontend](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend)
+
+Aplicación en línea: [Enlace a CargaSafe Fleet Vehicles](https://carga-safe.web.app/fleet/vehicles)
+
+
+**Backend**
+
+Vehiculos
+[![imageVehiBack.png](https://i.postimg.cc/5t1chS6N/image.png)](https://postimg.cc/sMn0SSYt)
+
+Sensores
+[![imageSensorBack.png](https://i.postimg.cc/85Kqr84n/image.png)](https://postimg.cc/tZ6rLMLh)
+
+Viajes
+[![imageTripBack.png](https://i.postimg.cc/zXFK8JfH/image.png)](https://postimg.cc/xcqcPVM9)
+
+Alertas
+[![imageAlertBack.png](https://i.postimg.cc/DZZNhjhg/image.png)](https://postimg.cc/d7b6m9Lk)
+
+Repositorio Backend: [Repositorio de CargaSafe Backend](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend)
+
+API en línea: [Swagger UI de CargaSafe Backend](https://iot-solutions-development-cargasafe.onrender.com/swagger-ui/index.html)
 
 
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review
@@ -6550,7 +6605,67 @@ Comportamiento del usuario ante una alerta generada (temperatura alta, desconexi
 
 #### Segmento 1: Empresa
 
+- Nombre: Henry Centurion
+- Edad: 40
+- Distrito: Chorrillos, Lima
+- Tiempo de inicio- tiempo fin: **00:00 - 14:33**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCaPBt614hIT6IYV9oBEHJ_AQTjenHIuVf5s9fmKmGTlfc?e=hYNpBV&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D 
+
+<img src="assets/empresa1.png">
+
+Henry considera que la aplicación web ofrece una experiencia positiva y útil para la gestión logística. Destaca que el dashboard proporciona una vista clara e inmediata de los indicadores principales, las alertas en tiempo real y los viajes recientes, permitiéndole tomar decisiones rápidas. Percibe la navegación como intuitiva y valora la fluidez del sistema. Sin embargo, menciona oportunidades de mejora, como una mejor organización del detalle de viaje, notificaciones más visibles y funciones avanzadas como reportes exportables, mapa en tiempo real, filtros adicionales y métricas más profundas para la toma de decisiones. En general, reconoce que la plataforma es un buen punto de partida y que aporta valor, aunque aún puede evolucionar para convertirse en una herramienta más completa y estratégica para sus operaciones.
+
+- Nombre: Miguel Ruiz
+- Edad: 28
+- Distrito: Los Olivos
+- Tiempo de inicio- tiempo fin: **00:00 - 7:42**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQDmuN0X_TVLR4JsZlVDObx9Af96wSlZZ9YyLTyjlrq4YlE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=uT9XJE 
+
+<img src="assets/empresa2.png">
+
+Miguel considera que la aplicación es muy buena, dinámica e intuitiva. Señala que la navegación es clara, amigable y que no encontró confusiones durante su uso. Destaca que, aunque al inicio todo sistema nuevo puede resultar un poco complejo, luego de revisar el manual y recibir la explicación del equipo, la comprensión del flujo fue sencilla y rápida.
+Percibe que la aplicación muestra la cantidad justa de información, evitando saturación innecesaria. Resalta como funcionalidad más útil el sistema de alertas, ya que le permite detectar de inmediato si un transporte supera los rangos de temperatura configurados, reduciendo riesgos de pérdidas.
+Menciona que el sistema es ágil y fluido, sin trabas ni demoras, y que las notificaciones le resultaron claras y útiles para la toma de decisiones. Considera que el monitoreo proporciona todos los datos relevantes —ubicación, temperatura, estado de la carga y cumplimiento de ruta— y que la aplicación actualmente cumple con todas las funciones necesarias para la operación diaria.
+Como mejora futura, sugiere evaluar integraciones con otros sistemas para ampliar el uso de la tecnología, pero recalca que, según su experiencia, el producto ya resuelve adecuadamente las problemáticas actuales de la empresa.
+
 #### Segmento 2: Clientes finales
+
+- Nombre: Adrían Zapata
+- Edad: 22
+- Distrito: Chorrillos
+- Tiempo de inicio- tiempo fin: **00:00 - 8:26**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQArPbnl6OTFRrb-NZnapN2hAX28R9Csp8-r_7Ch38BlWFk?e=nJhOmB&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
+
+<img src="assets/persona1.png">
+
+Adrián considera que la aplicación es útil, clara y fácil de usar, especialmente después de familiarizarse con sus funciones. Señala que el sistema le ha permitido mejorar la calidad de sus productos durante el transporte, ya que puede monitorear variables críticas como la temperatura y la ubicación en tiempo real. Destaca que la información mostrada es precisa y suficiente, sin saturar la interfaz.
+Resalta como funciones más valiosas el control de temperatura, el seguimiento en el mapa y las notificaciones, que le permiten anticipar retrasos o incidentes durante el trayecto. También percibe la aplicación como fluida y sin problemas de rendimiento.
+Sobre mejoras, menciona la importancia de fortalecer la confianza y transparencia con el cliente, así como brindar más información sobre los conductores o historial de servicios para generar mayor seguridad. En general, afirma que la aplicación ofrece un servicio completo y útil que aporta valor real a su negocio.
+
+- Nombre: Gabriel Díaz
+- Edad: 22
+- Distrito: Callao
+- Tiempo de inicio- tiempo fin: **00:00 - 03:51**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCqtFhq7l8bTKDnwJXP7GCAAb5DJFOnhNqLSHd8F2HguHE?e=jEczfo&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
+
+<img src="assets/persona2.png">
+
+Adrián considera que la aplicación es útil, clara y fácil de usar, especialmente después de familiarizarse con sus funciones. Señala que el sistema le ha permitido mejorar la calidad de sus productos durante el transporte, ya que puede monitorear variables críticas como la temperatura y la ubicación en tiempo real. Destaca que la información mostrada es precisa y suficiente, sin saturar la interfaz.
+Resalta como funciones más valiosas el control de temperatura, el seguimiento en el mapa y las notificaciones, que le permiten anticipar retrasos o incidentes durante el trayecto. También percibe la aplicación como fluida y sin problemas de rendimiento.
+Sobre mejoras, menciona la importancia de fortalecer la confianza y transparencia con el cliente, así como brindar más información sobre los conductores o historial de servicios para generar mayor seguridad. En general, afirma que la aplicación ofrece un servicio completo y útil que aporta valor real a su negocio.
+
+- Nombre: Brenda
+- Edad: 22
+- Distrito: Callao
+- Tiempo de inicio- tiempo fin: **00:00 - 05:55**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCqtFhq7l8bTKDnwJXP7GCAAb5DJFOnhNqLSHd8F2HguHE?e=jEczfo&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
+
+<img src="assets/persona3.png">
+
+Brenda percibe la aplicación como una herramienta muy bien diseñada y centrada en el usuario. Destaca que la interfaz es clara, ordenada y fácil de navegar, lo que hace que su experiencia sea agradable desde el primer momento. Considera que la información mostrada es justa y bien distribuida, sin ser abrumadora. La funcionalidad que más valora es el monitoreo de temperatura en tiempo real, debido a que le permite asegurar la calidad de los insumos sin necesidad de supervisión constante. También resalta la fluidez del sistema, la claridad de las alertas y la rapidez con la que se actualiza la información. Sugiere como mejora futura la incorporación de un historial más visual (por ejemplo, gráficos), y opciones para personalizar las notificaciones. Además, le gustaría contar con datos más detallados sobre el conductor, la unidad y la cadena de transporte para reforzar la confianza y transparencia del servicio. En general, considera que la aplicación le brinda control, tranquilidad y un apoyo real en su trabajo diario.
 
 ### 6.3.3. Evaluaciones según heurísticas
 
@@ -6710,7 +6825,7 @@ El material también presenta las principales funcionalidades de la aplicación 
 
 <img src="assets/abouttheproductscree.png">
 
-**Duración: 2:23**
+**Duración: 00:00 - 02:23**
 
 **Video en Microsoft Stream:** https://upcedupe-my.sharepoint.com/:v:/g/personal/u202019577_upc_edu_pe/IQCYKgWKcBrXR65PlG9NYDl6Adf84l5MqK0xFe_4ziO52dI?e=rNUkdK
 
