@@ -137,7 +137,7 @@ _Vista general de las contribuciones del equipo_
 
 ![Team contributions](assets/commitsovertimeTP.png)
 
-_Contribuciones de cada miembro del equipo para la TB1_
+_Contribuciones de cada miembro del equipo para la TP_
 ![Contributions per user insights](assets/contributersTP.png)
 
 _Commits_
@@ -158,8 +158,22 @@ Para el control de versiones, decidimos emplear **6 ramas principales**:
 
 ## TB2 Project Report Collaboration Insights
 
+Para la entrega del TB2 se realizaron las actividades necesarias para completar el ultimo capitulo resaltando la importancia de la constancia en el trabajo. Como equipo, mantuvimos una frecuencia adecuada de commits y actualizaciones, proyectada como óptima para el desarrollo futuro, y se incluyen en el informe las evidencias de los cambios efectuados.
 
+De las contribuciones del equipo y commits se concluye lo siguiente:
 
+_Vista general de las contribuciones del equipo_
+<img src="assets/TB2collab.png">
+
+_Contribuciones de cada miembro del equipo para la TB2_
+<img src="assets/TB2collab2.png">
+
+_Commits_
+<img src="assets/TB2collab3.png">
+
+- Para esta entrega, se han realizado un total de **3425 commits** aproximadamente por parte del equipo.
+
+- El equipo considera que hubo una ligera mejor organización durante la realización de la TB2.
 
 ---
 
@@ -466,7 +480,7 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
       <span class="entry-order">TP1:</span><br/>
         En esta iteración demostramos un liderazgo conjunto enfocado en el diseño de la experiencia de usuario y la arquitectura de información. La colaboración entre los miembros permitió integrar los bounded contexts, desarrollar prototipos funcionales y construir un landing page coherente con la identidad del producto. El liderazgo compartido facilitó la toma de decisiones técnicas y visuales, asegurando que cada entregable cumpliera con los objetivos del sprint y contribuyera al avance del proyecto.<br/><br/>
       <span class="entry-order">TB2:</span><br/>
-        Texto<br/><br/>
+        En esta fase del proyecto continuamos aplicando un liderazgo colaborativo, orientado a la consolidación técnica de los componentes definidos previamente. Cada integrante asumió un rol activo en la validación del modelo de dominio, la revisión de los artefactos generados y la integración de los servicios necesarios para garantizar la coherencia entre los módulos. Este liderazgo compartido permitió identificar ajustes en la arquitectura, mejorar la comunicación entre los bounded contexts y asegurar que las decisiones tomadas respondieran a los objetivos del negocio. Gracias a esta dinámica de trabajo, avanzamos con mayor claridad y fortalecimos la base técnica para las siguientes iteraciones.<br/><br/>
       </td>
     </tr>
     <tr>
@@ -503,9 +517,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
       <span class="entry-order">TB1:</span><br/>
         Durante el desarrollo creamos un entorno colaborativo e inclusivo en el que cada aporte fue escuchado y valorado. Establecimos metas claras, organizamos tareas de manera conjunta y planificamos los avances para asegurar el cumplimiento de los objetivos. Gracias a la comunicación constante y al compromiso colectivo, conseguimos mantener la cohesión del grupo, garantizar la calidad de los entregables y alcanzar los resultados propuestos.<br/><br/>
       <span class="entry-order">TP1:</span><br/>
-        En esta iteración fortalecimos el entorno colaborativo mediante sesiones de trabajo conjunto en el diseño de prototipos y la definición de bounded contexts. Establecimos metas específicas relacionadas con la experiencia de usuario, la arquitectura de información y el desarrollo del landing page. La planificación conjunta y la retroalimentación constante nos permitieron cumplir con los objetivos establecidos, asegurando que cada componente (prototipos, bounded contexts, landing page) estuviera alineado con la visión del producto y las expectativas de los usuarios finales.
+        En esta iteración fortalecimos el entorno colaborativo mediante sesiones de trabajo conjunto en el diseño de prototipos y la definición de bounded contexts. Establecimos metas específicas relacionadas con la experiencia de usuario, la arquitectura de información y el desarrollo del landing page. La planificación conjunta y la retroalimentación constante nos permitieron cumplir con los objetivos establecidos, asegurando que cada componente (prototipos, bounded contexts, landing page) estuviera alineado con la visión del producto y las expectativas de los usuarios finales.<br/><br/>
       <span class="entry-order">TB2:</span><br/>
-        Texto<br/><br/>
+        En esta etapa reforzamos el trabajo colaborativo enfocándonos en la revisión, validación y mejora de los artefactos técnicos desarrollados previamente. Establecimos metas orientadas al refinamiento del modelo de dominio, la coherencia entre los bounded contexts y la integración de los componentes clave del sistema. La comunicación continua y las sesiones de retroalimentación nos permitieron identificar ajustes necesarios, resolver dudas técnicas y asegurar que cada avance estuviera alineado con los objetivos del proyecto. Gracias al compromiso colectivo y a la organización conjunta de las tareas, logramos consolidar una base más sólida.<br/><br/>
       </td>
     </tr>
   </tbody>
