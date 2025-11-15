@@ -6079,34 +6079,72 @@ Se integró la API simulada con `json-server`, se configuró el enrutamiento bas
 | iot-solutions-development-cargasafe-edge-application | develop | a9a099e2885049bbd66d63d1ffa5a6ad90965276     | chore: send telemetry data to cloud backend system                              | Se implementa el envío de datos de telemetría desde el edge hacia el backend en la nube, garantizando la correcta serialización y flujo. | 2025-11-12          |
 
 
-**Embbended Application**
+<h2><strong>Embedded Application</strong></h2>
 
-| Repository                                      | Branch | Commit Id                                   | Commit Message                                 | Commit Message Body                                      | Committed on |
-|--------------------------------------------------|--------|----------------------------------------------|-------------------------------------------------|-----------------------------------------------------------|--------------|
-| iot-solutions-development-cargasafe-embedded-application | main   | 84e697f13a90ba4158c3806a863d519a984032eb     | chore: initial commit                           | Inicio del proyecto IoT                                   | 2025-11-08   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 4f309c16c919f2c6d1eadda0f31406d6f3ee2525     | feat(embeddedApp): updated sketch_nov8a.ino     | Agregado de comentarios dentro del sketch                 | 2025-11-09   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 18b5bcf1c25342c1f654e265d9f263c3f537bfe1     | feat(embeddedApp): update DataController.h      | Agregado de comentario dentro del DataController          | 2025-11-09   |
-| iot-solutions-development-cargasafe-embedded-application | main   | b7c68e426a6e19ce0a4105aa4cb24410f31aec0c     | feat(embeddedApp): add Edge connection          | Agregado de comentario dentro del Edge Connection         | 2025-11-09   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 70c69636bd4a06a3de442ddee7edbe419e31b521     | feat(embeddedApp): updated sketch_nov8a.ino     | Agregado de comentarios dentro del sketch                 | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | fb7048bfb887045ab99715fcf7613795a04c37c0     | feat(embeddedApp): update CommandHandler        | Agregado de comentarios dentro del CommandHandler         | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 9b3c55798b0ac27098176ca96a895ebbb8f4d772     | feat(embeddedApp): update Controller            | Agregado de comentarios dentro del Controller             | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | f1d508f4230e58f5ed86a36418bbbc4f2f72409d     | feat(embeddedApp): update DHTSensor.cpp         | Agregado de comentarios dentro del DHTSensor              | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 6d78c04badc1d71a8f6dbbcd16d38d207d7a26c2     | feat(embeddedApp): update DHTSensor.h           | Agregado de comentarios dentro del DHTSensor              | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 8bc6694c94144bab34ce22e8d5d21c798166ca17     | feat(embeddedApp): update DataController        | Agregado de comentarios dentro del DataController         | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 6d03981b0b9c6741a81ef1f143ffecdec9556d69     | feat(embeddedApp): update EdgeCommunicatorHttp  | Agregado de comentarios dentro del EdgeCommunicatorHttp   | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 2d96ae1b310422c92419c02a882675479a6fc4cb     | feat(embeddedApp): update Event                 | Agregado de comentarios dentro del Event                  | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | cfcb3d52ce89360099d10ee674e66c65c6a0c008     | feat(embeddedApp): update GPSSensor.cpp         | Agregado de comentarios dentro del GPSSensor              | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | bd0f87c1da0df7e02a04a82cc015e1a93805023e     | feat(embeddedApp): update GPSSensor.h           | Agregado de comentarios dentro del GPSSensor              | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | c074e1b8a2f6b8de58d53a814940be016c2e2b99     | feat(embeddedApp): update ModestIoT.h           | Agregado de comentarios dentro del ModestIoT              | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 105712431f951d86ccea2ed3f62b715d9885a8f6     | feat(embeddedApp): update sketch_nov8a.ino      | Agregado de comentarios dentro del sketch                 | 2025-11-11   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 089b8e30a0ec7baf8cc72a3cf91ea52280163daf     | feat(embeddedApp): update sketch_nov8a.ino      | Agregado de comentarios dentro del sketch                 | 2025-11-12   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 7436035d14c7010729f007ec1c44c7ea0f7758e8     | refactor(embeddedApp): update DHTSensor.h       | Agregado de actuador Led dentro del DHTSensor            | 2025-11-13   |
-| iot-solutions-development-cargasafe-embedded-application | main   | c9c671a69cc2588f9a798cc9dde390cf7f7361a9     | refactor(embeddedApp): update DHTSensor.cpp     | Agregado de actuador Led dentro del DHTSensor            | 2025-11-13   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 38fa8443722cb412b16f38fd00946e1fcff1a3ce     | refactor(embeddedApp): update sketch_nov8a.ino  | Agregado de actuador Led dentro del sketch                | 2025-11-13   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 18b472e7f10719f979ca4042fc6a168f1b6d1987     | refactor(embeddedApp): update DHTSensor.h       | Código actualizado de actuador Led dentro del DHTSensor   | 2025-11-13   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 62a5573bab86f8440ec8817d51ee9a450e3d7543     | refactor(embeddedApp): update DHTSensor.cpp     | Código actualizado de actuador Led dentro del DHTSensor   | 2025-11-13   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 815cae4d476241034a7b14c0c092ebcc23bb90f6     | refactor(embeddedApp): update sketch_nov8a.ino  | Código actualizado de actuador Led dentro del sketch      | 2025-11-13   |
-| iot-solutions-development-cargasafe-embedded-application | main   | 6fb58d7299e45e104c99599d49c6762dfae59c7a     | fix(embeddedApp): update sketch_nov8a.ino       | Código actualizado de actuador Led dentro del sketch      | 2025-11-14   |
+<table>
+  <thead>
+    <tr>
+      <th style="width:180px;">Repository</th>
+      <th style="width:60px;">Branch</th>
+      <th style="width:150px;">Commit Id</th>
+      <th style="width:200px;">Commit Message</th>
+      <th style="width:260px;">Commit Message Body</th>
+      <th style="width:110px;">Committed on</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>84e697f13a90ba4158c3806a863d519a984032eb</td><td>chore: initial commit</td><td>Inicio del proyecto IoT</td><td>2025-11-08</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>4f309c16c919f2c6d1eadda0f31406d6f3ee2525</td><td>feat(embeddedApp): updated sketch_nov8a.ino</td><td>Agregado de comentarios dentro del sketch</td><td>2025-11-09</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>18b5bcf1c25342c1f654e265d9f263c3f537bfe1</td><td>feat(embeddedApp): update DataController.h</td><td>Agregado de comentario dentro del DataController</td><td>2025-11-09</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>b7c68e426a6e19ce0a4105aa4cb24410f31aec0c</td><td>feat(embeddedApp): add Edge connection</td><td>Agregado de comentario dentro del Edge Connection</td><td>2025-11-09</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>70c69636bd4a06a3de442ddee7edbe419e31b521</td><td>feat(embeddedApp): updated sketch_nov8a.ino</td><td>Agregado de comentarios dentro del sketch</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>fb7048bfb887045ab99715fcf7613795a04c37c0</td><td>feat(embeddedApp): update CommandHandler</td><td>Agregado de comentarios dentro del CommandHandler</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>9b3c55798b0ac27098176ca96a895ebbb8f4d772</td><td>feat(embeddedApp): update Controller</td><td>Agregado de comentarios dentro del Controller</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>f1d508f4230e58f5ed86a36418bbbc4f2f72409d</td><td>feat(embeddedApp): update DHTSensor.cpp</td><td>Agregado de comentarios dentro del DHTSensor</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>6d78c04badc1d71a8f6dbbcd16d38d207d7a26c2</td><td>feat(embeddedApp): update DHTSensor.h</td><td>Agregado de comentarios dentro del DHTSensor</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>8bc6694c94144bab34ce22e8d5d21c798166ca17</td><td>feat(embeddedApp): update DataController</td><td>Agregado de comentarios dentro del DataController</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>6d03981b0b9c6741a81ef1f143ffecdec9556d69</td><td>feat(embeddedApp): update EdgeCommunicatorHttp</td><td>Agregado de comentarios dentro del EdgeCommunicatorHttp</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>2d96ae1b310422c92419c02a882675479a6fc4cb</td><td>feat(embeddedApp): update Event</td><td>Agregado de comentarios dentro del Event</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>cfcb3d52ce89360099d10ee674e66c65c6a0c008</td><td>feat(embeddedApp): update GPSSensor.cpp</td><td>Agregado de comentarios dentro del GPSSensor</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>bd0f87c1da0df7e02a04a82cc015e1a93805023e</td><td>feat(embeddedApp): update GPSSensor.h</td><td>Agregado de comentarios dentro del GPSSensor</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>c074e1b8a2f6b8de58d53a814940be016c2e2b99</td><td>feat(embeddedApp): update ModestIoT.h</td><td>Agregado de comentarios dentro del ModestIoT</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>105712431f951d86ccea2ed3f62b715d9885a8f6</td><td>feat(embeddedApp): update sketch_nov8a.ino</td><td>Agregado de comentarios dentro del sketch</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>089b8e30a0ec7baf8cc72a3cf91ea52280163daf</td><td>feat(embeddedApp): update sketch_nov8a.ino</td><td>Agregado de comentarios dentro del sketch</td><td>2025-11-12</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>7436035d14c7010729f007ec1c44c7ea0f7758e8</td><td>refactor(embeddedApp): update DHTSensor.h</td><td>Agregado de actuador Led dentro del DHTSensor</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>c9c671a69cc2588f9a798cc9dde390cf7f7361a9</td><td>refactor(embeddedApp): update DHTSensor.cpp</td><td>Agregado de actuador Led dentro del DHTSensor</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>38fa8443722cb412b16f38fd00946e1fcff1a3ce</td><td>refactor(embeddedApp): update sketch_nov8a.ino</td><td>Agregado de actuador Led dentro del sketch</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>18b472e7f10719f979ca4042fc6a168f1b6d1987</td><td>refactor(embeddedApp): update DHTSensor.h</td><td>Código actualizado de actuador Led dentro del DHTSensor</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>62a5573bab86f8440ec8817d51ee9a450e3d7543</td><td>refactor(embeddedApp): update DHTSensor.cpp</td><td>Código actualizado de actuador Led dentro del DHTSensor</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>815cae4d476241034a7b14c0c092ebcc23bb90f6</td><td>refactor(embeddedApp): update sketch_nov8a.ino</td><td>Código actualizado de actuador Led dentro del sketch</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>6fb58d7299e45e104c99599d49c6762dfae59c7a</td><td>fix(embeddedApp): update sketch_nov8a.ino</td><td>Código actualizado de actuador Led dentro del sketch</td><td>2025-11-14</td></tr>
+
+  </tbody>
+</table>
+
 
 
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review.
