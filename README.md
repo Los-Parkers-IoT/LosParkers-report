@@ -5714,11 +5714,74 @@ _Insights de Web Application_<br>
 
 En esta sección se especifican los aspectos principales del Sprint Planning Meeting para el Sprint 2 del proyecto CargaSafe. Este primer sprint se enfoca en establecer las bases de la plataforma, implementando el landing page y los componentes iniciales de la aplicación web que permitan a los usuarios conocer el producto y comenzar a interactuar con las funcionalidades core del sistema de monitoreo de carga.
 
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint #</th>
+  </tr>
+  <tr>
+    <td colspan="2">Sprint 2</td>
+  </tr>
+
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint Planning Background</th>
+  </tr>
+  <tr>
+    <td style="width: 35%;">Date</td>
+    <td>2025-10-19</td>
+  </tr>
+  <tr>
+    <td>Time</td>
+    <td>09:00 AM</td>
+  </tr>
+  <tr>
+    <td>Location</td>
+    <td>Reunión virtual mediante Discord</td>
+  </tr>
+  <tr>
+    <td>Prepared By</td>
+    <td>Marcelo Fabian Garro Vega</td>
+  </tr>
+  <tr>
+    <td>Attendees (to planning meeting)</td>
+    <td>Marcelo Fabian Garro Vega / Jefrey Martin Sanchez Ignacio / Daniel Rodrigo Chirinos Arevalo / Alessandro Joaquin Bernardo Eusebio / Vera Nuñez Nicolas Alejandro / George Aliaga</td>
+  </tr>
+  <tr>
+    <td>Sprint 2 Review Summary</td>
+    <td>Al ser el primer sprint del proyecto, no existe un sprint anterior para revisar. Sin embargo, se completaron las actividades de planeamiento inicial, incluyendo la definición de la arquitectura de software bajo principios de Domain Driven Design, la elaboración de wireframes y mockups, y la especificación de user stories en el product backlog.</td>
+  </tr>
+  <tr>
+    <td>Sprint 2 Retrospective Summary</td>
+    <td>Durante la fase de planeamiento (Sprint 0), el equipo logró establecer una visión compartida del producto y definir los bounded contexts principales del sistema. Se identificaron oportunidades de mejora en la comunicación asíncrona y se acordó implementar daily stand-ups virtuales para mantener la sincronización del equipo. El equipo manifestó motivación y compromiso para comenzar la implementación del producto.</td>
+  </tr>
+
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint Goal & User Stories</th>
+  </tr>
+  <tr>
+    <td>Sprint 2 Goal</td>
+    <td>En esta segunda iteración del proyecto, nuestro enfoque estuvo en consolidar y validar las funcionalidades <i>core</i> de CargaSafe, priorizando los módulos directamente relacionados con el monitoreo de carga sensible. Para esta sprint se trabajó únicamente con los bounded contexts esenciales para esta etapa: <b>Trip Management, Fleet Management, Monitoring Management y Alerts Management</b>, dejando de lado aquellos que no son críticos en esta fase, como gestión de perfiles, pagos o analytics avanzados.<br><br>
+
+Además, durante esta sprint se desarrolló el <b>prototipo IoT físico</b>, conformado por sensores de temperatura, humedad y un módulo GPS, permitiendo capturar telemetría real y validar el funcionamiento de la solución extremo a extremo. Este prototipo se integró con la aplicación web mediante endpoints simulados y datos procesados, lo que permitió evaluar la experiencia de monitoreo en escenarios reales y reproducibles.<br><br>
+
+El objetivo principal de esta sprint es demostrar de manera funcional cómo CargaSafe permite visualizar el estado de un viaje, monitorear telemetría en tiempo real y gestionar alertas generadas por cambios bruscos en las condiciones de la carga. Consideramos que esto sienta las bases para validar nuestro producto con stakeholders y usuarios finales, confirmando que las funcionalidades centrales responden a necesidades reales del mercado.<br><br>
+
+Esta validación quedará confirmada cuando los usuarios puedan navegar las funcionalidades priorizadas —inicio y seguimiento de viajes, visualización de temperatura/humedad/ubicación y revisión del ciclo de vida de alertas— mientras el prototipo IoT genera datos reales, permitiendo observar cómo el sistema reacciona ante variaciones en el entorno y cómo se presenta esa información de manera clara en la aplicación web.</td>
+
+  </tr>
+  <tr>
+    <td>Sprint 2 Velocity</td>
+    <td>35 Story Points</td>
+  </tr>
+  <tr>
+    <td>Sum of Story Points</td>
+    <td>42 Story Points</td>
+  </tr>
+</table>
 
 
 #### 6.2.2.2. Aspect Leaders and Collaborators.
 
-Para el Sprint 2, los principales aspectos considerados corresponden a los bounded contexts core identificados en la arquitectura del sistema CargaSafe, además del Landing Page como punto de entrada al producto. Se estableció cada …
+Para el Sprint 2, los principales aspectos considerados corresponden a los bounded contexts core identificados en la arquitectura del sistema CargaSafe, además del Landing Page como punto de entrada al producto. Se estableció un nuevo punto acerca del Embedded Application.
 
 Los aspectos principales son:
 
@@ -6036,13 +6099,13 @@ Para el proceso de validación con usuarios, se emplearon los Application User F
 Los flujos utilizados en esta sesión fueron:
 
 **User Flow de Monitoreo en Tiempo Real**
-Uso del dashboard principal para visualizar temperatura, humedad, ubicación e indicador de estado del viaje.
+Visualización de la temperatura, humedad, ubicación e indicador de estado del viaje.
 
 **User Flow de Detalle de Viaje**
 Acceso al historial o listado de viajes para revisar su estado (en proceso / completado), punto de origen y datos capturados.
 
 **User Flow de Alertas**
-Comportamiento del usuario ante una alerta generada (temperatura fuera de rango, desconexión, etc.), incluyendo reconocimiento y lectura del mensaje.
+Comportamiento del usuario ante una alerta generada (temperatura alta, desconexión, etc.).
 
 ### 1. Preguntas generales:
 
@@ -6090,7 +6153,7 @@ Comportamiento del usuario ante una alerta generada (temperatura fuera de rango,
 
 ### 6.4. Video About-the-Product.
 
-Como parte del proceso de validación y comunicación de la solución propuesta, se desarrolló un video About the Product cuyo objetivo es explicar de manera clara y concisa el propósito del proyecto, el problema identificado en el mercado y la forma en que nuestra solución busca resolverlo.
+Como parte del proceso de validación y comunicación de la solución propuesta, se desarrolló un video About the Product cuyo objetivo es explicar de manera clara y concisa el propósito del proyecto.
 
 El material también presenta las principales funcionalidades de la aplicación web, evidenciando cómo estas responden directamente a las necesidades reales de los usuarios y de las empresas dedicadas al transporte de carga sensible. Además, se incluye la reacción y aceptación de un entrevistado de cada segmento objetivo, lo que permite reforzar la pertinencia y el valor percibido de la solución.
 
