@@ -6540,7 +6540,69 @@ Comportamiento del usuario ante una alerta generada (temperatura alta, desconexi
 
 #### Segmento 1: Empresa
 
+- Nombre: Henry Centurion
+- Edad: 40
+- Distrito: Chorrillos, Lima
+- Tiempo de inicio- tiempo fin: **00:00 - 14:33**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCaPBt614hIT6IYV9oBEHJ_AQTjenHIuVf5s9fmKmGTlfc?e=hYNpBV&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D 
+
+<img src="assets/empresa1.png">
+
+Henry considera que la aplicación web ofrece una experiencia positiva y útil para la gestión logística. Destaca que el dashboard proporciona una vista clara e inmediata de los indicadores principales, las alertas en tiempo real y los viajes recientes, permitiéndole tomar decisiones rápidas. Percibe la navegación como intuitiva y valora la fluidez del sistema. Sin embargo, menciona oportunidades de mejora, como una mejor organización del detalle de viaje, notificaciones más visibles y funciones avanzadas como reportes exportables, mapa en tiempo real, filtros adicionales y métricas más profundas para la toma de decisiones. En general, reconoce que la plataforma es un buen punto de partida y que aporta valor, aunque aún puede evolucionar para convertirse en una herramienta más completa y estratégica para sus operaciones.
+
+- Nombre: Miguel Ruiz
+- Edad: 28
+- Distrito: Los Olivos
+- Tiempo de inicio- tiempo fin: **00:00 - 7:42**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQDmuN0X_TVLR4JsZlVDObx9Af96wSlZZ9YyLTyjlrq4YlE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=uT9XJE 
+
+<img src="assets/empresa2.png">
+
+Miguel considera que la aplicación es muy buena, dinámica e intuitiva. Señala que la navegación es clara, amigable y que no encontró confusiones durante su uso. Destaca que, aunque al inicio todo sistema nuevo puede resultar un poco complejo, luego de revisar el manual y recibir la explicación del equipo, la comprensión del flujo fue sencilla y rápida.
+Percibe que la aplicación muestra la cantidad justa de información, evitando saturación innecesaria. Resalta como funcionalidad más útil el sistema de alertas, ya que le permite detectar de inmediato si un transporte supera los rangos de temperatura configurados, reduciendo riesgos de pérdidas.
+Menciona que el sistema es ágil y fluido, sin trabas ni demoras, y que las notificaciones le resultaron claras y útiles para la toma de decisiones. Considera que el monitoreo proporciona todos los datos relevantes —ubicación, temperatura, estado de la carga y cumplimiento de ruta— y que la aplicación actualmente cumple con todas las funciones necesarias para la operación diaria.
+Como mejora futura, sugiere evaluar integraciones con otros sistemas para ampliar el uso de la tecnología, pero recalca que, según su experiencia, el producto ya resuelve adecuadamente las problemáticas actuales de la empresa.
+
 #### Segmento 2: Clientes finales
+
+- Nombre: Adrían Zapata
+- Edad: 22
+- Distrito: Chorrillos
+- Tiempo de inicio- tiempo fin: **00:00 - 8:26**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQArPbnl6OTFRrb-NZnapN2hAX28R9Csp8-r_7Ch38BlWFk?e=nJhOmB&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
+
+<img src="assets/persona1.png">
+
+Adrián considera que la aplicación es útil, clara y fácil de usar, especialmente después de familiarizarse con sus funciones. Señala que el sistema le ha permitido mejorar la calidad de sus productos durante el transporte, ya que puede monitorear variables críticas como la temperatura y la ubicación en tiempo real. Destaca que la información mostrada es precisa y suficiente, sin saturar la interfaz.
+Resalta como funciones más valiosas el control de temperatura, el seguimiento en el mapa y las notificaciones, que le permiten anticipar retrasos o incidentes durante el trayecto. También percibe la aplicación como fluida y sin problemas de rendimiento.
+Sobre mejoras, menciona la importancia de fortalecer la confianza y transparencia con el cliente, así como brindar más información sobre los conductores o historial de servicios para generar mayor seguridad. En general, afirma que la aplicación ofrece un servicio completo y útil que aporta valor real a su negocio.
+
+- Nombre: Adrían Zapata
+- Edad: 22
+- Distrito: Chorrillos
+- Tiempo de inicio- tiempo fin: **00:00 - 8:26**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQBb7g2bMUK5Q5YzYRErSmJuAUiQju1Yg3VzR2ufpYDh1VM?e=wigaGB&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
+
+<img src="assets/persona2.png">
+
+Adrián considera que la aplicación es útil, clara y fácil de usar, especialmente después de familiarizarse con sus funciones. Señala que el sistema le ha permitido mejorar la calidad de sus productos durante el transporte, ya que puede monitorear variables críticas como la temperatura y la ubicación en tiempo real. Destaca que la información mostrada es precisa y suficiente, sin saturar la interfaz.
+Resalta como funciones más valiosas el control de temperatura, el seguimiento en el mapa y las notificaciones, que le permiten anticipar retrasos o incidentes durante el trayecto. También percibe la aplicación como fluida y sin problemas de rendimiento.
+Sobre mejoras, menciona la importancia de fortalecer la confianza y transparencia con el cliente, así como brindar más información sobre los conductores o historial de servicios para generar mayor seguridad. En general, afirma que la aplicación ofrece un servicio completo y útil que aporta valor real a su negocio.
+
+- Nombre: Adrían Zapata
+- Edad: 22
+- Distrito: Chorrillos
+- Tiempo de inicio- tiempo fin: **00:00 - 8:26**
+- Enlace: https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCqtFhq7l8bTKDnwJXP7GCAAb5DJFOnhNqLSHd8F2HguHE?e=jEczfo&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+
+
+<img src="assets/persona3.png">
+
+Adrián considera que la aplicación es útil, clara y fácil de usar, especialmente después de familiarizarse con sus funciones. Señala que el sistema le ha permitido mejorar la calidad de sus productos durante el transporte, ya que puede monitorear variables críticas como la temperatura y la ubicación en tiempo real. Destaca que la información mostrada es precisa y suficiente, sin saturar la interfaz.
+Resalta como funciones más valiosas el control de temperatura, el seguimiento en el mapa y las notificaciones, que le permiten anticipar retrasos o incidentes durante el trayecto. También percibe la aplicación como fluida y sin problemas de rendimiento.
+Sobre mejoras, menciona la importancia de fortalecer la confianza y transparencia con el cliente, así como brindar más información sobre los conductores o historial de servicios para generar mayor seguridad. En general, afirma que la aplicación ofrece un servicio completo y útil que aporta valor real a su negocio.
 
 ### 6.3.3. Evaluaciones según heurísticas
 
@@ -6552,7 +6614,7 @@ El material también presenta las principales funcionalidades de la aplicación 
 
 <img src="assets/abouttheproductscree.png">
 
-**Duración: 2:23**
+**Duración: 00:00 - 02:23**
 
 **Video en Microsoft Stream:** https://upcedupe-my.sharepoint.com/:v:/g/personal/u202019577_upc_edu_pe/IQCYKgWKcBrXR65PlG9NYDl6Adf84l5MqK0xFe_4ziO52dI?e=rNUkdK
 
