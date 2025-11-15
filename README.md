@@ -81,7 +81,8 @@
 | 1.3     | 13/09/2025 | Jefrey y Nicolas | Se añadió el capitulo 4 que es en base a las soluciones en diseño del software que trabajaremos en el proyecto                                                                                                                                                                                                                                           |
 | 2.0     | 09/10/2025 | Jefrey           | Se añadió el capitulo 6.2.1.4 que es en base evidencias del trabajo durante el proyecto                                                                                                                                                                                                                                                                  |
 | 2.1     | 09/10/2025 | Daniel           | Se realizaron las correciones y se añadió el capitulo 6 que es la configuración y el uso de las herramientas que se utilizaran durante el ciclo.                                                                                                                                                                                                         |
-| 2.2     | 09/10/2025 | Marcelo          | Se agrego proceso de event storming con sus resultados finales                                                                                                                                                                                                                                                                                           |
+| 2.2     | 09/10/2025 | Marcelo          | Se agrego proceso de event storming con sus resultados finales                   |
+| 3.0     | 14/11/2025 | Daniel          | Se añadió un nuevo Sprint sobre el desarrollo de los productos                    |
 
 ---
 
@@ -153,6 +154,10 @@ Para el control de versiones, decidimos emplear **6 ramas principales**:
 <b> main </b> : Esta rama se mantiene como un reflejo del documento en su última versión estable. El estado del documento será listo para entregar.
 
 <b> chapter-1, chapter-2, chapter-3, chapter-4, chapter-5, chapter-6 </b>: Estas ramas permiten integrar los artefactos solicitados por capítulo. Se trabaja de esta manera para asegurar una integración controlada, una colaboración enfocada y un aislamiento de cambios.
+
+## TB2 Project Report Collaboration Insights
+
+
 
 
 ---
@@ -412,13 +417,15 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <span class="entry-order">TP1:</span><br/>
           En esta entrega, demostré liderazgo colaborativo al delegar tareas SMART a mis compañeros, guiarlos en la resolución de dudas técnicas y establecer un flujo de trabajo transparente que promovió la coordinación y el cumplimiento de los objetivos del equipo.
         </span>
-        <br /> <br><span class="person">Jefrey Sanchez Ignacio</span><br />
+        <br /> <br><span class="person">George Arturo Aliaga Pimentel</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br />
         <br><span class="person">Daniel Rodrigo Chirinos Arevalo</span><br />
         <span class="entry-order">TB1:</span><br/>
         Participé en reuniones virtuales y presenciales, aportando ideas sobre cómo abordar el proyecto y colaborando con mis compañeros para tomar decisiones clave respecto al caso propuesto. Además, elaboré de manera colaborativa los user stories y los diagramas de clase y C4. Para ello, realizamos reuniones de planificación y coordinación para asegurar el acuerdo sobre el desarrollo de estos diagramas.  <br />
         <span class="entry-order">TP:</span><br/>
+        Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
+        <span class="entry-order">TB2:</span><br/>
         Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span><br/>
@@ -441,7 +448,9 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
       <span class="entry-order">TB1:</span><br/>
         A lo largo del proyecto asumimos un liderazgo compartido, distribuyendo responsabilidades y tomando decisiones en conjunto. Cada uno de nosotros aportó ideas y conocimientos que permitieron definir con claridad el flujo de negocio, la arquitectura y los artefactos necesarios bajo los principios de Domain Driven Design. Esta forma de trabajo nos ayudó a consolidar una visión común y avanzar con mayor seguridad en cada fase.<br/><br/>
       <span class="entry-order">TP1:</span><br/>
-        En esta iteración demostramos un liderazgo conjunto enfocado en el diseño de la experiencia de usuario y la arquitectura de información. La colaboración entre los miembros permitió integrar los bounded contexts, desarrollar prototipos funcionales y construir un landing page coherente con la identidad del producto. El liderazgo compartido facilitó la toma de decisiones técnicas y visuales, asegurando que cada entregable cumpliera con los objetivos del sprint y contribuyera al avance del proyecto.
+        En esta iteración demostramos un liderazgo conjunto enfocado en el diseño de la experiencia de usuario y la arquitectura de información. La colaboración entre los miembros permitió integrar los bounded contexts, desarrollar prototipos funcionales y construir un landing page coherente con la identidad del producto. El liderazgo compartido facilitó la toma de decisiones técnicas y visuales, asegurando que cada entregable cumpliera con los objetivos del sprint y contribuyera al avance del proyecto.<br/><br/>
+      <span class="entry-order">TB2:</span><br/>
+        Texto<br/><br/>
       </td>
     </tr>
     <tr>
@@ -454,7 +463,7 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo dentro del equipo, promoviendo la participación activa de todos los miembros mediante el envío constante de retroalimentaciones constructivas. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que estas aportan al negocio. Para ello, tomé en cuenta las opiniones de mis compañeros, lo cual permitió definir metas claras, planificar de manera efectiva y cumplir con los objetivos propuestos bajo los principios de Domain Driven Design. <br />
         <span class="entry-order">TP1:</span> En esta entrega, fomenté un entorno colaborativo e inclusivo al asignar tareas del sprint backlog y coordinar sesiones de trabajo síncronas, tanto remotas como presenciales, para definir conjuntamente los objetivos y asegurar el cumplimiento de la entrega. <br />
         </span> <br> 
-        <span class="person">Jefrey Sanchez Ignacio</span><br />
+        <span class="person">George Arturo Aliaga Pimentel</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br /> <br><span class="person">Daniel Rodrigo Chirinos Arevalo</span><br />
         <span class="entry-order">TB1:</span><br/>
@@ -479,6 +488,8 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         Durante el desarrollo creamos un entorno colaborativo e inclusivo en el que cada aporte fue escuchado y valorado. Establecimos metas claras, organizamos tareas de manera conjunta y planificamos los avances para asegurar el cumplimiento de los objetivos. Gracias a la comunicación constante y al compromiso colectivo, conseguimos mantener la cohesión del grupo, garantizar la calidad de los entregables y alcanzar los resultados propuestos.<br/><br/>
       <span class="entry-order">TP1:</span><br/>
         En esta iteración fortalecimos el entorno colaborativo mediante sesiones de trabajo conjunto en el diseño de prototipos y la definición de bounded contexts. Establecimos metas específicas relacionadas con la experiencia de usuario, la arquitectura de información y el desarrollo del landing page. La planificación conjunta y la retroalimentación constante nos permitieron cumplir con los objetivos establecidos, asegurando que cada componente (prototipos, bounded contexts, landing page) estuviera alineado con la visión del producto y las expectativas de los usuarios finales.
+      <span class="entry-order">TB2:</span><br/>
+        Texto<br/><br/>
       </td>
     </tr>
   </tbody>
@@ -5938,6 +5949,33 @@ Se integró la API simulada con `json-server`, se configuró el enrutamiento bas
 **Edge Application**
 
 **Embbended Application**
+
+| Repository                                      | Branch | Commit Id                                   | Commit Message                                 | Commit Message Body                                      | Committed on |
+|--------------------------------------------------|--------|----------------------------------------------|-------------------------------------------------|-----------------------------------------------------------|--------------|
+| iot-solutions-development-cargasafe-embedded-application | main   | 84e697f13a90ba4158c3806a863d519a984032eb     | chore: initial commit                           | Inicio del proyecto IoT                                   | 2025-11-08   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 4f309c16c919f2c6d1eadda0f31406d6f3ee2525     | feat(embeddedApp): updated sketch_nov8a.ino     | Agregado de comentarios dentro del sketch                 | 2025-11-09   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 18b5bcf1c25342c1f654e265d9f263c3f537bfe1     | feat(embeddedApp): update DataController.h      | Agregado de comentario dentro del DataController          | 2025-11-09   |
+| iot-solutions-development-cargasafe-embedded-application | main   | b7c68e426a6e19ce0a4105aa4cb24410f31aec0c     | feat(embeddedApp): add Edge connection          | Agregado de comentario dentro del Edge Connection         | 2025-11-09   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 70c69636bd4a06a3de442ddee7edbe419e31b521     | feat(embeddedApp): updated sketch_nov8a.ino     | Agregado de comentarios dentro del sketch                 | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | fb7048bfb887045ab99715fcf7613795a04c37c0     | feat(embeddedApp): update CommandHandler        | Agregado de comentarios dentro del CommandHandler         | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 9b3c55798b0ac27098176ca96a895ebbb8f4d772     | feat(embeddedApp): update Controller            | Agregado de comentarios dentro del Controller             | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | f1d508f4230e58f5ed86a36418bbbc4f2f72409d     | feat(embeddedApp): update DHTSensor.cpp         | Agregado de comentarios dentro del DHTSensor              | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 6d78c04badc1d71a8f6dbbcd16d38d207d7a26c2     | feat(embeddedApp): update DHTSensor.h           | Agregado de comentarios dentro del DHTSensor              | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 8bc6694c94144bab34ce22e8d5d21c798166ca17     | feat(embeddedApp): update DataController        | Agregado de comentarios dentro del DataController         | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 6d03981b0b9c6741a81ef1f143ffecdec9556d69     | feat(embeddedApp): update EdgeCommunicatorHttp  | Agregado de comentarios dentro del EdgeCommunicatorHttp   | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 2d96ae1b310422c92419c02a882675479a6fc4cb     | feat(embeddedApp): update Event                 | Agregado de comentarios dentro del Event                  | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | cfcb3d52ce89360099d10ee674e66c65c6a0c008     | feat(embeddedApp): update GPSSensor.cpp         | Agregado de comentarios dentro del GPSSensor              | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | bd0f87c1da0df7e02a04a82cc015e1a93805023e     | feat(embeddedApp): update GPSSensor.h           | Agregado de comentarios dentro del GPSSensor              | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | c074e1b8a2f6b8de58d53a814940be016c2e2b99     | feat(embeddedApp): update ModestIoT.h           | Agregado de comentarios dentro del ModestIoT              | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 105712431f951d86ccea2ed3f62b715d9885a8f6     | feat(embeddedApp): update sketch_nov8a.ino      | Agregado de comentarios dentro del sketch                 | 2025-11-11   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 089b8e30a0ec7baf8cc72a3cf91ea52280163daf     | feat(embeddedApp): update sketch_nov8a.ino      | Agregado de comentarios dentro del sketch                 | 2025-11-12   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 7436035d14c7010729f007ec1c44c7ea0f7758e8     | refactor(embeddedApp): update DHTSensor.h       | Agregado de actuador Led dentro del DHTSensor            | 2025-11-13   |
+| iot-solutions-development-cargasafe-embedded-application | main   | c9c671a69cc2588f9a798cc9dde390cf7f7361a9     | refactor(embeddedApp): update DHTSensor.cpp     | Agregado de actuador Led dentro del DHTSensor            | 2025-11-13   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 38fa8443722cb412b16f38fd00946e1fcff1a3ce     | refactor(embeddedApp): update sketch_nov8a.ino  | Agregado de actuador Led dentro del sketch                | 2025-11-13   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 18b472e7f10719f979ca4042fc6a168f1b6d1987     | refactor(embeddedApp): update DHTSensor.h       | Código actualizado de actuador Led dentro del DHTSensor   | 2025-11-13   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 62a5573bab86f8440ec8817d51ee9a450e3d7543     | refactor(embeddedApp): update DHTSensor.cpp     | Código actualizado de actuador Led dentro del DHTSensor   | 2025-11-13   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 815cae4d476241034a7b14c0c092ebcc23bb90f6     | refactor(embeddedApp): update sketch_nov8a.ino  | Código actualizado de actuador Led dentro del sketch      | 2025-11-13   |
+| iot-solutions-development-cargasafe-embedded-application | main   | 6fb58d7299e45e104c99599d49c6762dfae59c7a     | fix(embeddedApp): update sketch_nov8a.ino       | Código actualizado de actuador Led dentro del sketch      | 2025-11-14   |
 
 
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review.
