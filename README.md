@@ -65,7 +65,7 @@
       </table>
       <p style="text-align: center">
         <br />
-        <strong>Setiembre 2025</strong>
+        <strong>Octubre 2025</strong>
       </p>
     </div>
 
@@ -76,10 +76,14 @@
 
 | Versión | Fecha      | Autor            | Descripción de modificación                                                                                                                                                                                                                                                                                                                              |
 | ------- | ---------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.0     | 20/09/2025 | George | Se entregó una primera entrega del informe con los siguientes apartados: Carátula, Registro de Versiones, Project Report Collaboration Insights, Contenido, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design y Bibliografía. |
+| 1.0     | 20/09/2025 | George           | Se entregó una primera entrega del informe con los siguientes apartados: Carátula, Registro de Versiones, Project Report Collaboration Insights, Contenido, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design y Bibliografía. |
 | 1.2     | 12/09/2025 | Daniel y Marcelo | Se añadió el capitulo 3 que es en base al product backlog que se trabajará en el proyecto                                                                                                                                                                                                                                                                |
 | 1.3     | 13/09/2025 | Jefrey y Nicolas | Se añadió el capitulo 4 que es en base a las soluciones en diseño del software que trabajaremos en el proyecto                                                                                                                                                                                                                                           |
-| 2.1     | 09/10/2025 | Daniel | Se realizaron las correciones y se añadió el capitulo 6 que es la configuración y el uso de las herramientas que se utilizaran durante el ciclo. |
+| 2.0     | 09/10/2025 | Jefrey           | Se añadió el capitulo 6.2.1.4 que es en base evidencias del trabajo durante el proyecto                                                                                                                                                                                                                                                                  |
+| 2.1     | 09/10/2025 | Daniel           | Se realizaron las correciones y se añadió el capitulo 6 que es la configuración y el uso de las herramientas que se utilizaran durante el ciclo.                                                                                                                                                                                                         |
+| 2.2     | 09/10/2025 | Marcelo          | Se agrego proceso de event storming con sus resultados finales                   |
+| 3.0     | 14/11/2025 | Daniel          | Se añadió un nuevo Sprint sobre el desarrollo de los productos                    |
+
 ---
 
 # Project Report Collaboration Insights
@@ -123,6 +127,39 @@ Para el control de versiones, decidimos emplear **6 ramas principales**:
 
 <b> chapter-1-2-3-4 </b>: Esta rama funciona como zona de integración pre-producción donde se consolidan y revisan todos los capítulos antes de fusionarlos a `main`. Permite realizar pruebas de integración completas, verificar la coherencia entre capítulos y realizar ajustes finales sin afectar la rama principal. Actúa como un paso intermedio de validación antes del merge final.
 
+
+## TP Project Report Collaboration Insights
+
+Para la entrega del TP se realizaron las actividades necesarias para corregir y completar los capítulos I, II, III,IV,V y VI resaltando la importancia de la constancia en el trabajo. Como equipo, mantuvimos una frecuencia adecuada de commits y actualizaciones, proyectada como óptima para el desarrollo futuro, y se incluyen en el informe las evidencias de los cambios efectuados.
+
+_Vista general de las contribuciones del equipo_
+
+![Team contributions](assets/commitsovertimeTP.png)
+
+_Contribuciones de cada miembro del equipo para la TB1_
+![Contributions per user insights](assets/contributersTP.png)
+
+_Commits_
+![CommitsTB1](assets/commitsTP.png)
+
+
+De las contribuciones del equipo y commits se concluye lo siguiente:
+
+- Para esta entrega, se han realizado un total de **390 commits** aproximadamente por parte del equipo.
+
+- El equipo considera que hubo una ligera mejor organización durante la realización de la TP1.
+
+Para el control de versiones, decidimos emplear **6 ramas principales**:
+
+<b> main </b> : Esta rama se mantiene como un reflejo del documento en su última versión estable. El estado del documento será listo para entregar.
+
+<b> chapter-1, chapter-2, chapter-3, chapter-4, chapter-5, chapter-6 </b>: Estas ramas permiten integrar los artefactos solicitados por capítulo. Se trabaja de esta manera para asegurar una integración controlada, una colaboración enfocada y un aislamiento de cambios.
+
+## TB2 Project Report Collaboration Insights
+
+
+
+
 ---
 
 # Contenido
@@ -132,6 +169,8 @@ _Tabla de contenidos_
 - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
   - [TB1 Project Report Collaboration Insights](#tb1-project-report-collaboration-insights)
+  - [TP Project Report Collaboration Insights](#tp-project-report-collaboration-insights)
+  - [TB2 Project Report Collaboration Insights](#tb2-project-report-collaboration-insights)
 - [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
 - [Capítulo I: Introducción](#capítulo-i-introducción)
@@ -306,6 +345,15 @@ _Tabla de contenidos_
       - [4.2.8.6. Bounded Context Software Architecture Code Level Diagrams](#4286-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.8.6.1. Bounded Context Domain Layer Class Diagrams](#42861-bounded-context-domain-layer-class-diagrams)
         - [4.2.8.6.2. Bounded Context Database Design Diagram](#42862-bounded-context-database-design-diagram)
+    - [4.2.9. Bounded Context: Merchant](#429-bounded-context-merchant)
+      - [4.2.9.1. Domain Layer](#4291-domain-layer)
+      - [4.2.9.2. Interface Layer](#4292-interface-layer)
+      - [4.2.9.3. Application Layer](#4293-application-layer)
+      - [4.2.9.4. Infrastructure Layer](#4294-infrastructure-layer)
+      - [4.2.9.5. Bounded Context Software Architecture Component Level Diagrams](#4295-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.9.6. Bounded Context Software Architecture Code Level Diagrams](#4296-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.9.6.1. Bounded Context Domain Layer Class Diagrams](#42961-bounded-context-domain-layer-class-diagrams)
+        - [4.2.9.6.2. Bounded Context Database Design Diagram](#42962-bounded-context-database-design-diagram)
 - [Capítulo V: Solution UI/UX Design](#capítulo-v-solution-uiux-design)
   - [5.1. Style Guidelines.](#51-style-guidelines)
     - [5.1.1. General Style Guidelines.](#511-general-style-guidelines)
@@ -342,6 +390,26 @@ _Tabla de contenidos_
       - [6.2.1.7. Services Documentation Evidence for Sprint Review](#6217-services-documentation-evidence-for-sprint-review)
       - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
       - [6.2.1.9. Team Collaboration Insights during Sprint.](#6219-team-collaboration-insights-during-sprint)
+    - [6.2.2. Sprint 2](#622-sprint-2)
+      - [6.2.2.1. Sprint Planning 2.](#6221-sprint-planning-2)
+      - [6.2.2.2. Aspect Leaders and Collaborators.](#6222-aspect-leaders-and-collaborators)
+      - [6.2.2.3. Sprint Backlog 2.](#6223-sprint-backlog-2)
+      - [6.2.2.4. Development Evidence for Sprint Review](#6224-development-evidence-for-sprint-review)
+      - [6.2.2.5. Testing Suite Evidence for Sprint Review.](#6225-testing-suite-evidence-for-sprint-review)
+      - [6.2.2.6. Execution Evidence for Sprint Review.](#6226-execution-evidence-for-sprint-review)
+      - [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
+      - [6.2.2.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
+      - [6.2.2.9. Team Collaboration Insights during Sprint.](#6229-team-collaboration-insights-during-sprint)
+  - [6.3. Validation Interviews.](#63-validation-interviews)
+    - [6.3.1. Diseño de Entrevistas.](#631-diseño-de-entrevistas)
+    - [1. Preguntas generales:](#1-preguntas-generales-1)
+    - [2. Preguntas - Segmento: Clientes Finales (Consumidores finales)](#2-preguntas---segmento-clientes-finales-consumidores-finales)
+    - [3. Preguntas - Segmento: Empresa (Gestores de transporte)](#3-preguntas---segmento-empresa-gestores-de-transporte)
+    - [6.3.2. Registro de Entrevistas.](#632-registro-de-entrevistas)
+      - [Segmento 1: Empresa](#segmento-1-empresa-1)
+      - [Segmento 2: Clientes finales](#segmento-2-clientes-finales)
+    - [6.3.3. Evaluaciones según heurísticas](#633-evaluaciones-según-heurísticas)
+    - [6.4. Video About-the-Product.](#64-video-about-the-product)
 - [Bibliografía](#bibliografía)
 
 # Student Outcome
@@ -366,13 +434,20 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
       <td>
         <span class="person">Marcelo Fabian Garro Vega</span><br />
         <span class="entry-order">TB1:</span><br/>
-        Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, donde contribuí con ideas clave para definir el flujo de negocio, fomentando así la claridad y el consenso entre todos los miembros del equipo. También participé activamente en la elaboración de la arquitectura de software y en el diseño táctico siguiendo los principios de Domain Driven Design. <br /> <br><span class="person">Jefrey Sanchez Ignacio</span><br />
+          Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, donde contribuí con ideas clave para definir el flujo de negocio, fomentando así la claridad y el consenso entre todos los miembros del equipo. También participé activamente en la elaboración de la arquitectura de software y en el diseño táctico siguiendo los principios de Domain Driven Design. 
+        </span>
+        <span class="entry-order">TP1:</span><br/>
+          En esta entrega, demostré liderazgo colaborativo al delegar tareas SMART a mis compañeros, guiarlos en la resolución de dudas técnicas y establecer un flujo de trabajo transparente que promovió la coordinación y el cumplimiento de los objetivos del equipo.
+        </span>
+        <br /> <br><span class="person">George Arturo Aliaga Pimentel</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br />
         <br><span class="person">Daniel Rodrigo Chirinos Arevalo</span><br />
         <span class="entry-order">TB1:</span><br/>
         Participé en reuniones virtuales y presenciales, aportando ideas sobre cómo abordar el proyecto y colaborando con mis compañeros para tomar decisiones clave respecto al caso propuesto. Además, elaboré de manera colaborativa los user stories y los diagramas de clase y C4. Para ello, realizamos reuniones de planificación y coordinación para asegurar el acuerdo sobre el desarrollo de estos diagramas.  <br />
         <span class="entry-order">TP:</span><br/>
+        Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
+        <span class="entry-order">TB2:</span><br/>
         Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span><br/>
@@ -382,15 +457,22 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Vera Nuñez Nicolas Alejandro</span><br />
         <span class="entry-order">TB1:</span><br/>
         Participé de manera activa en reuniones virtuales y presenciales, aportando propuestas relevantes para la definición de la arquitectura de software del Fleet Management. Lideré la elaboración de los diagramas C4 (contexto, contenedores y componentes) y colaboré en el diseño táctico bajo los principios de Domain Driven Design (DDD). Asimismo, contribuí en la identificación y documentación de los Bounded Contexts, garantizando una delimitación clara y consistente del sistema, y elaboré el Bounded Context Canvases, facilitando la comprensión de las responsabilidades y alcances de cada contexto.<br /> <br> <br>
+        <span class="entry-order">TP:</span><br/>
+        En esta iteración ejercimos un liderazgo compartido orientado a la experiencia de usuario y a la solidez de la arquitectura. La colaboración del equipo permitió integrar los bounded contexts de Vehicles y Devices, levantar prototipos funcionales del CRUD, y mantener una interfaz coherente con la identidad del producto. Este liderazgo conjunto agilizó decisiones técnicas y visuales (diagramado C4, alineación DDD e integración del cliente API con autenticación), garantizando que cada entregable cumpliera los objetivos del sprint y empujara el avance del proyecto con calidad y trazabilidad (PRs revisados y build verificado).<br /> <br> <br>
         <br><span class="person">Sanchez Ignacio, Jefrey Martin</span><br />
         <span class="entry-order">TP:</span><br/>
         Durante esta etapa asumí un rol más activo en la coordinación del equipo. Ayudé a tomar decisiones sobre la estructura del Bounded Context Subscriptions. También estuve pendiente del avance en general, dando sugerencias y asegurándome de que todos sigamos las mismas pautas técnicas.<br />
-      </td>
+         <br><span class="person">Sanchez Ignacio, Jefrey Martin</span><br />
+        <span class="entry-order">TB2:</span><br/>
+        Durante esta entrega asumí un rol de liderazgo colaborativo dentro del desarrollo del Bounded Context de Trips. Coordiné con mis compañeros la definición de la estructura del front y la creación de los endpoints necesarios para asegurar la comunicación adecuada con el backend. Además, apoyé en la toma de decisiones técnicas, brindando lineamientos sobre el diseño de componentes. <br />
+        </td>
       <td class="conclusions-column">
       <span class="entry-order">TB1:</span><br/>
         A lo largo del proyecto asumimos un liderazgo compartido, distribuyendo responsabilidades y tomando decisiones en conjunto. Cada uno de nosotros aportó ideas y conocimientos que permitieron definir con claridad el flujo de negocio, la arquitectura y los artefactos necesarios bajo los principios de Domain Driven Design. Esta forma de trabajo nos ayudó a consolidar una visión común y avanzar con mayor seguridad en cada fase.<br/><br/>
       <span class="entry-order">TP1:</span><br/>
-        En esta iteración demostramos un liderazgo conjunto enfocado en el diseño de la experiencia de usuario y la arquitectura de información. La colaboración entre los miembros permitió integrar los bounded contexts, desarrollar prototipos funcionales y construir un landing page coherente con la identidad del producto. El liderazgo compartido facilitó la toma de decisiones técnicas y visuales, asegurando que cada entregable cumpliera con los objetivos del sprint y contribuyera al avance del proyecto.
+        En esta iteración demostramos un liderazgo conjunto enfocado en el diseño de la experiencia de usuario y la arquitectura de información. La colaboración entre los miembros permitió integrar los bounded contexts, desarrollar prototipos funcionales y construir un landing page coherente con la identidad del producto. El liderazgo compartido facilitó la toma de decisiones técnicas y visuales, asegurando que cada entregable cumpliera con los objetivos del sprint y contribuyera al avance del proyecto.<br/><br/>
+      <span class="entry-order">TB2:</span><br/>
+        Texto<br/><br/>
       </td>
     </tr>
     <tr>
@@ -400,7 +482,10 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
       </td>
       <td>
         <span class="person">Marcelo Fabian Garro Vega</span><br />
-        <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo dentro del equipo, promoviendo la participación activa de todos los miembros mediante el envío constante de retroalimentaciones constructivas. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que estas aportan al negocio. Para ello, tomé en cuenta las opiniones de mis compañeros, lo cual permitió definir metas claras, planificar de manera efectiva y cumplir con los objetivos propuestos bajo los principios de Domain Driven Design. <br /> <br> <span class="person">Jefrey Sanchez Ignacio</span><br />
+        <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo dentro del equipo, promoviendo la participación activa de todos los miembros mediante el envío constante de retroalimentaciones constructivas. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que estas aportan al negocio. Para ello, tomé en cuenta las opiniones de mis compañeros, lo cual permitió definir metas claras, planificar de manera efectiva y cumplir con los objetivos propuestos bajo los principios de Domain Driven Design. <br />
+        <span class="entry-order">TP1:</span> En esta entrega, fomenté un entorno colaborativo e inclusivo al asignar tareas del sprint backlog y coordinar sesiones de trabajo síncronas, tanto remotas como presenciales, para definir conjuntamente los objetivos y asegurar el cumplimiento de la entrega. <br />
+        </span> <br> 
+        <span class="person">George Arturo Aliaga Pimentel</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br /> <br><span class="person">Daniel Rodrigo Chirinos Arevalo</span><br />
         <span class="entry-order">TB1:</span><br/>
@@ -416,12 +501,17 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Sanchez Ignacio, Jefrey Martin</span><br />
         <span class="entry-order">TP:</span><br/>
         En este trabajo parcial participé en la parte del Bounded Context de CargaSafe, ayudando en la conexión entre la vista y la API con json-server. Me encargué de implementar componentes con Angular Material y asegurar que el diseño se mantenga ordenado y coherente con el resto del proyecto.<br />
-      </td>
+        <br><span class="person">Sanchez Ignacio, Jefrey Martin</span><br />
+        <span class="entry-order">TB2:</span><br/>
+        En esta iteración contribuí activamente a fortalecer un entorno colaborativo al participar en la planificación del trabajo del Bounded Context de Trips. Aporté en la definición de metas técnicas, como la creación de los endpoints necesarios y la implementación del front asociada, asegurando que el flujo de información fuera claro entre la API y la interfaz. Trabajé de manera coordinada con el equipo, apoyando en la organización de tareas y manteniendo comunicación constante para resolver dudas y evitar bloqueos. Gracias a esta planificación conjunta y al seguimiento continuo, logramos cumplir los objetivos planteados y avanzar de forma alineada con la arquitectura general del proyecto.<br />
+ </td>
       <td class="conclusions-column">
       <span class="entry-order">TB1:</span><br/>
         Durante el desarrollo creamos un entorno colaborativo e inclusivo en el que cada aporte fue escuchado y valorado. Establecimos metas claras, organizamos tareas de manera conjunta y planificamos los avances para asegurar el cumplimiento de los objetivos. Gracias a la comunicación constante y al compromiso colectivo, conseguimos mantener la cohesión del grupo, garantizar la calidad de los entregables y alcanzar los resultados propuestos.<br/><br/>
       <span class="entry-order">TP1:</span><br/>
         En esta iteración fortalecimos el entorno colaborativo mediante sesiones de trabajo conjunto en el diseño de prototipos y la definición de bounded contexts. Establecimos metas específicas relacionadas con la experiencia de usuario, la arquitectura de información y el desarrollo del landing page. La planificación conjunta y la retroalimentación constante nos permitieron cumplir con los objetivos establecidos, asegurando que cada componente (prototipos, bounded contexts, landing page) estuviera alineado con la visión del producto y las expectativas de los usuarios finales.
+      <span class="entry-order">TB2:</span><br/>
+        Texto<br/><br/>
       </td>
     </tr>
   </tbody>
@@ -1478,7 +1568,7 @@ Se identificaron los actores clave que participan en los eventos:
 - **Transport Manager (Gestor de Transporte)** : Gestiona operaciones, rutas, costos y SLA
 - **Dock Staff (Personal del Muelle)** : Encargado de la carga, descarga y verificación de mercancía en el muelle. Asegura que los productos correctos se carguen en los vehículos apropiados.
 - **Driver (Conductor)** : Encargado de ejecutar el viaje
-- **Logistic Staff (Personal Logístico)** : Coordina el flujo de mercancías desde el origen hasta el destino. Gestiona el inventario, el almacenamiento y la documentación 
+- **Logistic Staff (Personal Logístico)** : Coordina el flujo de mercancías desde el origen hasta el destino. Gestiona el inventario, el almacenamiento y la documentación
 
 ### Sistemas Externos:
 
@@ -1494,11 +1584,9 @@ El equipo narró la experiencia desde dos perspectivas:
 
 Un gestor de transporte recibe una solicitud de servicio, genera una cotización, acuerda un SLA con el cliente y planifica la ruta considerando paradas, capacidad del vehículo y requisitos especiales. Prepara la documentación, asigna un conductor y un vehículo, y reserva slots en cross-docks. Al llegar el cargamento al muelle, se verifican las mercancías, se asignan etiquetas y se aprueba el plan de carga. Durante el viaje, el gestor no tiene visibilidad real, pues depende de las llamadas esporádicas del conductor para saber la ubicación y el estado de la carga. Si hay un problema de temperatura o desvío, solo se entera después del hecho.
 
-
 **Perspectiva del Cliente Final:**
 
 El cliente no recibe notificaciones de estado ni puede rastrear su envío en tiempo real. Al recibir la mercancía, solo puede hacer una inspección visual, pues no hay datos de temperatura o vibración para validar. La falta de datos históricos y verificables complica la confianza y hace que la resolución de cualquier problema o reclamo sea lenta y dependiente del papeleo.
-
 
 #### 8. Reverse Storytelling
 
@@ -1514,7 +1602,6 @@ Se recopilaron los principales aprendizajes y las necesidades de mejora no cubie
 - Es crucial documentar políticas de negocio claras sobre las desviaciones (tiempos de gracia, umbrales de temperatura, tarifas) para evitar conflictos y largas disputas.
 - La experiencia del cliente final es pobre debido a la falta de transparencia y el nulo acceso a datos del envío, lo cual deteriora la confianza en el proveedor.
 - La resolución de disputas y el cumplimiento normativo se ven severamente obstaculizados por la ausencia de reportes automáticos y datos históricos verificables.
-
 
 ## 2.5. Ubiquitous Language
 
@@ -1707,14 +1794,51 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 <img src="assets/productbacklog1.png">
 <img src="assets/productbacklog2.png">
 
-**Link del Jira:** [Click aquí para ver el jira](https://reales-iot.atlassian.net/jira/software/projects/CS/boards/9/backlog?atlOrigin=eyJpIjoiNzc2ZGE3MGQ2OTk0NGRkZmEyZDczNGE4NDI4MTc1YWUiLCJwIjoiaiJ9) 
-
+**Link del Jira:** [Click aquí para ver el jira](https://reales-iot.atlassian.net/jira/software/projects/CS/boards/9/backlog?atlOrigin=eyJpIjoiNzc2ZGE3MGQ2OTk0NGRkZmEyZDczNGE4NDI4MTc1YWUiLCJwIjoiaiJ9)
 
 # Capítulo IV: Solution Software Design
 
 ## 4.1. Strategic-Level Domain-Driven Design
 
 ### 4.1.1. Design-Level EventStorming
+
+En esta sección se realizó un Event Storming detallado para modelar y analizar el dominio del sistema CargaSafe. Se llevó a cabo en varias sesiones colaborativas donde se identificaron eventos, comandos, agregados y políticas clave del negocio. Este ejercicio permitió descubrir los bounded contexts candidatos y mapear los flujos de mensajes entre ellos, sentando las bases para el diseño de la arquitectura del sistema.
+
+**Step 1: Unstructured Exploration**  
+Se identificaron todos los eventos clave del sistema mediante una lluvia de ideas sin orden definido, abarcando registro, monitoreo, alertas, viajes y pagos.  
+![Step 1](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%201.jpg)
+
+**Step 2: Timeline**  
+Los eventos fueron organizados cronológicamente para representar los principales flujos de negocio y dependencias entre procesos.  
+![Step 2](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%202.jpg)
+
+**Step 3: Pain Points**  
+Se identificaron los puntos críticos y posibles fallas dentro de los flujos, como errores de comunicación o validación.  
+![Step 3](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%203.jpg)
+
+**Step 4: Pivotal Points**  
+Se marcaron los eventos que generan un cambio de contexto significativo dentro del sistema, como inicios o cierres de procesos.  
+![Step 4](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%204.jpg)
+
+**Step 5: Commands**  
+Se definieron los comandos que ejecutan los actores del sistema y que originan los eventos, representando las intenciones de acción.  
+![Step 5](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%205.jpg)
+
+**Step 6: Policies**  
+Se establecieron reglas automáticas que vinculan eventos con nuevos comandos, automatizando respuestas del sistema.  
+![Step 6](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%206.jpg)
+
+**Step 7: Read Models**  
+Se definieron vistas de datos que reflejan el estado actual del sistema para consulta o monitoreo en tiempo real.  
+![Step 7](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%207.jpg)
+
+**Step 8: External Systems**  
+Se identificaron los servicios externos integrados, como APIs, pasarelas de pago y plataformas de notificación.  
+![Step 8](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%208.jpg)
+
+**Step 9: Aggregates**  
+Se agruparon comandos y eventos bajo agregados que aseguran la coherencia en cada bounded context.  
+![Step 9](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%209.jpg)
 
 #### 4.1.1.1 Candidate Context Discovery
 
@@ -1816,7 +1940,9 @@ En esta sección se elaboraron los Bounded Context Canvases de CargaSafe para lo
 
 ![EventStorming – Bounded Context Canvases](assets/Canvases_analytics.png)
 
-[Ver gráfico en Miro](https://miro.com/app/board/uXjVJJ2PHqk=/?share_link_id=762570504671)
+![EventStorming – Bounded Context Canvases](assets/Canvases_merchant.png)
+
+[Ver gráfico en Miro](https://miro.com/app/board/uXjVJ8W56f8=/?share_link_id=323586946145)
 
 ### 4.1.2. Context Mapping
 
@@ -2222,94 +2348,87 @@ El diagrama de base de datos implementa un modelo RBAC (Role-Based Access Contro
 
 _Entities_
 
+**Plan**
+
+- **Propósito**: Representar los distintos planes de suscripción disponibles.
+- **Atributos principales**: planId, name, limits, price, description.
+- **Métodos principales**: Creación mediante 'CreatePlanCommand', Getters y setters para sus atributos.
+
 **Subscription**
 
-- **Propósito**: Gestionar el ciclo de vida de la suscripción de una empresa.
-- **Atributos principales**: subscriptionId, companyId, plan, billingCycle, status (ACTIVE, CANCELED), startedAt, expiresAt.
-- **Métodos principales**: activate(), changePlan(newPlan), renew(), cancel().
+- **Propósito**: Gestionar el ciclo de vida de una suscripción asociada a un usuario.
+- **Atributos principales**: subscriptionId, userId, plan, status (ACTIVE, REVOKED, SUSPENDED), renewal, paymentMethod.
+- **Métodos principales**: changePlan(newPlan): permite cambiar de plan si el estado actual es ACTIVE, delete(): elimina la suscripción si existe, Creación mediante CreateSubscriptionCommand.
 
 **Payment**
 
-- **Propósito**: Representar pagos asociados a una suscripción.
-- **Atributos principales**: paymentId, subscriptionId, amount, status (PENDING, SUCCEEDED, FAILED), date.
-- **Métodos principales**: markSucceeded(), markFailed().
-
-**Company**
-
-- **Propósito**: Entidad que consume el servicio y depende de su suscripción activa.
-- **Atributos principales**: companyId, name, vehicleCount.
-- **Métodos principales**: canFitPlan(plan).
-
-**Value Objects**
-
-- **Plan**: Define límites y beneficios (code, vehicleLimit, price).
-- **BillingCycle**: Periodo de facturación (type, startDate, endDate).
-- **GracePeriod**: Tolerancia tras vencimiento (days).
-
-**Domain Services**
-
-- **BillingService**: Calcula montos y renovaciones.
-- **PaymentPolicy**: Aplica reglas de activación y cancelación según pagos.
-
-**Factory**
-
-- **SubscriptionFactory**: Crea una suscripción válida con plan y ciclo inicial.
+- **Propósito**: Registrar los pagos efectuados por los usuarios asociados a sus suscripciones.
+- **Atributos principales**: paymentId, userId, transactionId, amount, receiptUrl, status (PENDING, SUCCEEDED, FAILED), paymentDate.
+- **Métodos principales**: Creación mediante CreatePaymentCommand, Actualización automática del estado a SUCCEEDED al registrarse el pago.
 
 **Commands**
 
-- **CreateSubscriptionCommand**: Crea una nueva suscripción.
-- **ChangePlanCommand**: Cambia de plan.
-- **CancelSubscriptionCommand**: Cancela una suscripción.
-- **RenewSubscriptionCommand**: Renueva periodo.
-- **RecordPaymentCommand**: Registra un pago.
+- **CreatePlanCommand**
+- **CreateSubscriptionCommand**
+- **ChangePlanCommand**
+- **DeleteSubscriptionCommand**
+- **CreatePaymentCommand**
 
 **Queries**
 
-**GetSubscriptionByIdQuery**: Consulta suscripción por ID.
-**GetActiveSubscriptionByCompanyQuery**: Consulta suscripción activa de una compañía.
-**ListPaymentsBySubscriptionQuery**: Lista pagos de una suscripción.
+**GetAllPlansQuery**
+**GetPlanByIdQuery**
+**GetSubscriptionByUserIdQuery**
+**GetPaymentsByUserIdQuery**
 
-**Events**
-
-**SubscriptionCreated**: Suscripción creada.
-**PlanChanged**: Cambio de plan.
-**SubscriptionRenewed**: Renovación realizada.
-**SubscriptionCanceled**: Suscripción cancelada.
-**PaymentSucceeded / PaymentFailed**: Resultado de pago.
 
 #### 4.2.2.2. Interface Layer
 
-**Controllers**
+**PlanController**
 
-- **SubscriptionController**: Endpoints para crear, renovar, cambiar plan y cancelar suscripciones.
-- **PaymentController**: Endpoints para registrar y consultar pagos.
-- **PlanController**: Endpoints para listar planes disponibles.
-- **CompanyAccessController**: Endpoints para consultar estado de acceso de una empresa.
+- **POST /api/v1/plans**: Crea un nuevo plan de suscripción.
+- **GET /api/v1/plans**: Lista todos los planes disponibles.
+
+**SubscriptionController**
+
+- **POST /api/v1/subscriptions**: Crea una nueva suscripción para un usuario.
+- **PATCH /api/v1/subscriptions/{subscriptionId}/plan**: Cambia el plan actual (solo si la suscripción está ACTIVA).
+- **DELETE /api/v1/subscriptions/{subscriptionId}**: Elimina una suscripción existente.
+- **GET /api/v1/subscriptions/user-id/{userId}**: Consulta la suscripción activa de un usuario.
+
+**PaymentController**
+
+- **POST /api/v1/payments**: Registra un nuevo pago asociado a un usuario.
+- **GET /api/v1/payments/user-id/{userId}**: Lista los pagos de un usuario.
 
 #### 4.2.2.3. Application Layer
 
 **Command Services**
 
-- **SubscriptionCommandService**: Ejecuta comandos de suscripción (crear, cambiar, renovar, cancelar).
-- **PaymentCommandService**: Registra pagos y actualiza estado de suscripción.
+- **PlanCommandService**: Crea nuevos planes validando que no se repitan nombres.
+- **SubscriptionCommandService**: Gestiona creación, cambio y eliminación de suscripciones y valida que un usuario no tenga más de una suscripción activa.
+- **PaymentCommandService**: Registra pagos nuevos, validando unicidad de transactionId y marca automáticamente el estado del pago como SUCCEEDED.
 
 **Query Services**
 
-**SubscriptionQueryService**: Consulta suscripciones por id, estado o compañía.
-**PaymentQueryService**: Consulta pagos por suscripción o estado.
+**PlanQueryService**: Obtiene planes por ID o lista completa.
+**SubscriptionQueryService**: Recupera suscripción por userId.
+**PaymentQueryService**: Lista pagos por usuario.
 
-**Event Handlers**
-
-- **SubscriptionEventHandler**: Reacciona a eventos de suscripción (creada, renovada, cancelada, cambio de plan).
-- **PaymentEventHandler**: Reacciona a pagos exitosos o fallidos.
 
 #### 4.2.2.4. Infrastructure Layer
 
 **Repositories (Interfaces)**
 
-- **ISubscriptionRepository**: Acceso a datos de suscripciones.
-- **IPaymentRepository**: Acceso a datos de pagos.
-- **ICompanyRepository**: Acceso a datos de compañías.
+- **PlanRepository**: Maneja persistencia de planes (existsByName, findAll).
+- **SubscriptionRepository**: Maneja suscripciones (existsByUserId, findByUserId).
+- **PaymentRepository**: Maneja pagos (existsByTransactionId, findAllByUserId).
+
+**Persistence & Configuration**
+
+- **Base de datos**: PostgreSQL (configurada vía application.properties).
+- **Estrategia de nombres**: SnakeCasePhysicalNamingStrategy.
+- **Variables de entorno preparadas para Stripe**: (STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET).
 
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
 
@@ -2317,61 +2436,86 @@ _Diagrama de componentes - Backend - Subscriptions and Billing_
 
 ![Component diagrams](assets/Component_backend_subscription.png)
 
-El backend del bounded context de Suscripciones y Pagos está organizado en cuatro capas principales:
+El backend del bounded context de Suscripciones y Pagos está estructurado siguiendo el enfoque de Domain-Driven Design (DDD), y se organiza en cuatro capas principales:
 
-- **Interface Layer**: expone los controladores REST que atienden operaciones de suscripciones, pagos, planes y compañías. Es la puerta de entrada para los usuarios y sistemas que consumen la API.
-- **Application Layer**: orquesta los casos de uso mediante Command Services, Query Services y Event Handlers. Aquí se coordinan las operaciones y se invocan las reglas de negocio.
-- **Domain Layer**: concentra la lógica de negocio del contexto, con entidades, objetos de valor, servicios de dominio y fábricas. Define las reglas que rigen el ciclo de vida de suscripciones y pagos.
-- **Infrastructure Layer**: implementa repositorios y conectores hacia la base de datos y sistemas externos. Se encarga de la persistencia y de la integración técnica.
+- **Interface Layer**: expone los controladores REST que atienden las operaciones de planes, suscripciones y pagos. Es la puerta de entrada para los usuarios o sistemas que consumen la API.
 
-Las conexiones externas son:
+- **Application Layer**: orquesta los casos de uso mediante Command Services, Query Services y, potencialmente, Event Handlers. En esta capa se coordinan las operaciones y se aplican las reglas de negocio definidas en el dominio.
 
-- Postgres para persistencia transaccional (suscripciones, pagos, compañías).
-- Stripe para procesamiento de pagos.
-- Firebase Cloud Messaging (FCM) para envío de notificaciones push.
-- Google Maps para consultas de rutas y tiempos estimados (ETA).
+- **Domain Layer**: concentra la lógica de negocio del contexto, incluyendo las entidades Plan, Subscription y Payment. Define los estados y comportamientos que rigen el ciclo de vida de las suscripciones y los pagos.
+
+- **Infrastructure Layer**: implementa los repositorios JPA y conectores hacia la base de datos y posibles servicios externos. Se encarga de la persistencia y de la integración técnica con sistemas externos.
+
+Conexiones externas actuales:
+	•	**Postgres**: persistencia transaccional de planes, suscripciones y pagos.
+	•	**Stripe**: pasarela de pagos (configurada mediante variables de entorno, preparada para integración futura).
+	•	**SendGrid**: servicio de envío de correos electrónicos (reservado para notificaciones de facturación y confirmaciones).
 
 _Diagrama de componentes - Application Web - Subscriptions and Billing_
 
 ![Component diagrams](assets/Component_diagram_applicationweb.png)
 
-La aplicación web se conecta al bounded context **Subscriptions & Billing** únicamente a través de las APIs: la _Subscriptions API_ (para enviar comandos como crear o cancelar una suscripción) y la _Query API_ (para consultar datos como facturas o planes activos).
+La aplicación web se comunica con el bounded context Subscriptions exclusivamente a través de endpoints REST del backend (mismo API para commands y queries). No existe un módulo separado de “Billing” ni una “Query API” independiente.
 
-En el lado del cliente, la app se organiza en tres partes:
-• **UI (interfaz de usuario)**: pantallas de suscripciones, facturación y pagos.
-• **Estado de aplicación:** maneja la sesión del usuario, el cache de consultas y el control de autenticación.
-• **Servicios de datos:** cliente HTTP que llama a las APIs, agrega el token de seguridad y gestiona reintentos o errores.
+**Estructura de la Web Application:**
 
-La aplicación web no implementa lógica de negocio propia, solo muestra la información y envía las intenciones del usuario al backend. Todo lo que es reglas, validaciones o persistencia está en el backend.
+**UI – Subscriptions**: alta de suscripción, cambio de plan, visualización del plan vigente y lista de pagos del usuario.
+**App State & Cache**: gestiona sesión/autenticación, almacén de estado y caché de consultas.
+**API Client**: cliente HTTP que invoca la Subscriptions REST API, agrega el token (vía Auth Adapter) y maneja errores/reintentos.
+**Auth Adapter**: integra OIDC/JWT para adjuntar credenciales en cada request. (Si la autenticación aún no está implementada en el backend de este BC, se mantiene como integración prevista).
+
+**Alcance funcional en el cliente**: La aplicación web no implementa lógica de negocio, solo presenta datos y envía intenciones del usuario (crear suscripción, cambiar plan, eliminar, registrar pago).
+
+*Conexiones externas representadas en el backend*:
+	•	**Postgres** (persistencia transaccional de planes, suscripciones y pagos).
+	•	**Stripe** (pasarela de pagos — integración planificada).
+	•	**SendGrid** (correos transaccionales — integración planificada).
 
 _Diagrama de componentes - Mobile Application - Subscriptions and Billing_
 
 ![Component diagrams](assets/Component_diagram_mobile.png)
 
-La aplicación móvil de **Subscriptions & Billing** es muy parecido a la versión web, ya que también se conecta al backend por la _Subscriptions API_ y la _Query API_. La diferencia es que en el móvil contamos con una base de datos local (SQLite), que nos permite trabajar en modo offline: la app guarda datos y puede seguir operando aunque no haya conexión, y luego sincroniza cuando vuelve el internet.
+La aplicación móvil de Subscriptions mantiene una arquitectura muy similar a la versión web, ya que también se conecta al backend a través de la Subscriptions REST API, utilizando comandos (POST/PUT) para ejecutar acciones y consultas (GET) para obtener datos de planes, suscripciones y pagos.
 
-La app se organiza en pantallas de suscripciones y facturación, un estado de aplicación que maneja la sesión y el cache, y un API Client que envía las solicitudes al backend siempre agregando el token de autenticación. Toda la lógica de negocio sigue estando en el backend; en el cliente solo mostramos información y enviamos las acciones que hace el usuario.
+La principal diferencia con respecto a la versión web es que en el entorno móvil se incorpora una base de datos local SQLite, la cual permite el funcionamiento offline. Gracias a esta base local, la aplicación puede continuar operando aun sin conexión, guardando temporalmente los datos y sincronizándolos cuando se restablece el acceso a internet.
+
+*La app se organiza en los siguientes componentes*:
+	•	**UI – Subscriptions**: pantallas de gestión de suscripción, cambio de plan y visualización del estado actual.
+	•	**UI – Payments**: pantallas de pagos o facturación, integradas dentro del mismo módulo.
+	•	**App State & Cache**: administra la sesión, autenticación y almacenamiento temporal de datos.
+	•	**SQLite**: guarda información localmente para permitir modo offline.
+	•	**API Client**: maneja las solicitudes HTTP al backend, incluyendo reintentos y gestión de errores.
+	•	**Auth Adapter**: adjunta el token de autenticación (OIDC/JWT) a cada petición al backend.
 
 #### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-![layer diagrams](assets/layer_class_diagram.png)
+![layer diagrams](assets/subscriptions_class_diagram.png)
 
 ##### Explicación del diagrama
 
-El diagrama de clases del Domain Layer muestra a Subscription como Aggregate Root, cuyo ciclo de vida se gestiona a través de estados definidos en SubscriptionStatus (Active y Canceled) y su relación con múltiples Payment, cada uno con su propio PaymentStatus (Pending, Succeeded, Failed). Los Value Objects Plan y Money encapsulan reglas de negocio como límites de vehículos y montos monetarios. El modelo incluye la SubscriptionFactory para la creación controlada de agregados, los Repositories para la persistencia de entidades y el PaymentProcessingService como servicio de dominio para la gestión de pagos. En conjunto, este diseño asegura encapsulamiento, claridad en las reglas del negocio e independencia tecnológica en el dominio.
+El diagrama de clases del Domain Layer se centra en tres entidades: Subscription (aggregate), Plan (entity) y Payment(entity). 
+
+*Subscription* actúa como agregado principal y gestiona su ciclo de vida mediante el estado status, con los valores ACTIVE, REVOKED y SUSPENDED. La operación principal de negocio implementada es changePlan(newPlan), que solo procede cuando la suscripción está ACTIVE.
+
+*Plan* modela las ofertas disponibles y persiste atributos como name, limits, price y description. 
+
+*Payment* registra transacciones asociadas a un usuario (userId) con transactionId único, amount, receiptUrl, paymentDate y status (PENDING, SUCCEEDED, FAILED). 
 
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram
 
-![layer diagrams](assets/layer_database_diagram.png)
+![layer diagrams](assets/subscriptions_database_diagram.png)
 
 ##### Explicación del diagrama
 
-Define la persistencia mínima y suficiente para gestionar compañías, suscripciones y pagos integrados con Stripe. La tabla companies centraliza la información de cada cliente.
-Sobre ella, la tabla _subscriptions_ modela el ciclo de vida de la suscripción, incluyendo plan, estado y próxima renovación, con la restricción de que solo puede existir una suscripción activa por compañía.
-La tabla _payments_ registra cada intento de cobro asociado a una suscripción, asegurando unicidad mediante el identificador del proveedor (provider_ref).
-Finalmente, la tabla **stripe_webhook_events** almacena los eventos recibidos desde Stripe y se vincula con los pagos para garantizar trazabilidad e idempotencia en el procesamiento de transacciones.
+El diseño de base de datos está compuesto por tres tablas principales: **plans, subscriptions y payments**. Este modelo representa la persistencia mínima necesaria para gestionar los planes disponibles, el ciclo de vida de las suscripciones y el registro de pagos asociados a los usuarios.
+
+La tabla plans almacena los planes disponibles dentro del sistema, incluye el identificador del *plan (id)*, el *nombre (name)*, los límites o características del plan (limits, en formato JSON), el precio (price) y una descripción (description). El campo name se encuentra definido como único con el fin de evitar duplicados en la configuración de planes.
+
+La tabla subscriptions representa la suscripción activa o histórica de cada usuario. Contiene el identificador de la suscripción (id), el identificador del usuario (user_id), el plan al que se encuentra asociado (plan_id), el estado de la suscripción (status, cuyos valores posibles son ACTIVE, REVOKED o SUSPENDED), la fecha de renovación (renewal) y el método de pago (payment_method). Además, almacena marcas de auditoría como created_at y updated_at. La relación con la tabla plans se establece mediante la clave foránea plan_id → plans.id, que garantiza que toda suscripción referencia un plan válido. La restricción de que un usuario solo puede mantener una suscripción en estado ACTIVE es aplicada a nivel de la capa de aplicación.
+
+La tabla payments registra los pagos realizados por los usuarios. Cada registro incluye el identificador del pago (id), el usuario asociado (user_id), el identificador único de transacción (transaction_id), el monto (amount), la URL del comprobante (receipt_url), la fecha del pago (payment_date) y el estado del pago (status, con valores permitidos PENDING, SUCCEEDED o FAILED). El campo transaction_id se define como único para garantizar idempotencia en el procesamiento de transacciones, evitando duplicidad de cobros.
 
 ### 4.2.3. Bounded Context: _Alerts & Resolution_
 
@@ -4423,7 +4567,7 @@ El frontend web del módulo de analytics utiliza componentes especializados para
 
 **Diagrama de Componentes - Mobile - Merchant**
 
-![Merchant - Mobile Components](assets/C4/Merchant-C4-Mobile-Diagram.png)
+![Merchant - Mobile Components](assets/C4/Merchant-C4-MobileApp-Diagram.png)
 
 La aplicación móvil prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline.
 
@@ -4433,27 +4577,41 @@ La aplicación móvil prioriza visualizaciones optimizadas para pantallas peque�
 
 **Backend - Merchant Domain Layer Class Diagram**
 
-![Merchant - Backend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Backend_Classes.puml)
+![Merchant - Backend Domain Layer Class Diagram](assets/Merchant-Backend-Class-Diagram.png)
 
-El diagrama de clases del backend de Analytics muestra las entidades principales para visualización y análisis de datos. Dashboard actúa como aggregate root conteniendo múltiples Widgets. Los Reports están asociados a usuarios y pueden ser programados para generación automática. ChartData encapsula la información procesada para visualizaciones, mientras que los services coordinan la agregación y cálculo de métricas.
+El diagrama de clases del backend de Merchant modela el dominio comercial y de facturación. Merchant es Aggregate Root para la identidad del cliente (contactos, ubicaciones, métodos de pago), mientras que Subscription es un aggregate root separado que representa la relación Plan↔Merchant y su ciclo de vida. Invoice es entidad de billing asociada a Subscription. Se emplean Value Objects (Email, Address, Money, Period, PaymentCard) y Enums (MerchantStatus, SubscriptionStatus, InvoiceStatus, PaymentMethodType, CurrencyCode, BillingPeriod). Los Domain Services (p.ej., MerchantOnboardingService, BillingService) orquestan onboarding, creación de suscripciones y aplicación de pagos; los Domain Events (MerchantCreated, SubscriptionActivated, InvoicePaid) sincronizan estados con otros BCs y el PSP.
 
 **Frontend - Merchant Domain Layer Class Diagram**
 
-![Merchant - Frontend Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Frontend_Classes.puml)
+![Merchant - Frontend Domain Layer Class Diagram](assets/Merchant-Frontend-Class-Diagram.png)
 
-El diagrama del frontend Angular muestra los componentes especializados para visualización de datos. Los chart components renderizan gráficos interactivos usando librerías como Chart.js o D3.js, mientras que dashboard components gestionan la composición y layout de widgets. Los services manejan la comunicación con APIs de datos y el cache local de métricas para optimizar rendimiento.
+El diagrama del frontend (Web App) de Merchant refleja modelos de UI para perfil de merchant, contactos, ubicaciones, suscripciones e invoices. Los identificadores se manejan como string (por BIGINT en backend) y las fechas como Date. Se tipan VO y Enums (p.ej., CurrencyCode, BillingPeriod, SubscriptionStatus) para evitar errores. Los servicios de UI consumen APIs de Merchant/Billing y gestionan cache/estado (listas paginadas, filtros por estado/periodo) para una interacción rápida en administración.
 
 **Mobile - Merchant Domain Layer Class Diagram**
 
-![Merchant - Mobile Domain Layer Class Diagram](https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/Los-Parkers-IoT/LosParkers-report/refs/heads/feature/chapter-1-2-3-4/assets/UML/Analytics_Mobile_Classes.puml)
+![Merchant - Mobile Domain Layer Class Diagram](assets/Merchant-Mobile-Class-Diagram.png)
 
-La aplicación móvil Flutter prioriza visualizaciones optimizadas para pantallas pequeñas. Los components incluyen widgets responsivos y gráficos touch-friendly. El state management através de BLoC coordina la actualización de datos en tiempo real y gestiona el cache local para funcionalidad offline, permitiendo consulta de métricas básicas sin conectividad.
+El diagrama móvil (Flutter) de Merchant prioriza gestión ágil de perfil/ubicaciones/medios de pago y consulta de suscripciones e invoices. Los IDs se modelan como String y fechas como DateTime. Se reutilizan VO/Enums del dominio (p.ej., Money, Period, SubscriptionStatus). El state management (BLoC/Provider) coordina cache local y refresco de datos, permitiendo operaciones básicas offline (lectura) y sincronización cuando hay conectividad.
 
 ##### 4.2.9.6.2. Bounded Context Database Design Diagram
 
-![Visualization Analytics - Database Design](assets/)
+![Merchant - Database Design](assets/Merchant-Database-Diagram.png)
 
-El diseño de base de datos del módulo Analytics está optimizado para consultas analíticas y agregaciones. Las tablas principales (DASHBOARDS, WIDGETS, REPORTS) mantienen configuraciones de usuario, mientras que las tablas de métricas están desnormalizadas para consultas rápidas. Se incluyen índices especializados para consultas temporales y agregaciones frecuentes.
+El diseño de base de datos de Merchant está orientado a datos transaccionales con trazabilidad de billing e integración con el PSP. Tablas principales:
+
+- MERCHANTS (identidad, estado, dirección principal),
+
+  - CONTACTS, LOCATIONS, PAYMENT_METHODS (con external_id del PSP y is_default),
+
+  - PLANS (precio amount/currency, billing_period),
+
+  - SUBSCRIPTIONS (estado, current_period_start/end, cancel_at, external_id),
+
+  - INVOICES (monto, estado, issued_at/due_at/paid_at, external_id, pdf_url),
+
+  - WEBHOOK_EVENTS (payload, provider, event_type, received_at/processed_at, status, claves de correlación).
+
+Se incluyen índices por merchant_id, estado y rangos de fechas; claves foráneas para integridad; y idempotencia en WEBHOOK_EVENTS para procesar de forma segura los webhooks del proveedor de pagos.
 
 # Capítulo V: Solution UI/UX Design
 
@@ -4468,14 +4626,13 @@ La tipografía principal utilizada es Source Sans 3, seleccionada por su legibil
 El lenguaje visual del proyecto combina un tono formal y profesional, pero con una interfaz accesible y amigable. Se emplean botones con esquinas suavemente redondeadas, íconos derivados de la librería Material Design, y espaciados definidos en múltiplos de 4px para mantener uniformidad y ritmo visual en cada componente.
 En cuanto a componentes interactivos, se establecen directrices claras para botones, selectores, campos de texto e iconografía, priorizando la usabilidad y el reconocimiento inmediato de acciones. Los botones principales mantienen un color sólido naranja para llamadas a la acción (CTA), mientras que los secundarios y estados hover o active usan variantes más claras u opacas del mismo tono.<br>
 
-
 ![Visualization Style Guideline](assets/style1.png)
 
 ### 5.1.2. Web, Mobile and IoT Style Guidelines.
 
 El diseño adaptable del ecosistema CargaSafe se rige por un enfoque responsive, garantizando que la experiencia de usuario sea fluida y consistente en dispositivos web, móviles y entornos IoT.<br>
 
-En la versión web, se prioriza la disposición horizontal de los elementos, con paneles y tarjetas informativas que aprovechan el espacio y mantienen una jerarquía visual clara. Los márgenes, paddings y tamaños tipográficos se ajustan automáticamente para conservar legibilidad en pantallas amplias.<br> 
+En la versión web, se prioriza la disposición horizontal de los elementos, con paneles y tarjetas informativas que aprovechan el espacio y mantienen una jerarquía visual clara. Los márgenes, paddings y tamaños tipográficos se ajustan automáticamente para conservar legibilidad en pantallas amplias.<br>
 
 Para la versión mobile, la interfaz mantiene los mismos principios visuales, pero reestructura los componentes en una distribución vertical optimizada para la interacción táctil. Se emplean botones de mayor tamaño, espaciados más amplios y textos ajustados a resoluciones menores, conservando la armonía visual del sistema.<br>
 
@@ -4483,16 +4640,13 @@ En el contexto IoT, la guía se orienta a la presentación de datos de monitoreo
 
 Estas directrices en conjunto garantizan que CargaSafe mantenga una identidad visual sólida, coherente y escalable a través de todos sus entornos digitales, reforzando la percepción de una plataforma tecnológica moderna, confiable y centrada en el usuario.<br>
 
-
 ![Visualization Style Guideline2](assets/style2.png)
-
 
 ## 5.2. Information Architecture.
 
 ### 5.2.1. Organization Systems.
 
 En esta sección se define cómo se estructura la información en CargaSafe según el tipo de contenido, la tarea y la audiencia. Se combinan sistemas visuales (jerárquica, secuencial, matricial) y esquemas de categorización (alfabético, cronológico, por tópicos y por audiencia).
-
 
 **Sistemas visuales**
 
@@ -4528,7 +4682,6 @@ En esta sección se define cómo se estructura la información en CargaSafe seg�
 
 - **Según audiencia:** Fleet Manager, Dispatcher, Driver, Customer (visibilidad, lenguaje y CTA por rol/scope).
 
-
 **Matriz guía**
 
 | Grupo                 | Organización visual                       | Categorización                       |
@@ -4541,9 +4694,6 @@ En esta sección se define cómo se estructura la información en CargaSafe seg�
 | Monitoring/Telemetry  | Matricial (Tiempo×KPI)                    | Cronológico                          |
 | Settings/Rules        | Jerárquica                                | Por tópicos (+ A–Z en listados)      |
 | Billing/Subscriptions | Secuencial + Jerárquica                   | Por audiencia (admin) + cronológico  |
-
-
-
 
 ### 5.2.2. Labeling Systems.
 
@@ -4567,7 +4717,6 @@ En esta sección se establecen los criterios de rotulado para representar los da
 
 - **Mensajes de estado:** No vehicles found, No alerts in the selected range, Vehicle created successfully, Failed to attach device.
 
-
 **Asociaciones**
 
 | Etiqueta / CTA    | ¿Qué representa?                       | Asociación mental del usuario               |
@@ -4576,8 +4725,6 @@ En esta sección se establecen los criterios de rotulado para representar los da
 | **Attach Device** | Vincular un dispositivo a un vehículo  | “Emparejar Serial con Plate”                |
 | **Acknowledge**   | Marcar una alerta atendida             | “Se registró responsable; cambia el estado” |
 | **Export**        | Descargar tabla filtrada               | “Obtener CSV/Excel de lo que veo”           |
-
-
 
 **Accesibilidad**
 
@@ -4595,36 +4742,31 @@ En esta sección se establecen los criterios de rotulado para representar los da
 
 - Chips de severidad con texto + color (no solo color).
 
-
-
-
 ### 5.2.3. SEO Tags and Meta Tags
 
 En esta sección se documentan las SEO Tags y Meta Tags de la Landing Page y la WebApp —Title, Description, Keywords y Author— además de Open Graph y Twitter, mostrando los valores como código para su inclusión en los archivos HTML.
 
 **Landing Page**
 
-| Tag            | Ejemplo (inline) |
-| -------------- | ---------------- |
-| Title          | &lt;title&gt;CargaSafe &#124; Smart Monitoring for Reliable Transportation&lt;/title&gt; |
-| Description    | &lt;meta name="description" content="Real-time telemetry, smart alerts, and fleet visibility."&gt; |
+| Tag            | Ejemplo (inline)                                                                                                                         |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Title          | &lt;title&gt;CargaSafe &#124; Smart Monitoring for Reliable Transportation&lt;/title&gt;                                                 |
+| Description    | &lt;meta name="description" content="Real-time telemetry, smart alerts, and fleet visibility."&gt;                                       |
 | Keywords       | &lt;meta name="keywords" content="fleet monitoring, cold chain, IoT telemetry, logistics alerts, geofencing, temperature monitoring"&gt; |
-| Author         | &lt;meta name="author" content="CargaSafe Team"&gt; |
-| OG Title       | &lt;meta property="og:title" content="CargaSafe – Smart Monitoring for Reliable Transportation"&gt; |
-| OG Description | &lt;meta property="og:description" content="Monitor your fleet in real-time with alerts, telemetry and reports."&gt; |
-| Twitter Card   | &lt;meta name="twitter:card" content="summary_large_image"&gt; |
-| Favicon        | &lt;link rel="icon" href="assets/logo.png" type="image/png"&gt; |
+| Author         | &lt;meta name="author" content="CargaSafe Team"&gt;                                                                                      |
+| OG Title       | &lt;meta property="og:title" content="CargaSafe – Smart Monitoring for Reliable Transportation"&gt;                                      |
+| OG Description | &lt;meta property="og:description" content="Monitor your fleet in real-time with alerts, telemetry and reports."&gt;                     |
+| Twitter Card   | &lt;meta name="twitter:card" content="summary_large_image"&gt;                                                                           |
+| Favicon        | &lt;link rel="icon" href="assets/logo.png" type="image/png"&gt;                                                                          |
 
 **WebApp – Fleet → Vehicles**
 
-| Tag         | Ejemplo (inline) |
-| ----------- | ---------------- |
-| Title       | &lt;title&gt;Fleet – Vehicles &#124; CargaSafe&lt;/title&gt; |
-| Description | &lt;meta name="description" content="Manage vehicles: status, assignments and device attachments."&gt; |
+| Tag         | Ejemplo (inline)                                                                                         |
+| ----------- | -------------------------------------------------------------------------------------------------------- |
+| Title       | &lt;title&gt;Fleet – Vehicles &#124; CargaSafe&lt;/title&gt;                                             |
+| Description | &lt;meta name="description" content="Manage vehicles: status, assignments and device attachments."&gt;   |
 | Keywords    | &lt;meta name="keywords" content="fleet vehicles, status, device attachment, maintenance, logistics"&gt; |
-| Author      | &lt;meta name="author" content="CargaSafe Team"&gt; |
-
-
+| Author      | &lt;meta name="author" content="CargaSafe Team"&gt;                                                      |
 
 ### 5.2.4. Searching Systems.
 
@@ -4660,10 +4802,6 @@ En esta sección se especifican los sistemas de búsqueda que habilitan la local
 
 - Éxito en primera búsqueda > 85% (pruebas moderadas).
 
-
-
-
-
 ### 5.2.5. Navigation Systems.
 
 En esta sección se describen los sistemas de navegación que guían a los usuarios por la Landing Page y la WebApp, abarcando navegación global, local y contextual, comportamientos responsivos, flujos guiados, guardas y criterios de aceptación.
@@ -4682,11 +4820,11 @@ En esta sección se describen los sistemas de navegación que guían a los usuar
 
 - Responsive:
 
-    - Móvil → menú hamburguesa; tablas → cards con CTAs visibles.
+  - Móvil → menú hamburguesa; tablas → cards con CTAs visibles.
 
-    - Desktop → sidebar fija; tablas con sort/paginator.
+  - Desktop → sidebar fija; tablas con sort/paginator.
 
-    - LandingPage → navbar.
+  - LandingPage → navbar.
 
 - Flujos guiados (secuencial): steppers con validación por paso (Create Trip, Attach Device).
 
@@ -4701,8 +4839,6 @@ En esta sección se describen los sistemas de navegación que guían a los usuar
 - Completar Create Trip ≤ 60 s (usuario entrenado).
 
 - Sin 404 visibles; Not Found con enlace de retorno.
-
-
 
 ## 5.3. Landing Page UI Design.
 
@@ -4722,38 +4858,39 @@ Los mock-ups finales traducen la estructura del wireframe en una experiencia vis
 
 ## 5.4. Applications UX/UI Design.
 
+Esta sección presenta la propuesta visual y de interacción para las aplicaciones que constituyen la experiencia de usuario con los productos digitales de CargaSafe. El diseño de la interfaz y la experiencia de usuario se fundamentan en principios de usabilidad, accesibilidad y coherencia visual, considerando las necesidades específicas de los segmentos objetivo identificados: gestores de transporte y clientes finales. A través de wireframes, mockups y diagramas de flujo de usuario, se documenta el proceso de diseño iterativo que busca optimizar la eficiencia operativa, reducir la curva de aprendizaje y proporcionar una experiencia intuitiva tanto en entornos web como móviles. La propuesta de diseño integra los componentes visuales definidos en las Style Guidelines con patrones de navegación y arquitectura de información que facilitan el acceso rápido a funcionalidades críticas de monitoreo en tiempo real, gestión de alertas y generación de reportes, asegurando que cada interacción del usuario agregue valor tangible a sus operaciones logísticas.
+
 ### 5.4.1. Applications Wireframes.
 
 Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego serán diseñadas más a detalle. A continuación, se presentan los wireframes de las pantallas de las aplicaciones web y móvil.
 
 **Web Application**<br>
 
-*Authentication*<br>
+_Authentication_<br>
 
 ![Wireframe Authentication Web application](assets/WireframesAuthentication.png) <br>
 
-*Subscriptions*<br>
+_Subscriptions_<br>
 
 ![Wireframe Subscriptions Web application](assets/wireframeAppwebSubscriptions.png) <br>
 
-*Alerts*<br>
+_Alerts_<br>
 
 <img src="assets/alerts3.png"/>
 
 <img src="assets/alerts4.png"/>
 
+**Mobile Application**
 
-**Mobile Application** 
-
-*Authentication*<br>
+_Authentication_<br>
 
 ![Wireframe Authentication Mobile application](assets/WireframeMobileAuthentication.png) <br>
 
-*Subscriptions*<br>
+_Subscriptions_<br>
 
 ![Wireframe Subscriptions Mobile Application](assets/wireframeMobileSubscriptions.png) <br>
 
-*Alerts*<br>
+_Alerts_<br>
 
 <img src="assets/alerts7.png"/>
 
@@ -4761,37 +4898,35 @@ Para la aplicación de Cargasafe, se d los bocetos de las pantallas que luego se
 
 ### 5.4.2. Applications Wireflow Diagrams.
 
-
-
 ### 5.4.2. Applications Mock-ups.
 
-**Web Application** 
+**Web Application**
 
-*Authentication*<br>
+_Authentication_<br>
 
 ![Mockups Authentication Web application](assets/MockupAuthentication.png) <br>
 
-*Subscriptions*<br>
+_Subscriptions_<br>
 
 ![Mockups Subscriptions Web application](assets/mockupsAppwebSubscriptions.png) <br>
 
-*Alerts*<br>
+_Alerts_<br>
 
 <img src="assets/alert1.png"/>
 
 <img src="assets/alert2.png"/>
 
-**Mobile Application** 
+**Mobile Application**
 
-*Authentication*<br>
+_Authentication_<br>
 
 ![Mockups Authentication Mobile application](assets/MockupMobileAuthentication.png) <br>
 
-*Subscriptions*<br>
+_Subscriptions_<br>
 
 ![Mockups Subscriptions Mobile Application](assets/mockupsMobileSubscriptions.png) <br>
 
-*Alerts*<br>
+_Alerts_<br>
 
 <img src="assets/alerts5.png"/>
 
@@ -4829,7 +4964,6 @@ Descarga de los reportes de viajes:
 
 <img src="assets/UserFlow/userflow6.png"/>
 
-
 **Web Application - Empresa**
 
 Registro de Usuario e Inicio de Sesión:
@@ -4846,6 +4980,27 @@ Monitoreo de temperatura en tiempo real:
 
 <img src="assets/UserFlow/userflow4.png"/>
 
+Anulación de suscripción:
+
+- User Goal: Como empresa o cliente final, quiero anular mi suscripción actual, para dejar de utilizar el servicio y cancelar los pagos recurrentes asociados a mi cuenta.
+- Descripción: El usuario que desea cancelar su suscripción debe iniciar sesión en su cuenta y navegar a la sección de "Subscriptions" desde el menú principal. Una vez en la pantalla de suscripciones, podrá visualizar su plan activo actual con todos los detalles (tipo de plan, fecha de renovación, métodos de pago). El usuario deberá seleccionar la opción "Cancel your Plan", lo que desplegará una confirmación explicando las consecuencias de la cancelación (pérdida de acceso a funcionalidades premium, fecha efectiva de terminación del servicio). Tras confirmar la acción, el sistema procesará la solicitud, enviará un correo de confirmación y actualizará el estado de la suscripción a "Cancelada" o "Pendiente de cancelación", permitiendo al usuario seguir usando el servicio hasta el final del período ya pagado.
+
+<img src="assets/sus-flow1.png"/>
+
+Actualización de suscripción (Upgrade):
+
+- User Goal: Como empresa o cliente final, quiero actualizar mi plan de suscripción a uno superior, para acceder a más funcionalidades y beneficios que se ajusten mejor a mis necesidades operativas.
+- Descripción: El usuario que desea mejorar su plan de suscripción debe acceder al módulo de "Subscriptions" desde el menú principal de la aplicación. Una vez en la pantalla de gestión de suscripciones, el usuario visualizará su plan actual con sus características y limitaciones. Al seleccionar la opción "Change your Plan", el sistema desplegará todas las opciones de suscripción disponibles (Basic, Professional, Enterprise) con sus respectivas características, precios y beneficios comparativos. El usuario podrá revisar las diferencias entre planes y seleccionar el que mejor se adapte a sus necesidades. Posteriormente, el sistema solicitará verificar o actualizar el método de pago registrado (tarjeta de crédito/débito, información de facturación). Una vez confirmados los datos de pago, el sistema procesará la transacción de upgrade y mostrará un recibo digital detallado con la información de la nueva suscripción, fecha de activación, monto cobrado y próxima fecha de renovación. Finalmente, el usuario recibirá una confirmación por correo electrónico con el recibo adjunto y el plan quedará actualizado inmediatamente, otorgando acceso a las nuevas funcionalidades premium.
+
+<img src="assets/sus-flow2.png"/>
+
+Registro y modificación de información de vehículos:
+
+- User Goal: Como empresa de transporte, quiero registrar nuevos vehículos en el sistema o modificar la información existente de mis vehículos, para mantener actualizado el inventario de mi flota y asegurar el correcto monitoreo de cada unidad.
+- Descripción: El usuario debe acceder al módulo de "Vehículos" desde el menú principal de la aplicación. Una vez en la pantalla de gestión de flota, visualizará un listado completo de todos los vehículos registrados con información básica como placa, modelo, estado y dispositivo IoT asignado. Para agregar un nuevo vehículo, el usuario debe seleccionar el botón "Add Vehicle", lo que desplegará un formulario con los parámetros necesarios para el registro: placa del vehículo, marca, modelo, año, tipo de vehículo (camión refrigerado, van, camión seco), capacidad de carga, y datos del conductor asignado. Una vez completados todos los campos requeridos, el usuario confirma el registro y el sistema valida la información, guardando el nuevo vehículo en la base de datos. Si el usuario necesita editar la información de un vehículo existente, debe seleccionar el ícono del lápiz (edit) junto al registro del vehículo en la lista, lo que abrirá el mismo formulario con los datos actuales precargados, permitiendo modificar cualquier parámetro necesario. Tras guardar los cambios, el sistema actualiza la información y muestra una confirmación. Finalmente, el usuario puede visualizar la información completa del vehículo recién creado o modificado en la vista de detalle, incluyendo su historial de viajes, dispositivos asociados y estado operativo actual.
+
+<img src="assets/fleet-flow1.png"/>
+
 ## 5.5. Applications Prototyping.
 
 El sistema prioriza la visualización inmediata de datos críticos mediante cards estadísticas y gráficos interactivos (dashboard con métricas en tiempo real, charts con tooltips hover, y tablas filtradas). La navegación está centralizada en un sidebar persistente con iconografía Material Design que facilita el cambio rápido entre contextos. Las acciones de usuario siguen un patrón de feedback visual claro: estados de loading explícitos, filtros reactivos (búsqueda, fecha, tipo) que actualizan tablas en vivo, y cards clickeables que navegan a detalles sin recarga de página. La arquitectura de interacción refleja el dominio operacional: el dashboard como hub central de monitoreo, detalles de viajes con gráficos de sensores (temperatura/movimiento) para análisis profundo, y gestión de alertas con estados visuales (active/resolved) para triage rápido. Los formularios son minimalistas usando Material UI (outline appearance, dropdowns, checkboxes) optimizados para captura eficiente de datos IoT como IMEI, firmware y asociación de dispositivos.
@@ -4855,10 +5010,16 @@ El sistema prioriza la visualización inmediata de datos críticos mediante card
 **Enlace al video de presentación del prototipo:**
 [Ver presentación del prototipo web](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113640_upc_edu_pe/EX4I9LxC-aVKgb9GKfRVWbUB7z2IzhL6d3ee8BtbquIA-A?e=T6vAgj&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
+**Enlace al prototipo interactivo en Figma (Web):**
+[Ver prototipo web en Figma](https://www.figma.com/proto/yJB6meI9ytbZJlVHmDXbqV/App-Web?node-id=57-265&p=f&t=YfLZPXtkjo5iZgAZ-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=57%3A265)
+
 ![Mobile Prototype Presentation](assets/MobilePrototypePresentation.png)
 
 **Enlace al video de presentación del prototipo móvil:**
 [Ver presentación del prototipo móvil](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113640_upc_edu_pe/ERF7JZVmawlPp3fFV_7827IBCw3QrlwAwYaJYLmz60olnw?e=QCSuuS&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+
+**Enlace al prototipo interactivo en Figma (Mobile):**
+[Ver prototipo móvil en Figma](https://www.figma.com/proto/rHPICavCttYoZqv0nnf5Xg/Mobile-app?node-id=56-271&p=f&t=ACRzMys3FStab7UA-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=56%3A271&show-proto-sidebar=1)
 
 # Capítulo VI: Product Implementation, Validation & Deployment
 
@@ -5107,6 +5268,60 @@ Feature: User Login
 El proceso de despliegue de la solución CargaSafe se basa en la integración continua (CI) y la entrega continua (CD) a través de repositorios en GitHub.
 Cada producto digital cuenta con su propia configuración de despliegue para garantizar la disponibilidad, seguridad y escalabilidad del sistema.
 
+Para la Landing page se utilizó GitHub Pages, los pasos a seguir son:
+
+1. **Entrar al repositorio creado**
+
+<img src="assets/pages.png">
+
+2. **Ingresar a la pestaña **`Pages`\*\*\*\*
+
+<img src="assets/pages2.png">
+
+3. **Github te da dos opciones para desplegar el software, Github Actions y Deploy from a branch.**
+
+<img src="assets/pages3.png">
+
+4. **La mejor opción para el despliegue de la landing page es Deploy from a branch, una vez elegido esta opción, se tiene que elegir la rama que se desee, por regla general, la rama **`main`** es la que se debe elegir.**
+
+<img src="assets/pages4.png">
+
+5. **Una vez elegida la rama donde se va a desplegar la landing page, Github generará un link donde se ha desplegado el producto.**
+
+<img src="assets/pages5.png">
+
+<img src="assets/pages6.png">
+
+Para la Web Application se utilizó GitHub Actions y Firebase.
+
+1. **Se debe generar una carpeta github/workflows para que la rama **`main`** pueda actualizarse constantemente**
+
+<img src="assets/fire.png">
+
+2. **Se tiene que crear un archivo **`yml`** y colocar el siguiente codigo para firebase hosting**
+
+<img src="assets/fire2.png">
+
+3. **Luego de generar el archivo, se debe conectar al Firebase Hosting, pero primero se debe crear una cuenta para poder utilizarlo**
+
+<img src="assets/fire3.png">
+
+4. **Una vez creada la cuenta se debe ejecutar **`npm install -g firebase-tools`** para instalar los componentes de firebase, luego de instalarlo, se debe ejecutar el comando **`firebase login`\*\*\*\*
+
+<img src="assets/fire4.png">
+
+5. **Luego se debe ejecutar el comando firebase init hosting y se debe realizar los pasos a seguir que saldrán en pantalla**
+
+<img src="assets/fire5.png">
+
+6. **Una vez desplegado la web application, saldrá una confirmación en la rama seleccionada**
+
+<img src="assets/fire6.png">
+
+7. **Y la web application ya estará desplegada**
+
+<img src="assets/fire7.png">
+
 ## 6.2. Landing Page, Services & Applications Implementation.
 
 ### 6.2.1. Sprint 1
@@ -5128,7 +5343,7 @@ En esta sección se especifican los aspectos principales del Sprint Planning Mee
   </tr>
   <tr>
     <td style="width: 35%;">Date</td>
-    <td>2025-07-10</td>
+    <td>2025-28-09</td>
   </tr>
   <tr>
     <td>Time</td>
@@ -5136,15 +5351,15 @@ En esta sección se especifican los aspectos principales del Sprint Planning Mee
   </tr>
   <tr>
     <td>Location</td>
-    <td>Reunión virtual mediante Google Meet</td>
+    <td>Reunión virtual mediante Discord</td>
   </tr>
   <tr>
     <td>Prepared By</td>
-    <td>Alessandro Joaquin Bernardo Eusebio</td>
+    <td>Marcelo Fabian Garro Vega</td>
   </tr>
   <tr>
     <td>Attendees (to planning meeting)</td>
-    <td>Marcelo Fabian Garro Vega / Jefrey Martin Sanchez Ignacio / Daniel Rodrigo Chirinos Arevalo / Alessandro Joaquin Bernardo Eusebio / Vera Nuñez Nicolas Alejandro</td>
+    <td>Marcelo Fabian Garro Vega / Jefrey Martin Sanchez Ignacio / Daniel Rodrigo Chirinos Arevalo / Alessandro Joaquin Bernardo Eusebio / Vera Nuñez Nicolas Alejandro / George Aliaga</td>
   </tr>
   <tr>
     <td>Sprint 1 Review Summary</td>
@@ -5182,13 +5397,12 @@ Los aspectos principales son:
 
 1. **Landing Page**: Página de aterrizaje con información del producto y llamados a la acción
 2. **Identity and Access Management (IAM)**: Gestión de usuarios, autenticación y control de accesos
-3. **Profiles and Preferences**: Gestión de perfiles de usuario y configuración de preferencias
-4. **Fleet Management**: Gestión de vehículos y dispositivos IoT asociados
-5. **Trip Management**: Creación, ejecución y seguimiento de viajes
-6. **Real-time Monitoring**: Monitoreo de condiciones ambientales en tiempo real
-7. **Alerts and Resolution**: Generación, visualización y resolución de alertas
-8. **Visualization and Analytics**: Dashboards, gráficos y reportes analíticos
-9. **Subscriptions and Payments**: Gestión de planes de suscripción y pagos
+3. **Fleet Management**: Gestión de vehículos y dispositivos IoT asociados
+4. **Trip Management**: Creación, ejecución y seguimiento de viajes
+5. **Real-time Monitoring**: Monitoreo de condiciones ambientales en tiempo real
+6. **Alerts and Resolution**: Generación, visualización y resolución de alertas
+7. **Visualization and Analytics**: Dashboards, gráficos y reportes analíticos
+8. **Subscriptions and Payments**: Gestión de planes de suscripción y pagos
 
 A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix) que indica el líder (L) y los colaboradores (C) para cada aspecto del Sprint 1:
 
@@ -5198,7 +5412,6 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <th>GitHub Username</th>
     <th>Landing Page<br>L / C</th>
     <th>IAM<br>L / C</th>
-    <th>Profiles<br>L / C</th>
     <th>Fleet Management<br>L / C</th>
     <th>Trip Management<br>L / C</th>
     <th>Real-time Monitoring<br>L / C</th>
@@ -5209,7 +5422,6 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
   <tr>
     <td style="text-align: left;">Garro Vega, Marcelo Fabian</td>
     <td>Marcelo Garro</td>
-    <td>C</td>
     <td>C</td>
     <td>C</td>
     <td>C</td>
@@ -5229,14 +5441,12 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <td>C</td>
     <td>C</td>
     <td>C</td>
-    <td>C</td>
     <td>L</td>
   </tr>
   <tr>
     <td style="text-align: left;">Aliaga Pimentel, George Arturo</td>
     <td>GeorAliaga</td>
     <td>C</td>
-    <td>L</td>
     <td>L</td>
     <td>C</td>
     <td>C</td>
@@ -5250,7 +5460,6 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <td>nicxlxs</td>
     <td>C</td>
     <td>C</td>
-    <td>C</td>
     <td>L</td>
     <td>C</td>
     <td>C</td>
@@ -5261,7 +5470,6 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
   <tr>
     <td style="text-align: left;">Chirinos Arevalo, Daniel Rodrigo</td>
     <td>DanielChirinos615</td>
-    <td>C</td>
     <td>C</td>
     <td>C</td>
     <td>C</td>
@@ -5280,13 +5488,13 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <td>C</td>
     <td>C</td>
     <td>C</td>
-    <td>C</td>
     <td>L</td>
     <td>C</td>
   </tr>
 </table>
 
 **Leyenda:**
+
 - **L (Leader)**: Responsable principal del aspecto, encargado de la coordinación, toma de decisiones técnicas y revisión final del código.
 - **C (Collaborator)**: Contribuye activamente al desarrollo del aspecto, apoya en la implementación de funcionalidades y participa en las revisiones de código.
 
@@ -5300,58 +5508,52 @@ La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se
 
 <img src="assets/backlog.png">
 
-| Sprint # | Sprint 1 |  |  |  |  |  |  |
-|----------------|------------------|----------|-------------|------------------|--------------------|--------------|--------|
-| User Story | Work-Item / Task |  |  |  |  |  |  |
+| Sprint #   | Sprint 1         |     |     |     |     |     |     |
+| ---------- | ---------------- | --- | --- | --- | --- | --- | --- |
+| User Story | Work-Item / Task |     |     |     |     |     |     |
 
-| User Story Id | User Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
-|----------------|------------------|----------|-------------|------------------|--------------------|--------------|--------|
-| US01 | Sección portada | T01 | Maquetar versión desktop del hero | Crear estructura visual y contenido de la sección hero en versión desktop | 2 | Daniel Chirinos | Done |
-| US01 | Sección portada | T02 | Maquetar versión mobile del hero | Adaptar diseño del hero a dispositivos móviles | 2 | Daniel Chirinos | Done |
-| US02 | Sección de testimonios | T03 | Maquetar versión desktop de testimonios | Diseñar estructura y estilo de la sección de testimonios para desktop | 2 | Jefrey Sanchez | Done |
-| US02 | Sección de testimonios | T04 | Maquetar versión mobile de testimonios | Adaptar la sección de testimonios a vista móvil | 2 | Jefrey Sanchez | Done |
-| US03 | Sección precios | T05 | Maquetar versión desktop de precios | Crear layout de la tabla de precios con estilos y estructura responsive | 2 | Jefrey Sanchez | Done |
-| US03 | Sección precios | T06 | Maquetar versión mobile de precios | Optimizar diseño de precios para dispositivos móviles | 2 | Jefrey Sanchez | Done |
-| US04 | Sección contáctanos | T07 | Maquetar versión desktop de contáctanos | Crear formulario y disposición de la sección de contacto en desktop | 2 | Nicolas Vera | Done |
-| US04 | Sección contáctanos | T08 | Maquetar versión mobile de contáctanos | Adaptar formulario y estilos a versión móvil | 2 | Nicolas Vera | Done |
-| US05 | Sección footer | T09 | Maquetar versión desktop del footer | Crear estructura de pie de página con enlaces y estilos base | 2 | Nicolas Vera | Done |
-| US05 | Sección footer | T10 | Maquetar versión mobile del footer | Ajustar estructura del footer a vista móvil | 2 | Nicolas Vera | Done |
-| US06 | Sección de beneficios | T11 | Maquetar versión desktop de beneficios | Crear diseño informativo para los beneficios del producto | 2 | George Aliaga | Done |
-| US06 | Sección de beneficios | T12 | Maquetar versión mobile de beneficios | Ajustar diseño de beneficios a pantalla móvil | 2 | George Aliaga | Done |
-| US07 | Sección de funcionalidades | T13 | Maquetar versión desktop de funcionalidades | Diseñar estructura informativa de funcionalidades IoT | 2 | Alessandro Bernardo | Done |
-| US07 | Sección de funcionalidades | T14 | Maquetar versión mobile de funcionalidades | Adaptar funcionalidades IoT a vista móvil | 2 | Alessandro Bernardo | Done |
-| US08 | Call to Action de descarga de App Móvil | T15 | Crear CTA de descarga | Implementar botones de descarga para Android e iOS | 2 | Marcelo Garro | Done |
-| US09 | Call to Action a la aplicación web | T16 | Crear CTA a la aplicación web | Crear enlace directo desde la landing hacia la app web | 2 | Marcelo Garro | Done |
-| US10 | Internacionalización de contenido | T17 | Crear sistema de internacionalización | Implementar cambio dinámico de idioma en la landing | 3 | George Aliaga | Done |
-| US10 | Internacionalización de contenido | T18 | Traducir contenido general | Adaptar textos y secciones al idioma inglés | 6 | George Aliaga | Done |
-| US11 | Navegación en landing page | T19 | Crear navegación desktop | Implementar menú principal y navegación entre secciones | 2 | Marcelo Garro | Done |
-| US11 | Navegación en landing page | T20 | Crear navegación mobile | Crear menú hamburguesa para navegación en móviles | 2 | Marcelo Garro | Done |
-| US12 | Registro de vehículos de carga | T21 | Implementar formulario de registro | Diseñar formulario funcional para registrar nuevos vehículos | 3 | Nicolas Vera | Done |
-| US13 | Eliminación de vehículos de carga | T22 | Crear acción de eliminación | Implementar botón y lógica para eliminar vehículos registrados | 2 | Nicolas Vera | Done |
-| US14 | Ver todos los vehículos de carga | T23 | Mostrar lista de vehículos | Implementar tabla de visualización de vehículos registrados | 2 | Nicolas Vera | Done |
-| US15 | Lista de viajes registrados | T24 | Mostrar viajes registrados | Desarrollar listado con datos de viajes del usuario | 3 | Marcelo Garro | Done |
-| US16 | Detalle de viaje | T25 | Implementar vista detallada | Mostrar información completa de un viaje seleccionado | 3 | Marcelo Garro | Done |
-| US17 | Filtrado de viajes por fecha | T26 | Crear filtros por fecha | Implementar filtros dinámicos en la lista de viajes | 2 | Nicolas Vera | Done |
-| US18 | Historial de pagos | T27 | Mostrar historial de pagos | Desarrollar interfaz para mostrar transacciones realizadas | 2 | Jefrey Sanchez | Done |
-| US19 | Confirmar suscripción | T28 | Crear flujo de confirmación | Implementar pantalla de confirmación para suscripción activa | 1 | Jefrey Sanchez | Done |
-| US20 | Cancelar suscripción | T29 | Implementar cancelación de suscripción | Agregar opción y modal para cancelar suscripción | 1 | Jefrey Sanchez | Done |
-| US21 | Visualizar información de suscripción actual | T30 | Mostrar datos de suscripción | Crear interfaz para visualizar tipo de plan y estado actual | 2 | Nicolas Vera | Done |
-| US22 | Recuperar contraseña | T31 | Implementar recuperación de contraseña | Desarrollar flujo para restablecer credenciales de usuario | 1 | George Aliaga | Done |
-| US23 | Registro de dispositivos IoT | T32 | Crear formulario de registro IoT | Diseñar formulario para vincular nuevos dispositivos IoT | 3 | Nicolas Vera | Done |
-| US24 | Eliminar dispositivo IoT | T33 | Implementar eliminación de dispositivo | Agregar opción para eliminar dispositivos registrados | 2 | Nicolas Vera | Done |
-| US25 | Asignar dispositivo a vehículo de carga | T34 | Crear flujo de asignación | Desarrollar relación entre vehículo y dispositivo IoT | 2.5 | Nicolas Vera | Done |
-| US26 | Ver todos los dispositivos IoT en la plataforma | T35 | Listar dispositivos IoT | Mostrar todos los dispositivos vinculados a la cuenta | 2 | Nicolas Vera | Done |
-| US27 | Ver estado de dispositivo por vehículo | T36 | Mostrar estado del dispositivo | Implementar vista de estado de sensor IoT por vehículo | 2 | Nicolas Vera | Done |
-| US28 | Alertas por incumplimiento de temperatura | T37 | Implementar alertas IoT | Crear sistema de notificación por temperaturas fuera de rango | 2 | Daniel Chirinos | Done |
-| US29 | Gráficos de tiempo y temperatura | T38 | Crear gráficos de temperatura | Implementar gráficos de línea para mostrar variaciones térmicas | 4 | Alessandro Bernardo | Done |
-| US30 | Gráficos de incidencias por mes | T39 | Crear gráfico de incidencias | Mostrar estadísticas mensuales de incidentes | 4 | Alessandro Bernardo | Done |
-| US31 | Creación de viajes | T40 | Implementar formulario de creación | Crear vista y formulario para registrar nuevos viajes | 2 | Marcelo Garro | In progress |
-| US32 | Actualización de estados de viaje | T41 | Implementar cambio de estado | Crear función para modificar estado de viajes registrados | 5 | Marcelo Garro | To-Do |
-| US32 | Actualización de estados de viaje | T42 | Confirmar acción de actualización | Desarrollar modal de confirmación para cambios de estado | 5 | Marcelo Garro | To-Do |
-| US33 | Filtrado de viajes por fecha | T43 | Implementar opciones de filtrado | Crear filtros dinámicos por fecha y estado de viaje | 1 | Marcelo Garro | In progress |
-| US34 | Actualización de layout de lista de viajes | T44 | Rediseñar layout de lista | Mejorar presentación visual de la lista de viajes registrados | 1 | Marcelo Garro | In progress |
-
-
+| User Story Id | User Story Title                                | Task Id | Task Title                                  | Task Description                                                          | Estimation (Hours) | Assigned To         | Status |
+| ------------- | ----------------------------------------------- | ------- | ------------------------------------------- | ------------------------------------------------------------------------- | ------------------ | ------------------- | ------ |
+| US01          | Sección portada                                 | T01     | Maquetar versión desktop del hero           | Crear estructura visual y contenido de la sección hero en versión desktop | 2                  | Daniel Chirinos     | Done   |
+| US01          | Sección portada                                 | T02     | Maquetar versión mobile del hero            | Adaptar diseño del hero a dispositivos móviles                            | 2                  | Daniel Chirinos     | Done   |
+| US02          | Sección de testimonios                          | T03     | Maquetar versión desktop de testimonios     | Diseñar estructura y estilo de la sección de testimonios para desktop     | 2                  | Jefrey Sanchez      | Done   |
+| US02          | Sección de testimonios                          | T04     | Maquetar versión mobile de testimonios      | Adaptar la sección de testimonios a vista móvil                           | 2                  | Jefrey Sanchez      | Done   |
+| US03          | Sección precios                                 | T05     | Maquetar versión desktop de precios         | Crear layout de la tabla de precios con estilos y estructura responsive   | 2                  | Jefrey Sanchez      | Done   |
+| US03          | Sección precios                                 | T06     | Maquetar versión mobile de precios          | Optimizar diseño de precios para dispositivos móviles                     | 2                  | Jefrey Sanchez      | Done   |
+| US04          | Sección contáctanos                             | T07     | Maquetar versión desktop de contáctanos     | Crear formulario y disposición de la sección de contacto en desktop       | 2                  | Nicolas Vera        | Done   |
+| US04          | Sección contáctanos                             | T08     | Maquetar versión mobile de contáctanos      | Adaptar formulario y estilos a versión móvil                              | 2                  | Nicolas Vera        | Done   |
+| US05          | Sección footer                                  | T09     | Maquetar versión desktop del footer         | Crear estructura de pie de página con enlaces y estilos base              | 2                  | Nicolas Vera        | Done   |
+| US05          | Sección footer                                  | T10     | Maquetar versión mobile del footer          | Ajustar estructura del footer a vista móvil                               | 2                  | Nicolas Vera        | Done   |
+| US06          | Sección de beneficios                           | T11     | Maquetar versión desktop de beneficios      | Crear diseño informativo para los beneficios del producto                 | 2                  | George Aliaga       | Done   |
+| US06          | Sección de beneficios                           | T12     | Maquetar versión mobile de beneficios       | Ajustar diseño de beneficios a pantalla móvil                             | 2                  | George Aliaga       | Done   |
+| US07          | Sección de funcionalidades                      | T13     | Maquetar versión desktop de funcionalidades | Diseñar estructura informativa de funcionalidades IoT                     | 2                  | Alessandro Bernardo | Done   |
+| US07          | Sección de funcionalidades                      | T14     | Maquetar versión mobile de funcionalidades  | Adaptar funcionalidades IoT a vista móvil                                 | 2                  | Alessandro Bernardo | Done   |
+| US08          | Call to Action de descarga de App Móvil         | T15     | Crear CTA de descarga                       | Implementar botones de descarga para Android e iOS                        | 2                  | Marcelo Garro       | Done   |
+| US09          | Call to Action a la aplicación web              | T16     | Crear CTA a la aplicación web               | Crear enlace directo desde la landing hacia la app web                    | 2                  | Marcelo Garro       | Done   |
+| US10          | Internacionalización de contenido               | T17     | Crear sistema de internacionalización       | Implementar cambio dinámico de idioma en la landing                       | 3                  | George Aliaga       | Done   |
+| US10          | Internacionalización de contenido               | T18     | Traducir contenido general                  | Adaptar textos y secciones al idioma inglés                               | 6                  | George Aliaga       | Done   |
+| US11          | Navegación en landing page                      | T19     | Crear navegación desktop                    | Implementar menú principal y navegación entre secciones                   | 2                  | Marcelo Garro       | Done   |
+| US11          | Navegación en landing page                      | T20     | Crear navegación mobile                     | Crear menú hamburguesa para navegación en móviles                         | 2                  | Marcelo Garro       | Done   |
+| US12          | Registro de vehículos de carga                  | T21     | Implementar formulario de registro          | Diseñar formulario funcional para registrar nuevos vehículos              | 3                  | Nicolas Vera        | Done   |
+| US13          | Eliminación de vehículos de carga               | T22     | Crear acción de eliminación                 | Implementar botón y lógica para eliminar vehículos registrados            | 2                  | Nicolas Vera        | Done   |
+| US14          | Ver todos los vehículos de carga                | T23     | Mostrar lista de vehículos                  | Implementar tabla de visualización de vehículos registrados               | 2                  | Nicolas Vera        | Done   |
+| US15          | Lista de viajes registrados                     | T24     | Mostrar viajes registrados                  | Desarrollar listado con datos de viajes del usuario                       | 3                  | Marcelo Garro       | Done   |
+| US16          | Detalle de viaje                                | T25     | Implementar vista detallada                 | Mostrar información completa de un viaje seleccionado                     | 3                  | Marcelo Garro       | Done   |
+| US17          | Filtrado de viajes por fecha                    | T26     | Crear filtros por fecha                     | Implementar filtros dinámicos en la lista de viajes                       | 2                  | Nicolas Vera        | Done   |
+| US18          | Historial de pagos                              | T27     | Mostrar historial de pagos                  | Desarrollar interfaz para mostrar transacciones realizadas                | 2                  | Jefrey Sanchez      | Done   |
+| US19          | Confirmar suscripción                           | T28     | Crear flujo de confirmación                 | Implementar pantalla de confirmación para suscripción activa              | 1                  | Jefrey Sanchez      | Done   |
+| US20          | Cancelar suscripción                            | T29     | Implementar cancelación de suscripción      | Agregar opción y modal para cancelar suscripción                          | 1                  | Jefrey Sanchez      | Done   |
+| US21          | Visualizar información de suscripción actual    | T30     | Mostrar datos de suscripción                | Crear interfaz para visualizar tipo de plan y estado actual               | 2                  | Nicolas Vera        | Done   |
+| US22          | Recuperar contraseña                            | T31     | Implementar recuperación de contraseña      | Desarrollar flujo para restablecer credenciales de usuario                | 1                  | George Aliaga       | Done   |
+| US23          | Registro de dispositivos IoT                    | T32     | Crear formulario de registro IoT            | Diseñar formulario para vincular nuevos dispositivos IoT                  | 3                  | Nicolas Vera        | Done   |
+| US24          | Eliminar dispositivo IoT                        | T33     | Implementar eliminación de dispositivo      | Agregar opción para eliminar dispositivos registrados                     | 2                  | Nicolas Vera        | Done   |
+| US25          | Asignar dispositivo a vehículo de carga         | T34     | Crear flujo de asignación                   | Desarrollar relación entre vehículo y dispositivo IoT                     | 2.5                | Nicolas Vera        | Done   |
+| US26          | Ver todos los dispositivos IoT en la plataforma | T35     | Listar dispositivos IoT                     | Mostrar todos los dispositivos vinculados a la cuenta                     | 2                  | Nicolas Vera        | Done   |
+| US27          | Ver estado de dispositivo por vehículo          | T36     | Mostrar estado del dispositivo              | Implementar vista de estado de sensor IoT por vehículo                    | 2                  | Nicolas Vera        | Done   |
+| US28          | Alertas por incumplimiento de temperatura       | T37     | Implementar alertas IoT                     | Crear sistema de notificación por temperaturas fuera de rango             | 2                  | Daniel Chirinos     | Done   |
+| US29          | Gráficos de tiempo y temperatura                | T38     | Crear gráficos de temperatura               | Implementar gráficos de línea para mostrar variaciones térmicas           | 4                  | Alessandro Bernardo | Done   |
+| US30          | Gráficos de incidencias por mes                 | T39     | Crear gráfico de incidencias                | Mostrar estadísticas mensuales de incidentes                              | 4                  | Alessandro Bernardo | Done   |
+| US33          | Filtrado de viajes por fecha                    | T43     | Implementar opciones de filtrado            | Crear filtros dinámicos por fecha y estado de viaje                       | 1                  | Marcelo Garro       | Done   |
 
 #### 6.2.1.4. Development Evidence for Sprint Review
 
@@ -5539,6 +5741,800 @@ _Insights de Web Application_<br>
 
 ![Image Insights collaboration apppweb](assets/InsightsAppWeb.png)
 
+### 6.2.2. Sprint 2
+
+#### 6.2.2.1. Sprint Planning 2.
+
+En esta sección se especifican los aspectos principales del Sprint Planning Meeting para el Sprint 2 del proyecto CargaSafe. Este primer sprint se enfoca en establecer las bases de la plataforma, implementando el landing page y los componentes iniciales de la aplicación web que permitan a los usuarios conocer el producto y comenzar a interactuar con las funcionalidades core del sistema de monitoreo de carga.
+
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint #</th>
+  </tr>
+  <tr>
+    <td colspan="2">Sprint 2</td>
+  </tr>
+
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint Planning Background</th>
+  </tr>
+  <tr>
+    <td style="width: 35%;">Date</td>
+    <td>2025-10-19</td>
+  </tr>
+  <tr>
+    <td>Time</td>
+    <td>09:00 AM</td>
+  </tr>
+  <tr>
+    <td>Location</td>
+    <td>Reunión virtual mediante Discord</td>
+  </tr>
+  <tr>
+    <td>Prepared By</td>
+    <td>Marcelo Fabian Garro Vega</td>
+  </tr>
+  <tr>
+    <td>Attendees (to planning meeting)</td>
+    <td>Marcelo Fabian Garro Vega / Jefrey Martin Sanchez Ignacio / Daniel Rodrigo Chirinos Arevalo / Alessandro Joaquin Bernardo Eusebio / Vera Nuñez Nicolas Alejandro / George Aliaga</td>
+  </tr>
+  <tr>
+    <td>Sprint 2 Review Summary</td>
+    <td>Al ser el primer sprint del proyecto, no existe un sprint anterior para revisar. Sin embargo, se completaron las actividades de planeamiento inicial, incluyendo la definición de la arquitectura de software bajo principios de Domain Driven Design, la elaboración de wireframes y mockups, y la especificación de user stories en el product backlog.</td>
+  </tr>
+  <tr>
+    <td>Sprint 2 Retrospective Summary</td>
+    <td>Durante la fase de planeamiento (Sprint 0), el equipo logró establecer una visión compartida del producto y definir los bounded contexts principales del sistema. Se identificaron oportunidades de mejora en la comunicación asíncrona y se acordó implementar daily stand-ups virtuales para mantener la sincronización del equipo. El equipo manifestó motivación y compromiso para comenzar la implementación del producto.</td>
+  </tr>
+
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint Goal & User Stories</th>
+  </tr>
+  <tr>
+    <td>Sprint 2 Goal</td>
+    <td>En esta segunda iteración del proyecto, nuestro enfoque estuvo en consolidar y validar las funcionalidades <i>core</i> de CargaSafe, priorizando los módulos directamente relacionados con el monitoreo de carga sensible. Para esta sprint se trabajó únicamente con los bounded contexts esenciales para esta etapa: <b>Trip Management, Fleet Management, Monitoring Management y Alerts Management</b>, dejando de lado aquellos que no son críticos en esta fase, como gestión de perfiles, pagos o analytics avanzados.<br><br>
+
+Además, durante esta sprint se desarrolló el <b>prototipo IoT físico</b>, conformado por sensores de temperatura, humedad y un módulo GPS, permitiendo capturar telemetría real y validar el funcionamiento de la solución extremo a extremo. Este prototipo se integró con la aplicación web mediante endpoints simulados y datos procesados, lo que permitió evaluar la experiencia de monitoreo en escenarios reales y reproducibles.<br><br>
+
+El objetivo principal de esta sprint es demostrar de manera funcional cómo CargaSafe permite visualizar el estado de un viaje, monitorear telemetría en tiempo real y gestionar alertas generadas por cambios bruscos en las condiciones de la carga. Consideramos que esto sienta las bases para validar nuestro producto con stakeholders y usuarios finales, confirmando que las funcionalidades centrales responden a necesidades reales del mercado.<br><br>
+
+Esta validación quedará confirmada cuando los usuarios puedan navegar las funcionalidades priorizadas —inicio y seguimiento de viajes, visualización de temperatura/humedad/ubicación y revisión del ciclo de vida de alertas— mientras el prototipo IoT genera datos reales, permitiendo observar cómo el sistema reacciona ante variaciones en el entorno y cómo se presenta esa información de manera clara en la aplicación web.</td>
+
+  </tr>
+  <tr>
+    <td>Sprint 2 Velocity</td>
+    <td>35 Story Points</td>
+  </tr>
+  <tr>
+    <td>Sum of Story Points</td>
+    <td>42 Story Points</td>
+  </tr>
+</table>
+
+
+#### 6.2.2.2. Aspect Leaders and Collaborators.
+
+Para el Sprint 2, los principales aspectos considerados corresponden a los bounded contexts core identificados en la arquitectura del sistema CargaSafe, además del Landing Page como punto de entrada al producto. Se estableció un nuevo punto acerca del Embedded Application.
+
+Los aspectos principales son:
+
+1. **Landing Page**: Página de aterrizaje con información del producto y llamados a la acción
+2. **Fleet Management**: Gestión de vehículos y dispositivos IoT asociados
+3. **Trip Management**: Creación, ejecución y seguimiento de viajes
+4. **Real-time Monitoring**: Monitoreo de condiciones ambientales en tiempo real
+5. **Alerts and Resolution**: Generación, visualización y resolución de alertas
+6. **Embedded Application:** Dispositivo IoT que funciona para monitoreo
+
+A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix) que indica el líder (L) y los colaboradores (C) para cada aspecto del Sprint 2:
+
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%; text-align: center;">
+  <tr>
+    <th style="text-align: left;">Team Member<br>(Last Name, First Name)</th>
+    <th>GitHub Username</th>
+    <th>Landing Page<br>L / C</th>
+    <th>Fleet Management<br>L / C</th>
+    <th>Trip Management<br>L / C</th>
+    <th>Real-time Monitoring<br>L / C</th>
+    <th>Alerts<br>L / C</th>
+    <th>Embedded Application<br>L / C</th>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Garro Vega, Marcelo Fabian</td>
+    <td>Marcelo Garro</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Sanchez Ignacio, Jefrey Martin</td>
+    <td>Jefreysii20</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Aliaga Pimentel, George Arturo</td>
+    <td>GeorAliaga</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Vera Nuñez, Nicolas Alejandro</td>
+    <td>nicxlxs</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Chirinos Arevalo, Daniel Rodrigo</td>
+    <td>DanielChirinos615</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>L</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Bernardo Eusebio, Alessandro Joaquin</td>
+    <td>Alessandro Bernardo</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+</table>
+
+**Leyenda:**
+
+- **L (Leader)**: Responsable principal del aspecto, encargado de la coordinación, toma de decisiones técnicas y revisión final del código.
+- **C (Collaborator)**: Contribuye activamente al desarrollo del aspecto, apoya en la implementación de funcionalidades y participa en las revisiones de código.
+
+Esta matriz facilita la comunicación y clarifica las responsabilidades dentro del equipo, asegurando que cada bounded context tenga un líder definido que coordine su desarrollo, mientras que todos los miembros colaboran de manera transversal para garantizar la integración coherente del sistema.
+
+#### 6.2.2.3. Sprint Backlog 2.
+
+#### 6.2.2.4. Development Evidence for Sprint Review
+
+Durante el sprint, en la Landing se levantó la base del proyecto, se añadieron las secciones tales como (Features, Benefits, Testimonials, Plans, Contact Us), navegación, soporte bilingüe (EN/ES). Se documentó el proyecto y se ajustó la configuración de build/ignores.
+
+**Landing Page**
+
+| Repository          | Branch           | Commit Id   | Commit Message                                                        | Commit Message Body                                                              | Commited on (Date) |
+| ------------------- | ---------------- | ----------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------ |
+| `cargasafe-landing` | `main`           | **e4aaf65** | build(base): setup base template for development                      | Estructura inicial del proyecto, tooling básico y configuración para desarrollo. | 2025-10-03         |
+| `cargasafe-landing` | `hero-section`   | **5fb53f0** | feat(hero-section): add hero-section info                             | Sección **Hero** con copy, botón CTA y layout responsive.                        | 2025-10-03         |
+| `cargasafe-landing` | `functionality`  | **4816719** | feat(functionality): add functionality info section                   | Sección **Funcionalidad**: bloques con beneficios funcionales y grid responsive. | 2025-10-03         |
+| `cargasafe-landing` | `benefits`       | **5101ccc** | feat(benefits): add benefits section                                  | Sección **Beneficios** con íconos/texto, espaciados y accesibilidad básica.      | 2025-10-04         |
+| `cargasafe-landing` | `pricing`        | **fd9db54** | feat(pricing): add subscription plans section                         | Sección **Pricing** (planes) con cards y CTA a suscripción.                      | 2025-10-04         |
+| `cargasafe-landing` | `testimonials`   | **a7f149f** | feat(testimonials): add testimonials section                          | Sección **Testimonials** con testimonios y estructura para futuras fuentes.      | 2025-10-04         |
+| `cargasafe-landing` | `quotes-section` | **6a51bac** | feat(quotes-section): add quotes-section info                         | Sección **Quotes** (frases) con tipografía y espaciado consistente.              | 2025-10-05         |
+| `cargasafe-landing` | `navigation`     | **63f1a66** | feat(nav): add header and navigation system for landing page          | **Header** + navegación anclada; enlaces a secciones y estados de hover/focus.   | 2025-10-06         |
+| `cargasafe-landing` | `call-to-action` | **1223a55** | feat(cta): add app web call-to-action                                 | CTA para **App Web** enlazado; estilos y jerarquía visual.                       | 2025-10-06         |
+| `cargasafe-landing` | `call-to-action` | **8ad26fc** | feat(cta): add app mobile call-to-action                              | CTA para **App Mobile**; botones y layout responsive.                            | 2025-10-06         |
+| `cargasafe-landing` | `call-to-action` | **6df4e47** | feat(cta): add responsive for call-to-action section                  | Ajustes **responsive** de la sección CTA (breakpoints y spacing).                | 2025-10-06         |
+| `cargasafe-landing` | `intl`           | **4c8225d** | feat(intl): add english and spanish language to the entire page       | **i18n EN/ES** aplicado a toda la landing; textos externalizados.                | 2025-10-06         |
+| `cargasafe-landing` | `intl`           | **75003bc** | feat(intl): add switch language button for layout                     | **Switcher** de idioma en el layout (toggle EN/ES) y persistencia simple.        | 2025-10-06         |
+| `cargasafe-landing` | `main`           | **f1f9917** | docs: add initial project documentation for landing page              | README/guía inicial: estructura, scripts y cómo correr/desplegar.                | 2025-10-06         |
+| `cargasafe-landing` | `main`           | **b0327e7** | chore(gitignore): create gitignore file to ignore IDEs configurations | `.gitignore` para excluir configs locales/IDE.                                   | 2025-10-06         |
+
+**Web Application**
+
+Durante este sprint se implementaron los módulos principales del sistema **CargaSafe** en Angular 20.  
+El equipo desarrolló el _bounded context_ de suscripciones, gestión de flotas, monitoreo de viajes, alertas y autenticación (IAM).  
+Se integró la API simulada con `json-server`, se configuró el enrutamiento base y se estructuró la arquitectura por capas (domain, infrastructure, presentation).
+
+| Repository                                     | Branch                          | Commit Id   | Commit Message                                                                                                        | Commit Message Body                                                                            | Commited on (Date) |
+| ---------------------------------------------- | ------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------ |
+| `iot-solutions-development-cargasafe-frontend` | `main`                          | **c8dc444** | initial commit                                                                                                        | Inicio del proyecto Angular 20, configuración base y estructura inicial.                       | 2025-09-23         |
+| `iot-solutions-development-cargasafe-frontend` | `main`                          | **f8215b4** | feat: First commit. Project Setup                                                                                     | Creación del entorno Angular standalone, configuración inicial de módulos y dependencias.      | 2025-09-23         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **ebcd034** | feat(shared): implement base entity, API endpoint, assembler, and response interfaces                                 | Implementación de entidades base, endpoints comunes y ensambladores para integración de datos. | 2025-10-03         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **7026161** | feat(shared): implement root layout and routing system                                                                | Configuración del layout principal con sidebar y rutas dinámicas.                              | 2025-10-03         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **00a9220** | build(fake-api): add json-server for API REST connections                                                             | Implementación del servidor JSON local para simular endpoints REST del backend.                | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `IAM`                           | **ffa780a** | feat(iam): implement login, register and recovery password pages                                                      | Creación de pantallas de autenticación (login, registro, recuperación de contraseña).          | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `trip-management`               | **9d54bb9** | feat(trips): add DeliveryOrder, OriginPoint, TripParameter entities and update Trip entity with additional properties | Entidades principales del módulo de viajes (trip, delivery order, parámetros y origen).        | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `trip-management`               | **e5e3f55** | feat(trips): add trip list page                                                                                       | Página principal de viajes con tabla, filtro y paginación.                                     | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `trip-management`               | **6553425** | feat(trips): implement trips feature with API integration and routing                                                 | Integración del módulo de viajes con servicios REST simulados.                                 | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `alerts-and-resolutions`        | **f2e09c0** | refactor(alert screen): new icons and added db.json                                                                   | Refactor visual de alertas, íconos actualizados y datos simulados.                             | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `alerts-and-resolutions`        | **7564492** | feat(alerts): add alert screens                                                                                       | Sección de alertas del sistema con componentes modulares.                                      | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `visualization-and-analytics`   | **9ed2471** | feat(dashboard): Added charts for trip monitoring information                                                         | Dashboard con gráficos de seguimiento de viajes y estadísticas mensuales.                      | 2025-10-07         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **81e45b0** | feat(fleet): scaffold bounded context folders                                                                         | Estructura base para el módulo de gestión de flotas.                                           | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **fe46756** | feat(env): add base environment files and production config                                                           | Configuración de entornos (`environment.ts`) y build de producción.                            | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **7d43fd7** | feat(fleet-domain): add vehicle and device models                                                                     | Creación de modelos para vehículos y dispositivos IoT.                                         | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **daf642c** | feat(fleet-data): add device and vehicle data-access services                                                         | Servicios para gestión de datos de flota y dispositivos conectados.                            | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `main`                          | **a37a0b7** | feat(fleet-ui): add device-create-and-edit component                                                                  | Formulario y modal para creación/edición de dispositivos.                                      | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **47ad853** | feat(fleet-ui): add vehicle-create-and-edit component                                                                 | Componente para registrar o editar vehículos.                                                  | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **d1578c7** | feat(fleet-pages): add device-management page                                                                         | Página de administración de dispositivos.                                                      | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `fleet-management`              | **e79cef8** | feat(fleet-pages): add vehicle-management page                                                                        | Página de administración de vehículos.                                                         | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **ba3f415** | feat(routes): add/modify Fleet routes and guards                                                                      | Configuración de rutas y guardas para navegación segura en Fleet.                              | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **37cc80c** | feat(shared-layout): add nav links to Vehicles and Devices management                                                 | Enlaces de navegación desde el layout principal hacia módulos de flota.                        | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `subscriptions-bounded-context` | **94e33ba** | feat(subscription): update bc content                                                                                 | Ajustes al _bounded context_ de suscripciones (contenidos y estados).                          | 2025-10-08         |
+| `iot-solutions-development-cargasafe-frontend` | `develop`                       | **25b4a74** | fix: delete import zone.js in app.ts                                                                                  | Corrección de import redundante en configuración principal.                                    | 2025-10-08         |
+
+**Web Services**
+
+| Repository                                 | Branch                         | Commit Id                                   | Commit Message                                                    | Commit Message Body                                                                                                   | Committed on |
+|--------------------------------------------|--------------------------------|----------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------|
+| iot-solutions-development-cargasafe-backend | main                           | 48ab0d397742ca4d8199d7813db1f4c77bd4db59     | build: setup project template                                     | Se creó la estructura base del proyecto, incluyendo configuración inicial y módulos principales.                       | 2025-09-23    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                    | e71219c11ba538c7c72d194f3fdb38c884e1cd46     | feature(iam): add domain layer                                    | Implementación de entidades, agregados y objetos de valor correspondientes al dominio IAM.                            | 2025-10-19    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                    | 438efd63d39f22811868f78f7e15f50ac1cf190b     | feature(iam): add infrastructure layer                            | Se añadieron repositorios, mapeos y adaptadores para la persistencia del módulo IAM.                                   | 2025-10-20    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                    | c07cf2017ac27c8b89d9ec7bdc7f6fa5062c17b3     | feature(iam): add application layer                               | Se agregaron casos de uso, servicios de aplicación y lógica coordinadora para IAM.                                      | 2025-10-20    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                    | 10f700d05b2ceaff0fe39c9d60e793e8279f85dd     | feature(iam): add interface layer                                 | Creación de controladores y endpoints para exponer funcionalidades del módulo IAM.                                      | 2025-10-20    |
+| iot-solutions-development-cargasafe-backend | feature/merchant-bounded-context | 1ce8f155ba109c79f679a1f298672d0b3a5bcff3   | feat(merchant): create merchant domain layer entities, commands and queries | Implementación de entidades del dominio Merchant, junto con comandos y consultas iniciales.                             | 2025-10-20    |
+| iot-solutions-development-cargasafe-backend | feature/merchant-bounded-context | ab7a2f90b1e773082582346b816c03e992dd821d   | feat(merchant): add merchant CQRS pattern and JPA integration      | Integración del patrón CQRS para Merchant y configuración de JPA para persistencia.                                      | 2025-10-20    |
+| iot-solutions-development-cargasafe-backend | feature/merchant-bounded-context | 0eeab08bfa8f00bea89a94b4156edaac7f1aa3e5   | feat(merchant): add merchant use cases for application layer       | Se añadieron los casos de uso del módulo Merchant para la capa de aplicación.                                            | 2025-10-20    |
+| iot-solutions-development-cargasafe-backend | feature/merchant-bounded-context | 3829f1f23349c7f82cd34e1e11863077e5b68a89   | feat(merchant): create merchant endpoint for retrieve all merchants | Implementación del endpoint REST para recuperar todos los merchants registrados.                                        | 2025-10-20    |
+| iot-solutions-development-cargasafe-backend | feature/merchant-bounded-context | 4a01b86d20a952cf8267e641e171bd1ea73f4972   | feat(merchant): create merchant exceptions and handle HTTP codes  | Se añadieron excepciones específicas y manejo adecuado de códigos HTTP para Merchant.                                   | 2025-10-21    |
+| iot-solutions-development-cargasafe-backend | feature/merchant-bounded-context | 2145659678fdbed646ad12269215fd64c8a39ab4   | feat(merchant): create employee model, services and controller     | Creación del modelo Employee asociado a Merchant, junto con servicios y su controlador correspondiente.                 | 2025-10-21    |
+| iot-solutions-development-cargasafe-backend | develop                        | 23f8b83fb19c5ecce15311aec42b865d019ea743     | Merge branch 'develop' into feature/IAM                           | Se sincronizó feature/IAM con los últimos cambios del branch develop.                                                    | 2025-10-21    |
+| iot-solutions-development-cargasafe-backend | develop                        | dc6d371f6a513131e2270103b2a32afcd901d370     | Merge pull request #1 from Los-Parkers-IoT/feature/merchant-bounded-context | Se integró el bounded context Merchant al branch develop.                                        | 2025-10-21    |
+| iot-solutions-development-cargasafe-backend | feature/alert-bounded-context   | eb3c34642d225bac20e78da87f6ddae8cab319b3     | feat(alert): add DDD Alert bounded context                          | Creación del bounded context Alert siguiendo principios DDD.                                                              | 2025-10-21    |
+| iot-solutions-development-cargasafe-backend | feature/alert-bounded-context   | 66c8c28acc45a6d43e708fa6a39285c9a4fba78a     | add commands and queries                                          | Se añadieron comandos y consultas correspondientes al bounded context Alert.                                             | 2025-10-22    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                    | 7d6e1445ceb809277ddbd590f0f64b595f8ecdd5     | feature(iam): add application.properties                           | Se configuró el application.properties con valores iniciales del módulo IAM.                                             | 2025-10-22    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                    | 2e5ff9e3c2251ba0cc201a0622ae453988be99ae     | feature(iam): add new dependencies                                | Se añadieron nuevas dependencias necesarias para el desarrollo del módulo IAM.                                           | 2025-10-22    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                    | 94e0c72a7f4a283be9c5dfc0108e3cc52134215d     | feature(iam): add new roles                                       | Se agregaron nuevos roles al sistema de autenticación/autorización del módulo IAM.                                      | 2025-10-22    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                    | 42e4452cc07e41c21fd1c6fa1beca8d242f9cec8     | feature(iam): add OpenApiConfiguration                            | Configuración de OpenAPI/Swagger para documentar endpoints del módulo IAM.                                               | 2025-10-22    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                    | 4303b67331d1a8e8eec0e4ee97f8b7f7e3599b92     | feature(iam): update BearerTokenService                            | Se realizaron mejoras al servicio de generación y validación de tokens Bearer.                                          | 2025-10-22    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                               | 882174e0854474d970b807ce498fece614e66e90     | feature(iam): update TokenServiceImpl                                      | Se actualizaron las funcionalidades del TokenServiceImpl para mejorar generación y validación de tokens.                      | 2025-10-22    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                               | 8577fe4d2024efd99f699315320ea4d9d8eb40ed     | feature(iam): update GetUserByIdQuery                                     | Se ajustó la consulta GetUserByIdQuery para obtener usuarios con mayor precisión o nuevos campos.                             | 2025-10-22    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                               | 1cd3c9f920a0be460baecd831e5026f323b4ae7f     | feature(iam): update SnakeCasePhysicalNamingStrategy                       | Se modificó la estrategia de nombres físicas para bases de datos a fin de aplicar snake_case correctamente.                  | 2025-10-22    |
+| iot-solutions-development-cargasafe-backend | feature/real-time-monitoring-bounded-context | 4d71b04280da10ad516cf4769db8c4f69d340a45  | feat (monitoring): create branch feature/real-time-monitoring-bounded-context | Inicialización de la estructura del bounded context de monitoreo en tiempo real.                                               | 2025-10-24    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                               | 69dfee9ec1e1edf8e5283d3f26f2066d20cdff00     | feature(iam): add new rol                                                   | Se añadió un nuevo rol al sistema de IAM para ampliar capacidades de autorización.                                            | 2025-10-24    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                               | 80b42997b975e2106419635dbb3748b49588bf7c     | feature(iam): add TTL exactas 4h/24h                                       | Se configuraron valores exactos de TTL para tokens: 4h y 24h según el tipo de autenticación.                                   | 2025-10-24    |
+| iot-solutions-development-cargasafe-backend | feature/real-time-monitoring-bounded-context | 54233ff387ac5c3b03c00b07df236c62d69f3a9b  | feat (monitoring): update command and queries files                         | Actualización de comandos y consultas del módulo de monitoreo en tiempo real.                                                 | 2025-10-24    |
+| iot-solutions-development-cargasafe-backend | feature/real-time-monitoring-bounded-context | fe5db9e8d7e67caacb958d9505b81421e2fba542  | feat (monitoring): change application.properties                            | Se actualizaron propiedades de configuración relacionadas al bounded context de monitoreo.                                   | 2025-10-24    |
+| iot-solutions-development-cargasafe-backend | feature/IAM                               | 27b08131d5510071f98ffc1c6c5dca721e99f221     | feature(iam): add revoke token                                              | Se implementó la funcionalidad para revocar tokens activos.                                                                  | 2025-10-25    |
+| iot-solutions-development-cargasafe-backend | feature/alert-bounded-context             | 45163d7b8891db947a793ab21902517abc9294d9     | feat(alerts): add commandservice,queryservices and controllers              | Se crearon servicios de comandos, servicios de consultas y controladores del módulo Alerts.                                   | 2025-10-25    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | 79b77a7b2be0e65e0490d57607a9289b46007bbf     | feat(fleet-management): implement complete bounded context with DDD architecture | Implementación completa del bounded context Fleet siguiendo DDD.                                                          | 2025-10-25    |
+| iot-solutions-development-cargasafe-backend | feature/alert-bounded-context             | 60b30ff84b92ba2f8ab2fc17d8c4b3f26851af20     | feat(alerts): add controllers                                                | Se añadieron los controladores iniciales para el módulo Alerts.                                                               | 2025-10-25    |
+| iot-solutions-development-cargasafe-backend | feature/alert-bounded-context             | 96cdbe629b8f4c3809ae13e52c5e07cd4678e1f0     | feat(alerts): fix controllers                                               | Corrección de errores y comportamientos en controladores del módulo Alerts.                                                   | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | c9f77dfb8241691b23762516e33d60a8a2d4e98f     | feature(fleet-management): update application properties for JPA/validation | Se ajustaron propiedades de JPA y validación para el bounded context Fleet.                                                  | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | 31d0d04269ea098ca8418fdc329b7c361c9f1868     | feature(fleet-management): remove vehiclePlate and use boolean online       | Se reemplazó vehiclePlate por el campo booleano online en las entidades del módulo Fleet.                                    | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | 14a2ee57b55f804fb87c9c5accaf43460503540d     | feature(fleet-management): stop mapping vehiclePlate                        | Eliminación del mapeo relacionado a vehiclePlate en la capa de persistencia.                                                 | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | bfe87bd64c9514559ad2a86bc965366046137540     | feature(fleet-management): drop vehiclePlate from create payload            | Se removió vehiclePlate del payload de creación de vehículos.                                                                | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | ea1ea520d4be6190a072af9ca264eeeff6d9e00b     | feature(fleet-management): remove deviceImei from create command            | Eliminación del campo deviceImei del comando de creación.                                                                    | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | 8da2268c95933badfff874b96a3ecd2366f71736     | feature(fleet-management): stop mapping deviceImei                          | Se retiró el mapeo deviceImei de las entidades.                                                                             | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | a35587823403f47f88c71c93d5af14f4a8c10230     | feature(fleet-management): drop deviceImei from create payload               | Se eliminó deviceImei del payload de creación en Fleet.                                                                      | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | ea3faeb47ea75aac48ca0c1b420700e8d4473fa9     | feature(fleet-management): constructor without vehiclePlate                 | Constructor actualizado para no depender del campo vehiclePlate.                                                            | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | ad1b91f4224faa83d0c9185b98af48236cdfed2b     | feature(fleet-management): create device without linking                    | Se permite crear dispositivos sin asociarlos inmediatamente a un vehículo.                                                   | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | d5812201006b6c833fc83d99b29ba3fa42c62364     | feature(fleet-management): constructor without deviceImei                   | Constructor actualizado para no requerir deviceImei.                                                                         | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | 8ef00cde1eeda32a1af047db7a733e2aba4581db     | feature(fleet-management): create vehicle without linking                    | Creación de vehículos sin asociarlos inmediatamente a dispositivos.                                                          | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | feature/alert-bounded-context             | 02c6a3c1d0618e092a0710c23a9c5684833dcb61     | feat(alerts): update alertCommandServiceImpl                                 | Actualización de la implementación del servicio de comandos de alertas.                                                     | 2025-10-26    |
+| iot-solutions-development-cargasafe-backend | develop                                    | 4140c503e646de6908678aaa7cc60f086f557904     | Merge pull request #4 from Los-Parkers-IoT/feature/IAM                       | Se integraron los cambios del módulo IAM en develop.                                                                        | 2025-10-28    |
+| iot-solutions-development-cargasafe-backend | develop                                    | d567a6f0486727de0344db754a9abe8c5c669241     | Merge branch 'develop' into feature/alerts-bounded-context                  | Sincronización del módulo Alerts con los últimos cambios del branch develop.                                                | 2025-10-28    |
+| iot-solutions-development-cargasafe-backend | develop                                    | 1a5ac2531ab6c72883ab343c74b45f2f62b5d0a6     | Merge pull request #5 from Los-Parkers-IoT/feature/alerts-bounded-context    | Integración del bounded context Alerts en develop.                                                                          | 2025-10-28    |
+| iot-solutions-development-cargasafe-backend | feature/real-time-monitoring-bounded-context | 14b46e2a958906bad42e359050e1410bbd34ac3d  | feat (monitoring): add commands and controllers                               | Se añadieron comandos y controladores para el bounded context de monitoreo en tiempo real.                                 | 2025-10-29    |
+| iot-solutions-development-cargasafe-backend | feature/real-time-monitoring-bounded-context | d11d34b07cba967960ed63e84f74d631a7ed1e08  | feat (monitoring): fix endpoints                                             | Corrección de endpoints del módulo de monitoreo en tiempo real.                                                             | 2025-10-30    |
+| iot-solutions-development-cargasafe-backend | feature/trip-management                    | dcedea1fb974af422742ce4120288d9aece00adc     | add trip bc structure                                                       | Creación de la estructura inicial del bounded context de gestión de viajes (Trip Management).                              | 2025-10-31    |
+| iot-solutions-development-cargasafe-backend | develop                                    | a863497bddae3f4b127fafecd97bbd8a4483eeb9     | Merge branch 'develop' into feature/real-time-monitoring-bounded-context    | Se sincronizó el módulo Monitoring con develop.                                                                             | 2025-10-31    |
+| iot-solutions-development-cargasafe-backend | develop                                    | b43b0553ab04441f45c32b1778a584cdaf04d67f     | Merge pull request #6 from Los-Parkers-IoT/feature/real-time-monitoring-bounded-context | Se integró el módulo Monitoring a develop.                                      | 2025-10-31    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | 95ca54843158d572db820c2dd09a6515d6d90371     | refactor(fleet-management): rename bc from fleet-management to fleet        | Renombrado del bounded context de “fleet-management” a simplemente “fleet”.                                                | 2025-11-02    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | 9cd9b933ffc95776cb9ef237deb65885a2876a26     | feat(fleet-management): persist multiple device IMEIs in vehicle aggregate  | Se agregó soporte para asociar múltiples IMEIs a un mismo vehículo.                                                         | 2025-11-02    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | fa10bb1661dfe8cb0e9defa7d70d3e71e87e4089     | fix(fleet-management): sync vehicle device set when assigning or unassigning | Corrección para sincronizar correctamente el set de dispositivos al asignar/desasignar.                                     | 2025-11-02    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | 3d9b679445dfbad476e80bda6ab26a580f9f8cbe     | refactor(fleet-management): expose vehicle-device operations via REST        | Exposición de operaciones vehículo–dispositivo a través de endpoints REST.                                                  | 2025-11-02    |
+| iot-solutions-development-cargasafe-backend | develop                                    | c0c224a16cf709fb42f44f2c08f433cd5d9eb0a1     | Merge branch 'develop' into feature/fleet-management-bounded-context         | Sincronización del bounded context Fleet con develop.                                                                      | 2025-11-02    |
+| iot-solutions-development-cargasafe-backend | develop                                    | abecf0fd37072a59e232a0d20a8d1f0a2d22f311     | Merge pull request #7 from Los-Parkers-IoT/feature/fleet-management-bounded-context | Integración del bounded context Fleet en develop.                              | 2025-11-02    |
+| iot-solutions-development-cargasafe-backend | develop                                    | 1b329b9784c04dbe4fc9ebf4f0e81f2a6b5d002f     | feat(develop): fix application properties                                   | Correcciones en el archivo de propiedades para la configuración de la aplicación.                                         | 2025-11-02    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | d137d028c33a6ee88626560a4606ecc2118b0ec3     | feat(fleet-management): add command to update vehicle status                | Se añadió un comando para actualizar el estado de un vehículo.                                                             | 2025-11-02    |
+| iot-solutions-development-cargasafe-backend | feature/fleet-management-bounded-context  | 106c452d1767238435d078d6417f391c65f1a253     | feat(fleet-management): handle vehicle status update command                | Se implementó el manejo del comando para actualizar estados de vehículos.                                                  | 2025-11-02    |
+| iot-solutions-development-cargasafe-backend   | feature/fleet-management-bounded-context | bdeb72e379b4fee18032be38995674bf59f23ce3 | feat(fleet-management): expose PATCH /vehicles/{id}/status endpoint          | Se agrega el endpoint PATCH para actualizar el estado de un vehículo dentro del contexto de fleet-management. | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | develop                               | aed1d18ac274ff270e32e666882afd3ff0bafa5f | fix(develop): update application properties                                   | Corrección de propiedades de configuración en application.properties para estabilizar el entorno.             | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | feature/fleet-management-bounded-context | 392f2dea374ef8d12a4db5a45dbfde4d7a2ed43b | refactor(fleet-management): remove type from device aggregate                 | Se elimina el atributo “type” del agregado Device y se ajusta su lógica interna.                              | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | feature/fleet-management-bounded-context | 120024ea5df831d73e034d682db9accb2c9fdff5 | refactor(fleet-management): align command/query services after removing type | Actualización de servicios Command y Query tras la eliminación del atributo “type”.                           | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | feature/fleet-management-bounded-context | 64146062947b3246a39d974e41a6f0ad523a0922 | refactor(fleet-management): update REST resources and assemblers             | Se ajustan recursos REST y ensambladores tras los cambios en el modelo Device.                                | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | feature/fleet-management-bounded-context | f9c97b1e766a6774a2544eec33ea80d78f0cce8b | feat(fleet-management): expose PATCH /vehicles/{id}/status endpoint          | Se implementa el endpoint PATCH para modificar el estado operativo de un vehículo.                            | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | feature/fleet-management-bounded-context | c725c06dd75c220a268795dd41fa5a20457cad7e | feat(fleet-management): add command to update device online status           | Se añade un nuevo comando para cambiar el estado online/offline de un dispositivo.                            | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | feature/fleet-management-bounded-context | ecc2338426cb6351855466afc34473c605f626d0 | feat(fleet-management): handle device online status update in command service | Se implementa la lógica del comando para actualizar el estado online de un dispositivo.                       | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | feature/fleet-management-bounded-context | f46d24318a6275af2f0052490f4312554a221f3e | feat(fleet-management): expose PATCH /devices/{id}/online                    | Se expone endpoint PATCH para modificar el estado online de un dispositivo.                                   | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | develop                               | 7b4308bc6ddfca40f08221c5d00cccbf5fc3a6a6 | Merge branch 'develop' into feature/fleet-management-bounded-context         | Se integran los últimos cambios de develop en la rama de fleet-management.                                     | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | develop                               | ae4e29ab4b53c894229611d4a6a986f54dbb21c1 | Merge pull request #8 from Los-Parkers-IoT/feature/fleet-management-bounded-context | Se fusiona la rama de fleet-management dentro de develop.                                                     | 2025-11-02 |
+| iot-solutions-development-cargasafe-backend   | feature/alert-bounded-context         | 65619599d4b71323039726eb70e3e9a070cbf33d | feat(alert): update AlertCommandServiceImpl                                   | Actualización de la implementación del servicio de comandos para Alert.                                       | 2025-11-03 |
+| iot-solutions-development-cargasafe-backend   | develop                               | 01900cb1f0b7c4246abce0115b772bf46ee1c868 | Merge pull request #9 from Los-Parkers-IoT/develop                            | Se integra un PR sobre develop para mantener sincronía entre ramas.                                           | 2025-11-03 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | f812a68165d62fdf08ff08a4535c43dc8ac9e540 | update bc trip                                                                | Actualización general del bounded context de trip.                                                            | 2025-11-04 |
+| iot-solutions-development-cargasafe-backend   | feature/alert-bounded-context         | 27cf87374cb076793cced0306ddd115fc2065ada | feat(alert): web config                                                       | Configuración web necesaria para habilitar CORS, filtros o rutas de alertas.                                  | 2025-11-04 |
+| iot-solutions-development-cargasafe-backend   | develop                               | 87a22af1142a166a58976c6cde477934519abaf4 | Merge pull request #10 from Los-Parkers-IoT/feature/alerts-bounded-context    | Se fusiona el bounded context de alertas dentro de develop.                                                   | 2025-11-04 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | 463b774daeabfa583f2480e5ed65dd8df26be2e9 | feat(trip): update application.properties                                     | Se actualizan propiedades relacionadas al módulo de trip.                                                     | 2025-11-04 |
+| iot-solutions-development-cargasafe-backend   | develop                               | 9bfe0e066ded8b741a5799ed7a2f8559c20bd5f9 | Merge pull request #11 from Los-Parkers-IoT/feature/trip-management           | Se integra la rama de trip-management dentro de develop.                                                      | 2025-11-04 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | a313f9395d2b1221818f158a08cb8028265377e7 | Update TripCommandService.java                                                | Se actualiza la implementación del servicio de comandos del módulo trip.                                      | 2025-11-04 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | 9e5904fa2daf37ceddb2d20b9ebba1f4a7e2483d | updated bc trips                                                             | Se aplican cambios estructurales dentro del bounded context trips.                                            | 2025-11-06 |
+| iot-solutions-development-cargasafe-backend   | develop                               | 7874193d4d3bf2f630f2b2294b94005180803c0a | Merge branch 'develop' into feature/trip-management                           | Sync entre develop y trip-management.                                                                          | 2025-11-06 |
+| iot-solutions-development-cargasafe-backend   | feature/fleet-management-bounded-context | 2a234285a4aabf3f860e4017fecd45d09fcce4e2 | feature(fleet) add dev mode without jtw token                                 | Agrega modo de desarrollo para omitir validación JWT.                                                         | 2025-11-07 |
+| iot-solutions-development-cargasafe-backend   | develop                               | 940b6f7a048926e6c5d7b7718e055ad65fae243e | Merge branch 'develop' into feature/trip-management                           | Actualización de trip-management con lo último de develop.                                                     | 2025-11-09 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | da35f2375b5c7ebf824af164a2770d11e10489a3 | refactor(trips): change data types for attribute in Trip model               | Cambio de tipos de datos en atributos clave del modelo Trip.                                                  | 2025-11-09 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | 501e071f55d1018942ada70bc3e88fe1a9e3429d | feat(trips): add origin points into trips management context                 | Se añade soporte para puntos de origen dentro del contexto de trips.                                          | 2025-11-09 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | a0faed5876c257dc373e8af88a005bb75c4f7e4c | feat(trips): add create trip logic with delivery orders embedded             | Se agrega la lógica de creación de viajes con órdenes de entrega embebidas.                                   | 2025-11-09 |
+| iot-solutions-development-cargasafe-backend   | develop                               | 56bd39626e924a88441747142aae907b8d94e3f2 | build: add dockerfile for container deploy                                    | Se agrega Dockerfile para despliegue en contenedores.                                                         | 2025-11-10 |
+| iot-solutions-development-cargasafe-backend   | develop                               | 80ac78d97c047124cab3900057c7497386c14ff5 | build: expose application for all origins                                     | Se ajusta CORS para permitir acceso desde cualquier origen.                                                   | 2025-11-10 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | d9590199cb90775980db9a4c388670ac7f899812 | feat(trip): add start trip logic                                             | Se implementa la lógica para iniciar un viaje.                                                                | 2025-11-10 |
+| iot-solutions-development-cargasafe-backend   | feature/IAM                           | 20ce2bd24b145c8ce03d4883266a65ab6188dcc4 | feat(security): disable all security filters temporarily for local testing   | Se deshabilitan temporalmente los filtros de seguridad para facilitar pruebas locales.                        | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/IAM                           | 23c321fed84a7676895a7a6cc41e3e520a469e1d | chore(security): comment WebSecurityConfiguration                            | Se comenta configuración de seguridad para evitar ejecución del filtro JWT.                                   | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/IAM                           | 868ad6ca7ac5ed8d08e07d9d3c21334f87324d62 | chore(security): align DevFleetSecurityConfig                                | Ajustes a la configuración de seguridad del módulo fleet en modo de desarrollo.                               | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/IAM                           | cedbb18a3eae93d3f8402cdf8d73ecb26681506d | chore(swagger): remove bearerAuth scheme                                     | Se elimina configuración de autenticación Bearer de Swagger.                                                  | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/IAM                           | c101ed45c4c3e56badf691a211ba9a95b38f91c8 | chore(config): update application properties                                  | Cambios en properties para habilitar acceso libre localmente.                                                 | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | develop                               | f6b4b4f550a60bed0a638969cbfd940a1efecc16 | merge: feature/fleet-management-bounded-context into develop                 | Se integra fleet-management en develop.                                                                       | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/IAM                           | 35784ced654a48702993b56a195537f74e55c0b2 | fix(cors): use allowedOriginPatterns with credentials                         | Corrección CORS permitiendo patrones específicos con credenciales.                                            | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | main                                  | 28a2c39af5b4989b82bf02ca2b56a86075c501e4 | merge: develop into main for release                                          | Se fusiona develop en main para un nuevo release.                                                             | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | main                                  | b354ae748cc46c57ecba63c229013e59bc78c206 | fix(db): update local postgres password                                      | Se actualiza contraseña local del servicio PostgreSQL.                                                         | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | main                                  | 0bb7aafce4feedfba6f2ffae578a86eead43a20c | fix(db): update local postgres password                                      | Actualización adicional o corrección inmediata al password de Postgres.                                       | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | develop                               | 9262dfca2f99d1b8901150073dee31b1249090a3 | Merge branch 'develop' into feature/trip-management                           | Sync entre develop y trip-management.                                                                          | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | 1d05ef05fa60be2abbe6d0749dfb9ca6d8a32b88 | feat(trip): create delivery order process and model                           | Se implementa proceso y modelo de órdenes de entrega.                                                         | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | 18876a336657659524044c9ab4fd18bf13519959 | feat(trip): add origin point into trip aggregate                             | El agregado Trip ahora incluye punto de origen.                                                               | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | fdad09089acdba81e8dcc9e777a489b6fa6e7a40 | feat(trip-monitoring): create events for trip and monitoring                 | Se agregan eventos entre los bounded contexts trip y monitoring.                                              | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | 7784c6348c0e489a0057dc4ebcaa4585fc8afd84 | chore(validation): add trip controller resource validations                   | Validaciones adicionales en los recursos del controlador trip.                                                | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | f3921485acc603cac51d3f897e809a00f5594ffa | chore(resources): add delivery order thresholds                               | Se agregan thresholds para órdenes de entrega en los recursos del módulo trip.                                | 2025-11-11 |
+| iot-solutions-development-cargasafe-backend   | feature/alert-bounded-context         | 7c7856c16ca9c162e8fbaf7fdf084d76d6a0dabf | feat(alert): add AlertContextFacade                                           | Se implementa una fachada que centraliza acceso al contexto de alertas.                                       | 2025-11-12 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | 1eac035a978db4e631e92e96409d7f66d26d7134 | feat(trip): add trip validations for order in thresholds                     | Se añaden validaciones de orden en thresholds del viaje.                                                      | 2025-11-12 |
+| iot-solutions-development-cargasafe-backend   | develop                               | 1fb1218bfe451c7579de3861ba354a3ec759e710 | Merge branch 'feature/trip-management' into feature/alerts-bounded-context   | Se fusionan cambios de trips hacia alert-context.                                                             | 2025-11-12 |
+| iot-solutions-development-cargasafe-backend   | feature/alert-bounded-context         | 2fc629257cd1c14ab24704232eda20a166bc6313 | chore(alert): generate alerts when telemetry data was inserted               | Se habilita generación automática de alertas al recibir datos de telemetría.                                  | 2025-11-12 |
+| iot-solutions-development-cargasafe-backend   | feature/trip-management               | 52ff53b06ac49b79c566c4eef693c2411bdf7d58 | chore(trip): update resources                                                 | Actualizaciones menores en los recursos del módulo trip.                                                     | 2025-11-13 |
+| iot-solutions-development-cargasafe-backend   | feature/alert-bounded-context         | c2d0d4d4474fd1ae220ed4cee2b15853635b1d00 | feat(alert): add deliveryOrderId                                              | Se añade support para deliveryOrderId en el contexto de alertas.                                           | 2025-11-13 |
+| iot-solutions-development-cargasafe-backend   | main                                  | f4aadeb23d18a45fd81653f42bdc851ba6b0e584 | Merge pull request #12 from Los-Parkers-IoT/develop                           | Se integran cambios finales desde develop en main.                                                             | 2025-11-14 |
+
+
+**Mobile Application**
+
+
+
+**Edge Application**
+
+| Repository                                      | Branch   | Commit Id                                   | Commit Message                                                                 | Commit Message Body                                                                                                                     | Commited on (Date) |
+|-------------------------------------------------|----------|----------------------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| iot-solutions-development-cargasafe-edge-application | develop | 94257f712a963e0732ef5a8c16f1d4d052170473     | chore: initial setup                                                           | Se inicializa la estructura base del proyecto, configurando módulos fundamentales y archivos esenciales para la aplicación edge.          | 2025-11-08          |
+| iot-solutions-development-cargasafe-edge-application | develop | 646e465cb8f00cbbb0ad4472d12d4f6ea8ff867f     | chore(monitoring): create monitoring bounded context functionalities and bounded context | Se crea el bounded context de monitoreo, incluyendo modelos de dominio, servicios y funcionalidades necesarias para procesar telemetría. | 2025-11-08          |
+| iot-solutions-development-cargasafe-edge-application | develop | fca0d86f9d5f8696aef8b0626aa030c4bbda3da1     | build(gunicorn): add gunicorn for project deployment                           | Se integra Gunicorn como servidor WSGI para habilitar un despliegue en producción estable y eficiente para la aplicación edge.            | 2025-11-08          |
+| iot-solutions-development-cargasafe-edge-application | develop | f52255abffd8a86bcd71c52c76c899ae1aab6be4     | fix(resource): add telemetry id to telemetry resource                           | Se actualizan los recursos de telemetría para incluir el identificador de telemetría y asegurar un mapeo correcto entre capas.           | 2025-11-08          |
+| iot-solutions-development-cargasafe-edge-application | develop | a9a099e2885049bbd66d63d1ffa5a6ad90965276     | chore: send telemetry data to cloud backend system                              | Se implementa el envío de datos de telemetría desde el edge hacia el backend en la nube, garantizando la correcta serialización y flujo. | 2025-11-12          |
+
+
+<h2><strong>Embedded Application</strong></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:180px;">Repository</th>
+      <th style="width:60px;">Branch</th>
+      <th style="width:150px;">Commit Id</th>
+      <th style="width:200px;">Commit Message</th>
+      <th style="width:260px;">Commit Message Body</th>
+      <th style="width:110px;">Committed on</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>84e697f13a90ba4158c3806a863d519a984032eb</td><td>chore: initial commit</td><td>Inicio del proyecto IoT</td><td>2025-11-08</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>4f309c16c919f2c6d1eadda0f31406d6f3ee2525</td><td>feat(embeddedApp): updated sketch_nov8a.ino</td><td>Agregado de comentarios dentro del sketch</td><td>2025-11-09</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>18b5bcf1c25342c1f654e265d9f263c3f537bfe1</td><td>feat(embeddedApp): update DataController.h</td><td>Agregado de comentario dentro del DataController</td><td>2025-11-09</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>b7c68e426a6e19ce0a4105aa4cb24410f31aec0c</td><td>feat(embeddedApp): add Edge connection</td><td>Agregado de comentario dentro del Edge Connection</td><td>2025-11-09</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>70c69636bd4a06a3de442ddee7edbe419e31b521</td><td>feat(embeddedApp): updated sketch_nov8a.ino</td><td>Agregado de comentarios dentro del sketch</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>fb7048bfb887045ab99715fcf7613795a04c37c0</td><td>feat(embeddedApp): update CommandHandler</td><td>Agregado de comentarios dentro del CommandHandler</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>9b3c55798b0ac27098176ca96a895ebbb8f4d772</td><td>feat(embeddedApp): update Controller</td><td>Agregado de comentarios dentro del Controller</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>f1d508f4230e58f5ed86a36418bbbc4f2f72409d</td><td>feat(embeddedApp): update DHTSensor.cpp</td><td>Agregado de comentarios dentro del DHTSensor</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>6d78c04badc1d71a8f6dbbcd16d38d207d7a26c2</td><td>feat(embeddedApp): update DHTSensor.h</td><td>Agregado de comentarios dentro del DHTSensor</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>8bc6694c94144bab34ce22e8d5d21c798166ca17</td><td>feat(embeddedApp): update DataController</td><td>Agregado de comentarios dentro del DataController</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>6d03981b0b9c6741a81ef1f143ffecdec9556d69</td><td>feat(embeddedApp): update EdgeCommunicatorHttp</td><td>Agregado de comentarios dentro del EdgeCommunicatorHttp</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>2d96ae1b310422c92419c02a882675479a6fc4cb</td><td>feat(embeddedApp): update Event</td><td>Agregado de comentarios dentro del Event</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>cfcb3d52ce89360099d10ee674e66c65c6a0c008</td><td>feat(embeddedApp): update GPSSensor.cpp</td><td>Agregado de comentarios dentro del GPSSensor</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>bd0f87c1da0df7e02a04a82cc015e1a93805023e</td><td>feat(embeddedApp): update GPSSensor.h</td><td>Agregado de comentarios dentro del GPSSensor</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>c074e1b8a2f6b8de58d53a814940be016c2e2b99</td><td>feat(embeddedApp): update ModestIoT.h</td><td>Agregado de comentarios dentro del ModestIoT</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>105712431f951d86ccea2ed3f62b715d9885a8f6</td><td>feat(embeddedApp): update sketch_nov8a.ino</td><td>Agregado de comentarios dentro del sketch</td><td>2025-11-11</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>089b8e30a0ec7baf8cc72a3cf91ea52280163daf</td><td>feat(embeddedApp): update sketch_nov8a.ino</td><td>Agregado de comentarios dentro del sketch</td><td>2025-11-12</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>7436035d14c7010729f007ec1c44c7ea0f7758e8</td><td>refactor(embeddedApp): update DHTSensor.h</td><td>Agregado de actuador Led dentro del DHTSensor</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>c9c671a69cc2588f9a798cc9dde390cf7f7361a9</td><td>refactor(embeddedApp): update DHTSensor.cpp</td><td>Agregado de actuador Led dentro del DHTSensor</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>38fa8443722cb412b16f38fd00946e1fcff1a3ce</td><td>refactor(embeddedApp): update sketch_nov8a.ino</td><td>Agregado de actuador Led dentro del sketch</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>18b472e7f10719f979ca4042fc6a168f1b6d1987</td><td>refactor(embeddedApp): update DHTSensor.h</td><td>Código actualizado de actuador Led dentro del DHTSensor</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>62a5573bab86f8440ec8817d51ee9a450e3d7543</td><td>refactor(embeddedApp): update DHTSensor.cpp</td><td>Código actualizado de actuador Led dentro del DHTSensor</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>815cae4d476241034a7b14c0c092ebcc23bb90f6</td><td>refactor(embeddedApp): update sketch_nov8a.ino</td><td>Código actualizado de actuador Led dentro del sketch</td><td>2025-11-13</td></tr>
+
+  <tr><td>iot-solutions-development-cargasafe-embedded-application</td><td>main</td><td>6fb58d7299e45e104c99599d49c6762dfae59c7a</td><td>fix(embeddedApp): update sketch_nov8a.ino</td><td>Código actualizado de actuador Led dentro del sketch</td><td>2025-11-14</td></tr>
+
+  </tbody>
+</table>
+
+
+
+#### 6.2.2.5. Testing Suite Evidence for Sprint Review.
+
+En esta sección se presenta el conjunto de pruebas automatizadas implementadas para el proyecto CargaSafe durante el Sprint 2. La suite de testing incluye Unit Tests, Integration Tests y Acceptance Tests (BDD) diseñados para verificar el correcto funcionamiento de los servicios web relacionados con el monitoreo en tiempo real de condiciones de carga durante el transporte.
+
+##### Alcance del Testing
+
+El alcance de esta suite de pruebas cubre los siguientes componentes de la aplicación:
+
+**Componentes Testeados:**
+
+- **Domain Layer**: `MonitoringSession` (Aggregate Root), `TelemetryData` (Entity), Commands, Queries y Domain Events
+- **Application Layer**: `MonitoringSessionCommandServiceImpl`, `TelemetryCommandServiceImpl`, `MonitoringSessionQueryServiceImpl`, `TelemetryQueryServiceImpl`
+- **Infrastructure Layer**: `IMonitoringSessionRepository`, `ITelemetryDataRepository`
+- **Interface Layer**: `MonitoringController` (REST API), `TelemetryController` (REST API)
+
+##### Unit Tests
+
+Los Unit Tests se enfocan en probar la lógica de negocio de manera aislada, sin dependencias externas.
+
+**MonitoringSessionTest** - `src/test/java/Proyect/IoTParkers/monitoring/unit/MonitoringSessionTest.java`
+
+Comportamientos probados (12 tests):
+- Creación de sesiones de monitoreo con estado ACTIVE
+- Transiciones de estado: pausar, reanudar y completar sesiones
+- Validación de reglas de negocio (no pausar sesión inactiva, no completar sesión ya completada)
+- Gestión de datos de telemetría asociados a la sesión
+
+**TelemetryDataTest** - `src/test/java/Proyect/IoTParkers/monitoring/unit/TelemetryDataTest.java`
+
+Comportamientos probados (7 tests):
+- Creación de datos de telemetría con parámetros de temperatura, humedad, vibración y GPS
+- Validación de valores extremos de temperatura (-40°C a 60°C)
+- Validación de rangos de humedad (0% a 100%)
+- Validación de niveles de vibración (0.0 a 5.0)
+- Verificación de coordenadas GPS válidas para Lima, Perú
+
+![Unit Tests Evidence](assets/UnitTestEvidence.png)
+
+##### Integration Tests
+
+Los Integration Tests verifican el funcionamiento completo del sistema incluyendo persistencia, servicios y repositorios.
+
+**MonitoringSessionServiceIntegrationTest** (7 tests):
+- Inicio de sesión a través del command service con persistencia en base de datos
+- Creación de múltiples sesiones con IDs únicos
+- Búsqueda de sesiones por ID de dispositivo
+- Actualización de estado de sesión
+- Ciclo completo de vida: start → pause → resume → complete
+
+**TelemetryDataServiceIntegrationTest** (8 tests):
+- Agregación de telemetría a sesión activa
+- Recuperación de telemetría por sesión
+- Manejo de valores extremos de temperatura y vibración
+- Rastreo de coordenadas GPS precisas
+- Validación de orden cronológico de datos
+
+![Integration Tests Evidence](assets/IntegrationTestEvidence.png)
+
+##### Acceptance Tests (BDD)
+
+Los Acceptance Tests utilizan Cucumber con Gherkin para definir escenarios en lenguaje natural.
+
+**Feature Files implementados:**
+
+1. **monitoring-session-management.feature** (8 escenarios)
+   - Relacionado con User Story: "Como Gestor de Transporte, quiero iniciar sesiones de monitoreo para rastrear condiciones de carga en tiempo real"
+   - Escenarios clave:
+     * Iniciar nueva sesión de monitoreo exitosamente
+     * Pausar, reanudar y completar sesiones
+     * Validar transiciones de estado
+     * Ciclo completo de vida de sesión
+
+2. **telemetry-data-capture.feature** (10 escenarios)
+   - Relacionado con User Story: "Como Sistema IoT, quiero capturar datos de telemetría para proporcionar información en tiempo real"
+   - Escenarios clave:
+     * Capturar datos con todos los parámetros (temperatura, humedad, vibración, GPS)
+     * Manejar temperaturas extremas (-40°C y 60°C)
+     * Detectar vibración elevada (5.0)
+     * Capturar múltiples lecturas en secuencia
+     * Rechazar datos en sesión inactiva
+
+3. **real-time-monitoring.feature** (11 escenarios)
+   - Relacionado con User Story: "Como Gestor de Transporte, quiero monitorear en tiempo real para tomar acciones inmediatas"
+   - Escenarios clave:
+     * Visualizar estado actual de temperatura y humedad
+     * Detectar valores fuera de rango
+     * Monitorear múltiples vehículos simultáneamente
+     * Recibir alertas de vibración excesiva
+     * Rastrear ubicación GPS en tiempo real
+
+##### Repositorio y Commits de Testing
+
+**Repositorio**: [`iot-solutions-development-cargasafe-backend`  ](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend)
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|-----------|---------|-----------|----------------|---------------------|---------------------|
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | e4aaf65 | test: add unit tests for MonitoringSession | Implemented 12 unit tests covering session lifecycle, state transitions, and telemetry management | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 7c2bd91 | test: add unit tests for TelemetryData | Implemented 7 unit tests for TelemetryData entity covering temperature, humidity, vibration, and GPS validation | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 3f8e4a2 | test: add integration tests for monitoring services | Implemented 15 integration tests covering services with database persistence | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 9d1c7b5 | test: add BDD scenarios for session management | Created 8 Gherkin scenarios for monitoring session lifecycle | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 2a6f3e8 | test: add BDD scenarios for telemetry capture | Created 10 Gherkin scenarios for telemetry data capture and validation | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 5b9d2c1 | test: add BDD scenarios for real-time monitoring | Created 11 Gherkin scenarios for real-time monitoring and alerts | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 8e4a7f3 | test: implement Cucumber steps for monitoring | Implemented step definitions with Spring integration | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 6c1b9d4 | test: implement Cucumber steps for telemetry | Implemented step definitions with data table support | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 4f7e2a9 | test: configure Cucumber runner | Configured test runner, Spring integration, and H2 database | 14/11/2025 |
+
+##### Resumen de Cobertura
+
+| Tipo de Test | Cantidad de Tests | Componentes Cubiertos |
+|--------------|-------------------|----------------------|
+| **Unit Tests** | 19 tests | 2 clases de dominio (MonitoringSession, TelemetryData) |
+| **Integration Tests** | 15 tests | 4 servicios + 2 repositorios + persistencia |
+| **Acceptance Tests (BDD)** | 29 escenarios | Flujos completos end-to-end |
+| **Total** | **63 verificaciones** | **Domain, Application, Infrastructure e Interface Layers** |
+
+**Configuración de Testing:**
+
+- **Framework de Testing**: JUnit 5, Mockito, AssertJ
+- **BDD Framework**: Cucumber 7.20.1 con Gherkin en español
+- **Base de Datos de Pruebas**: H2 in-memory database
+- **Spring Boot Test**: Con contexto completo de aplicación
+
+Los tests garantizan la confiabilidad de la aplicación, proporcionando cobertura completa desde la lógica de dominio hasta los endpoints REST, y sirviendo como documentación ejecutable del comportamiento esperado del sistema.
+
+#### 6.2.2.6. Execution Evidence for Sprint Review.
+
+Durante este sprint se alcanzó la implementación funcional de la Landing Page y la Aplicación Web de CargaSafe, cumpliendo con los objetivos planteados en el alcance del sprint.  
+La landing fue desarrollada con HTML, CSS y Angular Material\*, enfocada en comunicar los beneficios del producto, sus planes de suscripción y la posibilidad de acceder directamente a la aplicación web.  
+Por otro lado, la aplicación web fue construida con Angular 20 bajo arquitectura modular standalone, integrándose con una Fake API (json-server) para simular la conexión con el backend y visualizar datos reales en tiempo de ejecución.
+
+
+
+#### 6.2.2.7. Services Documentation Evidence for Sprint Review
+
+Durante este Sprint se consolidó la documentación de los Web Services del backend IoTParkers (CargaSafe) utilizando OpenAPI 3.0 y Swagger UI, publicada en el endpoint:
+
+https://iot-solutions-development-cargasafe-fake.onrender.com/
+
+El código fuente de los Web Services se encuentra en el repositorio:
+
+https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend
+
+La documentación cubre los bounded contexts principales del sistema: Fleet Management (Vehicles y Devices), Monitoring, Telemetry, Alerts, Trips, Authentication, Merchants, Origin Points, Users y Employees.
+
+Gracias a esta especificación, el equipo puede descubrir, probar y validar los endpoints de forma interactiva, asegurando consistencia entre el diseño de la API y las implementaciones realizadas en este Sprint.
+
+A continuación, se presenta la tabla resumen de los endpoints documentados, indicando para cada uno el verbo HTTP, la ruta, parámetros principales, un resumen del response y la sección correspondiente dentro de Swagger UI.
+
+| Módulo  | Acción                     | Verbo  | Path                                     | Parámetros                            | Ejemplo de response                    | Swagger        |
+| ------- | -------------------------- | ------ | ---------------------------------------- | ------------------------------------- | -------------------------------------- | -------------- |
+| Devices | Obtener dispositivo por id | GET    | /api/v1/fleet/devices/{id}               | path: id (UUID)                       | 200 OK con DeviceDTO, 404 si no existe | /docs#/Devices |
+| Devices | Actualizar dispositivo     | PUT    | /api/v1/fleet/devices/{id}               | path: id; body: DeviceUpdateRequest   | 200 OK con DeviceDTO actualizado       | /docs#/Devices |
+| Devices | Eliminar dispositivo       | DELETE | /api/v1/fleet/devices/{id}               | path: id                              | 204 No Content, 404 si no existe       | /docs#/Devices |
+| Devices | Listar dispositivos        | GET    | /api/v1/fleet/devices                    | query opcional: page,size,online      | 200 OK lista paginada                  | /docs#/Devices |
+| Devices | Crear dispositivo          | POST   | /api/v1/fleet/devices                    | body: DeviceCreateRequest             | 201 Created con Location               | /docs#/Devices |
+| Devices | Actualizar firmware        | POST   | /api/v1/fleet/devices/{id}/firmware      | path: id; body: FirmwareUpdateRequest | 202 Accepted                           | /docs#/Devices |
+| Devices | Cambiar estado online      | PATCH  | /api/v1/fleet/devices/{id}/online        | path: id; body: OnlineStatusRequest   | 200 OK con nuevo estado                | /docs#/Devices |
+| Devices | Listar por estado online   | GET    | /api/v1/fleet/devices/by-online/{online} | path: online (true/false)             | 200 OK lista filtrada                  | /docs#/Devices |
+| Devices | Buscar por IMEI            | GET    | /api/v1/fleet/devices/by-imei/{imei}     | path: imei                            | 200 OK DeviceDTO, 404 si no existe     | /docs#/Devices |
+| Telemetry | Registrar telemetría          | POST  | /api/v1/telemetry                     | body: TelemetryRecordRequest | 201 Created (id del registro) | /docs#/Telemetry |
+| Telemetry | Obtener telemetría por sesión | GET   | /api/v1/telemetry/session/{sessionId} | path: sessionId              | 200 OK lista                  | /docs#/Telemetry |
+| Notifications | Obtener notificaciones de alerta | GET   | /api/v1/notifications/alert/{alertId} | path: alertId | 200 OK con canales  | /docs#/Notifications |
+| Incidents | Obtener incidentes de alerta | GET   | /api/v1/incidents/alert/{alertId} | path: alertId | 200 OK lista        | /docs#/Incidents |
+| Vehicles | Obtener vehículo por id | GET    | /api/v1/fleet/vehicles/{id}                        | path: id                             | 200 OK, 404 si no existe | /docs#/Vehicles |
+| Vehicles | Actualizar vehículo     | PUT    | /api/v1/fleet/vehicles/{id}                        | path: id; body: VehicleUpdateRequest | 200 OK actualizado       | /docs#/Vehicles |
+| Vehicles | Eliminar vehículo       | DELETE | /api/v1/fleet/vehicles/{id}                        | path: id                             | 204 No Content           | /docs#/Vehicles |
+| Vehicles | Listar vehículos        | GET    | /api/v1/fleet/vehicles                             | query: page,size,status,type         | 200 OK lista             | /docs#/Vehicles |
+| Vehicles | Crear vehículo          | POST   | /api/v1/fleet/vehicles                             | body: VehicleCreateRequest           | 201 Created              | /docs#/Vehicles |
+| Vehicles | Desasignar dispositivo  | POST   | /api/v1/fleet/vehicles/{id}/unassign-device/{imei} | path: id, imei                       | 200 OK                   | /docs#/Vehicles |
+| Vehicles | Asignar dispositivo     | POST   | /api/v1/fleet/vehicles/{id}/assign-device/{imei}   | path: id, imei                       | 200 OK                   | /docs#/Vehicles |
+| Vehicles | Cambiar estado          | PATCH  | /api/v1/fleet/vehicles/{id}/status                 | path: id; body: VehicleStatusRequest | 200 OK                   | /docs#/Vehicles |
+| Vehicles | Listar por tipo         | GET    | /api/v1/fleet/vehicles/by-type/{type}              | path: type                           | 200 OK lista             | /docs#/Vehicles |
+| Vehicles | Listar por estado       | GET    | /api/v1/fleet/vehicles/by-status/{status}          | path: status                         | 200 OK lista             | /docs#/Vehicles |
+| Vehicles | Buscar por placa        | GET    | /api/v1/fleet/vehicles/by-plate/{plate}            | path: plate                          | 200 OK o 404             | /docs#/Vehicles |
+| Authentication | Registro de usuario | POST  | /api/v1/authentication/sign-up | body: SignUpRequest       | 201 Created         | /docs#/Authentication |
+| Authentication | Inicio de sesión    | POST  | /api/v1/authentication/sign-in | body: SignInRequest       | 200 OK con tokens   | /docs#/Authentication |
+| Authentication | Revocar token       | POST  | /api/v1/authentication/revoke  | body: RevokeTokenRequest  | 204 No Content      | /docs#/Authentication |
+| Authentication | Refrescar token     | POST  | /api/v1/authentication/refresh | body: RefreshTokenRequest | 200 OK nuevo token  | /docs#/Authentication |
+| Merchants | Listar empresas        | GET   | /api/v1/merchants               | query: page,size                        | 200 OK paginado     | /docs#/Merchants |
+| Merchants | Crear empresa          | POST  | /api/v1/merchants               | body: MerchantCreateRequest             | 201 Created         | /docs#/Merchants |
+| Merchants | Agregar empleado       | POST  | /api/v1/merchants/{id}/employee | path: id; body: MerchantEmployeeRequest | 200 OK              | /docs#/Merchants |
+| Merchants | Obtener empresa por id | GET   | /api/v1/merchants/{id}          | path: id                                | 200 OK              | /docs#/Merchants |
+| Origin Points | Listar puntos | GET   | /api/v1/origin-points | query: page,size               | 200 OK paginado     | /docs#/Origin-Points |
+| Origin Points | Crear punto   | POST  | /api/v1/origin-points | body: OriginPointCreateRequest | 201 Created         | /docs#/Origin-Points |
+| Alerts | Listar alertas        | GET   | /api/v1/alerts                       | query: page,size,status,type | 200 OK paginado     | /docs#/Alerts |
+| Alerts | Crear alerta manual   | POST  | /api/v1/alerts                       | body: AlertCreateRequest     | 201 Created         | /docs#/Alerts |
+| Alerts | Cerrar alerta         | PATCH | /api/v1/alerts/{alertId}/close       | path: alertId                | 200 OK CLOSED       | /docs#/Alerts |
+| Alerts | Reconocer alerta      | PATCH | /api/v1/alerts/{alertId}/acknowledge | path: alertId                | 200 OK ACKNOWLEDGED | /docs#/Alerts |
+| Alerts | Obtener alerta por id | GET   | /api/v1/alerts/{alertId}             | path: alertId                | 200 OK o 404        | /docs#/Alerts |
+| Alerts | Listar por tipo       | GET   | /api/v1/alerts/type/{type}           | path: type                   | 200 OK lista        | /docs#/Alerts |
+| Alerts | Listar por estado     | GET   | /api/v1/alerts/status/{status}       | path: status                 | 200 OK lista        | /docs#/Alerts |
+| Monitoring | Crear sesión          | POST  | /api/v1/monitoring/sessions                    | body: MonitoringSessionCreateRequest | 201 Created         | /docs#/Monitoring |
+| Monitoring | Reanudar sesión       | POST  | /api/v1/monitoring/sessions/{sessionId}/resume | path: sessionId                      | 200 OK              | /docs#/Monitoring |
+| Monitoring | Pausar sesión         | POST  | /api/v1/monitoring/sessions/{sessionId}/pause  | path: sessionId                      | 200 OK              | /docs#/Monitoring |
+| Monitoring | Finalizar sesión      | POST  | /api/v1/monitoring/sessions/{sessionId}/end    | path: sessionId                      | 200 OK              | /docs#/Monitoring |
+| Monitoring | Obtener sesión por id | GET   | /api/v1/monitoring/sessions/{sessionId}        | path: sessionId                      | 200 OK              | /docs#/Monitoring |
+| Monitoring | Obtener por viaje     | GET   | /api/v1/monitoring/sessions/trip/{tripId}      | path: tripId                         | 200 OK              | /docs#/Monitoring |
+| Monitoring | Listar activas        | GET   | /api/v1/monitoring/sessions/active             | query: page,size                     | 200 OK lista        | /docs#/Monitoring |
+| Roles  | Listar roles | GET   | /api/v1/roles | query: page,size | 200 OK lista        | /docs#/Roles |
+| Trips  | Listar viajes        | GET   | /api/v1/trips                       | query: page,size,dateFrom,dateTo   | 200 OK lista             | /docs#/Trips |
+| Trips  | Crear viaje          | POST  | /api/v1/trips                       | body: TripCreateRequest            | 201 Created              | /docs#/Trips |
+| Trips  | Obtener viaje por id | GET   | /api/v1/trips/{tripId}              | path: tripId                       | 200 OK, 404 si no existe | /docs#/Trips |
+| Trips  | Buscar por rango     | GET   | /api/v1/trips/search                | query: startDate,endDate,page,size | 200 OK filtrado          | /docs#/Trips |
+| Trips  | Listar por empresa   | GET   | /api/v1/trips/merchant/{merchantId} | path: merchantId                   | 200 OK                   | /docs#/Trips |
+| Users  | Listar usuarios        | GET   | /api/v1/users          | query: page,size | 200 OK lista        | /docs#/Users |
+| Users  | Obtener usuario por id | GET   | /api/v1/users/{userId} | path: userId     | 200 OK o 404        | /docs#/Users |
+| Employees | Listar empleados        | GET   | /api/v1/employees                        | query: page,size | 200 OK              | /docs#/Employees |
+| Employees | Obtener empleado por id | GET   | /api/v1/employees/{id}                   | path: id         | 200 OK o 404        | /docs#/Employees |
+| Employees | Listar por empresa      | GET   | /api/v1/employees/merchants/{merchantId} | path: merchantId | 200 OK lista        | /docs#/Employees |
+
+- En la sección Devices, se utilizó el endpoint `POST /api/v1/fleet/devices` con un cuerpo de ejemplo (IMEI, tipo de dispositivo, descripción). Swagger muestra el request body esperado y, al pulsar “Try it out” y luego “Execute”, devuelve un 201 Created con el objeto `DeviceDTO` creado y el header `Location` apuntando al recurso recién creado.
+- En Vehicles, se probaron los filtros `GET /api/v1/fleet/vehicles/by-plate/{plate}` y `GET /api/v1/fleet/vehicles/by-status/{status}` usando datos de placas y estados registrados en la base de datos. Esto permitió validar los casos de uso de búsqueda rápida por placa y listado de flota activa.
+- En Monitoring y Telemetry, se creó una sesión de monitoreo (`POST /api/v1/monitoring/sessions`) y se enviaron registros de telemetría (`POST /api/v1/telemetry`) asociados a esa sesión. Posteriormente se consultaron los datos con `GET /api/v1/telemetry/session/{sessionId}` para verificar que la información se estaba almacenando y recuperando correctamente.
+- En el módulo Alerts, se probaron las transiciones de estado utilizando `PATCH /api/v1/alerts/{alertId}/acknowledge` y `PATCH /api/v1/alerts/{alertId}/close`, comprobando que el response actualiza el estado de la alerta y que los filtros `GET /api/v1/alerts/status/{status}` reflejan dichos cambios.
+
+Cada una de estas interacciones quedó registrada en Swagger y puede ser reproducida fácilmente por otros miembros del equipo, reduciendo la fricción al integrar el frontend web y la aplicación móvil con estos Web Services.
+
+Los cambios más relevantes asociados a la documentación y exposición de endpoints para este Sprint se registraron en los siguientes commits de la rama `main`:
+
+- `42e4452` – **feature(iam): add OpenApiConfiguration**
+    
+    Incorpora la configuración centralizada de OpenAPI para el backend, permitiendo generar el documento OAS 3.0 y habilitar Swagger UI para todos los bounded contexts.
+    
+- `cedbb18` – **chore(swagger): remove bearerAuth scheme from OpenAPI to disable Swagger authorize button**
+    
+    Ajusta el esquema de seguridad en la especificación OpenAPI, deshabilitando temporalmente el botón “Authorize” de Swagger para facilitar las pruebas locales sin JWT durante el Sprint.
+    
+- `f46d243` – **feat(fleet-management): expose PATCH /devices/{id}/online endpoint**
+    
+    Expone y documenta el endpoint `PATCH /api/v1/fleet/devices/{id}/online` dentro del módulo **Devices**, incluyendo su descripción, parámetros y ejemplo de response en Swagger UI.
+    
+- `c725c06` – **feat(fleet-management): expose PATCH /vehicles/{id}/status endpoint**
+    
+    Expone y documenta el endpoint `PATCH /api/v1/fleet/vehicles/{id}/status` dentro del módulo **Vehicles**, permitiendo cambiar el estado operativo del vehículo y visualizar el contrato en la documentación OpenAPI.
+
+#### 6.2.2.8. Software Deployment Evidence for Sprint Review
+
+Durante el Sprint 2, se realizó el despliegue del **backend de CargaSafe** utilizando **Render** como plataforma de hosting en la nube. Este despliegue permitió exponer los servicios REST desarrollados con Spring Boot, facilitando la integración con las aplicaciones web y móviles del proyecto.
+
+El backend fue configurado para ejecutarse en un entorno de producción con las siguientes características:
+
+- **Plataforma de Despliegue**: Render (render.com)
+- **Framework**: Spring Boot 3.x con Java 21
+- **Base de Datos**: PostgreSQL (proporcionado por Render)
+- **Documentación de API**: Swagger UI / OpenAPI 3.0
+- **URL de Despliegue**: https://iot-solutions-development-cargasafe.onrender.com/swagger-ui/index.html
+
+**Evidencia de Despliegue:**
+
+La siguiente captura de pantalla muestra la documentación interactiva de la API desplegada en Render, accesible a través de Swagger UI. Se pueden observar los diferentes bounded contexts implementados (Devices, Vehicles, Fleet Management) con sus respectivos endpoints REST documentados:
+
+![Swagger API Documentation - Backend Deployment](assets/WebServiceDeployEvidence.png)
+
+La interfaz de Swagger UI permite:
+- Explorar todos los endpoints disponibles organizados por bounded contexts
+- Visualizar los esquemas de datos (DTOs, Request/Response models)
+- Probar los endpoints directamente desde el navegador
+- Acceder a la especificación OpenAPI completa
+
+El despliegue en Render incluye:
+- Integración continua desde el repositorio GitHub
+- Configuración de variables de entorno para conexión a base de datos
+- Logs de aplicación accesibles para monitoreo y debugging
+- SSL/HTTPS habilitado por defecto para comunicación segura
+
+Este despliegue garantiza que los servicios backend estén disponibles de forma pública y estable, permitiendo que los equipos de frontend (web y móvil) puedan consumir las APIs para implementar las funcionalidades de monitoreo de carga en tiempo real.
+
+#### 6.2.2.9. Team Collaboration Insights during Sprint.
+
+Durante este sprint, el equipo de desarrollo trabajó de forma colaborativa en la implementación de las principales funcionalidades correspondientes al alcance definido: la Landing Page y la Aplicación Web de CargaSafe. A lo largo del proceso, se mantuvo una comunicación constante mediante GitHub y los canales del equipo, asegurando una adecuada distribución de tareas y el cumplimiento de los objetivos propuestos.<br>
+
+Los analíticos de GitHub reflejan la participación activa de todos los integrantes, evidenciando commits frecuentes, revisiones de código y fusiones entre ramas, lo que demuestra un flujo de trabajo coordinado y una integración continua del proyecto. Además, se promovió la retroalimentación mutua y la resolución conjunta de incidencias técnicas, fortaleciendo el liderazgo compartido y la cooperación dentro del equipo.<br>
+
+_Insights de Landing Page_<br>
+
+
+_Insights de Web Application_<br>
+
+
+_Insights de Web Services_<br>
+
+
+_Insights de Mobile Application_<br>
+
+
+_Insights de Edge Application_<br>
+
+
+_Insights de Embbended Application_<br>
+
+
+## 6.3. Validation Interviews.
+
+### 6.3.1. Diseño de Entrevistas.
+
+Para el proceso de validación con usuarios, se emplearon los Application User Flow Diagrams desarrollados previamente en el proyecto. Estos flujos describen el recorrido natural del usuario dentro de la aplicación CargaSafe y permiten evaluar la claridad, facilidad de uso y coherencia del sistema.
+Los flujos utilizados en esta sesión fueron:
+
+**User Flow de Monitoreo en Tiempo Real**
+Visualización de la temperatura, humedad, ubicación e indicador de estado del viaje.
+
+**User Flow de Detalle de Viaje**
+Acceso al historial o listado de viajes para revisar su estado (en proceso / completado), punto de origen y datos capturados.
+
+**User Flow de Alertas**
+Comportamiento del usuario ante una alerta generada (temperatura alta, desconexión, etc.).
+
+### 1. Preguntas generales:
+
+- ¿Cómo describirías tu experiencia general al usar la aplicación?
+
+- ¿Qué tan fácil o difícil te resultó entender la función principal del sistema?
+
+- ¿Te parece que la aplicación muestra demasiada información o la cantidad justa?
+
+- ¿Qué funcionalidad te pareció más útil o interesante? ¿Por qué?
+
+- ¿Cómo percibes la rapidez o fluidez de la aplicación al interactuar con ella?
+
+- ¿Qué te parecieron los mensajes, alertas o notificaciones dentro del sistema? ¿Te ayudaron a entender lo que esta pasando?
+
+- ¿Qué mejoras te gustaría ver en futuras versiones de la aplicación?
+
+### 2. Preguntas - Segmento: Clientes Finales (Consumidores finales)
+
+- ¿Qué datos le interesa conocer para tener una mayor confianza o seguridad en el servicio?
+
+- ¿Qué información adicional crees que te ayudaría a confiar más en el seguimiento en tiempo real?
+
+- ¿Qué información o alerta le gustaría recibir de forma inmediata ante un posible problema?
+
+### 3. Preguntas - Segmento: Empresa (Gestores de transporte)
+
+- ¿Considera que el sistema de monitoreo proporciona información relevante para la gestión de su flota o carga?
+
+- ¿Las funcionalidades actuales le permiten tener mayor control y visibilidad sobre sus operaciones logísticas?
+
+- ¿Hay alguna información o métrica que considere esencial y que no se esté mostrando actualmente?
+
+- ¿Qué variables (temperatura, humedad, ubicación) son las más críticas para usted y por qué?
+
+- ¿Qué herramientas o funcionalidades cree que hace falta al sistema para realizar su trabajo en el día a día?
+
+### 6.3.2. Registro de Entrevistas.
+
+#### Segmento 1: Empresa
+
+#### Segmento 2: Clientes finales
+
+### 6.3.3. Evaluaciones según heurísticas
+
+### 6.4. Video About-the-Product.
+
+Como parte del proceso de validación y comunicación de la solución propuesta, se desarrolló un video About the Product cuyo objetivo es explicar de manera clara y concisa el propósito del proyecto.
+
+El material también presenta las principales funcionalidades de la aplicación web, evidenciando cómo estas responden directamente a las necesidades reales de los usuarios y de las empresas dedicadas al transporte de carga sensible. Además, se incluye la reacción y aceptación de un entrevistado de cada segmento objetivo, lo que permite reforzar la pertinencia y el valor percibido de la solución.
+
+<img src="assets/abouttheproductscree.png">
+
+**Duración: 2:23**
+
+**Video en Microsoft Stream:** https://upcedupe-my.sharepoint.com/:v:/g/personal/u202019577_upc_edu_pe/IQCYKgWKcBrXR65PlG9NYDl6Adf84l5MqK0xFe_4ziO52dI?e=rNUkdK
+
+**Video en Youtube:** https://youtu.be/v0NPYFrI8V4 
+
+
 # Bibliografía
 
 Bogdanov, V. (2024, 23 octubre). _Real-Time Supply Chain Visibility: a Game-Changer_. rinf.tech. https://www.rinf.tech/real-time-supply-chain-visibility-a-game-changer/
@@ -5548,3 +6544,4 @@ _Flock Freight | 2023 F&B Research Study._ (s. f.). https://www.flockfreight.co
 Perfectplanner. (2025, 30 enero). _Enhancing Supply Chain Visibility through Real-Time Tracking Technologies._ Perfect Planner. https://perfectplanner.io/enhancing-supply-chain-visibility/
 
 Technavio. (2024, 27 marzo). Cold Chain Logistics Market For Pharmaceuticals Industry size is set to grow by USD 12.81 bn from 2024-2028, Agility Public Warehousing Co. K.S.C.P, Air Canada & AVINEX, and more to emerge as Some of the Key Vendors, Technavio. PR Newswire. https://www.prnewswire.com/news-releases/cold-chain-logistics-market-for-pharmaceuticals-industry-size-is-set-to-grow-by-usd-12-81-bn-from-2024-2028--agility-public-warehousing-co-kscp-air-canada--avinex-and-more-to-emerge-as-some-of-the-key-vendors-technavio-302099252.html
+
