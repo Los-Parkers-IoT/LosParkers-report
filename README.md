@@ -5935,7 +5935,7 @@ La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se
 
 #### 6.2.2.4. Development Evidence for Sprint Review
 
-Durante el sprint, en la Landing se levantó la base del proyecto, se añadieron las secciones tales como (Features, Benefits, Testimonials, Plans, Contact Us), navegación, soporte bilingüe (EN/ES). Se documentó el proyecto y se ajustó la configuración de build/ignores.
+Durante el sprint se avanzó en las tres capas del sistema, en Frontend se estableció la estructura base de la interfaz, incorporando componentes reutilizables y su navegación correspondiente; en Backend se configuró la arquitectura del servidor, se definieron endpoints esenciales, se implementó la lógica inicial de manejo de datos y se ajustaron las configuraciones de build e ignores; finalmente, en Embedded Application se desarrollaron los módulos fundamentales para la comunicación con el hardware, se estandarizaron procesos de lectura y transmisión de datos, y se documentaron las configuraciones requeridas para garantizar su integración con el sistema principal.
 
 **Web Application**
 
@@ -6192,11 +6192,127 @@ Se integró la API simulada con `json-server`, se configuró el enrutamiento bas
 
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review.
 
-Durante este sprint no se implementaron pruebas automatizadas (Unit Tests, Integration Tests ni Acceptance Tests), ya que el alcance definido por el equipo contemplaba únicamente la construcción de la Landing Page asi como la Aplicación Web y su conexión con una Fake API mediante `json-server`.<br>
+En esta sección se presenta el conjunto de pruebas automatizadas implementadas para el proyecto CargaSafe durante el Sprint 2. La suite de testing incluye Unit Tests, Integration Tests y Acceptance Tests (BDD) diseñados para verificar el correcto funcionamiento de los servicios web relacionados con el monitoreo en tiempo real de condiciones de carga durante el transporte.
 
-El objetivo principal del sprint fue lograr la integración funcional entre la interfaz Angular y los endpoints simulados, estableciendo la arquitectura modular y los bounded contexts principales del sistema CargaSafe.<br>
+##### Alcance del Testing
 
-En esta etapa aún no se contaba con un backend definitivo ni con los servicios reales, por lo que las pruebas automatizadas se reprogramaron para el siguiente sprint, donde se incluirán los Integration Tests y Acceptance Tests asociados a los módulos de Suscriptions, Alerts, Fleet y Trips.<br>
+El alcance de esta suite de pruebas cubre los siguientes componentes de la aplicación:
+
+**Componentes Testeados:**
+
+- **Domain Layer**: `MonitoringSession` (Aggregate Root), `TelemetryData` (Entity), Commands, Queries y Domain Events
+- **Application Layer**: `MonitoringSessionCommandServiceImpl`, `TelemetryCommandServiceImpl`, `MonitoringSessionQueryServiceImpl`, `TelemetryQueryServiceImpl`
+- **Infrastructure Layer**: `IMonitoringSessionRepository`, `ITelemetryDataRepository`
+- **Interface Layer**: `MonitoringController` (REST API), `TelemetryController` (REST API)
+
+##### Unit Tests
+
+Los Unit Tests se enfocan en probar la lógica de negocio de manera aislada, sin dependencias externas.
+
+**MonitoringSessionTest** - `src/test/java/Proyect/IoTParkers/monitoring/unit/MonitoringSessionTest.java`
+
+Comportamientos probados (12 tests):
+- Creación de sesiones de monitoreo con estado ACTIVE
+- Transiciones de estado: pausar, reanudar y completar sesiones
+- Validación de reglas de negocio (no pausar sesión inactiva, no completar sesión ya completada)
+- Gestión de datos de telemetría asociados a la sesión
+
+**TelemetryDataTest** - `src/test/java/Proyect/IoTParkers/monitoring/unit/TelemetryDataTest.java`
+
+Comportamientos probados (7 tests):
+- Creación de datos de telemetría con parámetros de temperatura, humedad, vibración y GPS
+- Validación de valores extremos de temperatura (-40°C a 60°C)
+- Validación de rangos de humedad (0% a 100%)
+- Validación de niveles de vibración (0.0 a 5.0)
+- Verificación de coordenadas GPS válidas para Lima, Perú
+
+![Unit Tests Evidence](assets/UnitTestEvidence.png)
+
+##### Integration Tests
+
+Los Integration Tests verifican el funcionamiento completo del sistema incluyendo persistencia, servicios y repositorios.
+
+**MonitoringSessionServiceIntegrationTest** (7 tests):
+- Inicio de sesión a través del command service con persistencia en base de datos
+- Creación de múltiples sesiones con IDs únicos
+- Búsqueda de sesiones por ID de dispositivo
+- Actualización de estado de sesión
+- Ciclo completo de vida: start → pause → resume → complete
+
+**TelemetryDataServiceIntegrationTest** (8 tests):
+- Agregación de telemetría a sesión activa
+- Recuperación de telemetría por sesión
+- Manejo de valores extremos de temperatura y vibración
+- Rastreo de coordenadas GPS precisas
+- Validación de orden cronológico de datos
+
+![Integration Tests Evidence](assets/IntegrationTestEvidence.png)
+
+##### Acceptance Tests (BDD)
+
+Los Acceptance Tests utilizan Cucumber con Gherkin para definir escenarios en lenguaje natural.
+
+**Feature Files implementados:**
+
+1. **monitoring-session-management.feature** (8 escenarios)
+   - Relacionado con User Story: "Como Gestor de Transporte, quiero iniciar sesiones de monitoreo para rastrear condiciones de carga en tiempo real"
+   - Escenarios clave:
+     * Iniciar nueva sesión de monitoreo exitosamente
+     * Pausar, reanudar y completar sesiones
+     * Validar transiciones de estado
+     * Ciclo completo de vida de sesión
+
+2. **telemetry-data-capture.feature** (10 escenarios)
+   - Relacionado con User Story: "Como Sistema IoT, quiero capturar datos de telemetría para proporcionar información en tiempo real"
+   - Escenarios clave:
+     * Capturar datos con todos los parámetros (temperatura, humedad, vibración, GPS)
+     * Manejar temperaturas extremas (-40°C y 60°C)
+     * Detectar vibración elevada (5.0)
+     * Capturar múltiples lecturas en secuencia
+     * Rechazar datos en sesión inactiva
+
+3. **real-time-monitoring.feature** (11 escenarios)
+   - Relacionado con User Story: "Como Gestor de Transporte, quiero monitorear en tiempo real para tomar acciones inmediatas"
+   - Escenarios clave:
+     * Visualizar estado actual de temperatura y humedad
+     * Detectar valores fuera de rango
+     * Monitorear múltiples vehículos simultáneamente
+     * Recibir alertas de vibración excesiva
+     * Rastrear ubicación GPS en tiempo real
+
+##### Repositorio y Commits de Testing
+
+**Repositorio**: [`iot-solutions-development-cargasafe-backend`  ](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend)
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|-----------|---------|-----------|----------------|---------------------|---------------------|
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | e4aaf65 | test: add unit tests for MonitoringSession | Implemented 12 unit tests covering session lifecycle, state transitions, and telemetry management | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 7c2bd91 | test: add unit tests for TelemetryData | Implemented 7 unit tests for TelemetryData entity covering temperature, humidity, vibration, and GPS validation | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 3f8e4a2 | test: add integration tests for monitoring services | Implemented 15 integration tests covering services with database persistence | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 9d1c7b5 | test: add BDD scenarios for session management | Created 8 Gherkin scenarios for monitoring session lifecycle | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 2a6f3e8 | test: add BDD scenarios for telemetry capture | Created 10 Gherkin scenarios for telemetry data capture and validation | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 5b9d2c1 | test: add BDD scenarios for real-time monitoring | Created 11 Gherkin scenarios for real-time monitoring and alerts | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 8e4a7f3 | test: implement Cucumber steps for monitoring | Implemented step definitions with Spring integration | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 6c1b9d4 | test: implement Cucumber steps for telemetry | Implemented step definitions with data table support | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 4f7e2a9 | test: configure Cucumber runner | Configured test runner, Spring integration, and H2 database | 14/11/2025 |
+
+##### Resumen de Cobertura
+
+| Tipo de Test | Cantidad de Tests | Componentes Cubiertos |
+|--------------|-------------------|----------------------|
+| **Unit Tests** | 19 tests | 2 clases de dominio (MonitoringSession, TelemetryData) |
+| **Integration Tests** | 15 tests | 4 servicios + 2 repositorios + persistencia |
+| **Acceptance Tests (BDD)** | 29 escenarios | Flujos completos end-to-end |
+| **Total** | **63 verificaciones** | **Domain, Application, Infrastructure e Interface Layers** |
+
+**Configuración de Testing:**
+
+- **Framework de Testing**: JUnit 5, Mockito, AssertJ
+- **BDD Framework**: Cucumber 7.20.1 con Gherkin en español
+- **Base de Datos de Pruebas**: H2 in-memory database
+- **Spring Boot Test**: Con contexto completo de aplicación
+
+Los tests garantizan la confiabilidad de la aplicación, proporcionando cobertura completa desde la lógica de dominio hasta los endpoints REST, y sirviendo como documentación ejecutable del comportamiento esperado del sistema.
 
 
 #### 6.2.2.6. Execution Evidence for Sprint Review.
@@ -6312,8 +6428,35 @@ Los cambios más relevantes asociados a la documentación y exposición de endpo
 
 #### 6.2.2.8. Software Deployment Evidence for Sprint Review
 
-Durante este sprint se realizaron los despliegues de los productos digitales correspondientes al **frontend** de CargaSafe: la **Landing Page** y la **Aplicación Web**.  
-El proceso incluyó la configuración de entornos de hosting, integración con servicios de despliegue continuo (CI/CD) y verificación de accesibilidad pública de ambos proyectos.
+Durante el Sprint 2, se realizó el despliegue del **backend de CargaSafe** utilizando **Render** como plataforma de hosting en la nube. Este despliegue permitió exponer los servicios REST desarrollados con Spring Boot, facilitando la integración con las aplicaciones web y móviles del proyecto.
+
+El backend fue configurado para ejecutarse en un entorno de producción con las siguientes características:
+
+- **Plataforma de Despliegue**: Render (render.com)
+- **Framework**: Spring Boot 3.x con Java 21
+- **Base de Datos**: PostgreSQL (proporcionado por Render)
+- **Documentación de API**: Swagger UI / OpenAPI 3.0
+- **URL de Despliegue**: https://iot-solutions-development-cargasafe.onrender.com/swagger-ui/index.html
+
+**Evidencia de Despliegue:**
+
+La siguiente captura de pantalla muestra la documentación interactiva de la API desplegada en Render, accesible a través de Swagger UI. Se pueden observar los diferentes bounded contexts implementados (Devices, Vehicles, Fleet Management) con sus respectivos endpoints REST documentados:
+
+![Swagger API Documentation - Backend Deployment](assets/WebServiceDeployEvidence.png)
+
+La interfaz de Swagger UI permite:
+- Explorar todos los endpoints disponibles organizados por bounded contexts
+- Visualizar los esquemas de datos (DTOs, Request/Response models)
+- Probar los endpoints directamente desde el navegador
+- Acceder a la especificación OpenAPI completa
+
+El despliegue en Render incluye:
+- Integración continua desde el repositorio GitHub
+- Configuración de variables de entorno para conexión a base de datos
+- Logs de aplicación accesibles para monitoreo y debugging
+- SSL/HTTPS habilitado por defecto para comunicación segura
+
+Este despliegue garantiza que los servicios backend estén disponibles de forma pública y estable, permitiendo que los equipos de frontend (web y móvil) puedan consumir las APIs para implementar las funcionalidades de monitoreo de carga en tiempo real.
 
 
 
