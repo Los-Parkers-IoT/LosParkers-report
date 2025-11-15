@@ -6333,10 +6333,50 @@ Los tests garantizan la confiabilidad de la aplicación, proporcionando cobertur
 
 #### 6.2.2.6. Execution Evidence for Sprint Review.
 
-Durante este sprint se alcanzó la implementación funcional de la Landing Page y la Aplicación Web de CargaSafe, cumpliendo con los objetivos planteados en el alcance del sprint.  
-La landing fue desarrollada con HTML, CSS y Angular Material\*, enfocada en comunicar los beneficios del producto, sus planes de suscripción y la posibilidad de acceder directamente a la aplicación web.  
-Por otro lado, la aplicación web fue construida con Angular 20 bajo arquitectura modular standalone, integrándose con una Fake API (json-server) para simular la conexión con el backend y visualizar datos reales en tiempo de ejecución.
+Durante este sprint se logró el desarrollo funcional del frontend y backend de CargaSafe, cumpliendo con los objetivos establecidos para esta iteración. El trabajo se centró en construir las vistas principales del sistema en Angular Material y consolidar la conexión con el backend desarrollado en IntelliJ, el cual expone sus servicios mediante Swagger.
 
+En el frontend, se trabajó con Angular bajo arquitectura modular standalone. Se priorizó la creación de las vistas correspondientes a los módulos Vehicles, Sensors, Trips y Alerts, asegurando consistencia visual, navegación fluida y consumo correcto de los endpoints expuestos por el backend. Cada pantalla incluye tablas, formularios y componentes reutilizables que facilitan la gestión de la información.
+
+Por otro lado, el backend fue implementado en Java dentro de IntelliJ, estructurado en capas y utilizando controladores REST documentados con Swagger UI, lo que permite validar y probar cada operación. Se implementaron los endpoints iniciales necesarios para dar soporte al frontend y permitir la visualización y manipulación de datos en tiempo real.
+
+Gracias a la integración entre ambos entornos, el sistema ya permite comunicación efectiva mediante HTTP, mostrando datos reales provenientes del backend en las vistas del frontend.
+
+**Frontend**
+
+Vista principal del módulo Vehicles
+[![imageVehiclesFrontend.png](https://i.postimg.cc/TYpT00W0/image.png)](https://postimg.cc/xcVrTK5N)
+
+Vista del módulo Sensors con listado y detalles
+[![imageSensorsFrontend.png](https://i.postimg.cc/5tqJykDr/image.png)](https://postimg.cc/nszgwTFK)
+
+Pantalla del módulo Trips mostrando historial y estados de viajes
+[![imageTripsFrontend.png](https://i.postimg.cc/mkhWdZk0/image.png)](https://postimg.cc/gL97jWvD)
+
+Módulo Alerts con alertas activas, estados y acciones disponibles
+[![imageAlertsFrontend.png](https://i.postimg.cc/VsH8JtHm/image.png)](https://postimg.cc/Sj855nhv)
+
+Repositorio Frontend: [Repositorio de CargaSafe Frontend](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend)
+
+Aplicación en línea: [Enlace a CargaSafe Fleet Vehicles](https://carga-safe.web.app/fleet/vehicles)
+
+
+**Backend**
+
+Vehiculos
+[![image.png](https://i.postimg.cc/5t1chS6N/image.png)](https://postimg.cc/sMn0SSYt)
+
+Sensores
+[![image.png](https://i.postimg.cc/85Kqr84n/image.png)](https://postimg.cc/tZ6rLMLh)
+
+Viajes
+[![image.png](https://i.postimg.cc/Mp7Nmftd/image.png)](https://postimg.cc/hXG2Sjkd)
+
+Alertas
+[![image.png](https://i.postimg.cc/DZZNhjhg/image.png)](https://postimg.cc/d7b6m9Lk)
+
+Repositorio Backend: [Repositorio de CargaSafe Backend](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend)
+
+API en línea: [Swagger UI de CargaSafe Backend](https://iot-solutions-development-cargasafe.onrender.com/swagger-ui/index.html)
 
 
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review
