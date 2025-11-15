@@ -86,6 +86,7 @@
 
 ---
 
+
 # Project Report Collaboration Insights
 
 En esta sección, se registra las colaboraciones realizadas por los miembros del equipo durante el desarrollo del informe del proyecto. En primer lugar, se brinda el enlace del repositorio del reporte del proyecto en la plataforma GitHub.
@@ -6605,6 +6606,154 @@ Resalta como funciones más valiosas el control de temperatura, el seguimiento e
 Sobre mejoras, menciona la importancia de fortalecer la confianza y transparencia con el cliente, así como brindar más información sobre los conductores o historial de servicios para generar mayor seguridad. En general, afirma que la aplicación ofrece un servicio completo y útil que aporta valor real a su negocio.
 
 ### 6.3.3. Evaluaciones según heurísticas
+
+# UX Heuristics & Principles Evaluation  
+**Usability – Inclusive Design – Information Architecture**
+
+**CARRERA:** Ingeniería de Software  
+**CURSO:** Desarrollo de Soluciones IoT  
+**SECCIÓN:** 3443  
+**PROFESORES:** Todos  
+**AUDITOR:** Entrevistados  
+**CLIENTE(S):** Los Parkers  
+
+---
+
+## SITE o APP A EVALUAR
+**CargaSafe**
+
+## TAREAS A EVALUAR
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+- Visualización del dashboard principal con métricas de monitoreo  
+- Gestión de vehículos  
+- Gestión de dispositivos IoT  
+- Registro y gestión de viajes/trips  
+- Visualización y gestión de alertas del sistema  
+- Navegación entre módulos del sistema  
+
+**No están incluidas** en esta versión de la evaluación las siguientes tareas:
+
+- Registro e Inicio de Sesión  
+- Cierre de Sesión  
+- Visualización de Suscripciones  
+
+---
+
+## ESCALA DE SEVERIDAD
+
+Los errores serán puntuados con la siguiente escala:
+
+| Nivel | Descripción |
+|------|-------------|
+| **1** | Problema superficial: se supera fácilmente o es poco frecuente. Se corrige solo si hay tiempo. |
+| **2** | Problema menor: ocurre con mayor frecuencia o es algo difícil de superar. Prioridad baja para próximo release. |
+| **3** | Problema mayor: ocurre frecuentemente o los usuarios no pueden resolverlo. Prioridad alta. |
+| **4** | Problema muy grave: bloquea al usuario. Debe corregirse antes del lanzamiento. |
+
+---
+
+## TABLA RESUMEN
+
+| # | Problema | Severidad | Heurística/Principio violado |
+|---|----------|-----------|------------------------------|
+| 1 | Botón de eliminar vehículo no funciona | 4 | Usability: Visibilidad del estado del sistema |
+| 2 | Botón "Ver más detalles" en alertas no muestra información | 4 | Usability: Visibilidad del estado del sistema |
+| 3 | Inconsistencia de idioma en interfaz | 2 | Usability: Consistencia y estándares |
+| 4 | Texto truncado en filtro "Created Between" | 2 | Usability: Estética y diseño minimalista |
+| 5 | Inconsistencia de idioma en dropdown de estado de viajes | 2 | Usability: Consistencia y estándares |
+
+---
+
+# DESCRIPCIÓN DE PROBLEMAS
+
+---
+
+## PROBLEMA 1: Botón de eliminar vehículo no funciona  
+**Severidad:** 4  
+**Heurística violada:** Usability – Visibilidad del estado del sistema  
+
+### Problema
+En la sección de Vehículos, al intentar eliminar un vehículo clicando el ícono de papelera, la acción no se ejecuta y no se muestra feedback. No hay confirmación, mensaje de error ni indicación de restricciones. Esto bloquea la gestión correcta de vehículos.
+
+[![imageheu1.png](https://i.postimg.cc/nzzqwq13/image.png)](https://postimg.cc/wtCt1yZN)
+
+
+### Recomendación
+- Implementar correctamente la funcionalidad de eliminación.  
+- Agregar modal de confirmación.  
+- Mostrar mensajes claros si existen restricciones.  
+- Proveer feedback visual inmediato de éxito o error.  
+
+---
+
+## PROBLEMA 2: Botón "Ver más detalles" en alertas no muestra información  
+**Severidad:** 4  
+**Heurística violada:** Usability – Visibilidad del estado del sistema  
+
+### Problema
+En la sección Alerts, el botón "Ver más detalles" no muestra información adicional pese a que el usuario espera datos completos de la alerta (timestamp, sensor, ubicación). Esto impide evaluar incidentes críticos.
+
+[![imageheu2.png](https://i.postimg.cc/C587mjhp/image.png)](https://postimg.cc/kRnW5RRT)
+
+### Recomendación
+- Implementar el despliegue detallado de la alerta.  
+- Incluir timestamp, datos del sensor, ubicación, historial, acciones previas.  
+- Deshabilitar el botón si no hay información.  
+- Proporcionar feedback visual inmediato.  
+
+---
+
+## PROBLEMA 3: Inconsistencia de idioma en interfaz  
+**Severidad:** 2  
+**Heurística violada:** Usability – Consistencia y estándares  
+
+### Problema
+La interfaz mezcla inglés y español. Ejemplo: secciones en inglés pero un botón “Ver más detalles” en español. Esto genera confusión y falta de profesionalismo.
+
+[![imageheu3.png](https://i.postimg.cc/Pr4Yh6FR/image.png)](https://postimg.cc/tYsYNzb3)
+
+### Recomendación
+- Definir un idioma principal.  
+- Traducir todos los elementos de la interfaz.  
+- Implementar sistema de internacionalización (i18n).  
+- Agregar selector de idioma si corresponde.  
+
+---
+
+## PROBLEMA 4: Texto truncado en filtro "Created Between"  
+**Severidad:** 2  
+**Heurística violada:** Usability – Estética y diseño minimalista  
+
+### Problema
+El texto “Created Betw...” aparece truncado en el filtro de fecha en Trips, afectando legibilidad y estética.
+
+[![imageheu4.png](https://i.postimg.cc/d30vCVwT/image.png)](https://postimg.cc/jwBG0KWs)
+
+### Recomendación
+- Ajustar ancho del contenedor.  
+- Usar textos más cortos como “Date Range”.  
+- Implementar sistema responsive.  
+- Añadir tooltip con texto completo.  
+
+---
+
+## PROBLEMA 5: Inconsistencia de idioma en dropdown de estado de viajes  
+**Severidad:** 2  
+**Heurística violada:** Usability – Consistencia y estándares  
+
+### Problema
+El dropdown de estado mezcla inglés (“Status”, “All”) con español (“Completado”, “Cancelado”). Esto rompe la consistencia del componente.
+
+[![imageheu5.png](https://i.postimg.cc/3N6MDjLp/image.png)](https://postimg.cc/fSxqGdQT)
+
+### Recomendación
+- Unificar idioma del label y opciones.  
+- Si se usa inglés: All, Completed, Cancelled, In Progress, Scheduled.  
+- Si se usa español: Todos, Completado, Cancelado, En curso, Programado.  
+- Revisar todos los dropdowns para asegurar consistencia global.  
+
+---
 
 ### 6.4. Video About-the-Product.
 
