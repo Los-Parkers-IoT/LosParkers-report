@@ -6363,16 +6363,16 @@ Aplicación en línea: [Enlace a CargaSafe Fleet Vehicles](https://carga-safe.we
 **Backend**
 
 Vehiculos
-[![image.png](https://i.postimg.cc/5t1chS6N/image.png)](https://postimg.cc/sMn0SSYt)
+[![imageVehiBack.png](https://i.postimg.cc/5t1chS6N/image.png)](https://postimg.cc/sMn0SSYt)
 
 Sensores
-[![image.png](https://i.postimg.cc/85Kqr84n/image.png)](https://postimg.cc/tZ6rLMLh)
+[![imageSensorBack.png](https://i.postimg.cc/85Kqr84n/image.png)](https://postimg.cc/tZ6rLMLh)
 
 Viajes
-[![image.png](https://i.postimg.cc/Mp7Nmftd/image.png)](https://postimg.cc/hXG2Sjkd)
+[![imageTripBack.png](https://i.postimg.cc/zXFK8JfH/image.png)](https://postimg.cc/xcqcPVM9)
 
 Alertas
-[![image.png](https://i.postimg.cc/DZZNhjhg/image.png)](https://postimg.cc/d7b6m9Lk)
+[![imageAlertBack.png](https://i.postimg.cc/DZZNhjhg/image.png)](https://postimg.cc/d7b6m9Lk)
 
 Repositorio Backend: [Repositorio de CargaSafe Backend](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend)
 
