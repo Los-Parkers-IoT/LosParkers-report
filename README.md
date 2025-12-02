@@ -72,6 +72,8 @@
   </div>
 </div>
 
+<div style="page-break-after: always;"></div>
+
 # Registro de Versiones del Informe
 
 | Versión | Fecha      | Autor            | Descripción de modificación                                                                                                                                                                                                                                                                                                                              |
@@ -84,7 +86,10 @@
 | 2.2     | 09/10/2025 | Marcelo          | Se agrego proceso de event storming con sus resultados finales                   |
 | 3.0     | 14/11/2025 | Daniel          | Se añadió un nuevo Sprint sobre el desarrollo de los productos                    |
 
+**falta llenar**
 ---
+
+<div style="page-break-after: always;"></div>
 
 
 # Project Report Collaboration Insights
@@ -176,6 +181,8 @@ _Commits_
 - El equipo considera que hubo una ligera mejor organización durante la realización de la TB2.
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 # Contenido
 
@@ -410,6 +417,16 @@ _Tabla de contenidos_
       - [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
       - [6.2.2.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
       - [6.2.2.9. Team Collaboration Insights during Sprint.](#6229-team-collaboration-insights-during-sprint)
+      - [6.2.3. Sprint 3](#623-sprint-3)
+      - [6.2.3.1. Sprint Planning 3.](#6231-sprint-planning-3)
+      - [6.2.3.2. Aspect Leaders and Collaborators.](#6232-aspect-leaders-and-collaborators)
+      - [6.2.3.3. Sprint Backlog 3.](#6233-sprint-backlog-3)
+      - [6.2.3.4. Development Evidence for Sprint Review](#6234-development-evidence-for-sprint-review)
+      - [6.2.3.5. Testing Suite Evidence for Sprint Review.](#6235-testing-suite-evidence-for-sprint-review)
+      - [6.2.3.6. Execution Evidence for Sprint Review.](#6236-execution-evidence-for-sprint-review)
+      - [6.2.3.7. Services Documentation Evidence for Sprint Review](#6237-services-documentation-evidence-for-sprint-review)
+      - [6.2.3.8. Software Deployment Evidence for Sprint Review](#6238-software-deployment-evidence-for-sprint-review)
+      - [6.2.3.9. Team Collaboration Insights during Sprint.](#6239-team-collaboration-insights-during-sprint)
   - [6.3. Validation Interviews](#63-validation-interviews)
     - [6.3.1. Diseño de Entrevistas](#63-diseno-de-entrevistas)
     - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
@@ -419,6 +436,8 @@ _Tabla de contenidos_
   - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
   - [Video About The Team](#video-about-the-team)
 - [Bibliografía](#bibliografía)
+
+<div style="page-break-after: always;"></div>
 
 # Student Outcome
 
@@ -535,6 +554,8 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
 </table>
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 # Capítulo I: Introducción
 
@@ -967,6 +988,8 @@ Los clientes finales son los consumidores de los productos transportados por las
 - **Edad:** Mayor a 18 años
 - **Ubicación:** Lima, Peru
 - **Nivel Socioeconomico:** Medio a alto
+
+<div style="page-break-after: always;"></div>
 
 # Capítulo II: Requirements Elicitation & Analysis
 
@@ -1683,6 +1706,8 @@ Porcentaje de viajes que se completaron sin violaciones de temperatura en un per
 **Alert Response Time (Tiempo de Respuesta a Alertas)**  
 Métrica que mide el tiempo transcurrido entre la generación de una alerta y la implementación de acciones correctivas por parte del equipo operativo.
 
+<div style="page-break-after: always;"></div>
+
 # Capítulo III: Requirements Specification
 
 ## 3.1. User Stories
@@ -1812,6 +1837,8 @@ Métrica que mide el tiempo transcurrido entre la generación de una alerta y la
 <img src="assets/productbacklog2.png">
 
 **Link del Jira:** [Click aquí para ver el jira](https://reales-iot.atlassian.net/jira/software/projects/CS/boards/9/backlog?atlOrigin=eyJpIjoiNzc2ZGE3MGQ2OTk0NGRkZmEyZDczNGE4NDI4MTc1YWUiLCJwIjoiaiJ9)
+
+<div style="page-break-after: always;"></div>
 
 # Capítulo IV: Solution Software Design
 
@@ -4630,6 +4657,8 @@ El diseño de base de datos de Merchant está orientado a datos transaccionales 
 
 Se incluyen índices por merchant_id, estado y rangos de fechas; claves foráneas para integridad; y idempotencia en WEBHOOK_EVENTS para procesar de forma segura los webhooks del proveedor de pagos.
 
+<div style="page-break-after: always;"></div>
+
 # Capítulo V: Solution UI/UX Design
 
 ## 5.1. Style Guidelines.
@@ -5037,6 +5066,8 @@ El sistema prioriza la visualización inmediata de datos críticos mediante card
 
 **Enlace al prototipo interactivo en Figma (Mobile):**
 [Ver prototipo móvil en Figma](https://www.figma.com/proto/rHPICavCttYoZqv0nnf5Xg/Mobile-app?node-id=56-271&p=f&t=ACRzMys3FStab7UA-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=56%3A271&show-proto-sidebar=1)
+
+<div style="page-break-after: always;"></div>
 
 # Capítulo VI: Product Implementation, Validation & Deployment
 
@@ -6571,6 +6602,25 @@ _Insights de Embbended Application_<br>
 
 ![LandingPage - Insigiht](assets/Embedded_Insigiht.png)
 
+### 6.2.3. Sprint 3
+
+#### 6.2.3.1. Sprint Planning 3.
+
+#### 6.2.3.2. Aspect Leaders and Collaborators.
+
+#### 6.2.3.3. Sprint Backlog 3.
+
+#### 6.2.3.4. Development Evidence for Sprint Review
+
+#### 6.2.3.5. Testing Suite Evidence for Sprint Review.
+
+#### 6.2.3.6. Execution Evidence for Sprint Review.
+
+#### 6.2.3.7. Services Documentation Evidence for Sprint Review
+
+#### 6.2.3.8. Software Deployment Evidence for Sprint Review
+
+#### 6.2.3.9. Team Collaboration Insights during Sprint.
 
 ## 6.3. Validation Interviews.
 
