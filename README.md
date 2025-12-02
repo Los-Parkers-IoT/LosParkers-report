@@ -8,7 +8,7 @@
     <br />
     <strong>Universidad Peruana de Ciencias Aplicadas</strong>
     <br /><br />
-    <strong>Carrera de ingeniería de Software</strong>
+    <strong>Carrera de Ingeniería de Software</strong>
     <br /><br />
     <strong>Ciclo 202520</strong>
     <br /><br />
@@ -65,7 +65,7 @@
       </table>
       <p style="text-align: center">
         <br />
-        <strong>Octubre 2025</strong>
+        <strong>Diciembre 2025</strong>
       </p>
     </div>
 
@@ -181,9 +181,6 @@ _Commits_
 
 _Tabla de contenidos_
 
-- [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
-- [Project Report Collaboration Insights](#project-report-collaboration-insights)
-  - [TB1 Project Report Collaboration Insights](#tb1-project-report-collaboration-insights)
 - [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
 - [Capítulo I: Introducción](#capítulo-i-introducción)
@@ -418,6 +415,9 @@ _Tabla de contenidos_
     - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
     - [6.3.3. Evaluaciones según heurísticas](#633-evaluaciones-segun-heurísticas)
   - [6.4. Video About-the-Product](#64-about-the-product)
+- [Conclusiones](#conclusiones)
+  - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
+  - [Video About The Team](#video-about-the-team)
 - [Bibliografía](#bibliografía)
 
 # Student Outcome
@@ -6854,6 +6854,14 @@ El material también presenta las principales funcionalidades de la aplicación 
 
 **Video en Youtube:** https://youtu.be/v0NPYFrI8V4 
 
+# Conclusiones
+
+### Conclusiones y recomendaciones.
+### Video About-the-Team.
+
+<img src="assets/Logo.png">
+
+**Video en Youtube:** https://www.youtube.com/watch?v=gPWvu15rknA 
 
 # Bibliografía
 
@@ -6865,3 +6873,4 @@ Perfectplanner. (2025, 30 enero). _Enhancing Supply Chain Visibility through Rea
 
 Technavio. (2024, 27 marzo). Cold Chain Logistics Market For Pharmaceuticals Industry size is set to grow by USD 12.81 bn from 2024-2028, Agility Public Warehousing Co. K.S.C.P, Air Canada & AVINEX, and more to emerge as Some of the Key Vendors, Technavio. PR Newswire. https://www.prnewswire.com/news-releases/cold-chain-logistics-market-for-pharmaceuticals-industry-size-is-set-to-grow-by-usd-12-81-bn-from-2024-2028--agility-public-warehousing-co-kscp-air-canada--avinex-and-more-to-emerge-as-some-of-the-key-vendors-technavio-302099252.html
 
+# Anexos
