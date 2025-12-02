@@ -6907,6 +6907,15 @@ El material también presenta las principales funcionalidades de la aplicación 
 # Conclusiones
 
 ### Conclusiones y recomendaciones.
+
+#### Conclusiones
+
+El trabajo permitió validar que el problema identificado en el Lean UX, la falta de visibilidad en tiempo real y la ausencia de trazabilidad confiable en el transporte de productos sensibles, es real y crítico para los segmentos estudiados. Las entrevistas confirmaron la mayoría de los Assumptions planteados, especialmente la necesidad de alertas inmediatas, reportes automáticos y paneles simples, así como la disposición de las empresas a utilizar un modelo de suscripción. Asimismo, las hipótesis fueron parcialmente comprobadas mediante la interacción con prototipos, evidenciando mejoras potenciales en eficiencia operativa y capacidad de respuesta. En conjunto, los resultados de las validaciones demostraron que CargaSafe responde adecuadamente a lo criterios de éxito propuestos, alineando investigación, diseño UX y arquitectura técnica en una solución viable y de alto valor para los usuarios.
+
+#### Recomendaciones
+
+Se recomienda priorizar en el roadmap el desarrollo de las funcionalidades que demostraron mayor impacto en las validaciones: el sistema de alertas en tiempo real, la trazabilidad completa por viaje y la generación automática de reportes. Además, se sugiere incorporar la funcionalidad adicional detectada en campo, el enlace público de seguimiento, por su alto valor percibido para empresas y clientes. Finalmente, se aconseja realizar pilotos con empresas de alimentos y farmacéutica para validar métricas reales de reducción de incidentes y ajustar el producto antes de su escalamiento, asegurando que CargaSafe evolucione de forma consistente con las necesidades del mercado y los aprendizajes del proceso Lean UX.
+
 ### Video About-the-Team.
 
 <img src="assets/Logo.png">
@@ -6924,3 +6933,29 @@ Perfectplanner. (2025, 30 enero). _Enhancing Supply Chain Visibility through Rea
 Technavio. (2024, 27 marzo). Cold Chain Logistics Market For Pharmaceuticals Industry size is set to grow by USD 12.81 bn from 2024-2028, Agility Public Warehousing Co. K.S.C.P, Air Canada & AVINEX, and more to emerge as Some of the Key Vendors, Technavio. PR Newswire. https://www.prnewswire.com/news-releases/cold-chain-logistics-market-for-pharmaceuticals-industry-size-is-set-to-grow-by-usd-12-81-bn-from-2024-2028--agility-public-warehousing-co-kscp-air-canada--avinex-and-more-to-emerge-as-some-of-the-key-vendors-technavio-302099252.html
 
 # Anexos
+
+### Anexo A
+
+
+
+<div style="page-break-after: always;"></div>
+
+### Anexo B
+
+
+
+<div style="page-break-after: always;"></div>
+
+### Anexo C
+
+
+<div style="page-break-after: always;"></div>
+
+### Anexo D
+
+| Entrega | Título del Video                            | Enlace                      |
+| ------- | ------------------------------------------- | --------------------------- |
+| TB1     | Exposición TB1 – Los Parkers   | https://upcedupe-my.sharepoint.com/:v:/g/personal/u202019577_upc_edu_pe/IQB__9JdDMR3Sp5hkx8r3xaVAXQKwrhKGvuz_-3lt__hqA0?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=KhsSqw |
+| TP      | Exposición Trabajo Parcial – Los Parkers    | https://upcedupe-my.sharepoint.com/:v:/g/personal/u202019577_upc_edu_pe/IQAuWedvxLfdQpAtGeg8TGAoAdfKGt9f-XKRmEtmlZIQURc?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=n3jQpd |
+| TB2     | Exposición TB2 – Los Parkers   | https://upcedupe-my.sharepoint.com/:v:/g/personal/u202019577_upc_edu_pe/IQDxVSyUZZKuR7XInqth2LifAZf5JGs8kxoifj2Dvxsm6a8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=UfeLky  |
+| TF      | Exposición Final del Proyecto – Los Parkers |  |
