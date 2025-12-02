@@ -6934,24 +6934,72 @@ Technavio. (2024, 27 marzo). Cold Chain Logistics Market For Pharmaceuticals Ind
 
 # Anexos
 
-### Anexo A
+### Anexo A Artefactos visuales
 
 
 
 <div style="page-break-after: always;"></div>
 
-### Anexo B
+### Anexo B Evidencias Técnicas de Implementación
+
+_Vista inicial del encabezado principal y navegación_ <br>  
+![Landing Page – Sección de encabezado](assets/evidenceLandingPage1.png)
+<br>
+
+_Sección de planes de suscripción con precios y descripción de beneficios_ <br><br>
+![Landing Page – Seccion de precios](assets/evidenceLandingPage2.png)
+<br>
+_Dashboard principal con métricas de viajes, incidencias y alertas activas_ <br>
+![Web App – Dashboard](assets/evidenceAppWeb1.png)
+
+_Vista del módulo de alertas con listado, estado y acciones de resolución_ <br>
+![Web App – Alerts Module](assets/evidenceAppWeb2.png)
+
+_Panel principal de Firebase mostrando la compilación e implementación exitosa del proyecto_ <br>
+![Firebase Deployment – Compilación implementada](assets/evidenceDeploymentAppWeb1.png)
+
+_Historial de implementaciones y dominio activo del proyecto_ <br>
+
+![Firebase Deployment – Historial de versiones y dominios](assets/evidenceDeploymentAppWeb2.png)
+
+_Configuración y despliegue de la landing mediante GitHub Pages_ <br>
+![GitHub Pages Deployment – Landing Page](assets/evidenceDeploymnetLanding.png)
+
+_GitHub Actions_ <br>
+![GitHub Pages Deployment – Landing Page](assets/evidenceGitHubActions.png)
+<br>
+
+[![imageVehiclesFrontend.png](https://i.postimg.cc/TYpT00W0/image.png)](https://postimg.cc/xcVrTK5N)
+
+Vista del módulo Sensors con listado y detalles
+[![imageSensorsFrontend.png](https://i.postimg.cc/5tqJykDr/image.png)](https://postimg.cc/nszgwTFK)
+
+Pantalla del módulo Trips mostrando historial y estados de viajes
+[![imageTripsFrontend.png](https://i.postimg.cc/mkhWdZk0/image.png)](https://postimg.cc/gL97jWvD)
+
+Módulo Alerts con alertas activas, estados y acciones disponibles
+[![imageAlertsFrontend.png](https://i.postimg.cc/VsH8JtHm/image.png)](https://postimg.cc/Sj855nhv)
+[![imageVehiBack.png](https://i.postimg.cc/5t1chS6N/image.png)](https://postimg.cc/sMn0SSYt)
+
+Sensores
+[![imageSensorBack.png](https://i.postimg.cc/85Kqr84n/image.png)](https://postimg.cc/tZ6rLMLh)
+
+Viajes
+[![imageTripBack.png](https://i.postimg.cc/zXFK8JfH/image.png)](https://postimg.cc/xcqcPVM9)
+
+Alertas
+[![imageAlertBack.png](https://i.postimg.cc/DZZNhjhg/image.png)](https://postimg.cc/d7b6m9Lk)
+
+![Swagger API Documentation - Backend Deployment](assets/WebServiceDeployEvidence.png)
+
 
 
 
 <div style="page-break-after: always;"></div>
 
-### Anexo C
+### Anexo C Videos de Exposiciones
 
-
-<div style="page-break-after: always;"></div>
-
-### Anexo D
+Videos
 
 | Entrega | Título del Video                            | Enlace                      |
 | ------- | ------------------------------------------- | --------------------------- |
