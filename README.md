@@ -6936,6 +6936,60 @@ Technavio. (2024, 27 marzo). Cold Chain Logistics Market For Pharmaceuticals Ind
 
 ### Anexo A Artefactos visuales
 
+*Lean UX Canvas*
+
+<img src="assets/leanuxcanvas.png"/>
+
+
+
+*Design-Level EventStorming*
+
+*Step 1: Unstructured Exploration*   
+![Step 1](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%201.jpg)
+
+*Step 2: Timeline*  
+![Step 2](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%202.jpg)
+
+*Step 3: Pain Points*  
+![Step 3](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%203.jpg)
+
+*Step 4: Pivotal Points*  
+![Step 4](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%204.jpg)
+
+*Step 5: Commands*
+![Step 5](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%205.jpg)
+
+*Step 6: Policies* 
+![Step 6](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%206.jpg)
+
+*Step 7: Read Models* 
+![Step 7](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%207.jpg)
+
+*Step 8: External Systems*  
+![Step 8](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%208.jpg)
+
+*Step 9: Aggregates*  
+![Step 9](./assets/event-storming/Carga%20Safe%20Event%20Storming%20-%20Marco%209.jpg)
+
+*Bounded context canvases*
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_iam.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_profiles.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_subscriptions.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_alerts.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_fleet.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_tripManagement.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_realtimeMonitoring.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_analytics.png)
+
+![EventStorming – Bounded Context Canvases](assets/Canvases_merchant.png)
 
 
 <div style="page-break-after: always;"></div>
@@ -6997,7 +7051,24 @@ Alertas
 
 <div style="page-break-after: always;"></div>
 
-### Anexo C Videos de Exposiciones
+### Anexo C Videos de Entrevistas
+
+| Tipo | Nombre del entrevistado - Segmento | Enlace                      |
+| ------- | ------------------------------------------- | --------------------------- |
+| Recolección de datos     | Miguel Ruiz - Empresa  | [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=KIofFP&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7fX0%3D) |
+| Recolección de datos     | Mario Hinostroza - Empresa | [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=RHa6s0&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6NDQ5LjQ4fX0%3D) |
+| Recolección de datos     | Luis Torres Arevalo - Empresa| [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=yULe1a&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6ODE2LjY4fX0%3D) |
+| Recolección de datos     | Adrián Zapata - Cliente Final | [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=xwhjks&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTI1MS44OX19) |
+| Recolección de datos     | Brenda Calderon - Cliente Final | [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=xwhjks&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTI1MS44OX19) |
+| Recolección de datos     | Gabriel Díaz - Cliente Final | [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/EQnkVAuczH1LrYiGNF_7JdcBPW2RT-EsqX0thMbMGisRKg?e=q84dUy&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MjI0MS40NH19) |
+| Validación    | Henry Centurion - Empresa | [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCaPBt614hIT6IYV9oBEHJ_AQTjenHIuVf5s9fmKmGTlfc?e=hYNpBV&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D ) |
+| Validación    | Miguel Ruiz - Empresa | [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQDmuN0X_TVLR4JsZlVDObx9Af96wSlZZ9YyLTyjlrq4YlE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=uT9XJE ) |
+| Validación    | Adrián Zapata - Cliente Final| [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQArPbnl6OTFRrb-NZnapN2hAX28R9Csp8-r_7Ch38BlWFk?e=nJhOmB&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+| Validación    | Brenda Calderon - Cliente Final | [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCqtFhq7l8bTKDnwJXP7GCAAb5DJFOnhNqLSHd8F2HguHE?e=jEczfo&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+| Validación    | Gabriel Díaz - Cliente Final | [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCqtFhq7l8bTKDnwJXP7GCAAb5DJFOnhNqLSHd8F2HguHE?e=jEczfo&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+
+
+### Anexo D Videos de Exposiciones
 
 Videos
 
