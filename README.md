@@ -2280,165 +2280,231 @@ Esta infraestructura permite un sistema escalable, resiliente y con capacidades 
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
-### 4.2.1. Bounded Context: Identity and Access Management
+### 4.2.1. Bounded Context: Identity and Access Management (IAM)
 
-#### 4.2.1.1. Domain Layer
+---
 
-**Entidades Principales**
+## 4.2.1.1. Domain Layer
 
-**User (Aggregate Root)**
+### **Entidades Principales**
 
-- **Propósito**: Representa un usuario del sistema con capacidades de autenticación y autorización
-- **Atributos principales**:
-  - `id`: Identificador único
-  - `username`: Nombre de usuario único
-  - `email`: Correo electrónico único
-  - `passwordHash`: Hash seguro de la contraseña
-  - `firstName`, `lastName`: Datos personales
-  - `isEnabled`: Estado activo/inactivo
-  - `createdAt`, `updatedAt`: Timestamps de auditoría
-- **Métodos principales**:
-  - `authenticate(password)`: Valida credenciales
-  - `changePassword(oldPassword, newPassword)`: Cambia contraseña con validación
-  - `assignRole(role)`: Asigna rol al usuario
-  - `enable()`, `disable()`: Gestión de estado
+---
 
-Role (Entity)
+### **User (Aggregate Root)**
 
-- Propósito: Define roles y permisos en el sistema
-- Atributos principales:
-  - `id`: Identificador único
-  - `name`: Nombre del rol (ADMIN, LOGISTICS_MANAGER, END_CUSTOMER)
-  - `description`: Descripción del rol
-  - `permissions`: Lista de permisos asociados
-- **Métodos principales**:
-  - `hasPermission(permission)`: Verifica si el rol tiene un permiso específico
-  - `addPermission(permission)`: Agrega permiso al rol
+**Propósito:**  
+Representa al usuario autenticable dentro del sistema y administra su identidad, credenciales y autorización.
 
-**Token (Entity)**
+**Atributos principales:**
+- `id` — Identificador único (Long)
+- `username` — Nombre de usuario único
+- `email` — Correo electrónico único
+- `passwordHash` — Hash seguro de la contraseña (BCrypt)
+- `firstName`, `lastName`
+- `enabled` — Indica si la cuenta está activa
+- `roles` — Lista de entidades Role asignadas
+- `createdAt`, `updatedAt`
 
-- **Propósito**: Gestiona tokens de acceso y refresh tokens
-- **Atributos principales**:
-  - `id`: Identificador único
-  - `token`: Token JWT
-  - `userId`: Referencia al usuario
-  - `expiryDate`: Fecha de expiración
-  - `isRevoked`: Estado de revocación
-- **Métodos principales**:
-  - `isExpired()`: Verifica si el token ha expirado
-  - `revoke()`: Revoca el token
+**Métodos principales:**
+- `updateBasicInfo(firstName, lastName, email)`
+- `changePassword(oldPassword, newPassword)`
+- `assignRole(role)`
+- `enable()`, `disable()`
 
-**Value Objects**
+---
 
-- **Email**: Valida formato de correo electrónico
-- **Password**: Encapsula reglas de contraseñas seguras
-- **Permission**: Representa un permiso específico (recurso + acción)
-- **TokenClaims**: Información contenida en el JWT
+### **Role (Entity)**
 
-**Domain Services**
+**Propósito:**  
+Define los roles utilizados para autorización en el sistema.
 
-- **PasswordService**: Gestión de hash y validación de contraseñas
-- **TokenService**: Generación y validación de tokens JWT
-- **AuthorizationService**: Lógica de autorización basada en roles
+**Atributos principales:**
+- `id`
+- `name` — (ADMIN, CUSTOMER, LOGISTICS_MANAGER, DRIVER…)
+- `description`
 
-**Commands**
+**Métodos principales:**
+- `rename(name)`
 
-- **LoginCommand**: Comando para autenticación
-- **RegisterUserCommand**: Comando para registro de usuario
-- **ChangePasswordCommand**: Comando para cambio de contraseña
-- **AssignRoleCommand**: Comando para asignación de roles
+---
 
-**Queries**
+### **Value Objects**
+- **Email** — Garantiza formato válido y normalización.
+- **Username** — Enforcea reglas sintácticas.
+- **Password** — Valida complejidad y encapsula hashing.
+- **JwtClaims** — Representa claims del JWT (sub, roles, exp, jti, iat).
 
-- **GetUserByIdQuery**: Obtiene usuario por ID
-- **GetUserByEmailQuery**: Obtiene usuario por email
-- **GetUserRolesQuery**: Obtiene roles de un usuario
+---
 
-**Events**
+### **Domain Services**
+- **PasswordHashingService**  
+  - Hashing seguro con BCrypt  
+  - Comparación segura de contraseñas
 
-- **UserRegisteredEvent**: Usuario registrado exitosamente
-- **UserLoggedInEvent**: Usuario autenticado
-- **PasswordChangedEvent**: Contraseña cambiada
-- **UserDisabledEvent**: Usuario deshabilitado
+- **JwtTokenService**  
+  - Generación de Access Token y Refresh Token  
+  - Validación de firma JWT  
+  - Rotación segura de Refresh Token (Refresh Token Rotation)
 
-#### 4.2.1.2. Interface Layer
+- **AuthorizationService**  
+  - Verifica roles desde los claims del JWT
 
-**Controllers Principales**
+---
 
-**AuthController**
+### **Commands**
+- `RegisterUserCommand`
+- `LoginUserCommand`
+- `UpdateUserProfileCommand`
+- `ChangePasswordCommand`
+- `AssignRoleCommand`
+- `LogoutAllDevicesCommand`
+- `RevokeTokenCommand`
 
-- `POST /auth/login`: Autenticación de usuarios
-- `POST /auth/logout`: Cierre de sesión
-- `POST /auth/refresh`: Renovación de tokens
-- `POST /auth/forgot-password`: Solicitud de recuperación de contraseña
+---
 
-**UserController**
+### **Queries**
+- `GetUserByIdQuery`
+- `GetUserByEmailQuery`
+- `GetAllUsersQuery`
+- `GetUserRolesQuery`
 
-- `POST /users/register`: Registro de nuevos usuarios
-- `GET /users/profile`: Obtiene perfil del usuario actual
-- `PUT /users/profile`: Actualiza perfil del usuario
-- `PUT /users/change-password`: Cambio de contraseña
-- `GET /users/{id}`: Obtiene usuario por ID (solo admins)
+---
 
-#### 4.2.1.3. Application Layer
+### **Events**
+Tu implementación real incluye únicamente:
 
-**Command Services**
+- **SeedRolesCommand → RoleCommandServiceImpl**  
+  Se ejecuta al iniciar la aplicación para crear los roles base.
 
-**UserCommandService**
+---
 
-- Maneja comandos de escritura para usuarios
-- Coordina operaciones de creación, actualización y eliminación
-- Publica eventos de dominio correspondientes
+## 4.2.1.2. Interface Layer
 
-**AuthCommandService**
+### **AuthController**
 
-- Gestiona procesos de autenticación y autorización
-- Maneja tokens y sesiones de usuario
-- Coordina flujos de recuperación de contraseña
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| POST | `/api/v1/auth/login` | Autentica usuario y devuelve Access + Refresh Token |
+| POST | `/api/v1/auth/refresh-token` | Rotación segura de Refresh Token |
+| POST | `/api/v1/auth/logout` | Revoca el token actual |
+| POST | `/api/v1/auth/logout-all` | Revoca todos los tokens del usuario |
+| POST | `/api/v1/auth/register` | Registra un nuevo usuario |
 
-**Query Services**
+---
 
-**UserQueryService**
+### **UserController**
 
-- Proporciona consultas de solo lectura para usuarios
-- Optimizado para vistas y reportes
-- Maneja proyecciones de datos de usuario
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | `/api/v1/users/me` | Obtiene el perfil del usuario autenticado |
+| PUT | `/api/v1/users/me` | Actualiza perfil del usuario |
+| PUT | `/api/v1/users/me/change-password` | Cambia contraseña |
+| GET | `/api/v1/users/{id}` | Obtiene usuario por ID (solo ADMIN) |
 
-**AuthQueryService**
+---
 
-- Consultas relacionadas con autenticación
-- Validación de tokens y permisos
-- Información de sesiones activas
+### **Security / ACL**
+La autorización se basa completamente en JWT firmados:
 
-**Event Handlers**
+- Claims incluyen roles y jti
+- Token Revocation mediante repositorio persistente
+- Filtros de seguridad:
+  - `JwtAuthenticationFilter`
+  - `TokenRevocationFilter`
+- `SecurityConfig` define:
+  - Rutas públicas: `/auth/**`
+  - Rutas protegidas por rol
+  - Políticas de CORS para permitir comunicación con frontend
 
-**UserRegisteredEventHandler**
+---
 
-- Procesa eventos de registro de usuario
-- Envía emails de bienvenida
-- Configura datos iniciales del usuario
+## 4.2.1.3. Application Layer
 
-#### 4.2.1.4. Infrastructure Layer
+### **Command Services**
 
-**Repositories**
+---
 
-**UserRepository** (implementa IUserRepository)
+### **UserCommandServiceImpl**
+- Gestiona creación y actualización de usuarios
+- Valida unicidad de email y username
+- Hashing seguro de contraseñas
+- Asignación de roles
+- Procesa `ChangePasswordCommand`
+- Maneja auditoría (`createdAt`, `updatedAt`)
 
-- Persistencia y consulta de datos de usuarios
-- Implementación con Spring Data JPA
-- Operaciones CRUD optimizadas
+---
 
-**RoleRepository** (implementa IRoleRepository)
+### **AuthCommandServiceImpl**
+- Autenticación de usuarios
+- Generación de Access Token + Refresh Token
+- Refresh Token Rotation  
+- Logout (revocación del token actual)
+- Logout All Devices (revoca todos los tokens asociados)
+- Mantiene repositorio de tokens revocados
 
-- Gestión de roles y permisos
-- Consultas para autorización
-- Cache de roles frecuentemente usados
+---
 
-**TokenRepository** (implementa ITokenRepository)
+### **Query Services**
 
-- Gestión de tokens JWT
+---
+
+### **UserQueryServiceImpl**
+- Consultas de solo lectura
+- Manejo de vistas y proyecciones
+- Optimización para endpoints REST
+
+---
+
+### **AuthQueryServiceImpl**
+- Validación de tokens
+- Obtención de información de sesión
+- Autoridad para autorización basada en claims
+
+---
+
+### **Event Handlers**
+
+- **SeedRolesCommandHandler (RoleCommandServiceImpl)**  
+  Crea roles base automáticamente al iniciar la aplicación.
+
+---
+
+## 4.2.1.4. Infrastructure Layer
+
+### **Repositories**
+
+---
+
+### **UserRepository**
+- Persistencia del agregado User
+- Consultas por email, username, id
+- Implementado con Spring Data JPA
+
+---
+
+### **RoleRepository**
+- Gestión de roles
+- Usado por SeedRoles
+- Prevención de duplicados
+
+---
+
+### **TokenRevocationRepository**
+- Almacena tokens revocados mediante su jti
+- Evita reuso de Refresh Tokens
 - Limpieza automática de tokens expirados
-- Blacklist de tokens revocados
+
+---
+
+### **Infraestructura Complementaria**
+
+- `BCryptPasswordEncoder`  
+- `JwtEncoder` y `JwtDecoder` (Nimbus JOSE)  
+- `SecurityFilterChain`  
+- Manejo de CORS para frontend  
+- Manejo global de excepciones para errores de seguridad  
+
+---
 
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
 
