@@ -213,6 +213,13 @@ _Commits_
 
 _Tabla de contenidos_
 
+- [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
+- [Project Report Collaboration Insights](#project-report-collaboration-insights)
+  - [TB1 Project Report Collaboration Insights](#tb1-project-report-collaboration-insights)
+  - [TP Project Report Collaboration Insights](#tp-project-report-collaboration-insights)
+  - [TB2 Project Report Collaboration Insights](#tb2-project-report-collaboration-insights)
+  - [TF Project Report Collaboration Insights](#tf-project-report-collaboration-insights)
+- [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
 - [Capítulo I: Introducción](#capítulo-i-introducción)
   - [1.1. Startup Profile](#11-startup-profile)
@@ -360,10 +367,10 @@ _Tabla de contenidos_
         - [4.2.5.6.2. Bounded Context Database Design Diagram.](#42562-bounded-context-database-design-diagram)
     - [4.2.6. Bounded Context: Fleet Management](#426-bounded-context-fleet-management)
       - [4.2.6.1. Domain Layer](#4261-domain-layer)
-    - [4.2.6.2. Interface Layer](#4262-interface-layer)
-      - [Controllers Principales (HTTP REST)](#controllers-principales-http-rest)
-    - [4.2.6.3. Application Layer](#4263-application-layer)
-    - [4.2.6.4. Infrastructure Layer](#4264-infrastructure-layer)
+      - [4.2.6.2. Interface Layer](#4262-interface-layer)
+      - [Controllers principales (HTTP REST)](#controllers-principales-http-rest)
+      - [4.2.6.3. Application Layer](#4263-application-layer)
+      - [4.2.6.4. Infrastructure Layer](#4264-infrastructure-layer)
       - [4.2.6.5. Bounded Context Software Architecture Component Level Diagrams.](#4265-bounded-context-software-architecture-component-level-diagrams)
       - [4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.](#4256-bounded-context-software-architecture-code-level-diagrams-1)
         - [4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.](#42561-bounded-context-domain-layer-class-diagrams-1)
@@ -431,35 +438,80 @@ _Tabla de contenidos_
       - [6.2.1.7. Services Documentation Evidence for Sprint Review](#6217-services-documentation-evidence-for-sprint-review)
       - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
       - [6.2.1.9. Team Collaboration Insights during Sprint.](#6219-team-collaboration-insights-during-sprint)
-      - [6.2.2. Sprint 2](#622-sprint-2)
+    - [6.2.2. Sprint 2](#622-sprint-2)
       - [6.2.2.1. Sprint Planning 2.](#6221-sprint-planning-2)
       - [6.2.2.2. Aspect Leaders and Collaborators.](#6222-aspect-leaders-and-collaborators)
       - [6.2.2.3. Sprint Backlog 2.](#6223-sprint-backlog-2)
       - [6.2.2.4. Development Evidence for Sprint Review](#6224-development-evidence-for-sprint-review)
       - [6.2.2.5. Testing Suite Evidence for Sprint Review.](#6225-testing-suite-evidence-for-sprint-review)
+        - [Alcance del Testing](#alcance-del-testing)
+        - [Unit Tests](#unit-tests)
+        - [Integration Tests](#integration-tests)
+        - [Acceptance Tests (BDD)](#acceptance-tests-bdd)
+        - [Repositorio y Commits de Testing](#repositorio-y-commits-de-testing)
+        - [Resumen de Cobertura](#resumen-de-cobertura)
       - [6.2.2.6. Execution Evidence for Sprint Review.](#6226-execution-evidence-for-sprint-review)
       - [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
       - [6.2.2.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
       - [6.2.2.9. Team Collaboration Insights during Sprint.](#6229-team-collaboration-insights-during-sprint)
-      - [6.2.3. Sprint 3](#623-sprint-3)
+    - [6.2.3. Sprint 3](#623-sprint-3)
       - [6.2.3.1. Sprint Planning 3.](#6231-sprint-planning-3)
       - [6.2.3.2. Aspect Leaders and Collaborators.](#6232-aspect-leaders-and-collaborators)
       - [6.2.3.3. Sprint Backlog 3.](#6233-sprint-backlog-3)
-      - [6.2.3.4. Development Evidence for Sprint Review](#6234-development-evidence-for-sprint-review)
+      - [6.2.3.4. Development Evidence for Sprint Review.](#6234-development-evidence-for-sprint-review)
       - [6.2.3.5. Testing Suite Evidence for Sprint Review.](#6235-testing-suite-evidence-for-sprint-review)
+        - [Alcance del Testing](#alcance-del-testing-1)
+        - [Unit Tests](#unit-tests-1)
+        - [Integration Tests](#integration-tests-1)
+        - [Acceptance Tests (BDD)](#acceptance-tests-bdd-1)
+        - [Repositorio y Commits de Testing](#repositorio-y-commits-de-testing-1)
+        - [Resumen de Cobertura](#resumen-de-cobertura-1)
       - [6.2.3.6. Execution Evidence for Sprint Review.](#6236-execution-evidence-for-sprint-review)
       - [6.2.3.7. Services Documentation Evidence for Sprint Review](#6237-services-documentation-evidence-for-sprint-review)
       - [6.2.3.8. Software Deployment Evidence for Sprint Review](#6238-software-deployment-evidence-for-sprint-review)
       - [6.2.3.9. Team Collaboration Insights during Sprint.](#6239-team-collaboration-insights-during-sprint)
-  - [6.3. Validation Interviews](#63-validation-interviews)
-    - [6.3.1. Diseño de Entrevistas](#63-diseno-de-entrevistas)
-    - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
-    - [6.3.3. Evaluaciones según heurísticas](#633-evaluaciones-segun-heurísticas)
-  - [6.4. Video About-the-Product](#64-about-the-product)
+  - [6.3. Validation Interviews.](#63-validation-interviews)
+    - [6.3.1. Diseño de Entrevistas.](#631-diseño-de-entrevistas)
+    - [1. Preguntas generales:](#1-preguntas-generales-1)
+    - [2. Preguntas - Segmento: Clientes Finales (Consumidores finales)](#2-preguntas---segmento-clientes-finales-consumidores-finales)
+    - [3. Preguntas - Segmento: Empresa (Gestores de transporte)](#3-preguntas---segmento-empresa-gestores-de-transporte)
+    - [6.3.2. Registro de Entrevistas.](#632-registro-de-entrevistas)
+      - [Segmento 1: Empresa](#segmento-1-empresa-1)
+      - [Segmento 2: Clientes finales](#segmento-2-clientes-finales)
+    - [6.3.3. Evaluaciones según heurísticas](#633-evaluaciones-según-heurísticas)
+- [UX Heuristics \& Principles Evaluation](#ux-heuristics--principles-evaluation)
+  - [SITE o APP A EVALUAR](#site-o-app-a-evaluar)
+  - [TAREAS A EVALUAR](#tareas-a-evaluar)
+  - [ESCALA DE SEVERIDAD](#escala-de-severidad)
+  - [TABLA RESUMEN](#tabla-resumen)
+- [DESCRIPCIÓN DE PROBLEMAS](#descripción-de-problemas)
+  - [PROBLEMA 1: Botón de eliminar vehículo no funciona](#problema-1-botón-de-eliminar-vehículo-no-funciona)
+    - [Problema](#problema)
+    - [Recomendación](#recomendación)
+  - [PROBLEMA 2: Botón "Ver más detalles" en alertas no muestra información](#problema-2-botón-ver-más-detalles-en-alertas-no-muestra-información)
+    - [Problema](#problema-1)
+    - [Recomendación](#recomendación-1)
+  - [PROBLEMA 3: Inconsistencia de idioma en interfaz](#problema-3-inconsistencia-de-idioma-en-interfaz)
+    - [Problema](#problema-2)
+    - [Recomendación](#recomendación-2)
+  - [PROBLEMA 4: Texto truncado en filtro "Created Between"](#problema-4-texto-truncado-en-filtro-created-between)
+    - [Problema](#problema-3)
+    - [Recomendación](#recomendación-3)
+  - [PROBLEMA 5: Inconsistencia de idioma en dropdown de estado de viajes](#problema-5-inconsistencia-de-idioma-en-dropdown-de-estado-de-viajes)
+    - [Problema](#problema-4)
+    - [Recomendación](#recomendación-4)
+    - [6.4. Video About-the-Product.](#64-video-about-the-product)
 - [Conclusiones](#conclusiones)
-  - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
-  - [Video About The Team](#video-about-the-team)
+    - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
+      - [Conclusiones](#conclusiones-1)
+      - [Recomendaciones](#recomendaciones)
+    - [Video About-the-Team](#video-about-the-team)
 - [Bibliografía](#bibliografía)
+- [Anexos](#anexos)
+    - [Anexo A Artefactos visuales](#anexo-a-artefactos-visuales)
+    - [Anexo B Evidencias Técnicas de Implementación](#anexo-b-evidencias-técnicas-de-implementación)
+    - [Anexo C Videos de Entrevistas](#anexo-c-videos-de-entrevistas)
+    - [Anexo D Videos de Exposiciones](#anexo-d-videos-de-exposiciones)
 
 <div style="page-break-after: always;"></div>
 
@@ -511,6 +563,10 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, aportando ideas clave para definir el flujo de negocio y la estructura de la solución. Colaboré en la elaboración de la arquitectura de software y en el diseño táctico bajo los principios de Domain Driven Design, asegurando claridad y consenso entre los miembros del equipo. Además, contribuí en la documentación de los artefactos de usuario y en la organización de tareas, promoviendo un entorno colaborativo y alineado con los objetivos del proyecto.<br />
         <span class="entry-order">TP1:</span><br/>
         Durante este avance, asumí un rol activo de liderazgo en la elaboración del bounded context de Visualization and Analytics, contribuyendo con propuestas técnicas y coordinando con el equipo para asegurar su correcta integración con los demás contextos del sistema. Además, lideré el diseño y desarrollo de los prototipos en Figma, tanto para la versión web como móvil, garantizando una experiencia de usuario coherente y alineada con los objetivos del proyecto. También participé activamente en la construcción del landing page, colaborando en decisiones de estructura, diseño visual y optimización para conversión.<br />
+        <span class="entry-order">TB2:</span><br/>
+        En esta iteración continué ejerciendo liderazgo colaborativo en el desarrollo del bounded context de Visualization and Analytics. Coordiné con el equipo la definición de la arquitectura de datos y la estructura de los servicios analíticos, asegurando su correcta integración con los bounded contexts de Monitoring, Alerts y Trips. Participé activamente en reuniones técnicas para tomar decisiones sobre el diseño de componentes, la selección de tecnologías de visualización y la estrategia de agregación de datos. Además, lideré sesiones de revisión de código y validación de arquitectura, promoviendo buenas prácticas de desarrollo y garantizando la coherencia del sistema con los principios de Domain-Driven Design.<br />
+        <span class="entry-order">TF:</span><br/>
+        Para la entrega final, demostré liderazgo técnico integral al coordinar la implementación completa del bounded context de Visualization and Analytics a través de toda la arquitectura del sistema. Lideré la definición de estándares de desarrollo para los tres niveles (backend, frontend web y móvil), asegurando consistencia en el código y alineación con los patrones arquitectónicos establecidos. Coordiné sesiones de sincronización con los responsables de otros bounded contexts para garantizar una integración fluida de los datos analíticos. Además, guié al equipo en la resolución de desafíos técnicos complejos relacionados con el procesamiento de grandes volúmenes de datos en tiempo real, la optimización de consultas y la implementación de visualizaciones interactivas. Este liderazgo colaborativo permitió entregar una solución analítica robusta, escalable y completamente funcional que cumplió con todos los objetivos técnicos y de negocio del proyecto.<br />
         <br><span class="person">Vera Nuñez Nicolas Alejandro</span><br />
         <span class="entry-order">TB1:</span><br/>
         Participé de manera activa en reuniones virtuales y presenciales, aportando propuestas relevantes para la definición de la arquitectura de software del Fleet Management. Lideré la elaboración de los diagramas C4 (contexto, contenedores y componentes) y colaboré en el diseño táctico bajo los principios de Domain Driven Design (DDD). Asimismo, contribuí en la identificación y documentación de los Bounded Contexts, garantizando una delimitación clara y consistente del sistema, y elaboré el Bounded Context Canvases, facilitando la comprensión de las responsabilidades y alcances de cada contexto.<br /> <br> <br>
@@ -561,6 +617,8 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo, promoviendo la participación activa de todos los miembros mediante retroalimentación constante y constructiva. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que aportan al negocio. Participé en la definición de metas y organización de tareas, asegurando que el equipo trabajara con orden y alcanzara los objetivos propuestos bajo los principios de Domain Driven Design.<br />
         <span class="entry-order">TP1:</span> Durante este avance, establecí metas claras de diseño y prototipado, planificando las tareas técnicas relacionadas con la elaboración del bounded context de Visualization and Analytics y la creación de los prototipos interactivos. Fomenté un ambiente inclusivo mediante sesiones de revisión colaborativa del diseño en Figma, donde recibí y di retroalimentación constructiva para mejorar la experiencia de usuario. Asimismo, coordiné con el equipo para asegurar que el landing page cumpliera con los estándares de usabilidad, accesibilidad y alineación con la identidad visual del proyecto, cumpliendo con los objetivos establecidos en el sprint.<br />
+        <span class="entry-order">TB2:</span> En esta iteración continué con el desarrollo del bounded context de Visualization and Analytics, enfocándome en la definición de la estructura de datos y la integración con los demás contextos del sistema. Colaboré activamente en la planificación de las tareas técnicas del sprint, asegurando la coherencia entre los componentes del backend y la preparación de los servicios necesarios para la generación de reportes y métricas. Además, participé en sesiones de revisión técnica con el equipo para validar la arquitectura propuesta y garantizar su alineación con los principios de Domain-Driven Design y los objetivos del proyecto.<br />
+        <span class="entry-order">TF:</span> Para la entrega final del proyecto, lideré la integración completa del bounded context de Visualization and Analytics en los tres niveles de la arquitectura del sistema. En el backend, desarrollé e implementé los servicios y endpoints necesarios para la agregación y procesamiento de datos analíticos provenientes de múltiples bounded contexts (Monitoring, Alerts, Trips), garantizando la coherencia y disponibilidad de la información. En el frontend web, diseñé e implementé componentes interactivos para la visualización de KPIs, gráficos en tiempo real y dashboards personalizables, integrando librerías especializadas como Chart.js y asegurando una experiencia de usuario fluida y responsiva. En la aplicación móvil, adapté las visualizaciones para dispositivos móviles, implementando gráficos optimizados y métricas clave accesibles offline mediante sincronización con la base de datos local SQLite. Esta integración transversal permitió consolidar una capa de analítica robusta, escalable y alineada con los principios de Domain-Driven Design, proporcionando valor agregado tanto a operadores logísticos como a clientes finales mediante insights accionables y reportes en tiempo real.<br />
         <br><span class="person">Vera Nuñez Nicolas Alejandro</span><br />
         <span class="entry-order">TB1:</span><br/>
         Promoví un entorno colaborativo mediante la coordinación de los artefactos de arquitectura y la integración de los diagramas en el informe. Contribuí en la planificación de tareas técnicas vinculadas a la arquitectura de software, asegurando la consistencia de los entregables y su alineación con los objetivos del proyecto. Además, facilité retroalimentación constructiva, incentivando la participación activa de todos los miembros del equipo.<br /> <br> <br>
