@@ -79,14 +79,18 @@
 | Versión | Fecha      | Autor            | Descripción de modificación                                                                                                                                                                                                                                                                                                                              |
 | ------- | ---------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1.0     | 20/09/2025 | George           | Se entregó una primera entrega del informe con los siguientes apartados: Carátula, Registro de Versiones, Project Report Collaboration Insights, Contenido, Student Outcome, Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification, Capítulo IV: Solution Software Design y Bibliografía. |
-| 1.2     | 12/09/2025 | Daniel y Marcelo | Se añadió el capitulo 3 que es en base al product backlog que se trabajará en el proyecto                                                                                                                                                                                                                                                                |
-| 1.3     | 13/09/2025 | Jefrey y Nicolas | Se añadió el capitulo 4 que es en base a las soluciones en diseño del software que trabajaremos en el proyecto                                                                                                                                                                                                                                           |
+| 1.0.1     | 12/09/2025 | Daniel y Marcelo | Se añadió el capitulo 3 que es en base al product backlog que se trabajará en el proyecto                                                                                                                                                                                                                                                                |
+| 1.0.2     | 13/09/2025 | Jefrey y Nicolas | Se añadió el capitulo 4 que es en base a las soluciones en diseño del software que trabajaremos en el proyecto                                                                                                                                                                                                                                           |
 | 2.0     | 09/10/2025 | Jefrey           | Se añadió el capitulo 6.2.1.4 que es en base evidencias del trabajo durante el proyecto                                                                                                                                                                                                                                                                  |
-| 2.1     | 09/10/2025 | Daniel           | Se realizaron las correciones y se añadió el capitulo 6 que es la configuración y el uso de las herramientas que se utilizaran durante el ciclo.                                                                                                                                                                                                         |
-| 2.2     | 09/10/2025 | Marcelo          | Se agrego proceso de event storming con sus resultados finales                   |
+| 2.0.1     | 09/10/2025 | Daniel           | Se realizaron las correciones y se añadió el capitulo 6 que es la configuración y el uso de las herramientas que se utilizaran durante el ciclo.                                                                                                                                                                                                         |
+| 2.0.2     | 09/10/2025 | Marcelo          | Se agrego proceso de event storming con sus resultados finales                   |
 | 3.0     | 14/11/2025 | Daniel          | Se añadió un nuevo Sprint sobre el desarrollo de los productos                    |
+| 3.0.1     | 14/11/2025 | Daniel          | Se añadieron las entrevistas de las validaciones de los usuarios                    |
+| 3.0.2     | 14/11/2025 | George          | Se añadió las heuristicas de validación                   |
+| 4.0     | 02/12/2025 | Daniel          | Se añadieron las conclusiones y recomendaciones                    |
+| 4.0.1     | 03/12/2025 | Daniel          | Se añadió el Sprint 3                    |
+| 4.0.2     | 03/12/2025 | Daniel          | Se añadieron los anexos                  |
 
-**falta llenar**
 ---
 
 <div style="page-break-after: always;"></div>
@@ -188,7 +192,6 @@ _Commits_
 
 _Tabla de contenidos_
 
-- [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
 - [Capítulo I: Introducción](#capítulo-i-introducción)
   - [1.1. Startup Profile](#11-startup-profile)
