@@ -7146,37 +7146,84 @@ La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se
 |           |                    |      |            |  |                   |      |    |
 
 
-#### 6.2.3.4. Development Evidence for Sprint Review.
+#### 6.2.3.4. Development Evidence for Sprint Review
 
-**Web Application**
+Durante el Sprint 3 se desarrollaron funcionalidades clave para consolidar la plataforma CargaSafe a nivel web, móvil, backend y aplicación embebida.  
+El trabajo del equipo permitió integrar los módulos de **Identity and Access Management (IAM)**, **Subscriptions**, **Analytics**, **Fleet Management**, **Alerts**, **Trip Management** y mejoras en la **Embedded Application**.
 
-Durante este sprint se implementaron los módulos principales del sistema **CargaSafe** en Angular 20.  
-El equipo desarrolló el _bounded context_ de suscripciones, gestión de flotas, monitoreo de viajes, alertas y autenticación (IAM).  
-Se integró la API simulada con `json-server`, se configuró el enrutamiento base y se estructuró la arquitectura por capas (domain, infrastructure, presentation).
+A continuación, se presenta la evidencia de desarrollo obtenida directamente de los repositorios oficiales del proyecto.
 
-| Repository                                     | Branch                          | Commit Id   | Commit Message                                                                                                        | Commit Message Body                                                                            | Commited on (Date) |
-| ---------------------------------------------- | ------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------ |
-| `iot-solutions-development-cargasafe-frontend` | `main`                          | **c8dc444** | initial commit                                                                                                        | Inicio del proyecto Angular 20, configuración base y estructura inicial.                       | 2025-09-23         |
+---
+
+## **Web Application (Angular 20)**
+
+Durante este sprint se implementaron las vistas y lógica esenciales para Fleet Management, Trips, Alerts, Profiles, IAM y Dashboard Analytics.  
+También se realizó un refactor profundo del manejo de estado del FleetStore, se añadió manejo centralizado de errores y se mejoró la UX en pantallas críticas.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Date |
+|-----------|--------|-----------|----------------|----------------------|------|
+| `iot-solutions-development-cargasafe-frontend` | `develop` | `4404102` | chore(trip-management): update components names | Renombrado de vistas y estandarización de nomenclaturas en módulo Trips. | 2025-12-04 |
+| `iot-solutions-development-cargasafe-frontend` | `develop` | `d5ed58d` | feat(presentation): add kpis | Implementación de KPIs para dashboard analítico. | 2025-12-03 |
+| `iot-solutions-development-cargasafe-frontend` | `develop` | `3758038` | feat(environment): change baseUrl | Configuración del nuevo endpoint productivo del backend. | 2025-12-03 |
+| `iot-solutions-development-cargasafe-frontend` | `develop` | `fc6eec1` | feat(fleet-presentation): add full status actions and retire confirmation dialog | Implementación completa de estados del vehículo y diálogos de confirmación. | 2025-12-03 |
+| `iot-solutions-development-cargasafe-frontend` | `develop` | `50c06da` | feat(fleet-presentation): polish device detail view layout | Optimización visual de la vista de detalle de dispositivos. | 2025-12-03 |
+| `iot-solutions-development-cargasafe-frontend` | `develop` | `3b31ec7` | feat(shared): add reusable error dialog component | Nuevo servicio global de diálogos de error reutilizable. | 2025-12-03 |
+| `iot-solutions-development-cargasafe-frontend` | `develop` | `7daeae0` | feat(fleet): add centralized HTTP error mapping | Integración de mapping centralizado de errores para todas las APIs de Fleet. | 2025-12-03 |
+| `iot-solutions-development-cargasafe-frontend` | `develop` | `2f459e9` | refactor(fleet): simplify FleetStore state management | Refactor completo del manejo de estado para Vehicles & Devices. | 2025-12-02 |
+| `iot-solutions-development-cargasafe-frontend` | `develop` | `ff9a69a` | merge: integrate fleet BC refactor into develop | Unificación del refactor con la rama principal del sprint. | 2025-12-02 |
+
+---
+
+## **Web Services (Backend - Spring Boot)**
+
+El backend recibió mejoras en IAM, Alerts, Monitoring, Trips y un nuevo módulo de Dashboard Analytics.  
+Asimismo, se integraron configuraciones de seguridad, validación y OpenAPI para documentación de servicios.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Date |
+|-----------|--------|-----------|----------------|----------------------|------|
+| `iot-solutions-development-cargasafe-backend` | `main` | `1e56e15` | Merge feature/visualization-and-analytics into develop | Añade endpoints analíticos, integración de BDD Cucumber y fixes de configuración. | 2025-12-04 |
+| `iot-solutions-development-cargasafe-backend` | `main` | `c473e51` | Merge branch 'main' of GitHub | Sincronización general del backend. | 2025-12-04 |
+| `iot-solutions-development-cargasafe-backend` | `main` | `1bd8e7d` | chore(cors): add deployed app to allowed origins | Actualización de CORS para permitir frontend desplegado. | 2025-12-04 |
+| `iot-solutions-development-cargasafe-backend` | `main` | `b648e8f` | Merge pull request #14 | Integración final de IAM + Dashboard + Trips + Alerts. | 2025-12-04 |
+| `iot-solutions-development-cargasafe-backend` | `main` | `be94133` | feat(dashboard): implement dashboard bounded context | Implementa el módulo de dashboard con analytics dinámicos. | 2025-12-03 |
+| `iot-solutions-development-cargasafe-backend` | `main` | `03270a2` | feat(iam-infrastructure): activated JWT token | Activación del flujo de JWT en IAM. | 2025-12-03 |
+| `iot-solutions-development-cargasafe-backend` | `main` | `47674fd` | docs(iam): add OpenAPI docs | Documentación de roles y endpoints de usuarios. | 2025-12-02 |
+| `iot-solutions-development-cargasafe-backend` | `main` | `bfd1f05` | build(iam): add JWT and validations | Añade dependencias de validación + JWT. | 2025-12-02 |
+| `iot-solutions-development-cargasafe-backend` | `main` | `2fc6292` | chore(alert): generate alerts from telemetry | Generación automática de alertas a partir de telemetría. | 2025-11-12 |
+
+---
+
+## **Mobile Application (Flutter)**
+
+La aplicación móvil avanzó en integrar Fleet Management, navegación interna, refactor de router, páginas de Devices & Vehicles, y mejoras en la UI para Trips.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Date |
+|-----------|--------|-----------|----------------|----------------------|------|
+| `iot-solutions-development-cargasafe-mobile` | `develop` | `cfa88dd` | refactor(alert): rename folders | Reorganización estructural del módulo Alerts. | 2025-11-30 |
+| `iot-solutions-development-cargasafe-mobile` | `develop` | `4c15d5e` | Merge branch 'feature/fleet' into develop | Integración del módulo Fleet completo. | 2025-11-14 |
+| `iot-solutions-development-cargasafe-mobile` | `develop` | `3e26e48` | refactor(fleet): update app_router.dart | Correcciones al router de navegación. | 2025-11-13 |
+| `iot-solutions-development-cargasafe-mobile` | `develop` | `092b7f1` | feat(fleet): refactor router | Ajuste total del enrutador del módulo Fleet. | 2025-11-12 |
+| `iot-solutions-development-cargasafe-mobile` | `develop` | `8d1642b` | chore(config): set default API_BASE_URL | Configuración base para comunicación HTTP. | 2025-11-12 |
+| `iot-solutions-development-cargasafe-mobile` | `develop` | `951319b` | feat(fleet-routing): register fleet routes | Registro completo de rutas Fleet. | 2025-11-12 |
+
+---
+
+## **Embedded Application (ESP32 Arduino)**
+
+El equipo realizó una refactorización profunda del firmware, estandarizando arquitectura, mejorando estabilidad del sistema y preparando el dispositivo para integración robusta con backend.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Date |
+|-----------|--------|-----------|----------------|----------------------|------|
+| `iot-solutions-development-cargasafe-embedded-application` | `main` | `ed866ae` | feat(embeddedApp): code updated for EmbeddedApp | Refactor completo del código, modularización y mejoras de estabilidad. | 2025-11-27 |
+
+---
+
+### **Resumen**
+
+La evidencia presentada demuestra un avance significativo y transversal en los cuatro frentes del proyecto (Web, Backend, Mobile, Embedded).  
+Los commits muestran integración continua, coordinación efectiva y cumplimiento del alcance planificado para el Sprint 3.
 
 
-**Web Services**
-| Repository                                    | Branch                                   | Commit Id | Commit Message                                                               | Commit Message Body                                                | Commited on (Date) |
-|-----------------------------------------------|-------------------------------------------|-----------|------------------------------------------------------------------------------|--------------------------------------------------------------------|---------------------|
-| iot-solutions-development-cargasafe-backend   | main                                      | 48ab0d3  | build: setup project template                                                | Configura la plantilla base del proyecto.                          | 2025-09-23          |
-
-
-**Mobile Application**
-
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
-|-----------|--------|-----------|----------------|----------------------|----------------------|
-| iot-solutions-development-cargasafe-mobile | main | 0915028 | build: setup mobile app project | Configuración inicial del proyecto móvil. | 2025-09-24 |
-
-
-**Embemdded Application**
-
-| Repository                                           | Branch | Commit Id | Commit Message                                   | Commit Message Body                                              | Committed on |
-|------------------------------------------------------|--------|-----------|--------------------------------------------------|------------------------------------------------------------------|---------------|
-| iot-solutions-development-cargasafe-embedded-application | main   | ed866ae   | feat(embeddedApp): code updated for Embedded App | Refactorización del codigo   | 2025-11-27    |
 
 #### 6.2.3.5. Testing Suite Evidence for Sprint Review.
 
