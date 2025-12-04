@@ -7131,19 +7131,50 @@ Esta matriz facilita la comunicación y clarifica las responsabilidades dentro d
 
 #### 6.2.3.3. Sprint Backlog 3.
 
-Durante este sprint, se desarrollaron las user stories dedicadas a la landing page y funcionalidades principales del frontend, backend y mobile.
+Durante este sprint, se completó la implementación del módulo de Identity and Access Management (IAM), se desarrolló el bounded context de Visualization and Analytics en sus tres capas (backend, frontend y mobile), se realizó la refactorización del código de la aplicación embebida para optimizar su estructura y rendimiento, y se implementó el bounded context de Profile and Preferences Management tanto en frontend como en backend, permitiendo la gestión completa de perfiles de usuario y configuración de preferencias.
 
 La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se registraron las tareas, el estado y los responsables.
 
 <img src="assets/backlog2.png">
 
-| Sprint #   | Sprint 2         |     |     |     |     |     |     |
+| Sprint #   | Sprint 3         |     |     |     |     |     |     |
 | ---------- | ---------------- | --- | --- | --- | --- | --- | --- |
 | User Story | Work-Item / Task |     |     |     |     |     |     |
 
 | User Story Id | User Story Title                                | Task Id | Task Title                                  | Task Description                                                          | Estimation (Hours) | Assigned To         | Status |
 | ------------- | ----------------------------------------------- | ------- | ------------------------------------------- | ------------------------------------------------------------------------- | ------------------ | ------------------- | ------ |
-|           |                    |      |            |  |                   |      |    |
+| TS001         | API de autenticación                            | T01     | Implementar endpoint de login               | Crear endpoint POST /api/v1/auth/login con validación de credenciales    | 4                  | Marcelo Garro       | Done   |
+| TS001         | API de autenticación                            | T02     | Implementar endpoint de logout              | Crear endpoint POST /api/v1/auth/logout para cerrar sesión               | 3                  | Marcelo Garro       | Done   |
+| TS001         | API de autenticación                            | T03     | Implementar endpoint de refresh token       | Crear endpoint POST /api/v1/auth/refresh para renovar tokens             | 3                  | Marcelo Garro       | Done   |
+| TS002         | Servicio de autenticación con JWT               | T04     | Configurar generación de tokens JWT         | Implementar lógica de generación de JWT con claims de usuario y rol      | 5                  | Marcelo Garro       | Done   |
+| TS002         | Servicio de autenticación con JWT               | T05     | Implementar validación de tokens            | Crear middleware para validar tokens JWT en requests protegidos          | 4                  | Marcelo Garro       | Done   |
+| US018         | Registro de usuario                             | T06     | Crear formulario de registro en frontend    | Diseñar e implementar formulario de registro con validaciones            | 4                  | Nicolas Vera        | Done   |
+| US018         | Registro de usuario                             | T07     | Conectar registro con backend               | Integrar formulario de registro con endpoint de API                      | 3                  | Nicolas Vera        | Done   |
+| US010         | Inicio de sesión                                | T08     | Crear pantalla de login en web              | Maquetar página de login con Material Design                             | 3                  | Nicolas Vera        | Done   |
+| US010         | Inicio de sesión                                | T09     | Crear pantalla de login en mobile           | Implementar pantalla de login en Flutter                                 | 4                  | George Aliaga       | Done   |
+| US010         | Inicio de sesión                                | T10     | Integrar login con IAM backend              | Conectar formularios de login con servicio de autenticación             | 3                  | Nicolas Vera        | Done   |
+| US011         | Cerrar sesión                                   | T11     | Implementar funcionalidad de logout         | Crear lógica de cierre de sesión y limpieza de tokens                   | 2                  | George Aliaga       | Done   |
+| US012         | Recuperar contraseña                            | T12     | Crear flujo de recuperación de contraseña   | Implementar pantallas y lógica de recuperación de contraseña            | 5                  | Nicolas Vera        | Done   |
+| US035         | Gráficos de incidencias por mes                 | T13     | Crear endpoint de métricas de incidencias   | Desarrollar endpoint para obtener datos agregados de incidencias         | 5                  | Alessandro Bernardo | Done   |
+| US035         | Gráficos de incidencias por mes                 | T14     | Implementar gráfico de incidencias en web   | Crear componente de gráfico con Chart.js para visualizar incidencias    | 4                  | Alessandro Bernardo | Done   |
+| US035         | Gráficos de incidencias por mes                 | T15     | Implementar gráfico en mobile               | Adaptar visualización de incidencias para aplicación móvil               | 4                  | Alessandro Bernardo | Done   |
+| US034         | Gráficos de tiempo y temperatura                | T16     | Crear servicio de datos de temperatura      | Desarrollar endpoint para obtener series temporales de temperatura       | 5                  | Alessandro Bernardo | Done   |
+| US034         | Gráficos de tiempo y temperatura                | T17     | Implementar gráfico de línea en frontend    | Crear componente de gráfico de línea para temperatura vs tiempo          | 4                  | Alessandro Bernardo | Done   |
+| US036         | Filtrado de viajes por fecha                    | T18     | Agregar filtros en dashboard de analytics   | Implementar controles de filtrado por rango de fechas                    | 3                  | Alessandro Bernardo | Done   |
+| US037         | Descarga de reporte de viajes                   | T19     | Crear endpoint de generación de reportes    | Implementar servicio backend para generar reportes en PDF                | 6                  | Alessandro Bernardo | Done   |
+| US037         | Descarga de reporte de viajes                   | T20     | Integrar botón de descarga en frontend      | Añadir funcionalidad de descarga de reportes en interfaz web             | 3                  | Alessandro Bernardo | Done   |
+| TS003         | Refactorización de embedded application         | T21     | Optimizar estructura de código embebido     | Refactorizar código para mejorar legibilidad y mantenibilidad            | 6                  | Daniel Chirinos     | Done   |
+| TS003         | Refactorización de embedded application         | T22     | Optimizar transmisión de datos IoT          | Mejorar eficiencia de envío de telemetría desde dispositivos             | 5                  | Daniel Chirinos     | Done   |
+| TS003         | Refactorización de embedded application         | T23     | Documentar arquitectura de embedded app     | Crear documentación técnica de la aplicación embebida                    | 3                  | Daniel Chirinos     | Done   |
+| US019         | Gestionar perfil de usuario                     | T24     | Crear modelo de perfil en backend           | Definir entidades y servicios para gestión de perfiles                   | 4                  | Jefrey Sanchez      | Done   |
+| US019         | Gestionar perfil de usuario                     | T25     | Crear endpoints CRUD de perfil              | Implementar endpoints para crear, leer, actualizar perfil                | 5                  | Jefrey Sanchez      | Done   |
+| US019         | Gestionar perfil de usuario                     | T26     | Crear pantalla de perfil en web             | Diseñar e implementar interfaz de gestión de perfil en web               | 4                  | George Aliaga       | Done   |
+| US019         | Gestionar perfil de usuario                     | T27     | Crear pantalla de perfil en mobile          | Implementar pantalla de perfil en aplicación móvil Flutter               | 4                  | George Aliaga       | Done   |
+| US040         | Configurar preferencias de notificación         | T28     | Implementar gestión de preferencias         | Crear servicio backend para gestionar preferencias de usuario            | 4                  | Jefrey Sanchez      | Done   |
+| US040         | Configurar preferencias de notificación         | T29     | Crear interfaz de configuración en web      | Implementar pantalla de configuración de notificaciones                  | 3                  | George Aliaga       | Done   |
+| TS004         | Refactorización de Analytics bounded context    | T30     | Optimizar queries de agregación             | Refactorizar consultas de base de datos para mejorar performance         | 5                  | Alessandro Bernardo | Done   |
+| TS004         | Refactorización de Analytics bounded context    | T31     | Implementar caché de métricas               | Agregar capa de caché para datos analíticos frecuentemente consultados   | 4                  | Alessandro Bernardo | Done   |
+| TS004         | Refactorización de Analytics bounded context    | T32     | Mejorar arquitectura de servicios           | Refactorizar servicios siguiendo principios SOLID y DDD                  | 5                  | Alessandro Bernardo | Done   |
 
 
 #### 6.2.3.4. Development Evidence for Sprint Review
