@@ -2512,13 +2512,13 @@ _Diagrama de componentes - Backend - Subscriptions and Billing_
 
 El backend del bounded context de Suscripciones y Pagos está estructurado siguiendo el enfoque de Domain-Driven Design (DDD), y se organiza en cuatro capas principales:
 
-- **Interface Layer**: expone los controladores REST que atienden las operaciones de planes, suscripciones y pagos. Es la puerta de entrada para los usuarios o sistemas que consumen la API.
+- **Interface Layer**: expone los controladores REST que atienden las operaciones de planes, suscripciones y pagos.Es la puerta de entrada para los usuarios o sistemas que consumen la API.
 
-- **Application Layer**: orquesta los casos de uso mediante Command Services, Query Services y, potencialmente, Event Handlers. En esta capa se coordinan las operaciones y se aplican las reglas de negocio definidas en el dominio.
+- **Application Layer**: orquesta los casos de uso mediante Command Services, Query Services y, potencialmente, Event Handlers.En esta capa se coordinan las operaciones y se aplican las reglas de negocio definidas en el dominio.
 
-- **Domain Layer**: concentra la lógica de negocio del contexto, incluyendo las entidades Plan, Subscription y Payment. Define los estados y comportamientos que rigen el ciclo de vida de las suscripciones y los pagos.
+- **Domain Layer**: concentra la lógica de negocio del contexto, incluyendo las entidades Plan, Subscription y Payment.Define los estados y comportamientos que rigen el ciclo de vida de las suscripciones y los pagos.
 
-- **Infrastructure Layer**: implementa los repositorios JPA y conectores hacia la base de datos y posibles servicios externos. Se encarga de la persistencia y de la integración técnica con sistemas externos.
+- **Infrastructure Layer**: implementa los repositorios JPA y conectores hacia la base de datos y posibles servicios externos.Se encarga de la persistencia y de la integración técnica con sistemas externos.
 
 Conexiones externas actuales:
 	•	**Postgres**: persistencia transaccional de planes, suscripciones y pagos.
@@ -2538,7 +2538,7 @@ La aplicación web se comunica con el bounded context Subscriptions exclusivamen
 **API Client**: cliente HTTP que invoca la Subscriptions REST API, agrega el token (vía Auth Adapter) y maneja errores/reintentos.
 **Auth Adapter**: integra OIDC/JWT para adjuntar credenciales en cada request. (Si la autenticación aún no está implementada en el backend de este BC, se mantiene como integración prevista).
 
-**Alcance funcional en el cliente**: La aplicación web no implementa lógica de negocio, solo presenta datos y envía intenciones del usuario (crear suscripción, cambiar plan, eliminar, registrar pago).
+**Alcance funcional en el cliente**:La aplicación web no implementa lógica de negocio, solo presenta datos y envía intenciones del usuario (crear suscripción, cambiar plan, eliminar, registrar pago).
 
 *Conexiones externas representadas en el backend*:
 	•	**Postgres** (persistencia transaccional de planes, suscripciones y pagos).
@@ -2551,7 +2551,7 @@ _Diagrama de componentes - Mobile Application - Subscriptions and Billing_
 
 La aplicación móvil de Subscriptions mantiene una arquitectura muy similar a la versión web, ya que también se conecta al backend a través de la Subscriptions REST API, utilizando comandos (POST/PUT) para ejecutar acciones y consultas (GET) para obtener datos de planes, suscripciones y pagos.
 
-La principal diferencia con respecto a la versión web es que en el entorno móvil se incorpora una base de datos local SQLite, la cual permite el funcionamiento offline. Gracias a esta base local, la aplicación puede continuar operando aun sin conexión, guardando temporalmente los datos y sincronizándolos cuando se restablece el acceso a internet.
+La principal diferencia con respecto a la versión web es que en el entorno móvil se incorpora una base de datos local SQLite, la cual permite el funcionamiento offline.Gracias a esta base local, la aplicación puede continuar operando aun sin conexión, guardando temporalmente los datos y sincronizándolos cuando se restablece el acceso a internet.
 
 *La app se organiza en los siguientes componentes*:
 	•	**UI – Subscriptions**: pantallas de gestión de suscripción, cambio de plan y visualización del estado actual.
@@ -2569,11 +2569,11 @@ La principal diferencia con respecto a la versión web es que en el entorno móv
 
 ##### Explicación del diagrama
 
-El diagrama de clases del Domain Layer se centra en tres entidades: Subscription (aggregate), Plan (entity) y Payment(entity). 
+El diagrama de clases del Domain Layer se centra en tres entidades: Subscription (aggregate), Plan (entity) y Payment(entity).
 
 *Subscription* actúa como agregado principal y gestiona su ciclo de vida mediante el estado status, con los valores ACTIVE, REVOKED y SUSPENDED. La operación principal de negocio implementada es changePlan(newPlan), que solo procede cuando la suscripción está ACTIVE.
 
-*Plan* modela las ofertas disponibles y persiste atributos como name, limits, price y description. 
+*Plan* modela las ofertas disponibles y persiste atributos como name, limits, price y description.
 
 *Payment* registra transacciones asociadas a un usuario (userId) con transactionId único, amount, receiptUrl, paymentDate y status (PENDING, SUCCEEDED, FAILED). 
 
@@ -3610,200 +3610,450 @@ Diagrama de componentes - Mobile App - Trip Management
 
 #### 4.2.6.1. Domain Layer
 
-**Entidades Principales**
+**Aggregates principales**
 
 **Vehicle (Aggregate Root)**
 
-- Propósito: Representa una unidad de transporte registrada en el sistema de flota.
+- **Propósito:** Representa un vehículo de la flota que puede ser monitoreado, recibir dispositivos IoT y participar en viajes.
+- **Atributos principales:**
+  - `id` (Long, generado por JPA)
+  - `plate` (`Plate`, único)
+  - `type` (`VehicleType` = `VAN`, `TRUCK`, `CAR`, `MOTORCYCLE`)
+  - `capabilities` (`Set<Capability>` = `BOX`, `REFRIGERATED`, `GPS_ONLY`, `HEAVY_LOAD`, `FRAGILE_CARGO`)
+  - `status` (`VehicleStatus` = `IN_SERVICE`, `OUT_OF_SERVICE`, `MAINTENANCE`, `RETIRED`)
+  - `odometerKm` (`OdometerKm`, entero ≥ 0)
+  - `deviceImeis` (`Set<Imei>`): lista de IMEIs de dispositivos asignados
+  - Campos de auditoría heredados de `AuditableAbstractAggregateRoot` (fechas, etc.)
 
-- Atributos principales:
+- **Reglas de negocio / métodos relevantes:**
+  - `Vehicle(CreateVehicleCommand)`  
+    Construye el agregado garantizando:
+    - `plate` no vacío y con patrón válido.
+    - `type` y `capabilities` no nulos.
+    - `capabilities` no vacío.
+    - `odometerKm` ≥ 0.
+    - `status` por defecto: `IN_SERVICE` si no se envía.
+  - `updateType(VehicleType type)`  
+    Actualiza el tipo del vehículo.
+  - `updateCapabilities(Set<Capability> capabilities)`  
+    Reemplaza el conjunto de capacidades (si no viene vacío).
+  - `updateStatus(VehicleStatus status)`  
+    No permite cambiar desde `RETIRED` a cualquier otro estado (lanza `IllegalStateException`).
+  - `updateOdometer(Integer newOdometerKm)`  
+    Verifica que el nuevo valor:
+    - No sea negativo.
+    - No sea menor que el valor actual (no se permite “retroceder” el odómetro).
+  - `assignDevice(Imei deviceImei)`  
+    - No permite asignar si `status == RETIRED`.
+    - No permite asignar el mismo IMEI dos veces al mismo vehículo.
+  - `unassignDevice(Imei deviceImei)`  
+    Elimina el IMEI del set de dispositivos asociados.
+  - `hasAnyDevice()`  
+    Devuelve `true` si tiene al menos un dispositivo asignado (se usa para restringir el borrado).
+  - `hasDevice(Imei deviceImei)`  
+    Verifica si un IMEI concreto está asociado al vehículo.
 
-  - id (UUID)
-  - plate (única)
-  - make
-  - model
-  - active (bool)
-  - tenantId
-  - createdAt
-  - updatedAt
+---
 
-- Métodos principales:
+**Device (Aggregate Root)**
 
-  - register(data), update(data)
-  - deactivate() / activate()
+- **Propósito:** Representa un dispositivo IoT asociado (o no) a un vehículo de la flota.
+- **Atributos principales:**
+  - `id` (Long, generado por JPA)
+  - `imei` (`Imei`, único)
+  - `firmware` (`FirmwareVersion`)
+  - `online` (boolean)
+  - `vehiclePlate` (`Plate` opcional): placa del vehículo al que está asignado o `null`
+  - Campos de auditoría vía `AuditableAbstractAggregateRoot`
 
-**Device (Entity)**
+- **Reglas de negocio / métodos relevantes:**
+  - `Device(CreateDeviceCommand)`  
+    - `imei` obligatorio y con patrón válido.
+    - `firmware` obligatorio y con patrón válido.
+    - `online`: si no se envía, se inicializa como `false`.
+  - `updateFirmware(FirmwareVersion firmware)`  
+    Simplifica actualizaciones de versión de firmware.
+  - `updateOnline(boolean online)`  
+    Actualiza el estado en línea del dispositivo.
+  - `assignToVehicle(Plate vehiclePlate)`  
+    - No permite reasignar si ya tiene una placa (`IllegalStateException("Device is already assigned to a vehicle")`).
+    - Guarda la placa del vehículo al que queda asociado.
+  - `unassignFromVehicle()`  
+    Elimina la placa asociada.
+  - `isAssigned()`  
+    Indica si el dispositivo está asociado a un vehículo (`vehiclePlate != null`).
 
-- Propósito: Registrar y administrar dispositivos/sensores instalados en unidades.
-
-- Atributos:
-
-  - id,
-  - type (temp|gps|humidity|door…)
-  - serial (único)
-  - lastCalibrationAt?
-  - active
-  - vehicleId?
-  - tenantId
-  - createdAt
-
-- Métodos:
-  - create(data)
-  - update(data)
-  - attachToVehicle(vehicleId)
-  - detach(),
-  - activate()
-  - deactivate()
+---
 
 **Value Objects**
 
-- Plate (formato y unicidad por país/tenant).
+- `Plate`
+  - Normaliza en mayúsculas.
+  - Valida patrón `[A-Z0-9-]{4,12}`.
+  - No permite cadenas en blanco.
+- `Imei`
+  - No permite cadenas en blanco.
+  - Patrón: `IMEI-[0-9]{7,15}` (ej. `IMEI-123456789`).
+- `FirmwareVersion`
+  - No permite cadenas en blanco.
+  - Patrón: `vMAJOR.MINOR.PATCH` (ej. `v1.8.2`).
+- `OdometerKm`
+  - Entero ≥ 0.
+- Enums:
+  - `VehicleStatus`: `IN_SERVICE`, `OUT_OF_SERVICE`, `MAINTENANCE`, `RETIRED`.
+  - `VehicleType`: `VAN`, `TRUCK`, `CAR`, `MOTORCYCLE`.
+  - `Capability`: `BOX`, `REFRIGERATED`, `GPS_ONLY`, `HEAVY_LOAD`, `FRAGILE_CARGO`.
 
-**Domain Services**
+---
 
-- DeviceAttachmentService: valida que el vehículo exista y pertenezca al mismo tenantId antes de asociar/desasociar.
+**Excepciones de dominio**
+
+- `VehicleNotFoundException`
+- `VehiclePlateAlreadyExistsException`
+- `VehicleAlreadyHasDeviceException`
+- `DeviceNotFoundException`
+- `DeviceImeiAlreadyExistsException`
+- `DeviceAssignmentConflictException`
+- `DeviceAlreadyAssignedException`
+
+Estas excepciones se traducen en la capa de interfaz a códigos HTTP estándar (`404`, `409`, etc.).
+
+---
 
 **Commands**
 
-- RegisterVehicleCommand
-- UpdateVehicleCommand
-- ActivateVehicleCommand
-- DeactivateVehicleCommand
+_Devices_
 
-- CreateDeviceCommand
-- UpdateDeviceCommand
-- AttachDeviceCommand
-- DetachDeviceCommand
-- ActivateDeviceCommand
-- DeactivateDeviceCommand
+- `CreateDeviceCommand(imei, firmware, online?)`  
+  Valida IMEI y firmware no vacíos.
+- `UpdateDeviceCommand(id, firmware?, online?)`  
+  Valida que `id` no sea nulo.
+- `DeleteDeviceCommand(id)`
+- `UpdateDeviceFirmwareCommand(id, firmware)`  
+  Firmware no puede ser vacío.
+- `UpdateDeviceOnlineStatusCommand(deviceId, online)`
+
+_Vehicles_
+
+- `CreateVehicleCommand(plate, type, capabilities, status?, odometerKm)`  
+  - `plate`, `type`, `capabilities`, `odometerKm` obligatorios.  
+  - `capabilities` no puede estar vacío.  
+  - `odometerKm` ≥ 0.
+- `UpdateVehicleCommand(id, type?, capabilities?, status?, odometerKm?)`
+- `DeleteVehicleCommand(id)`
+- `AssignDeviceToVehicleCommand(vehicleId, deviceImei)`
+- `UnassignDeviceFromVehicleCommand(vehicleId, deviceImei)`
+- `UpdateVehicleStatusCommand(vehicleId, status)`  
+  Ambos campos obligatorios.
+
+---
 
 **Queries**
 
-- GetVehicleByIdQuery
-- ListVehiclesQuery
-- GetDeviceByIdQuery
-- ListDevicesQuery (con filtro por vehicleId)
+_Devices_
 
-### 4.2.6.2. Interface Layer
+- `GetAllDevicesQuery`
+- `GetDeviceByIdQuery(id)`
+- `GetDeviceByImeiQuery(imei)`
+- `GetDevicesByOnlineQuery(online)`
 
-#### Controllers Principales (HTTP REST)
+_Vehicles_
 
-**VehicleController**
+- `GetAllVehiclesQuery`
+- `GetVehicleByIdQuery(id)`
+- `GetVehicleByPlateQuery(plate)`
+- `GetVehiclesByStatusQuery(status)`
+- `GetVehiclesByTypeQuery(type)`
 
-- POST /vehicles : Registrar vehículo
+---
 
-- PUT /vehicles/{id} : Actualizar datos
+#### 4.2.6.2. Interface Layer
 
-- PATCH /vehicles/{id}/activate | /deactivate
+#### Controllers principales (HTTP REST)
 
-- GET /vehicles/{id} | GET /vehicles?search=&page=&size=
+Los controladores REST exponen los casos de uso del BC Fleet Management a través de endpoints versionados bajo `/api/v1/fleet`.  
+Todos los métodos están documentados con **OpenAPI 3.0** usando las anotaciones `@Operation` y `@ApiResponses`.
+
+---
 
 **DeviceController**
 
-- POST /devices : Crear sensor
+Base path: `/api/v1/fleet/devices`
 
-- PUT /devices/{id}
+- **GET `/api/v1/fleet/devices`**  
+  - Descripción: Listar todos los dispositivos.  
+  - Respuesta: `200 OK` con `List<DeviceResource>`.
 
-- POST /devices/{id}/attach/{vehicleId}
+- **GET `/api/v1/fleet/devices/{id}`**  
+  - Descripción: Obtener un dispositivo por su ID.  
+  - Respuestas:
+    - `200 OK` con `DeviceResource`.
+    - `404 Not Found` si el dispositivo no existe.
 
-- POST /devices/{id}/detach
+- **GET `/api/v1/fleet/devices/by-imei/{imei}`**  
+  - Descripción: Buscar un dispositivo por IMEI.  
+  - Respuestas:
+    - `200 OK` con `DeviceResource`.
+    - `404 Not Found` si no existe.
 
-- PATCH /devices/{id}/activate | /deactivate
+- **GET `/api/v1/fleet/devices/by-online/{online}`**  
+  - Descripción: Listar dispositivos filtrados por estado online (`true`/`false`).  
+  - Respuesta: `200 OK` con `List<DeviceResource>`.
 
-- GET /devices/{id} | GET /devices?vehicleId=&page=&size=
+- **POST `/api/v1/fleet/devices`**  
+  - Descripción: Crear un nuevo dispositivo IoT.  
+  - Request body: `CreateDeviceResource { imei, firmware, online? }`.  
+  - Respuestas:
+    - `201 Created` con `DeviceResource`.
+    - `400 Bad Request` si IMEI/firmware no cumplen validaciones.
+    - `409 Conflict` si el IMEI ya existe (`DeviceImeiAlreadyExistsException`).
+
+- **PUT `/api/v1/fleet/devices/{id}`**  
+  - Descripción: Actualizar firmware y/o estado online de un dispositivo.  
+  - Request body: `UpdateDeviceResource { firmware?, online? }`.  
+  - Respuestas:
+    - `200 OK` con `DeviceResource` actualizado.
+    - `404 Not Found` si el dispositivo no existe.
+
+- **DELETE `/api/v1/fleet/devices/{id}`**  
+  - Descripción: Eliminar un dispositivo.  
+  - Reglas:
+    - Solo se puede eliminar si no está asignado a ningún vehículo.  
+  - Respuestas:
+    - `204 No Content` si se elimina correctamente.
+    - `404 Not Found` si el dispositivo no existe.
+    - `409 Conflict` si el dispositivo está asignado (`DeviceAssignmentConflictException`).
+
+- **POST `/api/v1/fleet/devices/{id}/firmware`**  
+  - Descripción: Actualizar la versión de firmware del dispositivo.  
+  - Parámetros: `firmware` como `requestParam`.  
+  - Respuestas:
+    - `200 OK` con `DeviceResource` actualizado.
+    - `404 Not Found` si el dispositivo no existe.
+    - `400 Bad Request` si la versión no cumple el patrón `vMAJOR.MINOR.PATCH`.
+
+- **PATCH `/api/v1/fleet/devices/{id}/online`**  
+  - Descripción: Cambiar el estado online del dispositivo.  
+  - Request body: `UpdateDeviceOnlineStatusResource { online: Boolean }`.  
+  - Nota: Si `online` llega como `null`, se interpreta como `false`.  
+  - Respuestas:
+    - `200 OK` con `DeviceResource` actualizado.
+    - `404 Not Found` si el dispositivo no existe.
+
+---
+
+**VehicleController**
+
+Base path: `/api/v1/fleet/vehicles`
+
+- **GET `/api/v1/fleet/vehicles`**  
+  - Descripción: Listar todos los vehículos registrados.  
+  - Respuesta: `200 OK` con `List<VehicleResource>`.
+
+- **GET `/api/v1/fleet/vehicles/{id}`**  
+  - Descripción: Obtener un vehículo por ID.  
+  - Respuestas:
+    - `200 OK` con `VehicleResource`.
+    - `404 Not Found` si no existe.
+
+- **GET `/api/v1/fleet/vehicles/by-plate/{plate}`**  
+  - Descripción: Buscar vehículo por placa.  
+  - Respuestas:
+    - `200 OK` con `VehicleResource`.
+    - `404 Not Found` si no existe.
+
+- **GET `/api/v1/fleet/vehicles/by-status/{status}`**  
+  - Descripción: Listar vehículos por estado (`IN_SERVICE`, `OUT_OF_SERVICE`, `MAINTENANCE`, `RETIRED`).  
+  - Respuesta: `200 OK` con `List<VehicleResource>`.
+
+- **GET `/api/v1/fleet/vehicles/by-type/{type}`**  
+  - Descripción: Listar vehículos por tipo (`VAN`, `TRUCK`, `CAR`, `MOTORCYCLE`).  
+  - Respuesta: `200 OK` con `List<VehicleResource>`.
+
+- **POST `/api/v1/fleet/vehicles`**  
+  - Descripción: Registrar un nuevo vehículo en la flota.  
+  - Request body: `CreateVehicleResource { plate, type, capabilities[], status?, odometerKm }`.  
+  - Respuestas:
+    - `201 Created` con `VehicleResource`.
+    - `400 Bad Request` si los datos violan restricciones (placa inválida, capabilities vacío, odómetro negativo).
+    - `409 Conflict` si la placa ya existe (`VehiclePlateAlreadyExistsException`).
+
+- **PUT `/api/v1/fleet/vehicles/{id}`**  
+  - Descripción: Actualizar tipo, capacidades, estado u odómetro.  
+  - Request body: `UpdateVehicleResource { type?, capabilities?, status?, odometerKm? }`.  
+  - Respuestas:
+    - `200 OK` con `VehicleResource`.
+    - `404 Not Found` si el vehículo no existe.
+
+- **DELETE `/api/v1/fleet/vehicles/{id}`**  
+  - Descripción: Eliminar un vehículo de la flota.  
+  - Reglas:
+    - Solo se puede eliminar si el `status == RETIRED` y **no tiene dispositivos asociados**.  
+  - Respuestas:
+    - `204 No Content` si se elimina correctamente.
+    - `404 Not Found` si no existe.
+    - `409 Conflict` si:
+      - No está en estado `RETIRED`, o
+      - Tiene dispositivos asignados (`DeviceAssignmentConflictException` / `IllegalStateException`).
+
+- **POST `/api/v1/fleet/vehicles/{id}/assign-device/{imei}`**  
+  - Descripción: Asignar un dispositivo a un vehículo.  
+  - Reglas:
+    - No se permite asignar dispositivos a vehículos en estado `RETIRED`.
+    - Un dispositivo no puede estar asignado simultáneamente a otro vehículo distinto.  
+  - Respuestas:
+    - `200 OK` con `VehicleResource` actualizado (lista `deviceImeis`).
+    - `404 Not Found` si vehículo o dispositivo no existen.
+    - `409 Conflict` si:
+      - El vehículo ya tiene el dispositivo.
+      - El dispositivo está asignado a otro vehículo.
+      - Se intenta asignar a un vehículo `RETIRED`.
+
+- **POST `/api/v1/fleet/vehicles/{id}/unassign-device/{imei}`**  
+  - Descripción: Desasignar un dispositivo de un vehículo concreto.  
+  - Respuestas:
+    - `200 OK` con `VehicleResource` actualizado.
+    - `404 Not Found` si el vehículo no existe.
+    - `400 Bad Request` si el dispositivo no está asociado a ese vehículo.
+
+- **PATCH `/api/v1/fleet/vehicles/{id}/status`**  
+  - Descripción: Cambiar el estado de un vehículo.  
+  - Request body: `UpdateVehicleStatusResource { status }`.  
+  - Reglas:
+    - No se permite cambiar desde `RETIRED` a cualquier otro estado (conflicto de negocio).  
+  - Respuestas:
+    - `200 OK` con `VehicleResource` actualizado.
+    - `400 Bad Request` si el estado es inválido o nulo.
+    - `404 Not Found` si el vehículo no existe.
+    - `409 Conflict` si el cambio de estado no está permitido (ej. desde `RETIRED`).
+
+---
 
 **Seguridad (ACLs)**
 
-- OIDC/JWT con IAM; scopes: fleet:read, fleet:write, fleet:admin.
+- La protección de endpoints se gestiona a nivel de API Gateway/IAM (autenticación JWT).  
+- Este BC asume que las solicitudes que llegan a `/api/v1/fleet/**` ya están autenticadas y con permisos adecuados, por lo que se enfoca en las reglas de negocio propias de Fleet (unicidad, estados válidos, relaciones vehículo–dispositivo).
 
-### 4.2.6.3. Application Layer
+---
+
+#### 4.2.6.3. Application Layer
 
 **Command Services**
 
-**VehicleCommandServiceImpl**
-
-- Propósito: gestionar creación/actualización/activación de vehículos.
-
-- Métodos:
-
-  - handle(RegisterVehicleCommand)
-
-  - handle(UpdateVehicleCommand)
-
-  - handle(ActivateVehicleCommand) / handle(DeactivateVehicleCommand)
-
-- Validaciones: fleet:write/fleet:admin; unicidad plate por tenantId; existencia de vehículo en updates.
-
-- Dependencias: VehicleRepository, IAMClient.
-
 **DeviceCommandServiceImpl**
 
-- Propósito: ciclo de vida de dispositivos y asociación a vehículos.
+- **Propósito:** Gestionar el ciclo de vida de los dispositivos IoT y su estado.
+- **Métodos:**
+  - `handle(CreateDeviceCommand)`  
+    - Verifica unicidad de IMEI (`existsByImei`).
+    - Crea el agregado `Device` y lo persiste.
+  - `handle(UpdateDeviceCommand)`  
+    - Busca por ID, lanza `DeviceNotFoundException` si no existe.
+    - Actualiza `firmware` (si se envía) y/o `online`.
+  - `handle(DeleteDeviceCommand)`  
+    - Solo permite eliminar si el dispositivo **no está asignado** (`isAssigned()` → `false`).
+    - Caso contrario, lanza `DeviceAssignmentConflictException`.
+  - `handle(UpdateDeviceFirmwareCommand)`  
+    - Actualiza exclusivamente la versión de firmware.
+  - `handle(UpdateDeviceOnlineStatusCommand)`  
+    - Cambia el valor de `online`, interpretando `null` como `false`.
+- **Dependencias:** `DeviceRepository`, `VehicleRepository`.  
+- **Transacciones:** uso de `@Transactional` para garantizar atomicidad por comando.
 
-- Métodos:
+---
 
-  - handle(CreateDeviceCommand)
+**VehicleCommandServiceImpl**
 
-  - handle(UpdateDeviceCommand)
+- **Propósito:** Gestionar creación, actualización, eliminación y asociación de dispositivos en vehículos.
+- **Métodos:**
+  - `handle(CreateVehicleCommand)`
+    - Verifica unicidad de placa (`existsByPlate`).
+    - Valida capacidades y odómetro (no vacíos, ≥ 0).
+  - `handle(UpdateVehicleCommand)`
+    - Busca vehículo por ID, lanza `VehicleNotFoundException` si no existe.
+    - Actualiza tipo, capacidades, estado y/o odómetro respetando reglas de dominio.
+  - `handle(DeleteVehicleCommand)`
+    - Verifica que el vehículo:
+      - Esté en estado `RETIRED`.
+      - No tenga devices asociados (`hasAnyDevice() == false`).
+    - Si no se cumplen las reglas, lanza `IllegalStateException` o `DeviceAssignmentConflictException`.
+  - `handle(AssignDeviceToVehicleCommand)`
+    - Valida existencia de vehículo y device.
+    - No permite asignar a vehículo `RETIRED`.
+    - No permite asignar un dispositivo que ya esté asociado a otro vehículo.
+    - Actualiza tanto el agregado `Vehicle` (set `deviceImeis`) como `Device` (set `vehiclePlate`).
+  - `handle(UnassignDeviceFromVehicleCommand)`
+    - Verifica que el dispositivo esté realmente asociado a ese vehículo (mismo `vehiclePlate`).
+    - Desasocia en ambos agregados.
+  - `handle(UpdateVehicleStatusCommand)`
+    - Cambia el estado del vehículo respetando la regla de no salir de `RETIRED`.
+- **Dependencias:** `VehicleRepository`, `DeviceRepository`.  
+- **Transacciones:** todos los métodos de escritura se marcan con `@Transactional`.
 
-  - handle(AttachDeviceCommand) / handle(DetachDeviceCommand)
-
-  - handle(ActivateDeviceCommand) / handle(DeactivateDeviceCommand)
-
-- Validaciones: fleet:write/fleet:admin; unicidad serial por tenantId; en attach: vehículo existe y mismo tenantId, dispositivo no asociado; en detach: dispositivo asociado.
-
-- Dependencias:
-  - DeviceRepository
-  - VehicleRepository
-  - IAMClient
+---
 
 **Query Services**
 
-**FleetQueryServiceImpl**
+**DeviceQueryServiceImpl**
 
-- Propósito: consultas de solo lectura para vehículos y dispositivos.
+- **Propósito:** Consultas de solo lectura sobre dispositivos.
+- **Métodos:**
+  - `handle(GetAllDevicesQuery)` → lista completa.
+  - `handle(GetDeviceByIdQuery)` → `Optional<Device>`.
+  - `handle(GetDeviceByImeiQuery)` → `Optional<Device>`.
+  - `handle(GetDevicesByOnlineQuery)` → lista filtrada por `online`.
 
-- Métodos:
+**VehicleQueryServiceImpl**
 
-  - handle(GetVehicleByIdQuery) / handle(ListVehiclesQuery)
+- **Propósito:** Consultas de solo lectura sobre vehículos.
+- **Métodos:**
+  - `handle(GetAllVehiclesQuery)` → lista completa.
+  - `handle(GetVehicleByIdQuery)` → `Optional<Vehicle>`.
+  - `handle(GetVehicleByPlateQuery)` → `Optional<Vehicle>`.
+  - `handle(GetVehiclesByStatusQuery)` → lista por estado.
+  - `handle(GetVehiclesByTypeQuery)` → lista por tipo.
 
-  - handle(GetDeviceByIdQuery) / handle(ListDevicesQuery) (filtros por vehicleId)
-
-- Dependencias:
-  - VehicleRepository
-  - DeviceRepository
-  - IAMClient (scope fleet:read, resolución de tenantId)
-
-**Outbound Services (ACL)**
-
-**IAMClient**
-
-- assertScope(token, scope) — valida fleet:read|write|admin.
-
-- getTenantId(token) — scoping multi-tenant.
-
-- getUserId(token) — auditoría
+---
 
 **Consideraciones transversales**
 
-- Transacciones: 1 comando = 1 transacción (implementada por Infra, p. ej. @Transactional).
+- **Transacciones:**  
+  1 comando = 1 transacción, gestionado con `@Transactional` en la capa de aplicación.
+- **Errores estándar en la API:**  
+  - `404 NotFound` para agregados inexistentes.  
+  - `409 Conflict` para violaciones de reglas de negocio (ej. eliminar vehículo no RETIRED, asignar dispositivo ya asignado).  
+  - `400 Bad Request` para errores de validación de Value Objects (patrones, rangos, nulls no permitidos).
 
-- Idempotencia: RegisterVehicle por (tenantId, plate); CreateDevice por (tenantId, serial).
+---
 
-- Auditoría: createdAt/updatedAt (y opcional createdBy/updatedBy).
+#### 4.2.6.4. Infrastructure Layer
 
-- Errores estándar: Forbidden (ACL), NotFound, Conflict, ValidationError.
+**Repositories (JPA)**
 
-### 4.2.6.4. Infrastructure Layer
+- `DeviceRepository extends JpaRepository<Device, Long>`
+  - `Optional<Device> findByImei(Imei imei)`
+  - `boolean existsByImei(Imei imei)`
+  - `List<Device> findAllByOnline(boolean online)`
+  - `List<Device> findAllByVehiclePlate(Plate vehiclePlate)`
 
-**Repositories**
+- `VehicleRepository extends JpaRepository<Vehicle, Long>`
+  - `Optional<Vehicle> findByPlate(Plate plate)`
+  - `boolean existsByPlate(Plate plate)`
+  - `List<Vehicle> findAllByStatus(VehicleStatus status)`
+  - `List<Vehicle> findAllByType(VehicleType type)`
+  - `Optional<Vehicle> findByDeviceImeis(Imei deviceImeis)`
 
-- VehicleRepository (PostgreSQL)
-- DeviceRepository (PostgreSQL)
+**Persistencia**
 
-**Integraciones y seguridad**
+- Implementación basada en **Spring Data JPA**, sobre una base de datos relacional (p. ej. PostgreSQL) compartida en el backend de CargaSafe.
+- Los **Value Objects** (`Plate`, `Imei`, `FirmwareVersion`, `OdometerKm`) se mapean como `@Embeddable` con `@AttributeOverride` para definir columnas específicas.
+- Las colecciones (`capabilities`, `deviceImeis`) se modelan con `@ElementCollection` y tablas de relación dedicadas (`vehicle_capabilities`, `vehicle_device_imeis`).
 
-- IAMClient para validar JWT/claims (ACLs).
+**Integración y seguridad**
+
+- La validación de JWT, scopes y multi-tenant se realiza en el API Gateway / BC de IAM.
+- El BC Fleet Management se enfoca en la lógica de negocio de flota y en mantener la consistencia de vehículos y dispositivos dentro de la base de datos.
+
 
 #### 4.2.6.5. Bounded Context Software Architecture Component Level Diagrams.
 
