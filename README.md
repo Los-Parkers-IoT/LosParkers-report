@@ -6606,13 +6606,225 @@ _Insights de Embbended Application_<br>
 
 #### 6.2.3.1. Sprint Planning 3.
 
+En esta sección se especifican los aspectos principales del Sprint Planning Meeting para el Sprint 3 del proyecto CargaSafe. Este primer sprint se enfoca en establecer las bases de la plataforma, implementando el landing page y los componentes iniciales de la aplicación web que permitan a los usuarios conocer el producto y comenzar a interactuar con las funcionalidades core del sistema de monitoreo de carga.
+
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint #</th>
+  </tr>
+  <tr>
+    <td colspan="2">Sprint 3</td>
+  </tr>
+
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint Planning Background</th>
+  </tr>
+  <tr>
+    <td style="width: 35%;">Date</td>
+    <td>2025-10-19</td>
+  </tr>
+  <tr>
+    <td>Time</td>
+    <td>09:00 AM</td>
+  </tr>
+  <tr>
+    <td>Location</td>
+    <td>Reunión virtual mediante Discord</td>
+  </tr>
+  <tr>
+    <td>Prepared By</td>
+    <td>Marcelo Fabian Garro Vega</td>
+  </tr>
+  <tr>
+    <td>Attendees (to planning meeting)</td>
+    <td>Marcelo Fabian Garro Vega / Jefrey Martin Sanchez Ignacio / Daniel Rodrigo Chirinos Arevalo / Alessandro Joaquin Bernardo Eusebio / Vera Nuñez Nicolas Alejandro / George Aliaga</td>
+  </tr>
+  <tr>
+    <td>Sprint 2 Review Summary</td>
+    <td>Al ser el primer sprint del proyecto, no existe un sprint anterior para revisar. Sin embargo, se completaron las actividades de planeamiento inicial, incluyendo la definición de la arquitectura de software bajo principios de Domain Driven Design, la elaboración de wireframes y mockups, y la especificación de user stories en el product backlog.</td>
+  </tr>
+  <tr>
+    <td>Sprint 2 Retrospective Summary</td>
+    <td>Durante la fase de planeamiento (Sprint 0), el equipo logró establecer una visión compartida del producto y definir los bounded contexts principales del sistema. Se identificaron oportunidades de mejora en la comunicación asíncrona y se acordó implementar daily stand-ups virtuales para mantener la sincronización del equipo. El equipo manifestó motivación y compromiso para comenzar la implementación del producto.</td>
+  </tr>
+
+  <tr>
+    <th colspan="2" style="text-align: left;">Sprint Goal & User Stories</th>
+  </tr>
+  <tr>
+    <td>Sprint 3 Goal</td>
+    <td></td>
+
+  </tr>
+  <tr>
+    <td>Sprint 3 Velocity</td>
+    <td>00 Story Points</td>
+  </tr>
+  <tr>
+    <td>Sum of Story Points</td>
+    <td>00 Story Points</td>
+  </tr>
+</table>
+
 #### 6.2.3.2. Aspect Leaders and Collaborators.
 
 #### 6.2.3.3. Sprint Backlog 3.
 
-#### 6.2.3.4. Development Evidence for Sprint Review
+#### 6.2.3.4. Development Evidence for Sprint Review.
+
+**Web Application**
+
+Durante este sprint se implementaron los módulos principales del sistema **CargaSafe** en Angular 20.  
+El equipo desarrolló el _bounded context_ de suscripciones, gestión de flotas, monitoreo de viajes, alertas y autenticación (IAM).  
+Se integró la API simulada con `json-server`, se configuró el enrutamiento base y se estructuró la arquitectura por capas (domain, infrastructure, presentation).
+
+| Repository                                     | Branch                          | Commit Id   | Commit Message                                                                                                        | Commit Message Body                                                                            | Commited on (Date) |
+| ---------------------------------------------- | ------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------ |
+| `iot-solutions-development-cargasafe-frontend` | `main`                          | **c8dc444** | initial commit                                                                                                        | Inicio del proyecto Angular 20, configuración base y estructura inicial.                       | 2025-09-23         |
+
+
+**Web Services**
+| Repository                                    | Branch                                   | Commit Id | Commit Message                                                               | Commit Message Body                                                | Commited on (Date) |
+|-----------------------------------------------|-------------------------------------------|-----------|------------------------------------------------------------------------------|--------------------------------------------------------------------|---------------------|
+| iot-solutions-development-cargasafe-backend   | main                                      | 48ab0d3  | build: setup project template                                                | Configura la plantilla base del proyecto.                          | 2025-09-23          |
+
+
+**Mobile Application**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|-----------|--------|-----------|----------------|----------------------|----------------------|
+| iot-solutions-development-cargasafe-mobile | main | 0915028 | build: setup mobile app project | Configuración inicial del proyecto móvil. | 2025-09-24 |
+
+
+**Embemdded Application**
+
+| Repository                                           | Branch | Commit Id | Commit Message                                   | Commit Message Body                                              | Committed on |
+|------------------------------------------------------|--------|-----------|--------------------------------------------------|------------------------------------------------------------------|---------------|
+| iot-solutions-development-cargasafe-embedded-application | main   | 84e697f   | chore: initial commit                            | Inicio del proyecto y configuración base del entorno embebido.   | 2025-11-08    |
 
 #### 6.2.3.5. Testing Suite Evidence for Sprint Review.
+
+En esta sección se presenta el conjunto de pruebas automatizadas implementadas para el proyecto CargaSafe durante el Sprint 3. La suite de testing incluye Unit Tests, Integration Tests y Acceptance Tests (BDD) diseñados para verificar el correcto funcionamiento de los servicios web relacionados con el monitoreo en tiempo real de condiciones de carga durante el transporte. (Aqui deberiamos mencionar que no se hizo añadido de testing porque hemos hecho testing a los más importantes como para añadir otros)
+
+##### Alcance del Testing
+
+El alcance de esta suite de pruebas cubre los siguientes componentes de la aplicación:
+
+**Componentes Testeados:**
+
+- **Domain Layer**: `MonitoringSession` (Aggregate Root), `TelemetryData` (Entity), Commands, Queries y Domain Events
+- **Application Layer**: `MonitoringSessionCommandServiceImpl`, `TelemetryCommandServiceImpl`, `MonitoringSessionQueryServiceImpl`, `TelemetryQueryServiceImpl`
+- **Infrastructure Layer**: `IMonitoringSessionRepository`, `ITelemetryDataRepository`
+- **Interface Layer**: `MonitoringController` (REST API), `TelemetryController` (REST API)
+
+##### Unit Tests
+
+Los Unit Tests se enfocan en probar la lógica de negocio de manera aislada, sin dependencias externas.
+
+**MonitoringSessionTest** - `src/test/java/Proyect/IoTParkers/monitoring/unit/MonitoringSessionTest.java`
+
+Comportamientos probados (12 tests):
+- Creación de sesiones de monitoreo con estado ACTIVE
+- Transiciones de estado: pausar, reanudar y completar sesiones
+- Validación de reglas de negocio (no pausar sesión inactiva, no completar sesión ya completada)
+- Gestión de datos de telemetría asociados a la sesión
+
+**TelemetryDataTest** - `src/test/java/Proyect/IoTParkers/monitoring/unit/TelemetryDataTest.java`
+
+Comportamientos probados (7 tests):
+- Creación de datos de telemetría con parámetros de temperatura, humedad, vibración y GPS
+- Validación de valores extremos de temperatura (-40°C a 60°C)
+- Validación de rangos de humedad (0% a 100%)
+- Validación de niveles de vibración (0.0 a 5.0)
+- Verificación de coordenadas GPS válidas para Lima, Perú
+
+![Unit Tests Evidence](assets/UnitTestEvidence.png)
+
+##### Integration Tests
+
+Los Integration Tests verifican el funcionamiento completo del sistema incluyendo persistencia, servicios y repositorios.
+
+**MonitoringSessionServiceIntegrationTest** (7 tests):
+- Inicio de sesión a través del command service con persistencia en base de datos
+- Creación de múltiples sesiones con IDs únicos
+- Búsqueda de sesiones por ID de dispositivo
+- Actualización de estado de sesión
+- Ciclo completo de vida: start → pause → resume → complete
+
+**TelemetryDataServiceIntegrationTest** (8 tests):
+- Agregación de telemetría a sesión activa
+- Recuperación de telemetría por sesión
+- Manejo de valores extremos de temperatura y vibración
+- Rastreo de coordenadas GPS precisas
+- Validación de orden cronológico de datos
+
+![Integration Tests Evidence](assets/IntegrationTestEvidence.png)
+
+##### Acceptance Tests (BDD)
+
+Los Acceptance Tests utilizan Cucumber con Gherkin para definir escenarios en lenguaje natural.
+
+**Feature Files implementados:**
+
+1. **monitoring-session-management.feature** (8 escenarios)
+   - Relacionado con User Story: "Como Gestor de Transporte, quiero iniciar sesiones de monitoreo para rastrear condiciones de carga en tiempo real"
+   - Escenarios clave:
+     * Iniciar nueva sesión de monitoreo exitosamente
+     * Pausar, reanudar y completar sesiones
+     * Validar transiciones de estado
+     * Ciclo completo de vida de sesión
+
+2. **telemetry-data-capture.feature** (10 escenarios)
+   - Relacionado con User Story: "Como Sistema IoT, quiero capturar datos de telemetría para proporcionar información en tiempo real"
+   - Escenarios clave:
+     * Capturar datos con todos los parámetros (temperatura, humedad, vibración, GPS)
+     * Manejar temperaturas extremas (-40°C y 60°C)
+     * Detectar vibración elevada (5.0)
+     * Capturar múltiples lecturas en secuencia
+     * Rechazar datos en sesión inactiva
+
+3. **real-time-monitoring.feature** (11 escenarios)
+   - Relacionado con User Story: "Como Gestor de Transporte, quiero monitorear en tiempo real para tomar acciones inmediatas"
+   - Escenarios clave:
+     * Visualizar estado actual de temperatura y humedad
+     * Detectar valores fuera de rango
+     * Monitorear múltiples vehículos simultáneamente
+     * Recibir alertas de vibración excesiva
+     * Rastrear ubicación GPS en tiempo real
+
+##### Repositorio y Commits de Testing
+
+**Repositorio**: [`iot-solutions-development-cargasafe-backend`  ](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend)
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|-----------|---------|-----------|----------------|---------------------|---------------------|
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | e4aaf65 | test: add unit tests for MonitoringSession | Implemented 12 unit tests covering session lifecycle, state transitions, and telemetry management | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 7c2bd91 | test: add unit tests for TelemetryData | Implemented 7 unit tests for TelemetryData entity covering temperature, humidity, vibration, and GPS validation | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 3f8e4a2 | test: add integration tests for monitoring services | Implemented 15 integration tests covering services with database persistence | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 9d1c7b5 | test: add BDD scenarios for session management | Created 8 Gherkin scenarios for monitoring session lifecycle | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 2a6f3e8 | test: add BDD scenarios for telemetry capture | Created 10 Gherkin scenarios for telemetry data capture and validation | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 5b9d2c1 | test: add BDD scenarios for real-time monitoring | Created 11 Gherkin scenarios for real-time monitoring and alerts | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 8e4a7f3 | test: implement Cucumber steps for monitoring | Implemented step definitions with Spring integration | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 6c1b9d4 | test: implement Cucumber steps for telemetry | Implemented step definitions with data table support | 14/11/2025 |
+| iot-solutions-development-cargasafe-backend | feature/monitoring-testing | 4f7e2a9 | test: configure Cucumber runner | Configured test runner, Spring integration, and H2 database | 14/11/2025 |
+
+##### Resumen de Cobertura
+
+| Tipo de Test | Cantidad de Tests | Componentes Cubiertos |
+|--------------|-------------------|----------------------|
+| **Unit Tests** | 19 tests | 2 clases de dominio (MonitoringSession, TelemetryData) |
+| **Integration Tests** | 15 tests | 4 servicios + 2 repositorios + persistencia |
+| **Acceptance Tests (BDD)** | 29 escenarios | Flujos completos end-to-end |
+| **Total** | **63 verificaciones** | **Domain, Application, Infrastructure e Interface Layers** |
+
+**Configuración de Testing:**
+
+- **Framework de Testing**: JUnit 5, Mockito, AssertJ
+- **BDD Framework**: Cucumber 7.20.1 con Gherkin en español
+- **Base de Datos de Pruebas**: H2 in-memory database
+- **Spring Boot Test**: Con contexto completo de aplicación
+
+Los tests garantizan la confiabilidad de la aplicación, proporcionando cobertura completa desde la lógica de dominio hasta los endpoints REST, y sirviendo como documentación ejecutable del comportamiento esperado del sistema.
 
 #### 6.2.3.6. Execution Evidence for Sprint Review.
 
@@ -6621,6 +6833,27 @@ _Insights de Embbended Application_<br>
 #### 6.2.3.8. Software Deployment Evidence for Sprint Review
 
 #### 6.2.3.9. Team Collaboration Insights during Sprint.
+
+Durante este sprint, el equipo de desarrollo trabajó de forma colaborativa en la implementación de las principales funcionalidades correspondientes al alcance definido: la Landing Page y la Aplicación Web de CargaSafe. A lo largo del proceso, se mantuvo una comunicación constante mediante GitHub y los canales del equipo, asegurando una adecuada distribución de tareas y el cumplimiento de los objetivos propuestos.<br>
+
+Los analíticos de GitHub reflejan la participación activa de todos los integrantes, evidenciando commits frecuentes, revisiones de código y fusiones entre ramas, lo que demuestra un flujo de trabajo coordinado y una integración continua del proyecto. Además, se promovió la retroalimentación mutua y la resolución conjunta de incidencias técnicas, fortaleciendo el liderazgo compartido y la cooperación dentro del equipo.<br>
+
+_Insights de Landing Page_<br>
+
+
+_Insights de Web Application_<br>
+
+
+_Insights de Web Services_<br>
+
+
+_Insights de Mobile Application_<br>
+
+
+_Insights de Edge Application_<br>
+
+
+_Insights de Embbended Application_<br>
 
 ## 6.3. Validation Interviews.
 
@@ -6906,7 +7139,7 @@ El material también presenta las principales funcionalidades de la aplicación 
 
 # Conclusiones
 
-### Conclusiones y recomendaciones.
+### Conclusiones y recomendaciones
 
 #### Conclusiones
 
@@ -6916,7 +7149,7 @@ El trabajo permitió validar que el problema identificado en el Lean UX, la falt
 
 Se recomienda priorizar en el roadmap el desarrollo de las funcionalidades que demostraron mayor impacto en las validaciones: el sistema de alertas en tiempo real, la trazabilidad completa por viaje y la generación automática de reportes. Además, se sugiere incorporar la funcionalidad adicional detectada en campo, el enlace público de seguimiento, por su alto valor percibido para empresas y clientes. Finalmente, se aconseja realizar pilotos con empresas de alimentos y farmacéutica para validar métricas reales de reducción de incidentes y ajustar el producto antes de su escalamiento, asegurando que CargaSafe evolucione de forma consistente con las necesidades del mercado y los aprendizajes del proceso Lean UX.
 
-### Video About-the-Team.
+### Video About-the-Team
 
 <img src="assets/Logo.png">
 
@@ -7068,9 +7301,10 @@ Alertas
 | Validación    | Gabriel Díaz - Cliente Final | [URL del video de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20201c410_upc_edu_pe/IQCqtFhq7l8bTKDnwJXP7GCAAb5DJFOnhNqLSHd8F2HguHE?e=jEczfo&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
 
 
+<div style="page-break-after: always;"></div>
+
 ### Anexo D Videos de Exposiciones
 
-Videos
 
 | Entrega | Título del Video                            | Enlace                      |
 | ------- | ------------------------------------------- | --------------------------- |
