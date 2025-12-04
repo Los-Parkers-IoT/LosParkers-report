@@ -209,13 +209,6 @@ _Commits_
 
 _Tabla de contenidos_
 
-- [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
-- [Project Report Collaboration Insights](#project-report-collaboration-insights)
-  - [TB1 Project Report Collaboration Insights](#tb1-project-report-collaboration-insights)
-  - [TP Project Report Collaboration Insights](#tp-project-report-collaboration-insights)
-  - [TB2 Project Report Collaboration Insights](#tb2-project-report-collaboration-insights)
-  - [TF Project Report Collaboration Insights](#tf-project-report-collaboration-insights)
-- [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
 - [Capítulo I: Introducción](#capítulo-i-introducción)
   - [1.1. Startup Profile](#11-startup-profile)
@@ -534,10 +527,14 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         <span class="person">Marcelo Fabian Garro Vega</span><br />
         <span class="entry-order">TB1:</span><br/>
           Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, donde contribuí con ideas clave para definir el flujo de negocio, fomentando así la claridad y el consenso entre todos los miembros del equipo. También participé activamente en la elaboración de la arquitectura de software y en el diseño táctico siguiendo los principios de Domain Driven Design. 
-        </span>
-        <span class="entry-order">TP1:</span><br/>
+        </span><br/><br/>
+        <span class="entry-order">TP1:<br/>
           En esta entrega, demostré liderazgo colaborativo al delegar tareas SMART a mis compañeros, guiarlos en la resolución de dudas técnicas y establecer un flujo de trabajo transparente que promovió la coordinación y el cumplimiento de los objetivos del equipo.
-        </span>
+        </span><br/><br/>
+        <span class="entry-order">TB2:<br/>
+          En esta entrega me encargué del desarrollo completo del bounded context de Trips, definiendo sus entidades, agregados y flujos principales. Implementé la lógica central del dominio y aseguré su correcta integración con los demás módulos del sistema.
+        </span><br/><br/>
+        <span class="entry-order">TF:<br/>En esta entrega consolidé los avances del equipo, validé la integración de los módulos desarrollados y aseguré que las funcionalidades cumplieran con los criterios del sprint, manteniendo coherencia técnica y alineación con el flujo de negocio.</span>
         <br /> <br><span class="person">George Arturo Aliaga Pimentel</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br />
@@ -597,9 +594,15 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
       </td>
       <td>
         <span class="person">Marcelo Fabian Garro Vega</span><br />
-        <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo dentro del equipo, promoviendo la participación activa de todos los miembros mediante el envío constante de retroalimentaciones constructivas. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que estas aportan al negocio. Para ello, tomé en cuenta las opiniones de mis compañeros, lo cual permitió definir metas claras, planificar de manera efectiva y cumplir con los objetivos propuestos bajo los principios de Domain Driven Design. <br />
-        <span class="entry-order">TP1:</span> En esta entrega, fomenté un entorno colaborativo e inclusivo al asignar tareas del sprint backlog y coordinar sesiones de trabajo síncronas, tanto remotas como presenciales, para definir conjuntamente los objetivos y asegurar el cumplimiento de la entrega. <br />
-        </span> <br> 
+        <span class="entry-order">TB1:<br/></span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo dentro del equipo, promoviendo la participación activa de todos los miembros mediante el envío constante de retroalimentaciones constructivas. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que estas aportan al negocio. Para ello, tomé en cuenta las opiniones de mis compañeros, lo cual permitió definir metas claras, planificar de manera efectiva y cumplir con los objetivos propuestos bajo los principios de Domain Driven Design. <br />
+        <span class="entry-order">TP1:<br/></span> En esta entrega, fomenté un entorno colaborativo e inclusivo al asignar tareas del sprint backlog y coordinar sesiones de trabajo síncronas, tanto remotas como presenciales, para definir conjuntamente los objetivos y asegurar el cumplimiento de la entrega. <br />
+        <span class="entry-order">TB2:<br/>
+          En esta entrega contribuí a mantener un entorno colaborativo al coordinar la planificación del sprint y apoyar la definición de las historias del módulo de Trips. Trabajé de manera cercana con el equipo para aclarar requerimientos, alinear expectativas y asegurar que las tareas se distribuyeran de forma equilibrada para cumplir los objetivos planteados.
+        </span><br/>
+        <span class="entry-order">TF1:<br/>
+          En esta entrega reforcé la colaboración del equipo integrando los avances de cada miembro, verificando el cumplimiento de las metas del sprint y facilitando la comunicación para resolver bloqueos. Esto permitió cerrar la iteración con coherencia entre lo planificado y lo entregado.
+        </span>
+        </span> <br/><br/> 
         <span class="person">George Arturo Aliaga Pimentel</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance contribuí a mantener un entorno colaborativo al apoyar en la documentación del Domain Layer, describiendo de manera clara las entidades, value objects y servicios de dominio. Además, participé en la definición de metas de la iteración y en la organización de tareas, lo que permitió que el equipo trabajara con orden, alcanzara los objetivos propuestos y mantuviera consistencia con las guías establecidas por el líder del grupo. <br />
