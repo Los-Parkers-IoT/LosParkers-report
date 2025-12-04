@@ -483,6 +483,8 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizó la primera versión de la web application y la landing page.  <br />
         <span class="entry-order">TB2:</span><br/>
         Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Además, se realizaron correctamente todos los productos que están dentro de nuestro alcance  <br />
+        <span class="entry-order">TF:</span><br/>
+        Trabajé activamente en la planificación y estructuración de los productos, colaborando con los miembros del equipo para poder definir y actualizar las correciones que se dejaron en la anterior entrega. Como ultimo sprint, se refactorizó los codigos de los productos.  <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span><br/>
         Durante este avance del proyecto, participé activamente en reuniones presenciales y virtuales, aportando ideas clave para definir el flujo de negocio y la estructura de la solución. Colaboré en la elaboración de la arquitectura de software y en el diseño táctico bajo los principios de Domain Driven Design, asegurando claridad y consenso entre los miembros del equipo. Además, contribuí en la documentación de los artefactos de usuario y en la organización de tareas, promoviendo un entorno colaborativo y alineado con los objetivos del proyecto.<br />
@@ -531,6 +533,10 @@ Criterio: La capacidad de funcionar efectivamente en un equipo cuyos miembros ju
         Estuve enfocado en fomentar un ambiente de colaboración dentro del equipo. Trabajé en conjunto con mis compañeros para definir los objetivos y tareas del proyecto. Colaboré en el análisis competitivo y en la definición de segmentos clave como el de gestion de transportes y clientes finales. Además, me encargué de crear user stories e impact mapping para estos segmentos, asegurando que el desarrollo del producto estuviera alineado con las necesidades del usuario. Cada semana establecí un límite personal para realizar las secciones de cada capítulo, de esta forma me aseguré de que todas las tareas estuvieran bien organizadas y distribuidas para cumplir con los objetivos establecidos. <br />
         <span class="entry-order">TP:</span><br/>
         Colaboré en la elaboración de mi bounded context "Alerts and resolutions", tambien apoyé con las correciones de la anterior entrega y en la organización de las tareas.  <br />
+        <span class="entry-order">TB2:</span><br/>
+        Colaboré en la elaboración de mi bounded context "Alerts and resolutions" y en la embedded application, tambien apoyé con las correciones de la anterior entrega y en la organización de las tareas.  <br />
+        <span class="entry-order">TF:</span><br/>
+        Colaboré en la refactorización del codigo del embedded application y ajustes en los productos, tambien apoyé con las correciones de la anterior entrega y en la organización de las tareas.  <br />
         <br><span class="person">Alessandro Joaquin Bernardo Eusebio</span><br />
         <span class="entry-order">TB1:</span> Durante el desarrollo del proyecto, me enfoqué en fomentar un entorno colaborativo e inclusivo, promoviendo la participación activa de todos los miembros mediante retroalimentación constante y constructiva. Contribuí a la estimación de story points y a la planificación de user y technical stories, considerando el valor que aportan al negocio. Participé en la definición de metas y organización de tareas, asegurando que el equipo trabajara con orden y alcanzara los objetivos propuestos bajo los principios de Domain Driven Design.<br />
         <span class="entry-order">TP1:</span> Durante este avance, establecí metas claras de diseño y prototipado, planificando las tareas técnicas relacionadas con la elaboración del bounded context de Visualization and Analytics y la creación de los prototipos interactivos. Fomenté un ambiente inclusivo mediante sesiones de revisión colaborativa del diseño en Figma, donde recibí y di retroalimentación constructiva para mejorar la experiencia de usuario. Asimismo, coordiné con el equipo para asegurar que el landing page cumpliera con los estándares de usabilidad, accesibilidad y alineación con la identidad visual del proyecto, cumpliendo con los objetivos establecidos en el sprint.<br />
@@ -6687,6 +6693,9 @@ Los aspectos principales son:
 4. **Real-time Monitoring**: Monitoreo de condiciones ambientales en tiempo real
 5. **Alerts and Resolution**: Generación, visualización y resolución de alertas
 6. **Embedded Application:** Dispositivo IoT que funciona para monitoreo
+7. **Identity and Access Management (IAM)**: Gestión de usuarios, autenticación y control de accesos
+8. **Visualization and Analytics**: Dashboards, gráficos y reportes analíticos
+9. **Subscriptions and Payments**: Gestión de planes de suscripción y pagos
 
 A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix) que indica el líder (L) y los colaboradores (C) para cada aspecto del Sprint 2:
 
@@ -6817,7 +6826,7 @@ Se integró la API simulada con `json-server`, se configuró el enrutamiento bas
 
 | Repository                                           | Branch | Commit Id | Commit Message                                   | Commit Message Body                                              | Committed on |
 |------------------------------------------------------|--------|-----------|--------------------------------------------------|------------------------------------------------------------------|---------------|
-| iot-solutions-development-cargasafe-embedded-application | main   | 84e697f   | chore: initial commit                            | Inicio del proyecto y configuración base del entorno embebido.   | 2025-11-08    |
+| iot-solutions-development-cargasafe-embedded-application | main   | ed866ae   | feat(embeddedApp): code updated for Embedded App | Refactorización del codigo   | 2025-11-27    |
 
 #### 6.2.3.5. Testing Suite Evidence for Sprint Review.
 
@@ -6911,7 +6920,7 @@ Los Acceptance Tests utilizan Cucumber con Gherkin para definir escenarios en le
 
 ##### Repositorio y Commits de Testing
 
-**Repositorio**: [`iot-solutions-development-cargasafe-backend`  ](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend)
+**Repositorio**: [`iot-solutions-development-cargasafe-backend`](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend)
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
 |-----------|---------|-----------|----------------|---------------------|---------------------|
