@@ -6683,7 +6683,7 @@ En esta sección se especifican los aspectos principales del Sprint Planning Mee
 
 #### 6.2.3.2. Aspect Leaders and Collaborators.
 
-Para el Sprint 3, los principales aspectos considerados corresponden a los bounded contexts core identificados en la arquitectura del sistema CargaSafe, además del Landing Page como punto de entrada al producto. Se estableció un nuevo punto acerca del Embedded Application.
+Para el Sprint 3, los principales aspectos considerados corresponden a los bounded contexts core identificados en la arquitectura del sistema CargaSafe..
 
 Los aspectos principales son:
 
@@ -6697,7 +6697,7 @@ Los aspectos principales son:
 8. **Visualization and Analytics**: Dashboards, gráficos y reportes analíticos
 9. **Subscriptions and Payments**: Gestión de planes de suscripción y pagos
 
-A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix) que indica el líder (L) y los colaboradores (C) para cada aspecto del Sprint 2:
+A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix) que indica el líder (L) y los colaboradores (C) para cada aspecto del Sprint 3:
 
 <table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%; text-align: center;">
   <tr>
@@ -6709,6 +6709,9 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <th>Real-time Monitoring<br>L / C</th>
     <th>Alerts<br>L / C</th>
     <th>Embedded Application<br>L / C</th>
+    <th>Identity and Access Management (IAM)<br>L / C</th>
+    <th>Visualization and Analytics<br>L / C</th>
+    <th>Subscriptions and Payments<br>L / C</th>
   </tr>
   <tr>
     <td style="text-align: left;">Garro Vega, Marcelo Fabian</td>
@@ -6717,6 +6720,9 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <td>C</td>
     <td>C</td>
     <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
     <td>C</td>
     <td>C</td>
   </tr>
@@ -6729,6 +6735,9 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <td>C</td>
     <td>C</td>
     <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
   </tr>
   <tr>
     <td style="text-align: left;">Aliaga Pimentel, George Arturo</td>
@@ -6737,6 +6746,9 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <td>L</td>
     <td>C</td>
     <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
     <td>C</td>
     <td>C</td>
   </tr>
@@ -6749,6 +6761,9 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <td>C</td>
     <td>C</td>
     <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
   </tr>
   <tr>
     <td style="text-align: left;">Chirinos Arevalo, Daniel Rodrigo</td>
@@ -6759,6 +6774,9 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <td>C</td>
     <td>L</td>
     <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
   </tr>
   <tr>
     <td style="text-align: left;">Bernardo Eusebio, Alessandro Joaquin</td>
@@ -6768,6 +6786,9 @@ A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix
     <td>C</td>
     <td>C</td>
     <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
     <td>C</td>
   </tr>
 </table>
@@ -6953,6 +6974,71 @@ Los Acceptance Tests utilizan Cucumber con Gherkin para definir escenarios en le
 Los tests garantizan la confiabilidad de la aplicación, proporcionando cobertura completa desde la lógica de dominio hasta los endpoints REST, y sirviendo como documentación ejecutable del comportamiento esperado del sistema.
 
 #### 6.2.3.6. Execution Evidence for Sprint Review.
+
+Durante este sprint se logró el desarrollo funcional del frontend y backend de CargaSafe, cumpliendo con los objetivos establecidos para esta iteración. El trabajo se centró en construir las vistas principales del sistema en Angular Material y consolidar la conexión con el backend desarrollado en IntelliJ, el cual expone sus servicios mediante Swagger.
+
+En el frontend, se trabajó con Angular bajo arquitectura modular standalone. Se priorizó la creación de las vistas correspondientes a los módulos Vehicles, Sensors, Trips y Alerts, asegurando consistencia visual, navegación fluida y consumo correcto de los endpoints expuestos por el backend. Cada pantalla incluye tablas, formularios y componentes reutilizables que facilitan la gestión de la información.
+
+Por otro lado, el backend fue implementado en Java dentro de IntelliJ, estructurado en capas y utilizando controladores REST documentados con Swagger UI, lo que permite validar y probar cada operación. Se implementaron los endpoints iniciales necesarios para dar soporte al frontend y permitir la visualización y manipulación de datos en tiempo real.
+
+Gracias a la integración entre ambos entornos, el sistema ya permite comunicación efectiva mediante HTTP, mostrando datos reales provenientes del backend en las vistas del frontend.
+
+**Landing Page**
+
+_Vista inicial del encabezado principal y navegación_ <br>  
+![Landing Page – Sección de encabezado](assets/evidenceLandingPage1.png)
+<br>
+
+_Sección de planes de suscripción con precios y descripción de beneficios_ <br><br>
+![Landing Page – Seccion de precios](assets/evidenceLandingPage2.png)
+<br>
+
+Repositorio: [Click aquí](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-landing)
+Enlace: [Click aquí](https://los-parkers-iot.github.io/iot-solutions-development-cargasafe-landing)
+
+<br>
+<br>
+
+**Frontend**
+
+Vista principal del módulo Vehicles
+[![imageVehiclesFrontend.png](https://i.postimg.cc/TYpT00W0/image.png)](https://postimg.cc/xcVrTK5N)
+
+Vista del módulo Sensors con listado y detalles
+[![imageSensorsFrontend.png](https://i.postimg.cc/5tqJykDr/image.png)](https://postimg.cc/nszgwTFK)
+
+Pantalla del módulo Trips mostrando historial y estados de viajes
+[![imageTripsFrontend.png](https://i.postimg.cc/mkhWdZk0/image.png)](https://postimg.cc/gL97jWvD)
+
+Módulo Alerts con alertas activas, estados y acciones disponibles
+[![imageAlertsFrontend.png](https://i.postimg.cc/VsH8JtHm/image.png)](https://postimg.cc/Sj855nhv)
+
+Repositorio Frontend: [Repositorio de CargaSafe Frontend](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-frontend)
+
+Aplicación en línea: [Enlace a CargaSafe Fleet Vehicles](https://carga-safe.web.app/fleet/vehicles)
+
+
+**Backend**
+
+Vehiculos
+[![imageVehiBack.png](https://i.postimg.cc/5t1chS6N/image.png)](https://postimg.cc/sMn0SSYt)
+
+Sensores
+[![imageSensorBack.png](https://i.postimg.cc/85Kqr84n/image.png)](https://postimg.cc/tZ6rLMLh)
+
+Viajes
+[![imageTripBack.png](https://i.postimg.cc/zXFK8JfH/image.png)](https://postimg.cc/xcqcPVM9)
+
+Alertas
+[![imageAlertBack.png](https://i.postimg.cc/DZZNhjhg/image.png)](https://postimg.cc/d7b6m9Lk)
+
+Repositorio Backend: [Repositorio de CargaSafe Backend](https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend)
+
+API en línea: [Swagger UI de CargaSafe Backend](https://iot-solutions-development-cargasafe.onrender.com/swagger-ui/index.html)
+
+
+
+Link del video de ejecución: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202019577_upc_edu_pe/IQDluAMsjsnVTatJuYT1ZWBBAXniF1DhYDHqnCN5KkpBZK0?e=13c16x 
 
 #### 6.2.3.7. Services Documentation Evidence for Sprint Review
 
