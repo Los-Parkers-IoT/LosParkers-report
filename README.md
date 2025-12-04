@@ -7541,27 +7541,27 @@ Los analíticos de GitHub reflejan la participación activa de todos los integra
 
 _Insights de Landing Page_<br>
 
-<img src="assets/landingInsightsTF">
+<img src="assets/landingInsightsTF.png">
 
 _Insights de Web Application_<br>
 
-<img src="assets/webappInsightsTF">
+<img src="assets/webappInsightsTF.png">
 
 _Insights de Web Services_<br>
 
-<img src="assets/webservicesInsightsTF">	
+<img src="assets/webservicesInsightsTF.png">	
 
 _Insights de Mobile Application_<br>
 
-<img src="assets/mobileInsightsTF">	
+<img src="assets/mobileInsightsTF.png">	
 
 _Insights de Edge Application_<br>
 
-<img src="assets/edgeInsightsTF">	
+<img src="assets/edgeInsightsTF.png">	
 
 _Insights de Embbended Application_<br>
 
-<img src="assets/edgeInsightsTF">	
+<img src="assets/edgeInsightsTF.png">	
 
 ## 6.3. Validation Interviews.
 
