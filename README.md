@@ -7561,7 +7561,7 @@ _Insights de Edge Application_<br>
 
 _Insights de Embbended Application_<br>
 
-<img src="assets/edgeInsightsTF.png">	
+<img src="assets/embeddedInsightsTF.png">	
 
 ## 6.3. Validation Interviews.
 
