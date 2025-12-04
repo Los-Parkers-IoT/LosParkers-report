@@ -6677,7 +6677,115 @@ En esta sección se especifican los aspectos principales del Sprint Planning Mee
 
 #### 6.2.3.2. Aspect Leaders and Collaborators.
 
+Para el Sprint 3, los principales aspectos considerados corresponden a los bounded contexts core identificados en la arquitectura del sistema CargaSafe, además del Landing Page como punto de entrada al producto. Se estableció un nuevo punto acerca del Embedded Application.
+
+Los aspectos principales son:
+
+1. **Landing Page**: Página de aterrizaje con información del producto y llamados a la acción
+2. **Fleet Management**: Gestión de vehículos y dispositivos IoT asociados
+3. **Trip Management**: Creación, ejecución y seguimiento de viajes
+4. **Real-time Monitoring**: Monitoreo de condiciones ambientales en tiempo real
+5. **Alerts and Resolution**: Generación, visualización y resolución de alertas
+6. **Embedded Application:** Dispositivo IoT que funciona para monitoreo
+
+A continuación, se presenta la matriz LACX (Leadership and Collaboration Matrix) que indica el líder (L) y los colaboradores (C) para cada aspecto del Sprint 2:
+
+<table border="1" cellspacing="0" cellpadding="6" style="border-collapse: collapse; width: 100%; text-align: center;">
+  <tr>
+    <th style="text-align: left;">Team Member<br>(Last Name, First Name)</th>
+    <th>GitHub Username</th>
+    <th>Landing Page<br>L / C</th>
+    <th>Fleet Management<br>L / C</th>
+    <th>Trip Management<br>L / C</th>
+    <th>Real-time Monitoring<br>L / C</th>
+    <th>Alerts<br>L / C</th>
+    <th>Embedded Application<br>L / C</th>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Garro Vega, Marcelo Fabian</td>
+    <td>Marcelo Garro</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Sanchez Ignacio, Jefrey Martin</td>
+    <td>Jefreysii20</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Aliaga Pimentel, George Arturo</td>
+    <td>GeorAliaga</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Vera Nuñez, Nicolas Alejandro</td>
+    <td>nicxlxs</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Chirinos Arevalo, Daniel Rodrigo</td>
+    <td>DanielChirinos615</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>L</td>
+    <td>L</td>
+  </tr>
+  <tr>
+    <td style="text-align: left;">Bernardo Eusebio, Alessandro Joaquin</td>
+    <td>Alessandro Bernardo</td>
+    <td>L</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+    <td>C</td>
+  </tr>
+</table>
+
+**Leyenda:**
+
+- **L (Leader)**: Responsable principal del aspecto, encargado de la coordinación, toma de decisiones técnicas y revisión final del código.
+- **C (Collaborator)**: Contribuye activamente al desarrollo del aspecto, apoya en la implementación de funcionalidades y participa en las revisiones de código.
+
+Esta matriz facilita la comunicación y clarifica las responsabilidades dentro del equipo, asegurando que cada bounded context tenga un líder definido que coordine su desarrollo, mientras que todos los miembros colaboran de manera transversal para garantizar la integración coherente del sistema.
+
 #### 6.2.3.3. Sprint Backlog 3.
+
+Durante este sprint, se desarrollaron las user stories dedicadas a la landing page y funcionalidades principales del frontend, backend y mobile.
+
+La gestión del sprint se llevó a cabo utilizando la herramienta Jira, donde se registraron las tareas, el estado y los responsables.
+
+<img src="assets/backlog2.png">
+
+| Sprint #   | Sprint 2         |     |     |     |     |     |     |
+| ---------- | ---------------- | --- | --- | --- | --- | --- | --- |
+| User Story | Work-Item / Task |     |     |     |     |     |     |
+
+| User Story Id | User Story Title                                | Task Id | Task Title                                  | Task Description                                                          | Estimation (Hours) | Assigned To         | Status |
+| ------------- | ----------------------------------------------- | ------- | ------------------------------------------- | ------------------------------------------------------------------------- | ------------------ | ------------------- | ------ |
+|           |                    |      |            |  |                   |      |    |
+
 
 #### 6.2.3.4. Development Evidence for Sprint Review.
 
@@ -6838,6 +6946,107 @@ Los tests garantizan la confiabilidad de la aplicación, proporcionando cobertur
 #### 6.2.3.6. Execution Evidence for Sprint Review.
 
 #### 6.2.3.7. Services Documentation Evidence for Sprint Review
+
+Durante este Sprint se consolidó la documentación de los Web Services del backend IoTParkers (CargaSafe) utilizando OpenAPI 3.0 y Swagger UI, publicada en el endpoint:
+
+https://iot-solutions-development-cargasafe-fake.onrender.com/
+
+El código fuente de los Web Services se encuentra en el repositorio:
+
+https://github.com/Los-Parkers-IoT/iot-solutions-development-cargasafe-backend
+
+La documentación cubre los bounded contexts principales del sistema: Fleet Management (Vehicles y Devices), Monitoring, Telemetry, Alerts, Trips, Authentication, Merchants, Origin Points, Users y Employees.
+
+Gracias a esta especificación, el equipo puede descubrir, probar y validar los endpoints de forma interactiva, asegurando consistencia entre el diseño de la API y las implementaciones realizadas en este Sprint.
+
+A continuación, se presenta la tabla resumen de los endpoints documentados, indicando para cada uno el verbo HTTP, la ruta, parámetros principales, un resumen del response y la sección correspondiente dentro de Swagger UI.
+
+| Módulo  | Acción                     | Verbo  | Path                                     | Parámetros                            | Ejemplo de response                    | Swagger        |
+| ------- | -------------------------- | ------ | ---------------------------------------- | ------------------------------------- | -------------------------------------- | -------------- |
+| Devices | Obtener dispositivo por id | GET    | /api/v1/fleet/devices/{id}               | path: id (UUID)                       | 200 OK con DeviceDTO, 404 si no existe | /docs#/Devices |
+| Devices | Actualizar dispositivo     | PUT    | /api/v1/fleet/devices/{id}               | path: id; body: DeviceUpdateRequest   | 200 OK con DeviceDTO actualizado       | /docs#/Devices |
+| Devices | Eliminar dispositivo       | DELETE | /api/v1/fleet/devices/{id}               | path: id                              | 204 No Content, 404 si no existe       | /docs#/Devices |
+| Devices | Listar dispositivos        | GET    | /api/v1/fleet/devices                    | query opcional: page,size,online      | 200 OK lista paginada                  | /docs#/Devices |
+| Devices | Crear dispositivo          | POST   | /api/v1/fleet/devices                    | body: DeviceCreateRequest             | 201 Created con Location               | /docs#/Devices |
+| Devices | Actualizar firmware        | POST   | /api/v1/fleet/devices/{id}/firmware      | path: id; body: FirmwareUpdateRequest | 202 Accepted                           | /docs#/Devices |
+| Devices | Cambiar estado online      | PATCH  | /api/v1/fleet/devices/{id}/online        | path: id; body: OnlineStatusRequest   | 200 OK con nuevo estado                | /docs#/Devices |
+| Devices | Listar por estado online   | GET    | /api/v1/fleet/devices/by-online/{online} | path: online (true/false)             | 200 OK lista filtrada                  | /docs#/Devices |
+| Devices | Buscar por IMEI            | GET    | /api/v1/fleet/devices/by-imei/{imei}     | path: imei                            | 200 OK DeviceDTO, 404 si no existe     | /docs#/Devices |
+| Telemetry | Registrar telemetría          | POST  | /api/v1/telemetry                     | body: TelemetryRecordRequest | 201 Created (id del registro) | /docs#/Telemetry |
+| Telemetry | Obtener telemetría por sesión | GET   | /api/v1/telemetry/session/{sessionId} | path: sessionId              | 200 OK lista                  | /docs#/Telemetry |
+| Notifications | Obtener notificaciones de alerta | GET   | /api/v1/notifications/alert/{alertId} | path: alertId | 200 OK con canales  | /docs#/Notifications |
+| Incidents | Obtener incidentes de alerta | GET   | /api/v1/incidents/alert/{alertId} | path: alertId | 200 OK lista        | /docs#/Incidents |
+| Vehicles | Obtener vehículo por id | GET    | /api/v1/fleet/vehicles/{id}                        | path: id                             | 200 OK, 404 si no existe | /docs#/Vehicles |
+| Vehicles | Actualizar vehículo     | PUT    | /api/v1/fleet/vehicles/{id}                        | path: id; body: VehicleUpdateRequest | 200 OK actualizado       | /docs#/Vehicles |
+| Vehicles | Eliminar vehículo       | DELETE | /api/v1/fleet/vehicles/{id}                        | path: id                             | 204 No Content           | /docs#/Vehicles |
+| Vehicles | Listar vehículos        | GET    | /api/v1/fleet/vehicles                             | query: page,size,status,type         | 200 OK lista             | /docs#/Vehicles |
+| Vehicles | Crear vehículo          | POST   | /api/v1/fleet/vehicles                             | body: VehicleCreateRequest           | 201 Created              | /docs#/Vehicles |
+| Vehicles | Desasignar dispositivo  | POST   | /api/v1/fleet/vehicles/{id}/unassign-device/{imei} | path: id, imei                       | 200 OK                   | /docs#/Vehicles |
+| Vehicles | Asignar dispositivo     | POST   | /api/v1/fleet/vehicles/{id}/assign-device/{imei}   | path: id, imei                       | 200 OK                   | /docs#/Vehicles |
+| Vehicles | Cambiar estado          | PATCH  | /api/v1/fleet/vehicles/{id}/status                 | path: id; body: VehicleStatusRequest | 200 OK                   | /docs#/Vehicles |
+| Vehicles | Listar por tipo         | GET    | /api/v1/fleet/vehicles/by-type/{type}              | path: type                           | 200 OK lista             | /docs#/Vehicles |
+| Vehicles | Listar por estado       | GET    | /api/v1/fleet/vehicles/by-status/{status}          | path: status                         | 200 OK lista             | /docs#/Vehicles |
+| Vehicles | Buscar por placa        | GET    | /api/v1/fleet/vehicles/by-plate/{plate}            | path: plate                          | 200 OK o 404             | /docs#/Vehicles |
+| Authentication | Registro de usuario | POST  | /api/v1/authentication/sign-up | body: SignUpRequest       | 201 Created         | /docs#/Authentication |
+| Authentication | Inicio de sesión    | POST  | /api/v1/authentication/sign-in | body: SignInRequest       | 200 OK con tokens   | /docs#/Authentication |
+| Authentication | Revocar token       | POST  | /api/v1/authentication/revoke  | body: RevokeTokenRequest  | 204 No Content      | /docs#/Authentication |
+| Authentication | Refrescar token     | POST  | /api/v1/authentication/refresh | body: RefreshTokenRequest | 200 OK nuevo token  | /docs#/Authentication |
+| Merchants | Listar empresas        | GET   | /api/v1/merchants               | query: page,size                        | 200 OK paginado     | /docs#/Merchants |
+| Merchants | Crear empresa          | POST  | /api/v1/merchants               | body: MerchantCreateRequest             | 201 Created         | /docs#/Merchants |
+| Merchants | Agregar empleado       | POST  | /api/v1/merchants/{id}/employee | path: id; body: MerchantEmployeeRequest | 200 OK              | /docs#/Merchants |
+| Merchants | Obtener empresa por id | GET   | /api/v1/merchants/{id}          | path: id                                | 200 OK              | /docs#/Merchants |
+| Origin Points | Listar puntos | GET   | /api/v1/origin-points | query: page,size               | 200 OK paginado     | /docs#/Origin-Points |
+| Origin Points | Crear punto   | POST  | /api/v1/origin-points | body: OriginPointCreateRequest | 201 Created         | /docs#/Origin-Points |
+| Alerts | Listar alertas        | GET   | /api/v1/alerts                       | query: page,size,status,type | 200 OK paginado     | /docs#/Alerts |
+| Alerts | Crear alerta manual   | POST  | /api/v1/alerts                       | body: AlertCreateRequest     | 201 Created         | /docs#/Alerts |
+| Alerts | Cerrar alerta         | PATCH | /api/v1/alerts/{alertId}/close       | path: alertId                | 200 OK CLOSED       | /docs#/Alerts |
+| Alerts | Reconocer alerta      | PATCH | /api/v1/alerts/{alertId}/acknowledge | path: alertId                | 200 OK ACKNOWLEDGED | /docs#/Alerts |
+| Alerts | Obtener alerta por id | GET   | /api/v1/alerts/{alertId}             | path: alertId                | 200 OK o 404        | /docs#/Alerts |
+| Alerts | Listar por tipo       | GET   | /api/v1/alerts/type/{type}           | path: type                   | 200 OK lista        | /docs#/Alerts |
+| Alerts | Listar por estado     | GET   | /api/v1/alerts/status/{status}       | path: status                 | 200 OK lista        | /docs#/Alerts |
+| Monitoring | Crear sesión          | POST  | /api/v1/monitoring/sessions                    | body: MonitoringSessionCreateRequest | 201 Created         | /docs#/Monitoring |
+| Monitoring | Reanudar sesión       | POST  | /api/v1/monitoring/sessions/{sessionId}/resume | path: sessionId                      | 200 OK              | /docs#/Monitoring |
+| Monitoring | Pausar sesión         | POST  | /api/v1/monitoring/sessions/{sessionId}/pause  | path: sessionId                      | 200 OK              | /docs#/Monitoring |
+| Monitoring | Finalizar sesión      | POST  | /api/v1/monitoring/sessions/{sessionId}/end    | path: sessionId                      | 200 OK              | /docs#/Monitoring |
+| Monitoring | Obtener sesión por id | GET   | /api/v1/monitoring/sessions/{sessionId}        | path: sessionId                      | 200 OK              | /docs#/Monitoring |
+| Monitoring | Obtener por viaje     | GET   | /api/v1/monitoring/sessions/trip/{tripId}      | path: tripId                         | 200 OK              | /docs#/Monitoring |
+| Monitoring | Listar activas        | GET   | /api/v1/monitoring/sessions/active             | query: page,size                     | 200 OK lista        | /docs#/Monitoring |
+| Roles  | Listar roles | GET   | /api/v1/roles | query: page,size | 200 OK lista        | /docs#/Roles |
+| Trips  | Listar viajes        | GET   | /api/v1/trips                       | query: page,size,dateFrom,dateTo   | 200 OK lista             | /docs#/Trips |
+| Trips  | Crear viaje          | POST  | /api/v1/trips                       | body: TripCreateRequest            | 201 Created              | /docs#/Trips |
+| Trips  | Obtener viaje por id | GET   | /api/v1/trips/{tripId}              | path: tripId                       | 200 OK, 404 si no existe | /docs#/Trips |
+| Trips  | Buscar por rango     | GET   | /api/v1/trips/search                | query: startDate,endDate,page,size | 200 OK filtrado          | /docs#/Trips |
+| Trips  | Listar por empresa   | GET   | /api/v1/trips/merchant/{merchantId} | path: merchantId                   | 200 OK                   | /docs#/Trips |
+| Users  | Listar usuarios        | GET   | /api/v1/users          | query: page,size | 200 OK lista        | /docs#/Users |
+| Users  | Obtener usuario por id | GET   | /api/v1/users/{userId} | path: userId     | 200 OK o 404        | /docs#/Users |
+| Employees | Listar empleados        | GET   | /api/v1/employees                        | query: page,size | 200 OK              | /docs#/Employees |
+| Employees | Obtener empleado por id | GET   | /api/v1/employees/{id}                   | path: id         | 200 OK o 404        | /docs#/Employees |
+| Employees | Listar por empresa      | GET   | /api/v1/employees/merchants/{merchantId} | path: merchantId | 200 OK lista        | /docs#/Employees |
+
+- En la sección Devices, se utilizó el endpoint `POST /api/v1/fleet/devices` con un cuerpo de ejemplo (IMEI, tipo de dispositivo, descripción). Swagger muestra el request body esperado y, al pulsar “Try it out” y luego “Execute”, devuelve un 201 Created con el objeto `DeviceDTO` creado y el header `Location` apuntando al recurso recién creado.
+- En Vehicles, se probaron los filtros `GET /api/v1/fleet/vehicles/by-plate/{plate}` y `GET /api/v1/fleet/vehicles/by-status/{status}` usando datos de placas y estados registrados en la base de datos. Esto permitió validar los casos de uso de búsqueda rápida por placa y listado de flota activa.
+- En Monitoring y Telemetry, se creó una sesión de monitoreo (`POST /api/v1/monitoring/sessions`) y se enviaron registros de telemetría (`POST /api/v1/telemetry`) asociados a esa sesión. Posteriormente se consultaron los datos con `GET /api/v1/telemetry/session/{sessionId}` para verificar que la información se estaba almacenando y recuperando correctamente.
+- En el módulo Alerts, se probaron las transiciones de estado utilizando `PATCH /api/v1/alerts/{alertId}/acknowledge` y `PATCH /api/v1/alerts/{alertId}/close`, comprobando que el response actualiza el estado de la alerta y que los filtros `GET /api/v1/alerts/status/{status}` reflejan dichos cambios.
+
+Cada una de estas interacciones quedó registrada en Swagger y puede ser reproducida fácilmente por otros miembros del equipo, reduciendo la fricción al integrar el frontend web y la aplicación móvil con estos Web Services.
+
+Los cambios más relevantes asociados a la documentación y exposición de endpoints para este Sprint se registraron en los siguientes commits de la rama `main`:
+
+- `42e4452` – **feature(iam): add OpenApiConfiguration**
+    
+    Incorpora la configuración centralizada de OpenAPI para el backend, permitiendo generar el documento OAS 3.0 y habilitar Swagger UI para todos los bounded contexts.
+    
+- `cedbb18` – **chore(swagger): remove bearerAuth scheme from OpenAPI to disable Swagger authorize button**
+    
+    Ajusta el esquema de seguridad en la especificación OpenAPI, deshabilitando temporalmente el botón “Authorize” de Swagger para facilitar las pruebas locales sin JWT durante el Sprint.
+    
+- `f46d243` – **feat(fleet-management): expose PATCH /devices/{id}/online endpoint**
+    
+    Expone y documenta el endpoint `PATCH /api/v1/fleet/devices/{id}/online` dentro del módulo **Devices**, incluyendo su descripción, parámetros y ejemplo de response en Swagger UI.
+    
+- `c725c06` – **feat(fleet-management): expose PATCH /vehicles/{id}/status endpoint**
+    
+    Expone y documenta el endpoint `PATCH /api/v1/fleet/vehicles/{id}/status` dentro del módulo **Vehicles**, permitiendo cambiar el estado operativo del vehículo y visualizar el contrato en la documentación OpenAPI.
 
 #### 6.2.3.8. Software Deployment Evidence for Sprint Review
 
