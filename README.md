@@ -180,9 +180,30 @@ _Contribuciones de cada miembro del equipo para la TB2_
 _Commits_
 <img src="assets/TB2collab3.png">
 
-- Para esta entrega, se han realizado un total de **3425 commits** aproximadamente por parte del equipo.
+- Para esta entrega, se han realizado un total de **424 commits** aproximadamente por parte del equipo.
 
-- El equipo considera que hubo una ligera mejor organización durante la realización de la TB2.
+- El equipo considera que hubo una mejor organización durante la realización de la TF.
+
+
+## TF Project Report Collaboration Insights
+
+Para la entrega del Trabajo Final (TF), se realizaron las actividades necesarias para completar los capítulos finales y consolidar el proyecto, resaltando la importancia de la constancia en el trabajo. Como equipo, hemos mantenido una frecuencia adecuada de commits y actualizaciones, proyectada como óptima para el desarrollo futuro, y se incluyen en el informe las evidencias de los cambios efectuados.
+
+De las contribuciones del equipo y commits se concluye lo siguiente:
+
+_Vista general de las contribuciones del equipo_
+<img src="assets/TFcollab.png">
+
+_Contribuciones de cada miembro del equipo para la TF_
+<img src="assets/TFcollab2.png">
+
+_Commits_
+<img src="assets/TFcollab3.png">
+
+- Para esta entrega, se han realizado un total de **440 commits** aproximadamente por parte del equipo.
+
+- El equipo considera que hubo una ligera mejor organización durante la realización de la TF.
+
 
 ---
 
