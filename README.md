@@ -5830,11 +5830,11 @@ En esta sección se especifican los aspectos principales del Sprint Planning Mee
   </tr>
   <tr>
     <td>Sprint 2 Review Summary</td>
-    <td>Al ser el primer sprint del proyecto, no existe un sprint anterior para revisar. Sin embargo, se completaron las actividades de planeamiento inicial, incluyendo la definición de la arquitectura de software bajo principios de Domain Driven Design, la elaboración de wireframes y mockups, y la especificación de user stories en el product backlog.</td>
+    <td>Durante el Sprint 2 se implementaron los módulos core de la plataforma correspondientes a Trip Management, Fleet Management, Monitoring Management y Alerts Management. Asimismo, se logró integrar el prototipo IoT con la aplicación web mediante datos simulados, permitiendo validar el flujo básico de monitoreo y visualización de telemetría.</td>
   </tr>
   <tr>
     <td>Sprint 2 Retrospective Summary</td>
-    <td>Durante la fase de planeamiento (Sprint 0), el equipo logró establecer una visión compartida del producto y definir los bounded contexts principales del sistema. Se identificaron oportunidades de mejora en la comunicación asíncrona y se acordó implementar daily stand-ups virtuales para mantener la sincronización del equipo. El equipo manifestó motivación y compromiso para comenzar la implementación del producto.</td>
+    <td>El equipo mantuvo una adecuada coordinación durante el Sprint 2, logrando cumplir con los objetivos planteados. Se identificó como oportunidad de mejora la optimización en la estimación de tiempos para tareas de integración, acordándose fortalecer las pruebas técnicas en el siguiente sprint.</td>
   </tr>
 
   <tr>
@@ -6624,7 +6624,7 @@ En esta sección se especifican los aspectos principales del Sprint Planning Mee
   </tr>
   <tr>
     <td style="width: 35%;">Date</td>
-    <td>2025-10-19</td>
+    <td>2025-12-23</td>
   </tr>
   <tr>
     <td>Time</td>
@@ -6643,12 +6643,12 @@ En esta sección se especifican los aspectos principales del Sprint Planning Mee
     <td>Marcelo Fabian Garro Vega / Jefrey Martin Sanchez Ignacio / Daniel Rodrigo Chirinos Arevalo / Alessandro Joaquin Bernardo Eusebio / Vera Nuñez Nicolas Alejandro / George Aliaga</td>
   </tr>
   <tr>
-    <td>Sprint 2 Review Summary</td>
-    <td>Al ser el primer sprint del proyecto, no existe un sprint anterior para revisar. Sin embargo, se completaron las actividades de planeamiento inicial, incluyendo la definición de la arquitectura de software bajo principios de Domain Driven Design, la elaboración de wireframes y mockups, y la especificación de user stories en el product backlog.</td>
+    <td>Sprint 3 Review Summary</td>
+    <td>Durante el Sprint 3 se implementaron los módulos de Identity and Access Management (IAM), Subscriptions y Analytics, permitiendo gestionar usuarios, accesos, planes de suscripción y métricas del sistema. Asimismo, se realizó la refactorización del código de la embedded application, optimizando su estructura y estabilidad general.</td>
   </tr>
   <tr>
-    <td>Sprint 2 Retrospective Summary</td>
-    <td>Durante la fase de planeamiento (Sprint 0), el equipo logró establecer una visión compartida del producto y definir los bounded contexts principales del sistema. Se identificaron oportunidades de mejora en la comunicación asíncrona y se acordó implementar daily stand-ups virtuales para mantener la sincronización del equipo. El equipo manifestó motivación y compromiso para comenzar la implementación del producto.</td>
+    <td>Sprint 3 Retrospective Summary</td>
+    <td>El equipo logró cumplir los objetivos del sprint con una decente coordinación. Se identificó la necesidad de mejorar la validación de integraciones entre frontend, backend y embedded application, así como reforzar las pruebas posteriores a los procesos de refactorización.</td>
   </tr>
 
   <tr>
@@ -6656,16 +6656,22 @@ En esta sección se especifican los aspectos principales del Sprint Planning Mee
   </tr>
   <tr>
     <td>Sprint 3 Goal</td>
-    <td></td>
+    <td>En esta tercera iteración del proyecto CargaSafe, el objetivo principal fue expandir la plataforma hacia una solución más robusta para validaciones de negocio, incorporando funcionalidades orientadas tanto a la gestión de usuarios como al análisis del comportamiento del sistema. Para ello, se priorizó la implementación del módulo de Identity and Access Management (IAM), permitiendo la administración de usuarios, roles y permisos de acceso de manera segura y escalable.
+
+    Asimismo, se integró el módulo de Subscriptions, con el fin de habilitar la gestión de planes de servicio y controlar el acceso a funcionalidades según el tipo de suscripción del usuario, sentando las bases para el modelo de monetización de la plataforma. De manera complementaria, se desarrolló el módulo de Analytics, orientado a la visualización de métricas clave relacionadas al uso del sistema, comportamiento de los viajes, generación de alertas y desempeño general de la solución.
+
+    Paralelamente, se llevó a cabo un proceso de refactorización profunda de la aplicación embebida (embedded application), enfocado en optimizar la estructura del código, mejorar su mantenibilidad, robustecer la comunicación con los servicios backend y garantizar una mayor estabilidad en la captura y transmisión de datos desde el prototipo IoT.
+
+    En conjunto, este sprint tuvo como finalidad preparar a CargaSafe para una etapa de validación funcional avanzada, fortaleciendo tanto la capa de usuario, la capa de negocio y la capa de integración con hardware, permitiendo una plataforma más madura, segura y alineada con un entorno de uso real.</td>
 
   </tr>
   <tr>
     <td>Sprint 3 Velocity</td>
-    <td>00 Story Points</td>
+    <td>31 Story Points</td>
   </tr>
   <tr>
     <td>Sum of Story Points</td>
-    <td>00 Story Points</td>
+    <td>31 Story Points</td>
   </tr>
 </table>
 
